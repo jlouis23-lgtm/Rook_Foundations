@@ -4,11 +4,12 @@ import { ArrowRight } from 'lucide-react';
 
 export default function CTABanner() {
   return (
-    <section className="bg-coral relative overflow-hidden">
-      {/* Pattern overlay */}
-      <div className="absolute inset-0 opacity-10" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff' fill-opacity='1'%3E%3Crect x='0' y='0' width='20' height='20'/%3E%3Crect x='20' y='20' width='20' height='20'/%3E%3C/g%3E%3C/svg%3E")`,
-      }} />
+    <section className="relative overflow-hidden" style={{ backgroundColor: '#0A0A0A' }}>
+      {/* Gold top border */}
+      <div className="h-px bg-gradient-to-r from-transparent via-[#D4A843] to-transparent" />
+
+      {/* Gold ambient glow */}
+      <div className="absolute inset-0 bg-[#D4A843]/3 pointer-events-none" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 py-24 text-center">
         <motion.div
@@ -17,34 +18,41 @@ export default function CTABanner() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="font-playfair text-ivory/70 text-xl italic block mb-4">
-            The best time to start was yesterday.
-          </span>
-          <h2 className="font-playfair text-ivory leading-tight mb-6"
-            style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 700 }}>
-            The second best time is today.
+          <div className="text-5xl text-[#D4A843] mb-6">♜</div>
+          <div className="gold-line mx-auto mb-6" />
+
+          <h2 className="font-oswald text-white uppercase leading-tight mb-3"
+            style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', letterSpacing: '0.02em' }}>
+            More than a game.
           </h2>
-          <p className="font-inter text-ivory/80 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-            Give your child the gift of strategic thinking. Book a free trial class — no commitment, 
-            just 60 minutes that could change how they see the world.
+          <h2 className="font-oswald text-[#D4A843] uppercase leading-tight mb-8"
+            style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', letterSpacing: '0.02em' }}>
+            Skills for life.
+          </h2>
+
+          <p className="font-lato text-white/60 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+            Give your child the gift of strategic thinking. Book a free trial class — no commitment, just 60 minutes that could change how they see the world.
           </p>
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/contact"
-              className="group bg-midnight text-ivory font-inter font-600 text-base px-10 py-4 rounded-full hover:bg-slate transition-all duration-300 hover:shadow-2xl flex items-center gap-3"
+              className="group bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 text-base tracking-wider px-10 py-4 hover:bg-[#e8c06a] transition-all duration-300 hover:shadow-2xl hover:shadow-[#D4A843]/20 flex items-center gap-3"
             >
-              Book Free Trial
+              BOOK FREE TRIAL
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               to="/classes"
-              className="font-inter text-ivory/80 text-base hover:text-ivory transition-colors border-b border-ivory/40 hover:border-ivory pb-0.5"
+              className="font-oswald text-white/60 text-sm tracking-widest uppercase hover:text-[#D4A843] transition-colors border-b border-white/20 hover:border-[#D4A843] pb-0.5"
             >
               View class schedule
             </Link>
           </div>
         </motion.div>
       </div>
+
+      <div className="h-px bg-gradient-to-r from-transparent via-[#D4A843] to-transparent" />
     </section>
   );
 }

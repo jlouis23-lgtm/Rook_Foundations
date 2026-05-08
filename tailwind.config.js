@@ -10,26 +10,25 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
       fontFamily: {
-        playfair: ['Playfair Display', 'serif'],
+        oswald: ['Oswald', 'sans-serif'],
+        lato: ['Lato', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
       },
   		colors: {
-        slate: {
-          DEFAULT: '#3D4F5C',
-          light: '#5a6f7e',
-          dark: '#2d3d47',
+        gold: {
+          DEFAULT: '#D4A843',
+          light: '#e8c06a',
+          dark: '#b8902e',
+          muted: '#a8882a',
         },
-        coral: {
-          DEFAULT: '#E8705A',
-          light: '#f08875',
-          dark: '#d45a43',
+        dark: {
+          DEFAULT: '#0A0A0A',
+          card: '#111111',
+          surface: '#161616',
+          border: '#222222',
         },
         ivory: {
           DEFAULT: '#FAF9F6',
-          dark: '#f0ede6',
-        },
-        midnight: {
-          DEFAULT: '#1A242B',
         },
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -85,16 +84,11 @@ module.exports = {
           from: { opacity: '0', transform: 'translateY(30px)' },
           to: { opacity: '1', transform: 'translateY(0)' }
         },
-        'fade-in': {
-          from: { opacity: '0' },
-          to: { opacity: '1' }
-        },
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-up': 'fade-up 0.7s ease-out forwards',
-        'fade-in': 'fade-in 0.5s ease-out forwards',
   		}
   	}
   },
