@@ -87,9 +87,9 @@ export default function About() {
 
 
                 </p>
-                <p>
-                  RookFoundations was born from a simple conviction: every child deserves access to that kind 
-                  of structured, confidence-building thinking practice.
+                <p>RookFoundations was born from a simple conviction: every child deserves the opportunity to w
+
+
                 </p>
               </div>
 
