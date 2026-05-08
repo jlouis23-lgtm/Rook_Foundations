@@ -83,7 +83,7 @@ export default function About() {
 
 
                 </p>
-                <p>Although I’m only 23, I’ve spent the last six years working closely with children. Through that experience, I realised many young people today are disengaged from learning and overly consumed by constant media and digital stimulation. Too often, they are given answers instead of being encouraged to think for themselves
+                <p>Although I’m only 23, I’ve spent the last six years working closely with children. Through that experience, I realised many young people today are disengaged from learning and overly consumed by constant media and digital stimulation. Too often, they are given answers instead of being encouraged to think for themselves.
 
 
                 </p>
