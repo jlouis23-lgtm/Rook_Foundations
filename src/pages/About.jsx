@@ -83,9 +83,9 @@ export default function About() {
 
 
                 </p>
-                <p>
-                  After competing in regional tournaments through my teens and completing a degree in Education, 
-                  I realised that the lessons chess had taught me weren't just about the game — they were about life.
+                <p>Although I’m only 23, I’ve spent the last six years working closely with children. Through that experience, I realised many young people today are disengaged from learning and overly consumed by constant media and digital stimulation. Too often, they are given answers instead of being encouraged to think for themselves
+
+
                 </p>
                 <p>
                   RookFoundations was born from a simple conviction: every child deserves access to that kind 
