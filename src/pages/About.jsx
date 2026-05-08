@@ -87,7 +87,7 @@ export default function About() {
 
 
                 </p>
-                <p>RookFoundations was born from a simple conviction: every child deserves the opportunity to w
+                <p>RookFoundations was born from a simple conviction: every child deserves the opportunity to want to think for themselves.
 
 
                 </p>
