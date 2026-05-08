@@ -79,7 +79,7 @@ export default function About() {
               </h2>
 
               <div className="space-y-5 font-lato text-white/60 text-lg leading-relaxed">
-                <p>My chess journey truly began during my second year of university. At a time when I struggled with overthinking and anxiety, chess became more than just a game — it taught me self-awareness, patience, strategy, and how to think clearly under pressure.
+                <p>My chess journey  began during my second year of university. At a time when I struggled with overthinking and anxiety, chess became more than just a game . It taught me self-awareness, patience, strategy, and how to think clearly under pressure.
 
 
                 </p>
