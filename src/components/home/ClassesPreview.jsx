@@ -4,25 +4,25 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const phases = [
-  {
-    phase: '01', title: 'Discovery', ages: 'Ages 5–7', icon: '♟', tagline: 'The First Move',
-    desc: 'Through play and tactile learning, young beginners discover the magic of each chess piece. We make it fun, visual, and confidence-building from day one.',
-    features: ['Piece names & movements', 'Tactile wooden sets', 'Storytelling approach', 'Small group sessions'],
-    image: 'https://images.unsplash.com/photo-1607453998774-d533f65dac99?w=600&q=80',
-  },
-  {
-    phase: '02', title: 'Strategy', ages: 'Ages 8–11', icon: '♞', tagline: 'The Middle Game',
-    desc: 'Students advance to tactical patterns, forks, pins, and the art of the plan. They begin to see the board as a system of connected decisions.',
-    features: ['Tactics & patterns', 'Opening principles', 'Endgame fundamentals', 'Friendly tournaments'],
-    image: 'https://images.unsplash.com/photo-1560174038-da43ac74f01b?w=600&q=80',
-  },
-  {
-    phase: '03', title: 'Mastery', ages: 'Ages 12–15', icon: '♛', tagline: 'The Endgame',
-    desc: 'Advanced analysis, competitive play preparation, and the psychological dimensions of chess. These students are building a mindset for life.',
-    features: ['Deep positional analysis', 'Competitive preparation', 'Psychological resilience', 'Advanced study methods'],
-    image: 'https://images.unsplash.com/photo-1580541832626-2a7131ee809f?w=600&q=80',
-  },
-];
+{
+  phase: '01', title: 'Discovery', ages: 'Ages 5–7', icon: '♟', tagline: 'The First Move',
+  desc: 'Through play and tactile learning, young beginners discover the magic of each chess piece. We make it fun, visual, and confidence-building from day one.',
+  features: ['Piece names & movements', 'Tactile wooden sets', 'Storytelling approach', 'Small group sessions'],
+  image: 'https://images.unsplash.com/photo-1607453998774-d533f65dac99?w=600&q=80'
+},
+{
+  phase: '02', title: 'Strategy', ages: 'Ages 8–11', icon: '♞', tagline: 'The Middle Game',
+  desc: 'Students advance to tactical patterns, forks, pins, and the art of the plan. They begin to see the board as a system of connected decisions.',
+  features: ['Tactics & patterns', 'Opening principles', 'Endgame fundamentals', 'Friendly tournaments'],
+  image: 'https://images.unsplash.com/photo-1560174038-da43ac74f01b?w=600&q=80'
+},
+{
+  phase: '03', title: 'Mastery', ages: 'Ages 12–15', icon: '♛', tagline: 'The Endgame',
+  desc: 'Advanced analysis, competitive play preparation, and the psychological dimensions of chess. These students are building a mindset for life.',
+  features: ['Deep positional analysis', 'Competitive preparation', 'Psychological resilience', 'Advanced study methods'],
+  image: 'https://images.unsplash.com/photo-1580541832626-2a7131ee809f?w=600&q=80'
+}];
+
 
 export default function ClassesPreview() {
   const [active, setActive] = useState(1);
@@ -34,30 +34,30 @@ export default function ClassesPreview() {
           <div className="gold-line mx-auto mb-5" />
           <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-3">The Skill Tree</span>
           <h2 className="font-oswald text-white uppercase leading-tight mb-4"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '0.02em' }}>
+          style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '0.02em' }}>
             Find the right level for your child
           </h2>
-          <p className="font-lato text-white/50 text-lg max-w-2xl mx-auto">
-            Three carefully designed phases that take every child from their very first move to confident strategic thinking.
+          <p className="font-lato text-white/50 text-lg max-w-2xl mx-auto">Three carefullydesigned phases that take every child from their very first move to confident strategic thinking. Adaptions
+
           </p>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-0 border border-[#D4A843]/20 overflow-hidden">
           {/* Tabs */}
           <div className="lg:w-72 flex-shrink-0 flex flex-row lg:flex-col border-b lg:border-b-0 lg:border-r border-[#D4A843]/20">
-            {phases.map((p, i) => (
-              <button
-                key={i}
-                onClick={() => setActive(i)}
-                className={`flex-1 lg:flex-none text-left px-6 py-6 transition-all duration-300 border-r lg:border-r-0 lg:border-b border-[#D4A843]/20 last:border-0 ${
-                  active === i ? 'bg-[#D4A843] text-[#0A0A0A]' : 'text-white/50 hover:text-white hover:bg-white/5'
-                }`}
-              >
+            {phases.map((p, i) =>
+            <button
+              key={i}
+              onClick={() => setActive(i)}
+              className={`flex-1 lg:flex-none text-left px-6 py-6 transition-all duration-300 border-r lg:border-r-0 lg:border-b border-[#D4A843]/20 last:border-0 ${
+              active === i ? 'bg-[#D4A843] text-[#0A0A0A]' : 'text-white/50 hover:text-white hover:bg-white/5'}`
+              }>
+              
                 <div className={`font-lato text-xs mb-1 ${active === i ? 'text-[#0A0A0A]/60' : 'text-[#D4A843]/50'}`}>Phase {p.phase}</div>
                 <div className="font-oswald text-xl tracking-wide uppercase">{p.title}</div>
                 <div className={`font-lato text-xs mt-1 ${active === i ? 'text-[#0A0A0A]/60' : 'text-white/30'}`}>{p.ages}</div>
               </button>
-            ))}
+            )}
           </div>
 
           {/* Content */}
@@ -67,8 +67,8 @@ export default function ClassesPreview() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35 }}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
-            >
+              className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              
               <div>
                 <div className="flex items-center gap-3 mb-6">
                   <span className="text-4xl text-[#D4A843]">{phases[active].icon}</span>
@@ -79,17 +79,17 @@ export default function ClassesPreview() {
                 </div>
                 <p className="font-lato text-white/60 text-base leading-relaxed mb-8">{phases[active].desc}</p>
                 <ul className="space-y-3">
-                  {phases[active].features.map((f, i) => (
-                    <li key={i} className="flex items-center gap-3 font-lato text-white/70 text-sm">
+                  {phases[active].features.map((f, i) =>
+                  <li key={i} className="flex items-center gap-3 font-lato text-white/70 text-sm">
                       <span className="w-1.5 h-1.5 bg-[#D4A843] flex-shrink-0" />
                       {f}
                     </li>
-                  ))}
+                  )}
                 </ul>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 mt-8 bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 text-sm tracking-wider px-6 py-3 hover:bg-[#e8c06a] transition-all"
-                >
+                  className="inline-flex items-center gap-2 mt-8 bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 text-sm tracking-wider px-6 py-3 hover:bg-[#e8c06a] transition-all">
+                  
                   ENQUIRE FOR {phases[active].ages.toUpperCase()} <ArrowRight size={16} />
                 </Link>
               </div>
@@ -111,6 +111,6 @@ export default function ClassesPreview() {
           </Link>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
