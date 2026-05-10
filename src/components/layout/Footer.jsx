@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 
 const navLinks = [
-  { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
-  { label: 'Classes', path: '/classes' },
-  { label: 'Benefits', path: '/benefits' },
-  { label: 'Testimonials', path: '/testimonials' },
-  { label: 'Contact', path: '/contact' },
-];
+{ label: 'Home', path: '/' },
+{ label: 'About', path: '/about' },
+{ label: 'Classes', path: '/classes' },
+{ label: 'Benefits', path: '/benefits' },
+{ label: 'Testimonials', path: '/testimonials' },
+{ label: 'Contact', path: '/contact' }];
+
 
 export default function Footer() {
   return (
@@ -38,15 +38,15 @@ export default function Footer() {
           <div>
             <h4 className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase mb-6">Navigate</h4>
             <div className="flex flex-col gap-3">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className="font-lato text-white/60 hover:text-[#D4A843] transition-colors text-sm tracking-wide"
-                >
+              {navLinks.map((link) =>
+              <Link
+                key={link.path}
+                to={link.path}
+                className="font-lato text-white/60 hover:text-[#D4A843] transition-colors text-sm tracking-wide">
+                
                   {link.label}
                 </Link>
-              ))}
+              )}
             </div>
           </div>
 
@@ -56,8 +56,8 @@ export default function Footer() {
             <div className="flex flex-col gap-4">
               <div>
                 <p className="font-lato text-[#D4A843]/60 text-xs uppercase tracking-wide mb-1">Email</p>
-                <a href="mailto:hello@rookfoundations.com" className="font-lato text-white/70 hover:text-[#D4A843] transition-colors text-sm">
-                  hello@rookfoundations.com
+                <a href="mailto:hello@rookfoundations.com" className="font-lato text-white/70 hover:text-[#D4A843] transition-colors text-sm">Louis.jenkins
+
                 </a>
               </div>
               <div>
@@ -73,8 +73,8 @@ export default function Footer() {
             </div>
             <Link
               to="/contact"
-              className="inline-block mt-8 bg-[#D4A843] text-[#0A0A0A] font-oswald font-600 text-sm tracking-wider px-6 py-3 hover:bg-[#e8c06a] transition-all"
-            >
+              className="inline-block mt-8 bg-[#D4A843] text-[#0A0A0A] font-oswald font-600 text-sm tracking-wider px-6 py-3 hover:bg-[#e8c06a] transition-all">
+              
               BOOK FREE TRIAL
             </Link>
           </div>
@@ -92,6 +92,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>);
+
 }
