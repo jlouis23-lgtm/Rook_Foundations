@@ -37,7 +37,7 @@ export default function ClassesPreview() {
           style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '0.02em' }}>
             Find the right level for your child
           </h2>
-          <p className="font-lato text-white/50 text-lg max-w-2xl mx-auto">Three carefullydesigned phases that take every child from their very first move to confident strategic thinking. Adaptions
+          <p className="font-lato text-white/50 text-lg max-w-2xl mx-auto">Three carefullydesigned phases that take every child from their very first move to confident strategic thinking. Lessons are adapted for different children.
 
           </p>
         </div>
