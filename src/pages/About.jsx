@@ -6,7 +6,7 @@ const INSTRUCTOR_IMG = 'https://media.base44.com/images/public/69fe1341895fe99f1
 
 const credentials = [
 { icon: Award, title: 'FIDE Rated Player', desc: 'Active tournament competitor with a deep understanding of the game at every level.' },
-{ icon: BookOpen, title: 'B.A. in Education', desc: 'Formal training in child development, learning theory, and pedagogical practice.' },
+{ icon: BookOpen, title: 'BSc in Psychology', desc: 'University-level research focused on childhood development and attachment theory, applying evidence-based understanding to every session.' },
 { icon: Users, title: '8+ Years Teaching', desc: 'Hundreds of children guided from complete beginners to confident, competitive players.' },
 { icon: Heart, title: 'Child-First Approach', desc: 'Every session is designed to build confidence and joy before technique.' }];
 
