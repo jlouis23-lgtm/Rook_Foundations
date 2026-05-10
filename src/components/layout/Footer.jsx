@@ -56,7 +56,7 @@ export default function Footer() {
             <div className="flex flex-col gap-4">
               <div>
                 <p className="font-lato text-[#D4A843]/60 text-xs uppercase tracking-wide mb-1">Email</p>
-                <a href="mailto:hello@rookfoundations.com" className="font-lato text-white/70 hover:text-[#D4A843] transition-colors text-sm">Louis.jenkins@rook
+                <a href="mailto:hello@rookfoundations.com" className="font-lato text-white/70 hover:text-[#D4A843] transition-colors text-sm">louis.jenkins
 
                 </a>
               </div>
