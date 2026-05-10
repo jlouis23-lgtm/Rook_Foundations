@@ -8,9 +8,9 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen bg-[#0A0A0A] overflow-hidden flex items-center">
       {/* Subtle grid */}
-      {[16.6, 33.3, 50, 66.6, 83.3].map((pos, i) => (
-        <div key={i} className="ghost-grid-line" style={{ left: `${pos}%` }} />
-      ))}
+      {[16.6, 33.3, 50, 66.6, 83.3].map((pos, i) =>
+      <div key={i} className="ghost-grid-line" style={{ left: `${pos}%` }} />
+      )}
 
       {/* Gold gradient glow */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4A843]/5 rounded-full blur-3xl pointer-events-none" />
@@ -23,8 +23,8 @@ export default function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          >
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
+            
             {/* Rook icon badge */}
             <div className="flex items-center gap-3 mb-8">
               <div className="w-12 h-12 border-2 border-[#D4A843] rounded-full flex items-center justify-center">
@@ -40,12 +40,12 @@ export default function HeroSection() {
             <div className="gold-line mb-8" />
 
             <h1 className="font-oswald text-white leading-[1.0] mb-4 uppercase"
-              style={{ fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: 700, letterSpacing: '0.02em' }}>
+            style={{ fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: 700, letterSpacing: '0.02em' }}>
               More than<br />
               a game.
             </h1>
             <h2 className="font-oswald text-[#D4A843] leading-[1.0] mb-8 uppercase"
-              style={{ fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: 700, letterSpacing: '0.02em' }}>
+            style={{ fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: 700, letterSpacing: '0.02em' }}>
               Skills for life.
             </h2>
 
@@ -56,23 +56,23 @@ export default function HeroSection() {
             {/* 4 pillars */}
             <div className="grid grid-cols-4 gap-4 mb-10">
               {[
-                { icon: '🧠', label: 'FOCUS' },
-                { icon: '♜', label: 'STRATEGY' },
-                { icon: '⭐', label: 'CONFIDENCE' },
-                { icon: '💡', label: 'GROWTH' },
-              ].map((p) => (
-                <div key={p.label} className="flex flex-col items-center gap-2 border border-[#D4A843]/20 p-3 hover:border-[#D4A843]/60 transition-colors">
+              { icon: '🧠', label: 'FOCUS' },
+              { icon: '♜', label: 'STRATEGY' },
+              { icon: '⭐', label: 'CONFIDENCE' },
+              { icon: '💡', label: 'GROWTH' }].
+              map((p) =>
+              <div key={p.label} className="flex flex-col items-center gap-2 border border-[#D4A843]/20 p-3 hover:border-[#D4A843]/60 transition-colors">
                   <span className="text-2xl">{p.icon}</span>
                   <span className="font-oswald text-[#D4A843] text-xs tracking-widest">{p.label}</span>
                 </div>
-              ))}
+              )}
             </div>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <Link
                 to="/contact"
-                className="group bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 text-base tracking-wider px-8 py-4 hover:bg-[#e8c06a] transition-all duration-300 hover:shadow-xl hover:shadow-[#D4A843]/20 flex items-center gap-3"
-              >
+                className="group bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 text-base tracking-wider px-8 py-4 hover:bg-[#e8c06a] transition-all duration-300 hover:shadow-xl hover:shadow-[#D4A843]/20 flex items-center gap-3">
+                
                 BOOK A FREE TRIAL
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -85,15 +85,15 @@ export default function HeroSection() {
             {/* Stats */}
             <div className="flex items-center gap-10 mt-14 pt-10 border-t border-[#D4A843]/15">
               {[
-                { num: '150+', label: 'Young Thinkers' },
-                { num: '8+', label: 'Years Teaching' },
-                { num: '98%', label: 'Parent Satisfaction' },
-              ].map((s) => (
-                <div key={s.label}>
+              { num: '150+', label: 'Young Thinkers' },
+              { num: '8+', label: 'Years Teaching' },
+              { num: '98%', label: 'Parent Satisfaction' }].
+              map((s) =>
+              <div key={s.label}>
                   <div className="font-oswald text-[#D4A843] text-3xl font-700">{s.num}</div>
                   <div className="font-lato text-white/40 text-xs tracking-wide mt-0.5">{s.label}</div>
                 </div>
-              ))}
+              )}
             </div>
           </motion.div>
 
@@ -102,20 +102,20 @@ export default function HeroSection() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex items-center justify-center"
-          >
+            className="relative flex items-center justify-center">
+            
             <div className="relative max-w-md w-full mx-auto">
               {/* Gold ring glow */}
               <div className="absolute inset-0 rounded-full bg-[#D4A843]/10 blur-2xl scale-110" />
               <img
                 src={LEAFLET_IMG}
                 alt="RookFoundations — More than a game. Skills for life."
-                className="relative z-10 w-full rounded-full border-2 border-[#D4A843]/40 shadow-2xl shadow-[#D4A843]/10"
-              />
+                className="relative z-10 w-full rounded-full border-2 border-[#D4A843]/40 shadow-2xl shadow-[#D4A843]/10" />
+              
             </div>
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
