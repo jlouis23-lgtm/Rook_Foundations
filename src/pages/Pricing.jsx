@@ -35,7 +35,7 @@ const plans = [
     prices: { '1 Hour': { total: 45, note: '£15 per student' }, '2 Hours': { total: 84, note: '£28 per student' } },
     features: [
       'Group problem solving',
-      'Mini tournaments within sessions',
+      'Ideal dynamic for three friends or siblings',
       'Great for friends or siblings',
       'Progress report after every session',
     ],
@@ -48,7 +48,7 @@ const plans = [
     features: [
       'Classroom-style experience',
       'Team challenges & competitions',
-      'Maximum group energy',
+      'Mini tournaments within sessions',
       'Progress report after every session',
     ],
   },
