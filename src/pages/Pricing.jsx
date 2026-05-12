@@ -2,17 +2,12 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
 
-const durations = [
-  { label: '1 Hour', price1: 15, price2: 22, price3: 28, priceGroup: 35 },
-  { label: '2 Hours', price1: 28, price2: 42, price3: 52, priceGroup: 65 },
-];
-
 const plans = [
   {
     label: 'Individual',
     subtitle: '1 student',
     tag: null,
-    prices: { '1 Hour': 15, '2 Hours': 28 },
+    prices: { '1 Hour': { total: 15, note: 'total' }, '2 Hours': { total: 28, note: 'total' } },
     features: [
       'Fully personalised lesson plan',
       'One-to-one instructor attention',
@@ -24,12 +19,11 @@ const plans = [
     label: 'Pair',
     subtitle: '2 students',
     tag: 'Popular',
-    prices: { '1 Hour': 22, '2 Hours': 42 },
-    priceNote: 'per student',
+    prices: { '1 Hour': { total: 30, note: '£15 per student' }, '2 Hours': { total: 56, note: '£28 per student' } },
     features: [
       'Shared learning dynamic',
       'Friendly in-session competition',
-      'Combined savings vs individual',
+      'Same rate as individual per student',
       'Progress report after every session',
     ],
   },
@@ -37,8 +31,7 @@ const plans = [
     label: 'Small Group',
     subtitle: '3 students',
     tag: null,
-    prices: { '1 Hour': 28, '2 Hours': 52 },
-    priceNote: 'per student',
+    prices: { '1 Hour': { total: 45, note: '£15 per student' }, '2 Hours': { total: 84, note: '£28 per student' } },
     features: [
       'Group problem solving',
       'Mini tournaments within sessions',
@@ -50,8 +43,7 @@ const plans = [
     label: 'Group',
     subtitle: '4+ students',
     tag: 'Best Value',
-    prices: { '1 Hour': 35, '2 Hours': 65 },
-    priceNote: 'per student',
+    prices: { '1 Hour': { total: 60, note: '£15 per student (4)' }, '2 Hours': { total: 112, note: '£28 per student (4)' } },
     features: [
       'Classroom-style experience',
       'Team challenges & competitions',
@@ -89,7 +81,7 @@ export default function Pricing() {
           {/* Duration tabs explainer */}
           <div className="text-center mb-14">
             <p className="font-lato text-white/40 text-sm tracking-wide">
-              Prices shown are <span className="text-[#D4A843]">per student, per session</span>. Two session lengths available.
+              Prices shown are <span className="text-[#D4A843]">total cost per session</span>. Two session lengths available.
             </p>
           </div>
 
@@ -121,14 +113,12 @@ export default function Pricing() {
 
                 {/* Prices */}
                 <div className="space-y-4 mb-8 pb-8 border-b border-[#D4A843]/15">
-                  {durations.map((d) => (
-                    <div key={d.label} className="flex items-end justify-between">
-                      <span className="font-lato text-white/40 text-sm">{d.label}</span>
+                  {['1 Hour', '2 Hours'].map((duration) => (
+                    <div key={duration} className="flex items-end justify-between">
+                      <span className="font-lato text-white/40 text-sm">{duration}</span>
                       <div className="text-right">
-                        <span className="font-oswald text-[#D4A843] text-2xl">£{plan.prices[d.label]}</span>
-                        {plan.priceNote && (
-                          <span className="font-lato text-white/30 text-xs block">{plan.priceNote}</span>
-                        )}
+                        <span className="font-oswald text-[#D4A843] text-2xl">£{plan.prices[duration].total}</span>
+                        <span className="font-lato text-white/30 text-xs block">{plan.prices[duration].note}</span>
                       </div>
                     </div>
                   ))}
