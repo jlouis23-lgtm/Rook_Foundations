@@ -68,12 +68,13 @@ export default function Footer() {
               </div>
               <div>
                 <p className="font-lato text-[#D4A843]/60 text-xs uppercase tracking-wide mb-1">Location</p>
-                <p className="font-lato text-white/70 text-sm">Great Dunmow, Essex
+                <p className="font-lato text-white/70 text-sm">Great Dunmow 
+Essex
+
 </p>
               </div>
             </div>
-            <Link to="/contact"
-            className="inline-block mt-8 bg-[#D4A843] text-[#0A0A0A] font-oswald font-600 text-sm tracking-wider px-6 py-3 hover:bg-[#e8c06a] transition-all">
+            <Link to="/contact" className="inline-block mt-8 bg-[#D4A843] text-[#0A0A0A] font-oswald font-600 text-sm tracking-wider px-6 py-3 hover:bg-[#e8c06a] transition-all">
               
               50% OFF FIRST LESSON
             </Link>
@@ -93,5 +94,4 @@ export default function Footer() {
         </div>
       </div>
     </footer>);
-
 }
