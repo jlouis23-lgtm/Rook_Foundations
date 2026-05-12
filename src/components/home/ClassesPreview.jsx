@@ -13,7 +13,7 @@ const phases = [
 {
   phase: '02', title: 'Strategy', ages: 'Ages 8–11', icon: '♞', tagline: 'The Middle Game',
   desc: 'Students advance to tactical patterns, forks, pins, and the art of the plan. They begin to see the board as a system of connected decisions.',
-  features: ['Tactics & patterns', 'Opening principles', 'Endgame fundamentals', 'Friendly tournaments'],
+  features: ['Tactics & patterns', 'Opening principles', 'Middle-game tactics', 'Friendly tournaments'],
   image: 'https://images.unsplash.com/photo-1560174038-da43ac74f01b?w=600&q=80'
 },
 {
