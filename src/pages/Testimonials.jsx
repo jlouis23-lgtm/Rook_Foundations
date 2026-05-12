@@ -33,24 +33,7 @@ export default function Testimonials() {
         </div>
       </section>
 
-      {/* Stats bar */}
-      <section className="bg-[#D4A843] py-10">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { num: '98%', label: 'Parent satisfaction rate' },
-              { num: '150+', label: 'Children taught' },
-              { num: '5★', label: 'Average rating' },
-              { num: '8+', label: 'Years of classes' },
-            ].map((s) => (
-              <div key={s.label}>
-                <div className="font-oswald text-[#0A0A0A] text-4xl font-700">{s.num}</div>
-                <div className="font-lato text-[#0A0A0A]/60 text-sm mt-1">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
