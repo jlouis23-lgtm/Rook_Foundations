@@ -23,7 +23,7 @@ const phases = [
     duration: '75 min', groupSize: 'Up to 8 students', frequency: 'Twice weekly',
     description: 'For serious students ready to elevate their game. Deep positional understanding, competitive play preparation, and the psychological dimensions of chess.',
     whatYouLearn: ['Advanced opening theory and preparation', 'Positional judgement and long-term planning', 'Complex endgame technique', 'Tournament psychology and time management', 'Game analysis using databases'],
-    parentNote: 'Mastery students often start competing in regional youth championships. The skills they develop — focus, composure, analytical thinking — are directly applicable to academic study.',
+    parentNote: "Rook Foundations is designed primarily for beginner to intermediate students. The core goal is to use chess as a vehicle for cognitive and personal development — building focus, memory, patience, emotional regulation, and confidence. Some students may reach a point where they would benefit from a more competitive coaching environment, and that is something I will always be transparent about. Where appropriate, sessions can shift toward tailored cognitive development activities such as timed challenges, memory exercises, positional reasoning, and strategic analysis. I also introduce alternative strategy games like Xiang Qi (Chinese Chess) to help students apply their thinking skills in new contexts. This development-first approach is intentional — and it's what makes the work here meaningful.",
   },
 ];
 
