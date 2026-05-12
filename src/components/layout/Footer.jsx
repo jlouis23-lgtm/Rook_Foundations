@@ -75,7 +75,7 @@ Essex</p>
             <Link to="/contact"
             className="inline-block mt-8 bg-[#D4A843] text-[#0A0A0A] font-oswald font-600 text-sm tracking-wider px-6 py-3 hover:bg-[#e8c06a] transition-all">
               
-              BOOK FREE TRIAL
+              50% OFF FIRST LESSON
             </Link>
           </div>
         </div>

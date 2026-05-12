@@ -30,8 +30,12 @@ export default function CTABanner() {
             Skills for life.
           </h2>
 
+          <div className="inline-block bg-[#D4A843]/10 border border-[#D4A843]/40 px-6 py-2 mb-6">
+            <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase">🎉 Limited Offer — 50% Off Your First Lesson</span>
+          </div>
+
           <p className="font-lato text-white/60 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-            Give your child the gift of strategic thinking. Book a free trial class — no commitment, just 60 minutes that could change how they see the world.
+            Give your child the gift of strategic thinking. Book now and get 50% off your first lesson — no commitment, just a session that could change how they see the world.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -39,7 +43,7 @@ export default function CTABanner() {
               to="/contact"
               className="group bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 text-base tracking-wider px-10 py-4 hover:bg-[#e8c06a] transition-all duration-300 hover:shadow-2xl hover:shadow-[#D4A843]/20 flex items-center gap-3"
             >
-              BOOK FREE TRIAL
+              CLAIM 50% OFF FIRST LESSON
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link

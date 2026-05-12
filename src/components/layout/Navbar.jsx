@@ -62,7 +62,7 @@ export default function Navbar() {
               to="/contact"
               className="ml-4 bg-[#D4A843] text-[#0A0A0A] font-oswald font-600 text-sm tracking-wider px-6 py-2.5 hover:bg-[#e8c06a] transition-all duration-300 hover:shadow-lg hover:shadow-[#D4A843]/20"
             >
-              BOOK FREE TRIAL
+              50% OFF FIRST LESSON
             </Link>
           </div>
 

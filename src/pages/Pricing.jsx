@@ -147,20 +147,23 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Free Trial CTA */}
+      {/* Offer CTA */}
       <section className="bg-[#0D0D0D] py-20 border-t border-[#D4A843]/10">
         <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center">
           <span className="text-4xl text-[#D4A843] block mb-6">♜</span>
           <div className="gold-line mx-auto mb-6" />
+          <div className="inline-block bg-[#D4A843]/10 border border-[#D4A843]/40 px-6 py-2 mb-6">
+            <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase">🎉 Limited Offer — 50% Off Your First Lesson</span>
+          </div>
           <h2 className="font-oswald text-white text-3xl uppercase tracking-wide mb-4">Not sure where to start?</h2>
           <p className="font-lato text-white/50 text-base leading-relaxed mb-8 max-w-xl mx-auto">
-            Book a free trial session — no commitment required. We'll assess your child's level and recommend the best format and session length.
+            Book now at half price — no commitment required. We'll assess your child's level and recommend the best format and session length.
           </p>
           <Link
             to="/contact"
             className="inline-flex items-center gap-2 bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 text-sm tracking-wider px-10 py-4 hover:bg-[#e8c06a] transition-all duration-300"
           >
-            BOOK FREE TRIAL <ArrowRight size={16} />
+            CLAIM 50% OFF FIRST LESSON <ArrowRight size={16} />
           </Link>
         </div>
       </section>

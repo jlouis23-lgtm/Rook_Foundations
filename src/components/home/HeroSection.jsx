@@ -73,7 +73,7 @@ export default function HeroSection() {
                 to="/contact"
                 className="group bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 text-base tracking-wider px-8 py-4 hover:bg-[#e8c06a] transition-all duration-300 hover:shadow-xl hover:shadow-[#D4A843]/20 flex items-center gap-3">
                 
-                BOOK A FREE TRIAL
+                50% OFF FIRST LESSON
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <div className="flex items-center gap-2 border border-[#D4A843]/30 px-5 py-4">
