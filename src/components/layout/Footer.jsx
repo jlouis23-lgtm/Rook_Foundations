@@ -68,8 +68,8 @@ export default function Footer() {
               </div>
               <div>
                 <p className="font-lato text-[#D4A843]/60 text-xs uppercase tracking-wide mb-1">Location</p>
-                <p className="font-lato text-white/70 text-sm">Great Dunmow
-Essex</p>
+                <p className="font-lato text-white/70 text-sm">Great Dunmow, Essex
+</p>
               </div>
             </div>
             <Link to="/contact"
