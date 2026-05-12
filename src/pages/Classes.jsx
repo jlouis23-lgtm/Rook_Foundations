@@ -19,7 +19,7 @@ const phases = [
     parentNote: "You'll start to notice your child thinking more carefully before acting — in chess and in everyday life. This is where the real cognitive transfer begins.",
   },
   {
-    phase: '03', title: 'Mastery', subtitle: 'The Endgame', ages: '', icon: '♛',
+    phase: '03', title: 'Advanced', subtitle: 'The Endgame', ages: '', icon: '♛',
     duration: '75 min', groupSize: 'Up to 8 students', frequency: 'Twice weekly',
     description: 'For serious students ready to elevate their game. Deep positional understanding, competitive play preparation, and the psychological dimensions of chess.',
     whatYouLearn: ['Advanced opening theory and preparation', 'Positional judgement and long-term planning', 'Complex endgame technique', 'Tournament psychology and time management', 'Game analysis using databases'],
