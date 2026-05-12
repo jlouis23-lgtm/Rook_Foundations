@@ -5,21 +5,21 @@ import { ArrowRight, Clock, Users, MapPin, Check } from 'lucide-react';
 
 const phases = [
   {
-    phase: '01', title: 'Discovery', subtitle: 'The First Move', ages: 'Ages 5–7', icon: '♟',
+    phase: '01', title: 'Discovery', subtitle: 'The First Move', ages: '', icon: '♟',
     duration: '45 min', groupSize: 'Up to 6 students', frequency: 'Once weekly',
     description: 'An introduction to the wonderful world of chess, designed for young learners who are completely new to the game. We use storytelling, colourful pieces, and tactile learning to make chess feel magical.',
     whatYouLearn: ['Names and movements of all 6 piece types', 'How to set up the board correctly', 'Basic check and checkmate concepts', 'Sportsmanship and turn-taking', 'Simple 1-move tactical puzzles'],
     parentNote: 'Children at this age learn through play. Expect lots of laughter, stories about the "castle" and the "horse," and genuine excitement about each new move they discover.',
   },
   {
-    phase: '02', title: 'Strategy', subtitle: 'The Middle Game', ages: 'Ages 8–11', icon: '♞',
+    phase: '02', title: 'Strategy', subtitle: 'The Middle Game', ages: '', icon: '♞',
     duration: '60 min', groupSize: 'Up to 8 students', frequency: 'Once or twice weekly',
     description: 'For students with a basic understanding of the rules, this phase introduces the art of planning. Students begin to see patterns, set traps, and think 2–3 moves ahead.',
     whatYouLearn: ['Opening principles (control the centre)', 'Tactical motifs: forks, pins, discovered attacks', 'Basic endgame technique', 'Reading and writing chess notation', 'Friendly in-class tournament play'],
     parentNote: "You'll start to notice your child thinking more carefully before acting — in chess and in everyday life. This is where the real cognitive transfer begins.",
   },
   {
-    phase: '03', title: 'Mastery', subtitle: 'The Endgame', ages: 'Ages 12–15', icon: '♛',
+    phase: '03', title: 'Mastery', subtitle: 'The Endgame', ages: '', icon: '♛',
     duration: '75 min', groupSize: 'Up to 8 students', frequency: 'Twice weekly',
     description: 'For serious students ready to elevate their game. Deep positional understanding, competitive play preparation, and the psychological dimensions of chess.',
     whatYouLearn: ['Advanced opening theory and preparation', 'Positional judgement and long-term planning', 'Complex endgame technique', 'Tournament psychology and time management', 'Game analysis using databases'],
@@ -65,9 +65,7 @@ export default function Classes() {
                   Phase {p.phase}
                 </span>
                 <span className="font-oswald text-2xl uppercase tracking-wide block">{p.title}</span>
-                <span className={`font-lato text-xs mt-1 block ${activePhase === i ? 'text-[#0A0A0A]/60' : 'text-white/30'}`}>
-                  {p.ages}
-                </span>
+
               </button>
             ))}
           </div>
@@ -85,7 +83,7 @@ export default function Classes() {
                   <span className="text-5xl text-[#D4A843]">{phases[activePhase].icon}</span>
                   <div>
                     <h2 className="font-oswald text-white text-3xl uppercase tracking-wide">{phases[activePhase].title}</h2>
-                    <p className="font-lato text-[#D4A843]/70 text-sm">{phases[activePhase].subtitle} · {phases[activePhase].ages}</p>
+                    <p className="font-lato text-[#D4A843]/70 text-sm">{phases[activePhase].subtitle}</p>
                   </div>
                 </div>
                 <p className="font-lato text-white/60 text-lg leading-relaxed">{phases[activePhase].description}</p>
