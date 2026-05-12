@@ -8,6 +8,7 @@ const plans = [
     subtitle: '1 student',
     tag: null,
     prices: { '1 Hour': { total: 15, note: 'total' }, '2 Hours': { total: 28, note: 'total' } },
+
     features: [
       'Fully personalised lesson plan',
       'One-to-one instructor attention',
@@ -18,7 +19,7 @@ const plans = [
   {
     label: 'Pair',
     subtitle: '2 students',
-    tag: 'Popular',
+    tag: 'Recommended',
     prices: { '1 Hour': { total: 30, note: '£15 per student' }, '2 Hours': { total: 56, note: '£28 per student' } },
     features: [
       'Shared learning dynamic',
@@ -42,7 +43,7 @@ const plans = [
   {
     label: 'Group',
     subtitle: '4+ students',
-    tag: 'Best Value',
+    tag: null,
     prices: { '1 Hour': { total: 60, note: '£15 per student (4)' }, '2 Hours': { total: 112, note: '£28 per student (4)' } },
     features: [
       'Classroom-style experience',
@@ -97,7 +98,7 @@ export default function Pricing() {
                 key={plan.label}
                 variants={item}
                 className={`relative flex flex-col bg-[#0A0A0A] p-8 hover:bg-[#111] transition-colors duration-300 ${
-                  plan.tag === 'Popular' ? 'border-t-2 border-[#D4A843]' : ''
+                  plan.tag === 'Recommended' ? 'border-t-2 border-[#D4A843]' : ''
                 }`}
               >
                 {plan.tag && (
