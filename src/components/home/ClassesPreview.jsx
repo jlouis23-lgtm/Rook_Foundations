@@ -19,7 +19,7 @@ const phases = [
 {
   phase: '03', title: 'Advanced', ages: 'Ages 12–15', icon: '♛', tagline: 'The Endgame',
   desc: 'Advanced analysis, competitive play preparation, and the psychological dimensions of chess. These students are building a mindset for life.',
-  features: ['Deep positional analysis', 'Competitive preparation', 'Psychological resilience', 'Advanced study methods'],
+  features: ['Positional analysis', 'Timed games & puzzles', 'Psychological resilience', 'Advanced concepts'],
   image: 'https://images.unsplash.com/photo-1580541832626-2a7131ee809f?w=600&q=80'
 }];
 
