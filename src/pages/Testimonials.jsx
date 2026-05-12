@@ -25,7 +25,7 @@ export default function Testimonials() {
           <div className="gold-line mx-auto mb-5" />
           <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Parent Voices</span>
           <h1 className="font-oswald text-white uppercase mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '0.02em' }}>
-            What families say about us
+            What families say about me
           </h1>
           <p className="font-lato text-white/50 text-lg max-w-2xl mx-auto">
             Real stories from real parents. Every testimonial below is from a family whose child has attended RookFoundations.
