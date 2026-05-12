@@ -4,7 +4,7 @@ import { ArrowRight, Brain, Target, Lightbulb, Heart, Shield, TrendingUp, Eye, Z
 
 const benefits = [
 { icon: Brain, title: 'Memory & Retention', desc: 'Chess requires memorising openings, patterns, and positional concepts. Regular practice measurably improves working memory and information retention.', stat: '15%', statLabel: 'improvement in memory tasks', research: 'University of Memphis study, 2017' },
-{ icon: Target, title: 'Concentration & Focus', desc: "Chess can lead to improvements in for children concentration", stat: '2×', statLabel: 'longer sustained attention', research: 'Belgian study on chess in schools' },
+{ icon: Target, title: 'Concentration & Focus', desc: "Chess can lead to improvements in concentration for children with learning difficulties ", stat: '2×', statLabel: 'longer sustained attention', research: 'Belgian study on chess in schools' },
 { icon: Lightbulb, title: 'Problem Solving', desc: 'Every position is a novel problem. Chess trains children to analyse, identify options, evaluate outcomes, and make decisions.', stat: '32%', statLabel: 'increase in problem-solving scores', research: 'PA State University, 2004' },
 { icon: TrendingUp, title: 'Mathematical Thinking', desc: 'Chess strengthens spatial reasoning, pattern recognition, and logical inference — all foundational skills for mathematics and science.', stat: '+17%', statLabel: 'maths test improvement', research: 'New Brunswick study, 1995' },
 { icon: Heart, title: 'Emotional Resilience', desc: 'Learning to lose gracefully, recover from mistakes, and stay composed under pressure builds the emotional intelligence that defines lifelong success.', stat: '100%', statLabel: 'students show improved patience', research: 'RookFoundations internal data' },
