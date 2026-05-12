@@ -16,7 +16,7 @@ const timeline = [
 { year: '2019', event: 'Worked as a Youth Officer at a children\'s camp, designing age-specific activities that deepened an understanding of child engagement, teamwork, and structured play.' },
 { year: '2021', event: 'Started a BSc in Psychology at the University of Manchester, focusing on developmental psychology, cognitive development, and how children build resilience through supportive environments.' },
 { year: '2022', event: 'Volunteered with Midlands charity ReachOut as a Peer Mentor, helping children from disadvantaged backgrounds build academic confidence, communication skills, and self-belief.' },
-{ year: '2023', event: 'Conducted research with parents experiencing mental illness, exploring how stigma affects parenting and children\'s emotional wellbeing — reinforcing a commitment to empowering environments for children.' },
+{ year: '2023', event: 'Conducted research with parents experiencing mental illness, exploring how stigma affects parenting and children\'s emotional wellbeing.' },
 { year: '2024', event: 'Began an MSc in War and Psychology at King\'s College London, studying trauma therapy, CBT, resilience, and emotional recovery in young people affected by conflict.' },
 { year: '2025', event: 'Researched how machine learning can predict PTSD risk in veterans — combining psychology, innovation, and evidence-based approaches to improve early intervention and long-term wellbeing.' },
 { year: '2026', event: 'Began working as a Children\'s Residential Support Worker, supporting young people from complex backgrounds with structure, safety, and stability during key stages of development.' },
