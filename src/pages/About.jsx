@@ -12,12 +12,15 @@ const credentials = [
 
 
 const timeline = [
-{ year: '2016', event: 'Began tutoring local children after competing in regional tournaments.' },
-{ year: '2018', event: 'Completed formal education degree, specialising in child cognitive development.' },
-{ year: '2020', event: 'Launched RookFoundations as a structured after-school programme.' },
-{ year: '2022', event: 'First cohort of students entered regional youth chess championships.' },
-{ year: '2024', event: 'Expanded to three age-group phases with a full curriculum framework.' },
-{ year: '2026', event: 'Over 150 young thinkers taught, with a waiting list each term.' }];
+{ year: '2018', event: 'Began privately tutoring GCSE students in Maths, Science, and English — discovering how confidence and personalised support can transform a child\'s relationship with learning.' },
+{ year: '2019', event: 'Worked as a Youth Officer at a children\'s camp, designing age-specific activities that deepened an understanding of child engagement, teamwork, and structured play.' },
+{ year: '2021', event: 'Started a BSc in Psychology at the University of Manchester, focusing on developmental psychology, cognitive development, and how children build resilience through supportive environments.' },
+{ year: '2022', event: 'Volunteered with Midlands charity ReachOut as a Peer Mentor, helping children from disadvantaged backgrounds build academic confidence, communication skills, and self-belief.' },
+{ year: '2023', event: 'Conducted research with parents experiencing mental illness, exploring how stigma affects parenting and children\'s emotional wellbeing — reinforcing a commitment to empowering environments for children.' },
+{ year: '2024', event: 'Began an MSc in War and Psychology at King\'s College London, studying trauma therapy, CBT, resilience, and emotional recovery in young people affected by conflict.' },
+{ year: '2025', event: 'Researched how machine learning can predict PTSD risk in veterans — combining psychology, innovation, and evidence-based approaches to improve early intervention and long-term wellbeing.' },
+{ year: '2026', event: 'Began working as a Children\'s Residential Support Worker, supporting young people from complex backgrounds with structure, safety, and stability during key stages of development.' },
+{ year: 'Today', event: 'Rook Foundations created from the belief that chess builds confidence, patience, critical thinking, and resilience — drawing from years across education, psychology, mentorship, and child support.' }];
 
 
 export default function About() {
@@ -162,7 +165,7 @@ export default function About() {
             <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Journey</span>
             <h2 className="font-oswald text-white uppercase"
             style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
-              Building RookFoundations
+              The Journey Behind Rook Foundations
             </h2>
           </div>
           <div className="relative">
