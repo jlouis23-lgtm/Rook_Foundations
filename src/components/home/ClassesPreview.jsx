@@ -55,7 +55,7 @@ export default function ClassesPreview() {
               
                 <div className={`font-lato text-xs mb-1 ${active === i ? 'text-[#0A0A0A]/60' : 'text-[#D4A843]/50'}`}>Phase {p.phase}</div>
                 <div className="font-oswald text-xl tracking-wide uppercase">{p.title}</div>
-                <div className={`font-lato text-xs mt-1 ${active === i ? 'text-[#0A0A0A]/60' : 'text-white/30'}`}>{p.ages}</div>
+
               </button>
             )}
           </div>
@@ -90,15 +90,14 @@ export default function ClassesPreview() {
                   to="/contact"
                   className="inline-flex items-center gap-2 mt-8 bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 text-sm tracking-wider px-6 py-3 hover:bg-[#e8c06a] transition-all">
                   
-                  ENQUIRE FOR {phases[active].ages.toUpperCase()} <ArrowRight size={16} />
+                  ENQUIRE NOW <ArrowRight size={16} />
                 </Link>
               </div>
               <div className="relative overflow-hidden aspect-video lg:aspect-square">
                 <img src={phases[active].image} alt={phases[active].title} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0A0A0A]/20 to-[#0A0A0A]/60" />
                 <div className="absolute bottom-4 left-4 right-4 bg-[#0A0A0A]/80 border border-[#D4A843]/30 px-4 py-3">
-                  <span className="font-oswald text-white text-sm tracking-wide">{phases[active].ages}</span>
-                  <span className="font-lato text-white/40 text-xs ml-2">· In-person · Small groups</span>
+                  <span className="font-lato text-white/40 text-xs">In-person · Small groups</span>
                 </div>
               </div>
             </motion.div>
