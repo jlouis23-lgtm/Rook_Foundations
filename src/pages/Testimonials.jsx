@@ -28,7 +28,7 @@ export default function Testimonials() {
             What families say about me
           </h1>
           <p className="font-lato text-white/50 text-lg max-w-2xl mx-auto">
-            Real stories from real parents. Every testimonial below is from a family whose child has attended RookFoundations.
+            Every testimonial below comes from families whose children I have personally worked with, supported, and cared for over the years.
           </p>
         </div>
       </section>
