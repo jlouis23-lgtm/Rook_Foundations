@@ -36,7 +36,7 @@ const plans = [
     features: [
       'Group problem solving',
       'Ideal dynamic for three friends',
-      'Great for friends or siblings',
+      'Great for siblings',
       'Progress report after every session',
     ],
   },
