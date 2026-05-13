@@ -6,7 +6,7 @@ import { ArrowRight, Clock, Users, MapPin, Check } from 'lucide-react';
 const phases = [
   {
     phase: '01', title: 'Discovery', subtitle: 'The First Move', ages: '', icon: '♟',
-    duration: '45 min', groupSize: 'Up to 6 students', frequency: 'Once weekly',
+    duration: '1 or 2 hours', groupSize: 'Up to 4 students', frequency: 'Once weekly',
     description: 'An introduction to the wonderful world of chess, designed for young learners who are completely new to the game. We use storytelling, colourful pieces, and tactile learning to make chess feel magical.',
     whatYouLearn: ['Names and movements of all 9 piece types', 'How to set up the board correctly', 'Basic check and checkmate concepts', 'Simple 1-move tactical puzzles', 'Sportsmanship and turn-taking'],
     parentNote: 'Every child develops at their own pace, and that is something we fully embrace. Some children will grasp concepts quickly. Others may need repetition, forget things between sessions, or take longer to build confidence. All of this is completely normal and expected. My approach is guided by the idea that children grow best when gently stretched just beyond what they can already do and sessions are designed to build on prior understanding one small step at a time. Detailed notes are kept after every session to track progress and ensure no child is ever pushed ahead before they are ready. The focus is on encouragement and building a love of thinking rather than how fast a child progresses.',
