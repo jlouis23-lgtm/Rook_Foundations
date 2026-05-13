@@ -27,7 +27,7 @@ export default function Contact() {
             Let's talk about your child.
           </h1>
           <p className="font-lato text-white/50 text-lg max-w-2xl mx-auto">
-            Whether you have questions, want to book a trial, or just want to chat — I'd love to hear from you.
+            Whether you have questions, want to book a session, or just want to chat — I'd love to hear from you.
           </p>
         </div>
       </section>
@@ -71,9 +71,9 @@ export default function Contact() {
 
               <div className="border border-[#D4A843]/25 p-6 bg-[#0D0D0D]">
                 <span className="text-3xl text-[#D4A843] block mb-3">♜</span>
-                <h3 className="font-oswald text-white text-xl uppercase tracking-wide mb-2">Free Trial Class</h3>
+                <h3 className="font-oswald text-white text-xl uppercase tracking-wide mb-2">First Lesson — 50% Off</h3>
                 <p className="font-lato text-white/50 text-sm leading-relaxed">
-                  Your first class is completely free. No payment details needed. Just show up and see if your child loves it.
+                  Your first assessment lesson is 50% off. We'll find the perfect starting point for your child and make sure they feel comfortable from the very first move.
                 </p>
               </div>
             </div>
@@ -101,7 +101,7 @@ export default function Contact() {
               ) : (
                 <form onSubmit={handleSubmit} className="bg-[#0D0D0D] border border-[#D4A843]/15 p-10 space-y-6">
                   <div>
-                    <h3 className="font-oswald text-white text-2xl uppercase tracking-wide mb-1">Book a Free Trial</h3>
+                    <h3 className="font-oswald text-white text-2xl uppercase tracking-wide mb-1">Get In Touch</h3>
                     <div className="gold-line mt-3 mb-2" />
                     <p className="font-lato text-white/40 text-sm">We'll be in touch within 24 hours.</p>
                   </div>
@@ -165,10 +165,10 @@ export default function Contact() {
                         SENDING...
                       </>
                     ) : (
-                      <>BOOK MY FREE TRIAL CLASS <Send size={16} /></>
+                      <>SEND MESSAGE <Send size={16} /></>
                     )}
                   </button>
-                  <p className="font-lato text-white/30 text-xs text-center">No commitment required. Your first class is completely free.</p>
+                  <p className="font-lato text-white/30 text-xs text-center">Your first assessment lesson is 50% off. No long-term commitment required.</p>
                 </form>
               )}
             </div>
