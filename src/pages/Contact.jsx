@@ -49,7 +49,7 @@ export default function Contact() {
               <div className="space-y-5">
                 {[
                   { icon: Mail, label: 'Email', value: 'hello@rookfoundations.com', href: 'mailto:hello@rookfoundations.com' },
-                  { icon: Phone, label: 'Phone', value: '+1 (234) 567-890', href: 'tel:+1234567890' },
+                  { icon: Phone, label: 'Phone', value: '07707 267 563', href: 'tel:+447707267563' },
                   { icon: MapPin, label: 'Location', value: 'Dunmow Library\n47 White Hart Way\nGreat Dunmow, CM6 1FS', href: null },
                   { icon: Clock, label: 'Hours', value: 'Mon–Fri: 8am – 6pm\nWeekends: By appointment', href: null },
                 ].map(({ icon: Icon, label, value, href }) => (
