@@ -82,9 +82,27 @@ export default function HeroSection() {
               </div>
             </div>
 
+          </motion.div>
+
+          {/* RIGHT: Leaflet image + Social */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="relative flex flex-col items-center justify-center gap-6">
+            
+            <div className="relative max-w-md w-full mx-auto">
+              {/* Gold ring glow */}
+              <div className="absolute inset-0 rounded-full bg-[#D4A843]/10 blur-2xl scale-110" />
+              <img
+                src={LEAFLET_IMG}
+                alt="RookFoundations — More than a game. Skills for life."
+                className="relative z-10 w-full rounded-full border-2 border-[#D4A843]/40 shadow-2xl shadow-[#D4A843]/10" />
+            </div>
+
             {/* Social Media */}
-            <div className="flex items-center gap-2 mt-6 pt-6 border-t border-[#D4A843]/15">
-              <span className="font-lato text-white/30 text-xs tracking-widest uppercase mr-2">Follow us</span>
+            <div className="flex items-center gap-3 pt-2">
+              <span className="font-lato text-white/30 text-xs tracking-widest uppercase mr-1">Follow us</span>
               {[
                 {
                   href: 'https://www.instagram.com/rookfoundations/',
@@ -125,26 +143,6 @@ export default function HeroSection() {
                   {svg}
                 </a>
               ))}
-            </div>
-
-
-          </motion.div>
-
-          {/* RIGHT: Leaflet image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex items-center justify-center">
-            
-            <div className="relative max-w-md w-full mx-auto">
-              {/* Gold ring glow */}
-              <div className="absolute inset-0 rounded-full bg-[#D4A843]/10 blur-2xl scale-110" />
-              <img
-                src={LEAFLET_IMG}
-                alt="RookFoundations — More than a game. Skills for life."
-                className="relative z-10 w-full rounded-full border-2 border-[#D4A843]/40 shadow-2xl shadow-[#D4A843]/10" />
-              
             </div>
           </motion.div>
         </div>
