@@ -13,14 +13,14 @@ const phases = [
   },
   {
     phase: '02', title: 'Strategy', subtitle: 'The Middle Game', ages: '', icon: '♞',
-    duration: '60 min', groupSize: 'Up to 8 students', frequency: 'Once or twice weekly',
+    duration: '1 or 2 hours', groupSize: 'Up to 4 students', frequency: 'Once weekly',
     description: 'For students with a basic understanding of the rules, this phase introduces the art of planning. Students begin to see patterns, set traps, and think 2–3 moves ahead.',
     whatYouLearn: ['Opening principles (control the centre)', 'Tactical motifs: forks, pins, discovered attacks', 'Basic endgame technique', 'Reading and writing chess notation', 'Friendly in-class tournament play'],
     parentNote: "You'll start to notice your child thinking more carefully before acting — in chess and in everyday life. This is where the real cognitive transfer begins.",
   },
   {
     phase: '03', title: 'Advanced', subtitle: 'The Endgame', ages: '', icon: '♛',
-    duration: '75 min', groupSize: 'Up to 8 students', frequency: 'Twice weekly',
+    duration: '1 or 2 hours', groupSize: 'Up to 4 students', frequency: 'Once weekly',
     description: 'For serious students ready to elevate their game. Deep positional understanding, competitive play preparation, and the psychological dimensions of chess.',
     whatYouLearn: ['Opening theory', 'Positional judgement and calculation skills', 'Complex puzzle analysis', 'Clock management and board memory', 'Identifying complex tactics'],
     parentNote: "Rook Foundations is designed primarily for beginner to intermediate students. Some students may reach or already be at a point where they would benefit from a more competitive coaching environment, and that is something I will always be transparent about. Where appropriate, sessions can shift from theory and understanding to more cognitive development activities such as timed challenges and memory exercises. I also introduce alternative strategy games like Xiang Qi (Chinese Chess) to help students apply their thinking skills in new contexts. Every lesson is designed to adapt as closely as possible to each child's individual strengths, challenges, and learning style.",
