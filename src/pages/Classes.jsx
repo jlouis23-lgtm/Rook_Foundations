@@ -163,7 +163,7 @@ export default function Classes() {
           <div className="space-y-2">
             {[
               { q: 'My child has never played before. Is that okay?', a: 'Absolutely. Our Discovery phase is designed specifically for complete beginners. No prior experience needed.' },
-              { q: 'How do I know which phase is right for my child?', a: "We offer a free 30-minute assessment session where we assess your child's current level and recommend the ideal starting phase." },
+              { q: 'How do I know which phase is right for my child?', a: "In our first session, we assess your child's level and recommend the ideal starting phase. If they are not engaging with chess, we offer alternative strategy games and teaching methods." },
               { q: 'What if my child progresses quickly?', a: 'Students are assessed regularly and can move up a phase at any point when they\'re ready. We celebrate and support every progression.' },
               { q: 'Are classes suitable for children with learning differences?', a: 'Yes. Chess is a wonderfully inclusive environment. I have experience teaching children with ADHD, dyslexia, and autism spectrum conditions.' },
             ].map((faq, i) => (
