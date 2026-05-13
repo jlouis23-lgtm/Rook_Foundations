@@ -22,7 +22,7 @@ const phases = [
     phase: '03', title: 'Advanced', subtitle: 'The Endgame', ages: '', icon: '♛',
     duration: '75 min', groupSize: 'Up to 8 students', frequency: 'Twice weekly',
     description: 'For serious students ready to elevate their game. Deep positional understanding, competitive play preparation, and the psychological dimensions of chess.',
-    whatYouLearn: ['Open theory', 'Positional judgement and calculation skills', 'Complex puzzle analysis', 'Clock management and board memory', 'Identifying complex tactics'],
+    whatYouLearn: ['Opening theory', 'Positional judgement and calculation skills', 'Complex puzzle analysis', 'Clock management and board memory', 'Identifying complex tactics'],
     parentNote: "Rook Foundations is designed primarily for beginner to intermediate students. Some students may reach or already be at a point where they would benefit from a more competitive coaching environment, and that is something I will always be transparent about. Where appropriate, sessions can shift from theory and understanding to more cognitive development activities such as timed challenges and memory exercises. I also introduce alternative strategy games like Xiang Qi (Chinese Chess) to help students apply their thinking skills in new contexts. Every lesson is designed to adapt as closely as possible to each child's individual strengths, challenges, and learning style.",
   },
 ];
