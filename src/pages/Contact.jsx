@@ -143,9 +143,9 @@ export default function Contact() {
                       <select name="phase" value={form.phase} onChange={handleChange}
                         className="w-full bg-[#0A0A0A] border border-[#D4A843]/20 px-4 py-3 font-lato text-white text-base gold-focus transition-all outline-none">
                         <option value="">Not sure (we'll advise)</option>
-                        <option value="discovery">Discovery – Beginner (Ages 5–7)</option>
-                        <option value="strategy">Strategy – Intermediate (Ages 8–11)</option>
-                        <option value="mastery">Mastery – Advanced (Ages 12–15)</option>
+                        <option value="discovery">Discovery – Beginner</option>
+                        <option value="strategy">Strategy – Intermediate</option>
+                        <option value="mastery">Mastery – Advanced</option>
                       </select>
                     </div>
                   </div>
