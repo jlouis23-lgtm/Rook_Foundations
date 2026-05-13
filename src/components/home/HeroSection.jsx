@@ -19,6 +19,21 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-28 pb-16 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
+          {/* RIGHT: Leaflet image + Social — shown on mobile above the buttons, hidden on desktop (rendered again below) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="flex lg:hidden flex-col items-center justify-center gap-6">
+            <div className="relative max-w-xs w-full mx-auto">
+              <div className="absolute inset-0 rounded-full bg-[#D4A843]/10 blur-2xl scale-110" />
+              <img
+                src={LEAFLET_IMG}
+                alt="RookFoundations — More than a game. Skills for life."
+                className="relative z-10 w-full rounded-full border-2 border-[#D4A843]/40 shadow-2xl shadow-[#D4A843]/10" />
+            </div>
+          </motion.div>
+
           {/* LEFT: Text */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -84,12 +99,12 @@ export default function HeroSection() {
 
           </motion.div>
 
-          {/* RIGHT: Leaflet image + Social */}
+          {/* RIGHT: Leaflet image + Social — desktop only */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex flex-col items-center justify-center gap-6">
+            className="hidden lg:flex flex-col items-center justify-center gap-6">
             
             <div className="relative max-w-md w-full mx-auto">
               {/* Gold ring glow */}
