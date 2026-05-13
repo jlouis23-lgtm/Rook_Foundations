@@ -82,19 +82,7 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Stats */}
-            <div className="flex items-center gap-10 mt-14 pt-10 border-t border-[#D4A843]/15">
-              {[
-              { num: '150+', label: 'Young Thinkers' },
-              { num: '8+', label: 'Years in Childcare' },
-              { num: '98%', label: 'Parent Satisfaction' }].
-              map((s) =>
-              <div key={s.label}>
-                  <div className="font-oswald text-[#D4A843] text-3xl font-700">{s.num}</div>
-                  <div className="font-lato text-white/40 text-xs tracking-wide mt-0.5">{s.label}</div>
-                </div>
-              )}
-            </div>
+
           </motion.div>
 
           {/* RIGHT: Leaflet image */}
