@@ -1,116 +1,135 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Brain, Target, Lightbulb, Heart, Shield, TrendingUp, Eye, Zap } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 
-const benefits = [
-{ icon: Brain, title: 'Memory & Retention', desc: 'Chess requires memorising openings, patterns, and positional concepts. Regular practice measurably improves working memory and information retention.', stat: '15%', statLabel: 'improvement in memory tasks', research: 'University of Memphis study, 2017' },
-{ icon: Target, title: 'Concentration & Focus', desc: "Pl", stat: '2×', statLabel: 'longer sustained attention', research: 'Belgian study on chess in schools' },
-{ icon: Lightbulb, title: 'Problem Solving', desc: 'Every position is a novel problem. Chess trains children to analyse, identify options, evaluate outcomes, and make decisions.', stat: '32%', statLabel: 'increase in problem-solving scores', research: 'PA State University, 2004' },
-{ icon: TrendingUp, title: 'Mathematical Thinking', desc: 'Chess strengthens spatial reasoning, pattern recognition, and logical inference — all foundational skills for mathematics and science.', stat: '+17%', statLabel: 'maths test improvement', research: 'New Brunswick study, 1995' },
-{ icon: Heart, title: 'Emotional Resilience', desc: 'Learning to lose gracefully, recover from mistakes, and stay composed under pressure builds the emotional intelligence that defines lifelong success.', stat: '100%', statLabel: 'students show improved patience', research: 'RookFoundations internal data' },
-{ icon: Shield, title: 'Discipline & Self-Control', desc: 'Chess rewards careful, deliberate thinking and punishes impulsive moves. Children internalise the value of thinking before acting.', stat: '3×', statLabel: 'more deliberate decision-making', research: 'Observed in classroom settings' },
-{ icon: Eye, title: 'Spatial Reasoning', desc: 'Visualising piece movements, thinking ahead in 3D space, and mapping positional relationships develops outstanding spatial intelligence.', stat: 'Top 10%', statLabel: 'in spatial reasoning tests', research: 'Chess players vs. non-players' },
-{ icon: Zap, title: 'Confidence & Self-Belief', desc: 'Nothing builds confidence like mastering something genuinely difficult. Every puzzle solved, every game won, every comeback is a victory for self-belief.', stat: '92%', statLabel: 'of students report higher confidence', research: 'RookFoundations parent survey' }];
+const references = [
+  {
+    citation: 'Education Endowment Foundation. (2018). Chess in primary schools.',
+    url: 'https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/chess-in-primary-schools',
+  },
+  {
+    citation: 'Fuentes, J. L., López Gómez, E., Moreno Murcia, J. A., & Cachón Zagalaz, J. (2018). Benefits of chess for the intellectual and social-emotional enrichment in schoolchildren. The Spanish Journal of Psychology, 21, E20.',
+    url: 'https://www.cambridge.org/core/journals/spanish-journal-of-psychology/article/abs/benefits-of-chess-for-the-intellectual-and-socialemotional-enrichment-in-schoolchildren/9BAE7D7E2A9D7587C0259F7E964E5CF9',
+  },
+  {
+    citation: 'Sala, G., & Gobet, F. (2017). Does far transfer exist? Negative evidence from chess, music, and working memory training. PLOS ONE, 12(5), e0177257.',
+    url: 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0177257',
+  },
+  {
+    citation: 'Trinchero, R., & Sala, G. (2016). Chess training and mathematical problem-solving: The role of teaching implementation and engagement. ERIC.',
+    url: 'https://files.eric.ed.gov/fulltext/ED581100.pdf',
+  },
+  {
+    citation: 'Zhang, Y., et al. (2025). Chess and the development of logical reasoning and patience in children. Frontiers in Psychology, 16.',
+    url: 'https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2025.1592247/full',
+  },
+];
 
-
-const container = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
-const item = { hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
+const paragraphs = [
+  {
+    text: 'Current research has not consistently demonstrated that chess directly improves cognitive or academic performance across all domains. While some studies suggest that transferring chess-based skills into broader academic or intellectual abilities is possible, the evidence indicates that this transfer is complex and not guaranteed (Sala & Gobet, 2017).',
+  },
+  {
+    text: 'However, research has shown that chess can positively influence important developmental skills in children, including memory, concentration, patience, logical reasoning, and emotional regulation. A large-scale study conducted across more than 300 schools highlighted that successful implementation depends heavily on active engagement from both tutors and classroom teachers. The findings suggested that chess programmes were less effective when teachers were minimally involved or only present at the beginning and end of sessions (Education Endowment Foundation, 2018; Trinchero & Sala, 2016).',
+  },
+  {
+    text: 'Beyond academic outcomes, chess also provides opportunities for social and emotional development. Through the game, children learn to respect opponents, follow rules, think critically under pressure, and manage emotions associated with both winning and losing. These emotional and interpersonal skills are considered important components of personal growth and development (Fuentes et al., 2018).',
+  },
+  {
+    text: 'At Rook Foundations, we recognise the current limitations within the research and do not claim that chess alone guarantees academic success. Instead, our belief is that the skills developed through structured gameplay — such as focus, reasoning, patience, discipline, and decision-making — can potentially support broader learning experiences and encourage positive habits that extend into other areas of life.',
+  },
+];
 
 export default function Benefits() {
   return (
     <div style={{ backgroundColor: '#0A0A0A' }} className="pt-32">
+      {/* Header */}
       <section className="relative overflow-hidden py-20 border-b border-[#D4A843]/15">
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 text-[#D4A843]/3 font-oswald select-none pointer-events-none text-[30rem] leading-none" style={{ transform: 'translateY(-50%) translateX(20%)' }}>♝</div>
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `linear-gradient(rgba(212,168,67,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(212,168,67,0.2) 1px, transparent 1px)`,
+          backgroundSize: '80px 80px'
+        }} />
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
           <div className="gold-line mx-auto mb-5" />
-          <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">The Cognitive Edge</span>
-          <h1 className="font-oswald text-white uppercase mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '0.02em' }}>
-            Why chess changes children.
+          <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Research</span>
+          <h1 className="font-oswald text-white uppercase mb-4"
+            style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '0.02em' }}>
+            Why Chess?
           </h1>
-          <p className="font-lato text-white/50 text-xl leading-relaxed max-w-2xl mx-auto">
-            The evidence is extraordinary. Chess isn't just enrichment — it's one of the most potent cognitive development tools available.
+          <p className="font-lato text-white/50 text-lg leading-relaxed max-w-2xl mx-auto">
+            An honest look at what the research says — and what we genuinely believe chess offers every child.
           </p>
         </div>
       </section>
 
-      <section className="py-16 border-b border-[#D4A843]/10">
-        <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center">
-          <p className="font-oswald text-white/20 text-sm tracking-widest uppercase mb-4">Blaise Pascal</p>
-          <p className="font-oswald text-white text-3xl uppercase tracking-wide leading-relaxed">
-            "Chess is the <span className="text-[#D4A843]">gymnasium of the mind.</span>"
-          </p>
-        </div>
-      </section>
+      {/* Body */}
+      <section className="py-24">
+        <div className="max-w-3xl mx-auto px-6 lg:px-12">
+          <div className="space-y-8">
+            {paragraphs.map((p, i) => (
+              <motion.p
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                className="font-lato text-white/65 text-lg leading-relaxed"
+              >
+                {p.text}
+              </motion.p>
+            ))}
+          </div>
 
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <motion.div variants={container} initial="hidden" animate="show"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#D4A843]/10">
-            {benefits.map((b) =>
-            <motion.div key={b.title} variants={item}
-            className="group bg-[#0A0A0A] p-8 hover:bg-[#0D0D0D] border border-transparent hover:border-[#D4A843]/20 transition-all duration-300">
-                <div className="w-12 h-12 border border-[#D4A843]/30 flex items-center justify-center mb-5 group-hover:border-[#D4A843] transition-colors">
-                  <b.icon size={20} className="text-[#D4A843]/60 group-hover:text-[#D4A843] transition-colors" />
-                </div>
-                <h3 className="font-oswald text-white text-lg uppercase tracking-wide mb-3 group-hover:text-[#D4A843] transition-colors">{b.title}</h3>
-                <p className="font-lato text-white/50 text-sm leading-relaxed mb-6">{b.desc}</p>
-                <div className="pt-5 border-t border-[#D4A843]/10">
-                  <div className="font-oswald text-[#D4A843] text-3xl font-700">{b.stat}</div>
-                  <div className="font-lato text-white/40 text-xs mt-1">{b.statLabel}</div>
-                  <div className="font-lato text-white/20 text-xs mt-1 italic">{b.research}</div>
-                </div>
-              </motion.div>
-            )}
+          {/* References */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="mt-16 border-t border-[#D4A843]/15 pt-10"
+          >
+            <h2 className="font-oswald text-white text-xl uppercase tracking-wide mb-6">References</h2>
+            <ul className="space-y-5">
+              {references.map((ref, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="font-lato text-[#D4A843]/40 text-xs mt-1 flex-shrink-0">{String(i + 1).padStart(2, '0')}.</span>
+                  <div>
+                    <p className="font-lato text-white/40 text-sm leading-relaxed">{ref.citation}</p>
+                    <a
+                      href={ref.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-lato text-[#D4A843]/60 text-xs hover:text-[#D4A843] transition-colors mt-1 break-all"
+                    >
+                      <ExternalLink size={11} /> {ref.url}
+                    </a>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </motion.div>
         </div>
       </section>
 
-      <section className="bg-[#0D0D0D] py-24 border-t border-[#D4A843]/10">
-        <div className="max-w-6xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="gold-line mb-5" />
-              <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Academic Impact</span>
-              <h2 className="font-oswald text-white uppercase mb-8" style={{ fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
-                Chess players consistently<br /><span className="text-[#D4A843]">outperform their peers.</span>
-              </h2>
-              <div className="space-y-5 font-lato text-white/60 text-lg leading-relaxed">
-                <p>A landmark study across 30 schools found that students who received chess instruction for just one year showed significantly greater improvements in standardised maths and reading tests.</p>
-                <p>The skills practised on a chessboard — sequential thinking, hypothesis testing, pattern recognition — are the same skills that drive academic achievement across every subject.</p>
-              </div>
-              <Link to="/contact" className="inline-flex items-center gap-2 mt-10 bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 tracking-wider px-8 py-4 hover:bg-[#e8c06a] transition-all">
-                START YOUR CHILD'S JOURNEY <ArrowRight size={18} />
-              </Link>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              {[
-              { num: '62%', desc: 'of schools with chess programmes report improved student focus in class' },
-              { num: '3rd', desc: 'most effective out-of-school activity for academic improvement' },
-              { num: '94%', desc: 'of children who play chess regularly say it helps them at school' },
-              { num: '40+', desc: 'peer-reviewed studies show cognitive benefits of chess for children' }].
-              map((s, i) =>
-              <div key={i} className="border border-[#D4A843]/20 p-6 hover:border-[#D4A843]/50 transition-colors">
-                  <div className="font-oswald text-[#D4A843] text-4xl font-700 mb-2">{s.num}</div>
-                  <p className="font-lato text-white/50 text-sm leading-relaxed">{s.desc}</p>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 text-center border-t border-[#D4A843]/15" style={{ backgroundColor: '#0A0A0A' }}>
+      {/* CTA */}
+      <section className="bg-[#0D0D0D] py-20 border-t border-[#D4A843]/10 text-center">
         <div className="max-w-2xl mx-auto px-6">
           <div className="gold-line mx-auto mb-6" />
-          <h2 className="font-oswald text-white uppercase mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', letterSpacing: '0.02em' }}>
-            Give your child the cognitive advantage.
+          <h2 className="font-oswald text-white uppercase mb-4"
+            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', letterSpacing: '0.02em' }}>
+            See it for yourself.
           </h2>
-          <p className="font-lato text-white/50 text-lg mb-8">Book a free trial class — the best investment you can make in a young mind.</p>
-          <Link to="/contact" className="inline-flex items-center gap-2 bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 tracking-wider px-8 py-4 hover:bg-[#e8c06a] transition-all">
-            BOOK A FREE TRIAL <ArrowRight size={18} />
+          <p className="font-lato text-white/50 text-lg mb-8">
+            Get 50% off your child's first lesson and experience the Rook Foundations difference first-hand.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 tracking-wider px-8 py-4 hover:bg-[#e8c06a] transition-all"
+          >
+            CLAIM 50% OFF FIRST LESSON <ArrowRight size={18} />
           </Link>
         </div>
       </section>
-    </div>);
-
+    </div>
+  );
 }
