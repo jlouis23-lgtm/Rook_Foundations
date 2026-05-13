@@ -36,10 +36,10 @@ export default function About() {
           <div className="gold-line mx-auto mb-5" />
           <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">About</span>
           <h1 className="font-oswald text-white uppercase mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '0.02em' }}>
-            More than a chess teacher.
+            More than a game of chess.
           </h1>
           <p className="font-lato text-white/50 text-lg leading-relaxed">
-            A belief that the board is one of the most powerful learning tools a child can encounter.
+            A space where children are encouraged to learn, stay positive, and feel proud of the progress they make.
           </p>
         </div>
       </section>
