@@ -42,7 +42,7 @@ const plans = [
   },
   {
     label: 'Group',
-    subtitle: '4+ students',
+    subtitle: '4 students',
     tag: 'Best Value',
     prices: { '1 Hour': { total: 50, note: '£12.50 per student (4)' }, '2 Hours': { total: 100, note: '£25 per student (4)' } },
     features: [
