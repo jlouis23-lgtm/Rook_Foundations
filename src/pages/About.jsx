@@ -5,10 +5,10 @@ import { ArrowRight, Award, BookOpen, Users, Heart } from 'lucide-react';
 const INSTRUCTOR_IMG = 'https://media.base44.com/images/public/69fe1341895fe99f147fce64/3b7300d3f_51E37187-F312-43E1-8058-02E71B191F4B.png';
 
 const credentials = [
-{ icon: Award, title: 'FIDE Rated Player', desc: 'Active tournament competitor with a deep understanding of the game at every level.' },
-{ icon: BookOpen, title: 'BSc in Psychology', desc: 'University-level research focused on childhood development and attachment theory, applying evidence-based understanding to every session.' },
-{ icon: Users, title: '8+ Years Teaching', desc: 'Hundreds of children guided from complete beginners to confident, competitive players.' },
-{ icon: Heart, title: 'Child-First Approach', desc: 'Every session is designed to build confidence and joy before technique.' }];
+{ icon: BookOpen, title: 'Academic Tutor', desc: 'A focus on helping children build strong foundations in science, English, and maths.' },
+{ icon: Award, title: 'Psychology & Human Development Background', desc: "Academic training from King's College London and The University of Manchester with a focus on behaviour, learning, decision-making, and child development." },
+{ icon: Users, title: 'Experience Working With Children', desc: 'Background in mentoring, youth support, wellbeing, and residential care with experience supporting children across different needs and environments.' },
+{ icon: Heart, title: 'Consistent Chess Experience', desc: 'Four years of dedicated chess study and competitive play, with a strong understanding of the learning process from beginner to intermediate level.' }];
 
 
 const timeline = [
