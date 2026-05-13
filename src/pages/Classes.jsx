@@ -139,7 +139,7 @@ export default function Classes() {
                 <span className="text-3xl text-[#D4A843] block mb-4">♜</span>
                 <h4 className="font-oswald text-xl uppercase tracking-wide mb-3">Not sure which level?</h4>
                 <p className="font-lato text-white/50 text-sm leading-relaxed mb-6">
-                  Book a free 30-minute assessment and we'll recommend the perfect starting point — plus get 50% off your first lesson.
+                  In our first session, we'll recommend the perfect starting point. You can also get 50% off your first lesson.
                 </p>
                 <Link
                   to="/contact"
