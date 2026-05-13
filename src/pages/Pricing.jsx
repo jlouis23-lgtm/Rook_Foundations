@@ -44,7 +44,7 @@ const plans = [
     label: 'Group',
     subtitle: '4+ students',
     tag: null,
-    prices: { '1 Hour': { total: 60, note: '£15 per student (4)' }, '2 Hours': { total: 112, note: '£28 per student (4)' } },
+    prices: { '1 Hour': { total: 50, note: '£12.50 per student (4)' }, '2 Hours': { total: 100, note: '£25 per student (4)' } },
     features: [
       'Classroom-style experience',
       'Team challenges & competitions',
