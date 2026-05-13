@@ -152,10 +152,14 @@ export default function About() {
                 {text}
               </motion.p>
             ))}
-            <motion.h4 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.25, duration: 0.6 }}
-              className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase pt-4">
-              Why Us
-            </motion.h4>
+            <div className="text-center pt-6">
+              <div className="gold-line mx-auto mb-5" />
+              <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Our Approach</span>
+              <motion.h3 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.25, duration: 0.6 }}
+                className="font-oswald text-white uppercase mb-6" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
+                Why Us?
+              </motion.h3>
+            </div>
             <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3, duration: 0.6 }}
               className="font-lato text-white/60 text-lg leading-relaxed">
               At Rook Foundations, we recognise the current limitations within the research and do not claim that chess alone guarantees academic success. Instead, our aim is to create an engaging thinking environment with the goal of building on focus, reasoning, patience, and decision-making. We take a long-term approach, with the assumption that our learning experiences can encourage positive habits that extend into other areas of life.
