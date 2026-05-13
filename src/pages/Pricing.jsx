@@ -100,7 +100,7 @@ export default function Pricing() {
                 className={`relative flex flex-col bg-[#0A0A0A] p-8 hover:bg-[#111] transition-colors duration-300 ${
                   plan.tag === 'Recommended' ? 'border-t-2 border-[#D4A843]' : ''
                 } ${
-                  plan.tag === 'Best Value' ? 'border-t-2 border-[#7DB88F]' : ''
+                  plan.tag === 'Best Value' ? 'border-t-2 border-[#C0C0C0]' : ''
                 }`}
               >
                 {plan.tag === 'Recommended' && (
@@ -109,7 +109,7 @@ export default function Pricing() {
                   </span>
                 )}
                 {plan.tag === 'Best Value' && (
-                  <span className="absolute top-0 right-6 -translate-y-1/2 bg-[#7DB88F] text-[#0A0A0A] font-oswald text-xs tracking-widest uppercase px-3 py-1">
+                  <span className="absolute top-0 right-6 -translate-y-1/2 bg-[#C0C0C0] text-[#0A0A0A] font-oswald text-xs tracking-widest uppercase px-3 py-1">
                     {plan.tag}
                   </span>
                 )}
