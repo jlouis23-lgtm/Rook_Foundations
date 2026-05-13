@@ -146,13 +146,20 @@ export default function About() {
             {[
               'Chess provides good opportunities for social and emotional development. Through the game, children learn to respect opponents, follow rules, think critically under pressure, and manage emotions associated with both winning and losing. These emotional and interpersonal skills are considered important components of personal growth and development (Fuentes et al., 2018). There is a consensus among players that chess can positively influence important skills like memory, concentration, patience, logical reasoning, and emotional regulation.',
               'However, current research has not consistently demonstrated that chess directly improves cognitive or academic performance in children. While some studies suggest that transferring chess-based skills into broader academic or intellectual abilities is possible, the evidence indicates that this transfer is complex and not always guaranteed (Sala & Gobet, 2016, 2017; Jerrim et al., 2018). A large-scale UK study conducted across more than 300 schools highlighted that successful implementation depends heavily on active engagement from education providers (Education Endowment Foundation, 2018; Trinchero & Sala, 2016).',
-              'At Rook Foundations, we recognise the current limitations within the research and do not claim that chess alone guarantees academic success. Instead, our aim is to create an engaging thinking environment with the goal of building on focus, reasoning, patience, and decision-making. We take a long-term approach, with the assumption that our learning experiences can encourage positive habits that extend into other areas of life.',
             ].map((text, i) => (
               <motion.p key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.6 }}
                 className="font-lato text-white/60 text-lg leading-relaxed">
                 {text}
               </motion.p>
             ))}
+            <motion.h4 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.25, duration: 0.6 }}
+              className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase pt-4">
+              Why Us
+            </motion.h4>
+            <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3, duration: 0.6 }}
+              className="font-lato text-white/60 text-lg leading-relaxed">
+              At Rook Foundations, we recognise the current limitations within the research and do not claim that chess alone guarantees academic success. Instead, our aim is to create an engaging thinking environment with the goal of building on focus, reasoning, patience, and decision-making. We take a long-term approach, with the assumption that our learning experiences can encourage positive habits that extend into other areas of life.
+            </motion.p>
           </div>
           {/* References */}
           <div className="mt-14 border-t border-[#D4A843]/15 pt-10">
