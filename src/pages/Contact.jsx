@@ -32,6 +32,35 @@ export default function Contact() {
         </div>
       </section>
 
+      {/* Calendly Booking Section */}
+      <section className="py-24 border-b border-[#D4A843]/10" style={{ backgroundColor: '#0D0D0D' }}>
+        <div className="max-w-6xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-12">
+            <div className="gold-line mx-auto mb-5" />
+            <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Booking</span>
+            <h2 className="font-oswald text-white uppercase mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
+              View Availability & Book a Session
+            </h2>
+            <p className="font-lato text-white/50 text-lg max-w-xl mx-auto">
+              Choose a slot that works for you. All bookings are confirmed instantly and synced with my calendar.
+            </p>
+          </div>
+          <div className="border border-[#D4A843]/20 overflow-hidden" style={{ minHeight: '700px' }}>
+            <iframe
+              src="https://calendly.com/louis-jenkins-rookfoundations"
+              width="100%"
+              height="700"
+              frameBorder="0"
+              title="Book a Session"
+              style={{ display: 'block', minWidth: '320px', background: '#0D0D0D' }}
+            />
+          </div>
+          <p className="font-lato text-white/25 text-xs text-center mt-4">
+            Powered by Calendly · Your booking is confirmed instantly
+          </p>
+        </div>
+      </section>
+
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
