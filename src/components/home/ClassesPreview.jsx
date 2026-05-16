@@ -49,13 +49,11 @@ export default function ClassesPreview() {
             <button
               key={i}
               onClick={() => setActive(i)}
-              className={`flex-1 lg:flex-none text-left px-6 py-6 transition-all duration-300 border-r lg:border-r-0 lg:border-b border-[#D4A843]/20 last:border-0 ${
+              className={`flex flex-col items-center justify-center text-center lg:text-left lg:items-start px-2 lg:px-6 py-5 lg:py-6 transition-all duration-300 border-r lg:border-r-0 lg:border-b border-[#D4A843]/20 last:border-r-0 overflow-hidden ${
               active === i ? 'bg-[#D4A843] text-[#0A0A0A]' : 'text-white/50 hover:text-white hover:bg-white/5'}`
               }>
-              
-                <div className={`font-lato text-xs mb-1 ${active === i ? 'text-[#0A0A0A]/60' : 'text-[#D4A843]/50'}`}>Phase {p.phase}</div>
-                <div className="font-oswald text-xl tracking-wide uppercase">{p.title}</div>
-
+                <div className={`font-lato text-[10px] mb-1 tracking-widest uppercase leading-none ${active === i ? 'text-[#0A0A0A]/60' : 'text-[#D4A843]/50'}`}>Phase {p.phase}</div>
+                <div className="font-oswald text-sm lg:text-xl tracking-wide uppercase leading-tight w-full truncate lg:overflow-visible lg:whitespace-normal">{p.title}</div>
               </button>
             )}
           </div>
