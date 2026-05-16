@@ -47,9 +47,9 @@ export default function Contact() {
             </p>
           </div>
 
-          {/* Calendly embed wrapper — parameters force transparent bg + hide branding */}
+          {/* Calendly embed wrapper */}
           <div
-            className="relative border border-[#D4A843]/20 overflow-hidden"
+            className="relative border border-[#D4A843]/20"
             style={{ backgroundColor: '#0A0A0A' }}
           >
             {/* Top gold accent bar */}
@@ -58,9 +58,8 @@ export default function Contact() {
             <iframe
               src="https://calendly.com/louis-jenkins-rookfoundations?embed_domain=rookfoundations.com&embed_type=Inline&hide_gdpr_banner=1&background_color=0A0A0A&text_color=F5F5F5&primary_color=D4A843"
               width="100%"
-              height="720"
+              height="1100"
               frameBorder="0"
-              scrolling="no"
               title="Book a Session — Rook Foundations"
               style={{
                 display: 'block',
