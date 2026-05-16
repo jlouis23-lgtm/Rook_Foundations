@@ -44,7 +44,7 @@ export default function ClassesPreview() {
 
         <div className="flex flex-col lg:flex-row gap-0 border border-[#D4A843]/20 overflow-hidden">
           {/* Tabs */}
-          <div className="lg:w-72 flex-shrink-0 flex flex-row lg:flex-col border-b lg:border-b-0 lg:border-r border-[#D4A843]/20">
+          <div className="lg:w-72 flex-shrink-0 grid grid-cols-3 lg:grid-cols-none lg:flex lg:flex-col border-b lg:border-b-0 lg:border-r border-[#D4A843]/20">
             {phases.map((p, i) =>
             <button
               key={i}
