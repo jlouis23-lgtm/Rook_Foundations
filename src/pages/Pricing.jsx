@@ -20,7 +20,7 @@ const plans = [
     label: 'Pair',
     subtitle: '2 students',
     tag: 'Recommended',
-    prices: { '1 Hour': { total: 30, note: '£15 per student' }, '2 Hours': { total: 56, note: '£28 per student' } },
+    prices: { '1 Hour': { total: 20, note: '£10 per student' }, '2 Hours': { total: 35, note: '£17.50 per student' } },
     features: [
       'Shared learning dynamic',
       'Friendly in-session competition',
@@ -32,7 +32,7 @@ const plans = [
     label: 'Small Group',
     subtitle: '3 students',
     tag: null,
-    prices: { '1 Hour': { total: 45, note: '£15 per student' }, '2 Hours': { total: 84, note: '£28 per student' } },
+    prices: { '1 Hour': { total: 25, note: '£8.33 per student' }, '2 Hours': { total: 40, note: '£13.33 per student' } },
     features: [
       'Group problem solving',
       'Ideal dynamic for three friends',
@@ -44,7 +44,7 @@ const plans = [
     label: 'Group',
     subtitle: '4 students',
     tag: 'Best Value',
-    prices: { '1 Hour': { total: 50, note: '£12.50 per student (4)' }, '2 Hours': { total: 100, note: '£25 per student (4)' } },
+    prices: { '1 Hour': { total: 30, note: '£7.50 per student' }, '2 Hours': { total: 45, note: '£11.25 per student' } },
     features: [
       'Classroom-style experience',
       'Team challenges & competitions',
