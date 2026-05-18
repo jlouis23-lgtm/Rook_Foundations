@@ -12,7 +12,7 @@ const plans = [
     features: [
       'Fully personalised lesson plan',
       'One-to-one instructor attention',
-      'Flexible scheduling',
+      'Deeper conceptual learning',
       'Progress report after every session',
     ],
   },
