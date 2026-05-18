@@ -35,8 +35,8 @@ const plans = [
     prices: { '1 Hour': { total: 25, note: '£8.33 per student' }, '2 Hours': { total: 40, note: '£13.33 per student' } },
     features: [
       'Group problem solving',
+      'Blended individual and collaborative learning',
       'Ideal dynamic for three friends',
-      'Great for siblings',
       'Progress report after every session',
     ],
   },
