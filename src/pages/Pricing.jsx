@@ -24,7 +24,7 @@ const plans = [
     features: [
       'Shared learning dynamic',
       'Friendly in-session competition',
-      'Same rate as individual per student',
+      'Great for siblings',
       'Progress report after every session',
     ],
   },
