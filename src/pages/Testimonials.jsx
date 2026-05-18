@@ -2,83 +2,159 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
-const testimonials = [
-  { quote: "My daughter's teacher commented on how much her concentration had improved after just two months of classes. She's calmer, more thoughtful, and absolutely loves coming every week.", author: "Sarah M.", role: "Parent of Emma, age 9", phase: "Strategy Phase", rating: 5, highlight: "Concentration improved in 2 months" },
-  { quote: "I was skeptical at first — chess seemed like it was for older or 'academic' kids. But the way it's taught at RookFoundations makes it genuinely joyful. My son asks to practise every single night.", author: "James T.", role: "Parent of Oliver, age 7", phase: "Discovery Phase", rating: 5, highlight: "Asks to practise every night" },
-  { quote: "The structured approach and Alex's patience with the children is outstanding. My son went from a complete beginner to competing in his first regional tournament in just 6 months.", author: "Priya K.", role: "Parent of Aryan, age 12", phase: "Mastery Phase", rating: 5, highlight: "First tournament in 6 months" },
-  { quote: "As a sceptical parent, I appreciate that the curriculum is evidence-based and there's clear progression. My daughter has shown marked improvement in her schoolwork.", author: "David L.", role: "Parent of Sophie, age 10", phase: "Strategy Phase", rating: 5, highlight: "Measurable school improvement" },
-  { quote: "What I love most is that Alex focuses on the children's confidence, not just the chess. My shy son has come out of his shell completely. He's a different child.", author: "Michelle R.", role: "Parent of Thomas, age 8", phase: "Discovery Phase", rating: 5, highlight: "Transformed his confidence" },
-  { quote: "The small group format is perfect. Every child gets individual attention and there's genuine warmth in every session. It's become the highlight of my twins' week.", author: "Anthony N.", role: "Parent of Lila & Ben, ages 11", phase: "Strategy Phase", rating: 5, highlight: "Highlight of their week" },
-  { quote: "I never expected chess to help with maths but my daughter's arithmetic has genuinely improved. She thinks in steps now — working backward from the answer. It's remarkable.", author: "Fatima A.", role: "Parent of Zara, age 9", phase: "Strategy Phase", rating: 5, highlight: "Unexpected maths improvement" },
-  { quote: "My son has ADHD and I was worried it wouldn't work. Alex was incredible — patient, adaptive, and my son's ability to focus in class has improved dramatically.", author: "Mark S.", role: "Parent of Leo, age 11", phase: "Strategy Phase", rating: 5, highlight: "ADHD — dramatic focus improvement" },
-  { quote: "RookFoundations feels like a community, not just a class. The children celebrate each other's wins and support each other through losses.", author: "Claire B.", role: "Parent of Isla, age 8", phase: "Discovery Phase", rating: 5, highlight: "Community and sportsmanship" },
+const cards = [
+  {
+    icon: '♟',
+    color: 'from-[#1e2d4a]/70 to-[#12203a]/70',
+    border: 'border-[#3a5c8c]/35',
+    accent: '#7aa8d4',
+    heading: 'Strategic Thinking',
+    body: 'Every session is designed to stretch how children plan, reason, and adapt. Students learn to slow down, think ahead, and make decisions with purpose — skills that extend well beyond the board.',
+  },
+  {
+    icon: '🌱',
+    color: 'from-[#1e3a2d]/70 to-[#122a1e]/70',
+    border: 'border-[#4a8c6e]/35',
+    accent: '#6bbf9a',
+    heading: 'Confidence & Resilience',
+    body: 'Progress at Rook Foundations is measured in mindset, not just moves. Children are encouraged to embrace mistakes as learning, building the kind of quiet confidence that grows session by session.',
+  },
+  {
+    icon: '🎯',
+    color: 'from-[#2d1e3a]/70 to-[#1e1228]/70',
+    border: 'border-[#6a4a8c]/35',
+    accent: '#a07ad4',
+    heading: 'Patience & Focus',
+    body: 'Chess teaches children that good outcomes require careful thought and sustained attention. Each puzzle and game becomes a practice in patience — a quality that benefits concentration across all areas of learning.',
+  },
+  {
+    icon: '🤝',
+    color: 'from-[#2d2010]/70 to-[#1e1500]/70',
+    border: 'border-[#8c6a3a]/35',
+    accent: '#D4A843',
+    heading: 'A Supportive Environment',
+    body: 'Small group sizes ensure every child receives individual attention. Sessions are structured to feel safe, encouraging, and free from pressure — so students can develop at their own natural pace.',
+  },
 ];
 
-const container = { hidden: {}, show: { transition: { staggerChildren: 0.07 } } };
-const item = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } };
+const container = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } };
+const item = { hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 
 export default function Testimonials() {
   return (
     <div style={{ backgroundColor: '#0A0A0A' }} className="pt-32">
+
+      {/* Header */}
       <section className="relative overflow-hidden py-20 border-b border-[#D4A843]/15">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `linear-gradient(rgba(212,168,67,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(212,168,67,0.2) 1px, transparent 1px)`,
+          backgroundSize: '80px 80px'
+        }} />
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
           <div className="gold-line mx-auto mb-5" />
-          <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Parent Voices</span>
+          <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Our Community</span>
           <h1 className="font-oswald text-white uppercase mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '0.02em' }}>
-            What families say about me
+            The Journey Starts Here
           </h1>
-          <p className="font-lato text-white/50 text-lg max-w-2xl mx-auto">
-            Every testimonial below comes from families whose children I have personally worked with, supported, and cared for over the years.
+          <p className="font-lato text-white/50 text-lg max-w-2xl mx-auto leading-relaxed">
+            Rook Foundations is a new and growing programme built on genuine educational values. Here is what every student and family can expect from day one.
           </p>
         </div>
       </section>
 
-
-
+      {/* Value Cards */}
       <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <motion.div variants={container} initial="hidden" animate="show"
-            className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
-            {testimonials.map((t, i) => (
-              <motion.div key={i} variants={item}
-                className="break-inside-avoid bg-[#0D0D0D] border border-[#D4A843]/15 p-8 hover:border-[#D4A843]/40 transition-colors duration-300 mb-4">
-                <div className="inline-flex items-center gap-2 border border-[#D4A843]/20 px-3 py-1.5 mb-5">
-                  <span className="w-1 h-1 bg-[#D4A843]" />
-                  <span className="font-oswald text-[#D4A843] text-xs tracking-widest uppercase">{t.highlight}</span>
+        <div className="max-w-6xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-14">
+            <div className="gold-line mx-auto mb-5" />
+            <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-3">What Families Can Expect</span>
+            <h2 className="font-oswald text-white uppercase" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
+              Built on thoughtful foundations
+            </h2>
+          </div>
+
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: '-60px' }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-5"
+          >
+            {cards.map((card, i) => (
+              <motion.div
+                key={i}
+                variants={item}
+                className={`relative rounded-2xl border ${card.border} bg-gradient-to-br ${card.color} p-8
+                  hover:scale-[1.015] transition-transform duration-300 cursor-default`}
+                style={{ boxShadow: `0 4px 32px 0 ${card.accent}0f` }}
+              >
+                {/* Accent dot */}
+                <div className="absolute top-5 right-5 w-2 h-2 rounded-full opacity-40" style={{ backgroundColor: card.accent }} />
+
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-3xl leading-none">{card.icon}</span>
+                  <h3 className="font-oswald text-white text-xl uppercase tracking-wide">{card.heading}</h3>
                 </div>
-                <div className="font-oswald text-[#D4A843]/20 text-5xl mb-2 leading-none">"</div>
-                <p className="font-lato text-white/60 text-base leading-relaxed italic mb-6">"{t.quote}"</p>
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(t.rating)].map((_, j) => (
-                    <span key={j} className="text-[#D4A843] text-sm">★</span>
-                  ))}
-                </div>
-                <div className="border-t border-[#D4A843]/10 pt-4 flex items-center justify-between">
-                  <div>
-                    <p className="font-oswald text-white tracking-wide">{t.author}</p>
-                    <p className="font-lato text-[#D4A843]/50 text-xs mt-0.5">{t.role}</p>
-                  </div>
-                  <span className="font-lato text-white/30 text-xs border border-[#D4A843]/15 px-2 py-0.5">{t.phase}</span>
-                </div>
+
+                <div className="w-10 h-px mb-4 opacity-50" style={{ backgroundColor: card.accent }} />
+
+                <p className="font-lato text-white/60 text-base leading-relaxed">{card.body}</p>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      <section className="py-24 text-center border-t border-[#D4A843]/15 bg-[#0D0D0D]">
-        <div className="max-w-2xl mx-auto px-6">
-          <span className="text-5xl text-[#D4A843] block mb-6">♜</span>
-          <div className="gold-line mx-auto mb-6" />
-          <h2 className="font-oswald text-white uppercase mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', letterSpacing: '0.02em' }}>
-            Join our growing community of thinkers.
-          </h2>
-          <p className="font-lato text-white/50 text-lg mb-8">Your child could be our next success story. Book a free trial class today.</p>
-          <Link to="/contact" className="inline-flex items-center gap-2 bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 tracking-wider px-8 py-4 hover:bg-[#e8c06a] transition-all">
-            BOOK A FREE TRIAL <ArrowRight size={18} />
-          </Link>
+      {/* Authentic future-facing statement */}
+      <section className="py-20 border-t border-[#D4A843]/10" style={{ backgroundColor: '#0D0D0D' }}>
+        <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-4xl text-[#D4A843] block mb-6">♜</span>
+            <div className="gold-line mx-auto mb-6" />
+            <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-5">Growing Together</span>
+            <h2 className="font-oswald text-white uppercase mb-6" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', letterSpacing: '0.02em' }}>
+              Real experiences, shared honestly
+            </h2>
+            <p className="font-lato text-white/55 text-lg leading-relaxed mb-4 max-w-2xl mx-auto">
+              Rook Foundations is in the early stages of building a genuine student community. We believe trust is earned through real experiences — not manufactured reviews.
+            </p>
+            <p className="font-lato text-white/40 text-base leading-relaxed max-w-xl mx-auto mb-10">
+              As our programme grows, we look forward to sharing authentic feedback from the students and families who have been part of this journey from the very beginning.
+            </p>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 tracking-wider px-8 py-4 hover:bg-[#e8c06a] transition-all"
+            >
+              JOIN OUR FIRST STUDENTS <ArrowRight size={18} />
+            </Link>
+          </motion.div>
         </div>
       </section>
+
+      {/* Values strip */}
+      <section className="border-t border-[#D4A843]/10 py-14" style={{ backgroundColor: '#0A0A0A' }}>
+        <div className="max-w-5xl mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#D4A843]/10">
+            {[
+              { symbol: '♟', label: 'Child-Centred' },
+              { symbol: '♞', label: 'Evidence-Informed' },
+              { symbol: '♝', label: 'Small Groups' },
+              { symbol: '♛', label: 'Long-Term Thinking' },
+            ].map((v) => (
+              <div key={v.label} className="bg-[#0A0A0A] py-8 px-6 flex flex-col items-center text-center gap-3 hover:bg-[#111] transition-colors">
+                <span className="text-2xl text-[#D4A843]">{v.symbol}</span>
+                <span className="font-oswald text-white/70 text-sm uppercase tracking-widest">{v.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
