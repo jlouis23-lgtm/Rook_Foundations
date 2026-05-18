@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Award, BookOpen, Users, Heart } from 'lucide-react';
+import WhyChessResearch from '../components/about/WhyChessResearch';
 
 const INSTRUCTOR_IMG = 'https://media.base44.com/images/public/69fe1341895fe99f147fce64/3b7300d3f_51E37187-F312-43E1-8058-02E71B191F4B.png';
 
@@ -132,68 +133,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Why Chess — Research Statement */}
-      <section className="py-24 border-t border-[#D4A843]/10" style={{ backgroundColor: '#0A0A0A' }}>
-        <div className="max-w-3xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-12">
-            <div className="gold-line mx-auto mb-5" />
-            <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Research</span>
-            <h2 className="font-oswald text-white uppercase" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
-              Why Chess?
-            </h2>
-          </div>
-          <div className="space-y-6">
-            {[
-              'Chess provides good opportunities for social and emotional development. Through the game, children learn to respect opponents, follow rules, think critically under pressure, and manage emotions associated with both winning and losing. These emotional and interpersonal skills are considered important components of personal growth and development (Fuentes et al., 2018). There is a consensus among players that chess can positively influence important skills like memory, concentration, patience, logical reasoning, and emotional regulation.',
-              'However, current research has not consistently demonstrated that chess directly improves cognitive or academic performance in children. While some studies suggest that transferring chess-based skills into broader academic or intellectual abilities is possible, the evidence indicates that this transfer is complex and not always guaranteed (Sala & Gobet, 2016, 2017; Jerrim et al., 2018). A large-scale UK study conducted across more than 300 schools highlighted that successful implementation depends heavily on active engagement from education providers (Education Endowment Foundation, 2018; Trinchero & Sala, 2016).',
-            ].map((text, i) => (
-              <motion.p key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.6 }}
-                className="font-lato text-white/60 text-lg leading-relaxed">
-                {text}
-              </motion.p>
-            ))}
-            <div className="text-center pt-6">
-              <div className="gold-line mx-auto mb-5" />
-              <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Our Approach</span>
-              <motion.h3 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.25, duration: 0.6 }}
-                className="font-oswald text-white uppercase mb-6" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
-                Why Us?
-              </motion.h3>
-            </div>
-            <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3, duration: 0.6 }}
-              className="font-lato text-white/60 text-lg leading-relaxed">
-              At Rook Foundations, we recognise the current limitations within the research and do not claim that chess alone guarantees academic success. Instead, our aim is to create an engaging thinking environment with the goal of building on focus, reasoning, patience, and decision-making. We take a long-term approach, with the assumption that our learning experiences can encourage positive habits that extend into other areas of life.
-            </motion.p>
-          </div>
-          {/* References */}
-          <div className="mt-14 border-t border-[#D4A843]/15 pt-10">
-            <h3 className="font-oswald text-white text-lg uppercase tracking-wide mb-6">References</h3>
-            <ul className="space-y-5">
-              {[
-                { citation: 'Education Endowment Foundation. (2018). Chess in primary schools.', url: 'https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/chess-in-primary-schools' },
-                { citation: 'Fuentes, J. L., López Gómez, E., Moreno Murcia, J. A., & Cachón Zagalaz, J. (2018). Benefits of chess for the intellectual and social-emotional enrichment in schoolchildren. The Spanish Journal of Psychology, 21, E20.', url: 'https://www.cambridge.org/core/journals/spanish-journal-of-psychology/article/abs/benefits-of-chess-for-the-intellectual-and-socialemotional-enrichment-in-schoolchildren/9BAE7D7E2A9D7587C0259F7E964E5CF9' },
-                { citation: 'Sala, G., & Gobet, F. (2016). Do the benefits of chess instruction transfer to academic and cognitive skills? A meta-analysis. Educational research review, 18, 46–57.', url: null },
-                { citation: 'Sala, G., & Gobet, F. (2017). Does far transfer exist? Negative evidence from chess, music, and working memory training. PLOS ONE, 12(5), e0177257.', url: 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0177257' },
-                { citation: 'Trinchero, R., & Sala, G. (2016). Chess training and mathematical problem-solving: The role of teaching implementation and engagement. ERIC.', url: 'https://files.eric.ed.gov/fulltext/ED581100.pdf' },
-                { citation: 'Zhang, Y., et al. (2025). Chess and the development of logical reasoning and patience in children. Frontiers in Psychology, 16.', url: 'https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2025.1592247/full' },
-              ].map((ref, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="font-lato text-[#D4A843]/40 text-xs mt-1 flex-shrink-0">{String(i + 1).padStart(2, '0')}.</span>
-                  <div>
-                    <p className="font-lato text-white/40 text-sm leading-relaxed">{ref.citation}</p>
-                    {ref.url && (
-                      <a href={ref.url} target="_blank" rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 font-lato text-[#D4A843]/50 text-xs hover:text-[#D4A843] transition-colors mt-1 break-all">
-                        {ref.url}
-                      </a>
-                    )}
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
+      <WhyChessResearch />
 
       {/* Credentials */}
       <section className="py-24" style={{ backgroundColor: '#0A0A0A' }}>
