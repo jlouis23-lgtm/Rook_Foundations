@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Clock, Users, MapPin, Check } from 'lucide-react';
@@ -30,6 +30,7 @@ const phases = [
 
 export default function Classes() {
   const [activePhase, setActivePhase] = useState(0);
+  useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <div style={{ backgroundColor: '#0A0A0A' }} className="pt-32">
