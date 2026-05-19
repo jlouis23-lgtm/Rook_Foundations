@@ -31,6 +31,13 @@ export default function Contact() {
           <p className="font-lato text-white/50 text-lg max-w-2xl mx-auto">
             Please contact me to ask any questions. I understand that chess isn't for everybody. With that in mind, I am flexible and transparent in my teaching approach. Together, we can establish the best approach for your child.
           </p>
+          <div className="mt-8">
+            <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-2">Get In Touch</span>
+            <h2 className="font-oswald text-white text-2xl uppercase tracking-wide mb-1">
+              You'll hear back from me directly — usually within 24 hours.
+            </h2>
+            <p className="font-lato text-white/40 text-base">No automated replies, no long waits.</p>
+          </div>
         </div>
       </section>
 
@@ -85,15 +92,6 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             {/* Info */}
             <div className="space-y-8">
-              <div>
-                <div className="gold-line mb-5" />
-                <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Get In Touch</span>
-                <h2 className="font-oswald text-white text-2xl uppercase tracking-wide mb-4">
-                  You'll hear back from me directly — usually within 24 hours.
-                </h2>
-                <p className="font-lato text-white/50 text-base">No automated replies, no long waits.</p>
-              </div>
-
               <div className="space-y-5">
                 {[
                   { icon: Mail, label: 'Email', value: 'louis.jenkins@rookfoundations.com', href: 'mailto:louis.jenkins@rookfoundations.com' },
