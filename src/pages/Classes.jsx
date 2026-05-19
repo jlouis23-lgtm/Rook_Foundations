@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Clock, Users, MapPin, Check } from 'lucide-react';
+import LessonPlans from '../components/classes/LessonPlans';
 
 const phases = [
   {
@@ -107,6 +108,8 @@ export default function Classes() {
                   "{phases[activePhase].parentNote}"
                 </p>
               </div>
+
+              <LessonPlans activePhaseTitle={phases[activePhase].title} />
             </div>
 
             <div className="space-y-4">
