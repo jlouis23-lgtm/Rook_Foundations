@@ -41,6 +41,7 @@ export default function CTABanner() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/contact"
+              onClick={() => window.scrollTo(0, 0)}
               className="group bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 text-base tracking-wider px-10 py-4 hover:bg-[#e8c06a] transition-all duration-300 hover:shadow-2xl hover:shadow-[#D4A843]/20 flex items-center gap-3"
             >
               CLAIM 50% OFF FIRST LESSON
@@ -48,6 +49,7 @@ export default function CTABanner() {
             </Link>
             <Link
               to="/classes"
+              onClick={() => window.scrollTo(0, 0)}
               className="font-oswald text-white/60 text-sm tracking-widest uppercase hover:text-[#D4A843] transition-colors border-b border-white/20 hover:border-[#D4A843] pb-0.5"
             >
               View class schedule

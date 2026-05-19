@@ -86,6 +86,7 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <Link
                 to="/contact"
+                onClick={() => window.scrollTo(0, 0)}
                 className="group bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 text-base tracking-wider px-8 py-4 hover:bg-[#e8c06a] transition-all duration-300 hover:shadow-xl hover:shadow-[#D4A843]/20 flex items-center gap-3">
                 
                 50% OFF FIRST LESSON

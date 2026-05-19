@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Award, BookOpen, Users, Heart } from 'lucide-react';
@@ -25,6 +26,8 @@ const timeline = [
 
 
 export default function About() {
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+
   return (
     <div style={{ backgroundColor: '#0A0A0A' }} className="pt-32">
       {/* Page Header */}

@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Send, Check } from 'lucide-react';
 
 export default function Contact() {
+  useEffect(() => { window.scrollTo(0, 0); }, []);
   const [form, setForm] = useState({ parentName: '', email: '', phone: '', childName: '', childAge: '', phase: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
