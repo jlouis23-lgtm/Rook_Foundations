@@ -103,7 +103,7 @@ export default function ClassesPreview() {
         </div>
 
         <div className="text-center mt-8">
-          <Link to="/classes" className="inline-flex items-center gap-2 font-oswald text-[#D4A843]/60 hover:text-[#D4A843] text-sm tracking-widest uppercase transition-colors">
+          <Link to="/classes" onClick={() => window.scrollTo(0, 0)} className="inline-flex items-center gap-2 font-oswald text-[#D4A843]/60 hover:text-[#D4A843] text-sm tracking-widest uppercase transition-colors">
             See full class schedule <ArrowRight size={16} />
           </Link>
         </div>
