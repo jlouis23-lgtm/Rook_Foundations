@@ -76,7 +76,7 @@ export default function TestimonialsPreview() {
           <p className="font-lato text-white/30 text-sm italic mb-5 max-w-xl mx-auto leading-relaxed">
             As our student community grows, we look forward to sharing authentic experiences from the families who have been part of our journey from the very beginning.
           </p>
-          <Link to="/testimonials" className="inline-flex items-center gap-2 font-oswald text-[#D4A843] text-sm tracking-widest uppercase hover:gap-4 transition-all">
+          <Link to="/testimonials" onClick={() => window.scrollTo(0, 0)} className="inline-flex items-center gap-2 font-oswald text-[#D4A843] text-sm tracking-widest uppercase hover:gap-4 transition-all">
             Our approach & values <ArrowRight size={16} />
           </Link>
         </motion.div>
