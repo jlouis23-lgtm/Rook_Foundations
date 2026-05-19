@@ -29,7 +29,7 @@ export default function Contact() {
             Let's talk about your child.
           </h1>
           <p className="font-lato text-white/50 text-lg max-w-2xl mx-auto">
-            Whether you have questions, want to book a session, or just want to chat — I'd love to hear from you.
+            Please contact me to ask any questions. I understand that chess isn't for everybody. With that in mind, I am flexible and transparent in my teaching approach. Together, we can establish the best approach for your child.
           </p>
         </div>
       </section>
