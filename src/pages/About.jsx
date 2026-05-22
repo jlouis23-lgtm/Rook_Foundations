@@ -111,6 +111,31 @@ export default function About() {
         </div>
       </section>
 
+      {/* Credentials */}
+      <section className="py-24" style={{ backgroundColor: '#0A0A0A' }}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <div className="gold-line mx-auto mb-5" />
+            <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Qualifications</span>
+            <h2 className="font-oswald text-white uppercase"
+            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
+              Credentials you can trust
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#D4A843]/10">
+            {credentials.map(({ icon: Icon, title, desc }) =>
+            <div key={title} className="bg-[#0A0A0A] p-8 hover:bg-[#111] transition-colors border border-transparent hover:border-[#D4A843]/20">
+                <div className="w-12 h-12 border border-[#D4A843]/40 flex items-center justify-center mb-5">
+                  <Icon size={20} className="text-[#D4A843]" />
+                </div>
+                <h3 className="font-oswald text-white text-lg uppercase tracking-wide mb-2">{title}</h3>
+                <p className="font-lato text-white/50 text-sm leading-relaxed">{desc}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* Philosophy */}
       <section className="bg-[#0D0D0D] py-24 border-t border-[#D4A843]/10">
         <div className="max-w-6xl mx-auto px-6 lg:px-12 text-center">
@@ -137,31 +162,6 @@ export default function About() {
       </section>
 
       <WhyChessResearch />
-
-      {/* Credentials */}
-      <section className="py-24" style={{ backgroundColor: '#0A0A0A' }}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <div className="gold-line mx-auto mb-5" />
-            <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Qualifications</span>
-            <h2 className="font-oswald text-white uppercase"
-            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
-              Credentials you can trust
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#D4A843]/10">
-            {credentials.map(({ icon: Icon, title, desc }) =>
-            <div key={title} className="bg-[#0A0A0A] p-8 hover:bg-[#111] transition-colors border border-transparent hover:border-[#D4A843]/20">
-                <div className="w-12 h-12 border border-[#D4A843]/40 flex items-center justify-center mb-5">
-                  <Icon size={20} className="text-[#D4A843]" />
-                </div>
-                <h3 className="font-oswald text-white text-lg uppercase tracking-wide mb-2">{title}</h3>
-                <p className="font-lato text-white/50 text-sm leading-relaxed">{desc}</p>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
 
       {/* Timeline */}
       <section className="bg-[#0D0D0D] py-24 border-t border-[#D4A843]/10">
