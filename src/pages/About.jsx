@@ -102,8 +102,8 @@ export default function About() {
 
               <blockquote className="mt-10 border-l-4 border-[#D4A843] pl-6">
                 <p className="font-oswald text-white text-xl uppercase tracking-wide leading-relaxed">
-                  "SCHOOL TEACHES CHILDREN HOW TO THINK.<br />
-                  <span className="text-[#D4A843]">OUR GOAL IS TO MAKE THEM WANT TO THINK FOR THEMSELVES."</span>
+                  "SCHOOL TAUGHT ME HOW TO THINK.<br />
+                  <span className="text-[#D4A843]">BUT IT DIDN'T TEACH ME HOW TO WANT TO THINK FOR MYSELF."</span>
                 </p>
               </blockquote>
             </motion.div>
