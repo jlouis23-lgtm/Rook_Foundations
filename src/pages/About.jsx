@@ -61,13 +61,11 @@ export default function About() {
               className="relative flex items-center justify-center">
               
               <div className="relative max-w-sm w-full mx-auto">
-                {/* Gold glow */}
                 <div className="absolute inset-0 rounded-full bg-[#D4A843]/10 blur-3xl scale-110" />
                 <img
                   src={INSTRUCTOR_IMG}
                   alt="RookFoundations Instructor"
                   className="relative z-10 w-full rounded-full border-2 border-[#D4A843]/50 shadow-2xl shadow-[#D4A843]/15" />
-                
               </div>
             </motion.div>
 
@@ -86,17 +84,11 @@ export default function About() {
               </h2>
 
               <div className="space-y-5 font-lato text-white/60 text-lg leading-relaxed">
-                <p>My chess journey  began during my second year of university. At a time when I struggled with overthinking and anxiety, chess became more than just a game . It taught me self-awareness, patience, strategy, and how to think clearly under pressure.
-
-
-                </p>
-                <p>Although I’m only 23, I’ve spent the last six years working with children across different settings. Through that experience, I realised many young people today are disengaged from learning and overly consumed by constant media and digital stimulation. Too often, they are given answers instead of being encouraged to think for themselves.
-
-
-                </p>
-                <p>RookFoundations was born from a simple conviction: every child deserves the opportunity to want to think for themselves.
-
-
+                <p>My chess journey began four years ago. Chess became more than just a game and really helped me become more patient. As a game, it captured some of the most meaningful concepts that are waning today: sacrifice and connection.</p>
+                <p>Although I am only 23, I have spent six years now working with children across different ages and different settings. Through that experience, I have come to realise that young people today are disengaged from learning and overly consumed by constant media and digital stimulation. Too often, they are given answers instead of being encouraged to think for themselves.</p>
+                <p>
+                  RookFoundations was born from a simple conviction:<br />
+                  <span className="text-white/80 italic">Every child deserves the opportunity to want to think for themselves.</span>
                 </p>
               </div>
 
@@ -214,11 +206,10 @@ export default function About() {
           <Link
             to="/contact"
             className="inline-flex items-center gap-2 bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 tracking-wider px-8 py-4 hover:bg-[#e8c06a] transition-all">
-            
             CLAIM 50% OFF FIRST LESSON <ArrowRight size={18} />
           </Link>
         </div>
       </section>
-    </div>);
-
+    </div>
+  );
 }
