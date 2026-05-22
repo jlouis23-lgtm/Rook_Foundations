@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import FAQSection from '../components/testimonials/FAQSection';
 
 const cards = [
   {
@@ -139,8 +138,6 @@ export default function Testimonials() {
           </motion.div>
         </div>
       </section>
-
-      <FAQSection />
 
       {/* Values strip */}
       <section className="border-t border-[#D4A843]/10 py-14" style={{ backgroundColor: '#0A0A0A' }}>
