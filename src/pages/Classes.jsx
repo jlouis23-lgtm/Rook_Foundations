@@ -16,7 +16,7 @@ const phases = [
     phase: '02', title: 'Strategy', subtitle: 'The Middle Game', ages: '', icon: '♞',
     duration: '1 or 2 hours', groupSize: 'Up to 4 students', frequency: 'Once weekly',
     description: 'For students with a basic understanding of the rules, this phase introduces the art of planning. Students begin to see patterns, set traps, and think 2–3 moves ahead.',
-    whatYouLearn: ['Opening principles (control the centre)', 'Tactical motifs: forks, pins, discovered attacks', 'Basic endgame technique', 'Reading and writing chess notation', 'Friendly in-class tournament play'],
+    whatYouLearn: ['Opening principles (control the centre)', 'Tactical motifs: forks, pins, discovered attacks', 'Basic endgame technique', 'Time management and tactics', 'Friendly in-class tournament play'],
     parentNote: "You'll start to notice your child thinking more carefully before acting — in chess and in everyday life. This is where the real cognitive transfer begins.",
   },
   {
