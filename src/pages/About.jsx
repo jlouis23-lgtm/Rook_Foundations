@@ -49,15 +49,15 @@ export default function About() {
               WHY CHESS? WHY THE ROOK?
             </h2>
 
-            <div className="font-lato text-white/60 text-lg leading-relaxed max-w-2xl space-y-6">
-              <p>Four years ago, chess came to me at a time where I was overloaded with assignments and bombarded with upcoming deadlines. I used to take breaks from study just to have a few games and it really helped me become more patient over time. For me, chess provided a unique kind of <span className="text-white/80 font-medium">playful mental pressure</span>. This helped me focus when completing the most monotonous aspects of research. When I started playing more with an actual person sitting across me, I realised that such a simple game beautifully captures some of the most meaningful concepts that are waning today. These concepts include the importance of <span className="text-white/80 font-medium">sacrifice</span>, the art of offence and defence, and that victory comes from <span className="text-white/80 font-medium">connection</span>. Having spent six years now working with children across different ages and different settings, I have come to realise that, today, they are disengaged from learning and overly consumed by constant media and digital stimulation. Too often, they are given answers instead of being encouraged to think for themselves.</p>
+            <div className="font-lato text-white/60 text-lg leading-relaxed max-w-3xl space-y-6">
+              <p>Four years ago, chess came to me at a time where I was overloaded with assignments and bombarded with upcoming deadlines. I used to take breaks from study just to have a few games and it really helped me become more patient over time. For me, chess provided a unique kind of playful mental pressure. This helped me focus when completing the most monotonous aspects of research. When I started playing more with an actual person sitting across me, I realised that such a simple game beautifully captures some of the most meaningful concepts that are waning today. These concepts include the importance of sacrifice, the art of offence and defence, and that victory comes from connection. Having spent six years now working with children across different ages and different settings, I have come to realise that, today, they are disengaged from learning and overly consumed by constant media and digital stimulation. Too often, they are given answers instead of being encouraged to think for themselves.</p>
               <p>
                 RookFoundations was born from a simple conviction:<br />
                 <span className="text-white/80 italic">Every child deserves the opportunity to want to think for themselves.</span>
               </p>
             </div>
 
-            <blockquote className="mt-12 border-l-4 border-[#D4A843] pl-8 max-w-2xl">
+            <blockquote className="mt-12 border-l-4 border-[#D4A843] pl-8 max-w-3xl">
               <p className="font-oswald text-white uppercase tracking-wide leading-relaxed"
                 style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)' }}>
                 "SCHOOL TAUGHT ME HOW TO THINK.<br />
