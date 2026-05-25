@@ -130,7 +130,7 @@ export default function FAQSection() {
             Common questions answered
           </h2>
           <p className="font-lato text-white/40 text-base mt-4 max-w-xl mx-auto leading-relaxed">
-            Honest answers to the things parents ask most. If you don't see your question here, get in touch directly.
+            Before launching, I asked for parents' opinions on private chess tutoring, what mattered to them, and what they were unsure about. These are the questions I heard more than once. If you don't see your question here, get in touch directly.
           </p>
         </div>
 
