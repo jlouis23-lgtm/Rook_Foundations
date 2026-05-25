@@ -79,8 +79,7 @@ export default function About() {
               <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">My Story</span>
               <h2 className="font-oswald text-white uppercase leading-tight mb-8"
               style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', letterSpacing: '0.02em' }}>
-                From player to<br />
-                <span className="text-[#D4A843]">passionate educator.</span>
+                Why Chess? Why the Rook.
               </h2>
 
               <div className="space-y-5 font-lato text-white/60 text-lg leading-relaxed">
