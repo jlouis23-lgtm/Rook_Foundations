@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Classes from './pages/Classes';
 import Contact from './pages/Contact';
+import Booking from './pages/Booking';
 import Pricing from './pages/Pricing';
 
 const AuthenticatedApp = () => {
@@ -45,6 +46,7 @@ const AuthenticatedApp = () => {
         <Route path="/classes" element={<Classes />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/booking" element={<Booking />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>

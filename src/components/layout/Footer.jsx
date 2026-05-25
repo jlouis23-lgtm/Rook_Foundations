@@ -6,6 +6,7 @@ const navLinks = [
 { label: 'Classes', path: '/classes' },
 { label: 'Pricing', path: '/pricing' },
 
+{ label: 'Book a Session', path: '/booking' },
 { label: 'Contact', path: '/contact' }];
 
 
