@@ -47,7 +47,7 @@ const plans = [
     tag: 'Best Value',
     prices: { '1 Hour': { total: 25, note: '£6.25 per student' }, '2 Hours': { total: 30, note: '£7.50 per student' } },
     features: [
-      'Classroom-style experience',
+      'Cooperative problem solving',
       'Team challenges & competitions',
       'Mini tournaments within sessions',
       'Progress report after every session',
