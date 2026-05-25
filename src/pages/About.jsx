@@ -29,7 +29,7 @@ export default function About() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
-    <div style={{ backgroundColor: '#0A0A0A' }} className="pt-32">
+    <div style={{ backgroundColor: '#0A0A0A' }} className="pt-20">
 
       {/* Story — Photo left, text right */}
       <section className="py-28">
@@ -59,8 +59,8 @@ export default function About() {
               transition={{ duration: 0.7, delay: 0.15 }}>
               
               <div className="gold-line mb-5" />
-              <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-1">About</span>
-              <span className="font-oswald text-white/30 text-xs tracking-widest uppercase block mb-5">My Story</span>
+              <span className="font-oswald text-[#D4A843] text-base tracking-widest uppercase block mb-1">About</span>
+              <span className="font-oswald text-white/50 text-sm tracking-widest uppercase block mb-5">My Story</span>
               <h2 className="font-oswald text-white uppercase leading-tight mb-8"
               style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', letterSpacing: '0.02em' }}>
                 Why Chess? Why the Rook.
