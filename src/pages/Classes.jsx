@@ -17,7 +17,7 @@ const phases = [
     duration: '1 or 2 hours', groupSize: 'Up to 4 students', frequency: 'Once weekly',
     description: 'For students with a basic understanding of the rules, this phase introduces the art of planning. Students begin to see patterns, set traps, and think 2–3 moves ahead.',
     whatYouLearn: ['Opening principles (control the centre)', 'Tactical motifs: forks, pins, discovered attacks', 'Basic endgame technique', 'Time management and tactics', 'Friendly in-class tournament play'],
-    parentNote: "You'll start to notice your child thinking more carefully before acting — in chess and in everyday life. This is where the real cognitive transfer begins.",
+    parentNote: "In a world that increasingly rewards speed and instant reactions, we believe there is real value in motivating children to slow down, think carefully, and act with intention over impulse",
   },
   {
     phase: '03', title: 'Advanced', subtitle: 'The Endgame', ages: '', icon: '♛',
