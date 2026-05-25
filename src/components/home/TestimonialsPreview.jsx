@@ -1,6 +1,4 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
 
 const values = [
   {
@@ -18,6 +16,14 @@ const values = [
     accent: '#6bbf9a',
     heading: 'Confidence & Resilience',
     body: 'Progress is measured in mindset, not just moves. Students are encouraged to embrace mistakes and grow at their own pace.',
+  },
+  {
+    icon: '🎯',
+    color: 'from-[#2d1e3a]/60 to-[#1e1228]/60',
+    border: 'border-[#6a4a8c]/30',
+    accent: '#a07ad4',
+    heading: 'Patience & Focus',
+    body: 'Chess teaches children that good outcomes require careful thought and sustained attention. Each puzzle and game becomes a practice in patience. Our aim is for this patience to transcend across different areas of learning.',
   },
   {
     icon: '🤝',
@@ -45,7 +51,7 @@ export default function TestimonialsPreview() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {values.map((v, i) => (
             <motion.div
               key={i}
@@ -66,20 +72,7 @@ export default function TestimonialsPreview() {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.35 }}
-          className="text-center mt-12"
-        >
-          <p className="font-lato text-white/30 text-sm italic mb-5 max-w-xl mx-auto leading-relaxed">
-            As our student community grows, we look forward to sharing authentic experiences from the families who have been part of our journey from the very beginning.
-          </p>
-          <Link to="/testimonials" onClick={() => window.scrollTo(0, 0)} className="inline-flex items-center gap-2 font-oswald text-[#D4A843] text-sm tracking-widest uppercase hover:gap-4 transition-all">
-            Our approach & values <ArrowRight size={16} />
-          </Link>
-        </motion.div>
+
       </div>
     </section>
   );

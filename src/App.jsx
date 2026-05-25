@@ -11,7 +11,6 @@ import PageLayout from './components/layout/PageLayout';
 import Home from './pages/Home';
 import About from './pages/About';
 import Classes from './pages/Classes';
-import Testimonials from './pages/Testimonials';
 import Contact from './pages/Contact';
 import Pricing from './pages/Pricing';
 
@@ -44,7 +43,6 @@ const AuthenticatedApp = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/classes" element={<Classes />} />
-        <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
       </Route>
