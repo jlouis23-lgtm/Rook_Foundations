@@ -57,7 +57,7 @@ export default function Testimonials() {
           <div className="gold-line mx-auto mb-5" />
           <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Our Community</span>
           <h1 className="font-oswald text-white uppercase mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '0.02em' }}>
-            The Journey Starts Here
+            Our Community
           </h1>
           <p className="font-lato text-white/50 text-lg max-w-2xl mx-auto leading-relaxed">
             Rook Foundations is a new and growing programme built on genuine educational values. Here is what every student and family can expect from day one.
