@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Award, BookOpen, Users, Heart } from 'lucide-react';
 import WhyChessResearch from '../components/about/WhyChessResearch';
 
-const INSTRUCTOR_IMG = 'https://media.base44.com/images/public/69fe1341895fe99f147fce64/3b7300d3f_51E37187-F312-43E1-8058-02E71B191F4B.png';
 
 const credentials = [
 { icon: BookOpen, title: 'Academic Tutor', desc: 'A focus on helping children build strong foundations in science, English, and maths.' },
@@ -31,58 +30,42 @@ export default function About() {
   return (
     <div style={{ backgroundColor: '#0A0A0A' }} className="pt-20">
 
-      {/* Story — Photo left, text right */}
-      <section className="py-28">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      {/* Story */}
+      <section className="py-24">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}>
 
-            {/* Photo */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              className="relative flex items-center justify-center">
-              
-              <div className="relative max-w-sm w-full mx-auto">
-                <div className="absolute inset-0 rounded-full bg-[#D4A843]/10 blur-3xl scale-110" />
-                <img
-                  src={INSTRUCTOR_IMG}
-                  alt="RookFoundations Instructor"
-                  className="relative z-10 w-full rounded-full border-2 border-[#D4A843]/50 shadow-2xl shadow-[#D4A843]/15" />
-              </div>
-            </motion.div>
+            <div className="gold-line mb-6" />
+            <div className="flex items-baseline gap-3 mb-3">
+              <span className="font-oswald text-[#D4A843] text-lg tracking-widest uppercase">About</span>
+              <span className="text-[#D4A843]/30 text-lg">·</span>
+              <span className="font-oswald text-white/40 text-base tracking-widest uppercase">My Story</span>
+            </div>
+            <h2 className="font-oswald text-white uppercase leading-tight mb-12"
+              style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)', letterSpacing: '0.02em' }}>
+              WHY CHESS? WHY THE ROOK?
+            </h2>
 
-            {/* Text */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.15 }}>
-              
-              <div className="gold-line mb-5" />
-              <span className="font-oswald text-[#D4A843] text-base tracking-widest uppercase block mb-1">About</span>
-              <span className="font-oswald text-white/50 text-sm tracking-widest uppercase block mb-5">My Story</span>
-              <h2 className="font-oswald text-white uppercase leading-tight mb-8"
-              style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', letterSpacing: '0.02em' }}>
-                Why Chess? Why the Rook.
-              </h2>
+            <div className="space-y-6 font-lato text-white/60 text-lg leading-relaxed max-w-2xl">
+              <p>My chess journey began four years ago. Chess became more than just a game and really helped me become more patient. As a game, it captured some of the most meaningful concepts that are waning today: sacrifice and connection.</p>
+              <p>Although I am only 23, I have spent six years now working with children across different ages and different settings. Through that experience, I have come to realise that young people today are disengaged from learning and overly consumed by constant media and digital stimulation. Too often, they are given answers instead of being encouraged to think for themselves.</p>
+              <p>
+                RookFoundations was born from a simple conviction:<br />
+                <span className="text-white/80 italic">Every child deserves the opportunity to want to think for themselves.</span>
+              </p>
+            </div>
 
-              <div className="space-y-5 font-lato text-white/60 text-lg leading-relaxed">
-                <p>My chess journey began four years ago. Chess became more than just a game and really helped me become more patient. As a game, it captured some of the most meaningful concepts that are waning today: sacrifice and connection.</p>
-                <p>Although I am only 23, I have spent six years now working with children across different ages and different settings. Through that experience, I have come to realise that young people today are disengaged from learning and overly consumed by constant media and digital stimulation. Too often, they are given answers instead of being encouraged to think for themselves.</p>
-                <p>
-                  RookFoundations was born from a simple conviction:<br />
-                  <span className="text-white/80 italic">Every child deserves the opportunity to want to think for themselves.</span>
-                </p>
-              </div>
-
-              <blockquote className="mt-10 border-l-4 border-[#D4A843] pl-6">
-                <p className="font-oswald text-white text-xl uppercase tracking-wide leading-relaxed">
-                  "SCHOOL TAUGHT ME HOW TO THINK.<br />
-                  <span className="text-[#D4A843]">BUT IT DIDN'T TEACH ME HOW TO WANT TO THINK FOR MYSELF."</span>
-                </p>
-              </blockquote>
-            </motion.div>
-          </div>
+            <blockquote className="mt-12 border-l-4 border-[#D4A843] pl-8 max-w-2xl">
+              <p className="font-oswald text-white uppercase tracking-wide leading-relaxed"
+                style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)' }}>
+                "SCHOOL TAUGHT ME HOW TO THINK.<br />
+                <span className="text-[#D4A843]">BUT IT DIDN'T TEACH ME HOW TO WANT TO THINK FOR MYSELF."</span>
+              </p>
+            </blockquote>
+          </motion.div>
         </div>
       </section>
 
