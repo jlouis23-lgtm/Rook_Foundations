@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     q: 'How do I know which phase is right for my child?',
-    a: "You don't — and that's perfectly fine. Our first assessment will identify your child's interest and engagement with chess, and will include an honest evaluation of whether I believe chess is something they could genuinely connect with over time.",
+    a: "You don't. That is perfectly fine. Our first assessment will identify your child's interest and engagement with chess, and will include an honest evaluation of whether I believe chess is something they could genuinely connect with over time.",
     refs: [],
   },
   {
