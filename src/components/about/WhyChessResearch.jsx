@@ -176,10 +176,10 @@ export default function WhyChessResearch() {
                 <div className="w-12 h-px bg-[#D4A843]/40 mb-5" />
 
                 <p className="font-lato text-white/75 text-base md:text-lg leading-relaxed mb-4">
-                  We recognise the current limitations in the research and do not claim that chess alone guarantees academic success.
+                  We recognise the limitations of chess as a transferrable skill into other areas of life and do not claim that chess alone guarantees academic and financial success later in life.
                 </p>
                 <p className="font-lato text-white/60 text-base leading-relaxed">
-                  Instead, our goal is to create an engaging thinking environment where children develop <span className="text-[#D4A843]/90 font-semibold">focus, reasoning, patience, and discipline</span> — habits that may support broader learning experiences and extend positively into everyday life.
+                  Instead, our aim is to create an engaging thinking environment where children develop <span className="text-[#D4A843]/90 font-semibold">focus, reasoning, patience, and discipline</span>. It is our goal that, overtime, the principles they learn with us will help support broader learning experiences and extend positively into other areas of life.
                 </p>
 
                 <div className="mt-6 inline-flex items-center gap-2 bg-[#D4A843]/10 border border-[#D4A843]/25 rounded-full px-4 py-2">
