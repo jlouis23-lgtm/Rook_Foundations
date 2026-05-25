@@ -5,9 +5,9 @@ import { ArrowRight, Award, BookOpen, Users, Heart } from 'lucide-react';
 import WhyChessResearch from '../components/about/WhyChessResearch';
 
 const credentials = [
+  { icon: Users, title: 'Experience Working With Children', desc: 'Background in mentoring, youth support, wellbeing, and residential care with experience supporting children across different needs and environments.' },
   { icon: BookOpen, title: 'Academic Tutor', desc: 'A focus on helping children build strong foundations in science, English, and maths.' },
   { icon: Award, title: 'Psychology & Human Development Background', desc: "Academic training from King's College London and The University of Manchester with a focus on behaviour, learning, decision-making, and child development." },
-  { icon: Users, title: 'Experience Working With Children', desc: 'Background in mentoring, youth support, wellbeing, and residential care with experience supporting children across different needs and environments.' },
   { icon: Heart, title: 'Consistent Chess Experience', desc: 'Four years of dedicated chess study and competitive play, with a strong understanding of the learning process from beginner to intermediate level.' },
 ];
 
