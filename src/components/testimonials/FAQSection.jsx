@@ -10,11 +10,6 @@ const faqs = [
     refs: [],
   },
   {
-    q: 'How do I know which phase is right for my child?',
-    a: "You don't. That is perfectly fine. Our first assessment will identify your child's interest and engagement with chess, and will include an honest evaluation of whether I believe chess is something they could genuinely connect with over time.",
-    refs: [],
-  },
-  {
     q: 'What if my child progresses quickly?',
     a: "Children learn at different rates, and some may progress through the fundamentals of chess surprisingly quickly. My focus is on building strong thinking habits, confidence, concentration, and problem-solving skills rather than simply creating strong chess players. If your child eventually reaches a level beyond what I can coach effectively, I will always be honest and transparent about the next best steps for their development. At that stage, lessons may shift more toward advanced strategy, cognitive exercises, and other structured games that continue to develop critical thinking, decision-making, memory, and creativity. My goal is to help children build skills that remain useful both inside and outside of chess.",
     refs: [],
@@ -26,7 +21,7 @@ const faqs = [
   },
   {
     q: 'How can I be sure that chess is right for my child?',
-    a: "You can't — and that's completely honest. Chess is a complex game and not everyone will engage with it. I am aware of this and have alternative games that may be a better fit for your child. For more details, please get in touch.",
+    a: "You don't. That is perfectly fine. Chess is a complex game and not everyone will engage with it. Our first assessment will identify your child's interest and engagement with chess and will include an honest evaluation of whether I believe chess is something they could genuinely connect with over time. If they do not engage, I offer alternative games of strategy that may be a better fit for your child. For more details, please get in touch.",
     refs: [],
   },
   {
