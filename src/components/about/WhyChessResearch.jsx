@@ -34,7 +34,7 @@ const bubbles = [
     border: 'border-[#6a4a8c]/40',
     accent: '#a07ad4',
     label: 'The Role of Teaching Quality',
-    body: 'A large-scale study across 300+ schools found outcomes improve most when instructors are actively engaged throughout every session.',
+    body: 'A large-scale study across 300+ schools found that chess has limited improvements in problem solving when instructors are not actively engaged throughout every session.',
     citation: '(EEF, 2018; Trinchero & Sala, 2016)',
   },
 ];
