@@ -30,23 +30,6 @@ export default function About() {
 
   return (
     <div style={{ backgroundColor: '#0A0A0A' }} className="pt-32">
-      {/* Page Header */}
-      <section className="relative overflow-hidden py-20 border-b border-[#D4A843]/15">
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `linear-gradient(rgba(212,168,67,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(212,168,67,0.2) 1px, transparent 1px)`,
-          backgroundSize: '80px 80px'
-        }} />
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
-          <div className="gold-line mx-auto mb-5" />
-          <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">About</span>
-          <h1 className="font-oswald text-white uppercase mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '0.02em' }}>
-            More than a game of chess.
-          </h1>
-          <p className="font-lato text-white/50 text-lg leading-relaxed">
-            A space where children are encouraged to learn, stay positive, and feel proud of the progress they make.
-          </p>
-        </div>
-      </section>
 
       {/* Story — Photo left, text right */}
       <section className="py-28">
@@ -76,7 +59,8 @@ export default function About() {
               transition={{ duration: 0.7, delay: 0.15 }}>
               
               <div className="gold-line mb-5" />
-              <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">My Story</span>
+              <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-1">About</span>
+              <span className="font-oswald text-white/30 text-xs tracking-widest uppercase block mb-5">My Story</span>
               <h2 className="font-oswald text-white uppercase leading-tight mb-8"
               style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', letterSpacing: '0.02em' }}>
                 Why Chess? Why the Rook.
