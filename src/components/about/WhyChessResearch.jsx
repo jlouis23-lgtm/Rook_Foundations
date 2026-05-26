@@ -16,7 +16,7 @@ const bubbles = [
     border: 'border-[#3a5c8c]/40',
     accent: '#7aa8d4',
     label: 'Decision-Making & Reasoning',
-    body: 'Every move requires planning ahead, weighing consequences, and adapting when things change — building logical, independent thinkers.',
+    body: 'Every move requires planning ahead, weighing consequences, and adapting when things change. This helps children become logical, independent thinkers.',
     citation: '(Sala & Gobet, 2016)',
   },
   {
