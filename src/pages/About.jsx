@@ -89,7 +89,7 @@ export default function About() {
             {[
               { symbol: '♟', title: 'Confidence First', desc: 'No child should fear making a wrong move. We create a safe, encouraging space where mistakes are celebrated as learning.' },
               { symbol: '♞', title: 'Process Over Outcome', desc: 'We focus on the quality of thinking, not the result. A well-thought-out loss teaches more than a lucky win.' },
-              { symbol: '♛', title: 'Every Child Progresses', desc: 'Our curriculum adapts to the individual. Some become tournament players; all become better thinkers.' },
+              { symbol: '♛', title: 'Every Child Progresses', desc: "Our curriculum adapts to the individual. We identify each child's learning style and provide tailored guidance to help them grow steadily in confidence and understanding." },
             ].map((p) => (
               <div key={p.title} className="bg-[#0D0D0D] p-10 hover:bg-[#111] transition-colors border border-transparent hover:border-[#D4A843]/20">
                 <span className="text-4xl text-[#D4A843] block mb-4">{p.symbol}</span>
