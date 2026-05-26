@@ -23,7 +23,7 @@ const values = [
     border: 'border-[#6a4a8c]/30',
     accent: '#a07ad4',
     heading: 'Patience & Focus',
-    body: 'Chess teaches children that good outcomes require careful thought and sustained attention. Each puzzle and game becomes a practice in patience. Our aim is for this patience to transcend across different areas of learning.',
+    body: 'Chess teaches children that good outcomes require careful thought and sustained attention. This occurs through exploring multiple possibilities and deciding which choice is best. There are often several good moves available. Once a child finds a good move, we encourage them to search for a better one based on their own plan and reasoning. This process involves evaluating options, thinking step by step, and resisting the urge to rush.',
   },
   {
     icon: '🤝',
