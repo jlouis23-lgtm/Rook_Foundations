@@ -36,7 +36,7 @@ const faqs = [
   },
   {
     q: 'Chess is a boy thing. Could my daughter engage with it?',
-    a: "Absolutely. Chess is for anyone who enjoys thinking creatively, solving problems, and learning new skills. Although chess has historically been male-dominated, many women and girls have demonstrated that talent, dedication, and hard work matter far more than gender. A famous example is Judit Polgár, widely regarded as the strongest female chess player in history — she defeated several world champions, including Garry Kasparov, at a time when many still underestimated women in chess. My teaching approach is fully inclusive, and lessons are adapted to each child's personality, interests, and learning style so they can feel comfortable, engaged, and capable from the very beginning.",
+    a: "Absolutely. Chess is for anyone who enjoys thinking creatively, solving problems, and learning new skills. Although chess has historically been male dominated, many women and girls have demonstrated that talent, dedication, and hard work matter far more than gender. A famous example is Judit Polgár, widely regarded as the strongest female chess player in history. She defeated several world champions, including Garry Kasparov, at a time when many still underestimated women in chess. My teaching approach is fully inclusive, and lessons are adapted to each child's personality, interests, and learning style so they can feel comfortable, engaged, and capable from the very beginning.",
     refs: [],
   },
   {
