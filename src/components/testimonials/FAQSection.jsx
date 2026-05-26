@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: 'Can your lessons support children with ADHD?',
-    a: 'Absolutely. Chess has shown promise in helping reduce ADHD symptoms and supporting improvements in planning, working memory, and impulse control [7, 8]. I expect that children with ADHD may find it more difficult to focus for extended periods, pause before acting, or manage frustration when adapting to new concepts. I take a gradual approach, adapting the lesson plan in alignment with each child\'s learning preferences. Small improvements are always recognised and positively reinforced throughout the process — building confidence, trust, and long-term motivation.',
+    a: 'Absolutely. Chess has shown promise in helping reduce ADHD symptoms and supporting improvements in planning, working memory, and impulse control [7, 8]. I expect that children with ADHD may find it more difficult to focus for extended periods, pause before acting, or manage frustration when adapting to new concepts. I take a gradual approach, adapting the lesson plan in alignment with each child\'s learning preferences. Small improvements are always recognised and positively reinforced throughout the process. This aims to build confidence, trust, and long-term motivation.',
     refs: [7, 8],
   },
   {
