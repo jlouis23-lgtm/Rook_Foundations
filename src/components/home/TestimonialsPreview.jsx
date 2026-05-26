@@ -15,7 +15,7 @@ const values = [
     border: 'border-[#4a8c6e]/30',
     accent: '#6bbf9a',
     heading: 'Confidence & Resilience',
-    body: 'Progress is measured in mindset, not just moves. We celebrate small breakthroughs, and bring energy and excitement into lessons to make progress feel rewarding and meaningful. Children can quickly disengage when something does not come easily at first, so we create an environment where mistakes are treated as a natural and valuable part of learning. By encouraging curiosity and steady improvement, we help students stay motivated and continue challenging themselves.',
+    body: 'Progress is measured in mindset over moves. We celebrate small breakthroughs, and bring energy into lessons to make progress feel rewarding and meaningful. Children often disengage when something does not come easily at first. By encouraging curiosity and steady improvement, our goal is to help students stay motivated and continue challenging themselves.',
   },
   {
     icon: '🎯',
