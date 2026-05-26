@@ -7,7 +7,7 @@ const values = [
     border: 'border-[#3a5c8c]/30',
     accent: '#7aa8d4',
     heading: 'Strategic Thinking',
-    body: 'Children learn to plan ahead, weigh consequences, and make thoughtful decisions — habits that extend into every area of life.',
+    body: "Children learn to think ahead, compare different options, and evaluate the consequences of their decisions before making a move. As they play, they develop logical reasoning, pattern recognition, and problem solving skills. Students are encouraged to recognise connections between ideas, anticipate an opponent's plans, and adapt their approach as the game changes.",
   },
   {
     icon: '🌱',
