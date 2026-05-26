@@ -7,7 +7,7 @@ const bubbles = [
     border: 'border-[#4a8c6e]/40',
     accent: '#6bbf9a',
     label: 'Focus & Concentration',
-    body: 'Chess trains children to slow down, sustain attention, and think before acting — skills that carry far beyond the board.',
+    body: 'Chess trains children to slow down, sustain attention, and think before acting. These skills can extend beyond the board.',
     citation: '(Zhang et al., 2025)',
   },
   {
