@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Award, BookOpen, Users, Heart } from 'lucide-react';
 import WhyChessResearch from '../components/about/WhyChessResearch';
+import ProfessionalTraining from '../components/about/ProfessionalTraining';
 
 const credentials = [
   { icon: Users, title: 'Experience Working With Children', desc: 'Background in mentoring, youth support, wellbeing, and residential care with experience supporting children across different needs and environments.' },
@@ -76,7 +77,10 @@ export default function About() {
         </div>
       </section>
 
-      {/* 3. TEACHING PHILOSOPHY — The Three Pillars */}
+      {/* 3. PROFESSIONAL TRAINING & SAFEGUARDING */}
+      <ProfessionalTraining />
+
+      {/* 4. TEACHING PHILOSOPHY — The Three Pillars */}
       <section className="bg-[#0D0D0D] py-24 border-t border-[#D4A843]/10">
         <div className="max-w-6xl mx-auto px-6 lg:px-12 text-center">
           <div className="gold-line mx-auto mb-5" />
@@ -101,7 +105,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* 4. WHY CHESS? — Research & Benefits */}
+      {/* 5. WHY CHESS? — Research & Benefits */}
       <WhyChessResearch />
 
       {/* 5. MY STORY — Why Chess? Why The Rook? */}
