@@ -65,7 +65,9 @@ export default function TestimonialsPreview() {
             >
               <div className="absolute top-4 right-4 w-2 h-2 rounded-full opacity-40" style={{ backgroundColor: v.accent }} />
               <span className="text-3xl block mb-4">{v.icon}</span>
-              <h3 className="font-oswald text-white text-lg uppercase tracking-wide mb-3">{v.heading}</h3>
+              <div className="h-14 flex items-start">
+                <h3 className="font-oswald text-white text-lg uppercase tracking-wide leading-tight">{v.heading}</h3>
+              </div>
               <div className="w-8 h-px mb-4 opacity-40" style={{ backgroundColor: v.accent }} />
               <p className="font-lato text-white/60 text-sm leading-relaxed">{v.body}</p>
             </motion.div>
