@@ -31,7 +31,7 @@ const values = [
     border: 'border-[#8c6a3a]/30',
     accent: '#D4A843',
     heading: 'Supportive Environment',
-    body: 'Small groups, individual attention, and a calm structured space where every child feels safe to think, try, and grow.',
+    body: 'Our approach assures that children feel comfortable asking questions and exploring ideas without fear of getting things wrong. We avoid the "winning versus losing" mindset. Fear of losing can cause children to play too cautiously and miss chances to be creative and take initiative. We encourage ambitious ideas even when they do not work, because that is where the real learning happens.',
   },
 ];
 
