@@ -157,33 +157,7 @@ export default function Classes() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="bg-[#0D0D0D] py-20 border-t border-[#D4A843]/10">
-        <div className="max-w-3xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-12">
-            <div className="gold-line mx-auto mb-5" />
-            <h2 className="font-oswald text-white text-3xl uppercase tracking-wide">Common questions</h2>
-          </div>
-          <div className="space-y-2">
-            {[
-              { q: 'My child has never played before. Is that okay?', a: 'Absolutely. Our Discovery phase is designed specifically for complete beginners. No prior experience needed.' },
-              { q: 'How do I know which phase is right for my child?', a: "In our first session, we assess your child's level and recommend the ideal starting phase. If they are not engaging with chess, we offer alternative strategy games and teaching methods." },
-              { q: 'What if my child progresses quickly?', a: 'Students are assessed regularly and may move up a phase whenever they\'re ready. Once students reach a level beyond our coaching, we shift focus to strengthening positional play through cognitive training, memory and speed exercises, and strategy-based games that build critical thinking and decision-making skills.' },
-              { q: 'Are classes suitable for children with learning difficulties?', a: 'Yes. Chess is a highly inclusive activity, and every child learns at their own pace. While some children may find certain concepts challenging at first, our step-by-step approach helps build concentration, awareness, confidence, and motivation. This is our main goal.' },
-            ].map((faq, i) => (
-              <details key={i} className="group border border-[#D4A843]/15 overflow-hidden bg-[#0A0A0A] hover:border-[#D4A843]/30 transition-colors">
-                <summary className="flex items-center justify-between p-6 cursor-pointer font-oswald text-white uppercase tracking-wide text-lg list-none">
-                  {faq.q}
-                  <span className="text-[#D4A843] font-inter ml-4 flex-shrink-0 group-open:rotate-45 transition-transform text-2xl leading-none">+</span>
-                </summary>
-                <div className="px-6 pb-6 font-lato text-white/50 text-base leading-relaxed border-t border-[#D4A843]/10 pt-4">
-                  {faq.a}
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+
     </div>
   );
 }
