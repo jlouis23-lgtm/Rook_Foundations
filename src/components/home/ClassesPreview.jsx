@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 const phases = [
 {
   phase: '01', title: 'Discovery', ages: 'Ages 5–7', icon: '♟', tagline: 'The First Move',
-  desc: 'Through play and tactile learning, young beginners discover the magic of each chess piece. We make it fun, visual, and confidence-building from day one.',
+  desc: 'Through play and hands on learning, beginners explore the magic of chess one piece at a time. Our lessons are visual, engaging, and designed to build confidence from day one.',
   features: ['Piece names & movements', 'How to checkmate', 'Storytelling approach', 'Progress through practice'],
   image: 'https://images.unsplash.com/photo-1607453998774-d533f65dac99?w=600&q=80'
 },
