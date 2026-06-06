@@ -92,7 +92,7 @@ export default function FAQSection() {
             Things families often ask us
           </h2>
           <p className="font-nunito text-[#2D2520]/55 text-base leading-relaxed max-w-xl mx-auto">
-            We love answering questions. Here are some of the most common ones — but feel free to reach out anytime.
+            Before launching, I asked for parents' opinions on private chess tutoring, what mattered to them, and what they were unsure about. These are the questions which came up the most.
           </p>
         </div>
 
