@@ -39,7 +39,7 @@ const lessonPlanData = {
     ],
     twoHour: [
       { time: '0:00 to 0:10', stage: 'Warm-Up and Recap', activity: 'Review of the last session. A warm-up position to activate pattern recognition and get focused.', icon: '🔁' },
-      { time: '0:10 to 0:30', stage: 'Opening Principles', activity: 'In-depth exploration of an opening concept. Multiple examples shown, with guided board practice to reinforce the idea.', icon: '📖' },
+      { time: '0:10 to 0:30', stage: 'Opening Principles', activity: 'Exploring ideas during the opening phase. Identify principles in the opening moves.', icon: '📖' },
       { time: '0:30 to 0:55', stage: 'Tactical Training', activity: 'A structured puzzle set covering a specific tactical theme. Students are coached to slow down and consider multiple candidate moves.', icon: '⚔️' },
       { time: '0:55 to 1:05', stage: 'Break', activity: 'A relaxed pause. A natural moment to reflect on what\'s been covered.', icon: '☕' },
       { time: '1:05 to 1:35', stage: 'Full Game with Coaching', activity: 'A complete, longer game played at a comfortable pace. The coach observes, questions, and intervenes with hints rather than answers.', icon: '🎯' },
