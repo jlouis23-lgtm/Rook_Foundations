@@ -86,7 +86,7 @@ export default function HeroSection() {
             </h2>
 
             <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed mb-8 max-w-lg">
-              In-person chess classes for children aged 5–12. We build focus, strategy, confidence, and lifelong thinking skills — one move at a time.
+              In-person strategy classes for children aged 5–12. Our goal is to use games like chess and others. With me, they will learn to identify, one move at a time, what is a good decision going forward. We want to create principles of creative thought and sacrifice, as well as establishing a strong sense of tempo, focus, and confidence by making learning entertaining and positive.
             </p>
 
             {/* Pillars */}
