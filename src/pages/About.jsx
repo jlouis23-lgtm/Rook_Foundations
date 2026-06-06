@@ -45,9 +45,14 @@ export default function About() {
               style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)' }}>
               Hello, welcome 👋
             </h1>
-            <p className="font-nunito text-[#2D2520]/60 text-lg leading-relaxed max-w-2xl">
-              Rook Foundations is an education programme built on years of experience working with children, academic training in psychology, and a genuine belief that every child deserves the opportunity to think for themselves.
-            </p>
+            <div className="max-w-lg mx-auto relative">
+              <div className="bg-white/70 border-2 border-[#E8A020]/20 rounded-[50%_50%_50%_50%_/_60%_60%_40%_40%] p-8 shadow-sm">
+                <p className="font-nunito text-[#2D2520] text-center text-lg leading-relaxed font-600">
+                  <span className="inline-block font-fredoka text-5xl font-900 text-[#E8A020] mr-1 leading-none align-middle">R</span>
+                  ook Foundations is an education programme built on years of experience working with children, academic training in psychology, and a genuine belief that every child deserves the opportunity to think for themselves.
+                </p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
