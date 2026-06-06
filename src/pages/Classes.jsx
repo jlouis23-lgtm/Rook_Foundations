@@ -26,7 +26,7 @@ const phases = [
     color: 'bg-purple-50', border: 'border-purple-200', accent: '#7a48c0', tag: 'bg-purple-100 text-purple-700',
     duration: '1 or 2 hours', groupSize: 'Up to 4 students', frequency: 'Once weekly',
     description: 'For students ready to take the next step. This phase focuses on stronger positional understanding, tactical awareness, and confidence in competitive play.',
-    whatYouLearn: ['Opening theory', 'Positional judgement and calculation skills', 'Complex puzzle analysis', 'Clock management and board memory', 'Identifying complex tactics'],
+    whatYouLearn: ['Opening theory', 'Judging positions and planning attacks', 'Focus on puzzles', 'Board memory and thinking with time pressure', 'Finding tactics and special moves'],
     parentNote: "Rook Foundations is designed primarily for beginner to intermediate students. Some students may reach a point where they would benefit from a more competitive environment — and that is something I will always be transparent about. Every lesson is designed to adapt as closely as possible to each child's individual strengths.",
   },
 ];
