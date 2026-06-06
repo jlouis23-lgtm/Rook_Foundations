@@ -29,8 +29,8 @@ export default function Navbar() {
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-[#FAFAF7]/95 backdrop-blur-md border-b-4 border-[#E8A020] shadow-sm shadow-[#E8A020]/8'
-          : 'bg-transparent border-b-4 border-[#E8A020]/0'
+          ? 'bg-[#FAFAF7]/95 backdrop-blur-md shadow-sm shadow-[#E8A020]/8'
+          : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
           {/* Logo */}
