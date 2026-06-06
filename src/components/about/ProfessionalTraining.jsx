@@ -2,73 +2,59 @@ import { motion } from 'framer-motion';
 import { Shield, Brain, HandHeart, HeartPulse, Globe, ClipboardCheck } from 'lucide-react';
 
 const trainings = [
-{
-  icon: Shield,
-  title: 'Safeguarding Children & Young People',
-  desc: 'Understanding child protection responsibilities, safeguarding procedures, and safe practice when working with children and young people.',
-  accent: '#4a7eb8',
-  color: 'from-[#ddeaf7] to-[#cce0f5]',
-  border: 'border-[#7aa8d4]/30',
-},
-{
-  icon: Brain,
-  title: 'Mental Health & Emotional Wellbeing',
-  desc: 'Training focused on emotional wellbeing, resilience, and recognising mental health needs in young people.',
-  accent: '#7a48c0',
-  color: 'from-[#ece0f5] to-[#e2d0f0]',
-  border: 'border-[#9a70c8]/30',
-},
-{
-  icon: HandHeart,
-  title: 'Behaviour Support',
-  desc: 'Experience and training in responding calmly and effectively to behaviours that challenge while maintaining supportive environments.',
-  accent: '#2d8c62',
-  color: 'from-[#d8f0e6] to-[#c8eada]',
-  border: 'border-[#4a8c6e]/30',
-},
-{
-  icon: HeartPulse,
-  title: 'First Aid',
-  desc: 'Emergency first aid training completed through professional child-support work and safeguarding environments.',
-  accent: '#c05050',
-  color: 'from-[#f5e0e0] to-[#f0d0d0]',
-  border: 'border-[#c08080]/30',
-},
-{
-  icon: Globe,
-  title: 'Equality, Diversity & Inclusion',
-  desc: 'Creating respectful, inclusive, and supportive learning environments for children from all backgrounds.',
-  accent: '#b8902e',
-  color: 'from-[#faefd5] to-[#f5e4b8]',
-  border: 'border-[#D4A843]/35',
-},
-{
-  icon: ClipboardCheck,
-  title: 'Professional Practice & Child Safety',
-  desc: 'Additional training in GDPR, record keeping, lone working, safeguarding procedures, and professional boundaries.',
-  accent: '#2a8c88',
-  color: 'from-[#d8f0ee] to-[#c8eae8]',
-  border: 'border-[#3a9c98]/30',
-},
+  {
+    icon: Shield, emoji: '🛡️',
+    title: 'Safeguarding Children & Young People',
+    desc: 'Understanding child protection responsibilities, safeguarding procedures, and safe practice when working with children and young people.',
+    color: 'bg-blue-50 border-blue-200', accent: '#4a7eb8',
+  },
+  {
+    icon: Brain, emoji: '🧠',
+    title: 'Mental Health & Emotional Wellbeing',
+    desc: 'Training focused on emotional wellbeing, resilience, and recognising mental health needs in young people.',
+    color: 'bg-purple-50 border-purple-200', accent: '#7a48c0',
+  },
+  {
+    icon: HandHeart, emoji: '🤲',
+    title: 'Behaviour Support',
+    desc: 'Experience and training in responding calmly and effectively to behaviours that challenge while maintaining supportive environments.',
+    color: 'bg-green-50 border-green-200', accent: '#2d8c62',
+  },
+  {
+    icon: HeartPulse, emoji: '🚑',
+    title: 'First Aid',
+    desc: 'Emergency first aid training completed through professional child-support work and safeguarding environments.',
+    color: 'bg-red-50 border-red-200', accent: '#c05050',
+  },
+  {
+    icon: Globe, emoji: '🌍',
+    title: 'Equality, Diversity & Inclusion',
+    desc: 'Creating respectful, inclusive, and supportive learning environments for children from all backgrounds.',
+    color: 'bg-amber-50 border-amber-200', accent: '#b8790a',
+  },
+  {
+    icon: ClipboardCheck, emoji: '📋',
+    title: 'Professional Practice & Child Safety',
+    desc: 'Additional training in GDPR, record keeping, lone working, safeguarding procedures, and professional boundaries.',
+    color: 'bg-teal-50 border-teal-200', accent: '#2a8c88',
+  },
 ];
 
 export default function ProfessionalTraining() {
   return (
-    <section className="py-24 border-t border-[#D4A843]/10" style={{ backgroundColor: '#FAFAF7' }}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <section className="py-20 bg-[#FAFAF7] relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-64 h-64 bg-blue-100/20 blob-shape pointer-events-none" />
 
-        <div className="text-center mb-16">
-          <div className="gold-line mx-auto mb-5" />
-          <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">
-            Professional Training & Safeguarding
-          </span>
-          <h2
-            className="font-oswald text-[#1C1C1E] uppercase"
-            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}
-          >
-            Training & child-centred practice
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-200 rounded-full px-4 py-2 mb-4">
+            <span className="text-sm">🎓</span>
+            <span className="font-nunito text-blue-700 text-sm font-700">Professional training & safeguarding</span>
+          </div>
+          <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+            Your child is in safe hands
           </h2>
-          <p className="font-lato text-[#2D2B26]/55 text-base mt-4 max-w-xl mx-auto leading-relaxed">
+          <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-xl mx-auto leading-relaxed">
             Training completed through professional work in residential care settings.
           </p>
         </div>
@@ -83,27 +69,17 @@ export default function ProfessionalTraining() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className={`relative rounded-2xl border ${t.border} bg-gradient-to-br ${t.color} p-7
-                  hover:scale-[1.015] transition-transform duration-300`}
-                style={{ boxShadow: `0 4px 24px 0 ${t.accent}0d` }}
+                className={`play-card ${t.color} border-2 rounded-3xl p-7`}
               >
-                <div className="absolute top-4 right-4 w-2 h-2 rounded-full opacity-30" style={{ backgroundColor: t.accent }} />
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-5"
-                  style={{ backgroundColor: `${t.accent}18`, border: `1px solid ${t.accent}30` }}
-                >
-                  <Icon size={18} style={{ color: t.accent }} />
-                </div>
-                <h3 className="font-oswald text-[#1C1C1E] text-base uppercase tracking-wide leading-snug mb-3">
+                <div className="text-3xl mb-4">{t.emoji}</div>
+                <h3 className="font-fredoka text-lg mb-2 leading-snug" style={{ color: t.accent }}>
                   {t.title}
                 </h3>
-                <div className="w-6 h-px mb-3 opacity-35" style={{ backgroundColor: t.accent }} />
-                <p className="font-lato text-[#2D2B26]/65 text-sm leading-relaxed">{t.desc}</p>
+                <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">{t.desc}</p>
               </motion.div>
             );
           })}
         </div>
-
       </div>
     </section>
   );

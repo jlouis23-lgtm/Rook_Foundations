@@ -1,170 +1,103 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Plus, Minus } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, MessageCircle } from 'lucide-react';
 
 const faqs = [
   {
-    q: 'My child has never played before. Is that okay?',
-    a: 'Yes. Chess is a highly inclusive activity, and every child learns at their own pace. Many children begin with no prior experience at all, so lessons are designed to introduce concepts gradually in a supportive and enjoyable way. My teaching approach focuses on small, manageable steps that make learning engaging rather than overwhelming. The goal is not only to teach chess, but also to help children build confidence, concentration, awareness, patience, and motivation over time. The important thing is for children to enjoy the process of learning and feel proud of the progress they make.',
-    refs: [],
+    q: "Does my child need any experience to start?",
+    a: "Not at all! Our Discovery level is designed for complete beginners. We start from scratch — with storytelling, colourful pieces, and a gentle, playful approach that makes every first session feel fun, not intimidating."
   },
   {
-    q: 'What if my child progresses quickly?',
-    a: "Children learn at different rates, and some may progress through the fundamentals of chess surprisingly quickly. My focus is on building strong thinking habits, confidence, concentration, and problem-solving skills rather than simply creating strong chess players. If your child eventually reaches a level beyond what I can coach effectively, I will always be honest and transparent about the next best steps for their development. At that stage, lessons may shift more toward advanced strategy, cognitive exercises, and other structured games that continue to develop critical thinking, decision-making, memory, and creativity. My goal is to help children build skills that remain useful both inside and outside of chess.",
-    refs: [],
+    q: "How do you keep young children engaged during sessions?",
+    a: "We use a mix of storytelling, puzzles, tactile play, and friendly challenges. Sessions are never just 'sit and watch' — children learn by doing, which keeps energy levels high and attention focused throughout."
   },
   {
-    q: 'Are classes suitable for children with learning difficulties?',
-    a: 'Yes. Children with learning difficulties are more than capable of learning chess, and it can serve as a helpful visual learning tool [1]. That said, chess does require a degree of memory, concentration, and communication, which some children may find more challenging [2]. I see chess as an inclusive activity and respect that every child learns at their own pace. For children who find certain concepts more difficult at first, my step-by-step approach aims to guide them gradually. Developing focus and concentration is strongly linked to motivation and engagement, which in turn supports persistence, patience, and deeper learning [3]. That is the framework I use to guide my lessons.',
-    refs: [1, 2, 3],
+    q: "Will chess actually help my child beyond the game itself?",
+    a: "Research shows chess supports focus, reasoning, patience, and emotional regulation. We don't just teach moves — we build habits of mind. Many parents tell us the biggest changes happen at school and at home."
   },
   {
-    q: 'How can I be sure that chess is right for my child?',
-    a: "You don't. That is perfectly fine. Chess is a complex game and not everyone will engage with it. Our first assessment will identify your child's interest and engagement with chess and will include an honest evaluation of whether I believe chess is something they could genuinely connect with over time. If they do not engage, I offer alternative games of strategy that may be a better fit for your child. For more details, please get in touch.",
-    refs: [],
+    q: "What if my child progresses more slowly than others?",
+    a: "Every child develops at their own wonderful pace, and we fully embrace that. Detailed notes are kept after every session, and lessons are adapted to each child's individual needs. There is no pressure to rush ahead."
   },
   {
-    q: 'Can your lessons support children with autism?',
-    a: 'Chess provides structure, clear rules, and consistent patterns of learning, which can all be of benefit for children with autism [4]. That said, playing a complex game with someone sitting opposite you involves social and emotional demands that may feel stressful or unfamiliar at first. I understand that, and I adapt my teaching approach to create a more emotionally safe and supportive environment. This can include a greater focus on computer-assisted instruction, given that it can reduce sensory overload and provide clearer visual cues [5]. The best approach is creating a space that feels free from social pressure and judgement [6]. Before lessons begin, I encourage parents to get in touch so I can tailor lessons appropriately for each student. Our first conversation will give me an idea of their sensory needs, communication style, anxiety levels, processing speed, and learning preferences. This helps me create lessons that are engaging, supportive, and meaningful for each child.',
-    refs: [4, 5, 6],
+    q: "How big are the groups?",
+    a: "Sessions run with a maximum of 4 students. Small group sizes ensure every child receives genuine attention, personalised guidance, and the space to ask questions and make mistakes safely."
   },
   {
-    q: 'Can your lessons support children with ADHD?',
-    a: 'Absolutely. Chess has shown promise in helping reduce ADHD symptoms and supporting improvements in planning, working memory, and impulse control [7, 8]. I expect that children with ADHD may find it more difficult to focus for extended periods, pause before acting, or manage frustration when adapting to new concepts. I take a gradual approach, adapting the lesson plan in alignment with each child\'s learning preferences. Small improvements are always recognised and positively reinforced throughout the process. This aims to build confidence, trust, and long-term motivation.',
-    refs: [7, 8],
-  },
-  {
-    q: 'Chess is a boy thing. Could my daughter engage with it?',
-    a: "Absolutely. Chess is for anyone who enjoys thinking creatively, solving problems, and learning new skills. Although chess has historically been male dominated, many women and girls have demonstrated that talent, dedication, and hard work matter far more than gender. A famous example is Judit Polgár, widely regarded as the strongest female chess player in history. She defeated several world champions, including Garry Kasparov, at a time when many still underestimated women in chess. My teaching approach is fully inclusive, and lessons are adapted to each child's personality, interests, and learning style so they can feel comfortable, engaged, and capable from the very beginning.",
-    refs: [],
-  },
-  {
-    q: 'Are you any good at chess?',
-    a: "I believe in being honest and transparent about my level. I am not a chess master or elite competitive player — and that is not the focus of my teaching. My carefully analysed games are evaluated by the chess engine Stockfish at an estimated strength of around 1600–1800 Elo. In the chess world, this is considered average, reflecting a solid understanding of strategy, structure, and decision-making. This level is well suited for teaching at the beginner stages where most children working with me will be starting from.",
-    refs: [],
+    q: "What does the first session look like?",
+    a: "Your child's first session is relaxed, exploratory, and fun. We assess their current understanding (if any), introduce them to the pieces through play, and — most importantly — make sure they leave excited to come back."
   },
 ];
 
-const references = [
-  { num: 1, text: 'Scholtz, S., et al. (2008). The effects of chess instruction on the mathematical achievement of southern Cape learners. South African Journal of Research in Sport, Physical Education and Recreation.' },
-  { num: 2, text: 'Davis, H., et al. (2004). Cognitive demands and limitations in chess for children with learning difficulties.' },
-  { num: 3, text: 'Deci, E. L., & Ryan, R. M. (2012). Self-determination theory. Handbook of Theories of Social Psychology.' },
-  { num: 4, text: 'National Autistic Society. Structured environments and autism. autism.org.uk' },
-  { num: 5, text: 'Ambrose, K., et al. (2021). Computer-assisted instruction for autistic learners: reducing sensory overload and improving engagement.' },
-  { num: 6, text: 'Konstantinidis, E. I., et al. (2009). Technology-assisted learning for autistic children: social pressure reduction and visual support.' },
-  { num: 7, text: 'Argawal, S. (2023). Chess as an intervention for ADHD: benefits in executive function and impulse control.' },
-  { num: 8, text: 'Yakushina, A., et al. (2025). Chess training and ADHD: improvements in planning, working memory and attention.' },
-];
-
-function FAQItem({ faq, index }) {
+function FAQItem({ faq }) {
   const [open, setOpen] = useState(false);
-
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.05, duration: 0.45 }}
-    >
+    <div className={`rounded-2xl border-2 overflow-hidden transition-all duration-300 ${open ? 'border-[#E8A020]/40 bg-white shadow-md shadow-[#E8A020]/8' : 'border-[#E8A020]/15 bg-white/70'}`}>
       <button
         onClick={() => setOpen(!open)}
-        className={`w-full text-left group flex items-start justify-between gap-4 p-6 border transition-all duration-300 ${
-          open
-            ? 'bg-white border-[#D4A843]/40 shadow-sm'
-            : 'bg-[#FAFAF7] border-[#D4A843]/20 hover:bg-white hover:border-[#D4A843]/35'
-        }`}
+        className="w-full text-left flex items-start justify-between gap-4 p-6"
       >
-        <span className="font-oswald text-[#1C1C1E] text-base md:text-lg uppercase tracking-wide leading-snug flex-1 pt-0.5">
-          {faq.q}
-        </span>
-        <span className={`flex-shrink-0 w-7 h-7 border flex items-center justify-center transition-all duration-300 mt-0.5 ${
-          open ? 'border-[#D4A843] bg-[#D4A843]/10 rotate-0' : 'border-[#D4A843]/30 group-hover:border-[#D4A843]/60'
-        }`}>
-          {open
-            ? <Minus size={12} className="text-[#D4A843]" />
-            : <Plus size={12} className="text-[#D4A843]/60 group-hover:text-[#D4A843]" />
-          }
-        </span>
+        <span className="font-fredoka text-[#2D2520] text-lg leading-snug flex-1 pt-0.5">{faq.q}</span>
+        <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.25 }} className="flex-shrink-0 mt-0.5">
+          <ChevronDown size={20} className="text-[#E8A020]" />
+        </motion.div>
       </button>
-
-      <AnimatePresence initial={false}>
+      <AnimatePresence>
         {open && (
           <motion.div
-            key="answer"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.35, ease: 'easeInOut' }}
+            transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <div className="bg-white border-x border-b border-[#D4A843]/20 px-6 pb-6 pt-5">
-              <p className="font-lato text-[#2D2B26]/70 text-base leading-relaxed">{faq.a}</p>
-              {faq.refs.length > 0 && (
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {faq.refs.map((r) => (
-                    <span key={r} className="font-lato text-[#D4A843]/50 text-xs border border-[#D4A843]/20 px-2 py-0.5 rounded">
-                      [{r}]
-                    </span>
-                  ))}
-                </div>
-              )}
+            <div className="px-6 pb-6 pt-0">
+              <div className="w-8 h-0.5 bg-[#E8A020]/40 rounded-full mb-3" />
+              <p className="font-nunito text-[#2D2520]/70 text-base leading-relaxed">{faq.a}</p>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
 }
 
 export default function FAQSection() {
   return (
-    <section className="py-24 border-t border-[#D4A843]/15" style={{ backgroundColor: '#F5F3EE' }}>
-      <div className="max-w-3xl mx-auto px-6 lg:px-12">
+    <section className="py-24 bg-[#F5F3EE] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-64 h-64 bg-[#E8A020]/6 blob-shape pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-56 h-56 bg-purple-100/20 blob-shape-2 pointer-events-none" />
 
-        {/* Header */}
-        <div className="text-center mb-14">
-          <div className="gold-line mx-auto mb-5" />
-          <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">FAQ</span>
-          <h2 className="font-oswald text-[#1C1C1E] uppercase" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
-            Common questions answered
+      <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 rounded-full px-4 py-2 mb-4">
+            <span className="text-sm">💬</span>
+            <span className="font-nunito text-amber-700 text-sm font-700">Questions from parents like you</span>
+          </div>
+          <h2 className="font-fredoka text-[#2D2520] leading-tight mb-4"
+            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+            Things families often ask us
           </h2>
-          <p className="font-lato text-[#2D2B26]/55 text-base mt-4 max-w-xl mx-auto leading-relaxed">
-            Before launching, I asked for parents' opinions on private chess tutoring, what mattered to them, and what they were unsure about. These are the questions I heard more than once. If you don't see your question here, get in touch directly.
+          <p className="font-nunito text-[#2D2520]/55 text-base leading-relaxed max-w-xl mx-auto">
+            We love answering questions. Here are some of the most common ones — but feel free to reach out anytime.
           </p>
         </div>
 
-        {/* Accordion */}
-        <div className="space-y-2">
-          {faqs.map((faq, i) => (
-            <FAQItem key={i} faq={faq} index={i} />
-          ))}
+        <div className="space-y-4 mb-12">
+          {faqs.map((faq, i) => <FAQItem key={i} faq={faq} />)}
         </div>
 
-        {/* CTA */}
-        <div className="mt-12 text-center">
-          <p className="font-lato text-[#2D2B26]/45 text-sm mb-5">Still have a question?</p>
+        <div className="text-center">
+          <p className="font-nunito text-[#2D2520]/50 text-sm mb-5 font-600">Still have a question? I'd love to help.</p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 border border-[#D4A843]/50 text-[#D4A843] font-oswald text-sm tracking-wider px-8 py-3 hover:bg-[#D4A843] hover:text-white transition-all duration-300"
+            className="inline-flex items-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-base px-8 py-3.5 rounded-2xl hover:bg-[#d4940e] transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#E8A020]/25"
           >
-            GET IN TOUCH <ArrowRight size={14} />
+            <MessageCircle size={18} />
+            Send me a message
           </Link>
         </div>
-
-        {/* References */}
-        <div className="mt-16 border-t border-[#D4A843]/10 pt-10">
-          <h3 className="font-oswald text-[#2D2B26]/40 text-xs uppercase tracking-widest mb-6">Sources</h3>
-          <ul className="space-y-3">
-            {references.map((ref) => (
-              <li key={ref.num} className="flex items-start gap-3">
-                <span className="font-oswald text-[#D4A843]/30 text-xs flex-shrink-0 w-5 text-right mt-0.5">[{ref.num}]</span>
-                <p className="font-lato text-[#2D2B26]/35 text-sm leading-relaxed">{ref.text}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-
       </div>
     </section>
   );

@@ -10,9 +10,10 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
       fontFamily: {
-        oswald: ['Oswald', 'sans-serif'],
+        fredoka: ['Fredoka', 'sans-serif'],
+        nunito: ['Nunito', 'sans-serif'],
         lato: ['Lato', 'sans-serif'],
-        inter: ['Inter', 'sans-serif'],
+        oswald: ['Fredoka', 'sans-serif'],
       },
   		colors: {
         gold: {

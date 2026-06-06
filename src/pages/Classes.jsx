@@ -6,68 +6,75 @@ import LessonPlans from '../components/classes/LessonPlans';
 
 const phases = [
   {
-    phase: '01', title: 'Discovery', subtitle: 'The First Move', ages: '', icon: '♟',
+    phase: '01', title: 'Discovery', subtitle: 'The First Move', ages: '', icon: '♟', emoji: '🌱',
+    color: 'bg-green-50', border: 'border-green-200', accent: '#2d8c62', tag: 'bg-green-100 text-green-700',
     duration: '1 or 2 hours', groupSize: 'Up to 4 students', frequency: 'Once weekly',
     description: 'An introduction to the wonderful world of chess, designed for young learners who are completely new to the game. We use storytelling, colourful pieces, and tactile learning to make chess feel magical.',
-    whatYouLearn: ['Names and movements of all 9 piece types', 'How to set up the board correctly', 'Basic check and checkmate concepts', 'Simple 1-move tactical puzzles', 'Sportsmanship and turn-taking'],
-    parentNote: 'Every child develops at their own pace, and that is something we fully embrace. Some children will grasp concepts quickly. Others may need repetition, forget things between sessions, or take longer to build confidence. All of this is completely normal and expected. My approach is guided by the idea that children grow best when gently stretched just beyond what they can already do and sessions are designed to build on prior understanding one small step at a time. Detailed notes are kept after every session to track progress and ensure no child is ever pushed ahead before they are ready. The focus is on encouragement and building a love of thinking rather than how fast a child progresses.',
+    whatYouLearn: ['Names and movements of all piece types', 'How to set up the board correctly', 'Basic check and checkmate concepts', 'Simple 1-move tactical puzzles', 'Sportsmanship and turn-taking'],
+    parentNote: 'Every child develops at their own pace, and that is something we fully embrace. Some children will grasp concepts quickly. Others may need repetition or take longer to build confidence — and that is completely normal. My approach ensures no child is ever pushed ahead before they are ready. The focus is on encouragement and building a love of thinking.',
   },
   {
-    phase: '02', title: 'Strategy', subtitle: 'The Middle Game', ages: '', icon: '♞',
+    phase: '02', title: 'Strategy', subtitle: 'The Middle Game', ages: '', icon: '♞', emoji: '🧩',
+    color: 'bg-blue-50', border: 'border-blue-200', accent: '#4a7eb8', tag: 'bg-blue-100 text-blue-700',
     duration: '1 or 2 hours', groupSize: 'Up to 4 students', frequency: 'Once weekly',
     description: 'For students with a basic understanding of the rules, this phase introduces the art of planning. Students begin to see patterns, set traps, and think 2–3 moves ahead.',
     whatYouLearn: ['Opening principles (control the centre)', 'Tactical motifs: forks, pins, discovered attacks', 'Basic endgame technique', 'Time management and tactics', 'Friendly in-class tournament play'],
-    parentNote: "In a world that increasingly rewards speed and instant reactions, we believe there is real value in motivating children to slow down, think carefully, and act with intention over impulse",
+    parentNote: "In a world that increasingly rewards speed and instant reactions, we believe there is real value in motivating children to slow down, think carefully, and act with intention over impulse.",
   },
   {
-    phase: '03', title: 'Advanced', subtitle: 'The Endgame', ages: '', icon: '♛',
+    phase: '03', title: 'Advanced', subtitle: 'The Endgame', ages: '', icon: '♛', emoji: '🏆',
+    color: 'bg-purple-50', border: 'border-purple-200', accent: '#7a48c0', tag: 'bg-purple-100 text-purple-700',
     duration: '1 or 2 hours', groupSize: 'Up to 4 students', frequency: 'Once weekly',
     description: 'For students ready to take the next step. This phase focuses on stronger positional understanding, tactical awareness, and confidence in competitive play.',
     whatYouLearn: ['Opening theory', 'Positional judgement and calculation skills', 'Complex puzzle analysis', 'Clock management and board memory', 'Identifying complex tactics'],
-    parentNote: "Rook Foundations is designed primarily for beginner to intermediate students. Some students may reach or already be at a point where they would benefit from a more competitive coaching environment, and that is something I will always be transparent about. Where appropriate, sessions can shift from theory and understanding to more cognitive development activities such as timed challenges and memory exercises. I also introduce alternative strategy games like Xiang Qi (Chinese Chess) to help students apply their thinking skills in new contexts. Every lesson is designed to adapt as closely as possible to each child's individual strengths, challenges, and learning style.",
+    parentNote: "Rook Foundations is designed primarily for beginner to intermediate students. Some students may reach a point where they would benefit from a more competitive environment — and that is something I will always be transparent about. Every lesson is designed to adapt as closely as possible to each child's individual strengths.",
   },
 ];
 
 export default function Classes() {
   const [activePhase, setActivePhase] = useState(0);
   useEffect(() => { window.scrollTo(0, 0); }, []);
+  const p = phases[activePhase];
 
   return (
-    <div style={{ backgroundColor: '#FAFAF7' }} className="pt-32">
+    <div className="bg-[#FAFAF7] pt-32">
       {/* Header */}
-      <section className="relative overflow-hidden py-20 border-b border-[#D4A843]/15">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
-          <div className="gold-line mx-auto mb-5" />
-          <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Classes</span>
-          <h1 className="font-oswald text-[#1C1C1E] uppercase mb-4"
-            style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '0.02em' }}>
-            Structured learning for every level
+      <section className="relative overflow-hidden py-20">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#E8A020]/8 blob-shape pointer-events-none" />
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
+          <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2 mb-5">
+            <span className="text-sm">📚</span>
+            <span className="font-nunito text-[#b8790a] text-sm font-700">Learning at every level</span>
+          </div>
+          <h1 className="font-fredoka text-[#2D2520] mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
+            A class for every curious mind
           </h1>
-          <p className="font-lato text-[#2D2B26]/65 text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="font-nunito text-[#2D2520]/60 text-lg leading-relaxed max-w-2xl mx-auto">
             Three carefully designed phases that take every child from their very first move to confident, independent strategic thinking.
           </p>
         </div>
       </section>
 
       {/* Phase selector */}
-      <section className="py-24">
+      <section className="py-12 pb-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row gap-px bg-[#D4A843]/15 mb-12">
-            {phases.map((p, i) => (
+          {/* Phase pills */}
+          <div className="flex flex-col sm:flex-row justify-center gap-3 mb-12">
+            {phases.map((ph, i) => (
               <button
                 key={i}
                 onClick={() => setActivePhase(i)}
-                className={`flex-1 text-left px-8 py-6 transition-all duration-300 ${
+                className={`flex items-center gap-3 px-6 py-3.5 rounded-2xl font-nunito font-700 text-sm transition-all duration-300 border-2 ${
                   activePhase === i
-                    ? 'bg-[#D4A843] text-white'
-                    : 'bg-[#FAFAF7] text-[#2D2B26]/50 hover:text-[#1C1C1E] hover:bg-white'
+                    ? 'bg-[#E8A020] text-white border-[#E8A020] shadow-lg shadow-[#E8A020]/25'
+                    : 'bg-white text-[#2D2520]/60 border-[#E8A020]/20 hover:border-[#E8A020]/50'
                 }`}
               >
-                <span className={`font-lato text-xs block mb-1 ${activePhase === i ? 'text-white/70' : 'text-[#D4A843]/60'}`}>
-                  Phase {p.phase}
-                </span>
-                <span className="font-oswald text-2xl uppercase tracking-wide block">{p.title}</span>
-
+                <span className="text-xl">{ph.emoji}</span>
+                <div className="text-left">
+                  <span className="block leading-tight">{ph.title}</span>
+                  <span className={`text-[10px] font-600 leading-tight ${activePhase === i ? 'text-white/70' : 'text-[#E8A020]/60'}`}>Phase {ph.phase}</span>
+                </div>
               </button>
             ))}
           </div>
@@ -77,87 +84,93 @@ export default function Classes() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35 }}
-            className="grid grid-cols-1 lg:grid-cols-3 gap-10"
+            className="grid grid-cols-1 lg:grid-cols-3 gap-8"
           >
-            <div className="lg:col-span-2 space-y-8">
-              <div>
-                <div className="flex items-center gap-4 mb-4">
-                  <span className="text-5xl text-[#D4A843]">{phases[activePhase].icon}</span>
+            {/* Main content */}
+            <div className="lg:col-span-2 space-y-6">
+              <div className={`${p.color} border-2 ${p.border} rounded-3xl p-8`}>
+                <div className="flex items-center gap-4 mb-5">
+                  <span className="text-5xl">{p.emoji}</span>
                   <div>
-                    <h2 className="font-oswald text-[#1C1C1E] text-3xl uppercase tracking-wide">{phases[activePhase].title}</h2>
-                    <p className="font-lato text-[#D4A843]/70 text-sm">{phases[activePhase].subtitle}</p>
+                    <span className={`inline-block ${p.tag} rounded-full px-3 py-1 text-xs font-nunito font-700 mb-1`}>{p.subtitle}</span>
+                    <h2 className="font-fredoka text-3xl" style={{ color: p.accent }}>{p.title} Level</h2>
                   </div>
                 </div>
-                <p className="font-lato text-[#2D2B26]/65 text-lg leading-relaxed">{phases[activePhase].description}</p>
+                <p className="font-nunito text-[#2D2520]/70 text-base leading-relaxed">{p.description}</p>
               </div>
-              <div>
-                <h3 className="font-oswald text-[#1C1C1E] text-xl uppercase tracking-wide mb-4">What students learn</h3>
+
+              <div className="bg-white border-2 border-[#E8A020]/15 rounded-3xl p-8">
+                <h3 className="font-fredoka text-[#2D2520] text-xl mb-5">What children discover 🔍</h3>
                 <ul className="space-y-3">
-                  {phases[activePhase].whatYouLearn.map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 font-lato text-[#2D2B26]/65 text-base">
-                      <Check size={16} className="text-[#D4A843] flex-shrink-0" />
+                  {p.whatYouLearn.map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 font-nunito text-[#2D2520]/70 text-sm">
+                      <span className="w-6 h-6 rounded-full flex items-center justify-center text-white text-xs flex-shrink-0"
+                        style={{ backgroundColor: p.accent }}>✓</span>
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="border border-[#D4A843]/25 bg-white p-6">
-                <h3 className="font-oswald text-[#D4A843] text-lg uppercase tracking-wide mb-2 flex items-center gap-2">
-                  <span>♟</span> A note for parents
+
+              <div className="bg-amber-50 border-2 border-amber-200 rounded-3xl p-7">
+                <h3 className="font-fredoka text-[#b8790a] text-lg mb-3 flex items-center gap-2">
+                  💛 A note for parents
                 </h3>
-                <p className="font-lato text-[#2D2B26]/60 text-base leading-relaxed italic">
-                  "{phases[activePhase].parentNote}"
+                <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed italic">
+                  "{p.parentNote}"
                 </p>
               </div>
 
-              <LessonPlans activePhaseTitle={phases[activePhase].title} />
+              <LessonPlans activePhaseTitle={p.title} />
             </div>
 
-            <div className="space-y-4">
-              <div className="bg-white border border-[#D4A843]/20 p-8 shadow-sm">
-                <h3 className="font-oswald text-[#1C1C1E] text-xl uppercase tracking-wide mb-6">Class Details</h3>
+            {/* Sidebar */}
+            <div className="space-y-5">
+              <div className="bg-white border-2 border-[#E8A020]/20 rounded-3xl p-7 shadow-sm">
+                <h3 className="font-fredoka text-[#2D2520] text-xl mb-5">Session details</h3>
                 <div className="space-y-4">
                   {[
-                    { icon: Clock, label: 'Session Length', value: phases[activePhase].duration },
-                    { icon: Users, label: 'Group Size', value: phases[activePhase].groupSize },
-                    { icon: Clock, label: 'Frequency', value: phases[activePhase].frequency },
+                    { icon: Clock, label: 'Session Length', value: p.duration },
+                    { icon: Users, label: 'Group Size', value: p.groupSize },
+                    { icon: Clock, label: 'Frequency', value: p.frequency },
                     { icon: MapPin, label: 'Format', value: 'In-person only' },
                   ].map(({ icon: Icon, label, value }) => (
-                    <div key={label} className="flex items-center gap-3 py-3 border-b border-[#D4A843]/8 last:border-0">
-                      <Icon size={16} className="text-[#D4A843] flex-shrink-0" />
+                    <div key={label} className="flex items-center gap-3 py-3 border-b-2 border-[#E8A020]/8 last:border-0">
+                      <div className="w-8 h-8 bg-[#E8A020]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <Icon size={14} className="text-[#E8A020]" />
+                      </div>
                       <div>
-                        <p className="font-lato text-[#D4A843]/50 text-xs uppercase tracking-wide">{label}</p>
-                        <p className="font-lato text-[#1C1C1E] text-sm font-700 mt-0.5">{value}</p>
+                        <p className="font-nunito text-[#E8A020]/70 text-xs font-700 uppercase tracking-wide">{label}</p>
+                        <p className="font-nunito text-[#2D2520] text-sm font-700 mt-0.5">{value}</p>
                       </div>
                     </div>
                   ))}
                 </div>
                 <Link
                   to="/contact"
-                  className="w-full mt-8 bg-[#D4A843] text-white font-oswald font-700 text-sm tracking-wider py-4 flex items-center justify-center gap-2 hover:bg-[#b8902e] transition-all"
+                  className="w-full mt-6 bg-[#E8A020] text-white font-fredoka font-600 text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/20"
                 >
-                  ENQUIRE NOW <ArrowRight size={16} />
+                  Enquire Now <ArrowRight size={16} />
                 </Link>
               </div>
-              <div className="bg-[#F5F3EE] border border-[#D4A843]/25 p-8">
-                <span className="text-3xl text-[#D4A843] block mb-4">♜</span>
-                <h4 className="font-oswald text-[#1C1C1E] text-xl uppercase tracking-wide mb-3">Not sure which level?</h4>
-                <p className="font-lato text-[#2D2B26]/60 text-sm leading-relaxed mb-6">
+
+              <div className="bg-amber-50 border-2 border-amber-200 rounded-3xl p-7">
+                <span className="text-3xl block mb-3">🤔</span>
+                <h4 className="font-fredoka text-[#2D2520] text-xl mb-2">Not sure which level?</h4>
+                <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed mb-5">
                   In our first session, we'll recommend the perfect starting point. You can also get 50% off your first lesson.
                 </p>
                 <Link
                   to="/contact"
-                  className="block border border-[#D4A843] text-[#D4A843] font-oswald font-700 text-sm tracking-wider py-3 text-center hover:bg-[#D4A843] hover:text-white transition-all"
+                  className="block bg-[#E8A020] text-white font-fredoka font-600 text-sm py-3 rounded-2xl text-center hover:bg-[#d4940e] transition-all hover:shadow-md"
                 >
-                  FREE ASSESSMENT
+                  Free Assessment Session
                 </Link>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
-
-
     </div>
   );
 }

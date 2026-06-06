@@ -1,67 +1,59 @@
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const benefits = [
-  { icon: '🧠', title: 'Concentration & Focus', desc: 'Chess demands sustained attention, training children to block distractions and think deeply — skills that translate directly to academic performance.' },
-  { icon: '♛', title: 'Strategic Thinking', desc: 'Every move requires planning several steps ahead. Children develop the ability to anticipate consequences and think long-term.' },
-  { icon: '💡', title: 'Problem Solving', desc: 'Each game presents unique puzzles. Children learn to break down complex challenges into manageable steps and find creative solutions.' },
-  { icon: '❤️', title: 'Resilience & Patience', desc: 'Learning from defeats and staying composed under pressure builds emotional intelligence and a growth mindset that lasts a lifetime.' },
+  { emoji: '🧠', title: 'Sharper Focus', desc: 'Chess trains young minds to slow down, concentrate, and sustain attention — a skill that transfers directly to school and daily life.' },
+  { emoji: '💪', title: 'Emotional Resilience', desc: 'Learning to lose gracefully and persist through difficulty builds the emotional strength children need to navigate life\'s challenges.' },
+  { emoji: '🔍', title: 'Critical Thinking', desc: 'Every position is a new problem to solve. Children practise evaluating options, predicting outcomes, and making informed decisions.' },
+  { emoji: '🌟', title: 'Genuine Confidence', desc: 'As children master new skills and experience real progress, their self-belief grows — and they start to see themselves as capable thinkers.' },
 ];
-
-const container = { hidden: {}, show: { transition: { staggerChildren: 0.12 } } };
-const item = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } };
 
 export default function BenefitsPreview() {
   return (
-    <section className="bg-[#F5F3EE] py-28 relative overflow-hidden">
-      <div className="ghost-grid-line" style={{ left: '25%' }} />
-      <div className="ghost-grid-line" style={{ left: '50%' }} />
-      <div className="ghost-grid-line" style={{ left: '75%' }} />
+    <section className="bg-[#FAFAF7] py-24 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-72 h-72 bg-blue-100/25 blob-shape pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        {/* Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
           <div>
-            <div className="gold-line mb-5" />
-            <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-3">The Cognitive Edge</span>
-            <h2 className="font-oswald text-[#1C1C1E] uppercase leading-tight"
-              style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '0.02em' }}>
+            <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-200 rounded-full px-4 py-2 mb-5">
+              <span className="text-sm">🔬</span>
+              <span className="font-nunito text-blue-700 text-sm font-700">What the research says</span>
+            </div>
+            <h2 className="font-fredoka text-[#2D2520] leading-tight mb-4"
+              style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
               Chess isn't just a game —<br />
-              <span className="text-[#D4A843]">it's a thinking system.</span>
+              <span className="text-[#E8A020]">it's a thinking system.</span>
             </h2>
           </div>
           <div>
-            <p className="font-lato text-[#2D2B26]/65 text-lg leading-relaxed">
-              Research consistently shows that children who learn chess develop measurably stronger cognitive skills. We've seen it in every student.
+            <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed">
+              Research consistently shows that children who play chess develop stronger reasoning, greater patience, and improved academic engagement. But the real magic is in what you can't measure — the look on a child's face when they spot a winning move for the very first time.
             </p>
-            <Link to="/benefits" className="inline-flex items-center gap-2 mt-6 font-oswald text-[#D4A843] text-sm tracking-widest uppercase hover:gap-3 transition-all">
-              Explore all benefits <ArrowRight size={16} />
+            <Link to="/about" onClick={() => window.scrollTo(0, 0)}
+              className="inline-flex items-center gap-2 font-nunito text-[#E8A020] font-700 text-sm mt-5 hover:gap-4 transition-all">
+              See the research <ArrowRight size={16} />
             </Link>
           </div>
         </div>
 
-        {/* Grid */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-100px' }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#D4A843]/15"
-        >
-          {benefits.map((b) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {benefits.map((b, i) => (
             <motion.div
-              key={b.title}
-              variants={item}
-              className="group bg-[#F5F3EE] p-8 hover:bg-white transition-colors duration-300 cursor-default border border-transparent hover:border-[#D4A843]/30 hover:shadow-md"
+              key={i}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+              className="play-card bg-white border-2 border-[#E8A020]/15 rounded-3xl p-7 cursor-default"
             >
-              <div className="text-4xl mb-5">{b.icon}</div>
-              <h3 className="font-oswald text-[#1C1C1E] text-lg uppercase tracking-wide mb-3 group-hover:text-[#D4A843] transition-colors">{b.title}</h3>
-              <p className="font-lato text-[#2D2B26]/60 text-sm leading-relaxed">{b.desc}</p>
-              <div className="mt-6 w-8 h-0.5 bg-[#D4A843]/30 group-hover:w-full transition-all duration-500" />
+              <div className="text-4xl mb-4">{b.emoji}</div>
+              <h3 className="font-fredoka text-[#2D2520] text-xl mb-2">{b.title}</h3>
+              <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">{b.desc}</p>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

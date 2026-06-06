@@ -22,8 +22,10 @@ const AuthenticatedApp = () => {
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-[#FAFAF7]">
         <div className="flex flex-col items-center gap-4">
-          <span className="text-[#D4A843] text-5xl font-oswald animate-pulse">♜</span>
-          <div className="w-8 h-8 border-2 border-[#D4A843]/20 border-t-[#D4A843] rounded-full animate-spin"></div>
+          <div className="w-16 h-16 bg-[#E8A020] rounded-2xl flex items-center justify-center shadow-lg shadow-[#E8A020]/30 animate-pulse">
+            <span className="text-white text-3xl">♜</span>
+          </div>
+          <div className="w-8 h-8 border-2 border-[#E8A020]/20 border-t-[#E8A020] rounded-full animate-spin"></div>
         </div>
       </div>
     );

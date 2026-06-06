@@ -6,174 +6,170 @@ import WhyChessResearch from '../components/about/WhyChessResearch';
 import ProfessionalTraining from '../components/about/ProfessionalTraining';
 
 const credentials = [
-  { icon: Users, title: 'Experience Working With Children', desc: 'Background in mentoring, youth support, wellbeing, and residential care with experience supporting children across different needs and environments.' },
-  { icon: BookOpen, title: 'Academic Tutor', desc: 'A focus on helping children build strong foundations in science, English, and maths.' },
-  { icon: Award, title: 'Psychology & Human Development Background', desc: "Academic training from King's College London and The University of Manchester with a focus on behaviour, learning, decision-making, and child development." },
-  { icon: Heart, title: 'Consistent Chess Experience', desc: 'Four years of dedicated chess study and competitive play, with a strong understanding of the learning process from beginner to intermediate level.' },
+  { icon: Users, emoji: '👥', title: 'Working With Children', desc: 'Background in mentoring, youth support, wellbeing, and residential care — supporting children across a range of needs and environments.', color: 'bg-blue-50 border-blue-200', accent: '#4a7eb8' },
+  { icon: BookOpen, emoji: '📖', title: 'Academic Tutor', desc: 'Focused on helping children build strong foundations in science, English, and maths through personalised one-to-one support.', color: 'bg-green-50 border-green-200', accent: '#2d8c62' },
+  { icon: Award, emoji: '🎓', title: 'Psychology Background', desc: "Academic training from King's College London and The University of Manchester — specialising in behaviour, learning, and child development.", color: 'bg-purple-50 border-purple-200', accent: '#7a48c0' },
+  { icon: Heart, emoji: '♜', title: 'Dedicated Chess Study', desc: 'Four years of dedicated chess study and competitive play, with a genuine understanding of the learning journey from beginner upwards.', color: 'bg-amber-50 border-amber-200', accent: '#b8790a' },
 ];
 
 const timeline = [
-  { year: '2018', event: "Began privately tutoring GCSE students in Maths, Science, and English — discovering how confidence and personalised support can transform a child's relationship with learning." },
-  { year: '2019', event: "Worked as a Youth Officer at a children's camp, designing age-specific activities that deepened an understanding of child engagement, teamwork, and structured play." },
-  { year: '2021', event: 'Started a BSc in Psychology at the University of Manchester, focusing on developmental psychology, cognitive development, and how children build resilience through supportive environments.' },
-  { year: '2022', event: "Volunteered with Midlands charity ReachOut as a Peer Mentor, helping children from disadvantaged backgrounds build academic confidence, communication skills, and self-belief." },
-  { year: '2023', event: "Conducted research with parents experiencing mental illness, exploring how stigma affects parenting and children's emotional wellbeing." },
-  { year: '2024', event: "Began an MSc in War and Psychology at King's College London, studying trauma therapy, CBT, resilience, and emotional recovery in young people affected by conflict." },
-  { year: '2025', event: 'Conducted an independent study exploring whether AI and machine learning could be used to predict PTSD risk in veterans following combat.' },
-  { year: '2026', event: "Began working as a Children's Residential Support Worker, supporting young people from complex backgrounds with structure, safety, and stability during key stages of development." },
-  { year: 'Today', event: 'Rook Foundations created from the belief that chess builds confidence, patience, critical thinking, and resilience — drawing from years across education, psychology, mentorship, and child support.' },
+  { year: '2018', emoji: '📚', event: "Began privately tutoring GCSE students in Maths, Science, and English — discovering how confidence and personalised support can transform a child's relationship with learning." },
+  { year: '2019', emoji: '⛺', event: "Worked as a Youth Officer at a children's camp, designing age-specific activities that deepened an understanding of child engagement, teamwork, and structured play." },
+  { year: '2021', emoji: '🧠', event: 'Started a BSc in Psychology at the University of Manchester, focusing on developmental psychology, cognitive development, and how children build resilience through supportive environments.' },
+  { year: '2022', emoji: '🤝', event: "Volunteered with Midlands charity ReachOut as a Peer Mentor, helping children from disadvantaged backgrounds build academic confidence, communication skills, and self-belief." },
+  { year: '2023', emoji: '🔍', event: "Conducted research with parents experiencing mental illness, exploring how stigma affects parenting and children's emotional wellbeing." },
+  { year: '2024', emoji: '🏛️', event: "Began an MSc in War and Psychology at King's College London, studying trauma therapy, CBT, resilience, and emotional recovery in young people." },
+  { year: '2025', emoji: '💻', event: 'Conducted an independent study exploring whether AI and machine learning could be used to predict PTSD risk in veterans following combat.' },
+  { year: '2026', emoji: '🏠', event: "Began working as a Children's Residential Support Worker, supporting young people from complex backgrounds with structure, safety, and stability." },
+  { year: 'Today', emoji: '♜', event: 'Rook Foundations — born from a belief that chess builds confidence, patience, critical thinking, and resilience in every child who picks up a piece.' },
 ];
 
 export default function About() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
-    <div style={{ backgroundColor: '#FAFAF7' }} className="pt-20">
+    <div className="bg-[#FAFAF7] pt-20">
 
-      {/* 1. ABOUT — Page Header */}
-      <section className="py-20 border-b border-[#D4A843]/15">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}>
-            <div className="gold-line mb-6" />
-            <div className="flex items-baseline gap-3 mb-3">
-              <span className="font-oswald text-[#D4A843] text-lg tracking-widest uppercase">About</span>
+      {/* Page Header */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#E8A020]/8 blob-shape pointer-events-none" />
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+            <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2 mb-6">
+              <span className="text-sm">♜</span>
+              <span className="font-nunito text-[#b8790a] text-sm font-700">The story behind Rook Foundations</span>
             </div>
-            <h1 className="font-oswald text-[#1C1C1E] uppercase leading-tight mb-6"
-              style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)', letterSpacing: '0.02em' }}>
-              Rook Foundations
+            <h1 className="font-fredoka text-[#2D2520] leading-tight mb-6"
+              style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)' }}>
+              Hello, welcome 👋
             </h1>
-            <p className="font-lato text-[#2D2B26]/65 text-lg leading-relaxed max-w-2xl">
-              A chess education programme built on years of experience working with children, academic training in psychology and human development, and a genuine belief that every child deserves the opportunity to think for themselves.
+            <p className="font-nunito text-[#2D2520]/60 text-lg leading-relaxed max-w-2xl">
+              Rook Foundations is a chess education programme built on years of experience working with children, academic training in psychology, and a genuine belief that every child deserves the opportunity to think for themselves.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* 2. QUALIFICATIONS — Credentials You Can Trust */}
-      <section className="py-24" style={{ backgroundColor: '#FAFAF7' }}>
+      {/* Credentials */}
+      <section className="py-20 bg-[#F5F3EE]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <div className="gold-line mx-auto mb-5" />
-            <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Qualifications</span>
-            <h2 className="font-oswald text-[#1C1C1E] uppercase"
-              style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
-              Credentials you can trust
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 rounded-full px-4 py-2 mb-4">
+              <span className="text-sm">✅</span>
+              <span className="font-nunito text-amber-700 text-sm font-700">Qualifications & experience</span>
+            </div>
+            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+              Why families trust us
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#D4A843]/15">
-            {credentials.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="bg-[#FAFAF7] p-8 hover:bg-white transition-colors border border-transparent hover:border-[#D4A843]/30">
-                <div className="w-12 h-12 border border-[#D4A843]/40 flex items-center justify-center mb-5">
-                  <Icon size={20} className="text-[#D4A843]" />
-                </div>
-                <h3 className="font-oswald text-[#1C1C1E] text-lg uppercase tracking-wide mb-2">{title}</h3>
-                <p className="font-lato text-[#2D2B26]/60 text-sm leading-relaxed">{desc}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {credentials.map(({ emoji, title, desc, color, accent }) => (
+              <div key={title} className={`play-card ${color} border-2 rounded-3xl p-7`}>
+                <div className="text-3xl mb-4">{emoji}</div>
+                <h3 className="font-fredoka text-lg mb-2" style={{ color }}>{title}</h3>
+                <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 3. PROFESSIONAL TRAINING & SAFEGUARDING */}
+      {/* Professional Training */}
       <ProfessionalTraining />
 
-      {/* 4. TEACHING PHILOSOPHY — The Three Pillars */}
-      <section className="bg-[#F5F3EE] py-24 border-t border-[#D4A843]/10">
+      {/* Teaching Philosophy */}
+      <section className="bg-[#F5F3EE] py-20">
         <div className="max-w-6xl mx-auto px-6 lg:px-12 text-center">
-          <div className="gold-line mx-auto mb-5" />
-          <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Teaching Philosophy</span>
-          <h2 className="font-oswald text-[#1C1C1E] uppercase mb-12"
-            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
-            The three pillars of RookFoundations
+          <div className="inline-flex items-center gap-2 bg-purple-100 border border-purple-200 rounded-full px-4 py-2 mb-4">
+            <span className="text-sm">💡</span>
+            <span className="font-nunito text-purple-700 text-sm font-700">How we teach</span>
+          </div>
+          <h2 className="font-fredoka text-[#2D2520] mb-12" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+            Three things we believe in deeply
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#D4A843]/15">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { symbol: '♟', title: 'Confidence First', desc: 'No child should fear making a wrong move. We create a safe, encouraging space where mistakes are celebrated as learning.' },
-              { symbol: '♞', title: 'Process Over Outcome', desc: 'We focus on the quality of thinking, not the result. A well-thought-out loss teaches more than a lucky win.' },
-              { symbol: '♛', title: 'Every Child Progresses', desc: "We identify each child's learning style and provide tailored guidance to help them grow steadily in confidence and understanding." },
+              { symbol: '♟', emoji: '💛', color: 'bg-amber-50 border-amber-200', accent: '#b8790a', title: 'Confidence First', desc: 'No child should fear making a wrong move. We create a safe, encouraging space where mistakes are celebrated as learning.' },
+              { symbol: '♞', emoji: '🎯', color: 'bg-blue-50 border-blue-200', accent: '#4a7eb8', title: 'Process Over Outcome', desc: 'We focus on the quality of thinking, not the result. A well-thought-out loss teaches more than a lucky win.' },
+              { symbol: '♛', emoji: '🌱', color: 'bg-green-50 border-green-200', accent: '#2d8c62', title: 'Every Child Progresses', desc: "We identify each child's learning style and provide tailored guidance to help them grow steadily and confidently." },
             ].map((p) => (
-              <div key={p.title} className="bg-[#F5F3EE] p-10 hover:bg-white transition-colors border border-transparent hover:border-[#D4A843]/25">
-                <span className="text-4xl text-[#D4A843] block mb-4">{p.symbol}</span>
-                <h3 className="font-oswald text-[#1C1C1E] text-xl uppercase tracking-wide mb-3">{p.title}</h3>
-                <p className="font-lato text-[#2D2B26]/60 text-base leading-relaxed">{p.desc}</p>
+              <div key={p.title} className={`play-card ${p.color} border-2 rounded-3xl p-8`}>
+                <div className="text-4xl mb-4">{p.emoji}</div>
+                <h3 className="font-fredoka text-xl mb-3" style={{ color: p.accent }}>{p.title}</h3>
+                <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 5. WHY CHESS? — Research & Benefits */}
+      {/* Why Chess Research */}
       <WhyChessResearch />
 
-      {/* 5. MY STORY — Why Chess? Why The Rook? */}
-      <section className="py-24 border-t border-[#D4A843]/10" style={{ backgroundColor: '#FAFAF7' }}>
-        <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}>
-
-            <div className="gold-line mb-6" />
-            <div className="flex items-baseline gap-3 mb-3">
-              <span className="font-oswald text-[#D4A843] text-lg tracking-widest uppercase">My Story</span>
+      {/* My Story */}
+      <section className="py-20 bg-[#FAFAF7] relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-amber-100/25 blob-shape pointer-events-none" />
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+            <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2 mb-6">
+              <span className="text-sm">📖</span>
+              <span className="font-nunito text-[#b8790a] text-sm font-700">My story</span>
             </div>
-            <h2 className="font-oswald text-[#1C1C1E] uppercase leading-tight mb-12"
-              style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)', letterSpacing: '0.02em' }}>
-              WHY CHESS? WHY THE ROOK?
+            <h2 className="font-fredoka text-[#2D2520] leading-tight mb-10"
+              style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
+              Why chess? Why the Rook?
             </h2>
-
-            <div className="font-lato text-[#2D2B26]/65 text-lg leading-relaxed max-w-3xl space-y-6">
-              <p>Four years ago, chess came to me at a time where I was overloaded with assignments and bombarded with upcoming deadlines. I used to take breaks from study just to have a few games and it really helped me become more patient over time. For me, chess provided a unique kind of playful mental pressure. This helped me focus when completing the most monotonous aspects of research. When I started playing more with an actual person sitting across me, I realised that such a simple game beautifully captures some of the most meaningful concepts that are waning today. These concepts include the importance of sacrifice, the art of offence and defence, and that victory comes from connection. Having spent six years now working with children across different ages and different settings, I have come to realise that, today, they are disengaged from learning and overly consumed by constant media and digital stimulation. Too often, they are given answers instead of being encouraged to think for themselves.</p>
-              <p>
-                RookFoundations was born from a simple conviction:<br />
-                <span className="text-[#1C1C1E]/80 italic">Every child deserves the opportunity to want to think for themselves.</span>
+            <div className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed space-y-5">
+              <p>Four years ago, chess came to me at a time where I was overloaded with assignments and bombarded with deadlines. I used to take breaks just to play a few games — and it genuinely helped me become more patient. For me, chess provided a unique kind of playful mental pressure that helped me focus on the most monotonous parts of research.</p>
+              <p>When I started playing against an actual person, I realised that such a simple game beautifully captures some of the most meaningful concepts waning in today's world — sacrifice, offence and defence, and the understanding that victory comes from connection. Having worked with children across six years and different settings, I've come to see that children today are disengaged from learning and overwhelmed by constant digital stimulation. Too often, they're given answers instead of being encouraged to think for themselves.</p>
+              <p className="text-[#2D2520]/80 font-600 italic">
+                Rook Foundations was born from a simple conviction: every child deserves the opportunity to want to think for themselves.
               </p>
             </div>
-
-            <blockquote className="mt-12 border-l-4 border-[#D4A843] pl-8 max-w-3xl">
-              <p className="font-oswald text-[#1C1C1E] uppercase tracking-wide leading-relaxed"
-                style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)' }}>
-                "SCHOOL TAUGHT ME HOW TO THINK.<br />
-                <span className="text-[#D4A843]">BUT IT DIDN'T TEACH ME HOW TO WANT TO THINK FOR MYSELF."</span>
+            <div className="mt-10 bg-amber-50 border-2 border-amber-200 rounded-2xl p-7">
+              <p className="font-fredoka text-[#2D2520] text-xl leading-relaxed">
+                "School taught me how to think.
+                <span className="text-[#E8A020]"> But it didn't teach me how to want to think for myself."</span>
               </p>
-            </blockquote>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* 6. JOURNEY — The Journey Behind Rook Foundations */}
-      <section className="bg-[#F5F3EE] py-24 border-t border-[#D4A843]/10">
+      {/* Journey Timeline */}
+      <section className="bg-[#F5F3EE] py-20">
         <div className="max-w-3xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <div className="gold-line mx-auto mb-5" />
-            <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Journey</span>
-            <h2 className="font-oswald text-[#1C1C1E] uppercase"
-              style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
-              The Journey Behind Rook Foundations
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-200 rounded-full px-4 py-2 mb-4">
+              <span className="text-sm">🗺️</span>
+              <span className="font-nunito text-blue-700 text-sm font-700">The journey here</span>
+            </div>
+            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+              Years of experience with children
             </h2>
           </div>
           <div className="relative">
-            <div className="absolute left-24 top-0 bottom-0 w-px bg-[#D4A843]/15" />
-            <div className="space-y-10">
+            <div className="absolute left-10 top-0 bottom-0 w-0.5 bg-[#E8A020]/20 rounded-full" />
+            <div className="space-y-8">
               {timeline.map((t, i) => (
                 <motion.div
                   key={t.year}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="flex items-start gap-8">
-                  <div className="w-16 flex-shrink-0 text-right">
-                    <span className="font-oswald text-[#D4A843] font-700 tracking-wide">{t.year}</span>
+                  transition={{ delay: i * 0.08 }}
+                  className="flex items-start gap-6 pl-2">
+                  <div className="flex flex-col items-center flex-shrink-0">
+                    <div className="w-16 h-8 flex items-center justify-center">
+                      <span className="font-fredoka text-[#E8A020] text-sm font-600">{t.year}</span>
+                    </div>
+                    <div className="w-6 h-6 bg-[#E8A020] rounded-full flex items-center justify-center text-xs mt-1 shadow-md shadow-[#E8A020]/20">
+                      <span>{t.emoji}</span>
+                    </div>
                   </div>
-                  <div className="relative flex-shrink-0 mt-2">
-                    <div className="w-3 h-3 bg-[#D4A843]" />
+                  <div className="bg-white rounded-2xl border border-[#E8A020]/12 p-4 flex-1 mt-1">
+                    <p className="font-nunito text-[#2D2520]/70 text-sm leading-relaxed">{t.event}</p>
                   </div>
-                  <p className="font-lato text-[#2D2B26]/65 text-base leading-relaxed">{t.event}</p>
                 </motion.div>
               ))}
             </div>
@@ -181,21 +177,21 @@ export default function About() {
         </div>
       </section>
 
-      {/* 7. CTA — Ready to Meet in Person? */}
-      <section className="py-20 text-center border-t border-[#D4A843]/15" style={{ backgroundColor: '#F5F3EE' }}>
-        <div className="max-w-2xl mx-auto px-6">
-          <div className="gold-line mx-auto mb-6" />
-          <h2 className="font-oswald text-[#1C1C1E] uppercase mb-4"
-            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', letterSpacing: '0.02em' }}>
+      {/* CTA */}
+      <section className="py-20 text-center bg-[#E8A020] relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white/8 blob-shape pointer-events-none" />
+        <div className="max-w-2xl mx-auto px-6 relative z-10">
+          <div className="text-4xl mb-4">♜</div>
+          <h2 className="font-fredoka text-white mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)' }}>
             Ready to meet in person?
           </h2>
-          <p className="font-lato text-[#2D2B26]/60 text-lg mb-8">
-            Get 50% off your first lesson and see the RookFoundations difference for yourself.
+          <p className="font-nunito text-white/80 text-lg mb-8">
+            Get 50% off your first lesson and discover the Rook Foundations difference for yourself.
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 bg-[#D4A843] text-white font-oswald font-700 tracking-wider px-8 py-4 hover:bg-[#b8902e] transition-all">
-            CLAIM 50% OFF FIRST LESSON <ArrowRight size={18} />
+            className="inline-flex items-center gap-2 bg-white text-[#E8A020] font-fredoka font-600 text-lg px-8 py-4 rounded-2xl hover:bg-[#fdf6e8] transition-all hover:shadow-xl hover:-translate-y-0.5">
+            Claim 50% Off First Lesson <ArrowRight size={20} />
           </Link>
         </div>
       </section>

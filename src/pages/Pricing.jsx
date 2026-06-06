@@ -6,140 +6,122 @@ import { ArrowRight, Check } from 'lucide-react';
 const plans = [
   {
     label: 'Individual',
+    emoji: '🧒',
     subtitle: '1 student',
     tag: null,
+    tagStyle: '',
+    cardStyle: 'bg-white border-[#E8A020]/20',
     prices: { '1 Hour': { total: 15, note: 'total' }, '2 Hours': { total: 25, note: 'total' } },
-
-    features: [
-      'Fully personalised lesson plan',
-      'One-to-one instructor attention',
-      'Deeper conceptual learning',
-      'Progress report after every session',
-    ],
+    features: ['Fully personalised lesson plan', 'One-to-one instructor attention', 'Deeper conceptual learning', 'Progress report every session'],
   },
   {
     label: 'Pair',
+    emoji: '👫',
     subtitle: '2 students',
-    tag: 'Recommended',
+    tag: 'Most Popular',
+    tagStyle: 'bg-[#E8A020] text-white',
+    cardStyle: 'bg-amber-50 border-[#E8A020]/40 shadow-xl shadow-[#E8A020]/10',
     prices: { '1 Hour': { total: 20, note: '£10 per student' }, '2 Hours': { total: 30, note: '£15 per student' } },
-    features: [
-      'Shared learning dynamic',
-      'Friendly in-session competition',
-      'Great for siblings',
-      'Progress report after every session',
-    ],
+    features: ['Shared learning dynamic', 'Friendly in-session competition', 'Great for siblings or friends', 'Progress report every session'],
   },
   {
     label: 'Small Group',
+    emoji: '👨‍👩‍👧',
     subtitle: '3 students',
     tag: null,
+    tagStyle: '',
+    cardStyle: 'bg-white border-[#E8A020]/20',
     prices: { '1 Hour': { total: 25, note: '£8.33 per student' }, '2 Hours': { total: 30, note: '£10 per student' } },
-    features: [
-      'Group problem solving',
-      'Blended individual and collaborative learning',
-      'Ideal dynamic for three friends',
-      'Progress report after every session',
-    ],
+    features: ['Group problem solving', 'Collaborative & individual learning', 'Ideal for three friends', 'Progress report every session'],
   },
   {
     label: 'Group',
+    emoji: '🎉',
     subtitle: '4 students',
     tag: 'Best Value',
+    tagStyle: 'bg-green-500 text-white',
+    cardStyle: 'bg-green-50 border-green-200',
     prices: { '1 Hour': { total: 25, note: '£6.25 per student' }, '2 Hours': { total: 30, note: '£7.50 per student' } },
-    features: [
-      'Cooperative problem solving',
-      'Team challenges & competitions',
-      'Mini tournaments within sessions',
-      'Progress report after every session',
-    ],
+    features: ['Cooperative problem solving', 'Team challenges & competitions', 'Mini tournaments within sessions', 'Progress report every session'],
   },
 ];
-
-const container = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } };
-const item = { hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 
 export default function Pricing() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
-    <div style={{ backgroundColor: '#FAFAF7' }} className="pt-32">
+    <div className="bg-[#FAFAF7] pt-32">
       {/* Header */}
-      <section className="relative overflow-hidden py-20 border-b border-[#D4A843]/15">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
-          <div className="gold-line mx-auto mb-5" />
-          <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Pricing</span>
-          <h1 className="font-oswald text-[#1C1C1E] uppercase mb-4"
-            style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '0.02em' }}>
-            Transparent, flexible pricing
+      <section className="relative overflow-hidden py-20">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#E8A020]/8 blob-shape pointer-events-none" />
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
+          <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2 mb-5">
+            <span className="text-sm">💰</span>
+            <span className="font-nunito text-[#b8790a] text-sm font-700">Simple, honest pricing</span>
+          </div>
+          <h1 className="font-fredoka text-[#2D2520] mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
+            What does it cost?
           </h1>
-          <p className="font-lato text-[#2D2B26]/65 text-lg leading-relaxed max-w-2xl mx-auto">
-            Choose the format that works best for your child. All sessions are in-person, with a qualified instructor. The more students, the better the value.
+          <p className="font-nunito text-[#2D2520]/60 text-lg leading-relaxed max-w-2xl mx-auto">
+            Choose the format that works best for your family. All sessions are in-person, with a qualified instructor. The more students, the better the value.
           </p>
         </div>
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-24">
+      <section className="py-12 pb-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-
-          {/* Duration tabs explainer */}
-          <div className="text-center mb-14">
-            <p className="font-lato text-[#2D2B26]/50 text-sm tracking-wide">
-              Prices shown are <span className="text-[#D4A843]">total cost per session</span>. Two session lengths available.
+          <div className="text-center mb-10">
+            <p className="font-nunito text-[#2D2520]/50 text-sm font-600">
+              Prices shown are <span className="text-[#E8A020] font-700">total cost per session</span>. Two session lengths available.
             </p>
           </div>
 
           <motion.div
-            variants={container}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: '-80px' }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#D4A843]/15"
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
           >
-            {plans.map((plan, i) => (
+            {plans.map((plan) => (
               <motion.div
                 key={plan.label}
-                variants={item}
-                className={`relative flex flex-col bg-[#FAFAF7] p-8 hover:bg-white transition-colors duration-300 ${
-                  plan.tag === 'Recommended' ? 'border-t-2 border-[#D4A843]' : ''
-                } ${
-                  plan.tag === 'Best Value' ? 'border-t-2 border-[#C0C0C0]' : ''
-                }`}
+                variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
+                className={`play-card relative flex flex-col border-2 rounded-3xl p-7 ${plan.cardStyle}`}
               >
-                {plan.tag === 'Recommended' && (
-                  <span className="absolute top-0 right-6 -translate-y-1/2 bg-[#D4A843] text-white font-oswald text-xs tracking-widest uppercase px-3 py-1">
-                    {plan.tag}
-                  </span>
-                )}
-                {plan.tag === 'Best Value' && (
-                  <span className="absolute top-0 right-6 -translate-y-1/2 bg-[#C0C0C0] text-[#0A0A0A] font-oswald text-xs tracking-widest uppercase px-3 py-1">
+                {plan.tag && (
+                  <span className={`absolute -top-3 left-1/2 -translate-x-1/2 ${plan.tagStyle} font-nunito text-xs font-700 px-4 py-1.5 rounded-full shadow-md`}>
                     {plan.tag}
                   </span>
                 )}
 
-                <div className="mb-6">
-                  <h2 className="font-oswald text-[#1C1C1E] text-2xl uppercase tracking-wide">{plan.label}</h2>
-                  <p className="font-lato text-[#D4A843]/60 text-sm mt-1">{plan.subtitle}</p>
+                <div className="text-4xl mb-3">{plan.emoji}</div>
+                <div className="mb-5">
+                  <h2 className="font-fredoka text-[#2D2520] text-2xl">{plan.label}</h2>
+                  <p className="font-nunito text-[#E8A020] text-sm font-600 mt-0.5">{plan.subtitle}</p>
                 </div>
 
                 {/* Prices */}
-                <div className="space-y-4 mb-8 pb-8 border-b border-[#D4A843]/15">
+                <div className="space-y-3 mb-7 pb-7 border-b-2 border-[#E8A020]/12">
                   {['1 Hour', '2 Hours'].map((duration) => (
                     <div key={duration} className="flex items-end justify-between">
-                      <span className="font-lato text-[#2D2B26]/50 text-sm">{duration}</span>
+                      <span className="font-nunito text-[#2D2520]/50 text-sm font-600">{duration}</span>
                       <div className="text-right">
-                        <span className="font-oswald text-[#D4A843] text-2xl">£{plan.prices[duration].total}</span>
-                        <span className="font-lato text-[#2D2B26]/40 text-xs block">{plan.prices[duration].note}</span>
+                        <span className="font-fredoka text-[#E8A020] text-2xl">£{plan.prices[duration].total}</span>
+                        <span className="font-nunito text-[#2D2520]/40 text-xs block">{plan.prices[duration].note}</span>
                       </div>
                     </div>
                   ))}
                 </div>
 
                 {/* Features */}
-                <ul className="space-y-3 flex-1 mb-8">
+                <ul className="space-y-3 flex-1 mb-7">
                   {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-3 font-lato text-[#2D2B26]/65 text-sm leading-relaxed">
-                      <Check size={14} className="text-[#D4A843] flex-shrink-0 mt-0.5" />
+                    <li key={f} className="flex items-start gap-3 font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+                      <span className="w-5 h-5 bg-[#E8A020] rounded-full flex items-center justify-center text-white flex-shrink-0 mt-0.5">
+                        <Check size={11} />
+                      </span>
                       {f}
                     </li>
                   ))}
@@ -147,9 +129,9 @@ export default function Pricing() {
 
                 <Link
                   to="/contact"
-                  className="w-full border border-[#D4A843]/40 text-[#D4A843] font-oswald text-sm tracking-wider py-3 flex items-center justify-center gap-2 hover:bg-[#D4A843] hover:text-white transition-all duration-300"
+                  className="w-full bg-[#E8A020] text-white font-fredoka font-600 text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 hover:bg-[#d4940e] transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#E8A020]/20"
                 >
-                  BOOK NOW <ArrowRight size={14} />
+                  Book Now <ArrowRight size={14} />
                 </Link>
               </motion.div>
             ))}
@@ -158,22 +140,22 @@ export default function Pricing() {
       </section>
 
       {/* Offer CTA */}
-      <section className="bg-[#F5F3EE] py-20 border-t border-[#D4A843]/10">
-        <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center">
-          <span className="text-4xl text-[#D4A843] block mb-6">♜</span>
-          <div className="gold-line mx-auto mb-6" />
-          <div className="inline-block bg-[#D4A843]/10 border border-[#D4A843]/40 px-6 py-2 mb-6">
-            <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase">🎉 Limited Offer — 50% Off Your First Lesson</span>
+      <section className="bg-[#E8A020] py-20 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white/8 blob-shape pointer-events-none" />
+        <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center relative z-10">
+          <div className="text-4xl mb-5">♜</div>
+          <div className="inline-flex items-center gap-2 bg-white/20 border border-white/30 rounded-full px-5 py-2 mb-6">
+            <span className="font-nunito text-white font-700 text-sm">🎉 Limited Time — 50% Off Your First Lesson</span>
           </div>
-          <h2 className="font-oswald text-[#1C1C1E] text-3xl uppercase tracking-wide mb-4">Not sure where to start?</h2>
-          <p className="font-lato text-[#2D2B26]/60 text-base leading-relaxed mb-8 max-w-xl mx-auto">
-            Book now at half price — no commitment required. We'll assess your child's level and recommend the best format and session length.
+          <h2 className="font-fredoka text-white text-3xl mb-4">Not sure where to start?</h2>
+          <p className="font-nunito text-white/80 text-base leading-relaxed mb-8 max-w-xl mx-auto">
+            Book at half price — no long-term commitment. We'll assess your child's level and recommend the perfect format and session length.
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 bg-[#D4A843] text-white font-oswald font-700 text-sm tracking-wider px-10 py-4 hover:bg-[#b8902e] transition-all duration-300"
+            className="inline-flex items-center gap-2 bg-white text-[#E8A020] font-fredoka font-600 text-lg px-10 py-4 rounded-2xl hover:bg-[#fdf6e8] transition-all hover:shadow-xl hover:-translate-y-0.5"
           >
-            CLAIM 50% OFF FIRST LESSON <ArrowRight size={16} />
+            Claim 50% Off First Lesson <ArrowRight size={18} />
           </Link>
         </div>
       </section>

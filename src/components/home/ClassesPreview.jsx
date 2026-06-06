@@ -4,109 +4,146 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const phases = [
-{
-  phase: '01', title: 'Discovery', ages: 'Ages 5–7', icon: '♟', tagline: 'The First Move',
-  desc: 'Through play and hands on learning, beginners explore the magic of chess one piece at a time. Our lessons are visual, engaging, and designed to build confidence from day one.',
-  features: ['Piece names & movements', 'How to checkmate', 'Storytelling approach', 'Progress through practice'],
-  image: 'https://images.unsplash.com/photo-1607453998774-d533f65dac99?w=600&q=80'
-},
-{
-  phase: '02', title: 'Strategy', ages: 'Ages 8–11', icon: '♞', tagline: 'The Middle Game',
-  desc: 'Students advance to tactical patterns, forks, pins, and the art of the plan. They begin to see the board as a system of connected decisions.',
-  features: ['Tactics & patterns', 'Opening principles', 'Middle-game tactics', 'Friendly tournaments'],
-  image: 'https://images.unsplash.com/photo-1560174038-da43ac74f01b?w=600&q=80'
-},
-{
-  phase: '03', title: 'Advanced', ages: 'Ages 12–15', icon: '♛', tagline: 'The Endgame',
-  desc: 'Deeper analysis, competitive play, and the psychological dimensions of chess. These students are building a mindset for life.',
-  features: ['Positional analysis', 'Timed games & puzzles', 'Advanced concepts', 'Endgame fundamentals'],
-  image: 'https://images.unsplash.com/photo-1580541832626-2a7131ee809f?w=600&q=80'
-}];
-
+  {
+    phase: '01', title: 'Discovery', ages: 'Ages 5–7', icon: '♟', tagline: 'Just starting out',
+    emoji: '🌱',
+    color: 'from-green-50 to-emerald-50',
+    accent: '#2d8c62',
+    border: 'border-green-200',
+    tag: 'bg-green-100 text-green-700',
+    desc: 'Through play and hands-on learning, young beginners explore the magic of chess one piece at a time. Visual, fun, and confidence-building from day one.',
+    features: ['How each piece moves', 'Setting up the board', 'Your first checkmate', 'Learning through stories'],
+    image: 'https://images.unsplash.com/photo-1607453998774-d533f65dac99?w=600&q=80'
+  },
+  {
+    phase: '02', title: 'Strategy', ages: 'Ages 8–11', icon: '♞', tagline: 'Growing thinkers',
+    emoji: '🧩',
+    color: 'from-blue-50 to-sky-50',
+    accent: '#4a7eb8',
+    border: 'border-blue-200',
+    tag: 'bg-blue-100 text-blue-700',
+    desc: 'Children start to see patterns, set traps, and think 2–3 moves ahead. They begin to understand that chess is about plans, not just moves.',
+    features: ['Tactics & patterns', 'Opening principles', 'Reading the board', 'Friendly mini-tournaments'],
+    image: 'https://images.unsplash.com/photo-1560174038-da43ac74f01b?w=600&q=80'
+  },
+  {
+    phase: '03', title: 'Advanced', ages: 'Ages 12–15', icon: '♛', tagline: 'Independent thinkers',
+    emoji: '🏆',
+    color: 'from-purple-50 to-violet-50',
+    accent: '#7a48c0',
+    border: 'border-purple-200',
+    tag: 'bg-purple-100 text-purple-700',
+    desc: 'Deeper analysis, competitive play, and the psychological dimensions of chess. These students are building a mindset for life — on and off the board.',
+    features: ['Positional analysis', 'Timed challenges', 'Complex puzzle-solving', 'Endgame mastery'],
+    image: 'https://images.unsplash.com/photo-1580541832626-2a7131ee809f?w=600&q=80'
+  }
+];
 
 export default function ClassesPreview() {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState(0);
+  const p = phases[active];
 
   return (
-    <section className="bg-[#FAFAF7] py-28 relative overflow-hidden">
+    <section className="bg-[#F5F3EE] py-24 relative overflow-hidden">
+      {/* Decorative blobs */}
+      <div className="absolute top-0 right-0 w-72 h-72 bg-[#E8A020]/6 blob-shape pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-56 h-56 bg-purple-100/30 blob-shape-2 pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="text-center mb-16">
-        <div className="gold-line mx-auto mb-5" />
-        <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-3">The Skill Tree</span>
-        <h2 className="font-oswald text-[#1C1C1E] uppercase leading-tight mb-4"
-        style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '0.02em' }}>
-          Find the right level for your child
-        </h2>
-        <p className="font-lato text-[#2D2B26]/60 text-lg max-w-2xl mx-auto">Three carefully designed phases that take every child from their very first move to confident strategic thinking. Lessons are adapted for different children.
-        </p>
+        {/* Header */}
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2 mb-4">
+            <span className="text-sm">📚</span>
+            <span className="font-nunito text-[#b8790a] text-sm font-700">Every child's journey is different</span>
+          </div>
+          <h2 className="font-fredoka text-[#2D2520] leading-tight mb-4"
+            style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
+            Where does your child fit in?
+          </h2>
+          <p className="font-nunito text-[#2D2520]/60 text-lg max-w-2xl mx-auto leading-relaxed">
+            Three lovingly designed levels that meet every child exactly where they are — and gently grow with them.
+          </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-0 border border-[#D4A843]/25 overflow-hidden shadow-sm">
-          {/* Tabs */}
-          <div className="lg:w-72 flex-shrink-0 grid grid-cols-3 lg:grid-cols-none lg:flex lg:flex-col border-b lg:border-b-0 lg:border-r border-[#D4A843]/20">
-            {phases.map((p, i) =>
+        {/* Phase selector pills */}
+        <div className="flex flex-col sm:flex-row justify-center gap-3 mb-10">
+          {phases.map((ph, i) => (
             <button
               key={i}
               onClick={() => setActive(i)}
-              className={`flex flex-col items-center justify-center text-center lg:text-left lg:items-start px-2 lg:px-6 py-5 lg:py-6 transition-all duration-300 border-r lg:border-r-0 lg:border-b border-[#D4A843]/20 last:border-r-0 overflow-hidden ${
-              active === i ? 'bg-[#D4A843] text-white' : 'text-[#2D2B26]/50 hover:text-[#1C1C1E] hover:bg-[#D4A843]/8'}`
-              }>
-                <div className={`font-lato text-[10px] mb-1 tracking-widest uppercase leading-none ${active === i ? 'text-white/70' : 'text-[#D4A843]/60'}`}>Phase {p.phase}</div>
-                <div className="font-oswald text-sm lg:text-xl tracking-wide uppercase leading-tight w-full truncate lg:overflow-visible lg:whitespace-normal">{p.title}</div>
-              </button>
-            )}
-          </div>
-
-          {/* Content */}
-          <div className="flex-1 bg-white p-8 lg:p-12">
-            <motion.div
-              key={active}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35 }}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-              
-              <div>
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-4xl text-[#D4A843]">{phases[active].icon}</span>
-                  <div>
-                    <div className="font-lato text-[#D4A843]/70 text-xs tracking-widest uppercase">{phases[active].tagline}</div>
-                    <div className="font-oswald text-[#1C1C1E] text-2xl uppercase tracking-wide">{phases[active].title}</div>
-                  </div>
-                </div>
-                <p className="font-lato text-[#2D2B26]/65 text-base leading-relaxed mb-8">{phases[active].desc}</p>
-                <ul className="space-y-3">
-                  {phases[active].features.map((f, i) =>
-                  <li key={i} className="flex items-center gap-3 font-lato text-[#2D2B26]/70 text-sm">
-                      <span className="w-1.5 h-1.5 bg-[#D4A843] flex-shrink-0" />
-                      {f}
-                    </li>
-                  )}
-                </ul>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 mt-8 bg-[#D4A843] text-white font-oswald font-700 text-sm tracking-wider px-6 py-3 hover:bg-[#b8902e] transition-all">
-                  
-                  ENQUIRE NOW <ArrowRight size={16} />
-                </Link>
+              className={`flex items-center gap-3 px-6 py-3.5 rounded-2xl font-nunito font-700 text-sm transition-all duration-300 border-2 ${
+                active === i
+                  ? `bg-[#E8A020] text-white border-[#E8A020] shadow-lg shadow-[#E8A020]/25`
+                  : `bg-white text-[#2D2520]/60 border-[#E8A020]/20 hover:border-[#E8A020]/50 hover:text-[#2D2520]`
+              }`}
+            >
+              <span className="text-xl">{ph.emoji}</span>
+              <div className="text-left">
+                <span className="block leading-tight">{ph.title}</span>
+                <span className={`text-[10px] font-600 leading-tight ${active === i ? 'text-white/70' : 'text-[#E8A020]/60'}`}>{ph.ages}</span>
               </div>
-              <div className="relative overflow-hidden aspect-video lg:aspect-square">
-                <img src={phases[active].image} alt={phases[active].title} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0A0A0A]/20 to-[#0A0A0A]/60" />
-                <div className="absolute bottom-4 left-4 right-4 bg-white/85 border border-[#D4A843]/30 px-4 py-3">
-                <span className="font-lato text-[#2D2B26]/60 text-xs">In-person · Small groups</span>
-                </div>
-              </div>
-            </motion.div>
-          </div>
+            </button>
+          ))}
         </div>
 
+        {/* Content card */}
+        <motion.div
+          key={active}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className={`bg-gradient-to-br ${p.color} border-2 ${p.border} rounded-3xl overflow-hidden shadow-lg`}
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2">
+            {/* Text side */}
+            <div className="p-8 lg:p-12">
+              <div className={`inline-flex items-center gap-2 ${p.tag} rounded-full px-4 py-1.5 mb-5 font-nunito text-xs font-700 uppercase tracking-wide`}>
+                <span className="text-base">{p.emoji}</span>
+                {p.tagline}
+              </div>
+              <h3 className="font-fredoka mb-4" style={{ fontSize: '2rem', color: p.accent }}>
+                {p.title} Level
+              </h3>
+              <p className="font-nunito text-[#2D2520]/70 text-base leading-relaxed mb-7">{p.desc}</p>
+              <ul className="space-y-3 mb-8">
+                {p.features.map((f, i) => (
+                  <li key={i} className="flex items-center gap-3 font-nunito text-[#2D2520]/75 text-sm">
+                    <span className="w-6 h-6 rounded-full flex items-center justify-center text-white text-xs flex-shrink-0"
+                      style={{ backgroundColor: p.accent }}>✓</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 text-white font-fredoka font-600 text-base px-7 py-3.5 rounded-2xl hover:opacity-90 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                style={{ backgroundColor: p.accent }}>
+                Enquire About This Level
+                <ArrowRight size={18} />
+              </Link>
+            </div>
+
+            {/* Image side */}
+            <div className="relative overflow-hidden min-h-64 lg:min-h-0">
+              <img src={p.image} alt={p.title} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <div className="bg-white/90 backdrop-blur-sm rounded-2xl px-5 py-3 inline-flex items-center gap-2">
+                  <span className="text-base">👥</span>
+                  <span className="font-nunito text-[#2D2520] text-sm font-700">In-person · Small groups · {p.ages}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
         <div className="text-center mt-8">
-          <Link to="/classes" onClick={() => window.scrollTo(0, 0)} className="inline-flex items-center gap-2 font-oswald text-[#D4A843]/70 hover:text-[#D4A843] text-sm tracking-widest uppercase transition-colors">
-            See full class schedule <ArrowRight size={16} />
+          <Link to="/classes" onClick={() => window.scrollTo(0, 0)}
+            className="inline-flex items-center gap-2 font-nunito text-[#E8A020] font-700 text-sm hover:gap-4 transition-all">
+            See the full class breakdown <ArrowRight size={16} />
           </Link>
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 }

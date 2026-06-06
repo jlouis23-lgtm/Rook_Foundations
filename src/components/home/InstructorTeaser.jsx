@@ -6,10 +6,12 @@ const INSTRUCTOR_IMG = 'https://media.base44.com/images/public/69fe1341895fe99f1
 
 export default function InstructorTeaser() {
   return (
-    <section className="bg-[#EEEAE0] py-28 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+    <section className="bg-[#FAFAF7] py-24 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-72 h-72 bg-amber-100/30 blob-shape pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-56 h-56 bg-purple-100/20 blob-shape-2 pointer-events-none" />
 
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -19,11 +21,11 @@ export default function InstructorTeaser() {
             className="relative flex items-center justify-center"
           >
             <div className="relative max-w-sm w-full">
-              <div className="absolute inset-0 rounded-full bg-[#D4A843]/8 blur-2xl scale-110" />
+              <div className="absolute inset-0 bg-[#E8A020]/15 blob-shape blur-2xl scale-110" />
               <img
                 src={INSTRUCTOR_IMG}
                 alt="RookFoundations Instructor"
-                className="relative z-10 w-full rounded-full border-2 border-[#D4A843]/40 shadow-2xl shadow-[#D4A843]/10"
+                className="relative z-10 w-full rounded-full border-4 border-white shadow-2xl shadow-[#E8A020]/15"
               />
             </div>
           </motion.div>
@@ -35,32 +37,32 @@ export default function InstructorTeaser() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <div className="gold-line mb-5" />
-            <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-3">Your Instructor</span>
-            <h2 className="font-oswald text-[#1C1C1E] uppercase leading-tight mb-8"
-              style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
-              Taught by a passionate educator,<br />
-              <span className="text-[#D4A843]">not just a chess player.</span>
+            <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 rounded-full px-4 py-2 mb-5">
+              <span className="text-sm">👋</span>
+              <span className="font-nunito text-amber-700 text-sm font-700">Meet your instructor</span>
+            </div>
+            <h2 className="font-fredoka text-[#2D2520] leading-tight mb-6"
+              style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+              Taught with passion,<br />
+              <span className="text-[#E8A020]">not just knowledge.</span>
             </h2>
-            <p className="font-lato text-[#2D2B26]/65 text-lg leading-relaxed mb-5">
-              With over 8 years of experience teaching chess to children, I combine a background in 
-              child development with a deep love of the game. My philosophy: build confidence first, technique second.
+            <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed mb-5">
+              With a background in psychology, child development, and youth mentorship, I bring far more than chess knowledge to every session — I bring genuine care for each child's growth.
             </p>
-            <p className="font-lato text-[#2D2B26]/65 text-lg leading-relaxed mb-10">
-              Every child learns differently. My small-group sessions ensure every student receives 
-              personalised attention and progresses at their own pace.
+            <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed mb-8">
+              Small groups and personalised attention ensure every child feels supported, celebrated, and challenged in just the right way.
             </p>
 
-            <blockquote className="border-l-4 border-[#D4A843] pl-6 mb-10">
-              <p className="font-oswald text-[#1C1C1E] text-xl leading-relaxed uppercase tracking-wide">
-                "Chess gave me the ability to think under pressure.<br />
-                <span className="text-[#D4A843]">I want to give every child that same gift."</span>
+            <div className="bg-amber-50 border-2 border-amber-200 rounded-2xl p-6 mb-8">
+              <p className="font-fredoka text-[#2D2520] text-xl leading-relaxed">
+                "Chess gave me the ability to think under pressure.
+                <span className="text-[#E8A020]"> I want to give every child that same gift."</span>
               </p>
-            </blockquote>
+            </div>
 
             <Link
               to="/about"
-              className="inline-flex items-center gap-2 font-oswald text-[#D4A843] text-sm tracking-widest uppercase hover:gap-4 transition-all"
+              className="inline-flex items-center gap-2 font-nunito text-[#E8A020] font-700 text-sm hover:gap-4 transition-all"
             >
               Read my full story <ArrowRight size={16} />
             </Link>
