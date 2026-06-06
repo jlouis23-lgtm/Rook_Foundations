@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 
 const phases = [
   {
-    phase: '01', title: 'Discovery', ages: 'Ages 5–7', icon: '♟', tagline: 'Just starting out',
+    phase: '01', title: 'Discovery', ages: '', icon: '♟', tagline: 'Just starting out',
     emoji: '🌱',
     color: 'from-green-50 to-emerald-50',
     accent: '#2d8c62',
@@ -16,7 +16,7 @@ const phases = [
     image: 'https://images.unsplash.com/photo-1607453998774-d533f65dac99?w=600&q=80'
   },
   {
-    phase: '02', title: 'Strategy', ages: 'Ages 8–11', icon: '♞', tagline: 'Growing thinkers',
+    phase: '02', title: 'Strategy', ages: '', icon: '♞', tagline: 'Growing thinkers',
     emoji: '🧩',
     color: 'from-blue-50 to-sky-50',
     accent: '#4a7eb8',
@@ -27,7 +27,7 @@ const phases = [
     image: 'https://images.unsplash.com/photo-1560174038-da43ac74f01b?w=600&q=80'
   },
   {
-    phase: '03', title: 'Advanced', ages: 'Ages 12–15', icon: '♛', tagline: 'Independent thinkers',
+    phase: '03', title: 'Advanced', ages: '', icon: '♛', tagline: 'Independent thinkers',
     emoji: '🏆',
     color: 'from-purple-50 to-violet-50',
     accent: '#7a48c0',

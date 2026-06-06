@@ -83,7 +83,7 @@ export default function HeroSection() {
             </h2>
 
             <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed mb-8 max-w-lg">
-              In-person chess classes for children aged 5–15. We build focus, strategy, confidence, and lifelong thinking skills — one move at a time.
+              In-person chess classes for children aged 5–12. We build focus, strategy, confidence, and lifelong thinking skills — one move at a time.
             </p>
 
             {/* Pillars */}
@@ -106,7 +106,7 @@ export default function HeroSection() {
               </Link>
               <div className="flex items-center gap-2 bg-white border border-[#E8A020]/20 rounded-2xl px-5 py-3.5 shadow-sm">
                 <span className="text-xl">👧🧒</span>
-                <span className="font-nunito text-[#2D2520] text-sm font-700">Ages 5–15</span>
+                <span className="font-nunito text-[#2D2520] text-sm font-700">Ages 5–12</span>
               </div>
             </div>
 
