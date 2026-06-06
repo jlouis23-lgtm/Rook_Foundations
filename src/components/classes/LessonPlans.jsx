@@ -181,7 +181,7 @@ export default function LessonPlans({ activePhaseTitle }) {
     <>
       <div className="bg-amber-50 border-2 border-amber-200 rounded-3xl p-6">
         <h3 className="font-fredoka text-[#b8790a] text-lg mb-1 flex items-center gap-2">
-          📋 What does a session look like?
+          📋 What do sessions tend to look like?
         </h3>
         <p className="font-nunito text-[#2D2520]/50 text-xs mb-5 font-600">
           Tap a plan to explore the full session structure and learning goals.
