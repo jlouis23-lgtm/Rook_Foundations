@@ -160,13 +160,10 @@ export default function BoardVisionSection() {
 
           <div className="mt-8 space-y-5 font-nunito text-[#2D2520]/65 text-base leading-relaxed">
             <p>
-              This diagram illustrates how engaging with complex tasks on small screens can limit our ability to perceive the bigger picture. When visual information is compressed into a confined space, broader patterns and relationships can become more difficult to recognise.
+              This diagram illustrates how engaging with complex tasks on small screens can limit our ability to perceive the bigger picture. When visual information is compressed into a confined space, broader patterns and relationships can become more difficult to recognise. For children, constant exposure to fast-paced digital environments may encourage short-term reactions rather than careful reasoning, planning, and strategic thinking.
             </p>
             <p>
-              For children, constant exposure to fast-paced digital environments may encourage short-term reactions rather than careful reasoning, planning, and strategic thinking. Chess provides an opportunity to develop a wider field of attention by encouraging students to assess the entire board, anticipate future possibilities, and consider multiple factors before making a decision.
-            </p>
-            <p>
-              By learning to visualise strategy on a larger scale, children can strengthen their focus, judgement, and problem-solving abilities. These skills extend beyond chess and can support thoughtful decision-making, concentration, and long-term planning in many areas of life when properly developed and reinforced.
+              Chess provides an opportunity to develop a wider field of attention by encouraging students to assess the entire board, anticipate future possibilities, and consider multiple factors before making a decision. By learning to visualise strategy on a larger scale, children can strengthen their focus, judgement, and problem-solving abilities. These skills extend beyond chess and can support thoughtful decision-making, concentration, and long-term planning in many areas of life when properly developed and reinforced.
             </p>
           </div>
         </motion.div>
