@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, Heart, Sparkles } from 'lucide-react';
+import { ArrowRight, Star, Heart, Sparkles, Shield } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 
 const LEAFLET_IMG = 'https://media.base44.com/images/public/69fe1341895fe99f147fce64/3b7300d3f_51E37187-F312-43E1-8058-02E71B191F4B.png';
@@ -156,6 +156,12 @@ export default function HeroSection() {
               ))}
             </div>
           </motion.div>
+        </div>
+
+        {/* ECF Affiliation */}
+        <div className="absolute bottom-6 right-6 flex items-center gap-1.5">
+          <Shield size={13} className="text-[#E8A020]/40" />
+          <span className="font-nunito text-[#2D2520]/35 text-xs font-600">Connected with English Chess Federation</span>
         </div>
       </div>
     </section>
