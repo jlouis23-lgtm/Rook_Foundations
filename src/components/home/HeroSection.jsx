@@ -61,10 +61,16 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
 
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2 mb-6">
-              <Sparkles size={14} className="text-[#E8A020]" />
-              <span className="font-nunito text-[#b8790a] text-sm font-700">Chess for curious minds</span>
+            {/* Badges */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2">
+                <Sparkles size={14} className="text-[#E8A020]" />
+                <span className="font-nunito text-[#b8790a] text-sm font-700">Chess for curious minds</span>
+              </div>
+              <div className="inline-flex items-center gap-2 bg-purple-100 border border-purple-200 rounded-full px-4 py-2">
+                <span className="text-purple-500 text-sm">♟</span>
+                <span className="font-nunito text-purple-700 text-sm font-700">Strategy for curious minds</span>
+              </div>
             </div>
 
             <h1 className="font-fredoka text-[#2D2520] leading-[1.1] mb-3"
