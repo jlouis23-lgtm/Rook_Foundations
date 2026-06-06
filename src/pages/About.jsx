@@ -21,7 +21,7 @@ const timeline = [
   { year: '2024', emoji: '🏛️', event: "Began an MSc in War and Psychology at King's College London, studying trauma therapy, CBT, resilience, and emotional recovery in young people." },
   { year: '2025', emoji: '💻', event: 'Conducted an independent study exploring whether AI and machine learning could be used to predict PTSD risk in veterans following combat.' },
   { year: '2026', emoji: '🏠', event: "Began working as a Children's Residential Support Worker, supporting young people from complex backgrounds with structure, safety, and stability." },
-  { year: 'Today', emoji: '♜', event: 'Rook Foundations — born from a belief that chess builds confidence, patience, critical thinking, and resilience in every child who picks up a piece.' },
+  { year: 'Today', emoji: '♜', event: 'Rook Foundations was born from a belief that chess and other games like it build positive life skills if they are rewarded and encouraged properly.' },
 ];
 
 export default function About() {
