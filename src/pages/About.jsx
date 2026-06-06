@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Award, BookOpen, Users, Heart } from 'lucide-react';
 import WhyChessResearch from '../components/about/WhyChessResearch';
 import ProfessionalTraining from '../components/about/ProfessionalTraining';
+import BoardVisionSection from '../components/about/BoardVisionSection';
 
 const credentials = [
   { icon: Users, emoji: '👥', title: 'Working With Children', desc: 'Background in mentoring, youth support, wellbeing, and residential care — supporting children across a range of needs and environments.', color: 'bg-blue-50 border-blue-200', accent: '#4a7eb8' },
@@ -102,6 +103,8 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      <BoardVisionSection />
 
       {/* Why Chess Research */}
       <WhyChessResearch />
