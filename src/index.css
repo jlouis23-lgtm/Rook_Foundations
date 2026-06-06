@@ -47,13 +47,13 @@
 /* Scroll progress */
 #scroll-progress {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 5rem;
+  right: 0;
   width: 4px;
   background: linear-gradient(to bottom, #E8A020, #F4C261, #E8A020);
   z-index: 9999;
   transition: height 0.1s linear;
-  border-radius: 0 2px 2px 0;
+  border-radius: 2px 0 0 2px;
 }
 
 /* Warm gold divider */
