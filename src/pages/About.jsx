@@ -45,11 +45,11 @@ export default function About() {
               style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)' }}>
               Hello, welcome 👋
             </h1>
-            <div className="max-w-lg mx-auto relative">
-              <div className="bg-white/70 border-2 border-[#E8A020]/20 rounded-[50%_50%_50%_50%_/_60%_60%_40%_40%] p-8 shadow-sm">
+            <div className="max-w-2xl mx-auto relative">
+              <div className="bg-white/70 border-2 border-[#E8A020]/20 rounded-[45%_55%_50%_50%_/_55%_50%_45%_55%] px-12 py-10 shadow-sm">
                 <p className="font-nunito text-[#2D2520] text-center text-lg leading-relaxed font-600">
-                  <span className="inline-block font-fredoka text-5xl font-900 text-[#E8A020] mr-1 leading-none align-middle">R</span>
-                  ook Foundations is an education programme built on years of experience working with children, academic training in psychology, and a genuine belief that every child deserves the opportunity to think for themselves.
+                  <span className="font-fredoka text-6xl font-900 text-[#E8A020] leading-tight">R</span>
+                  <span className="block mt-1">ook Foundations is an education programme built on years of experience working with children, academic training in psychology, and a genuine belief that every child deserves the opportunity to think for themselves.</span>
                 </p>
               </div>
             </div>
