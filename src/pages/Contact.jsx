@@ -62,7 +62,7 @@ export default function Contact() {
                       <div>
                         <p className="font-nunito text-[#E8A020]/80 text-xs font-700 uppercase tracking-wide mb-1">{label}</p>
                         {href ? (
-                          <a href={href} className="font-nunito text-[#2D2520]/70 text-sm hover:text-[#E8A020] transition-colors whitespace-pre-line">{value}</a>
+                          <a href={href} className="font-nunito text-[#2D2520]/70 text-sm hover:text-[#E8A020] transition-colors whitespace-pre-line break-all">{value}</a>
                         ) : (
                           <p className="font-nunito text-[#2D2520]/70 text-sm whitespace-pre-line">{value}</p>
                         )}
