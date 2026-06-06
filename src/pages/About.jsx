@@ -5,6 +5,7 @@ import { ArrowRight, Award, BookOpen, Users, Heart } from 'lucide-react';
 import WhyChessResearch from '../components/about/WhyChessResearch';
 import ProfessionalTraining from '../components/about/ProfessionalTraining';
 import BoardVisionSection from '../components/about/BoardVisionSection';
+import ChessBg from '@/components/ui/ChessBg';
 
 const credentials = [
   { icon: Users, emoji: '👥', title: 'Working With Children', desc: 'Background in mentoring, youth support, wellbeing, and residential care — supporting children across a range of needs and environments.', color: 'bg-blue-50 border-blue-200', accent: '#4a7eb8' },
@@ -33,6 +34,7 @@ export default function About() {
 
       {/* Page Header */}
       <section className="py-20 relative overflow-hidden">
+        <ChessBg variant="aboutheader" />
         <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2 mb-6">
@@ -110,6 +112,7 @@ export default function About() {
 
       {/* My Story */}
       <section className="py-20 bg-[#FAFAF7] relative overflow-hidden">
+        <ChessBg variant="mystory" />
         <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2 mb-6">
@@ -180,6 +183,7 @@ export default function About() {
 
       {/* CTA */}
       <section className="py-20 text-center bg-[#E8A020] relative overflow-hidden">
+        <ChessBg variant="cta" color="#ffffff" />
         <div className="max-w-2xl mx-auto px-6 relative z-10">
           <div className="text-4xl mb-4">♜</div>
           <h2 className="font-fredoka text-white mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)' }}>

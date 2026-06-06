@@ -81,9 +81,6 @@ export default function FAQSection() {
     <section className="py-24 bg-[#F5F3EE] relative overflow-hidden">
       <ChessBg variant="faq" />
 
-      <div className="absolute top-0 right-0 w-64 h-64 bg-[#E8A020]/6 blob-shape pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-56 h-56 bg-purple-100/20 blob-shape-2 pointer-events-none" />
-
       <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 rounded-full px-4 py-2 mb-4">

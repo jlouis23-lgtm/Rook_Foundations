@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Shield, Brain, HandHeart, HeartPulse, Globe, ClipboardCheck } from 'lucide-react';
+import ChessBg from '@/components/ui/ChessBg';
 
 const trainings = [
   {
@@ -43,7 +44,7 @@ const trainings = [
 export default function ProfessionalTraining() {
   return (
     <section className="py-20 bg-[#FAFAF7] relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-64 h-64 bg-blue-100/20 blob-shape pointer-events-none" />
+      <ChessBg variant="training" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-12">

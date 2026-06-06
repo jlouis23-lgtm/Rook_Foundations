@@ -42,9 +42,6 @@ export default function TestimonialsPreview() {
     <section className="bg-[#FAFAF7] py-24 relative overflow-hidden">
       <ChessBg variant="testimonials" />
 
-      <div className="absolute top-0 left-0 w-64 h-64 bg-green-100/30 blob-shape pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-52 h-52 bg-blue-100/25 blob-shape-2 pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 bg-green-100 border border-green-200 rounded-full px-4 py-2 mb-4">

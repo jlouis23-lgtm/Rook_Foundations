@@ -70,8 +70,9 @@ export default function Pricing() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-12 pb-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="py-12 pb-24 relative overflow-hidden">
+        <ChessBg variant="page" />
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center mb-10">
             <p className="font-nunito text-[#2D2520]/50 text-sm font-600">
               Prices shown are <span className="text-[#E8A020] font-700">total cost per session</span>. Two session lengths available.
@@ -142,7 +143,7 @@ export default function Pricing() {
 
       {/* Offer CTA */}
       <section className="bg-[#E8A020] py-20 relative overflow-hidden">
-
+        <ChessBg variant="pricingcta" color="#ffffff" />
         <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center relative z-10">
           <div className="text-4xl mb-5">♜</div>
           <div className="inline-flex items-center gap-2 bg-white/20 border border-white/30 rounded-full px-5 py-2 mb-6">

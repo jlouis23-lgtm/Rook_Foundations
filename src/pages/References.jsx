@@ -108,7 +108,7 @@ export default function References() {
     <div className="bg-[#FAFAF7] pt-32 pb-24">
       {/* Header */}
       <section className="relative overflow-hidden py-16">
-        <ChessBg variant="page" />
+        <ChessBg variant="references" />
 
         <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
           <Link

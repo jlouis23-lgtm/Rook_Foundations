@@ -58,8 +58,9 @@ export default function Classes() {
       </section>
 
       {/* Phase selector */}
-      <section className="py-12 pb-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="py-12 pb-24 relative overflow-hidden">
+        <ChessBg variant="classes" />
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
           {/* Phase pills */}
           <div className="flex flex-col sm:flex-row justify-center gap-3 mb-12">
             {phases.map((ph, i) => (

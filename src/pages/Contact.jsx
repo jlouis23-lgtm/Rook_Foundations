@@ -39,8 +39,9 @@ export default function Contact() {
       </section>
 
       {/* Info + Form */}
-      <section className="py-8 pb-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="py-8 pb-24 relative overflow-hidden">
+        <ChessBg variant="page" />
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {/* Info */}
             <div className="space-y-6">

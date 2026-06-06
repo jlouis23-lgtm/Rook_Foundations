@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import ChessBg from '@/components/ui/ChessBg';
 
 const INSTRUCTOR_IMG = 'https://media.base44.com/images/public/69fe1341895fe99f147fce64/3b7300d3f_51E37187-F312-43E1-8058-02E71B191F4B.png';
 
 export default function InstructorTeaser() {
   return (
     <section className="bg-[#FAFAF7] py-24 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-72 h-72 bg-amber-100/30 blob-shape pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-56 h-56 bg-purple-100/20 blob-shape-2 pointer-events-none" />
+      <ChessBg variant="instructor" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

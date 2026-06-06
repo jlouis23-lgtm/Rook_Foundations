@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import ChessBg from '@/components/ui/ChessBg';
 
 const bubbles = [
   {
@@ -47,7 +48,7 @@ const references = [
 export default function WhyChessResearch() {
   return (
     <section className="py-20 bg-[#FAFAF7] relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100/20 blob-shape pointer-events-none" />
+      <ChessBg variant="whychess" />
 
       <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-12">
