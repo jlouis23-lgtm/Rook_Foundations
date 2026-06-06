@@ -1,157 +1,204 @@
 /**
- * ChessBg — decorative chess piece silhouettes in page margins only.
- * Pieces are uniform size, positioned on left/right edges to avoid content clash.
+ * ChessBg — chess.com-style filled piece silhouettes.
+ * Pieces are placed at fixed pixel offsets from the section corners/edges,
+ * so they stay in dead space regardless of viewport size.
+ * On narrow screens (< 768px), only corner pieces are shown.
  */
 
-// Proper recognisable chess piece SVG paths (viewBox 0 0 45 45 — standard chess piece scale)
+// Chess.com–style filled SVG paths, viewBox "0 0 45 45"
 const PIECES = {
-  king: "M22.5 11.63V6M20 8h5M22.5 25s4.5-7.5 3-10.5c0 0-1-2.5-3-2.5s-3 2.5-3 2.5c-1.5 3 3 10.5 3 10.5zM11.5 37c5.5 3.5 15.5 3.5 21 0v-7s9-4.5 6-10.5c-4-6.5-13.5-3.5-16 4V17s0.5-1.5 6-2c0 0 1 0 0-1l-3.5-3.5c-0.5-0.5-2.5-0.5-3 0L18.5 14c-1 1 0 1 0 1 5.5 0.5 6 2 6 2v6.5C22 16 12.5 13 8.5 19.5c-3 6 5 10.5 3 10.5v7z",
-  queen: "M9 26c8.5-1.5 21-1.5 27 0l2.5-12.5L31 25l-0.3-14.1-5.2 13.6-3-14.5-3 14.5-5.2-13.6L14 25 6.5 13.5 9 26zM9 26c0 2 1.5 2 2.5 4 1 1.5 1 1 0.5 3.5-1.5 1-1.5 2.5-1.5 2.5-1.5 1.5 0.5 2.5 0.5 2.5 6.5 1 16.5 1 23 0 0 0 1.5-1 0-2.5 0 0-0.5-1.5-1.5-2.5-0.5-2.5-0.5-2 0.5-3.5 1-2 2.5-2 2.5-4 0-0.5-0.5-1-3-1-2.5 0-3-0.5-3-1l0.5-0.5c0.5-1 0-1.5-1.5-1.5S9.5 24 9.5 25l0.5 0.5C9.5 26 9.5 26.5 9 26z",
-  rook: "M9 39h27v-3H9v3zM14 29.5v-14h17v14H14zM14 16.5L11 14V9h4v2h3V9h3v2h3V9h4v5l-3 2.5H14zM11 14h23",
-  bishop: "M9 36c3.39-0.97 10.11 0.43 13.5-2 3.39 2.43 10.11 1.03 13.5 2 0 0 1.5 0.5 1.5 1.5 0 0.5-0.25 0.75-0.5 1C36 39 36 39.5 36 39.5c0 1-1 2-2 2H11c-1 0-2-1-2-2 0 0 0-0.5-0.5-1C8.25 38.25 8 38 8 37.5 8 36.5 9 36 9 36zM15 32c2.5 2.5 12.5 2.5 15 0 0.5-1.5-1.5-3-1.5-3L27 22.5c0 0-2 2-4.5 2s-4.5-2-4.5-2L16.5 29c0 0-2 1.5-1.5 3zM22.5 14a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM22.5 9c-1.5 1.5-3.5 3.5-3.5 6s2 4.5 3.5 5c1.5-0.5 3.5-2.5 3.5-5s-2-4.5-3.5-6zM11.5 37h22M22.5 14v8",
-  knight: "M 22,10 C 32.5,11 38.5,18 38,39 L 15,39 C 15,30 25,32.5 23,18 M 24,18 C 24.384,20.077 18.645,21.823 16,17 C 14.028,13.369 16.973,11.726 21,11 C 21,11 22.998,11.248 22.998,10 M 15,39 C 15,30 25,32.5 23,18 M 17,16 C 17,16 20,14.5 22,10 M 9.5,25.5 A 0.5,0.5 0 1 1 8.5,25.5 A 0.5,0.5 0 1 1 9.5,25.5 z M 15,15.5 A 0.5,1.5 0 1 1 14,15.5 A 0.5,1.5 0 1 1 15,15.5 z",
-  pawn: "M22.5 9a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22.5 9c-3.5 0-6 1.5-6 4s2.5 5 6 5 6-2.5 6-5-2.5-4-6-4zM15 28c0-2.5 3-6 7.5-6s7.5 3.5 7.5 6M11 36h23v-8H11v8z",
+  king: `
+    <g fill="#7B4F10" stroke="#7B4F10" stroke-width="0" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 22.5,11.63 L 22.5,6" stroke-width="1.5" stroke-linecap="square"/>
+      <path d="M 20,8 L 25,8" stroke-width="1.5" stroke-linecap="square"/>
+      <path d="M 22.5,25 C 22.5,25 27,17.5 25.5,14.5 C 25.5,14.5 24.5,12 22.5,12 C 20.5,12 19.5,14.5 19.5,14.5 C 18,17.5 22.5,25 22.5,25 Z" fill="#7B4F10"/>
+      <path d="M 11.5,37 C 17,40.5 27,40.5 33.5,37 L 33.5,30 C 33.5,30 41.5,25.5 38.5,19.5 C 34.5,13 25,16.5 22.5,23.5 L 22.5,17 C 27.5,16.5 32,14.5 32,14.5 C 32,14.5 32.5,13 28.5,13.5 L 25,10 C 24.5,9.5 22.5,9.5 22,10 L 18.5,13.5 C 14.5,13 15,14.5 15,14.5 C 15,14.5 19.5,16.5 22.5,17 L 22.5,23.5 C 20,16.5 10.5,13 6.5,19.5 C 3.5,25.5 11.5,30 11.5,30 Z" fill="#7B4F10"/>
+      <path d="M 11.5,37 C 17,40.5 27,40.5 33.5,37" fill="none" stroke="#7B4F10" stroke-width="1.5"/>
+    </g>`,
+  queen: `
+    <g fill="#7B4F10" stroke="#7B4F10" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="6" cy="12" r="2.75"/>
+      <circle cx="14" cy="9" r="2.75"/>
+      <circle cx="22.5" cy="8" r="2.75"/>
+      <circle cx="31" cy="9" r="2.75"/>
+      <circle cx="39" cy="12" r="2.75"/>
+      <path d="M 9,26 C 17.5,24.5 30,24.5 36,26 L 38.5,13.5 L 31,25 L 30.7,10.9 L 25.5,24.5 L 22.5,10 L 19.5,24.5 L 14.3,10.9 L 14,25 L 6.5,13.5 Z" fill="#7B4F10"/>
+      <path d="M 9,26 C 9,28 10.5,28 11.5,30 C 12.5,31.5 12.5,31 12,33.5 C 10.5,34.5 10.5,36 10.5,36 C 9,37.5 11,38.5 11,38.5 C 17.5,39.5 27.5,39.5 34,38.5 C 34,38.5 36,37.5 34.5,36 C 34.5,36 34.5,34.5 33,33.5 C 32.5,31 32.5,31.5 33.5,30 C 34.5,28 36,28 36,26 C 29,24.5 16,24.5 9,26 Z" fill="#7B4F10"/>
+      <path d="M 11,38.5 L 34,38.5" stroke-width="1" fill="none"/>
+      <path d="M 11,36 L 34,36" stroke-width="1" fill="none"/>
+    </g>`,
+  rook: `
+    <g fill="#7B4F10" stroke="#7B4F10" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 9,39 L 36,39 L 36,36 L 9,36 Z" fill="#7B4F10"/>
+      <path d="M 12,36 L 12,22 L 33,22 L 33,36 Z" fill="#7B4F10"/>
+      <path d="M 11,22 L 11,14 L 15,14 L 15,9 L 18,9 L 18,14 L 21,14 L 21,9 L 24,9 L 24,14 L 27,14 L 27,9 L 30,9 L 30,14 L 34,14 L 34,22 Z" fill="#7B4F10"/>
+    </g>`,
+  bishop: `
+    <g fill="#7B4F10" stroke="#7B4F10" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 9,36 C 12.39,35.03 19.11,36.43 22.5,34 C 25.89,36.43 32.61,35.03 36,36 C 36,36 37.5,36.5 37.5,37.5 C 37.5,38 37.25,38.25 37,38.5 C 36,39.5 36,40 36,40 C 36,41 35,42 34,42 L 11,42 C 10,42 9,41 9,40 C 9,40 9,39.5 8.5,38.5 C 8.25,38.25 8,38 8,37.5 C 8,36.5 9,36 9,36 Z" fill="#7B4F10"/>
+      <path d="M 15,32 C 17.5,34.5 27.5,34.5 30,32 C 30.5,30.5 28.5,29 28.5,29 L 27,21.5 C 27,21.5 25,23.5 22.5,23.5 C 20,23.5 18,21.5 18,21.5 L 16.5,29 C 16.5,29 14.5,30.5 15,32 Z" fill="#7B4F10"/>
+      <circle cx="22.5" cy="10" r="4" fill="#7B4F10"/>
+      <path d="M 22.5,14 C 22.5,14 20,17 20,20 C 20,23 21.5,24.5 22.5,25 C 23.5,24.5 25,23 25,20 C 25,17 22.5,14 22.5,14 Z" fill="#7B4F10"/>
+      <path d="M 22.5,8 L 22.5,10" stroke-width="1.5" stroke-linecap="square" fill="none"/>
+    </g>`,
+  knight: `
+    <g fill="#7B4F10" stroke="#7B4F10" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 22,10 C 32.5,11 38.5,18 38,39 L 15,39 C 15,30 25,32.5 23,18 Z" fill="#7B4F10"/>
+      <path d="M 24,18 C 24.38,20.08 18.65,21.82 16,17 C 14.03,13.37 16.97,11.73 21,11 Z" fill="#7B4F10"/>
+      <path d="M 9.5,25.5 A 0.5,0.5 0 1 1 8.5,25.5 A 0.5,0.5 0 1 1 9.5,25.5 Z" fill="#FAFAF7"/>
+      <path d="M 15,15.5 A 0.5,1.5 0 1 1 14,15.5 A 0.5,1.5 0 1 1 15,15.5 Z" fill="#FAFAF7"/>
+      <path d="M 9,36 L 36,36 L 36,39 L 9,39 Z" fill="#7B4F10"/>
+    </g>`,
+  pawn: `
+    <g fill="#7B4F10" stroke="#7B4F10" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="22.5" cy="9" r="5" fill="#7B4F10"/>
+      <path d="M 22.5,14 C 19,14 16.5,16 16.5,18.5 C 16.5,20.5 18,22 20,23 L 17,28 C 17,28 14,28.5 13,29.5 C 12,30.5 11,34 11,36 L 34,36 C 34,34 33,30.5 32,29.5 C 31,28.5 28,28 28,28 L 25,23 C 27,22 28.5,20.5 28.5,18.5 C 28.5,16 26,14 22.5,14 Z" fill="#7B4F10"/>
+      <path d="M 11,37 L 34,37 L 34,39 L 11,39 Z" fill="#7B4F10"/>
+    </g>`,
 };
 
-// Safe margin positions — left column (2-8%) and right column (88-95%)
-// y positions spread across the section height, avoiding the centre content zone
+// Positions are anchored from edges using fixed px offsets.
+// Each entry: { piece, edge: 'left'|'right', fromEdge: px, fromTop: px, rotate, hideOnMobile? }
+// "fromEdge" = px from the left or right border of the section
+// "fromTop"  = px from the top of the section
 const LAYOUTS = {
   hero: [
-    { piece: 'rook',   x: '2%',  y: '12%', rotate: -8  },
-    { piece: 'queen',  x: '91%', y: '8%',  rotate: 14  },
-    { piece: 'knight', x: '3%',  y: '55%', rotate: -12 },
-    { piece: 'bishop', x: '90%', y: '55%', rotate: 7   },
-    { piece: 'pawn',   x: '2%',  y: '82%', rotate: 5   },
-    { piece: 'king',   x: '91%', y: '80%', rotate: -6  },
+    { piece: 'rook',   edge: 'left',  fromEdge: 12, fromTop: 90,  rotate: -8  },
+    { piece: 'queen',  edge: 'right', fromEdge: 12, fromTop: 80,  rotate: 14  },
+    { piece: 'knight', edge: 'left',  fromEdge: 8,  fromTop: 340, rotate: -12, hideOnMobile: true },
+    { piece: 'bishop', edge: 'right', fromEdge: 10, fromTop: 360, rotate: 7,   hideOnMobile: true },
+    { piece: 'pawn',   edge: 'left',  fromEdge: 14, fromTop: 580, rotate: 5,   hideOnMobile: true },
+    { piece: 'king',   edge: 'right', fromEdge: 12, fromTop: 560, rotate: -6,  hideOnMobile: true },
   ],
   classes: [
-    { piece: 'knight', x: '2%',  y: '8%',  rotate: -14 },
-    { piece: 'king',   x: '91%', y: '6%',  rotate: 10  },
-    { piece: 'bishop', x: '3%',  y: '50%', rotate: 8   },
-    { piece: 'rook',   x: '90%', y: '52%', rotate: -5  },
-    { piece: 'pawn',   x: '2%',  y: '82%', rotate: -9  },
-    { piece: 'queen',  x: '91%', y: '80%', rotate: 12  },
+    { piece: 'knight', edge: 'left',  fromEdge: 12, fromTop: 60,  rotate: -14 },
+    { piece: 'king',   edge: 'right', fromEdge: 12, fromTop: 60,  rotate: 10  },
+    { piece: 'bishop', edge: 'left',  fromEdge: 8,  fromTop: 300, rotate: 8,   hideOnMobile: true },
+    { piece: 'rook',   edge: 'right', fromEdge: 10, fromTop: 300, rotate: -5,  hideOnMobile: true },
+    { piece: 'pawn',   edge: 'left',  fromEdge: 14, fromTop: 520, rotate: -9,  hideOnMobile: true },
+    { piece: 'queen',  edge: 'right', fromEdge: 12, fromTop: 520, rotate: 12,  hideOnMobile: true },
   ],
   testimonials: [
-    { piece: 'queen',  x: '2%',  y: '10%', rotate: 9   },
-    { piece: 'bishop', x: '91%', y: '10%', rotate: -8  },
-    { piece: 'king',   x: '3%',  y: '72%', rotate: -6  },
-    { piece: 'rook',   x: '90%', y: '70%', rotate: 11  },
+    { piece: 'queen',  edge: 'left',  fromEdge: 12, fromTop: 60,  rotate: 9  },
+    { piece: 'bishop', edge: 'right', fromEdge: 12, fromTop: 60,  rotate: -8 },
+    { piece: 'king',   edge: 'left',  fromEdge: 10, fromTop: 340, rotate: -6, hideOnMobile: true },
+    { piece: 'rook',   edge: 'right', fromEdge: 10, fromTop: 340, rotate: 11, hideOnMobile: true },
   ],
   instructor: [
-    { piece: 'king',   x: '91%', y: '8%',  rotate: 9   },
-    { piece: 'pawn',   x: '2%',  y: '20%', rotate: -11 },
-    { piece: 'knight', x: '90%', y: '65%', rotate: 13  },
-    { piece: 'bishop', x: '3%',  y: '75%', rotate: -7  },
+    { piece: 'king',   edge: 'right', fromEdge: 12, fromTop: 60,  rotate: 9  },
+    { piece: 'pawn',   edge: 'left',  fromEdge: 12, fromTop: 60,  rotate: -11 },
+    { piece: 'knight', edge: 'right', fromEdge: 10, fromTop: 340, rotate: 13, hideOnMobile: true },
+    { piece: 'bishop', edge: 'left',  fromEdge: 10, fromTop: 340, rotate: -7, hideOnMobile: true },
   ],
   faq: [
-    { piece: 'king',   x: '91%', y: '5%',  rotate: -8  },
-    { piece: 'knight', x: '2%',  y: '22%', rotate: 12  },
-    { piece: 'bishop', x: '90%', y: '45%', rotate: -4  },
-    { piece: 'queen',  x: '3%',  y: '60%', rotate: 8   },
-    { piece: 'rook',   x: '91%', y: '78%', rotate: 6   },
-    { piece: 'pawn',   x: '2%',  y: '85%', rotate: -10 },
+    { piece: 'king',   edge: 'right', fromEdge: 12, fromTop: 50,  rotate: -8  },
+    { piece: 'knight', edge: 'left',  fromEdge: 12, fromTop: 50,  rotate: 12  },
+    { piece: 'bishop', edge: 'right', fromEdge: 10, fromTop: 280, rotate: -4,  hideOnMobile: true },
+    { piece: 'queen',  edge: 'left',  fromEdge: 10, fromTop: 280, rotate: 8,   hideOnMobile: true },
+    { piece: 'rook',   edge: 'right', fromEdge: 12, fromTop: 500, rotate: 6,   hideOnMobile: true },
+    { piece: 'pawn',   edge: 'left',  fromEdge: 12, fromTop: 500, rotate: -10, hideOnMobile: true },
   ],
   cta: [
-    { piece: 'rook',   x: '2%',  y: '10%', rotate: -6  },
-    { piece: 'queen',  x: '90%', y: '8%',  rotate: 14  },
-    { piece: 'knight', x: '3%',  y: '70%', rotate: 10  },
-    { piece: 'bishop', x: '89%', y: '68%', rotate: -9  },
+    { piece: 'rook',   edge: 'left',  fromEdge: 14, fromTop: 30,  rotate: -6 },
+    { piece: 'queen',  edge: 'right', fromEdge: 14, fromTop: 30,  rotate: 14 },
+    { piece: 'knight', edge: 'left',  fromEdge: 10, fromTop: 110, rotate: 10, hideOnMobile: true },
+    { piece: 'bishop', edge: 'right', fromEdge: 10, fromTop: 110, rotate: -9, hideOnMobile: true },
   ],
   contact: [
-    { piece: 'bishop', x: '91%', y: '6%',  rotate: 11  },
-    { piece: 'pawn',   x: '2%',  y: '18%', rotate: -7  },
-    { piece: 'rook',   x: '90%', y: '55%', rotate: 5   },
-    { piece: 'knight', x: '3%',  y: '65%', rotate: -14 },
+    { piece: 'bishop', edge: 'right', fromEdge: 12, fromTop: 50,  rotate: 11 },
+    { piece: 'pawn',   edge: 'left',  fromEdge: 12, fromTop: 50,  rotate: -7 },
+    { piece: 'rook',   edge: 'right', fromEdge: 10, fromTop: 340, rotate: 5,  hideOnMobile: true },
+    { piece: 'knight', edge: 'left',  fromEdge: 10, fromTop: 340, rotate: -14, hideOnMobile: true },
   ],
   pricing: [
-    { piece: 'queen',  x: '91%', y: '4%',  rotate: 8   },
-    { piece: 'pawn',   x: '2%',  y: '15%', rotate: -6  },
-    { piece: 'knight', x: '90%', y: '55%', rotate: -12 },
-    { piece: 'bishop', x: '2%',  y: '60%', rotate: 9   },
-    { piece: 'king',   x: '91%', y: '78%', rotate: 5   },
-    { piece: 'rook',   x: '3%',  y: '82%', rotate: -3  },
+    { piece: 'queen',  edge: 'right', fromEdge: 12, fromTop: 40,  rotate: 8  },
+    { piece: 'pawn',   edge: 'left',  fromEdge: 12, fromTop: 40,  rotate: -6 },
+    { piece: 'knight', edge: 'right', fromEdge: 10, fromTop: 340, rotate: -12, hideOnMobile: true },
+    { piece: 'bishop', edge: 'left',  fromEdge: 10, fromTop: 340, rotate: 9,   hideOnMobile: true },
+    { piece: 'king',   edge: 'right', fromEdge: 12, fromTop: 580, rotate: 5,   hideOnMobile: true },
+    { piece: 'rook',   edge: 'left',  fromEdge: 12, fromTop: 580, rotate: -3,  hideOnMobile: true },
   ],
   pricingcta: [
-    { piece: 'knight', x: '2%',  y: '10%', rotate: -10 },
-    { piece: 'king',   x: '90%', y: '8%',  rotate: 14  },
-    { piece: 'pawn',   x: '3%',  y: '72%', rotate: -4  },
-    { piece: 'rook',   x: '89%', y: '70%', rotate: 7   },
+    { piece: 'knight', edge: 'left',  fromEdge: 14, fromTop: 30,  rotate: -10 },
+    { piece: 'king',   edge: 'right', fromEdge: 14, fromTop: 30,  rotate: 14  },
+    { piece: 'pawn',   edge: 'left',  fromEdge: 10, fromTop: 110, rotate: -4,  hideOnMobile: true },
+    { piece: 'rook',   edge: 'right', fromEdge: 10, fromTop: 110, rotate: 7,   hideOnMobile: true },
   ],
   booking: [
-    { piece: 'rook',   x: '91%', y: '5%',  rotate: -5  },
-    { piece: 'pawn',   x: '2%',  y: '28%', rotate: 11  },
-    { piece: 'queen',  x: '90%', y: '55%', rotate: 8   },
-    { piece: 'bishop', x: '3%',  y: '72%', rotate: -7  },
+    { piece: 'rook',   edge: 'right', fromEdge: 12, fromTop: 40,  rotate: -5 },
+    { piece: 'pawn',   edge: 'left',  fromEdge: 12, fromTop: 40,  rotate: 11 },
+    { piece: 'queen',  edge: 'right', fromEdge: 10, fromTop: 300, rotate: 8,  hideOnMobile: true },
+    { piece: 'bishop', edge: 'left',  fromEdge: 10, fromTop: 300, rotate: -7, hideOnMobile: true },
   ],
   whychess: [
-    { piece: 'bishop', x: '91%', y: '5%',  rotate: 12  },
-    { piece: 'knight', x: '2%',  y: '42%', rotate: -9  },
-    { piece: 'pawn',   x: '90%', y: '72%', rotate: 4   },
+    { piece: 'bishop', edge: 'right', fromEdge: 12, fromTop: 50,  rotate: 12 },
+    { piece: 'knight', edge: 'left',  fromEdge: 12, fromTop: 50,  rotate: -9 },
+    { piece: 'pawn',   edge: 'right', fromEdge: 10, fromTop: 300, rotate: 4,  hideOnMobile: true },
   ],
   training: [
-    { piece: 'king',   x: '91%', y: '4%',  rotate: 7   },
-    { piece: 'rook',   x: '2%',  y: '44%', rotate: -8  },
-    { piece: 'bishop', x: '90%', y: '72%', rotate: 13  },
-    { piece: 'pawn',   x: '3%',  y: '82%', rotate: -5  },
+    { piece: 'king',   edge: 'right', fromEdge: 12, fromTop: 40,  rotate: 7  },
+    { piece: 'rook',   edge: 'left',  fromEdge: 12, fromTop: 40,  rotate: -8 },
+    { piece: 'bishop', edge: 'right', fromEdge: 10, fromTop: 280, rotate: 13, hideOnMobile: true },
+    { piece: 'pawn',   edge: 'left',  fromEdge: 10, fromTop: 280, rotate: -5, hideOnMobile: true },
   ],
   aboutheader: [
-    { piece: 'rook',   x: '91%', y: '12%', rotate: 9   },
-    { piece: 'pawn',   x: '2%',  y: '55%', rotate: -12 },
-    { piece: 'queen',  x: '90%', y: '70%', rotate: 5   },
+    { piece: 'rook',   edge: 'right', fromEdge: 14, fromTop: 50,  rotate: 9   },
+    { piece: 'pawn',   edge: 'left',  fromEdge: 14, fromTop: 50,  rotate: -12 },
+    { piece: 'queen',  edge: 'right', fromEdge: 10, fromTop: 200, rotate: 5,   hideOnMobile: true },
   ],
   mystory: [
-    { piece: 'knight', x: '91%', y: '8%',  rotate: -8  },
-    { piece: 'bishop', x: '2%',  y: '50%', rotate: 10  },
-    { piece: 'king',   x: '90%', y: '76%', rotate: 6   },
+    { piece: 'knight', edge: 'right', fromEdge: 14, fromTop: 50,  rotate: -8 },
+    { piece: 'bishop', edge: 'left',  fromEdge: 14, fromTop: 50,  rotate: 10 },
+    { piece: 'king',   edge: 'right', fromEdge: 10, fromTop: 320, rotate: 6,  hideOnMobile: true },
   ],
   references: [
-    { piece: 'queen',  x: '91%', y: '4%',  rotate: 11  },
-    { piece: 'bishop', x: '2%',  y: '30%', rotate: -7  },
-    { piece: 'rook',   x: '90%', y: '58%', rotate: -5  },
-    { piece: 'pawn',   x: '3%',  y: '75%', rotate: 8   },
+    { piece: 'queen',  edge: 'right', fromEdge: 12, fromTop: 40,  rotate: 11 },
+    { piece: 'bishop', edge: 'left',  fromEdge: 12, fromTop: 40,  rotate: -7 },
+    { piece: 'rook',   edge: 'right', fromEdge: 10, fromTop: 300, rotate: -5, hideOnMobile: true },
+    { piece: 'pawn',   edge: 'left',  fromEdge: 10, fromTop: 300, rotate: 8,  hideOnMobile: true },
   ],
   page: [
-    { piece: 'bishop', x: '91%', y: '5%',  rotate: 8   },
-    { piece: 'pawn',   x: '2%',  y: '28%', rotate: -6  },
-    { piece: 'knight', x: '90%', y: '58%', rotate: -14 },
-    { piece: 'rook',   x: '3%',  y: '78%', rotate: 7   },
+    { piece: 'bishop', edge: 'right', fromEdge: 14, fromTop: 40,  rotate: 8   },
+    { piece: 'pawn',   edge: 'left',  fromEdge: 14, fromTop: 40,  rotate: -6  },
+    { piece: 'knight', edge: 'right', fromEdge: 10, fromTop: 280, rotate: -14, hideOnMobile: true },
+    { piece: 'rook',   edge: 'left',  fromEdge: 10, fromTop: 280, rotate: 7,   hideOnMobile: true },
   ],
 };
 
-// Uniform size for all pieces
-const PIECE_SIZE = 52;
-const PIECE_OPACITY = 0.13;
-const PIECE_COLOR = '#7B4F10';
+const PIECE_SIZE = 48;
+const PIECE_OPACITY = 0.15;
 
-export default function ChessBg({ variant = 'page', color = PIECE_COLOR }) {
+export default function ChessBg({ variant = 'page' }) {
   const pieces = LAYOUTS[variant] || LAYOUTS.page;
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none select-none" aria-hidden="true">
-      {pieces.map((p, i) => (
-        <div
-          key={i}
-          style={{
-            position: 'absolute',
-            left: p.x,
-            top: p.y,
-            width: PIECE_SIZE,
-            height: PIECE_SIZE,
-            opacity: PIECE_OPACITY,
-            transform: `rotate(${p.rotate}deg)`,
-          }}
-        >
-          <svg
-            viewBox="0 0 45 45"
-            fill={color}
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ width: '100%', height: '100%' }}
-          >
-            <path d={PIECES[p.piece]} />
-          </svg>
-        </div>
-      ))}
+      {pieces.map((p, i) => {
+        const style = {
+          position: 'absolute',
+          [p.edge === 'left' ? 'left' : 'right']: p.fromEdge,
+          top: p.fromTop,
+          width: PIECE_SIZE,
+          height: PIECE_SIZE,
+          opacity: PIECE_OPACITY,
+          transform: `rotate(${p.rotate}deg)`,
+          flexShrink: 0,
+        };
+
+        // On mobile (<768px) hide pieces marked hideOnMobile
+        const mobileClass = p.hideOnMobile ? 'hidden md:block' : 'block';
+
+        return (
+          <div key={i} className={`absolute ${mobileClass}`} style={style}>
+            <svg
+              viewBox="0 0 45 45"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ width: '100%', height: '100%' }}
+              dangerouslySetInnerHTML={{ __html: PIECES[p.piece] }}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }
