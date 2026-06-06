@@ -134,7 +134,7 @@ export default function HeroSection() {
 
             {/* Social links */}
             <div className="flex items-center gap-3 pt-2">
-              <span className="font-nunito text-[#2D2520]/35 text-xs font-600 uppercase tracking-wide mr-1">Follow along</span>
+              <span className="font-nunito text-[#2D2520]/70 text-xs font-700 uppercase tracking-wide mr-1">Follow along</span>
               {[
                 {
                   href: 'https://www.instagram.com/rookfoundations/',
@@ -153,7 +153,7 @@ export default function HeroSection() {
                 },
               ].map(({ href, label, svg }) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
-                  className="w-9 h-9 bg-white border border-[#E8A020]/20 rounded-xl flex items-center justify-center text-[#2D2520]/40 hover:text-[#E8A020] hover:border-[#E8A020]/50 hover:shadow-md transition-all duration-200">
+                  className="w-9 h-9 bg-white border border-[#E8A020]/40 rounded-xl flex items-center justify-center text-[#2D2520]/70 hover:text-[#E8A020] hover:border-[#E8A020] hover:shadow-md transition-all duration-200">
                   {svg}
                 </a>
               ))}
