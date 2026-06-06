@@ -9,9 +9,7 @@ export default function CTABanner() {
     <section className="relative overflow-hidden bg-[#E8A020] py-20">
       <ChessBg variant="cta" color="#ffffff" />
 
-      {/* Playful blobs */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-white/8 blob-shape pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/6 blob-shape-2 pointer-events-none" />
+
       <motion.div
         animate={{ y: [-8, 8, -8], rotate: [0, 10, 0] }}
         transition={{ duration: 5, repeat: Infinity }}

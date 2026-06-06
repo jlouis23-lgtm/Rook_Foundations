@@ -33,7 +33,6 @@ export default function About() {
 
       {/* Page Header */}
       <section className="py-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-[#E8A020]/8 blob-shape pointer-events-none" />
         <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2 mb-6">
@@ -111,7 +110,6 @@ export default function About() {
 
       {/* My Story */}
       <section className="py-20 bg-[#FAFAF7] relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-amber-100/25 blob-shape pointer-events-none" />
         <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2 mb-6">
@@ -182,7 +180,6 @@ export default function About() {
 
       {/* CTA */}
       <section className="py-20 text-center bg-[#E8A020] relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/8 blob-shape pointer-events-none" />
         <div className="max-w-2xl mx-auto px-6 relative z-10">
           <div className="text-4xl mb-4">♜</div>
           <h2 className="font-fredoka text-white mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)' }}>

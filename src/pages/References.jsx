@@ -109,8 +109,7 @@ export default function References() {
       {/* Header */}
       <section className="relative overflow-hidden py-16">
         <ChessBg variant="page" />
-        <div className="absolute top-0 right-0 w-72 h-72 bg-[#E8A020]/6 blob-shape pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-56 h-56 bg-purple-100/20 blob-shape-2 pointer-events-none" />
+
         <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
           <Link
             to="/"

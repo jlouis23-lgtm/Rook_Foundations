@@ -55,7 +55,6 @@ export default function Pricing() {
       {/* Header */}
       <section className="relative overflow-hidden py-20">
         <ChessBg variant="pricing" />
-        <div className="absolute top-0 right-0 w-80 h-80 bg-[#E8A020]/8 blob-shape pointer-events-none" />
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
           <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2 mb-5">
             <span className="text-sm">💰</span>
@@ -143,7 +142,7 @@ export default function Pricing() {
 
       {/* Offer CTA */}
       <section className="bg-[#E8A020] py-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/8 blob-shape pointer-events-none" />
+
         <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center relative z-10">
           <div className="text-4xl mb-5">♜</div>
           <div className="inline-flex items-center gap-2 bg-white/20 border border-white/30 rounded-full px-5 py-2 mb-6">
