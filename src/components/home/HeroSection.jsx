@@ -160,8 +160,8 @@ export default function HeroSection() {
 
         {/* ECF Affiliation */}
         <div className="absolute bottom-6 right-6 flex items-center gap-1.5">
-          <Shield size={13} className="text-[#E8A020]/40" />
-          <span className="font-nunito text-[#2D2520]/35 text-xs font-600">Connected with English Chess Federation</span>
+          <Shield size={16} className="text-[#E8A020]/40" />
+          <span className="font-nunito text-[#2D2520]/40 text-sm font-600">Connected with English Chess Federation</span>
         </div>
       </div>
     </section>
