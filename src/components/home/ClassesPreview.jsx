@@ -25,7 +25,7 @@ const phases = [
     tag: 'bg-blue-100 text-blue-700',
     desc: 'Children start to see patterns, set traps, and think 2–3 moves ahead. They begin to understand that chess is about plans, not just moves.',
     features: ['Tactics & patterns', 'Opening principles', 'Reading the board', 'Friendly mini-tournaments'],
-    image: 'https://images.unsplash.com/photo-1560174038-da43ac74f01b?w=600&q=80'
+    image: 'https://images.unsplash.com/photo-1586165368502-1bad197a6461?w=600&q=80'
   },
   {
     phase: '03', title: 'Strategy', ages: '', icon: '♛', tagline: 'Independent thinkers',
@@ -36,7 +36,7 @@ const phases = [
     tag: 'bg-purple-100 text-purple-700',
     desc: 'Deeper analysis, competitive play, and the psychological dimensions of chess. These students are building a mindset for life — on and off the board.',
     features: ['Position and judgement', 'Timed challenges', 'Puzzle thinking', 'Endgame tips'],
-    image: 'https://images.unsplash.com/photo-1580541832626-2a7131ee809f?w=600&q=80'
+    image: 'https://images.unsplash.com/photo-1568736772245-e00f8f72d6c9?w=600&q=80'
   }
 ];
 
