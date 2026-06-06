@@ -21,6 +21,12 @@ module.exports = {
           dark: '#b8902e',
           muted: '#a8882a',
         },
+        cream: {
+          DEFAULT: '#FAFAF7',
+          card: '#F5F3EE',
+          surface: '#EEEAE0',
+          border: '#DDD8CC',
+        },
         dark: {
           DEFAULT: '#0A0A0A',
           card: '#111111',

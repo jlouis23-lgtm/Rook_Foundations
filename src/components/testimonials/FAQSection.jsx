@@ -71,11 +71,11 @@ function FAQItem({ faq, index }) {
         onClick={() => setOpen(!open)}
         className={`w-full text-left group flex items-start justify-between gap-4 p-6 border transition-all duration-300 ${
           open
-            ? 'bg-[#111] border-[#D4A843]/40'
-            : 'bg-[#0D0D0D] border-[#D4A843]/12 hover:bg-[#111] hover:border-[#D4A843]/25'
+            ? 'bg-white border-[#D4A843]/40 shadow-sm'
+            : 'bg-[#FAFAF7] border-[#D4A843]/20 hover:bg-white hover:border-[#D4A843]/35'
         }`}
       >
-        <span className="font-oswald text-white text-base md:text-lg uppercase tracking-wide leading-snug flex-1 pt-0.5">
+        <span className="font-oswald text-[#1C1C1E] text-base md:text-lg uppercase tracking-wide leading-snug flex-1 pt-0.5">
           {faq.q}
         </span>
         <span className={`flex-shrink-0 w-7 h-7 border flex items-center justify-center transition-all duration-300 mt-0.5 ${
@@ -98,8 +98,8 @@ function FAQItem({ faq, index }) {
             transition={{ duration: 0.35, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <div className="bg-[#0A0A0A] border-x border-b border-[#D4A843]/15 px-6 pb-6 pt-5">
-              <p className="font-lato text-white/60 text-base leading-relaxed">{faq.a}</p>
+            <div className="bg-white border-x border-b border-[#D4A843]/20 px-6 pb-6 pt-5">
+              <p className="font-lato text-[#2D2B26]/70 text-base leading-relaxed">{faq.a}</p>
               {faq.refs.length > 0 && (
                 <div className="mt-3 flex flex-wrap gap-2">
                   {faq.refs.map((r) => (
@@ -119,17 +119,17 @@ function FAQItem({ faq, index }) {
 
 export default function FAQSection() {
   return (
-    <section className="py-24 border-t border-[#D4A843]/10" style={{ backgroundColor: '#0A0A0A' }}>
+    <section className="py-24 border-t border-[#D4A843]/15" style={{ backgroundColor: '#F5F3EE' }}>
       <div className="max-w-3xl mx-auto px-6 lg:px-12">
 
         {/* Header */}
         <div className="text-center mb-14">
           <div className="gold-line mx-auto mb-5" />
           <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">FAQ</span>
-          <h2 className="font-oswald text-white uppercase" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
+          <h2 className="font-oswald text-[#1C1C1E] uppercase" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
             Common questions answered
           </h2>
-          <p className="font-lato text-white/40 text-base mt-4 max-w-xl mx-auto leading-relaxed">
+          <p className="font-lato text-[#2D2B26]/55 text-base mt-4 max-w-xl mx-auto leading-relaxed">
             Before launching, I asked for parents' opinions on private chess tutoring, what mattered to them, and what they were unsure about. These are the questions I heard more than once. If you don't see your question here, get in touch directly.
           </p>
         </div>
@@ -143,10 +143,10 @@ export default function FAQSection() {
 
         {/* CTA */}
         <div className="mt-12 text-center">
-          <p className="font-lato text-white/35 text-sm mb-5">Still have a question?</p>
+          <p className="font-lato text-[#2D2B26]/45 text-sm mb-5">Still have a question?</p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 border border-[#D4A843]/50 text-[#D4A843] font-oswald text-sm tracking-wider px-8 py-3 hover:bg-[#D4A843] hover:text-[#0A0A0A] transition-all duration-300"
+            className="inline-flex items-center gap-2 border border-[#D4A843]/50 text-[#D4A843] font-oswald text-sm tracking-wider px-8 py-3 hover:bg-[#D4A843] hover:text-white transition-all duration-300"
           >
             GET IN TOUCH <ArrowRight size={14} />
           </Link>
@@ -154,12 +154,12 @@ export default function FAQSection() {
 
         {/* References */}
         <div className="mt-16 border-t border-[#D4A843]/10 pt-10">
-          <h3 className="font-oswald text-white/40 text-xs uppercase tracking-widest mb-6">Sources</h3>
+          <h3 className="font-oswald text-[#2D2B26]/40 text-xs uppercase tracking-widest mb-6">Sources</h3>
           <ul className="space-y-3">
             {references.map((ref) => (
               <li key={ref.num} className="flex items-start gap-3">
                 <span className="font-oswald text-[#D4A843]/30 text-xs flex-shrink-0 w-5 text-right mt-0.5">[{ref.num}]</span>
-                <p className="font-lato text-white/30 text-sm leading-relaxed">{ref.text}</p>
+                <p className="font-lato text-[#2D2B26]/35 text-sm leading-relaxed">{ref.text}</p>
               </li>
             ))}
           </ul>

@@ -14,7 +14,7 @@ const item = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transiti
 
 export default function BenefitsPreview() {
   return (
-    <section className="bg-[#0D0D0D] py-28 relative overflow-hidden">
+    <section className="bg-[#F5F3EE] py-28 relative overflow-hidden">
       <div className="ghost-grid-line" style={{ left: '25%' }} />
       <div className="ghost-grid-line" style={{ left: '50%' }} />
       <div className="ghost-grid-line" style={{ left: '75%' }} />
@@ -25,14 +25,14 @@ export default function BenefitsPreview() {
           <div>
             <div className="gold-line mb-5" />
             <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-3">The Cognitive Edge</span>
-            <h2 className="font-oswald text-white uppercase leading-tight"
+            <h2 className="font-oswald text-[#1C1C1E] uppercase leading-tight"
               style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '0.02em' }}>
               Chess isn't just a game —<br />
               <span className="text-[#D4A843]">it's a thinking system.</span>
             </h2>
           </div>
           <div>
-            <p className="font-lato text-white/60 text-lg leading-relaxed">
+            <p className="font-lato text-[#2D2B26]/65 text-lg leading-relaxed">
               Research consistently shows that children who learn chess develop measurably stronger cognitive skills. We've seen it in every student.
             </p>
             <Link to="/benefits" className="inline-flex items-center gap-2 mt-6 font-oswald text-[#D4A843] text-sm tracking-widest uppercase hover:gap-3 transition-all">
@@ -47,17 +47,17 @@ export default function BenefitsPreview() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#D4A843]/10"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#D4A843]/15"
         >
           {benefits.map((b) => (
             <motion.div
               key={b.title}
               variants={item}
-              className="group bg-[#0D0D0D] p-8 hover:bg-[#111111] transition-colors duration-300 cursor-default border border-transparent hover:border-[#D4A843]/20"
+              className="group bg-[#F5F3EE] p-8 hover:bg-white transition-colors duration-300 cursor-default border border-transparent hover:border-[#D4A843]/30 hover:shadow-md"
             >
               <div className="text-4xl mb-5">{b.icon}</div>
-              <h3 className="font-oswald text-white text-lg uppercase tracking-wide mb-3 group-hover:text-[#D4A843] transition-colors">{b.title}</h3>
-              <p className="font-lato text-white/50 text-sm leading-relaxed">{b.desc}</p>
+              <h3 className="font-oswald text-[#1C1C1E] text-lg uppercase tracking-wide mb-3 group-hover:text-[#D4A843] transition-colors">{b.title}</h3>
+              <p className="font-lato text-[#2D2B26]/60 text-sm leading-relaxed">{b.desc}</p>
               <div className="mt-6 w-8 h-0.5 bg-[#D4A843]/30 group-hover:w-full transition-all duration-500" />
             </motion.div>
           ))}

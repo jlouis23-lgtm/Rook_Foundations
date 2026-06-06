@@ -6,25 +6,25 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 96%;
-    --card: 0 0% 6%;
-    --card-foreground: 0 0% 96%;
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 96%;
-    --primary: 38 60% 55%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 96%;
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 55%;
-    --accent: 38 60% 55%;
-    --accent-foreground: 0 0% 4%;
+    --background: 40 20% 97%;
+    --foreground: 30 10% 12%;
+    --card: 38 25% 95%;
+    --card-foreground: 30 10% 12%;
+    --popover: 38 25% 95%;
+    --popover-foreground: 30 10% 12%;
+    --primary: 38 65% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 38 20% 90%;
+    --secondary-foreground: 30 10% 15%;
+    --muted: 38 15% 88%;
+    --muted-foreground: 30 8% 45%;
+    --accent: 38 65% 50%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14%;
-    --input: 0 0% 14%;
-    --ring: 38 60% 55%;
+    --border: 38 18% 84%;
+    --input: 38 18% 84%;
+    --ring: 38 65% 50%;
     --radius: 0.5rem;
   }
 }
@@ -34,8 +34,8 @@
     @apply border-border outline-ring/50;
   }
   body {
-    background-color: #0A0A0A;
-    color: #F5F5F5;
+    background-color: #FAFAF7;
+    color: #1C1C1E;
     font-family: 'Lato', sans-serif;
   }
   h1, h2, h3, h4 {
@@ -63,7 +63,7 @@
 
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0A0A0A; }
+::-webkit-scrollbar-track { background: #F5F3EE; }
 ::-webkit-scrollbar-thumb { background: #D4A843; border-radius: 3px; }
 
 html { scroll-behavior: smooth; }
@@ -71,7 +71,7 @@ html { scroll-behavior: smooth; }
 /* Input focus gold */
 .gold-focus:focus {
   border-color: #D4A843 !important;
-  box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.12) !important;
+  box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.15) !important;
   outline: none;
 }
 
@@ -81,6 +81,6 @@ html { scroll-behavior: smooth; }
   top: 0;
   bottom: 0;
   width: 1px;
-  background: rgba(212, 168, 67, 0.04);
+  background: rgba(212, 168, 67, 0.07);
   pointer-events: none;
 }

@@ -20,10 +20,10 @@ const AuthenticatedApp = () => {
 
   if (isLoadingPublicSettings || isLoadingAuth) {
     return (
-      <div className="fixed inset-0 flex items-center justify-center bg-ivory">
+      <div className="fixed inset-0 flex items-center justify-center bg-[#FAFAF7]">
         <div className="flex flex-col items-center gap-4">
-          <span className="text-slate text-5xl font-playfair animate-pulse">♜</span>
-          <div className="w-8 h-8 border-2 border-slate/20 border-t-coral rounded-full animate-spin"></div>
+          <span className="text-[#D4A843] text-5xl font-oswald animate-pulse">♜</span>
+          <div className="w-8 h-8 border-2 border-[#D4A843]/20 border-t-[#D4A843] rounded-full animate-spin"></div>
         </div>
       </div>
     );

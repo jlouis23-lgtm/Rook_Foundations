@@ -6,7 +6,7 @@ const INSTRUCTOR_IMG = 'https://media.base44.com/images/public/69fe1341895fe99f1
 
 export default function InstructorTeaser() {
   return (
-    <section className="bg-[#0D0D0D] py-28 relative overflow-hidden">
+    <section className="bg-[#EEEAE0] py-28 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
@@ -37,22 +37,22 @@ export default function InstructorTeaser() {
           >
             <div className="gold-line mb-5" />
             <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-3">Your Instructor</span>
-            <h2 className="font-oswald text-white uppercase leading-tight mb-8"
+            <h2 className="font-oswald text-[#1C1C1E] uppercase leading-tight mb-8"
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
               Taught by a passionate educator,<br />
               <span className="text-[#D4A843]">not just a chess player.</span>
             </h2>
-            <p className="font-lato text-white/60 text-lg leading-relaxed mb-5">
+            <p className="font-lato text-[#2D2B26]/65 text-lg leading-relaxed mb-5">
               With over 8 years of experience teaching chess to children, I combine a background in 
               child development with a deep love of the game. My philosophy: build confidence first, technique second.
             </p>
-            <p className="font-lato text-white/60 text-lg leading-relaxed mb-10">
+            <p className="font-lato text-[#2D2B26]/65 text-lg leading-relaxed mb-10">
               Every child learns differently. My small-group sessions ensure every student receives 
               personalised attention and progresses at their own pace.
             </p>
 
             <blockquote className="border-l-4 border-[#D4A843] pl-6 mb-10">
-              <p className="font-oswald text-white text-xl leading-relaxed uppercase tracking-wide">
+              <p className="font-oswald text-[#1C1C1E] text-xl leading-relaxed uppercase tracking-wide">
                 "Chess gave me the ability to think under pressure.<br />
                 <span className="text-[#D4A843]">I want to give every child that same gift."</span>
               </p>
