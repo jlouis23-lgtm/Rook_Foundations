@@ -11,14 +11,14 @@ const lessonPlans = [
     ],
   },
   {
-    phase: 'Strategy',
+    phase: 'Development',
     plans: [
       { duration: '1 Hour', image: 'https://media.base44.com/images/public/69fe1341895fe99f147fce64/33a3303a8_8ea1df9542942f11bb18ae357a681b6b701315769cbbba8eed96a4d115473c30.png' },
       { duration: '2 Hours', image: 'https://media.base44.com/images/public/69fe1341895fe99f147fce64/f24b28ac4_4e3c5f8b721ce33c537a87c1523575063c44d44616312e3a0b19c06cadcae5ff.png' },
     ],
   },
   {
-    phase: 'Advanced',
+    phase: 'Strategy',
     plans: [
       { duration: '1 Hour', image: 'https://media.base44.com/images/public/69fe1341895fe99f147fce64/e42e38299_d19b66d75e26e73e9fcbd657b5644c99b55d87f43cf48a227fc9f1455029a9b4.png' },
       { duration: '2 Hours', image: 'https://media.base44.com/images/public/69fe1341895fe99f147fce64/182445314_f2d6513965ad7faf7f9dc1c9dfbcfe01e3d1062ba116324f1adb93eec536f78d.png' },

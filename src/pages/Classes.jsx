@@ -14,7 +14,7 @@ const phases = [
     parentNote: 'Every child develops at their own pace, and that is something we fully embrace. Some children will grasp concepts quickly. Others may need repetition or take longer to build confidence — and that is completely normal. My approach ensures no child is ever pushed ahead before they are ready. The focus is on encouragement and building a love of thinking.',
   },
   {
-    phase: '02', title: 'Strategy', subtitle: 'The Middle Game', ages: '', icon: '♞', emoji: '🧩',
+    phase: '02', title: 'Development', subtitle: 'The Middle Game', ages: '', icon: '♞', emoji: '🧩',
     color: 'bg-blue-50', border: 'border-blue-200', accent: '#4a7eb8', tag: 'bg-blue-100 text-blue-700',
     duration: '1 or 2 hours', groupSize: 'Up to 4 students', frequency: 'Once weekly',
     description: 'For students with a basic understanding of the rules, this phase introduces the art of planning. Students begin to see patterns, set traps, and think 2–3 moves ahead.',
@@ -22,7 +22,7 @@ const phases = [
     parentNote: "In a world that increasingly rewards speed and instant reactions, we believe there is real value in motivating children to slow down, think carefully, and act with intention over impulse.",
   },
   {
-    phase: '03', title: 'Advanced', subtitle: 'The Endgame', ages: '', icon: '♛', emoji: '🏆',
+    phase: '03', title: 'Strategy', subtitle: 'The Endgame', ages: '', icon: '♛', emoji: '🏆',
     color: 'bg-purple-50', border: 'border-purple-200', accent: '#7a48c0', tag: 'bg-purple-100 text-purple-700',
     duration: '1 or 2 hours', groupSize: 'Up to 4 students', frequency: 'Once weekly',
     description: 'For students ready to take the next step. This phase focuses on stronger positional understanding, tactical awareness, and confidence in competitive play.',
