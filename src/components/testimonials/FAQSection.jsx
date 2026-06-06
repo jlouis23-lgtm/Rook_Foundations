@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, MessageCircle } from 'lucide-react';
+import ChessBg from '@/components/ui/ChessBg';
 
 const faqs = [
   {
@@ -78,6 +79,8 @@ function FAQItem({ faq }) {
 export default function FAQSection() {
   return (
     <section className="py-24 bg-[#F5F3EE] relative overflow-hidden">
+      <ChessBg variant="faq" />
+
       <div className="absolute top-0 right-0 w-64 h-64 bg-[#E8A020]/6 blob-shape pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-56 h-56 bg-purple-100/20 blob-shape-2 pointer-events-none" />
 

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Star, Heart, Sparkles } from 'lucide-react';
+import ChessBg from '@/components/ui/ChessBg';
 
 const LEAFLET_IMG = 'https://media.base44.com/images/public/69fe1341895fe99f147fce64/3b7300d3f_51E37187-F312-43E1-8058-02E71B191F4B.png';
 
@@ -14,6 +15,8 @@ const pillars = [
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen bg-[#FAFAF7] overflow-hidden flex items-center">
+
+      <ChessBg variant="hero" />
 
       {/* Decorative blobs */}
       <div className="absolute top-16 right-0 w-[500px] h-[500px] bg-[#E8A020]/10 blob-shape pointer-events-none" />

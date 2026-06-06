@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import ChessBg from '@/components/ui/ChessBg';
 
 const phases = [
   {
@@ -45,6 +46,8 @@ export default function ClassesPreview() {
 
   return (
     <section className="bg-[#F5F3EE] py-24 relative overflow-hidden">
+      <ChessBg variant="classes" />
+
       {/* Decorative blobs */}
       <div className="absolute top-0 right-0 w-72 h-72 bg-[#E8A020]/6 blob-shape pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-56 h-56 bg-purple-100/30 blob-shape-2 pointer-events-none" />

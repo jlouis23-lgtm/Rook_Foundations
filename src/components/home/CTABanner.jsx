@@ -2,9 +2,13 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
+import ChessBg from '@/components/ui/ChessBg';
+
 export default function CTABanner() {
   return (
     <section className="relative overflow-hidden bg-[#E8A020] py-20">
+      <ChessBg variant="cta" color="#ffffff" />
+
       {/* Playful blobs */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-white/8 blob-shape pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/6 blob-shape-2 pointer-events-none" />
