@@ -37,6 +37,7 @@
     background-color: #FAFAF7;
     color: #2D2520;
     font-family: 'Nunito', sans-serif;
+    border-right: none !important;
   }
   h1, h2, h3, h4 {
     font-family: 'Fredoka', sans-serif;
@@ -53,7 +54,6 @@
   background: linear-gradient(to bottom, #E8A020, #F4C261, #E8A020);
   z-index: 9999;
   transition: height 0.1s linear;
-  border-radius: 2px 0 0 2px;
 }
 
 /* Warm gold divider */
