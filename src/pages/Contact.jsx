@@ -20,15 +20,15 @@ export default function Contact() {
   };
 
   return (
-    <div style={{ backgroundColor: '#0A0A0A' }} className="pt-32">
+    <div style={{ backgroundColor: '#FAFAF7' }} className="pt-32">
       <section className="relative overflow-hidden py-20 border-b border-[#D4A843]/15">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
           <div className="gold-line mx-auto mb-5" />
           <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Contact</span>
-          <h1 className="font-oswald text-white uppercase mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '0.02em' }}>
+          <h1 className="font-oswald text-[#1C1C1E] uppercase mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '0.02em' }}>
             Let's talk about your child.
           </h1>
-          <p className="font-lato text-white/50 text-lg max-w-2xl mx-auto">
+          <p className="font-lato text-[#2D2B26]/65 text-lg max-w-2xl mx-auto">
             Please contact me to ask any questions. I understand that chess isn't for everybody. With that in mind, I am flexible and transparent in my teaching approach. Together, we can establish the best approach for your child.
           </p>
         </div>
@@ -43,10 +43,10 @@ export default function Contact() {
               <div>
                 <div className="gold-line mb-5" />
                 <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Get In Touch</span>
-                <h2 className="font-oswald text-white text-2xl uppercase tracking-wide mb-4">
+                <h2 className="font-oswald text-[#1C1C1E] text-2xl uppercase tracking-wide mb-4">
                   You'll hear back from me directly — usually within 24 hours.
                 </h2>
-                <p className="font-lato text-white/50 text-base">No automated replies, no long waits.</p>
+                <p className="font-lato text-[#2D2B26]/60 text-base">No automated replies, no long waits.</p>
               </div>
 
               <div className="space-y-5">
@@ -63,19 +63,19 @@ export default function Contact() {
                     <div>
                       <p className="font-oswald text-[#D4A843]/60 text-xs uppercase tracking-widest mb-1">{label}</p>
                       {href ? (
-                        <a href={href} className="font-lato text-white/70 text-sm hover:text-[#D4A843] transition-colors whitespace-pre-line">{value}</a>
+                        <a href={href} className="font-lato text-[#2D2B26]/70 text-sm hover:text-[#D4A843] transition-colors whitespace-pre-line">{value}</a>
                       ) : (
-                        <p className="font-lato text-white/70 text-sm whitespace-pre-line">{value}</p>
+                        <p className="font-lato text-[#2D2B26]/70 text-sm whitespace-pre-line">{value}</p>
                       )}
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="border border-[#D4A843]/25 p-6 bg-[#0D0D0D]">
+              <div className="border border-[#D4A843]/25 p-6 bg-[#F5F3EE]">
                 <span className="text-3xl text-[#D4A843] block mb-3">♜</span>
-                <h3 className="font-oswald text-white text-xl uppercase tracking-wide mb-2">First Lesson — 50% Off</h3>
-                <p className="font-lato text-white/50 text-sm leading-relaxed">
+                <h3 className="font-oswald text-[#1C1C1E] text-xl uppercase tracking-wide mb-2">First Lesson — 50% Off</h3>
+                <p className="font-lato text-[#2D2B26]/60 text-sm leading-relaxed">
                   Your first assessment lesson is 50% off. We'll find the perfect starting point for your child and make sure they feel comfortable from the very first move.
                 </p>
               </div>
@@ -87,13 +87,13 @@ export default function Contact() {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="h-full flex flex-col items-center justify-center text-center py-20 bg-[#0D0D0D] border border-[#D4A843]/20"
+                  className="h-full flex flex-col items-center justify-center text-center py-20 bg-white border border-[#D4A843]/20 shadow-sm"
                 >
                   <div className="w-20 h-20 border-2 border-[#D4A843] flex items-center justify-center mb-6">
                     <Check size={36} className="text-[#D4A843]" />
                   </div>
-                  <h2 className="font-oswald text-white text-3xl uppercase tracking-wide mb-4">Thank you!</h2>
-                  <p className="font-lato text-white/50 text-lg leading-relaxed max-w-md">
+                  <h2 className="font-oswald text-[#1C1C1E] text-3xl uppercase tracking-wide mb-4">Thank you!</h2>
+                  <p className="font-lato text-[#2D2B26]/60 text-lg leading-relaxed max-w-md">
                     I'll personally review your message and respond within 24 hours. Looking forward to welcoming your child to RookFoundations.
                   </p>
                   <div className="mt-8 flex items-center gap-2 text-[#D4A843] font-oswald text-sm tracking-widest uppercase">
@@ -102,11 +102,11 @@ export default function Contact() {
                   </div>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="bg-[#0D0D0D] border border-[#D4A843]/15 p-10 space-y-6">
+                <form onSubmit={handleSubmit} className="bg-white border border-[#D4A843]/20 p-10 space-y-6 shadow-sm">
                   <div>
-                    <h3 className="font-oswald text-white text-2xl uppercase tracking-wide mb-1">Get In Touch</h3>
+                    <h3 className="font-oswald text-[#1C1C1E] text-2xl uppercase tracking-wide mb-1">Get In Touch</h3>
                     <div className="gold-line mt-3 mb-2" />
-                    <p className="font-lato text-white/40 text-sm">We'll be in touch within 24 hours.</p>
+                    <p className="font-lato text-[#2D2B26]/50 text-sm">We'll be in touch within 24 hours.</p>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -117,7 +117,7 @@ export default function Contact() {
                       { name: 'childName', label: "Child's Name", type: 'text', placeholder: "Your child's name", required: true },
                     ].map((f) => (
                       <div key={f.name}>
-                        <label className="font-oswald text-white/60 text-xs uppercase tracking-widest block mb-2">{f.label} {f.required && '*'}</label>
+                        <label className="font-oswald text-[#2D2B26]/60 text-xs uppercase tracking-widest block mb-2">{f.label} {f.required && '*'}</label>
                         <input
                           type={f.type}
                           name={f.name}
@@ -125,15 +125,15 @@ export default function Contact() {
                           onChange={handleChange}
                           required={f.required}
                           placeholder={f.placeholder}
-                          className="w-full bg-[#0A0A0A] border border-[#D4A843]/20 px-4 py-3 font-lato text-white text-base placeholder:text-white/20 gold-focus transition-all outline-none"
+                          className="w-full bg-[#FAFAF7] border border-[#D4A843]/30 px-4 py-3 font-lato text-[#1C1C1E] text-base placeholder:text-[#2D2B26]/30 gold-focus transition-all outline-none"
                         />
                       </div>
                     ))}
 
                     <div>
-                      <label className="font-oswald text-white/60 text-xs uppercase tracking-widest block mb-2">Child's Age *</label>
+                      <label className="font-oswald text-[#2D2B26]/60 text-xs uppercase tracking-widest block mb-2">Child's Age *</label>
                       <select name="childAge" value={form.childAge} onChange={handleChange} required
-                        className="w-full bg-[#0A0A0A] border border-[#D4A843]/20 px-4 py-3 font-lato text-white text-base gold-focus transition-all outline-none">
+                        className="w-full bg-[#FAFAF7] border border-[#D4A843]/30 px-4 py-3 font-lato text-[#1C1C1E] text-base gold-focus transition-all outline-none">
                         <option value="">Select age</option>
                         {Array.from({ length: 11 }, (_, i) => i + 5).map((age) => (
                           <option key={age} value={age}>{age} years old</option>
@@ -142,9 +142,9 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <label className="font-oswald text-white/60 text-xs uppercase tracking-widest block mb-2">Level of Interest</label>
+                      <label className="font-oswald text-[#2D2B26]/60 text-xs uppercase tracking-widest block mb-2">Level of Interest</label>
                       <select name="phase" value={form.phase} onChange={handleChange}
-                        className="w-full bg-[#0A0A0A] border border-[#D4A843]/20 px-4 py-3 font-lato text-white text-base gold-focus transition-all outline-none">
+                        className="w-full bg-[#FAFAF7] border border-[#D4A843]/30 px-4 py-3 font-lato text-[#1C1C1E] text-base gold-focus transition-all outline-none">
                         <option value="">Not sure (we'll advise)</option>
                         <option value="discovery">Discovery</option>
                         <option value="strategy">Strategy</option>
@@ -154,14 +154,14 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="font-oswald text-white/60 text-xs uppercase tracking-widest block mb-2">Any Questions or Context?</label>
+                    <label className="font-oswald text-[#2D2B26]/60 text-xs uppercase tracking-widest block mb-2">Any Questions or Context?</label>
                     <textarea name="message" value={form.message} onChange={handleChange} rows={4}
                       placeholder="Tell us about your child — learning style, experience, any questions..."
-                      className="w-full bg-[#0A0A0A] border border-[#D4A843]/20 px-4 py-3 font-lato text-white text-base placeholder:text-white/20 gold-focus transition-all outline-none resize-none" />
+                      className="w-full bg-[#FAFAF7] border border-[#D4A843]/30 px-4 py-3 font-lato text-[#1C1C1E] text-base placeholder:text-[#2D2B26]/30 gold-focus transition-all outline-none resize-none" />
                   </div>
 
                   <button type="submit" disabled={loading}
-                    className="w-full bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 text-base tracking-wider py-4 hover:bg-[#e8c06a] transition-all hover:shadow-xl hover:shadow-[#D4A843]/20 flex items-center justify-center gap-3 disabled:opacity-70">
+                    className="w-full bg-[#D4A843] text-white font-oswald font-700 text-base tracking-wider py-4 hover:bg-[#b8902e] transition-all hover:shadow-xl hover:shadow-[#D4A843]/20 flex items-center justify-center gap-3 disabled:opacity-70">
                     {loading ? (
                       <>
                         <div className="w-5 h-5 border-2 border-[#0A0A0A]/30 border-t-[#0A0A0A] rounded-full animate-spin" />
@@ -171,7 +171,7 @@ export default function Contact() {
                       <>SEND MESSAGE <Send size={16} /></>
                     )}
                   </button>
-                  <p className="font-lato text-white/30 text-xs text-center">Your first assessment lesson is 50% off. No long-term commitment required.</p>
+                  <p className="font-lato text-[#2D2B26]/40 text-xs text-center">Your first assessment lesson is 50% off. No long-term commitment required.</p>
                 </form>
               )}
             </div>

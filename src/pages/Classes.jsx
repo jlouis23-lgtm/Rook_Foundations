@@ -33,17 +33,17 @@ export default function Classes() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
-    <div style={{ backgroundColor: '#0A0A0A' }} className="pt-32">
+    <div style={{ backgroundColor: '#FAFAF7' }} className="pt-32">
       {/* Header */}
       <section className="relative overflow-hidden py-20 border-b border-[#D4A843]/15">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
           <div className="gold-line mx-auto mb-5" />
           <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Classes</span>
-          <h1 className="font-oswald text-white uppercase mb-4"
+          <h1 className="font-oswald text-[#1C1C1E] uppercase mb-4"
             style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '0.02em' }}>
             Structured learning for every level
           </h1>
-          <p className="font-lato text-white/50 text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="font-lato text-[#2D2B26]/65 text-lg leading-relaxed max-w-2xl mx-auto">
             Three carefully designed phases that take every child from their very first move to confident, independent strategic thinking.
           </p>
         </div>
@@ -52,18 +52,18 @@ export default function Classes() {
       {/* Phase selector */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row gap-px bg-[#D4A843]/10 mb-12">
+          <div className="flex flex-col md:flex-row gap-px bg-[#D4A843]/15 mb-12">
             {phases.map((p, i) => (
               <button
                 key={i}
                 onClick={() => setActivePhase(i)}
                 className={`flex-1 text-left px-8 py-6 transition-all duration-300 ${
                   activePhase === i
-                    ? 'bg-[#D4A843] text-[#0A0A0A]'
-                    : 'bg-[#0A0A0A] text-white/50 hover:text-white hover:bg-[#111]'
+                    ? 'bg-[#D4A843] text-white'
+                    : 'bg-[#FAFAF7] text-[#2D2B26]/50 hover:text-[#1C1C1E] hover:bg-white'
                 }`}
               >
-                <span className={`font-lato text-xs block mb-1 ${activePhase === i ? 'text-[#0A0A0A]/60' : 'text-[#D4A843]/50'}`}>
+                <span className={`font-lato text-xs block mb-1 ${activePhase === i ? 'text-white/70' : 'text-[#D4A843]/60'}`}>
                   Phase {p.phase}
                 </span>
                 <span className="font-oswald text-2xl uppercase tracking-wide block">{p.title}</span>
@@ -84,28 +84,28 @@ export default function Classes() {
                 <div className="flex items-center gap-4 mb-4">
                   <span className="text-5xl text-[#D4A843]">{phases[activePhase].icon}</span>
                   <div>
-                    <h2 className="font-oswald text-white text-3xl uppercase tracking-wide">{phases[activePhase].title}</h2>
+                    <h2 className="font-oswald text-[#1C1C1E] text-3xl uppercase tracking-wide">{phases[activePhase].title}</h2>
                     <p className="font-lato text-[#D4A843]/70 text-sm">{phases[activePhase].subtitle}</p>
                   </div>
                 </div>
-                <p className="font-lato text-white/60 text-lg leading-relaxed">{phases[activePhase].description}</p>
+                <p className="font-lato text-[#2D2B26]/65 text-lg leading-relaxed">{phases[activePhase].description}</p>
               </div>
               <div>
-                <h3 className="font-oswald text-white text-xl uppercase tracking-wide mb-4">What students learn</h3>
+                <h3 className="font-oswald text-[#1C1C1E] text-xl uppercase tracking-wide mb-4">What students learn</h3>
                 <ul className="space-y-3">
                   {phases[activePhase].whatYouLearn.map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 font-lato text-white/60 text-base">
+                    <li key={i} className="flex items-center gap-3 font-lato text-[#2D2B26]/65 text-base">
                       <Check size={16} className="text-[#D4A843] flex-shrink-0" />
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="border border-[#D4A843]/20 p-6">
+              <div className="border border-[#D4A843]/25 bg-white p-6">
                 <h3 className="font-oswald text-[#D4A843] text-lg uppercase tracking-wide mb-2 flex items-center gap-2">
                   <span>♟</span> A note for parents
                 </h3>
-                <p className="font-lato text-white/50 text-base leading-relaxed italic">
+                <p className="font-lato text-[#2D2B26]/60 text-base leading-relaxed italic">
                   "{phases[activePhase].parentNote}"
                 </p>
               </div>
@@ -114,8 +114,8 @@ export default function Classes() {
             </div>
 
             <div className="space-y-4">
-              <div className="bg-[#111] border border-[#D4A843]/15 p-8">
-                <h3 className="font-oswald text-white text-xl uppercase tracking-wide mb-6">Class Details</h3>
+              <div className="bg-white border border-[#D4A843]/20 p-8 shadow-sm">
+                <h3 className="font-oswald text-[#1C1C1E] text-xl uppercase tracking-wide mb-6">Class Details</h3>
                 <div className="space-y-4">
                   {[
                     { icon: Clock, label: 'Session Length', value: phases[activePhase].duration },
@@ -127,27 +127,27 @@ export default function Classes() {
                       <Icon size={16} className="text-[#D4A843] flex-shrink-0" />
                       <div>
                         <p className="font-lato text-[#D4A843]/50 text-xs uppercase tracking-wide">{label}</p>
-                        <p className="font-lato text-white text-sm font-700 mt-0.5">{value}</p>
+                        <p className="font-lato text-[#1C1C1E] text-sm font-700 mt-0.5">{value}</p>
                       </div>
                     </div>
                   ))}
                 </div>
                 <Link
                   to="/contact"
-                  className="w-full mt-8 bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 text-sm tracking-wider py-4 flex items-center justify-center gap-2 hover:bg-[#e8c06a] transition-all"
+                  className="w-full mt-8 bg-[#D4A843] text-white font-oswald font-700 text-sm tracking-wider py-4 flex items-center justify-center gap-2 hover:bg-[#b8902e] transition-all"
                 >
                   ENQUIRE NOW <ArrowRight size={16} />
                 </Link>
               </div>
-              <div className="bg-[#0D0D0D] border border-[#D4A843]/20 p-8 text-white">
+              <div className="bg-[#F5F3EE] border border-[#D4A843]/25 p-8">
                 <span className="text-3xl text-[#D4A843] block mb-4">♜</span>
-                <h4 className="font-oswald text-xl uppercase tracking-wide mb-3">Not sure which level?</h4>
-                <p className="font-lato text-white/50 text-sm leading-relaxed mb-6">
+                <h4 className="font-oswald text-[#1C1C1E] text-xl uppercase tracking-wide mb-3">Not sure which level?</h4>
+                <p className="font-lato text-[#2D2B26]/60 text-sm leading-relaxed mb-6">
                   In our first session, we'll recommend the perfect starting point. You can also get 50% off your first lesson.
                 </p>
                 <Link
                   to="/contact"
-                  className="block border border-[#D4A843] text-[#D4A843] font-oswald font-700 text-sm tracking-wider py-3 text-center hover:bg-[#D4A843] hover:text-[#0A0A0A] transition-all"
+                  className="block border border-[#D4A843] text-[#D4A843] font-oswald font-700 text-sm tracking-wider py-3 text-center hover:bg-[#D4A843] hover:text-white transition-all"
                 >
                   FREE ASSESSMENT
                 </Link>

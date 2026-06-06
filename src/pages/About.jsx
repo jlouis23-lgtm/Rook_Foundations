@@ -28,7 +28,7 @@ export default function About() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
-    <div style={{ backgroundColor: '#0A0A0A' }} className="pt-20">
+    <div style={{ backgroundColor: '#FAFAF7' }} className="pt-20">
 
       {/* 1. ABOUT — Page Header */}
       <section className="py-20 border-b border-[#D4A843]/15">
@@ -41,11 +41,11 @@ export default function About() {
             <div className="flex items-baseline gap-3 mb-3">
               <span className="font-oswald text-[#D4A843] text-lg tracking-widest uppercase">About</span>
             </div>
-            <h1 className="font-oswald text-white uppercase leading-tight mb-6"
+            <h1 className="font-oswald text-[#1C1C1E] uppercase leading-tight mb-6"
               style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)', letterSpacing: '0.02em' }}>
               Rook Foundations
             </h1>
-            <p className="font-lato text-white/50 text-lg leading-relaxed max-w-2xl">
+            <p className="font-lato text-[#2D2B26]/65 text-lg leading-relaxed max-w-2xl">
               A chess education programme built on years of experience working with children, academic training in psychology and human development, and a genuine belief that every child deserves the opportunity to think for themselves.
             </p>
           </motion.div>
@@ -53,24 +53,24 @@ export default function About() {
       </section>
 
       {/* 2. QUALIFICATIONS — Credentials You Can Trust */}
-      <section className="py-24" style={{ backgroundColor: '#0A0A0A' }}>
+      <section className="py-24" style={{ backgroundColor: '#FAFAF7' }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
             <div className="gold-line mx-auto mb-5" />
             <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Qualifications</span>
-            <h2 className="font-oswald text-white uppercase"
+            <h2 className="font-oswald text-[#1C1C1E] uppercase"
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
               Credentials you can trust
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#D4A843]/10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#D4A843]/15">
             {credentials.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="bg-[#0A0A0A] p-8 hover:bg-[#111] transition-colors border border-transparent hover:border-[#D4A843]/20">
+              <div key={title} className="bg-[#FAFAF7] p-8 hover:bg-white transition-colors border border-transparent hover:border-[#D4A843]/30">
                 <div className="w-12 h-12 border border-[#D4A843]/40 flex items-center justify-center mb-5">
                   <Icon size={20} className="text-[#D4A843]" />
                 </div>
-                <h3 className="font-oswald text-white text-lg uppercase tracking-wide mb-2">{title}</h3>
-                <p className="font-lato text-white/50 text-sm leading-relaxed">{desc}</p>
+                <h3 className="font-oswald text-[#1C1C1E] text-lg uppercase tracking-wide mb-2">{title}</h3>
+                <p className="font-lato text-[#2D2B26]/60 text-sm leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
@@ -81,24 +81,24 @@ export default function About() {
       <ProfessionalTraining />
 
       {/* 4. TEACHING PHILOSOPHY — The Three Pillars */}
-      <section className="bg-[#0D0D0D] py-24 border-t border-[#D4A843]/10">
+      <section className="bg-[#F5F3EE] py-24 border-t border-[#D4A843]/10">
         <div className="max-w-6xl mx-auto px-6 lg:px-12 text-center">
           <div className="gold-line mx-auto mb-5" />
           <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Teaching Philosophy</span>
-          <h2 className="font-oswald text-white uppercase mb-12"
+          <h2 className="font-oswald text-[#1C1C1E] uppercase mb-12"
             style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
             The three pillars of RookFoundations
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#D4A843]/10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#D4A843]/15">
             {[
               { symbol: '♟', title: 'Confidence First', desc: 'No child should fear making a wrong move. We create a safe, encouraging space where mistakes are celebrated as learning.' },
               { symbol: '♞', title: 'Process Over Outcome', desc: 'We focus on the quality of thinking, not the result. A well-thought-out loss teaches more than a lucky win.' },
               { symbol: '♛', title: 'Every Child Progresses', desc: "We identify each child's learning style and provide tailored guidance to help them grow steadily in confidence and understanding." },
             ].map((p) => (
-              <div key={p.title} className="bg-[#0D0D0D] p-10 hover:bg-[#111] transition-colors border border-transparent hover:border-[#D4A843]/20">
+              <div key={p.title} className="bg-[#F5F3EE] p-10 hover:bg-white transition-colors border border-transparent hover:border-[#D4A843]/25">
                 <span className="text-4xl text-[#D4A843] block mb-4">{p.symbol}</span>
-                <h3 className="font-oswald text-white text-xl uppercase tracking-wide mb-3">{p.title}</h3>
-                <p className="font-lato text-white/50 text-base leading-relaxed">{p.desc}</p>
+                <h3 className="font-oswald text-[#1C1C1E] text-xl uppercase tracking-wide mb-3">{p.title}</h3>
+                <p className="font-lato text-[#2D2B26]/60 text-base leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -109,7 +109,7 @@ export default function About() {
       <WhyChessResearch />
 
       {/* 5. MY STORY — Why Chess? Why The Rook? */}
-      <section className="py-24 border-t border-[#D4A843]/10" style={{ backgroundColor: '#0A0A0A' }}>
+      <section className="py-24 border-t border-[#D4A843]/10" style={{ backgroundColor: '#FAFAF7' }}>
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -121,21 +121,21 @@ export default function About() {
             <div className="flex items-baseline gap-3 mb-3">
               <span className="font-oswald text-[#D4A843] text-lg tracking-widest uppercase">My Story</span>
             </div>
-            <h2 className="font-oswald text-white uppercase leading-tight mb-12"
+            <h2 className="font-oswald text-[#1C1C1E] uppercase leading-tight mb-12"
               style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)', letterSpacing: '0.02em' }}>
               WHY CHESS? WHY THE ROOK?
             </h2>
 
-            <div className="font-lato text-white/60 text-lg leading-relaxed max-w-3xl space-y-6">
+            <div className="font-lato text-[#2D2B26]/65 text-lg leading-relaxed max-w-3xl space-y-6">
               <p>Four years ago, chess came to me at a time where I was overloaded with assignments and bombarded with upcoming deadlines. I used to take breaks from study just to have a few games and it really helped me become more patient over time. For me, chess provided a unique kind of playful mental pressure. This helped me focus when completing the most monotonous aspects of research. When I started playing more with an actual person sitting across me, I realised that such a simple game beautifully captures some of the most meaningful concepts that are waning today. These concepts include the importance of sacrifice, the art of offence and defence, and that victory comes from connection. Having spent six years now working with children across different ages and different settings, I have come to realise that, today, they are disengaged from learning and overly consumed by constant media and digital stimulation. Too often, they are given answers instead of being encouraged to think for themselves.</p>
               <p>
                 RookFoundations was born from a simple conviction:<br />
-                <span className="text-white/80 italic">Every child deserves the opportunity to want to think for themselves.</span>
+                <span className="text-[#1C1C1E]/80 italic">Every child deserves the opportunity to want to think for themselves.</span>
               </p>
             </div>
 
             <blockquote className="mt-12 border-l-4 border-[#D4A843] pl-8 max-w-3xl">
-              <p className="font-oswald text-white uppercase tracking-wide leading-relaxed"
+              <p className="font-oswald text-[#1C1C1E] uppercase tracking-wide leading-relaxed"
                 style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)' }}>
                 "SCHOOL TAUGHT ME HOW TO THINK.<br />
                 <span className="text-[#D4A843]">BUT IT DIDN'T TEACH ME HOW TO WANT TO THINK FOR MYSELF."</span>
@@ -146,12 +146,12 @@ export default function About() {
       </section>
 
       {/* 6. JOURNEY — The Journey Behind Rook Foundations */}
-      <section className="bg-[#0D0D0D] py-24 border-t border-[#D4A843]/10">
+      <section className="bg-[#F5F3EE] py-24 border-t border-[#D4A843]/10">
         <div className="max-w-3xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
             <div className="gold-line mx-auto mb-5" />
             <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Journey</span>
-            <h2 className="font-oswald text-white uppercase"
+            <h2 className="font-oswald text-[#1C1C1E] uppercase"
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
               The Journey Behind Rook Foundations
             </h2>
@@ -173,7 +173,7 @@ export default function About() {
                   <div className="relative flex-shrink-0 mt-2">
                     <div className="w-3 h-3 bg-[#D4A843]" />
                   </div>
-                  <p className="font-lato text-white/60 text-base leading-relaxed">{t.event}</p>
+                  <p className="font-lato text-[#2D2B26]/65 text-base leading-relaxed">{t.event}</p>
                 </motion.div>
               ))}
             </div>
@@ -182,19 +182,19 @@ export default function About() {
       </section>
 
       {/* 7. CTA — Ready to Meet in Person? */}
-      <section className="py-20 text-center border-t border-[#D4A843]/15" style={{ backgroundColor: '#0A0A0A' }}>
+      <section className="py-20 text-center border-t border-[#D4A843]/15" style={{ backgroundColor: '#F5F3EE' }}>
         <div className="max-w-2xl mx-auto px-6">
           <div className="gold-line mx-auto mb-6" />
-          <h2 className="font-oswald text-white uppercase mb-4"
+          <h2 className="font-oswald text-[#1C1C1E] uppercase mb-4"
             style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', letterSpacing: '0.02em' }}>
             Ready to meet in person?
           </h2>
-          <p className="font-lato text-white/50 text-lg mb-8">
+          <p className="font-lato text-[#2D2B26]/60 text-lg mb-8">
             Get 50% off your first lesson and see the RookFoundations difference for yourself.
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 tracking-wider px-8 py-4 hover:bg-[#e8c06a] transition-all">
+            className="inline-flex items-center gap-2 bg-[#D4A843] text-white font-oswald font-700 tracking-wider px-8 py-4 hover:bg-[#b8902e] transition-all">
             CLAIM 50% OFF FIRST LESSON <ArrowRight size={18} />
           </Link>
         </div>

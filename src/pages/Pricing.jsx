@@ -62,17 +62,17 @@ export default function Pricing() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
-    <div style={{ backgroundColor: '#0A0A0A' }} className="pt-32">
+    <div style={{ backgroundColor: '#FAFAF7' }} className="pt-32">
       {/* Header */}
       <section className="relative overflow-hidden py-20 border-b border-[#D4A843]/15">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
           <div className="gold-line mx-auto mb-5" />
           <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Pricing</span>
-          <h1 className="font-oswald text-white uppercase mb-4"
+          <h1 className="font-oswald text-[#1C1C1E] uppercase mb-4"
             style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '0.02em' }}>
             Transparent, flexible pricing
           </h1>
-          <p className="font-lato text-white/50 text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="font-lato text-[#2D2B26]/65 text-lg leading-relaxed max-w-2xl mx-auto">
             Choose the format that works best for your child. All sessions are in-person, with a qualified instructor. The more students, the better the value.
           </p>
         </div>
@@ -84,7 +84,7 @@ export default function Pricing() {
 
           {/* Duration tabs explainer */}
           <div className="text-center mb-14">
-            <p className="font-lato text-white/40 text-sm tracking-wide">
+            <p className="font-lato text-[#2D2B26]/50 text-sm tracking-wide">
               Prices shown are <span className="text-[#D4A843]">total cost per session</span>. Two session lengths available.
             </p>
           </div>
@@ -94,20 +94,20 @@ export default function Pricing() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: '-80px' }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#D4A843]/10"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#D4A843]/15"
           >
             {plans.map((plan, i) => (
               <motion.div
                 key={plan.label}
                 variants={item}
-                className={`relative flex flex-col bg-[#0A0A0A] p-8 hover:bg-[#111] transition-colors duration-300 ${
+                className={`relative flex flex-col bg-[#FAFAF7] p-8 hover:bg-white transition-colors duration-300 ${
                   plan.tag === 'Recommended' ? 'border-t-2 border-[#D4A843]' : ''
                 } ${
                   plan.tag === 'Best Value' ? 'border-t-2 border-[#C0C0C0]' : ''
                 }`}
               >
                 {plan.tag === 'Recommended' && (
-                  <span className="absolute top-0 right-6 -translate-y-1/2 bg-[#D4A843] text-[#0A0A0A] font-oswald text-xs tracking-widest uppercase px-3 py-1">
+                  <span className="absolute top-0 right-6 -translate-y-1/2 bg-[#D4A843] text-white font-oswald text-xs tracking-widest uppercase px-3 py-1">
                     {plan.tag}
                   </span>
                 )}
@@ -118,7 +118,7 @@ export default function Pricing() {
                 )}
 
                 <div className="mb-6">
-                  <h2 className="font-oswald text-white text-2xl uppercase tracking-wide">{plan.label}</h2>
+                  <h2 className="font-oswald text-[#1C1C1E] text-2xl uppercase tracking-wide">{plan.label}</h2>
                   <p className="font-lato text-[#D4A843]/60 text-sm mt-1">{plan.subtitle}</p>
                 </div>
 
@@ -126,10 +126,10 @@ export default function Pricing() {
                 <div className="space-y-4 mb-8 pb-8 border-b border-[#D4A843]/15">
                   {['1 Hour', '2 Hours'].map((duration) => (
                     <div key={duration} className="flex items-end justify-between">
-                      <span className="font-lato text-white/40 text-sm">{duration}</span>
+                      <span className="font-lato text-[#2D2B26]/50 text-sm">{duration}</span>
                       <div className="text-right">
                         <span className="font-oswald text-[#D4A843] text-2xl">£{plan.prices[duration].total}</span>
-                        <span className="font-lato text-white/30 text-xs block">{plan.prices[duration].note}</span>
+                        <span className="font-lato text-[#2D2B26]/40 text-xs block">{plan.prices[duration].note}</span>
                       </div>
                     </div>
                   ))}
@@ -138,7 +138,7 @@ export default function Pricing() {
                 {/* Features */}
                 <ul className="space-y-3 flex-1 mb-8">
                   {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-3 font-lato text-white/55 text-sm leading-relaxed">
+                    <li key={f} className="flex items-start gap-3 font-lato text-[#2D2B26]/65 text-sm leading-relaxed">
                       <Check size={14} className="text-[#D4A843] flex-shrink-0 mt-0.5" />
                       {f}
                     </li>
@@ -147,7 +147,7 @@ export default function Pricing() {
 
                 <Link
                   to="/contact"
-                  className="w-full border border-[#D4A843]/40 text-[#D4A843] font-oswald text-sm tracking-wider py-3 flex items-center justify-center gap-2 hover:bg-[#D4A843] hover:text-[#0A0A0A] transition-all duration-300"
+                  className="w-full border border-[#D4A843]/40 text-[#D4A843] font-oswald text-sm tracking-wider py-3 flex items-center justify-center gap-2 hover:bg-[#D4A843] hover:text-white transition-all duration-300"
                 >
                   BOOK NOW <ArrowRight size={14} />
                 </Link>
@@ -158,20 +158,20 @@ export default function Pricing() {
       </section>
 
       {/* Offer CTA */}
-      <section className="bg-[#0D0D0D] py-20 border-t border-[#D4A843]/10">
+      <section className="bg-[#F5F3EE] py-20 border-t border-[#D4A843]/10">
         <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center">
           <span className="text-4xl text-[#D4A843] block mb-6">♜</span>
           <div className="gold-line mx-auto mb-6" />
           <div className="inline-block bg-[#D4A843]/10 border border-[#D4A843]/40 px-6 py-2 mb-6">
             <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase">🎉 Limited Offer — 50% Off Your First Lesson</span>
           </div>
-          <h2 className="font-oswald text-white text-3xl uppercase tracking-wide mb-4">Not sure where to start?</h2>
-          <p className="font-lato text-white/50 text-base leading-relaxed mb-8 max-w-xl mx-auto">
+          <h2 className="font-oswald text-[#1C1C1E] text-3xl uppercase tracking-wide mb-4">Not sure where to start?</h2>
+          <p className="font-lato text-[#2D2B26]/60 text-base leading-relaxed mb-8 max-w-xl mx-auto">
             Book now at half price — no commitment required. We'll assess your child's level and recommend the best format and session length.
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 text-sm tracking-wider px-10 py-4 hover:bg-[#e8c06a] transition-all duration-300"
+            className="inline-flex items-center gap-2 bg-[#D4A843] text-white font-oswald font-700 text-sm tracking-wider px-10 py-4 hover:bg-[#b8902e] transition-all duration-300"
           >
             CLAIM 50% OFF FIRST LESSON <ArrowRight size={16} />
           </Link>

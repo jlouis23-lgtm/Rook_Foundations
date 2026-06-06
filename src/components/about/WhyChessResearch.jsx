@@ -3,36 +3,36 @@ import { motion } from 'framer-motion';
 const bubbles = [
   {
     icon: '🧠',
-    color: 'from-[#2D4A3E]/80 to-[#1a3329]/80',
-    border: 'border-[#4a8c6e]/40',
-    accent: '#6bbf9a',
+    color: 'from-[#d8f0e6] to-[#c8eada]',
+    border: 'border-[#4a8c6e]/35',
+    accent: '#2d8c62',
     label: 'Focus & Concentration',
     body: 'Chess trains children to slow down, sustain attention, and think before acting. These skills can extend beyond the board.',
     citation: '(Zhang et al., 2025)',
   },
   {
     icon: '♟',
-    color: 'from-[#1e2d4a]/80 to-[#12203a]/80',
-    border: 'border-[#3a5c8c]/40',
-    accent: '#7aa8d4',
+    color: 'from-[#ddeaf7] to-[#cce0f5]',
+    border: 'border-[#3a5c8c]/35',
+    accent: '#4a7eb8',
     label: 'Decision-Making & Reasoning',
     body: 'Every move requires planning ahead, weighing consequences, and adapting when things change. This helps children become logical, independent thinkers.',
     citation: '(Sala & Gobet, 2016)',
   },
   {
     icon: '🤝',
-    color: 'from-[#3a2d1e]/80 to-[#2a1e0f]/80',
-    border: 'border-[#8c6a3a]/40',
-    accent: '#D4A843',
+    color: 'from-[#faefd5] to-[#f5e4b8]',
+    border: 'border-[#D4A843]/35',
+    accent: '#b8902e',
     label: 'Emotional & Social Growth',
     body: 'Children learn to respect opponents, follow rules, manage the emotions of winning and losing, and think under pressure.',
     citation: '(Fuentes et al., 2018)',
   },
   {
     icon: '👩‍🏫',
-    color: 'from-[#2a1e3a]/80 to-[#1a1228]/80',
-    border: 'border-[#6a4a8c]/40',
-    accent: '#a07ad4',
+    color: 'from-[#ece0f5] to-[#e2d0f0]',
+    border: 'border-[#6a4a8c]/35',
+    accent: '#7a48c0',
     label: 'The Role of Teaching Quality',
     body: 'A large-scale study across 300+ schools found that chess has limited improvements in problem solving when instructors are not actively engaged throughout every session.',
     citation: '(EEF, 2018; Trinchero & Sala, 2016)',
@@ -70,17 +70,17 @@ function MobileConnector() {
 
 export default function WhyChessResearch() {
   return (
-    <section className="py-24 border-t border-[#D4A843]/10" style={{ backgroundColor: '#0A0A0A' }}>
+    <section className="py-24 border-t border-[#D4A843]/10" style={{ backgroundColor: '#EEEAE0' }}>
       <div className="max-w-3xl mx-auto px-6 lg:px-12">
 
         {/* Header */}
         <div className="text-center mb-16">
           <div className="gold-line mx-auto mb-5" />
           <span className="font-oswald text-[#D4A843] text-sm tracking-widest uppercase block mb-4">Research</span>
-          <h2 className="font-oswald text-white uppercase" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
+          <h2 className="font-oswald text-[#1C1C1E] uppercase" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '0.02em' }}>
             Why Chess?
           </h2>
-          <p className="font-lato text-white/40 text-base mt-4 max-w-xl mx-auto leading-relaxed">
+          <p className="font-lato text-[#2D2B26]/55 text-base mt-4 max-w-xl mx-auto leading-relaxed">
             Research shows chess supports meaningful development and we provide a structured thinking environment designed to build lifelong habits.
           </p>
         </div>
@@ -106,12 +106,12 @@ export default function WhyChessResearch() {
                   {/* Icon + Label row */}
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-2xl leading-none">{bubble.icon}</span>
-                    <h3 className="font-oswald text-white text-lg uppercase tracking-wide leading-tight">
+                    <h3 className="font-oswald text-[#1C1C1E] text-lg uppercase tracking-wide leading-tight">
                       {bubble.label}
                     </h3>
                   </div>
                   {/* Body */}
-                  <p className="font-lato text-white/65 text-sm leading-relaxed mb-3">
+                  <p className="font-lato text-[#2D2B26]/70 text-sm leading-relaxed mb-3">
                     {bubble.body}
                   </p>
                   {/* Citation */}
@@ -154,8 +154,8 @@ export default function WhyChessResearch() {
             <div
               className="relative rounded-2xl border border-[#D4A843]/40 p-8 md:p-10 overflow-hidden"
               style={{
-                background: 'linear-gradient(135deg, #1a1500 0%, #0f0d00 50%, #0A0A0A 100%)',
-                boxShadow: '0 0 60px 0 rgba(212,168,67,0.08), 0 4px 32px 0 rgba(212,168,67,0.06)',
+                background: 'linear-gradient(135deg, #fdf6e3 0%, #faf0d0 50%, #F5F3EE 100%)',
+                boxShadow: '0 0 60px 0 rgba(212,168,67,0.12), 0 4px 32px 0 rgba(212,168,67,0.08)',
               }}
             >
               {/* Glow blob */}
@@ -167,7 +167,7 @@ export default function WhyChessResearch() {
                   <span className="text-3xl text-[#D4A843]">♜</span>
                   <div>
                     <span className="font-oswald text-[#D4A843] text-xs tracking-widest uppercase block">Our Mission</span>
-                    <h3 className="font-oswald text-white text-xl md:text-2xl uppercase tracking-wide leading-tight">
+                    <h3 className="font-oswald text-[#1C1C1E] text-xl md:text-2xl uppercase tracking-wide leading-tight">
                       The Rook Foundations Approach
                     </h3>
                   </div>
@@ -175,10 +175,10 @@ export default function WhyChessResearch() {
 
                 <div className="w-12 h-px bg-[#D4A843]/40 mb-5" />
 
-                <p className="font-lato text-white/75 text-base md:text-lg leading-relaxed mb-4">
+                <p className="font-lato text-[#2D2B26]/75 text-base md:text-lg leading-relaxed mb-4">
                   We recognise the limitations of chess as a transferrable skill into other areas of life and do not claim that chess alone guarantees academic and financial success later in life.
                 </p>
-                <p className="font-lato text-white/60 text-base leading-relaxed">
+                <p className="font-lato text-[#2D2B26]/65 text-base leading-relaxed">
                   Instead, our aim is to create an engaging thinking environment where children develop <span className="text-[#D4A843]/90 font-semibold">focus, reasoning, patience, and discipline</span>. It is our goal that, overtime, the principles they learn with us will help support broader learning experiences and extend positively into other areas of life.
                 </p>
 
@@ -195,15 +195,15 @@ export default function WhyChessResearch() {
 
         {/* References */}
         <div className="mt-16 border-t border-[#D4A843]/10 pt-10">
-          <h3 className="font-oswald text-white/50 text-sm uppercase tracking-widest mb-6">References</h3>
+          <h3 className="font-oswald text-[#2D2B26]/45 text-sm uppercase tracking-widest mb-6">References</h3>
           <ul className="space-y-4">
             {references.map((ref, i) => (
               <li key={i} className="flex items-start gap-4">
-                <span className="font-oswald text-[#D4A843]/30 text-xs mt-0.5 flex-shrink-0 w-5 text-right">
+                <span className="font-oswald text-[#D4A843]/50 text-xs mt-0.5 flex-shrink-0 w-5 text-right">
                   {String(i + 1).padStart(2, '0')}.
                 </span>
                 <div>
-                  <p className="font-lato text-white/35 text-sm leading-relaxed">{ref.citation}</p>
+                  <p className="font-lato text-[#2D2B26]/40 text-sm leading-relaxed">{ref.citation}</p>
                   {ref.url && (
                     <a href={ref.url} target="_blank" rel="noopener noreferrer"
                       className="font-lato text-[#D4A843]/40 text-xs hover:text-[#D4A843]/70 transition-colors mt-1 inline-block break-all">

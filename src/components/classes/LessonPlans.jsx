@@ -57,11 +57,11 @@ export default function LessonPlans({ activePhaseTitle }) {
 
   return (
     <>
-      <div className="mt-6 border border-[#D4A843]/15 bg-[#0D0D0D] p-6">
+      <div className="mt-6 border border-[#D4A843]/20 bg-[#F5F3EE] p-6">
         <h3 className="font-oswald text-[#D4A843] text-lg uppercase tracking-wide mb-1 flex items-center gap-2">
           <Clock size={15} /> Session Lesson Plans
         </h3>
-        <p className="font-lato text-white/35 text-xs mb-5 tracking-wide">
+        <p className="font-lato text-[#2D2B26]/45 text-xs mb-5 tracking-wide">
           Click a plan to explore the full session structure and learning goals.
         </p>
         <div className="flex gap-3">
@@ -77,7 +77,7 @@ export default function LessonPlans({ activePhaseTitle }) {
                 className="group relative flex items-center gap-2 border border-[#D4A843]/30 bg-[#0A0A0A] px-5 py-3 hover:border-[#D4A843] hover:bg-[#D4A843]/8 transition-all duration-250"
               >
                 <Clock size={13} className="text-[#D4A843] flex-shrink-0" />
-                <span className="font-oswald text-white/80 text-sm uppercase tracking-widest group-hover:text-[#D4A843] transition-colors">
+                <span className="font-oswald text-[#1C1C1E]/80 text-sm uppercase tracking-widest group-hover:text-[#D4A843] transition-colors">
                   {plan.duration} Plan
                 </span>
                 <span className="absolute -top-px left-0 right-0 h-px bg-[#D4A843] opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -93,9 +93,9 @@ export default function LessonPlans({ activePhaseTitle }) {
                     transition={{ duration: 0.15 }}
                     className="absolute left-1/2 -translate-x-1/2 top-full mt-2 z-50 pointer-events-none"
                   >
-                    <div className="bg-[#111] border border-[#D4A843]/30 px-3 py-2 whitespace-nowrap">
-                      <p className="font-lato text-white/70 text-xs">View lesson structure & learning goals</p>
-                      <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-[#111] border-l border-t border-[#D4A843]/30 rotate-45" />
+                    <div className="bg-white border border-[#D4A843]/30 px-3 py-2 whitespace-nowrap shadow-md">
+                      <p className="font-lato text-[#2D2B26]/70 text-xs">View lesson structure & learning goals</p>
+                      <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-white border-l border-t border-[#D4A843]/30 rotate-45" />
                     </div>
                   </motion.div>
                 )}
@@ -126,11 +126,11 @@ export default function LessonPlans({ activePhaseTitle }) {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header bar */}
-              <div className="flex items-center justify-between bg-[#111] border border-b-0 border-[#D4A843]/30 px-5 py-3">
+              <div className="flex items-center justify-between bg-white border border-b-0 border-[#D4A843]/30 px-5 py-3">
                 <span className="font-oswald text-[#D4A843] text-sm uppercase tracking-widest">{modalLabel}</span>
                 <button
                   onClick={() => setModalImage(null)}
-                  className="text-white/40 hover:text-white transition-colors"
+                  className="text-[#2D2B26]/40 hover:text-[#1C1C1E] transition-colors"
                 >
                   <X size={18} />
                 </button>
@@ -144,8 +144,8 @@ export default function LessonPlans({ activePhaseTitle }) {
                 />
               </div>
               {/* Footer */}
-              <div className="bg-[#111] border border-t-0 border-[#D4A843]/30 px-5 py-2.5 flex items-center justify-between">
-                <span className="font-lato text-white/25 text-xs tracking-wide">Tap outside or press × to close</span>
+              <div className="bg-white border border-t-0 border-[#D4A843]/30 px-5 py-2.5 flex items-center justify-between">
+                <span className="font-lato text-[#2D2B26]/35 text-xs tracking-wide">Tap outside or press × to close</span>
                 <span className="text-[#D4A843] text-base">♜</span>
               </div>
             </motion.div>
