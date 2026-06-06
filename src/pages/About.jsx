@@ -152,7 +152,7 @@ export default function About() {
               <span className="font-nunito text-blue-700 text-sm font-700">The journey here</span>
             </div>
             <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-              Years of experience with children
+              Study and experience gained over the years
             </h2>
           </div>
           <div className="relative">
