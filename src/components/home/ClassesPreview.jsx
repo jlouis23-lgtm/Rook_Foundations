@@ -14,7 +14,7 @@ const phases = [
     tag: 'bg-green-100 text-green-700',
     desc: 'Through play and hands-on learning, young beginners explore the magic of chess one piece at a time. Visual, fun, and confidence-building from day one.',
     features: ['How each piece moves', 'Setting up the board', 'Your first checkmate', 'Learning through stories'],
-    image: 'https://images.unsplash.com/photo-1607453998774-d533f65dac99?w=600&q=80'
+    image: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=600&q=80'
   },
   {
     phase: '02', title: 'Development', ages: '', icon: '♞', tagline: 'Growing thinkers',
