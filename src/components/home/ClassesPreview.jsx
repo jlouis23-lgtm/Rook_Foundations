@@ -35,7 +35,7 @@ const phases = [
     border: 'border-purple-200',
     tag: 'bg-purple-100 text-purple-700',
     desc: 'Deeper analysis, competitive play, and the psychological dimensions of chess. These students are building a mindset for life — on and off the board.',
-    features: ['Positional analysis', 'Timed challenges', 'Complex puzzle-solving', 'Endgame mastery'],
+    features: ['Position and judgement', 'Timed challenges', 'Puzzle thinking', 'Endgame tips'],
     image: 'https://images.unsplash.com/photo-1580541832626-2a7131ee809f?w=600&q=80'
   }
 ];
