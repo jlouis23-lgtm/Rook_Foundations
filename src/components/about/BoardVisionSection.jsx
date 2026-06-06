@@ -1,245 +1,137 @@
 import { motion } from 'framer-motion';
 
-function BoardVisionDiagram() {
-  const eyeFieldAngle = 35; // degrees half-angle for the attention cone
+function PhonePanel() {
+  const cx = 100, cy = 44, headR = 26;
+  const leftEyeX = cx - 9, rightEyeX = cx + 9;
+  const eyeY = cy + headR - 5;
 
-  // Shared constants
-  const headR = 28;
-  const eyeOffsetX = 10;
-  const eyeOffsetY = 8;
-  const rayLength = 130;
+  // Phone dimensions and position — more gap from head
+  const phoneW = 34, phoneH = 54;
+  const phoneX = cx - phoneW / 2;
+  const phoneY = eyeY + 52;
 
-  // Convert angle to radians for ray spread
-  const spread = (eyeFieldAngle * Math.PI) / 180;
-
-  function getConePoints(cx, cy, facingDown = true) {
-    // Eyes sit at bottom of head (facing down = looking at object below head in top-down view)
-    const eyeY = cy + headR - 6;
-    const leftEyeX = cx - eyeOffsetX;
-    const rightEyeX = cx + eyeOffsetX;
-
-    const dir = facingDown ? 1 : -1;
-
-    // Left eye rays
-    const leftRayAngle1 = Math.PI / 2 + spread;
-    const leftRayAngle2 = Math.PI / 2 - spread;
-    const leftFar1 = [
-      leftEyeX + rayLength * Math.cos(Math.PI - leftRayAngle1) * dir,
-      eyeY + rayLength * Math.sin(leftRayAngle1) * dir,
-    ];
-    const leftFar2 = [
-      leftEyeX + rayLength * Math.cos(Math.PI - leftRayAngle2) * dir,
-      eyeY + rayLength * Math.sin(leftRayAngle2) * dir,
-    ];
-
-    // Right eye rays
-    const rightFar1 = [
-      rightEyeX + rayLength * Math.cos(Math.PI - leftRayAngle1) * dir,
-      eyeY + rayLength * Math.sin(leftRayAngle1) * dir,
-    ];
-    const rightFar2 = [
-      rightEyeX + rayLength * Math.cos(Math.PI - leftRayAngle2) * dir,
-      eyeY + rayLength * Math.sin(leftRayAngle2) * dir,
-    ];
-
-    return {
-      eyeY,
-      leftEyeX,
-      rightEyeX,
-      leftFar1,
-      leftFar2,
-      rightFar1,
-      rightFar2,
-    };
-  }
-
-  // ── LEFT PANEL: Phone ──────────────────────────────────────────────
-  // SVG viewBox 220×260
-  const phonePanel = () => {
-    const cx = 110;
-    const cy = 58;
-    const cone = getConePoints(cx, cy, true);
-
-    // Phone rectangle
-    const phoneW = 36;
-    const phoneH = 58;
-    const phoneX = cx - phoneW / 2;
-    const phoneY = cy + headR + 20;
-
-    // Cone polygon: left outer ray to far-left, right outer ray to far-right, close across screen bottom
-    const conePoints = [
-      [cone.leftEyeX, cone.eyeY],
-      [phoneX - 2, phoneY + phoneH],
-      [phoneX + phoneW + 2, phoneY + phoneH],
-      [cone.rightEyeX, cone.eyeY],
-    ].map((p) => p.join(',')).join(' ');
-
-    return (
-      <svg viewBox="0 0 220 260" className="w-full h-full" aria-hidden="true">
-        {/* Attention cone */}
-        <polygon points={conePoints} fill="#E8A020" fillOpacity={0.12} />
-        {/* Cone edges */}
-        <line x1={cone.leftEyeX} y1={cone.eyeY} x2={phoneX - 2} y2={phoneY + phoneH}
-          stroke="#E8A020" strokeWidth="1.5" strokeDasharray="4 3" strokeLinecap="round" />
-        <line x1={cone.rightEyeX} y1={cone.eyeY} x2={phoneX + phoneW + 2} y2={phoneY + phoneH}
-          stroke="#E8A020" strokeWidth="1.5" strokeDasharray="4 3" strokeLinecap="round" />
-
-        {/* Head */}
-        <circle cx={cx} cy={cy} r={headR} fill="#F5F3EE" stroke="#DDD8CC" strokeWidth="1.5" />
-        {/* Nose */}
-        <ellipse cx={cx} cy={cy + headR - 8} rx={4} ry={3} fill="#DDD8CC" />
-        {/* Eyes */}
-        <circle cx={cone.leftEyeX} cy={cone.eyeY} r={3.5} fill="#2D2520" />
-        <circle cx={cone.rightEyeX} cy={cone.eyeY} r={3.5} fill="#2D2520" />
-        <circle cx={cone.leftEyeX + 1} cy={cone.eyeY - 1} r={1} fill="white" />
-        <circle cx={cone.rightEyeX + 1} cy={cone.eyeY - 1} r={1} fill="white" />
-
-        {/* Phone body */}
-        <rect x={phoneX} y={phoneY} width={phoneW} height={phoneH}
-          rx={5} ry={5} fill="white" stroke="#2D2520" strokeWidth="1.5" />
-        {/* Phone screen */}
-        <rect x={phoneX + 3} y={phoneY + 8} width={phoneW - 6} height={phoneH - 16}
-          rx={2} fill="#E8F4FD" stroke="#b0c8e0" strokeWidth="1" />
-        {/* Mini chess grid on screen */}
-        {[0, 1, 2, 3].map((row) =>
-          [0, 1, 2, 3].map((col) => {
-            const cellW = (phoneW - 10) / 4;
-            const cellH = (phoneH - 20) / 4;
-            const isDark = (row + col) % 2 === 1;
-            return (
-              <rect
-                key={`${row}-${col}`}
-                x={phoneX + 5 + col * cellW}
-                y={phoneY + 10 + row * cellH}
-                width={cellW}
-                height={cellH}
-                fill={isDark ? '#b0c8e0' : '#E8F4FD'}
-              />
-            );
-          })
-        )}
-        {/* Phone home button */}
-        <circle cx={cx} cy={phoneY + phoneH - 4} r={2.5} fill="#DDD8CC" />
-
-        {/* Label */}
-        <text x={cx} y={250} textAnchor="middle" fontSize="11" fill="#2D2520" fontFamily="Nunito, sans-serif" fontWeight="700" opacity="0.65">
-          Small screen
-        </text>
-      </svg>
-    );
-  };
-
-  // ── RIGHT PANEL: Chessboard ────────────────────────────────────────
-  // Same cone angle, but board is much wider — cone only covers part of it
-  const boardPanel = () => {
-    const cx = 110;
-    const cy = 52;
-    const cone = getConePoints(cx, cy, true);
-
-    const boardSize = 140;
-    const boardX = cx - boardSize / 2;
-    const boardY = cy + headR + 22;
-    const cellSize = boardSize / 8;
-
-    // Cone tip to "near" board edge width is narrow vs board width
-    const coneLeftX = boardX + 26;
-    const coneRightX = boardX + boardSize - 26;
-
-    const conePoints = [
-      [cone.leftEyeX, cone.eyeY],
-      [coneLeftX, boardY + boardSize],
-      [coneRightX, boardY + boardSize],
-      [cone.rightEyeX, cone.eyeY],
-    ].map((p) => p.join(',')).join(' ');
-
-    return (
-      <svg viewBox="0 0 220 280" className="w-full h-full" aria-hidden="true">
-        {/* Board */}
-        <rect x={boardX} y={boardY} width={boardSize} height={boardSize}
-          fill="white" stroke="#DDD8CC" strokeWidth="1.5" />
-        {[...Array(8)].map((_, row) =>
-          [...Array(8)].map((_, col) => {
-            const isDark = (row + col) % 2 === 1;
-            return (
-              <rect
-                key={`${row}-${col}`}
-                x={boardX + col * cellSize}
-                y={boardY + row * cellSize}
-                width={cellSize}
-                height={cellSize}
-                fill={isDark ? '#c8b89a' : '#f0e8d8'}
-              />
-            );
-          })
-        )}
-        {/* Board border */}
-        <rect x={boardX} y={boardY} width={boardSize} height={boardSize}
-          fill="none" stroke="#2D2520" strokeWidth="1.5" />
-
-        {/* Outside-cone overlay: left and right strips — dimmed */}
-        <rect x={boardX} y={boardY} width={coneLeftX - boardX} height={boardSize}
-          fill="#2D2520" fillOpacity={0.10} />
-        <rect x={coneRightX} y={boardY} width={boardX + boardSize - coneRightX} height={boardSize}
-          fill="#2D2520" fillOpacity={0.10} />
-
-        {/* Attention cone fill */}
-        <polygon points={conePoints} fill="#E8A020" fillOpacity={0.13} />
-        {/* Cone edges */}
-        <line x1={cone.leftEyeX} y1={cone.eyeY} x2={coneLeftX} y2={boardY + boardSize}
-          stroke="#E8A020" strokeWidth="1.5" strokeDasharray="4 3" strokeLinecap="round" />
-        <line x1={cone.rightEyeX} y1={cone.eyeY} x2={coneRightX} y2={boardY + boardSize}
-          stroke="#E8A020" strokeWidth="1.5" strokeDasharray="4 3" strokeLinecap="round" />
-
-        {/* Head */}
-        <circle cx={cx} cy={cy} r={headR} fill="#F5F3EE" stroke="#DDD8CC" strokeWidth="1.5" />
-        {/* Nose */}
-        <ellipse cx={cx} cy={cy + headR - 8} rx={4} ry={3} fill="#DDD8CC" />
-        {/* Eyes */}
-        <circle cx={cone.leftEyeX} cy={cone.eyeY} r={3.5} fill="#2D2520" />
-        <circle cx={cone.rightEyeX} cy={cone.eyeY} r={3.5} fill="#2D2520" />
-        <circle cx={cone.leftEyeX + 1} cy={cone.eyeY - 1} r={1} fill="white" />
-        <circle cx={cone.rightEyeX + 1} cy={cone.eyeY - 1} r={1} fill="white" />
-
-        {/* "Outside view" arrows hinting more board exists */}
-        <text x={boardX - 8} y={boardY + boardSize / 2} textAnchor="middle" fontSize="14" fill="#2D2520" opacity="0.3">←</text>
-        <text x={boardX + boardSize + 8} y={boardY + boardSize / 2} textAnchor="middle" fontSize="14" fill="#2D2520" opacity="0.3">→</text>
-
-        {/* Label */}
-        <text x={cx} y={268} textAnchor="middle" fontSize="11" fill="#2D2520" fontFamily="Nunito, sans-serif" fontWeight="700" opacity="0.65">
-          Full chessboard
-        </text>
-      </svg>
-    );
-  };
+  // Cone points: rays go to edges of phone
+  const conePoints = [
+    [leftEyeX, eyeY],
+    [phoneX - 1, phoneY + phoneH],
+    [phoneX + phoneW + 1, phoneY + phoneH],
+    [rightEyeX, eyeY],
+  ].map(p => p.join(',')).join(' ');
 
   return (
-    <div className="bg-white border-2 border-[#E8A020]/15 rounded-3xl p-6 lg:p-10">
-      {/* Top label */}
-      <p className="font-nunito text-[#2D2520]/40 text-xs font-700 uppercase tracking-widest text-center mb-6">
-        Visual attention — top-down view
+    <svg viewBox="0 0 200 240" className="w-full h-full" aria-hidden="true">
+      {/* Attention cone fill */}
+      <polygon points={conePoints} fill="#E8A020" fillOpacity={0.15} />
+      {/* Cone edges — thick */}
+      <line x1={leftEyeX} y1={eyeY} x2={phoneX - 1} y2={phoneY + phoneH}
+        stroke="#E8A020" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1={rightEyeX} y1={eyeY} x2={phoneX + phoneW + 1} y2={phoneY + phoneH}
+        stroke="#E8A020" strokeWidth="2.5" strokeLinecap="round" />
+
+      {/* Head */}
+      <circle cx={cx} cy={cy} r={headR} fill="#F5F3EE" stroke="#C8C0B4" strokeWidth="1.5" />
+      {/* Nose hint */}
+      <ellipse cx={cx} cy={cy + headR - 7} rx={3.5} ry={2.5} fill="#C8C0B4" />
+      {/* Eyes */}
+      <circle cx={leftEyeX} cy={eyeY} r={3} fill="#2D2520" />
+      <circle cx={rightEyeX} cy={eyeY} r={3} fill="#2D2520" />
+      <circle cx={leftEyeX + 1} cy={eyeY - 1} r={1} fill="white" />
+      <circle cx={rightEyeX + 1} cy={eyeY - 1} r={1} fill="white" />
+
+      {/* Phone body */}
+      <rect x={phoneX} y={phoneY} width={phoneW} height={phoneH} rx={5} ry={5}
+        fill="white" stroke="#2D2520" strokeWidth="1.5" />
+      {/* Screen */}
+      <rect x={phoneX + 3} y={phoneY + 7} width={phoneW - 6} height={phoneH - 14}
+        rx={2} fill="#E8F4FD" stroke="#b0c8e0" strokeWidth="1" />
+      {/* Mini chess grid */}
+      {[0,1,2,3].map(row => [0,1,2,3].map(col => {
+        const cw = (phoneW - 10) / 4, ch = (phoneH - 18) / 4;
+        return (
+          <rect key={`${row}-${col}`}
+            x={phoneX + 5 + col * cw} y={phoneY + 9 + row * ch}
+            width={cw} height={ch}
+            fill={(row + col) % 2 === 1 ? '#b0c8e0' : '#E8F4FD'} />
+        );
+      }))}
+      {/* Home button */}
+      <circle cx={cx} cy={phoneY + phoneH - 4} r={2.5} fill="#DDD8CC" />
+    </svg>
+  );
+}
+
+function BoardPanel() {
+  const cx = 100, cy = 44, headR = 26;
+  const leftEyeX = cx - 9, rightEyeX = cx + 9;
+  const eyeY = cy + headR - 5;
+
+  // Board — same gap from head as phone panel
+  const boardSize = 136;
+  const boardX = cx - boardSize / 2;
+  const boardY = eyeY + 52;
+  const cellSize = boardSize / 8;
+
+  // Same angular cone — rays hit only the middle portion of the board
+  const coneLeftX = boardX + 30;
+  const coneRightX = boardX + boardSize - 30;
+
+  const conePoints = [
+    [leftEyeX, eyeY],
+    [coneLeftX, boardY + boardSize],
+    [coneRightX, boardY + boardSize],
+    [rightEyeX, eyeY],
+  ].map(p => p.join(',')).join(' ');
+
+  return (
+    <svg viewBox="0 0 200 260" className="w-full h-full" aria-hidden="true">
+      {/* Board squares */}
+      {[...Array(8)].map((_, row) => [...Array(8)].map((_, col) => (
+        <rect key={`${row}-${col}`}
+          x={boardX + col * cellSize} y={boardY + row * cellSize}
+          width={cellSize} height={cellSize}
+          fill={(row + col) % 2 === 1 ? '#c8b89a' : '#f0e8d8'} />
+      )))}
+      {/* Board border */}
+      <rect x={boardX} y={boardY} width={boardSize} height={boardSize}
+        fill="none" stroke="#2D2520" strokeWidth="1.5" />
+
+      {/* Out-of-cone dimming: left strip */}
+      <rect x={boardX} y={boardY} width={coneLeftX - boardX} height={boardSize}
+        fill="#2D2520" fillOpacity={0.12} />
+      {/* Out-of-cone dimming: right strip */}
+      <rect x={coneRightX} y={boardY} width={boardX + boardSize - coneRightX} height={boardSize}
+        fill="#2D2520" fillOpacity={0.12} />
+
+      {/* Attention cone fill */}
+      <polygon points={conePoints} fill="#E8A020" fillOpacity={0.15} />
+      {/* Cone edges — thick */}
+      <line x1={leftEyeX} y1={eyeY} x2={coneLeftX} y2={boardY + boardSize}
+        stroke="#E8A020" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1={rightEyeX} y1={eyeY} x2={coneRightX} y2={boardY + boardSize}
+        stroke="#E8A020" strokeWidth="2.5" strokeLinecap="round" />
+
+      {/* Head */}
+      <circle cx={cx} cy={cy} r={headR} fill="#F5F3EE" stroke="#C8C0B4" strokeWidth="1.5" />
+      {/* Nose hint */}
+      <ellipse cx={cx} cy={cy + headR - 7} rx={3.5} ry={2.5} fill="#C8C0B4" />
+      {/* Eyes */}
+      <circle cx={leftEyeX} cy={eyeY} r={3} fill="#2D2520" />
+      <circle cx={rightEyeX} cy={eyeY} r={3} fill="#2D2520" />
+      <circle cx={leftEyeX + 1} cy={eyeY - 1} r={1} fill="white" />
+      <circle cx={rightEyeX + 1} cy={eyeY - 1} r={1} fill="white" />
+    </svg>
+  );
+}
+
+function BoardVisionDiagram() {
+  return (
+    <div className="border border-[#E8A020]/20 rounded-2xl p-5 bg-white">
+      <p className="font-nunito text-[#2D2520]/40 text-xs font-700 uppercase tracking-widest text-center mb-4">
+        Visual Attention
       </p>
-      <div className="grid grid-cols-2 gap-4 lg:gap-10 max-w-lg mx-auto">
-        <div className="flex flex-col items-center">
-          <div className="w-full" style={{ maxWidth: 200 }}>
-            {phonePanel()}
-          </div>
-        </div>
-        <div className="flex flex-col items-center">
-          <div className="w-full" style={{ maxWidth: 200 }}>
-            {boardPanel()}
-          </div>
-        </div>
-      </div>
-      {/* Legend */}
-      <div className="flex items-center justify-center gap-6 mt-4 flex-wrap">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-2 rounded-full" style={{ background: 'rgba(232,160,32,0.35)' }} />
-          <span className="font-nunito text-[#2D2520]/50 text-xs font-600">Field of attention</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-2 rounded-full" style={{ background: 'rgba(45,37,32,0.12)' }} />
-          <span className="font-nunito text-[#2D2520]/50 text-xs font-600">Outside attentional field</span>
-        </div>
+      <div className="grid grid-cols-2 gap-2 max-w-sm mx-auto">
+        <div className="w-full"><PhonePanel /></div>
+        <div className="w-full"><BoardPanel /></div>
       </div>
     </div>
   );
@@ -260,13 +152,13 @@ export default function BoardVisionSection() {
             <span className="font-nunito text-[#b8790a] text-sm font-700">Board vision</span>
           </div>
 
-          <h2 className="font-fredoka text-[#2D2520] mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+          <h2 className="font-fredoka text-[#2D2520] mb-6" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
             Board Vision
           </h2>
 
           <BoardVisionDiagram />
 
-          <div className="mt-10 space-y-5 font-nunito text-[#2D2520]/65 text-base leading-relaxed">
+          <div className="mt-8 space-y-5 font-nunito text-[#2D2520]/65 text-base leading-relaxed">
             <p>
               This diagram illustrates how engaging with complex tasks on small screens can limit our ability to perceive the bigger picture. When visual information is compressed into a confined space, broader patterns and relationships can become more difficult to recognise.
             </p>
