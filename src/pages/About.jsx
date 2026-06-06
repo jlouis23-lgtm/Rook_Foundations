@@ -44,7 +44,7 @@ export default function About() {
               Hello, welcome 👋
             </h1>
             <p className="font-nunito text-[#2D2520]/60 text-lg leading-relaxed max-w-2xl">
-              Rook Foundations is a chess education programme built on years of experience working with children, academic training in psychology, and a genuine belief that every child deserves the opportunity to think for themselves.
+              Rook Foundations is an education programme built on years of experience working with children, academic training in psychology, and a genuine belief that every child deserves the opportunity to think for themselves.
             </p>
           </motion.div>
         </div>
