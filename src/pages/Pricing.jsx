@@ -63,7 +63,7 @@ export default function Pricing() {
             What does it cost?
           </h1>
           <p className="font-nunito text-[#2D2520]/60 text-lg leading-relaxed max-w-2xl mx-auto">
-            Choose the format that works best for your family. All sessions are in-person, with a qualified instructor. The more students, the better the value.
+            Choose the format that works best for your family. All sessions are in-person, with a patient and child-friendly instructor. Our approach is working in small groups, tailoring learning and maximising growth.
           </p>
         </div>
       </section>
