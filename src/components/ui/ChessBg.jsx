@@ -51,6 +51,24 @@ const LAYOUTS = {
     { piece: 'queen',  x: '88%', y: '60%', size: 75,  opacity: 0.06,  rotate: 10  },
     { piece: 'pawn',   x: '50%', y: '85%', size: 42,  opacity: 0.06,  rotate: 3   },
   ],
+  contact: [
+    { piece: 'bishop', x: '92%', y: '8%',  size: 62,  opacity: 0.038, rotate: 9   },
+    { piece: 'pawn',   x: '4%',  y: '25%', size: 36,  opacity: 0.04,  rotate: -7  },
+    { piece: 'rook',   x: '88%', y: '70%', size: 52,  opacity: 0.032, rotate: 5   },
+    { piece: 'knight', x: '6%',  y: '75%', size: 44,  opacity: 0.035, rotate: -12 },
+  ],
+  pricing: [
+    { piece: 'queen',  x: '90%', y: '5%',  size: 70,  opacity: 0.038, rotate: 7   },
+    { piece: 'pawn',   x: '3%',  y: '18%', size: 38,  opacity: 0.042, rotate: -5  },
+    { piece: 'knight', x: '94%', y: '55%', size: 56,  opacity: 0.032, rotate: -10 },
+    { piece: 'bishop', x: '2%',  y: '65%', size: 48,  opacity: 0.035, rotate: 8   },
+    { piece: 'pawn',   x: '50%', y: '90%', size: 32,  opacity: 0.038, rotate: 3   },
+  ],
+  booking: [
+    { piece: 'rook',   x: '93%', y: '6%',  size: 58,  opacity: 0.036, rotate: -6  },
+    { piece: 'pawn',   x: '3%',  y: '35%', size: 38,  opacity: 0.04,  rotate: 10  },
+    { piece: 'king',   x: '90%', y: '75%', size: 66,  opacity: 0.03,  rotate: 5   },
+  ],
   page: [
     { piece: 'bishop', x: '94%', y: '5%',  size: 70,  opacity: 0.04,  rotate: 8   },
     { piece: 'pawn',   x: '3%',  y: '30%', size: 42,  opacity: 0.04,  rotate: -5  },

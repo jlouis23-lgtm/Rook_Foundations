@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import ChessBg from '@/components/ui/ChessBg';
 
 export default function Booking() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -7,6 +8,7 @@ export default function Booking() {
     <div className="bg-[#FAFAF7] pt-32">
       {/* Header */}
       <section className="relative overflow-hidden py-20">
+        <ChessBg variant="booking" />
         <div className="absolute top-0 right-0 w-80 h-80 bg-[#E8A020]/8 blob-shape pointer-events-none" />
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
           <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2 mb-5">
