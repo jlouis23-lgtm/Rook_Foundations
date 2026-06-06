@@ -33,14 +33,14 @@ const lessonPlanData = {
     oneHour: [
       { time: '0:00 to 0:10', stage: 'Warm-Up and Recap', activity: 'Quick review of the previous session. A short position or puzzle to get the mind active.', icon: '🔁' },
       { time: '0:10 to 0:25', stage: 'Opening Principles', activity: 'Introduction to a key opening concept such as centre control, piece development, or king safety, with practical examples.', icon: '📖' },
-      { time: '0:25 to 0:45', stage: 'Tactical Training', activity: 'Focused work on a specific tactical motif such as forks, pins, or discovered attacks. Puzzles selected to match the student\'s level.', icon: '⚔️' },
+      { time: '0:25 to 0:45', stage: 'Training for Tactics', activity: 'Focused work on a specific tactical motif such as forks, pins, or discovered attacks. Puzzles selected to match the student\'s level.', icon: '⚔️' },
       { time: '0:45 to 0:55', stage: 'Guided Game', activity: 'A short game with ongoing coaching. The student is encouraged to apply the tactic or principle covered earlier.', icon: '🎯' },
       { time: '0:55 to 1:00', stage: 'Review and Takeaway', activity: 'Identify one key moment from the session and set a focus point for independent practice.', icon: '⭐' },
     ],
     twoHour: [
       { time: '0:00 to 0:10', stage: 'Warm-Up and Recap', activity: 'Review of the last session. A warm-up position to activate pattern recognition and get focused.', icon: '🔁' },
       { time: '0:10 to 0:30', stage: 'Opening Principles', activity: 'Exploring ideas during the opening phase. Identify principles in the opening moves.', icon: '📖' },
-      { time: '0:30 to 0:55', stage: 'Tactical Training', activity: 'A structured puzzle set covering a specific tactical theme. Students are coached to slow down and consider multiple candidate moves.', icon: '⚔️' },
+      { time: '0:30 to 0:55', stage: 'Training for Tactics', activity: 'Use puzzles to identify themes. Students are encouraged to slow down and consider multiple perspectives.', icon: '⚔️' },
       { time: '0:55 to 1:05', stage: 'Break', activity: 'A relaxed pause. A natural moment to reflect on what\'s been covered.', icon: '☕' },
       { time: '1:05 to 1:35', stage: 'Full Game with Coaching', activity: 'A complete, longer game played at a comfortable pace. The coach observes, questions, and intervenes with hints rather than answers.', icon: '🎯' },
       { time: '1:35 to 1:50', stage: 'Game Analysis', activity: 'Reviewing two or three critical moments from the game. What went well? What could have been stronger? Students lead the discussion.', icon: '🔍' },
