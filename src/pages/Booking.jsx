@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import ChessBg from '@/components/ui/ChessBg';
+import RookCentrepiece from '@/components/booking/RookCentrepiece';
 
 export default function Booking() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -22,6 +23,11 @@ export default function Booking() {
           </p>
         </div>
       </section>
+
+      {/* Rook Centrepiece Divider */}
+      <div className="max-w-3xl mx-auto px-6">
+        <RookCentrepiece />
+      </div>
 
       {/* Calendly Embed */}
       <section className="pb-24" style={{ backgroundColor: '#FAFAF7' }}>
