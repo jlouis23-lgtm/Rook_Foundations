@@ -18,7 +18,7 @@ export default function Booking() {
             Find a session that works for your family
           </h1>
           <p className="font-nunito text-[#2D2520]/60 text-lg max-w-2xl mx-auto leading-relaxed">
-            Browse available slots and book directly — sessions are confirmed instantly, synced to my calendar. No back-and-forth needed.
+            Browse available slots and book directly. Sessions are confirmed instantly and synced to my calendar.
           </p>
         </div>
       </section>
