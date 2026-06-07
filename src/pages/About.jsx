@@ -125,7 +125,7 @@ export default function About() {
             </div>
             <h2 className="font-fredoka text-[#2D2520] leading-tight mb-10"
               style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
-              Why chess?
+              Why Rook Foundations?
             </h2>
             <div className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed space-y-5">
               <p>Chess provides a unique kind of playful mental pressure. I started playing frequently while researching. These breaks provided a healthy distraction from synthesising boring data and drafting dry reports. When I started playing against people in person rather than just online, I realised that the game captured some meaningful stuff that most people take for granted these days. Things like sacrifice. It teaches that success is defined by cooperation of pieces, and that the victory is marked by the strength of those connections. However, our connections as a society our fading and this will affect learning for the next generation. Today, children are disengaged from learning and overwhelmed by constant digital stimulation. Too often, they're given answers instead of being encouraged to think for themselves.</p>
