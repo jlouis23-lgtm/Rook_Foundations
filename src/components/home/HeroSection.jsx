@@ -158,10 +158,16 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* ECF Affiliation */}
-        <div className="absolute bottom-6 right-6 flex items-center gap-1.5">
-          <Shield size={16} className="text-[#E8A020]/40" />
-          <span className="font-nunito text-[#2D2520]/40 text-sm font-600">Connected with English Chess Federation</span>
+        {/* Affiliations */}
+        <div className="absolute bottom-6 right-6 flex flex-col items-end gap-1.5">
+          <div className="flex items-center gap-1.5">
+            <Shield size={16} className="text-[#E8A020]/40" />
+            <span className="font-nunito text-[#2D2520]/40 text-sm font-600">Proud member of <a href="https://www.wholeschoolsend.org.uk/page/nasen-home-page" target="_blank" rel="noopener noreferrer" className="hover:text-[#E8A020]/70 transition-colors underline underline-offset-2">NASEN</a> (National Association for Special Educational Needs).</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <Shield size={16} className="text-[#E8A020]/40" />
+            <span className="font-nunito text-[#2D2520]/40 text-sm font-600">Connected with English Chess Federation</span>
+          </div>
         </div>
       </div>
     </section>
