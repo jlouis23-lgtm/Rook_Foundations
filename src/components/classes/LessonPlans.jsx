@@ -16,7 +16,7 @@ const lessonPlanData = {
       { time: '0:55 to 1:00', stage: 'Reflection and Close', activity: 'What did we learn today? One positive takeaway and a preview of next session.', icon: '⭐' },
     ],
     twoHour: [
-      { time: '0:00 to 0:10', stage: 'Welcome and Warm-Up', activity: 'Greeting, board setup, and a recap of what we covered last time. New learners get a friendly introduction to the chess world.', icon: '👋' },
+      { time: '0:00 to 0:10', stage: 'Welcome and Warm-Up', activity: 'Greeting, board setup, and a recap of what we covered last time. New learners get a friendly introduction to the available games.', icon: '👋' },
       { time: '0:10 to 0:30', stage: 'Piece Introduction', activity: 'Step-by-step exploration of all piece movements using storytelling and visual aids. Each piece gets its own moment.', icon: '♟' },
       { time: '0:30 to 0:50', stage: 'Guided Play Part 1', activity: 'Structured game with coaching support. Focus on applying what was just learned in a relaxed, playful environment.', icon: '🎯' },
       { time: '0:50 to 1:00', stage: 'Break', activity: 'A short, relaxed pause. A chance to reset, ask questions, and recharge before the second half.', icon: '☕' },
