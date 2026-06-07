@@ -5,6 +5,7 @@ import { ArrowRight, Award, BookOpen, Users, Heart } from 'lucide-react';
 import WhyChessResearch from '../components/about/WhyChessResearch';
 import ProfessionalTraining from '../components/about/ProfessionalTraining';
 import BoardVisionSection from '../components/about/BoardVisionSection';
+import GamesGallery from '../components/about/GamesGallery';
 import ChessBg from '@/components/ui/ChessBg';
 
 const credentials = [
@@ -108,6 +109,8 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      <GamesGallery />
 
       <BoardVisionSection />
 
