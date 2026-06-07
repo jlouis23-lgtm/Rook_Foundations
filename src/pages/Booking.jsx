@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import ChessBg from '@/components/ui/ChessBg';
-import RookRibbonDivider from '@/components/booking/RookRibbonDivider';
 
 export default function Booking() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -23,8 +22,6 @@ export default function Booking() {
           </p>
         </div>
       </section>
-
-      <RookRibbonDivider />
 
       {/* Calendly Embed */}
       <section className="pb-24" style={{ backgroundColor: '#FAFAF7' }}>
