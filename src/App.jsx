@@ -15,6 +15,7 @@ import Contact from './pages/Contact';
 import Booking from './pages/Booking';
 import Pricing from './pages/Pricing';
 import References from './pages/References';
+import Events from './pages/Events';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -51,6 +52,7 @@ const AuthenticatedApp = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/references" element={<References />} />
+        <Route path="/events" element={<Events />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
