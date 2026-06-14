@@ -43,7 +43,7 @@ const plans = [
     tagStyle: 'bg-green-500 text-white',
     cardStyle: 'bg-green-50 border-green-200',
     prices: { '1 Hour': { total: 30, note: '£4.29 per student' }, '2 Hours': { total: 35, note: '£5.00 per student' } },
-    features: ['Cooperative problem solving', 'Team challenges & competitions', 'Mini tournaments within sessions', 'Progress report every session'],
+    features: ['Cooperative problem solving', 'Team challenges & competitions', 'Rotate through different strategy games', 'Progress report every session'],
   },
 ];
 
