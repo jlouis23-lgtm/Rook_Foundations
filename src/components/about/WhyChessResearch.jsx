@@ -118,7 +118,7 @@ export default function WhyChessResearch() {
           </div>
           <div className="mt-2 inline-flex items-center gap-2 bg-white border border-amber-200 rounded-full px-4 py-2">
             <div className="w-2 h-2 rounded-full bg-[#E8A020]" />
-            <span className="font-nunito text-[#b8790a] text-xs font-700">Research-informed · Parent-friendly · Child-centred</span>
+            <span className="font-nunito text-[#b8790a] text-xs font-700">Child-centred · Play-focused · Personalised support</span>
           </div>
         </motion.div>
 
