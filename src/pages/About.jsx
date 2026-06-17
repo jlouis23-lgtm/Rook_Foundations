@@ -7,6 +7,7 @@ import ProfessionalTraining from '../components/about/ProfessionalTraining';
 import BoardVisionSection from '../components/about/BoardVisionSection';
 import GamesGallery from '../components/about/GamesGallery';
 import ChessBg from '@/components/ui/ChessBg';
+import JourneyTimeline from '../components/about/JourneyTimeline';
 
 const credentials = [
   { icon: Users, emoji: '👥', title: 'Working With Children', desc: 'Background in mentoring, youth support, wellbeing, and residential care — supporting children across a range of needs and environments.', color: 'bg-blue-50 border-blue-200', accent: '#4a7eb8' },
@@ -15,17 +16,7 @@ const credentials = [
   { icon: Heart, emoji: '♜', title: 'Dedicated Chess Study', desc: 'Four years of dedicated chess study and competitive play, with a genuine understanding of the learning journey from beginner upwards.', color: 'bg-amber-50 border-amber-200', accent: '#b8790a' },
 ];
 
-const timeline = [
-  { year: '2018', emoji: '📚', event: "Began tutoring GCSE students in Maths, Science, and English. Developed skills in providing personalised academic support, building on previous lessons and using well-timed breaks to maximise concentration and learning." },
-  { year: '2019', emoji: '⛺', event: "Worked as a Youth Officer at a children's camp, designing age-specific activities that deepened an understanding of child engagement, teamwork, and structured play." },
-  { year: '2021', emoji: '🧠', event: 'Started a BSc in Psychology at the University of Manchester, focusing on developmental psychology, cognitive development, and how children build resilience through supportive environments.' },
-  { year: '2022', emoji: '🤝', event: "Volunteered with Midlands charity ReachOut as a Peer Mentor, helping children from disadvantaged backgrounds build academic confidence, communication skills, and self-belief." },
-  { year: '2023', emoji: '🔍', event: "Conducted research with parents experiencing mental illness, exploring how stigma affects parenting and children's emotional wellbeing." },
-  { year: '2024', emoji: '🏛️', event: "Began an MSc in War and Psychology at King's College London, studying trauma therapy, CBT, resilience, and emotional recovery in young people." },
-  { year: '2025', emoji: '💻', event: 'Conducted an independent study exploring whether AI and machine learning could be used as a screening tool for mental health issues in veterans post conflict.' },
-  { year: '2026', emoji: '🏠', event: "Began working as a Children's Residential Support Worker, supporting young people from complex backgrounds with structure, safety, and stability." },
-  { year: 'Today', emoji: '♜', event: 'Rook Foundations was born from a belief that chess and other games like it build positive life skills if they are rewarded and encouraged properly.' },
-];
+
 
 export default function About() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -147,45 +138,7 @@ export default function About() {
       </section>
 
       {/* Journey Timeline */}
-      <section className="bg-[#F5F3EE] py-20">
-        <div className="max-w-3xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-200 rounded-full px-4 py-2 mb-4">
-              <span className="text-sm">🗺️</span>
-              <span className="font-nunito text-blue-700 text-sm font-700">The journey here</span>
-            </div>
-            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-              Study and experience gained over the years
-            </h2>
-          </div>
-          <div className="relative">
-            <div className="absolute left-10 top-0 bottom-0 w-0.5 bg-[#E8A020]/20 rounded-full" />
-            <div className="space-y-8">
-              {timeline.map((t, i) => (
-                <motion.div
-                  key={t.year}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                  className="flex items-start gap-6 pl-2">
-                  <div className="flex flex-col items-center flex-shrink-0">
-                    <div className="w-16 h-8 flex items-center justify-center">
-                      <span className="font-fredoka text-[#E8A020] text-sm font-600">{t.year}</span>
-                    </div>
-                    <div className="w-6 h-6 bg-[#E8A020] rounded-full flex items-center justify-center text-xs mt-1 shadow-md shadow-[#E8A020]/20">
-                      <span>{t.emoji}</span>
-                    </div>
-                  </div>
-                  <div className="bg-white rounded-2xl border border-[#E8A020]/12 p-4 flex-1 mt-1">
-                    <p className="font-nunito text-[#2D2520]/70 text-sm leading-relaxed">{t.event}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <JourneyTimeline />
 
       {/* CTA */}
       <section className="py-20 text-center bg-[#E8A020] relative overflow-hidden">
