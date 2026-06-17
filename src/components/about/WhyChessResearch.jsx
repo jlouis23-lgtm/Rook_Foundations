@@ -60,7 +60,7 @@ export default function WhyChessResearch() {
             Why chess, really?
           </h2>
           <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-xl mx-auto leading-relaxed">
-            Research shows chess supports meaningful child development — and we provide a structured thinking environment designed to build lifelong habits.
+            Research shows chess supports meaningful child development.
           </p>
         </div>
 
