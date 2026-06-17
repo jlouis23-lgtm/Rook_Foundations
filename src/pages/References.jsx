@@ -6,6 +6,39 @@ import ChessBg from '@/components/ui/ChessBg';
 
 const sections = [
   {
+    topic: "Chess, Focus & Child Development",
+    emoji: "🔬",
+    color: "bg-amber-50 border-amber-200",
+    accent: "#b8790a",
+    tag: "bg-amber-100 text-amber-700",
+    refs: [
+      {
+        citation: "Zhang, Y., et al. (2025). Chess and the development of logical reasoning and patience in children. Frontiers in Psychology, 16.",
+        detail: "This research suggests that chess may help children practise sustained attention, careful decision-making, and patience — skills that can extend beyond the board.",
+        url: "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2025.1592247/full",
+      },
+      {
+        citation: "Sala, G., & Gobet, F. (2016). Do the benefits of chess instruction transfer to academic and cognitive skills? A meta-analysis. Educational research review, 18, 46–57.",
+        detail: "This study explored whether chess instruction can strengthen planning, reasoning, and problem-solving skills, and how those skills might transfer to other areas of learning.",
+      },
+      {
+        citation: "Fuentes, J. L., et al. (2018). Benefits of chess for the intellectual and social-emotional enrichment in schoolchildren. The Spanish Journal of Psychology, 21, E20.",
+        detail: "Research examining how chess supports emotional and social development in children — including respect for others, managing wins and losses, and thinking under pressure.",
+        url: "https://www.cambridge.org/core/journals/spanish-journal-of-psychology/article/abs/benefits-of-chess-for-the-intellectual-and-socialemotional-enrichment-in-schoolchildren/9BAE7D7E2A9D7587C0259F7E964E5CF9",
+      },
+      {
+        citation: "Education Endowment Foundation. (2018). Chess in primary schools.",
+        detail: "A large-scale study across 300+ schools which found that the quality of teaching involvement during chess sessions significantly affects whether children gain developmental benefits.",
+        url: "https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/chess-in-primary-schools",
+      },
+      {
+        citation: "Trinchero, R., & Sala, G. (2016). Chess training and mathematical problem-solving: The role of teaching implementation and engagement. ERIC.",
+        detail: "This study highlights the critical role of how chess is taught — finding that active instructor engagement throughout sessions is key to children developing transferable thinking skills.",
+        url: "https://files.eric.ed.gov/fulltext/ED581100.pdf",
+      },
+    ],
+  },
+  {
     topic: "Chess and Learning Difficulties",
     emoji: "📚",
     color: "bg-blue-50 border-blue-200",

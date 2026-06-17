@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 
 const bubbles = [
@@ -36,14 +38,7 @@ const bubbles = [
   },
 ];
 
-const references = [
-  { citation: 'Education Endowment Foundation. (2018). Chess in primary schools.', url: 'https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/chess-in-primary-schools' },
-  { citation: 'Fuentes, J. L., et al. (2018). Benefits of chess for the intellectual and social-emotional enrichment in schoolchildren. The Spanish Journal of Psychology, 21, E20.', url: 'https://www.cambridge.org/core/journals/spanish-journal-of-psychology/article/abs/benefits-of-chess-for-the-intellectual-and-socialemotional-enrichment-in-schoolchildren/9BAE7D7E2A9D7587C0259F7E964E5CF9' },
-  { citation: 'Sala, G., & Gobet, F. (2016). Do the benefits of chess instruction transfer to academic and cognitive skills? A meta-analysis. Educational research review, 18, 46–57.', url: null },
-  { citation: 'Sala, G., & Gobet, F. (2017). Does far transfer exist? Negative evidence from chess, music, and working memory training. PLOS ONE, 12(5), e0177257.', url: 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0177257' },
-  { citation: 'Trinchero, R., & Sala, G. (2016). Chess training and mathematical problem-solving: The role of teaching implementation and engagement. ERIC.', url: 'https://files.eric.ed.gov/fulltext/ED581100.pdf' },
-  { citation: 'Zhang, Y., et al. (2025). Chess and the development of logical reasoning and patience in children. Frontiers in Psychology, 16.', url: 'https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2025.1592247/full' },
-];
+
 
 export default function WhyChessResearch() {
   return (
@@ -113,26 +108,19 @@ export default function WhyChessResearch() {
           </div>
         </motion.div>
 
-        {/* References */}
-        <div className="border-t-2 border-[#E8A020]/15 pt-8">
-          <h3 className="font-fredoka text-[#2D2520]/40 text-base mb-5">Academic References</h3>
-          <ul className="space-y-4">
-            {references.map((ref, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <span className="font-nunito text-[#E8A020]/50 text-xs mt-0.5 flex-shrink-0 w-5 text-right font-700">{String(i + 1).padStart(2, '0')}.</span>
-                <div>
-                  <p className="font-nunito text-[#2D2520]/40 text-xs leading-relaxed">{ref.citation}</p>
-                  {ref.url && (
-                    <a href={ref.url} target="_blank" rel="noopener noreferrer"
-                      className="font-nunito text-[#E8A020]/50 text-xs hover:text-[#E8A020]/80 transition-colors mt-1 inline-block break-all">
-                      {ref.url}
-                    </a>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* Research CTA */}
+        <Link
+          to="/references"
+          onClick={() => window.scrollTo(0, 0)}
+          className="flex items-center gap-4 bg-amber-50 border-2 border-amber-200 rounded-2xl px-6 py-5 hover:border-[#E8A020]/60 hover:shadow-md hover:shadow-[#E8A020]/10 transition-all group"
+        >
+          <span className="text-3xl flex-shrink-0">📚</span>
+          <div className="flex-1 min-w-0">
+            <p className="font-fredoka text-[#2D2520] text-lg leading-tight">Interested in the research behind our approach?</p>
+            <p className="font-nunito text-[#2D2520]/55 text-sm mt-0.5">Explore the studies and sources we use — with parent-friendly summaries.</p>
+          </div>
+          <ArrowRight size={18} className="text-[#E8A020] flex-shrink-0 group-hover:translate-x-1 transition-transform" />
+        </Link>
       </div>
     </section>
   );
