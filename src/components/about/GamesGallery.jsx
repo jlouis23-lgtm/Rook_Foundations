@@ -34,7 +34,7 @@ export default function GamesGallery() {
         </motion.div>
 
         {/* Games grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-6 mb-12">
           {games.map((game, i) => (
             <motion.div
               key={game.alt}
@@ -44,11 +44,11 @@ export default function GamesGallery() {
               transition={{ duration: 0.5, delay: i * 0.07 }}
               className="group bg-white border-2 border-[#E8A020]/12 rounded-2xl overflow-hidden hover:border-[#E8A020]/30 hover:shadow-lg hover:shadow-[#E8A020]/08 transition-all duration-300"
             >
-              <div className="aspect-square p-3">
+              <div className="aspect-square p-4 sm:p-5 flex items-center justify-center">
                 <img
                   src={game.src}
                   alt={game.alt}
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                  className="max-w-full max-h-full w-auto h-auto object-contain group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
             </motion.div>
