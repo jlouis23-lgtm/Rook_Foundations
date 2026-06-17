@@ -15,7 +15,7 @@ const values = [
     border: 'border-green-200',
     accent: '#2d8c62',
     heading: 'Confidence Blooms Naturally',
-    body: 'In a safe and encouraging space, children discover that making mistakes is part of learning — and that persistence pays off.',
+    body: 'Children discover that making mistakes is part of learning. They learn that being creative and thinking outside of the box is the best habit and that persistence pays off.',
   },
   {
     emoji: '🎯',
