@@ -57,6 +57,16 @@ export default function About() {
             </div>
           </motion.div>
 
+          {/* Subsection title */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.22 }}
+            className="max-w-2xl mx-auto px-6 lg:px-12 text-center mb-10"
+          >
+            <h2 className="font-fredoka text-[#2D2520]/70" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.75rem)' }}>
+              Why Rook Foundations?
+            </h2>
+          </motion.div>
+
           {/* Parts 2 & 3 — Story paragraphs, left-aligned prose */}
           <div className="max-w-2xl mx-auto px-6 lg:px-12">
 
