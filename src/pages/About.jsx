@@ -24,78 +24,87 @@ export default function About() {
   return (
     <div className="bg-[#FAFAF7] pt-20">
 
-      {/* Page Header — merged with My Story */}
-      <section className="pt-20 pb-0 relative overflow-hidden">
+      {/* Page Header */}
+      <section className="pt-20 pb-20 relative overflow-hidden">
         <ChessBg variant="aboutheader" />
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
+        <div className="relative z-10">
 
-          {/* Greeting */}
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+          {/* Greeting + badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
+            className="max-w-4xl mx-auto px-6 lg:px-12 text-center mb-14"
+          >
             <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2 mb-6">
               <span className="text-sm">♜</span>
               <span className="font-nunito text-[#b8790a] text-sm font-700">The story behind Rook Foundations</span>
             </div>
-            <h1 className="font-fredoka text-[#2D2520] leading-tight mb-8"
+            <h1 className="font-fredoka text-[#2D2520] leading-tight mb-0"
               style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)' }}>
               Hello, welcome 👋
             </h1>
           </motion.div>
 
-          {/* Opening paragraph */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.15 }}>
-            <p className="font-nunito text-[#2D2520]/80 text-xl leading-relaxed mb-8 max-w-3xl">
-              <span className="font-fredoka font-900 text-[#2D2520]">R</span>ook Foundations is an education programme built on years of experience working with children, academic training in psychology, and a genuine belief that every child deserves the opportunity to think for themselves.
-            </p>
-          </motion.div>
-
-          {/* Story body */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.25 }}>
-            <div className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed space-y-5 max-w-3xl mb-10">
-              <p>
-                Chess provides a unique kind of playful mental pressure. I started playing frequently while researching. These breaks provided a healthy distraction from synthesising data and drafting reports. When I started playing against people in person rather than just online, I realised that the game captured something meaningful that most people take for granted these days — things like sacrifice. It teaches that success is defined by the cooperation of pieces, and that victory is marked by the strength of those connections.
-              </p>
-              <p>
-                Yet our connections as a society are fading, and this will affect how the next generation learns. Today, children are disengaged from learning and overwhelmed by constant digital stimulation. Too often, they're given answers instead of being encouraged to think for themselves.
-              </p>
-              <p className="font-600 text-[#2D2520]/80">
-                Rook Foundations was born from a simple conviction: every child deserves the opportunity to <em>want</em> to think for themselves.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Hero quote — major focal point */}
+          {/* Part 1 — Centred introductory statement */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.35 }}
-            className="relative mb-20"
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.15 }}
+            className="max-w-2xl mx-auto px-6 lg:px-12 text-center mb-16"
           >
-            {/* Large decorative quotation mark */}
-            <div
-              className="absolute -top-6 -left-4 font-fredoka text-[#E8A020]/15 select-none pointer-events-none leading-none"
-              style={{ fontSize: '10rem', lineHeight: 1 }}
-              aria-hidden="true"
-            >"</div>
-
-            <div className="relative bg-[#2D2520] rounded-3xl px-10 py-10 sm:px-14 sm:py-12 shadow-2xl shadow-[#2D2520]/20 overflow-hidden">
-              {/* Subtle chess piece watermark */}
-              <div className="absolute right-6 bottom-4 text-white/5 font-fredoka select-none pointer-events-none" style={{ fontSize: '8rem', lineHeight: 1 }} aria-hidden="true">♜</div>
-
-              <p className="relative z-10 font-fredoka text-white leading-tight" style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.4rem)' }}>
-                "School taught me how to think.
-              </p>
-              <p className="relative z-10 font-fredoka leading-tight mt-2" style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.4rem)', color: '#F4C261' }}>
-                But it didn't teach me how to want to think for myself."
-              </p>
-
-              {/* Attribution line */}
-              <div className="relative z-10 mt-6 flex items-center gap-3">
-                <div className="h-px w-10 bg-[#E8A020]/50 rounded-full" />
-                <span className="font-nunito text-white/40 text-sm tracking-wide">Louis Jenkins, Founder — Rook Foundations</span>
-              </div>
+            <p className="font-nunito text-[#2D2520] font-700 leading-relaxed" style={{ fontSize: 'clamp(1.15rem, 2.2vw, 1.4rem)' }}>
+              Rook Foundations is an education programme built on years of experience working with children, academic training in psychology, and a genuine belief that games afford opportunities to strengthen the mind.
+            </p>
+            <div className="mt-6 flex justify-center">
+              <div className="h-1 w-12 bg-gradient-to-r from-[#E8A020] to-[#F4C261] rounded-full" />
             </div>
           </motion.div>
 
+          {/* Parts 2 & 3 — Story paragraphs, left-aligned prose */}
+          <div className="max-w-2xl mx-auto px-6 lg:px-12">
+
+            {/* Part 2 — Chess & sacrifice */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.25 }}
+              className="font-nunito text-[#2D2520]/70 text-lg leading-relaxed mb-10"
+            >
+              Chess provides a unique kind of playful mental pressure. I started playing frequently while studying. These breaks provided a healthy distraction from data and research. When I started playing against people in person rather than online, I realised that the game captured something meaningful that most people take for granted these days; things like <strong className="font-800 text-[#2D2520]/90">sacrifice</strong>. It teaches that success is defined by the cooperation of pieces, and that victory is marked by the strength of those connections.
+            </motion.p>
+
+            {/* Part 3 — Digital world & conviction */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.35 }}
+              className="font-nunito text-[#2D2520]/70 text-lg leading-relaxed mb-14"
+            >
+              This is particularly important today as our connections as a society are fading. This will affect how the next generation learns. Right now, children are losing interest in learning, and it is not hard to blame them in this new world filled with constant digital distractions. Too often, they're given answers instead of being encouraged to think for themselves. Rook Foundations was born from a simple conviction: <strong className="font-800 text-[#2D2520]/90">every child deserves the opportunity to want to think for themselves.</strong>
+            </motion.p>
+
+            {/* Hero quote */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.45 }}
+              className="relative"
+            >
+              <div
+                className="absolute -top-6 -left-2 font-fredoka text-[#E8A020]/12 select-none pointer-events-none leading-none"
+                style={{ fontSize: '9rem', lineHeight: 1 }}
+                aria-hidden="true"
+              >"</div>
+
+              <div className="relative bg-[#2D2520] rounded-3xl px-10 py-10 sm:px-12 sm:py-12 shadow-2xl shadow-[#2D2520]/20 overflow-hidden">
+                <div className="absolute right-6 bottom-4 text-white/5 font-fredoka select-none pointer-events-none" style={{ fontSize: '8rem', lineHeight: 1 }} aria-hidden="true">♜</div>
+                <p className="relative z-10 font-fredoka text-white leading-tight" style={{ fontSize: 'clamp(1.45rem, 3.2vw, 2.2rem)' }}>
+                  "School taught me how to think.
+                </p>
+                <p className="relative z-10 font-fredoka leading-tight mt-2" style={{ fontSize: 'clamp(1.45rem, 3.2vw, 2.2rem)', color: '#F4C261' }}>
+                  But it didn't teach me how to want to think for myself."
+                </p>
+                <div className="relative z-10 mt-6 flex items-center gap-3">
+                  <div className="h-px w-10 bg-[#E8A020]/50 rounded-full" />
+                  <span className="font-nunito text-white/40 text-sm tracking-wide">Louis Jenkins, Founder — Rook Foundations</span>
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
