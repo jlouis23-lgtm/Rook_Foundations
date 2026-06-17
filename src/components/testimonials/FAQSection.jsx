@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     q: "Are you any good at chess?",
-    a: "I believe in being honest and transparent about my level. I am not a chess master or elite competitive player — and that is not the focus of my teaching. My carefully analysed games are evaluated by the chess engine Stockfish at an estimated strength of around 1600–1800 Elo. In the chess world, this is considered average, and reflects a solid understanding of strategy, structure, and decision-making. This level is well suited to teaching at the beginner and intermediate stages where most children working with me will be starting from."
+    a: "I believe in being honest and transparent about my level. I am not a chess master or elite competitive player. That is not the focus of my teaching. My carefully analysed games are evaluated by the chess engine Stockfish at an estimated strength of around 1600 Elo. In the chess world, this is considered average, and reflects a solid understanding of strategy, structure, and decision-making. This level is well suited to teaching at the beginner level where children working with me will most likely be starting from."
   },
 ];
 
