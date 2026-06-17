@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: "Can your lessons support children with ADHD?",
-    a: "Yes, and there is good reason to be optimistic. Chess has been shown to support improvements in planning, working memory, and impulse control — areas that are often more challenging for children with ADHD. I do expect that these children may find it harder to focus for extended periods, to pause before acting, or to hold multiple possibilities in mind at once. My approach responds to this by keeping sessions varied and paced to the child, breaking concepts into small steps, and recognising and positively reinforcing small improvements throughout. Building confidence, trust, and long-term motivation is at the heart of what we do at Rook Foundations."
+    a: "Yes, and there is good reason to be optimistic. Chess has been shown to support improvements in planning, working memory, and impulse control. These can be more challenging for children with ADHD. I do expect that these children may find it harder to focus for extended periods, to pause before acting, or to hold multiple possibilities in mind at once. My approach responds to this by keeping sessions varied and at the right pace for your child. We aim to break concepts into bite-size chunks, and recognise and positively reinforce small improvements throughout. Building confidence, trust, and long-term motivation is our main goal here at Rook Foundations."
   },
   {
     q: "Chess is a boy thing. Could my daughter engage with it?",
