@@ -4,7 +4,7 @@ const games = [
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/330e1e1cd_generated_image.png', alt: 'Memory Match Chess' },
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/5aacc1317_generated_image.png', alt: 'Marble Solitaire' },
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/971845733_generated_image.png', alt: 'Reversi / Othello' },
-  { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/1723d2623_generated_image.png', alt: 'Xiangqi' },
+  { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/7f25b4b18_generated_image.png', alt: 'Xiangqi' },
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/089dc2909_generated_image.png', alt: 'Tower of Hanoi' },
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/9b010099d_generated_image.png', alt: 'Number Track Game' },
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/de204f9a1_generated_image.png', alt: 'Abstract Strategy Game' },
