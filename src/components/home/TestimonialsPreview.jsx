@@ -7,7 +7,7 @@ const values = [
     border: 'border-blue-200',
     accent: '#4a7eb8',
     heading: 'They Learn to Think',
-    body: 'Every move on the chess board teaches children to slow down, consider their options, and act with intention — a skill that extends far beyond the game.',
+    body: 'Every move on the chess board teaches children to slow down, consider their options, and act with intention. These kind of learning extends far beyond the game.',
   },
   {
     emoji: '🌱',
