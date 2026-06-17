@@ -99,10 +99,24 @@ export default function WhyChessResearch() {
           <p className="font-nunito text-[#2D2520]/70 text-base leading-relaxed mb-4">
             We recognise the limitations of chess as a transferrable skill and do not claim that chess alone guarantees academic or financial success.
           </p>
-          <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+          <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mb-5">
             Instead, our aim is to create an engaging thinking environment using different types of games. Through these games, children develop <span className="text-[#b8790a] font-800" style={{ textShadow: '0 0 1px rgba(184,121,10,0.2)' }}>focus, reasoning, patience, and discipline</span>. It is our goal that, over time, these principles that they learn with us will support broader learning and extend positively into other areas of life.
           </p>
-          <div className="mt-5 inline-flex items-center gap-2 bg-white border border-amber-200 rounded-full px-4 py-2">
+          <div className="space-y-3 mb-5">
+            <div className="flex items-start gap-3">
+              <span className="text-lg flex-shrink-0 mt-0.5">🎯</span>
+              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+                <span className="font-800 text-[#b8790a]">Process Over Outcome</span> — We focus on the quality of a child's thinking, not simply the result. A well-thought-out loss often teaches more than a lucky win.
+              </p>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-lg flex-shrink-0 mt-0.5">🌱</span>
+              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+                <span className="font-800 text-[#b8790a]">Every Child Progresses</span> — Children learn differently. We identify each child's needs and provide tailored guidance to help them grow steadily and confidently.
+              </p>
+            </div>
+          </div>
+          <div className="mt-2 inline-flex items-center gap-2 bg-white border border-amber-200 rounded-full px-4 py-2">
             <div className="w-2 h-2 rounded-full bg-[#E8A020]" />
             <span className="font-nunito text-[#b8790a] text-xs font-700">Research-informed · Parent-friendly · Child-centred</span>
           </div>

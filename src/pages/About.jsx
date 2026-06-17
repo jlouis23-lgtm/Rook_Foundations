@@ -148,31 +148,6 @@ export default function About() {
       {/* Professional Training */}
       <ProfessionalTraining />
 
-      {/* Teaching Philosophy */}
-      <section className="bg-[#F5F3EE] py-20">
-        <div className="max-w-6xl mx-auto px-6 lg:px-12 text-center">
-          <div className="inline-flex items-center gap-2 bg-purple-100 border border-purple-200 rounded-full px-4 py-2 mb-4">
-            <span className="text-sm">💡</span>
-            <span className="font-nunito text-purple-700 text-sm font-700">How we teach</span>
-          </div>
-          <h2 className="font-fredoka text-[#2D2520] mb-12" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-            Two things we believe in deeply
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {[
-              { emoji: '🎯', color: 'bg-blue-50 border-blue-200', accent: '#4a7eb8', title: 'Process Over Outcome', desc: 'We focus on the quality of thinking, not the result. A well-thought-out loss teaches more than a lucky win.' },
-              { emoji: '🌱', color: 'bg-green-50 border-green-200', accent: '#2d8c62', title: 'Every Child Progresses', desc: "We identify each child's learning style and provide tailored guidance to help them grow steadily and confidently." },
-            ].map((p) => (
-              <div key={p.title} className={`play-card ${p.color} border-2 rounded-3xl p-8`}>
-                <div className="text-4xl mb-4">{p.emoji}</div>
-                <h3 className="font-fredoka text-xl mb-3" style={{ color: p.accent }}>{p.title}</h3>
-                <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{p.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <GamesGallery />
 
       <BoardVisionSection />
