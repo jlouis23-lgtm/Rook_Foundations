@@ -159,7 +159,7 @@ export default function HeroSection() {
         </div>
 
         {/* Affiliations */}
-        <div className="absolute bottom-12 right-6 flex flex-col items-start gap-1.5">
+        <div className="relative lg:absolute lg:bottom-12 lg:right-6 flex flex-col items-start gap-1.5 mt-10 lg:mt-0">
           <div className="flex items-center gap-1.5">
             <Shield size={16} className="text-[#E8A020]/40" />
             <span className="font-nunito text-[#2D2520]/40 text-sm font-600">Proud member of <a href="https://www.wholeschoolsend.org.uk/page/nasen-home-page" target="_blank" rel="noopener noreferrer" className="hover:text-[#E8A020]/70 transition-colors underline underline-offset-2">NASEN</a> (National Association for Special Educational Needs).</span>
