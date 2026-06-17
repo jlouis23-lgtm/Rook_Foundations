@@ -24,27 +24,78 @@ export default function About() {
   return (
     <div className="bg-[#FAFAF7] pt-20">
 
-      {/* Page Header */}
-      <section className="py-20 relative overflow-hidden">
+      {/* Page Header — merged with My Story */}
+      <section className="pt-20 pb-0 relative overflow-hidden">
         <ChessBg variant="aboutheader" />
         <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
+
+          {/* Greeting */}
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2 mb-6">
               <span className="text-sm">♜</span>
               <span className="font-nunito text-[#b8790a] text-sm font-700">The story behind Rook Foundations</span>
             </div>
-            <h1 className="font-fredoka text-[#2D2520] leading-tight mb-6"
+            <h1 className="font-fredoka text-[#2D2520] leading-tight mb-8"
               style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)' }}>
               Hello, welcome 👋
             </h1>
-            <div className="max-w-2xl mx-auto relative">
-              <div className="bg-white/70 border-2 border-[#E8A020]/20 rounded-[45%_55%_50%_50%_/_55%_50%_45%_55%] px-12 py-10 shadow-sm">
-                <p className="font-nunito text-[#2D2520] text-center text-lg leading-relaxed font-600">
-                  <span className="font-fredoka font-900 text-[#2D2520]">R</span>ook Foundations is an education programme built on years of experience working with children, academic training in psychology, and a genuine belief that every child deserves the opportunity to think for themselves.
-                </p>
+          </motion.div>
+
+          {/* Opening paragraph */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.15 }}>
+            <p className="font-nunito text-[#2D2520]/80 text-xl leading-relaxed mb-8 max-w-3xl">
+              <span className="font-fredoka font-900 text-[#2D2520]">R</span>ook Foundations is an education programme built on years of experience working with children, academic training in psychology, and a genuine belief that every child deserves the opportunity to think for themselves.
+            </p>
+          </motion.div>
+
+          {/* Story body */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.25 }}>
+            <div className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed space-y-5 max-w-3xl mb-10">
+              <p>
+                Chess provides a unique kind of playful mental pressure. I started playing frequently while researching. These breaks provided a healthy distraction from synthesising data and drafting reports. When I started playing against people in person rather than just online, I realised that the game captured something meaningful that most people take for granted these days — things like sacrifice. It teaches that success is defined by the cooperation of pieces, and that victory is marked by the strength of those connections.
+              </p>
+              <p>
+                Yet our connections as a society are fading, and this will affect how the next generation learns. Today, children are disengaged from learning and overwhelmed by constant digital stimulation. Too often, they're given answers instead of being encouraged to think for themselves.
+              </p>
+              <p className="font-600 text-[#2D2520]/80">
+                Rook Foundations was born from a simple conviction: every child deserves the opportunity to <em>want</em> to think for themselves.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Hero quote — major focal point */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.35 }}
+            className="relative mb-20"
+          >
+            {/* Large decorative quotation mark */}
+            <div
+              className="absolute -top-6 -left-4 font-fredoka text-[#E8A020]/15 select-none pointer-events-none leading-none"
+              style={{ fontSize: '10rem', lineHeight: 1 }}
+              aria-hidden="true"
+            >"</div>
+
+            <div className="relative bg-[#2D2520] rounded-3xl px-10 py-10 sm:px-14 sm:py-12 shadow-2xl shadow-[#2D2520]/20 overflow-hidden">
+              {/* Subtle chess piece watermark */}
+              <div className="absolute right-6 bottom-4 text-white/5 font-fredoka select-none pointer-events-none" style={{ fontSize: '8rem', lineHeight: 1 }} aria-hidden="true">♜</div>
+
+              <p className="relative z-10 font-fredoka text-white leading-tight" style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.4rem)' }}>
+                "School taught me how to think.
+              </p>
+              <p className="relative z-10 font-fredoka leading-tight mt-2" style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.4rem)', color: '#F4C261' }}>
+                But it didn't teach me how to want to think for myself."
+              </p>
+
+              {/* Attribution line */}
+              <div className="relative z-10 mt-6 flex items-center gap-3">
+                <div className="h-px w-10 bg-[#E8A020]/50 rounded-full" />
+                <span className="font-nunito text-white/40 text-sm tracking-wide">Louis Jenkins, Founder — Rook Foundations</span>
               </div>
             </div>
           </motion.div>
+
         </div>
       </section>
 
@@ -107,35 +158,6 @@ export default function About() {
 
       {/* Why Chess Research */}
       <WhyChessResearch />
-
-      {/* My Story */}
-      <section className="py-20 bg-[#FAFAF7] relative overflow-hidden">
-        <ChessBg variant="mystory" />
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-            <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2 mb-6">
-              <span className="text-sm">📖</span>
-              <span className="font-nunito text-[#b8790a] text-sm font-700">My story</span>
-            </div>
-            <h2 className="font-fredoka text-[#2D2520] leading-tight mb-10"
-              style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
-              Why Rook Foundations?
-            </h2>
-            <div className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed space-y-5">
-              <p>Chess provides a unique kind of playful mental pressure. I started playing frequently while researching. These breaks provided a healthy distraction from synthesising boring data and drafting dry reports. When I started playing against people in person rather than just online, I realised that the game captured some meaningful stuff that most people take for granted these days. Things like sacrifice. It teaches that success is defined by cooperation of pieces, and that the victory is marked by the strength of those connections. However, our connections as a society our fading and this will affect learning for the next generation. Today, children are disengaged from learning and overwhelmed by constant digital stimulation. Too often, they're given answers instead of being encouraged to think for themselves.</p>
-              <p className="text-[#2D2520]/80 font-600 italic">
-                Rook Foundations was born from a simple conviction: every child deserves the opportunity to want to think for themselves.
-              </p>
-            </div>
-            <div className="mt-10 bg-amber-50 border-2 border-amber-200 rounded-2xl p-7">
-              <p className="font-fredoka text-[#2D2520] text-xl leading-relaxed">
-                "School taught me how to think.
-                <span className="text-[#E8A020]"> But it didn't teach me how to want to think for myself."</span>
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Journey Timeline */}
       <JourneyTimeline />
