@@ -99,6 +99,9 @@ export default function About() {
         </div>
       </section>
 
+      {/* Why Chess Research — immediately after intro */}
+      <WhyChessResearch />
+
       {/* Credentials */}
       <section className="py-20 bg-[#F5F3EE]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -155,9 +158,6 @@ export default function About() {
       <GamesGallery />
 
       <BoardVisionSection />
-
-      {/* Why Chess Research */}
-      <WhyChessResearch />
 
       {/* Journey Timeline */}
       <JourneyTimeline />

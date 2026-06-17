@@ -97,7 +97,7 @@ export default function WhyChessResearch() {
             <span className="text-3xl text-[#E8A020]">♜</span>
             <div>
               <span className="font-nunito text-[#b8790a] text-xs font-700 uppercase tracking-wide block">Our Mission</span>
-              <h3 className="font-fredoka text-[#2D2520] text-2xl">The Rook Foundations Approach</h3>
+              <h3 className="font-fredoka text-[#2D2520] text-2xl">How We Teach</h3>
             </div>
           </div>
           <div className="w-10 h-1 bg-[#E8A020] rounded-full mb-5" />
