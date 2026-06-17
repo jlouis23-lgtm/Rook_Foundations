@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 const games = [
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/330e1e1cd_generated_image.png', alt: 'Memory Match Chess' },
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/5aacc1317_generated_image.png', alt: 'Marble Solitaire' },
-  { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/971845733_generated_image.png', alt: 'Reversi / Othello' },
+  { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/ef0c02db1_generated_image.png', alt: 'Reversi / Othello' },
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/d6a33d02b_generated_image.png', alt: 'Xiangqi' },
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/6fbe34dbd_generated_image.png', alt: 'Tower of Hanoi' },
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/9b010099d_generated_image.png', alt: 'Number Track Game' },
