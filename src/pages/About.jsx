@@ -156,13 +156,12 @@ export default function About() {
             <span className="font-nunito text-purple-700 text-sm font-700">How we teach</span>
           </div>
           <h2 className="font-fredoka text-[#2D2520] mb-12" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-            Three things we believe in deeply
+            Two things we believe in deeply
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {[
-              { symbol: '♟', emoji: '💛', color: 'bg-amber-50 border-amber-200', accent: '#b8790a', title: 'Confidence First', desc: 'No child should fear making a wrong move. We create a safe, encouraging space where mistakes are celebrated as learning.' },
-              { symbol: '♞', emoji: '🎯', color: 'bg-blue-50 border-blue-200', accent: '#4a7eb8', title: 'Process Over Outcome', desc: 'We focus on the quality of thinking, not the result. A well-thought-out loss teaches more than a lucky win.' },
-              { symbol: '♛', emoji: '🌱', color: 'bg-green-50 border-green-200', accent: '#2d8c62', title: 'Every Child Progresses', desc: "We identify each child's learning style and provide tailored guidance to help them grow steadily and confidently." },
+              { emoji: '🎯', color: 'bg-blue-50 border-blue-200', accent: '#4a7eb8', title: 'Process Over Outcome', desc: 'We focus on the quality of thinking, not the result. A well-thought-out loss teaches more than a lucky win.' },
+              { emoji: '🌱', color: 'bg-green-50 border-green-200', accent: '#2d8c62', title: 'Every Child Progresses', desc: "We identify each child's learning style and provide tailored guidance to help them grow steadily and confidently." },
             ].map((p) => (
               <div key={p.title} className={`play-card ${p.color} border-2 rounded-3xl p-8`}>
                 <div className="text-4xl mb-4">{p.emoji}</div>
