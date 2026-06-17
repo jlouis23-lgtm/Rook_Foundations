@@ -16,7 +16,7 @@ const credentials = [
 ];
 
 const timeline = [
-  { year: '2018', emoji: '📚', event: "Began privately tutoring GCSE students in Maths, Science, and English — discovering how confidence and personalised support can transform a child's relationship with learning." },
+  { year: '2018', emoji: '📚', event: "Began tutoring GCSE students in Maths, Science, and English. Developed skills in providing personalised academic support, building on previous lessons and using well-timed breaks to maximise concentration and learning.." },
   { year: '2019', emoji: '⛺', event: "Worked as a Youth Officer at a children's camp, designing age-specific activities that deepened an understanding of child engagement, teamwork, and structured play." },
   { year: '2021', emoji: '🧠', event: 'Started a BSc in Psychology at the University of Manchester, focusing on developmental psychology, cognitive development, and how children build resilience through supportive environments.' },
   { year: '2022', emoji: '🤝', event: "Volunteered with Midlands charity ReachOut as a Peer Mentor, helping children from disadvantaged backgrounds build academic confidence, communication skills, and self-belief." },
