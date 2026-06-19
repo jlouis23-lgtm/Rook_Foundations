@@ -10,7 +10,7 @@ const games = [
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/de204f9a1_generated_image.png', alt: 'Abstract Strategy Game' },
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/4506222b8_generated_image.png', alt: 'Go' },
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/87a1c4978_generated_image.png', alt: 'Quoridor' },
-  { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/d26010cb1_generated_image.png', alt: 'Yamma' },
+  { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/b561fd629_generated_image.png', alt: 'Yamma' },
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/da5ffd037_generated_image.png', alt: 'Janggi' },
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/d883f0092_generated_image.png', alt: 'Mastermind' },
 ];
