@@ -12,7 +12,7 @@ const games = [
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/87a1c4978_generated_image.png', alt: 'Quoridor' },
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/f6335f370_generated_image.png', alt: 'Yamma' },
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/da5ffd037_generated_image.png', alt: 'Janggi' },
-  { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/f6e32238b_generated_image.png', alt: 'Mastermind' },
+  { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/d883f0092_generated_image.png', alt: 'Mastermind' },
 ];
 
 export default function GamesGallery() {
