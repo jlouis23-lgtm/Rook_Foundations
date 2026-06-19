@@ -55,7 +55,7 @@ export default function WhyChessResearch() {
             How can strategy games benefit my child?
           </h2>
           <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-xl mx-auto leading-relaxed">
-            Research shows chess supports meaningful child development.
+            Chess provides a powerful example of how strategic games can help children develop important skills both inside and outside the classroom.
           </p>
         </div>
 
