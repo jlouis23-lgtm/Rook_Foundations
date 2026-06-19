@@ -80,45 +80,109 @@ export default function WhyChessResearch() {
           ))}
         </div>
 
-        {/* Mission card */}
+        {/* How We Teach — expanded mission section */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.65 }}
-          className="bg-amber-50 border-2 border-amber-200 rounded-3xl p-8 mb-12"
+          className="mb-12"
         >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl text-[#E8A020]">♜</span>
-            <div>
-              <span className="font-nunito text-[#b8790a] text-xs font-700 uppercase tracking-wide block">Our Mission</span>
-              <h3 className="font-fredoka text-[#2D2520] text-2xl">How We Teach</h3>
-            </div>
+          {/* Section header */}
+          <div className="bg-[#2D2520] rounded-3xl px-8 py-8 mb-6 relative overflow-hidden">
+            <div className="absolute right-6 bottom-3 text-white/5 font-fredoka select-none pointer-events-none" style={{ fontSize: '6rem', lineHeight: 1 }} aria-hidden="true">♜</div>
+            <span className="font-nunito text-[#E8A020] text-xs font-700 uppercase tracking-widest block mb-2">Our Mission</span>
+            <h3 className="font-fredoka text-white text-3xl mb-4 relative z-10">How We Teach</h3>
+            <div className="w-10 h-1 bg-[#E8A020] rounded-full mb-5" />
+            <p className="font-nunito text-white/75 text-base leading-relaxed mb-3 relative z-10">
+              We recognise the limitations of chess as a transferable skill and do not claim that chess alone guarantees academic or financial success.
+            </p>
+            <p className="font-nunito text-white/65 text-sm leading-relaxed relative z-10">
+              Instead, our aim is to create an engaging thinking environment using different types of games. Through these games, children develop <span className="text-[#F4C261] font-700">focus, reasoning, patience, communication, and discipline</span>. Over time, we hope these principles support broader learning and extend positively into other areas of life.
+            </p>
           </div>
-          <div className="w-10 h-1 bg-[#E8A020] rounded-full mb-5" />
-          <p className="font-nunito text-[#2D2520]/70 text-base leading-relaxed mb-4">
-            We recognise the limitations of chess as a transferrable skill and do not claim that chess alone guarantees academic or financial success.
-          </p>
-          <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mb-5">
-            Instead, our aim is to create an engaging thinking environment using different types of games. Through these games, children develop <span className="text-[#b8790a] font-800" style={{ textShadow: '0 0 1px rgba(184,121,10,0.2)' }}>focus, reasoning, patience, and discipline</span>. It is our goal that, over time, these principles that they learn with us will support broader learning and extend positively into other areas of life.
-          </p>
-          <div className="space-y-3 mb-5">
-            <div className="flex items-start gap-3">
-              <span className="text-lg flex-shrink-0 mt-0.5">🎯</span>
-              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
-                <span className="font-800 text-[#b8790a]">Process Over Outcome</span> — We focus on the quality of a child's thinking, not simply the result. A well-thought-out loss often teaches more than a lucky win.
-              </p>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-lg flex-shrink-0 mt-0.5">🌱</span>
-              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
-                <span className="font-800 text-[#b8790a]">Every Child Progresses</span> — Children learn differently. We identify each child's needs and provide tailored guidance to help them grow steadily and confidently.
-              </p>
-            </div>
+
+          {/* Core principles — 2-col grid on desktop */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            {[
+              { emoji: '🎯', label: 'Process Over Outcome', color: 'bg-amber-50 border-amber-200', accent: '#b8790a', body: 'We focus on the quality of a child\'s thinking rather than simply the result. A well-reasoned and clearly explained loss often teaches more than a lucky win.' },
+              { emoji: '🌱', label: 'Every Child Progresses', color: 'bg-green-50 border-green-200', accent: '#2d8c62', body: 'Children learn differently. We identify each child\'s individual needs and provide tailored guidance to help them grow steadily and confidently.' },
+              { emoji: '🧠', label: 'Learning at the Right Level', color: 'bg-blue-50 border-blue-200', accent: '#4a7eb8', body: 'Lessons are carefully adapted so that children are challenged without becoming overwhelmed. As confidence grows, children are gradually introduced to new games, deeper ideas, and more complex forms of thinking.' },
+              { emoji: '💬', label: 'Thinking Aloud & Social Learning', color: 'bg-purple-50 border-purple-200', accent: '#7a48c0', body: 'Children are encouraged to explain their ideas, discuss their decisions, and consider how others may respond. Through gameplay they develop patience, respect, listening skills, and the confidence to express their thoughts clearly.' },
+            ].map((item, i) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.55 + i * 0.08, duration: 0.5 }}
+                className={`play-card ${item.color} border-2 rounded-2xl p-5`}
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xl leading-none">{item.emoji}</span>
+                  <h4 className="font-fredoka text-lg leading-tight" style={{ color: item.accent }}>{item.label}</h4>
+                </div>
+                <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{item.body}</p>
+              </motion.div>
+            ))}
           </div>
-          <div className="mt-2 inline-flex items-center gap-2 bg-white border border-amber-200 rounded-full px-4 py-2">
-            <div className="w-2 h-2 rounded-full bg-[#E8A020]" />
-            <span className="font-nunito text-[#b8790a] text-xs font-700">Child-centred · Play-focused · Personalised support</span>
+
+          {/* Secondary pillars — full-width stacked */}
+          <div className="flex flex-col gap-4 mb-6">
+            {[
+              { emoji: '🔍', label: 'Puzzles & Decision Making', accent: '#b8790a', body: 'Children regularly solve puzzles and game scenarios designed to strengthen reasoning and problem-solving skills. Rather than teaching that one move is simply "right" and another "wrong", we encourage children to explore multiple possibilities, evaluate their options, and make thoughtful decisions based on evidence and reflection.' },
+              { emoji: '📈', label: 'Tracking Progress', accent: '#2d8c62', body: 'Every child has a personalised learning record through our secure online platform. Parents can view learning goals, tutor feedback, achievements, and areas for development in one place. Children also have access to their progress, helping them build confidence, accountability, and ownership of their learning journey.' },
+              { emoji: '💻', label: 'Using Technology Carefully', accent: '#4a7eb8', body: 'We believe face-to-face learning and physical games should remain at the heart of education. However, when appropriate, we use carefully selected digital tools to help children understand more complex concepts and reinforce learning in a structured, child-friendly way.' },
+            ].map((item, i) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.7 + i * 0.08, duration: 0.5 }}
+                className="flex items-start gap-4 bg-white border-2 border-[#E8A020]/15 rounded-2xl p-5 hover:border-[#E8A020]/30 transition-colors"
+              >
+                <span className="text-2xl flex-shrink-0 mt-0.5">{item.emoji}</span>
+                <div>
+                  <h4 className="font-fredoka text-lg mb-1" style={{ color: item.accent }}>{item.label}</h4>
+                  <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{item.body}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Individual vs Group — split card */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.95, duration: 0.55 }}
+            className="bg-amber-50 border-2 border-amber-200 rounded-2xl overflow-hidden"
+          >
+            <div className="p-5 border-b border-amber-200">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-xl">👥</span>
+                <h4 className="font-fredoka text-lg text-[#b8790a]">Individual & Group Learning</h4>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-amber-200">
+              <div className="p-5">
+                <span className="font-nunito text-[#b8790a] text-xs font-700 uppercase tracking-wide block mb-2">Individual Sessions</span>
+                <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">Focus on developing thinking skills through puzzles, strategy, and personalised guidance tailored to each child's learning needs.</p>
+              </div>
+              <div className="p-5">
+                <span className="font-nunito text-[#b8790a] text-xs font-700 uppercase tracking-wide block mb-2">Group Sessions</span>
+                <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">Focus on applying these skills through gameplay. Children learn to communicate ideas, collaborate, show respect, and practise patience in a positive social environment.</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Values pill */}
+          <div className="mt-5 flex justify-center">
+            <div className="inline-flex items-center gap-2 bg-white border border-amber-200 rounded-full px-5 py-2.5 shadow-sm">
+              <div className="w-2 h-2 rounded-full bg-[#E8A020]" />
+              <span className="font-nunito text-[#b8790a] text-xs font-700">Child-centred · Play-focused · Personalised support</span>
+            </div>
           </div>
         </motion.div>
 
