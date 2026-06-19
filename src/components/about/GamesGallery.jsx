@@ -9,6 +9,10 @@ const games = [
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/9b010099d_generated_image.png', alt: 'Number Track Game' },
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/de204f9a1_generated_image.png', alt: 'Abstract Strategy Game' },
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/4506222b8_generated_image.png', alt: 'Go' },
+  { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/87a1c4978_generated_image.png', alt: 'Quoridor' },
+  { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/f6335f370_generated_image.png', alt: 'Yamma' },
+  { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/9493761db_generated_image.png', alt: 'Janggi' },
+  { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/f6e32238b_generated_image.png', alt: 'Mastermind' },
 ];
 
 export default function GamesGallery() {
