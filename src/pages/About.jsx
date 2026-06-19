@@ -75,16 +75,21 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.25 }}
               className="font-nunito text-[#2D2520]/70 text-lg leading-relaxed mb-10"
             >
-              Chess provides a unique kind of playful mental pressure. I started playing frequently while studying. These breaks provided a healthy distraction from data and research. When I started playing against people in person rather than online, I realised that the game captured something meaningful that most people take for granted these days; things like <strong className="font-800 text-[#2D2520]/90">sacrifice</strong>. It teaches that success is defined by the cooperation of pieces, and that victory is marked by the strength of those connections.
+              Strategy games provide a unique kind of playful mental pressure. I started playing frequently while studying. These breaks provided a healthy distraction from data and research. When I started chess against people in person rather than online, I realised that the game captured something meaningful that most people take for granted these days; things like <strong className="font-800 text-[#2D2520]/90">sacrifice</strong>. It teaches that success is defined by the cooperation of pieces, and that victory is marked by the strength of those connections.
             </motion.p>
 
             {/* Part 3 — Digital world & conviction */}
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.35 }}
-              className="font-nunito text-[#2D2520]/70 text-lg leading-relaxed mb-14"
+              className="mb-14"
             >
-              This is particularly important today as our connections as a society are fading. This will affect how the next generation learns. Right now, children are losing interest in learning, and it is not hard to blame them in this new world filled with constant digital distractions. Too often, they're given answers instead of being encouraged to think for themselves. Rook Foundations was born from a simple conviction: <strong className="font-800 text-[#2D2520]/90">every child deserves the opportunity to want to think for themselves.</strong>
-            </motion.p>
+              <p className="font-nunito text-[#2D2520]/70 text-lg leading-relaxed mb-8">
+                This is particularly important today as our connections as a society are fading. This will affect how the next generation learns. Right now, children are losing interest in learning, and it is not hard to blame them in this new world filled with constant digital distractions. Too often, they're given answers instead of being encouraged to think for themselves. Rook Foundations was born from a simple conviction:
+              </p>
+              <p className="font-fredoka text-[#2D2520] text-center leading-tight" style={{ fontSize: 'clamp(1.3rem, 2.8vw, 1.9rem)' }}>
+                Every child deserves the opportunity to want to think for themselves.
+              </p>
+            </motion.div>
 
             {/* Hero quote */}
             <motion.div
