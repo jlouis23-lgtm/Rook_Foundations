@@ -59,18 +59,27 @@ export default function GamesGallery() {
           ))}
         </div>
 
-        {/* Supporting copy */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto text-center"
-        >
-          <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
-            At Rook Foundations, we use a wide range of games to help children develop problem-solving skills, strategic thinking, and confidence when approaching new challenges. Each game encourages different ways of thinking, planning, and adapting, helping children explore a variety of strategies and approaches. By engaging with multiple games, we aim to support the transfer of learning into other areas of life, while encouraging flexible thinking and creativity. The level of challenge and concentration required varies between games, allowing activities to be carefully matched to each child's learning needs and stage of development.
-          </p>
-        </motion.div>
+        {/* Supporting cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {[
+            { emoji: '🧠', label: 'Developing Thinking Skills', color: 'bg-blue-50 border-blue-200', accent: '#4a7eb8', body: 'We use a wide range of games to help children strengthen problem-solving, strategic thinking, and confidence when approaching new challenges. Each game provides opportunities to practise planning, reasoning, and decision-making in an engaging way.' },
+            { emoji: '♟️', label: 'Learning Through Different Games', color: 'bg-amber-50 border-amber-200', accent: '#b8790a', body: 'Every game encourages a different way of thinking. By exploring multiple games, children learn to adapt their strategies, consider new perspectives, and develop greater flexibility in their thinking. This variety helps to keep learning both challenging and enjoyable.' },
+            { emoji: '🌱', label: 'Tailored to Every Child', color: 'bg-green-50 border-green-200', accent: '#2d8c62', body: 'Different games require different levels of concentration and complexity. We carefully select activities that match each child\'s age, ability, and stage of development. Our lessons aim to build confidence as well as progress.' },
+          ].map((card, i) => (
+            <motion.div
+              key={card.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className={`play-card ${card.color} border-2 rounded-3xl p-7`}
+            >
+              <div className="text-3xl mb-4">{card.emoji}</div>
+              <h3 className="font-fredoka text-lg mb-3" style={{ color: card.accent }}>{card.label}</h3>
+              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{card.body}</p>
+            </motion.div>
+          ))}
+        </div>
 
       </div>
     </section>
