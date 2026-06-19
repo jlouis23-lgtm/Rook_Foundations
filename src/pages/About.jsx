@@ -123,6 +123,8 @@ export default function About() {
         </div>
       </section>
 
+      <GamesGallery />
+
       {/* Why Chess Research — immediately after intro */}
       <WhyChessResearch />
 
@@ -152,8 +154,6 @@ export default function About() {
 
       {/* Professional Training */}
       <ProfessionalTraining />
-
-      <GamesGallery />
 
       <BoardVisionSection />
 
