@@ -99,9 +99,9 @@ export default function WhyChessResearch() {
                 <text x="14" y="18" textAnchor="middle" fontFamily="Fredoka, sans-serif" fontSize="11" fontWeight="600" fill="#F4C261">!</text>
               </svg>
               <span className="font-nunito text-[#E8A020]/70 text-xs font-700 tracking-wide uppercase">Disclaimer</span>
-              <svg width="40" height="32" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M32 2 C32 2, 28 10, 18 16 C10 21, 4 24, 4 28" stroke="#E8A020" strokeOpacity="0.45" strokeWidth="1.6" strokeLinecap="round" fill="none" strokeDasharray="3.5 2.5"/>
-                <path d="M1 24 L4 29 L8 25" stroke="#E8A020" strokeOpacity="0.45" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+              <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M22 2 C22 12, 16 24, 6 38" stroke="#E8A020" strokeOpacity="0.45" strokeWidth="1.6" strokeLinecap="round" fill="none" strokeDasharray="3.5 2.5"/>
+                <path d="M2 34 L6 40 L11 36" stroke="#E8A020" strokeOpacity="0.45" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
               </svg>
             </div>
 
