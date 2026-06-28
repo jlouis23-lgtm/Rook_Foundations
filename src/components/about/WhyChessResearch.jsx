@@ -98,7 +98,7 @@ export default function WhyChessResearch() {
               We recognise the limitations of transferring skills from strategy games into other domains and do NOT claim that these games alone guarantee academic or financial success.
             </p>
             <p className="font-nunito text-white/65 text-sm leading-relaxed relative z-10">
-              Instead, our aim is to create an engaging thinking environment using different types of games. Through these games, children develop <span className="text-[#F4C261] font-700">focus, reasoning, patience, communication, and discipline</span>. Over time, we hope these principles support broader learning and extend positively into other areas of life.
+              Instead, our aim is to create an engaging thinking environment using a wide variety of tactics and ways of thinking. Through these games, children develop <span className="text-[#F4C261] font-700">focus, reasoning, patience, communication, and discipline</span>. We believe that, when nurtured through enjoyment and challenging play, the skills that they learn with us can support broader learning and extend positively into other areas of life.
             </p>
           </div>
 
