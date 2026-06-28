@@ -92,26 +92,22 @@ export default function WhyChessResearch() {
           <div className="bg-[#2D2520] rounded-3xl px-8 py-8 mb-6 relative overflow-hidden">
             <div className="absolute right-6 bottom-3 text-white/5 font-fredoka select-none pointer-events-none" style={{ fontSize: '6rem', lineHeight: 1 }} aria-hidden="true">♜</div>
 
+            {/* Disclaimer indicator — absolutely positioned, no impact on flow */}
+            <div className="absolute top-6 right-8 flex flex-col items-center gap-0.5 z-20">
+              <svg width="36" height="32" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M13.134 2.5C13.5188 1.833 14.4812 1.833 14.866 2.5L26.1244 22C26.5092 22.667 26.028 23.5 25.2583 23.5H2.74167C1.97202 23.5 1.49076 22.667 1.87565 22L13.134 2.5Z" fill="#E8A020" fillOpacity="0.22" stroke="#E8A020" strokeOpacity="0.65" strokeWidth="1.5" strokeLinejoin="round"/>
+                <text x="14" y="18" textAnchor="middle" fontFamily="Fredoka, sans-serif" fontSize="11" fontWeight="600" fill="#F4C261">!</text>
+              </svg>
+              <span className="font-nunito text-[#E8A020]/70 text-xs font-700 tracking-wide uppercase">Disclaimer</span>
+              <svg width="40" height="32" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M32 2 C32 2, 28 10, 18 16 C10 21, 4 24, 4 28" stroke="#E8A020" strokeOpacity="0.45" strokeWidth="1.6" strokeLinecap="round" fill="none" strokeDasharray="3.5 2.5"/>
+                <path d="M1 24 L4 29 L8 25" stroke="#E8A020" strokeOpacity="0.45" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+              </svg>
+            </div>
+
             <span className="font-nunito text-[#E8A020] text-xs font-700 uppercase tracking-widest block mb-2">Our Mission</span>
             <h3 className="font-fredoka text-white text-3xl mb-4 relative z-10">How We Teach</h3>
             <div className="w-10 h-1 bg-[#E8A020] rounded-full mb-5" />
-
-            {/* Disclaimer indicator — sits inline above the paragraph, right-aligned, no width impact */}
-            <div className="flex justify-end mb-2 relative z-10">
-              <div className="flex flex-col items-center gap-0.5">
-                {/* Triangle */}
-                <svg width="36" height="32" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path d="M13.134 2.5C13.5188 1.833 14.4812 1.833 14.866 2.5L26.1244 22C26.5092 22.667 26.028 23.5 25.2583 23.5H2.74167C1.97202 23.5 1.49076 22.667 1.87565 22L13.134 2.5Z" fill="#E8A020" fillOpacity="0.22" stroke="#E8A020" strokeOpacity="0.65" strokeWidth="1.5" strokeLinejoin="round"/>
-                  <text x="14" y="18" textAnchor="middle" fontFamily="Fredoka, sans-serif" fontSize="11" fontWeight="600" fill="#F4C261">!</text>
-                </svg>
-                <span className="font-nunito text-[#E8A020]/70 text-xs font-700 tracking-wide uppercase">Disclaimer</span>
-                {/* Gentle curved arrow pointing left-down toward the text below */}
-                <svg width="40" height="32" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path d="M32 2 C32 2, 28 10, 18 16 C10 21, 4 24, 4 28" stroke="#E8A020" strokeOpacity="0.45" strokeWidth="1.6" strokeLinecap="round" fill="none" strokeDasharray="3.5 2.5"/>
-                  <path d="M1 24 L4 29 L8 25" stroke="#E8A020" strokeOpacity="0.45" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                </svg>
-              </div>
-            </div>
 
             <p className="font-nunito text-white/75 text-base leading-relaxed mb-3 relative z-10">
               We recognise the limitations of transferring skills from strategy games into other domains and do NOT claim that these games alone guarantee academic or financial success.
