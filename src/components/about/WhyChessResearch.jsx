@@ -95,7 +95,7 @@ export default function WhyChessResearch() {
             <h3 className="font-fredoka text-white text-3xl mb-4 relative z-10">How We Teach</h3>
             <div className="w-10 h-1 bg-[#E8A020] rounded-full mb-5" />
             <p className="font-nunito text-white/75 text-base leading-relaxed mb-3 relative z-10">
-              We recognise the limitations of games like chess as a transferable skill and do not claim that chess alone guarantees academic or financial success.
+              We recognise the limitations of transferring skills from strategy games into other domains and do NOT claim that these games alone guarantee academic or financial success.
             </p>
             <p className="font-nunito text-white/65 text-sm leading-relaxed relative z-10">
               Instead, our aim is to create an engaging thinking environment using different types of games. Through these games, children develop <span className="text-[#F4C261] font-700">focus, reasoning, patience, communication, and discipline</span>. Over time, we hope these principles support broader learning and extend positively into other areas of life.
