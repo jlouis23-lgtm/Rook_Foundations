@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, Heart, Sparkles, Shield } from 'lucide-react';
+import { ArrowRight, Sparkles, Shield, ScanEye, Swords, Trophy, Sprout } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 
 const LEAFLET_IMG = 'https://media.base44.com/images/public/69fe1341895fe99f147fce64/3b7300d3f_51E37187-F312-43E1-8058-02E71B191F4B.png';
 
 const pillars = [
-  { icon: '🧠', label: 'Focus', color: 'bg-blue-50 text-blue-700 border-blue-200' },
-  { icon: '♜', label: 'Strategy', color: 'bg-amber-50 text-amber-700 border-amber-200' },
-  { icon: '⭐', label: 'Confidence', color: 'bg-purple-50 text-purple-700 border-purple-200' },
-  { icon: '💡', label: 'Growth', color: 'bg-green-50 text-green-700 border-green-200' },
+  { Icon: ScanEye,  label: 'Focus',      color: 'bg-blue-50 text-blue-700 border-blue-200' },
+  { Icon: Swords,   label: 'Strategy',   color: 'bg-amber-50 text-amber-700 border-amber-200' },
+  { Icon: Trophy,   label: 'Confidence', color: 'bg-purple-50 text-purple-700 border-purple-200' },
+  { Icon: Sprout,   label: 'Growth',     color: 'bg-green-50 text-green-700 border-green-200' },
 ];
 
 export default function HeroSection() {
@@ -88,10 +88,10 @@ export default function HeroSection() {
 
             {/* Pillars */}
             <div className="flex flex-wrap gap-3 mb-10">
-              {pillars.map((p) => (
-                <div key={p.label} className={`flex items-center gap-2 ${p.color} border rounded-2xl px-4 py-2`}>
-                  <span className="text-lg">{p.icon}</span>
-                  <span className="font-nunito text-sm font-700">{p.label}</span>
+              {pillars.map(({ Icon, label, color }) => (
+                <div key={label} className={`flex items-center gap-2 ${color} border rounded-2xl px-4 py-2`}>
+                  <Icon size={16} />
+                  <span className="font-nunito text-sm font-700">{label}</span>
                 </div>
               ))}
             </div>
