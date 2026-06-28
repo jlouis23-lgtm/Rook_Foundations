@@ -92,29 +92,29 @@ export default function WhyChessResearch() {
           <div className="bg-[#2D2520] rounded-3xl px-8 py-8 mb-6 relative overflow-hidden">
             <div className="absolute right-6 bottom-3 text-white/5 font-fredoka select-none pointer-events-none" style={{ fontSize: '6rem', lineHeight: 1 }} aria-hidden="true">♜</div>
 
-            {/* Disclaimer indicator — top right */}
-            <div className="absolute top-5 right-6 flex flex-col items-center gap-1 z-20">
-              {/* Warning triangle */}
-              <div className="flex flex-col items-center">
-                <svg width="28" height="26" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path d="M13.134 2.5C13.5188 1.833 14.4812 1.833 14.866 2.5L26.1244 22C26.5092 22.667 26.028 23.5 25.2583 23.5H2.74167C1.97202 23.5 1.49076 22.667 1.87565 22L13.134 2.5Z" fill="#E8A020" fillOpacity="0.18" stroke="#E8A020" strokeOpacity="0.55" strokeWidth="1.5" strokeLinejoin="round"/>
-                  <text x="14" y="18" textAnchor="middle" fontFamily="Fredoka, sans-serif" fontSize="11" fontWeight="600" fill="#F4C261">!</text>
-                </svg>
-                <span className="font-nunito text-[#E8A020]/70 text-xs font-700 tracking-wide mt-0.5">Disclaimer</span>
-              </div>
-              {/* Curved arrow pointing left-down toward the disclaimer text */}
-              <svg width="32" height="28" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M28 2 C28 2, 6 4, 4 24" stroke="#E8A020" strokeOpacity="0.45" strokeWidth="1.5" strokeLinecap="round" fill="none" strokeDasharray="3 2"/>
-                <path d="M1 21 L4 24 L7 20" stroke="#E8A020" strokeOpacity="0.45" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-              </svg>
-            </div>
-
             <span className="font-nunito text-[#E8A020] text-xs font-700 uppercase tracking-widest block mb-2">Our Mission</span>
             <h3 className="font-fredoka text-white text-3xl mb-4 relative z-10">How We Teach</h3>
             <div className="w-10 h-1 bg-[#E8A020] rounded-full mb-5" />
-            <p className="font-nunito text-white/75 text-base leading-relaxed mb-3 relative z-10 pr-10 sm:pr-16">
-              We recognise the limitations of transferring skills from strategy games into other domains and do NOT claim that these games alone guarantee academic or financial success.
-            </p>
+
+            {/* Disclaimer block — indicator + arrow + text inline */}
+            <div className="relative z-10 mb-3">
+              {/* Indicator row: triangle + label centred above the disclaimer */}
+              <div className="flex flex-col items-center mb-1">
+                <svg width="48" height="44" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M13.134 2.5C13.5188 1.833 14.4812 1.833 14.866 2.5L26.1244 22C26.5092 22.667 26.028 23.5 25.2583 23.5H2.74167C1.97202 23.5 1.49076 22.667 1.87565 22L13.134 2.5Z" fill="#E8A020" fillOpacity="0.22" stroke="#E8A020" strokeOpacity="0.7" strokeWidth="1.5" strokeLinejoin="round"/>
+                  <text x="14" y="18" textAnchor="middle" fontFamily="Fredoka, sans-serif" fontSize="11" fontWeight="600" fill="#F4C261">!</text>
+                </svg>
+                <span className="font-nunito text-[#E8A020]/80 text-sm font-700 tracking-widest uppercase mt-1">Disclaimer</span>
+                {/* Arrow pointing straight down to the text */}
+                <svg width="16" height="36" viewBox="0 0 16 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M8 2 L8 28" stroke="#E8A020" strokeOpacity="0.55" strokeWidth="1.8" strokeLinecap="round" strokeDasharray="4 3"/>
+                  <path d="M3 24 L8 30 L13 24" stroke="#E8A020" strokeOpacity="0.55" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                </svg>
+              </div>
+              <p className="font-nunito text-white/75 text-base leading-relaxed text-center">
+                We recognise the limitations of transferring skills from strategy games into other domains and do NOT claim that these games alone guarantee academic or financial success.
+              </p>
+            </div>
             <p className="font-nunito text-white/65 text-sm leading-relaxed relative z-10">
               Instead, our aim is to create an engaging thinking environment using a wide variety of tactics and ways of thinking. Through these games, children develop <span className="text-[#F4C261] font-700">focus, reasoning, patience, communication, and discipline</span>. We believe that, when nurtured through enjoyment and challenging play, the skills that they learn with us can support broader learning and extend positively into other areas of life.
             </p>
