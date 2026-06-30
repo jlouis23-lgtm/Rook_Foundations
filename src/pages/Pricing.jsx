@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check, Coins, User, Users, Trophy, Star } from 'lucide-react';
+import { ArrowRight, Check, Coins, User, Users, Star } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import FourPeople from '@/components/pricing/FourPeople';
+import SevenPeople from '@/components/pricing/SevenPeople';
 
 const plans = [
   {
@@ -41,7 +42,7 @@ const plans = [
   },
   {
     label: 'Group',
-    Icon: Trophy,
+    Icon: SevenPeople,
     iconColor: '#2d8c62',
     subtitle: '5-7 students',
     tag: 'Best Value',
