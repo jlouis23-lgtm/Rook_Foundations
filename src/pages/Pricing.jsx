@@ -1,13 +1,14 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Check, Coins, User, Users, UsersRound, Trophy, Star } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 
 const plans = [
   {
     label: 'Individual',
-    emoji: '🧒',
+    Icon: User,
+    iconColor: '#b8790a',
     subtitle: '1 student',
     tag: null,
     tagStyle: '',
@@ -17,7 +18,8 @@ const plans = [
   },
   {
     label: 'Pair',
-    emoji: '👫',
+    Icon: Users,
+    iconColor: '#E8A020',
     subtitle: '2 students',
     tag: 'Most Popular',
     tagStyle: 'bg-[#E8A020] text-white',
@@ -27,7 +29,8 @@ const plans = [
   },
   {
     label: 'Small Group',
-    emoji: '👨‍👩‍👧',
+    Icon: UsersRound,
+    iconColor: '#b8790a',
     subtitle: '3-4 students',
     tag: null,
     tagStyle: '',
@@ -37,7 +40,8 @@ const plans = [
   },
   {
     label: 'Group',
-    emoji: '🎉',
+    Icon: Trophy,
+    iconColor: '#2d8c62',
     subtitle: '5-7 students',
     tag: 'Best Value',
     tagStyle: 'bg-green-500 text-white',
@@ -57,8 +61,8 @@ export default function Pricing() {
         <ChessBg variant="pricing" />
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
           <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2 mb-5">
-            <span className="text-sm">💰</span>
-            <span className="font-nunito text-[#b8790a] text-sm font-700">Simple, honest pricing</span>
+          <Coins size={14} className="text-[#b8790a]" />
+          <span className="font-nunito text-[#b8790a] text-sm font-700">Simple, honest pricing</span>
           </div>
           <h1 className="font-fredoka text-[#2D2520] mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
             What does it cost?
@@ -98,7 +102,7 @@ export default function Pricing() {
                   </span>
                 )}
 
-                <div className="text-4xl mb-3">{plan.emoji}</div>
+                <div className="mb-3"><plan.Icon size={32} style={{ color: plan.iconColor }} /></div>
                 <div className="mb-5">
                   <h2 className="font-fredoka text-[#2D2520] text-2xl">{plan.label}</h2>
                   <p className="font-nunito text-[#E8A020] text-sm font-600 mt-0.5">{plan.subtitle}</p>
@@ -145,9 +149,10 @@ export default function Pricing() {
       <section className="bg-[#E8A020] py-20 relative overflow-hidden">
         <ChessBg variant="pricingcta" color="#ffffff" />
         <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center relative z-10">
-          <div className="text-4xl mb-5">♜</div>
+          <div className="mb-5"><Star size={36} className="text-white mx-auto" /></div>
           <div className="inline-flex items-center gap-2 bg-white/20 border border-white/30 rounded-full px-5 py-2 mb-6">
-            <span className="font-nunito text-white font-700 text-sm">🎉 Limited Time — 50% Off Your First Lesson</span>
+            <Star size={14} className="text-white" />
+            <span className="font-nunito text-white font-700 text-sm">Limited Time — 50% Off Your First Lesson</span>
           </div>
           <h2 className="font-fredoka text-white text-3xl mb-4">Not sure where to start?</h2>
           <p className="font-nunito text-white/80 text-base leading-relaxed mb-8 max-w-xl mx-auto">
