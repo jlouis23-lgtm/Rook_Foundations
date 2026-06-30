@@ -1,16 +1,14 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check, Coins, User, Users, Star } from 'lucide-react';
+import { ArrowRight, Check, Coins, Star } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
-import FourPeople from '@/components/pricing/FourPeople';
-import SevenPeople from '@/components/pricing/SevenPeople';
+import PeopleIcon from '@/components/pricing/PeopleIcon';
 
 const plans = [
   {
     label: 'Individual',
-    Icon: User,
-    iconColor: '#b8790a',
+    people: 1,
     subtitle: '1 student',
     tag: null,
     tagStyle: '',
@@ -20,8 +18,7 @@ const plans = [
   },
   {
     label: 'Pair',
-    Icon: Users,
-    iconColor: '#E8A020',
+    people: 2,
     subtitle: '2 students',
     tag: 'Most Popular',
     tagStyle: 'bg-[#E8A020] text-white',
@@ -31,8 +28,7 @@ const plans = [
   },
   {
     label: 'Small Group',
-    Icon: FourPeople,
-    iconColor: '#b8790a',
+    people: 4,
     subtitle: '3-4 students',
     tag: null,
     tagStyle: '',
@@ -42,8 +38,7 @@ const plans = [
   },
   {
     label: 'Group',
-    Icon: SevenPeople,
-    iconColor: '#2d8c62',
+    people: 7,
     subtitle: '5-7 students',
     tag: 'Best Value',
     tagStyle: 'bg-green-500 text-white',
@@ -104,7 +99,11 @@ export default function Pricing() {
                   </span>
                 )}
 
-                <div className="mb-3"><plan.Icon size={32} style={{ color: plan.iconColor }} /></div>
+                <div className="flex justify-center mb-5">
+                  <div className="w-16 h-16 rounded-2xl bg-[#E8A020]/10 flex items-center justify-center">
+                    <PeopleIcon count={plan.people} size={40} style={{ color: '#E8A020' }} />
+                  </div>
+                </div>
                 <div className="mb-5">
                   <h2 className="font-fredoka text-[#2D2520] text-2xl">{plan.label}</h2>
                   <p className="font-nunito text-[#E8A020] text-sm font-600 mt-0.5">{plan.subtitle}</p>
