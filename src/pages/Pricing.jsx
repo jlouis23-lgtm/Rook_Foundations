@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check, Coins, User, Users, UsersRound, Trophy, Star } from 'lucide-react';
+import { ArrowRight, Check, Coins, User, Users, Trophy, Star } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
+import FourPeople from '@/components/pricing/FourPeople';
 
 const plans = [
   {
@@ -29,7 +30,7 @@ const plans = [
   },
   {
     label: 'Small Group',
-    Icon: UsersRound,
+    Icon: FourPeople,
     iconColor: '#b8790a',
     subtitle: '3-4 students',
     tag: null,
