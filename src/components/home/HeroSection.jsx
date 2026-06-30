@@ -82,9 +82,11 @@ export default function HeroSection() {
               Skills for life.
             </h2>
 
-            <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed mb-8 max-w-lg">
-              In-person strategy classes for children aged 5–12. Our goal is to use games like chess and others. With me, they will learn to identify, one move at a time, what is a good decision going forward. We want to create principles of creative thought and sacrifice, as well as establishing a strong sense of tempo, focus, and confidence by making learning entertaining and positive.
-            </p>
+            <div className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed mb-8 max-w-lg space-y-4">
+              <p>Helping children build confidence, focus and strong decision-making skills through fun, engaging strategy games. Our in-person classes for children aged 5–12 use games such as chess and other carefully chosen strategy activities.</p>
+              <p>These games are used to develop thinking skills that extend far beyond each game itself. Every lesson encourages children to think ahead, solve problems, consider different possibilities and make thoughtful decisions with confidence.</p>
+              <p>My goal is to help support growth of patience, concentration, creativity, and the confidence to learn from both success and mistakes. This is done in a supportive, positive environment where learning is enjoyable, and every child is encouraged to grow at their own pace.</p>
+            </div>
 
             {/* Pillars */}
             <div className="flex flex-wrap gap-3 mb-10">
