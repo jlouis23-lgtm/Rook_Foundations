@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Award, BookOpen, Users, Heart } from 'lucide-react';
+import { ArrowRight, Award, BookOpen, Users, Heart, CheckCircle, Dices, GraduationCap } from 'lucide-react';
 import WhyChessResearch from '../components/about/WhyChessResearch';
 import ProfessionalTraining from '../components/about/ProfessionalTraining';
 import BoardVisionSection from '../components/about/BoardVisionSection';
@@ -10,10 +10,10 @@ import ChessBg from '@/components/ui/ChessBg';
 import JourneyTimeline from '../components/about/JourneyTimeline';
 
 const credentials = [
-  { icon: Users, emoji: '👥', title: 'Working With Children', desc: 'Background in mentoring, youth support, wellbeing, and residential care — supporting children across a range of needs and environments.', color: 'bg-blue-50 border-blue-200', accent: '#4a7eb8' },
-  { icon: BookOpen, emoji: '📖', title: 'Academic Tutor', desc: 'Focused on helping children build strong foundations in science, English, and maths through personalised one-to-one support.', color: 'bg-green-50 border-green-200', accent: '#2d8c62' },
-  { icon: Award, emoji: '🎓', title: 'Psychology Background', desc: "Academic training from King's College London and The University of Manchester — specialising in behaviour, learning, and child development.", color: 'bg-purple-50 border-purple-200', accent: '#7a48c0' },
-  { icon: Heart, emoji: '♜', title: 'Dedicated Chess Study', desc: 'Four years of dedicated chess study and competitive play, with a genuine understanding of the learning journey from beginner upwards.', color: 'bg-amber-50 border-amber-200', accent: '#b8790a' },
+  { Icon: Users,       title: 'Working With Children',  desc: 'Background in mentoring, youth support, wellbeing, and residential care — supporting children across a range of needs and environments.', color: 'bg-blue-50 border-blue-200',   accent: '#4a7eb8' },
+  { Icon: BookOpen,    title: 'Academic Tutor',          desc: 'Focused on helping children build strong foundations in science, English, and maths through personalised one-to-one support.', color: 'bg-green-50 border-green-200',  accent: '#2d8c62' },
+  { Icon: GraduationCap, title: 'Psychology Background', desc: "Academic training from King's College London and The University of Manchester — specialising in behaviour, learning, and child development.", color: 'bg-purple-50 border-purple-200', accent: '#7a48c0' },
+  { Icon: Dices,       title: 'Dedicated Chess Study',   desc: 'Four years of dedicated chess study and competitive play, with a genuine understanding of the learning journey from beginner upwards.', color: 'bg-amber-50 border-amber-200',  accent: '#b8790a' },
 ];
 
 
@@ -35,7 +35,7 @@ export default function About() {
             className="max-w-4xl mx-auto px-6 lg:px-12 text-center mb-14"
           >
             <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2 mb-6">
-              <span className="text-sm">♜</span>
+              <Heart size={14} className="text-[#b8790a]" />
               <span className="font-nunito text-[#b8790a] text-sm font-700">The story behind Rook Foundations</span>
             </div>
             <h1 className="font-fredoka text-[#2D2520] leading-tight mb-0"
@@ -133,7 +133,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 rounded-full px-4 py-2 mb-4">
-              <span className="text-sm">✅</span>
+              <CheckCircle size={14} className="text-amber-700" />
               <span className="font-nunito text-amber-700 text-sm font-700">Qualifications & experience</span>
             </div>
             <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
@@ -141,10 +141,10 @@ export default function About() {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {credentials.map(({ emoji, title, desc, color, accent }) => (
+            {credentials.map(({ Icon, title, desc, color, accent }) => (
               <div key={title} className={`play-card ${color} border-2 rounded-3xl p-7`}>
-                <div className="text-3xl mb-4">{emoji}</div>
-                <h3 className="font-fredoka text-lg mb-2" style={{ color }}>{title}</h3>
+                <div className="mb-4"><Icon size={28} style={{ color: accent }} /></div>
+                <h3 className="font-fredoka text-lg mb-2" style={{ color: accent }}>{title}</h3>
                 <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">{desc}</p>
               </div>
             ))}

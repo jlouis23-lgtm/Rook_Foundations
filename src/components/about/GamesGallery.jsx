@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { BrainCircuit, Shuffle, UserCheck } from 'lucide-react';
 
 const games = [
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/330e1e1cd_generated_image.png', alt: 'Memory Match Chess' },
@@ -29,7 +30,7 @@ export default function GamesGallery() {
           className="text-center mb-10"
         >
           <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 rounded-full px-4 py-2 mb-3">
-            <span className="text-sm">🎲</span>
+            <Shuffle size={14} className="text-amber-700" />
             <span className="font-nunito text-amber-700 text-sm font-700">Beyond chess</span>
           </div>
           <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}>
@@ -62,9 +63,9 @@ export default function GamesGallery() {
         {/* Supporting cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {[
-            { emoji: '🧠', label: 'Developing Thinking Skills', color: 'bg-blue-50 border-blue-200', accent: '#4a7eb8', body: 'We use a wide range of games to help children strengthen problem-solving, strategic thinking, and confidence when approaching new challenges. Each game provides opportunities to practise planning, reasoning, and decision-making in an engaging way.' },
-            { emoji: '♟️', label: 'Learning Through Different Games', color: 'bg-amber-50 border-amber-200', accent: '#b8790a', body: 'Every game encourages a different way of thinking. By exploring multiple games, children learn to adapt their strategies, consider new perspectives, and develop greater flexibility in their thinking. This variety helps to keep learning both challenging and enjoyable.' },
-            { emoji: '🌱', label: 'Tailored to Every Child', color: 'bg-green-50 border-green-200', accent: '#2d8c62', body: 'Different games require different levels of concentration and complexity. We carefully select activities that match each child\'s age, ability, and stage of development. Our lessons aim to build confidence as well as progress.' },
+            { Icon: BrainCircuit, label: 'Developing Thinking Skills',      color: 'bg-blue-50 border-blue-200',   accent: '#4a7eb8', body: 'We use a wide range of games to help children strengthen problem-solving, strategic thinking, and confidence when approaching new challenges. Each game provides opportunities to practise planning, reasoning, and decision-making in an engaging way.' },
+            { Icon: Shuffle,      label: 'Learning Through Different Games', color: 'bg-amber-50 border-amber-200', accent: '#b8790a', body: 'Every game encourages a different way of thinking. By exploring multiple games, children learn to adapt their strategies, consider new perspectives, and develop greater flexibility in their thinking. This variety helps to keep learning both challenging and enjoyable.' },
+            { Icon: UserCheck,    label: 'Tailored to Every Child',          color: 'bg-green-50 border-green-200', accent: '#2d8c62', body: 'Different games require different levels of concentration and complexity. We carefully select activities that match each child\'s age, ability, and stage of development. Our lessons aim to build confidence as well as progress.' },
           ].map((card, i) => (
             <motion.div
               key={card.label}
@@ -74,7 +75,7 @@ export default function GamesGallery() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className={`play-card ${card.color} border-2 rounded-3xl p-7`}
             >
-              <div className="text-3xl mb-4">{card.emoji}</div>
+              <div className="mb-4"><card.Icon size={28} style={{ color: card.accent }} /></div>
               <h3 className="font-fredoka text-lg mb-3" style={{ color: card.accent }}>{card.label}</h3>
               <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{card.body}</p>
             </motion.div>

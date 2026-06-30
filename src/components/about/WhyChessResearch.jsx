@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ScanEye, GitBranch, HeartHandshake, GraduationCap, Target, Sprout, BrainCircuit, MessageCircle, PuzzleIcon, TrendingUp, MonitorSmartphone, Users, BookOpen, FlaskConical } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 
 const bubbles = [
   {
-    emoji: '🧠',
+    Icon: ScanEye,
     color: 'bg-green-50 border-green-200',
     accent: '#2d8c62',
     label: 'Focus & Concentration',
@@ -13,7 +13,7 @@ const bubbles = [
     citation: '(Zhang et al., 2025)',
   },
   {
-    emoji: '♟',
+    Icon: GitBranch,
     color: 'bg-blue-50 border-blue-200',
     accent: '#4a7eb8',
     label: 'Decision-Making & Reasoning',
@@ -21,7 +21,7 @@ const bubbles = [
     citation: '(Sala & Gobet, 2016)',
   },
   {
-    emoji: '🤝',
+    Icon: HeartHandshake,
     color: 'bg-amber-50 border-amber-200',
     accent: '#b8790a',
     label: 'Emotional & Social Growth',
@@ -29,7 +29,7 @@ const bubbles = [
     citation: '(Fuentes et al., 2018)',
   },
   {
-    emoji: '👩‍🏫',
+    Icon: GraduationCap,
     color: 'bg-purple-50 border-purple-200',
     accent: '#7a48c0',
     label: 'The Role of Teaching Quality',
@@ -48,7 +48,7 @@ export default function WhyChessResearch() {
       <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-green-100 border border-green-200 rounded-full px-4 py-2 mb-4">
-            <span className="text-sm">🔬</span>
+            <FlaskConical size={14} className="text-green-700" />
             <span className="font-nunito text-green-700 text-sm font-700">Backed by research</span>
           </div>
           <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
@@ -71,7 +71,7 @@ export default function WhyChessResearch() {
               className={`play-card ${bubble.color} border-2 rounded-3xl p-6 ${i % 2 === 0 ? 'lg:mr-16' : 'lg:ml-16'}`}
             >
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-2xl leading-none">{bubble.emoji}</span>
+                <bubble.Icon size={20} style={{ color: bubble.accent, flexShrink: 0 }} />
                 <h3 className="font-fredoka text-xl" style={{ color: bubble.accent }}>{bubble.label}</h3>
               </div>
               <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mb-2">{bubble.body}</p>
@@ -120,10 +120,10 @@ export default function WhyChessResearch() {
           {/* Core principles — 2-col grid on desktop */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             {[
-              { emoji: '🎯', label: 'Process Over Outcome', color: 'bg-amber-50 border-amber-200', accent: '#b8790a', body: 'We focus on the quality of a child\'s thinking rather than simply the result. A well-reasoned and clearly explained loss often teaches more than a lucky win.' },
-              { emoji: '🌱', label: 'Every Child Progresses', color: 'bg-green-50 border-green-200', accent: '#2d8c62', body: 'Children learn differently. We identify each child\'s individual needs and provide tailored guidance to help them grow steadily and confidently.' },
-              { emoji: '🧠', label: 'Learning at the Right Level', color: 'bg-blue-50 border-blue-200', accent: '#4a7eb8', body: 'Lessons are carefully adapted so that children are challenged without becoming overwhelmed. As confidence grows, children are gradually introduced to new games, deeper ideas, and more complex forms of thinking.' },
-              { emoji: '💬', label: 'Thinking Aloud & Social Learning', color: 'bg-purple-50 border-purple-200', accent: '#7a48c0', body: 'Children are encouraged to explain their ideas, discuss their decisions, and consider how others may respond. Through gameplay they develop patience, respect, listening skills, and the confidence to express their thoughts clearly.' },
+              { Icon: Target,         label: 'Process Over Outcome',        color: 'bg-amber-50 border-amber-200',  accent: '#b8790a', body: 'We focus on the quality of a child\'s thinking rather than simply the result. A well-reasoned and clearly explained loss often teaches more than a lucky win.' },
+              { Icon: Sprout,         label: 'Every Child Progresses',        color: 'bg-green-50 border-green-200',  accent: '#2d8c62', body: 'Children learn differently. We identify each child\'s individual needs and provide tailored guidance to help them grow steadily and confidently.' },
+              { Icon: BrainCircuit,   label: 'Learning at the Right Level',   color: 'bg-blue-50 border-blue-200',    accent: '#4a7eb8', body: 'Lessons are carefully adapted so that children are challenged without becoming overwhelmed. As confidence grows, children are gradually introduced to new games, deeper ideas, and more complex forms of thinking.' },
+              { Icon: MessageCircle,  label: 'Thinking Aloud & Social Learning', color: 'bg-purple-50 border-purple-200', accent: '#7a48c0', body: 'Children are encouraged to explain their ideas, discuss their decisions, and consider how others may respond. Through gameplay they develop patience, respect, listening skills, and the confidence to express their thoughts clearly.' },
             ].map((item, i) => (
               <motion.div
                 key={item.label}
@@ -134,7 +134,7 @@ export default function WhyChessResearch() {
                 className={`play-card ${item.color} border-2 rounded-2xl p-5`}
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xl leading-none">{item.emoji}</span>
+                  <item.Icon size={18} style={{ color: item.accent, flexShrink: 0 }} />
                   <h4 className="font-fredoka text-lg leading-tight" style={{ color: item.accent }}>{item.label}</h4>
                 </div>
                 <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{item.body}</p>
@@ -145,9 +145,9 @@ export default function WhyChessResearch() {
           {/* Secondary pillars — full-width stacked */}
           <div className="flex flex-col gap-4 mb-6">
             {[
-              { emoji: '🔍', label: 'Puzzles & Decision Making', accent: '#b8790a', body: 'Children regularly solve puzzles and game scenarios designed to strengthen reasoning and problem-solving skills. Rather than teaching that one move is simply "right" and another "wrong", we encourage children to explore multiple possibilities, evaluate their options, and make thoughtful decisions based on evidence and reflection.' },
-              { emoji: '📈', label: 'Tracking Progress', accent: '#2d8c62', body: 'Every child has a personalised learning record through our secure online platform. Parents can view learning goals, tutor feedback, achievements, and areas for development in one place. Children also have access to their progress, helping them build confidence, accountability, and ownership of their learning journey.' },
-              { emoji: '💻', label: 'Using Technology Carefully', accent: '#4a7eb8', body: 'We believe face-to-face learning and physical games should remain at the heart of education. However, when appropriate, we use carefully selected digital tools to help children understand more complex concepts and reinforce learning in a structured, child-friendly way.' },
+              { Icon: PuzzleIcon,        label: 'Puzzles & Decision Making', accent: '#b8790a', body: 'Children regularly solve puzzles and game scenarios designed to strengthen reasoning and problem-solving skills. Rather than teaching that one move is simply "right" and another "wrong", we encourage children to explore multiple possibilities, evaluate their options, and make thoughtful decisions based on evidence and reflection.' },
+              { Icon: TrendingUp,        label: 'Tracking Progress',          accent: '#2d8c62', body: 'Every child has a personalised learning record through our secure online platform. Parents can view learning goals, tutor feedback, achievements, and areas for development in one place. Children also have access to their progress, helping them build confidence, accountability, and ownership of their learning journey.' },
+              { Icon: MonitorSmartphone, label: 'Using Technology Carefully',  accent: '#4a7eb8', body: 'We believe face-to-face learning and physical games should remain at the heart of education. However, when appropriate, we use carefully selected digital tools to help children understand more complex concepts and reinforce learning in a structured, child-friendly way.' },
             ].map((item, i) => (
               <motion.div
                 key={item.label}
@@ -157,7 +157,7 @@ export default function WhyChessResearch() {
                 transition={{ delay: 0.7 + i * 0.08, duration: 0.5 }}
                 className="flex items-start gap-4 bg-white border-2 border-[#E8A020]/15 rounded-2xl p-5 hover:border-[#E8A020]/30 transition-colors"
               >
-                <span className="text-2xl flex-shrink-0 mt-0.5">{item.emoji}</span>
+                <item.Icon size={20} style={{ color: item.accent, flexShrink: 0, marginTop: '2px' }} />
                 <div>
                   <h4 className="font-fredoka text-lg mb-1" style={{ color: item.accent }}>{item.label}</h4>
                   <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{item.body}</p>
@@ -176,7 +176,7 @@ export default function WhyChessResearch() {
           >
             <div className="p-5 border-b border-amber-200">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-xl">👥</span>
+                <Users size={18} className="text-[#b8790a] flex-shrink-0" />
                 <h4 className="font-fredoka text-lg text-[#b8790a]">Individual & Group Learning</h4>
               </div>
             </div>
@@ -207,7 +207,7 @@ export default function WhyChessResearch() {
           onClick={() => window.scrollTo(0, 0)}
           className="flex items-center gap-4 bg-amber-50 border-2 border-amber-200 rounded-2xl px-6 py-5 hover:border-[#E8A020]/60 hover:shadow-md hover:shadow-[#E8A020]/10 transition-all group"
         >
-          <span className="text-3xl flex-shrink-0">📚</span>
+          <BookOpen size={28} className="text-[#b8790a] flex-shrink-0" />
           <div className="flex-1 min-w-0">
             <p className="font-fredoka text-[#2D2520] text-lg leading-tight">Interested in the research behind our approach?</p>
             <p className="font-nunito text-[#2D2520]/55 text-sm mt-0.5">Explore the studies and sources we use — with parent-friendly summaries.</p>
