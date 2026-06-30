@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check, Coins, User, Users, UsersRound, Star } from 'lucide-react';
+import { ArrowRight, Check, Coins, User, Users, UsersRound, Trophy, Star } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 
 const plans = [
@@ -30,7 +30,6 @@ const plans = [
   {
     label: 'Small Group',
     Icon: UsersRound,
-    badge: '5',
     iconColor: '#b8790a',
     subtitle: '3-4 students',
     tag: null,
@@ -41,8 +40,7 @@ const plans = [
   },
   {
     label: 'Group',
-    Icon: Users,
-    badge: '7',
+    Icon: Trophy,
     iconColor: '#2d8c62',
     subtitle: '5-7 students',
     tag: 'Best Value',
@@ -104,17 +102,7 @@ export default function Pricing() {
                   </span>
                 )}
 
-                <div className="mb-3 relative inline-block">
-                  <plan.Icon size={32} style={{ color: plan.iconColor }} />
-                  {plan.badge && (
-                    <span
-                      className="absolute -top-2 -right-2.5 min-w-[18px] h-[18px] px-1 rounded-full text-white text-[10px] font-700 font-nunito flex items-center justify-center shadow-sm"
-                      style={{ backgroundColor: plan.iconColor }}
-                    >
-                      {plan.badge}
-                    </span>
-                  )}
-                </div>
+                <div className="mb-3"><plan.Icon size={32} style={{ color: plan.iconColor }} /></div>
                 <div className="mb-5">
                   <h2 className="font-fredoka text-[#2D2520] text-2xl">{plan.label}</h2>
                   <p className="font-nunito text-[#E8A020] text-sm font-600 mt-0.5">{plan.subtitle}</p>
