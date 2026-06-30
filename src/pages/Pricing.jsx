@@ -100,7 +100,7 @@ export default function Pricing() {
                 )}
 
                 <div className="flex justify-center mb-5">
-                  <div className="w-16 h-16 rounded-2xl bg-[#E8A020]/10 flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-2xl bg-[#E8A020]/10 md:w-auto md:h-auto md:rounded-none md:bg-transparent flex items-center justify-center">
                     <PeopleIcon count={plan.people} size={40} style={{ color: '#E8A020' }} />
                   </div>
                 </div>
