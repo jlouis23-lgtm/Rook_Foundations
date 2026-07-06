@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Clock, Users, MapPin, Check } from 'lucide-react';
+import { ArrowRight, Clock, Users, MapPin } from 'lucide-react';
 import LessonPlans from '../components/classes/LessonPlans';
 import ChessBg from '@/components/ui/ChessBg';
 

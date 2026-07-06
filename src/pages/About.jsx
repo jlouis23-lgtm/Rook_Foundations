@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Award, BookOpen, Users, Heart, CheckCircle, Dices, GraduationCap } from 'lucide-react';
+import { ArrowRight, BookOpen, Users, Heart, CheckCircle, Dices, GraduationCap } from 'lucide-react';
 import WhyChessResearch from '../components/about/WhyChessResearch';
 import ProfessionalTraining from '../components/about/ProfessionalTraining';
 import BoardVisionSection from '../components/about/BoardVisionSection';
