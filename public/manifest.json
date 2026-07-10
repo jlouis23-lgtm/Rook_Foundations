@@ -1,0 +1,10 @@
+{
+  "name": "Rook Foundations",
+  "short_name": "Rook Foundations",
+  "description": "Chess and strategy games tutoring for children in Great Dunmow, Essex.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF7",
+  "theme_color": "#E8A020",
+  "icons": []
+}
