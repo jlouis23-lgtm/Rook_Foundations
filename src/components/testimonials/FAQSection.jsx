@@ -1,8 +1,9 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, MessageCircle } from 'lucide-react';
+import { MessageCircle, BookOpen, ArrowRight } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
+import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
+import FAQAccordionItem from '@/components/ui/FAQAccordionItem';
+import Reveal from '@/components/ui/Reveal';
 
 const faqs = [
   {
@@ -43,50 +44,16 @@ const faqs = [
   },
 ];
 
-function FAQItem({ faq }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className={`rounded-2xl border-2 overflow-hidden transition-all duration-300 ${open ? 'border-[#E8A020]/40 bg-white shadow-md shadow-[#E8A020]/8' : 'border-[#E8A020]/15 bg-white/70'}`}>
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full text-left flex items-start justify-between gap-4 p-6"
-      >
-        <span className="font-fredoka text-[#2D2520] text-lg leading-snug flex-1 pt-0.5">{faq.q}</span>
-        <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.25 }} className="flex-shrink-0 mt-0.5">
-          <ChevronDown size={20} className="text-[#E8A020]" />
-        </motion.div>
-      </button>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="px-6 pb-6 pt-0">
-              <div className="w-8 h-0.5 bg-[#E8A020]/40 rounded-full mb-3" />
-              <p className="font-nunito text-[#2D2520]/70 text-base leading-relaxed">{faq.a}</p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
-
 export default function FAQSection() {
   return (
     <section className="py-24 bg-[#F5F3EE] relative overflow-hidden">
       <ChessBg variant="faq" />
 
       <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 rounded-full px-4 py-2 mb-4">
-            <span className="text-sm">💬</span>
-            <span className="font-nunito text-amber-700 text-sm font-700">Questions from parents like you</span>
-          </div>
+        <Reveal className="text-center mb-14">
+          <span className="inline-flex items-center gap-1.5 font-nunito text-amber-700 text-sm font-800 uppercase tracking-widest mb-4">
+            <MessageCircle size={14} /> Questions from parents like you
+          </span>
           <h2 className="font-fredoka text-[#2D2520] leading-tight mb-4"
             style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
             Things families often ask us
@@ -94,30 +61,31 @@ export default function FAQSection() {
           <p className="font-nunito text-[#2D2520]/55 text-base leading-relaxed max-w-xl mx-auto">
             Before launching, I asked for parents' opinions on private chess tutoring, what mattered to them, and what they were unsure about. These are the questions which came up the most.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="space-y-4 mb-12">
-          {faqs.map((faq, i) => <FAQItem key={i} faq={faq} />)}
+        <div className="border-t border-[#2D2520]/10 divide-y divide-[#2D2520]/10 mb-12">
+          {faqs.map((faq, i) => <FAQAccordionItem key={i} question={faq.q} answer={faq.a} variant="default" />)}
         </div>
 
         <div className="text-center space-y-6">
           <p className="font-nunito text-[#2D2520]/50 text-sm font-600">Still have a question? I'd love to help.</p>
-          <Link
+          <MotionLink
+            whileTap={ctaTap}
             to="/contact"
             className="inline-flex items-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-base px-8 py-3.5 rounded-2xl hover:bg-[#d4940e] transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#E8A020]/25"
           >
             <MessageCircle size={18} />
             Send me a message
-          </Link>
+          </MotionLink>
           <div className="pt-4 border-t-2 border-[#E8A020]/10">
             <Link
               to="/references"
               onClick={() => window.scrollTo(0, 0)}
               className="inline-flex items-center gap-2 font-nunito text-[#2D2520]/45 text-sm font-600 hover:text-[#E8A020] transition-colors group"
             >
-              <span className="text-base">📖</span>
+              <BookOpen size={16} />
               Explore the research and evidence behind our approach
-              <span className="group-hover:translate-x-1 transition-transform text-xs">→</span>
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </div>

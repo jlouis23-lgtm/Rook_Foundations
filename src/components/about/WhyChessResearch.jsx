@@ -1,12 +1,15 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ScanEye, GitBranch, HeartHandshake, GraduationCap, Target, Sprout, BrainCircuit, MessageCircle, PuzzleIcon, TrendingUp, MonitorSmartphone, Users, BookOpen, FlaskConical } from 'lucide-react';
+import { ArrowRight, ChevronDown, ScanEye, GitBranch, HeartHandshake, GraduationCap, PuzzleIcon, TrendingUp, MonitorSmartphone, Users, BookOpen, FlaskConical } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
+import InteractiveRookPillars from '@/components/about/InteractiveRookPillars';
+
+const EASE = [0.22, 1, 0.36, 1];
 
 const bubbles = [
   {
     Icon: ScanEye,
-    color: 'bg-green-50 border-green-200',
     accent: '#2d8c62',
     label: 'Focus & Concentration',
     body: 'Chess trains children to slow down, sustain attention, and think before acting. These skills can extend beyond the board.',
@@ -14,15 +17,13 @@ const bubbles = [
   },
   {
     Icon: GitBranch,
-    color: 'bg-blue-50 border-blue-200',
     accent: '#4a7eb8',
     label: 'Decision-Making & Reasoning',
-    body: 'Every move requires planning ahead, weighing consequences, and adapting when things change — helping children become logical, independent thinkers.',
+    body: 'Every move requires planning ahead, weighing consequences, and adapting when things change. This can help children become logical, independent thinkers.',
     citation: '(Sala & Gobet, 2016)',
   },
   {
     Icon: HeartHandshake,
-    color: 'bg-amber-50 border-amber-200',
     accent: '#b8790a',
     label: 'Emotional & Social Growth',
     body: 'Children learn to respect opponents, follow rules, manage the emotions of winning and losing, and think under pressure.',
@@ -30,7 +31,6 @@ const bubbles = [
   },
   {
     Icon: GraduationCap,
-    color: 'bg-purple-50 border-purple-200',
     accent: '#7a48c0',
     label: 'The Role of Teaching Quality',
     body: 'A large-scale study across 300+ schools found that chess has limited impact when instructors are not actively engaged throughout every session.',
@@ -38,19 +38,58 @@ const bubbles = [
   },
 ];
 
-
+function ResearchItem({ bubble, isOpen, onToggle }) {
+  return (
+    <div>
+      <button
+        onClick={onToggle}
+        aria-expanded={isOpen}
+        className="group w-full flex items-center justify-between gap-4 py-6 text-left"
+      >
+        <div className="flex items-center gap-3">
+          <bubble.Icon size={20} style={{ color: bubble.accent, flexShrink: 0 }} className="transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6" />
+          <h3 className="font-fredoka text-lg sm:text-xl" style={{ color: bubble.accent }}>{bubble.label}</h3>
+        </div>
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.25, ease: EASE }}
+          className="flex-shrink-0"
+        >
+          <ChevronDown size={20} className="text-[#E8A020]" />
+        </motion.div>
+      </button>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: EASE }}
+            className="overflow-hidden"
+          >
+            <div className="pl-8 pb-6 -mt-1">
+              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mb-2">{bubble.body}</p>
+              <span className="font-nunito text-xs italic" style={{ color: `${bubble.accent}99` }}>{bubble.citation}</span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export default function WhyChessResearch() {
+  const [openIndex, setOpenIndex] = useState(null);
+
   return (
     <section className="py-20 bg-[#FAFAF7] relative overflow-hidden">
       <ChessBg variant="whychess" />
 
       <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-green-100 border border-green-200 rounded-full px-4 py-2 mb-4">
-            <FlaskConical size={14} className="text-green-700" />
-            <span className="font-nunito text-green-700 text-sm font-700">Backed by research</span>
-          </div>
+        <div className="text-center mb-14">
+          <span className="inline-flex items-center gap-1.5 font-nunito text-green-700 text-sm font-800 uppercase tracking-widest mb-4">
+            <FlaskConical size={14} /> Backed by research
+          </span>
           <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
             How can strategy games benefit my child?
           </h2>
@@ -59,37 +98,60 @@ export default function WhyChessResearch() {
           </p>
         </div>
 
-        {/* Bubble Network */}
-        <div className="flex flex-col gap-4 mb-8">
+        {/* Research findings — click a topic to reveal it, one at a time */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="border-t border-[#2D2520]/8 divide-y divide-[#2D2520]/8 mb-14"
+        >
           {bubbles.map((bubble, i) => (
-            <motion.div
+            <ResearchItem
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.12, duration: 0.55 }}
-              className={`play-card ${bubble.color} border-2 rounded-3xl p-6 ${i % 2 === 0 ? 'lg:mr-16' : 'lg:ml-16'}`}
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <bubble.Icon size={20} style={{ color: bubble.accent, flexShrink: 0 }} />
-                <h3 className="font-fredoka text-xl" style={{ color: bubble.accent }}>{bubble.label}</h3>
-              </div>
-              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mb-2">{bubble.body}</p>
-              <span className="font-nunito text-xs italic" style={{ color: `${bubble.accent}99` }}>{bubble.citation}</span>
-            </motion.div>
+              bubble={bubble}
+              isOpen={openIndex === i}
+              onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+            />
           ))}
-        </div>
+        </motion.div>
+
+        {/* Research summary CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-14"
+        >
+          <Link
+            to="/research-summary"
+            onClick={() => window.scrollTo(0, 0)}
+            className="group flex flex-col sm:flex-row items-start sm:items-center gap-5 bg-gradient-to-br from-amber-50 to-white border border-[#E8A020]/20 rounded-3xl p-7 hover:border-[#E8A020]/40 hover:shadow-lg hover:shadow-[#E8A020]/10 hover:-translate-y-0.5 transition-all"
+          >
+            <div className="w-14 h-14 rounded-2xl bg-[#E8A020]/12 flex items-center justify-center flex-shrink-0">
+              <FlaskConical size={26} className="text-[#E8A020]" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <h3 className="font-fredoka text-[#2D2520] text-xl mb-1">Want to know what UK research really shows?</h3>
+              <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">
+                See how strategy games can support children's learning, confidence and emotional wellbeing, in a plain English summary of UK studies on academic performance, emotional regulation and trauma informed practice.
+              </p>
+            </div>
+            <ArrowRight size={20} className="text-[#E8A020] flex-shrink-0 group-hover:translate-x-1 transition-transform hidden sm:block" />
+          </Link>
+        </motion.div>
 
         {/* How We Teach — expanded mission section */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.65 }}
-          className="mb-12"
+          transition={{ delay: 0.3, duration: 0.65 }}
+          className="mb-10"
         >
-          {/* Section header */}
-          <div className="bg-[#2D2520] rounded-3xl px-8 py-8 mb-6 relative overflow-hidden">
+          {/* Section header — intentional dark surface for emphasis */}
+          <div className="bg-[#2D2520] rounded-3xl px-8 py-8 mb-10 relative overflow-hidden">
             <div className="absolute right-6 bottom-3 text-white/5 font-fredoka select-none pointer-events-none" style={{ fontSize: '6rem', lineHeight: 1 }} aria-hidden="true">♜</div>
 
             {/* Disclaimer indicator — absolutely positioned, no impact on flow */}
@@ -117,95 +179,71 @@ export default function WhyChessResearch() {
             </p>
           </div>
 
-          {/* Core principles — 2-col grid on desktop */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-            {[
-              { Icon: Target,         label: 'Process Over Outcome',        color: 'bg-amber-50 border-amber-200',  accent: '#b8790a', body: 'We focus on the quality of a child\'s thinking rather than simply the result. A well-reasoned and clearly explained loss often teaches more than a lucky win.' },
-              { Icon: Sprout,         label: 'Every Child Progresses',        color: 'bg-green-50 border-green-200',  accent: '#2d8c62', body: 'Children learn differently. We identify each child\'s individual needs and provide tailored guidance to help them grow steadily and confidently.' },
-              { Icon: BrainCircuit,   label: 'Learning at the Right Level',   color: 'bg-blue-50 border-blue-200',    accent: '#4a7eb8', body: 'Lessons are carefully adapted so that children are challenged without becoming overwhelmed. As confidence grows, children are gradually introduced to new games, deeper ideas, and more complex forms of thinking.' },
-              { Icon: MessageCircle,  label: 'Thinking Aloud & Social Learning', color: 'bg-purple-50 border-purple-200', accent: '#7a48c0', body: 'Children are encouraged to explain their ideas, discuss their decisions, and consider how others may respond. Through gameplay they develop patience, respect, listening skills, and the confidence to express their thoughts clearly.' },
-            ].map((item, i) => (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.55 + i * 0.08, duration: 0.5 }}
-                className={`play-card ${item.color} border-2 rounded-2xl p-5`}
-              >
-                <div className="flex items-center gap-2 mb-2">
-                  <item.Icon size={18} style={{ color: item.accent, flexShrink: 0 }} />
-                  <h4 className="font-fredoka text-lg leading-tight" style={{ color: item.accent }}>{item.label}</h4>
-                </div>
-                <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{item.body}</p>
-              </motion.div>
-            ))}
+          {/* Core principles — interactive rook illustration */}
+          <InteractiveRookPillars />
+        </motion.div>
+      </div>
+
+      {/* Secondary pillars — full-width breakout, matching the games gallery supporting content above */}
+      <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10 mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-10">
+          {[
+            { Icon: PuzzleIcon,        label: 'Puzzles & Decision Making', accent: '#b8790a', body: 'Puzzles are designed to strengthen reasoning and problem-solving skills. Rather than teaching that one move is "right" and another "wrong", we encourage children to explore multiple possibilities, evaluate their options, and make thoughtful decisions based on reflection.' },
+            { Icon: TrendingUp,        label: 'Tracking Progress',          accent: '#2d8c62', body: 'Personalised feedback is recorded through observation and note taking. Parents can view learning goals, achievements, and areas for development in one place. Children also have access to their progress, helping them build confidence and ownership of their learning journey.' },
+            { Icon: MonitorSmartphone, label: 'Using Technology Carefully',  accent: '#4a7eb8', body: 'Children deserve meaningful face-to-face interaction while in education. We value hands-on learning using real boards. However, some selected digital tools are used to help aid understanding and memory of more complex concepts.' },
+          ].map((item, i) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="group"
+            >
+              <div className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"><item.Icon size={28} style={{ color: item.accent }} /></div>
+              <h3 className="font-fredoka text-lg mb-3" style={{ color: item.accent }}>{item.label}</h3>
+              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{item.body}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
+        {/* Individual vs Group */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55 }}
+          className="border-t border-b border-[#2D2520]/10 py-7 mb-6"
+        >
+          <div className="flex items-center gap-2 mb-5">
+            <Users size={18} className="text-[#b8790a] flex-shrink-0" />
+            <h4 className="font-fredoka text-lg text-[#b8790a]">Individual & Group Learning</h4>
           </div>
-
-          {/* Secondary pillars — full-width stacked */}
-          <div className="flex flex-col gap-4 mb-6">
-            {[
-              { Icon: PuzzleIcon,        label: 'Puzzles & Decision Making', accent: '#b8790a', body: 'Children regularly solve puzzles and game scenarios designed to strengthen reasoning and problem-solving skills. Rather than teaching that one move is simply "right" and another "wrong", we encourage children to explore multiple possibilities, evaluate their options, and make thoughtful decisions based on evidence and reflection.' },
-              { Icon: TrendingUp,        label: 'Tracking Progress',          accent: '#2d8c62', body: 'Every child has a personalised learning record through our secure online platform. Parents can view learning goals, tutor feedback, achievements, and areas for development in one place. Children also have access to their progress, helping them build confidence, accountability, and ownership of their learning journey.' },
-              { Icon: MonitorSmartphone, label: 'Using Technology Carefully',  accent: '#4a7eb8', body: 'We believe face-to-face learning and physical games should remain at the heart of education. However, when appropriate, we use carefully selected digital tools to help children understand more complex concepts and reinforce learning in a structured, child-friendly way.' },
-            ].map((item, i) => (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.7 + i * 0.08, duration: 0.5 }}
-                className="flex items-start gap-4 bg-white border-2 border-[#E8A020]/15 rounded-2xl p-5 hover:border-[#E8A020]/30 transition-colors"
-              >
-                <item.Icon size={20} style={{ color: item.accent, flexShrink: 0, marginTop: '2px' }} />
-                <div>
-                  <h4 className="font-fredoka text-lg mb-1" style={{ color: item.accent }}>{item.label}</h4>
-                  <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{item.body}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Individual vs Group — split card */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.95, duration: 0.55 }}
-            className="bg-amber-50 border-2 border-amber-200 rounded-2xl overflow-hidden"
-          >
-            <div className="p-5 border-b border-amber-200">
-              <div className="flex items-center gap-2 mb-2">
-                <Users size={18} className="text-[#b8790a] flex-shrink-0" />
-                <h4 className="font-fredoka text-lg text-[#b8790a]">Individual & Group Learning</h4>
-              </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div>
+              <span className="font-nunito text-[#b8790a] text-xs font-700 uppercase tracking-wide block mb-2">Individual Sessions</span>
+              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">Focus on developing thinking skills through puzzles, strategy, and personalised guidance tailored to each child's learning needs.</p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-amber-200">
-              <div className="p-5">
-                <span className="font-nunito text-[#b8790a] text-xs font-700 uppercase tracking-wide block mb-2">Individual Sessions</span>
-                <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">Focus on developing thinking skills through puzzles, strategy, and personalised guidance tailored to each child's learning needs.</p>
-              </div>
-              <div className="p-5">
-                <span className="font-nunito text-[#b8790a] text-xs font-700 uppercase tracking-wide block mb-2">Group Sessions</span>
-                <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">Focus on applying these skills through gameplay. Children learn to communicate ideas, collaborate, show respect, and practise patience in a positive social environment.</p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Values pill */}
-          <div className="mt-5 flex justify-center">
-            <div className="inline-flex items-center gap-2 bg-white border border-amber-200 rounded-full px-5 py-2.5 shadow-sm">
-              <div className="w-2 h-2 rounded-full bg-[#E8A020]" />
-              <span className="font-nunito text-[#b8790a] text-xs font-700">Child-centred · Play-focused · Personalised support</span>
+            <div className="sm:border-l sm:border-[#2D2520]/10 sm:pl-8">
+              <span className="font-nunito text-[#b8790a] text-xs font-700 uppercase tracking-wide block mb-2">Group Sessions</span>
+              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">Focus on applying these skills through gameplay. Children learn to communicate ideas, collaborate, show respect, and practise patience in a positive social environment.</p>
             </div>
           </div>
         </motion.div>
+
+        {/* Values line */}
+        <div className="mb-14 flex items-center justify-center gap-2">
+          <div className="w-1.5 h-1.5 rounded-full bg-[#E8A020]" />
+          <span className="font-nunito text-[#b8790a] text-xs font-700 uppercase tracking-wide">Child-centred · Play-focused · Personalised support</span>
+        </div>
 
         {/* Research CTA */}
         <Link
           to="/references"
           onClick={() => window.scrollTo(0, 0)}
-          className="flex items-center gap-4 bg-amber-50 border-2 border-amber-200 rounded-2xl px-6 py-5 hover:border-[#E8A020]/60 hover:shadow-md hover:shadow-[#E8A020]/10 transition-all group"
+          className="flex items-center gap-4 border-t border-b border-[#2D2520]/10 py-6 hover:bg-amber-50/40 transition-colors group"
         >
           <BookOpen size={28} className="text-[#b8790a] flex-shrink-0" />
           <div className="flex-1 min-w-0">

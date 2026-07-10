@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Star } from 'lucide-react';
 
 import ChessBg from '@/components/ui/ChessBg';
+import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 
 export default function CTABanner() {
   return (
@@ -13,13 +14,13 @@ export default function CTABanner() {
       <motion.div
         animate={{ y: [-8, 8, -8], rotate: [0, 10, 0] }}
         transition={{ duration: 5, repeat: Infinity }}
-        className="absolute top-8 left-12 text-white/20 text-5xl pointer-events-none hidden lg:block"
-      >✦</motion.div>
+        className="absolute top-8 left-12 text-white/20 pointer-events-none hidden lg:block"
+      ><Sparkles size={48} /></motion.div>
       <motion.div
         animate={{ y: [8, -8, 8] }}
         transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-        className="absolute bottom-8 right-20 text-white/15 text-3xl pointer-events-none hidden lg:block"
-      >★</motion.div>
+        className="absolute bottom-8 right-20 text-white/15 pointer-events-none hidden lg:block"
+      ><Star size={32} /></motion.div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center">
         <motion.div
@@ -39,9 +40,9 @@ export default function CTABanner() {
             Skills for life.
           </h2>
 
-          <div className="inline-flex items-center gap-2 bg-white/20 border border-white/30 rounded-full px-5 py-2 mb-7">
+          <div className="inline-flex items-center gap-2 bg-white/15 rounded-full px-5 py-2 mb-7">
             <Sparkles size={14} className="text-white" />
-            <span className="font-nunito text-white font-700 text-sm">🎉 Limited Time — 50% Off Your First Lesson</span>
+            <span className="font-nunito text-white font-700 text-sm">Limited Time — 50% Off Your First Lesson</span>
           </div>
 
           <p className="font-nunito text-white/80 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
@@ -49,14 +50,15 @@ export default function CTABanner() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
+            <MotionLink
+              whileTap={ctaTap}
               to="/contact"
               onClick={() => window.scrollTo(0, 0)}
               className="group bg-white text-[#E8A020] font-fredoka font-600 text-lg px-10 py-4 rounded-2xl hover:bg-[#fdf6e8] transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-3"
             >
               Claim Your 50% Off Now
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </MotionLink>
             <Link
               to="/classes"
               onClick={() => window.scrollTo(0, 0)}

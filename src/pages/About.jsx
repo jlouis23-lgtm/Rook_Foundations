@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { ArrowRight, BookOpen, Users, Heart, CheckCircle, Dices, GraduationCap } from 'lucide-react';
 import WhyChessResearch from '../components/about/WhyChessResearch';
 import ProfessionalTraining from '../components/about/ProfessionalTraining';
@@ -8,12 +7,13 @@ import BoardVisionSection from '../components/about/BoardVisionSection';
 import GamesGallery from '../components/about/GamesGallery';
 import ChessBg from '@/components/ui/ChessBg';
 import JourneyTimeline from '../components/about/JourneyTimeline';
+import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 
 const credentials = [
-  { Icon: Users,       title: 'Working With Children',  desc: 'Background in mentoring, youth support, wellbeing, and residential care — supporting children across a range of needs and environments.', color: 'bg-blue-50 border-blue-200',   accent: '#4a7eb8' },
-  { Icon: BookOpen,    title: 'Academic Tutor',          desc: 'Focused on helping children build strong foundations in science, English, and maths through personalised one-to-one support.', color: 'bg-green-50 border-green-200',  accent: '#2d8c62' },
-  { Icon: GraduationCap, title: 'Psychology Background', desc: "Academic training from King's College London and The University of Manchester — specialising in behaviour, learning, and child development.", color: 'bg-purple-50 border-purple-200', accent: '#7a48c0' },
-  { Icon: Dices,       title: 'Dedicated Chess Study',   desc: 'Four years of dedicated chess study and competitive play, with a genuine understanding of the learning journey from beginner upwards.', color: 'bg-amber-50 border-amber-200',  accent: '#b8790a' },
+  { Icon: Users,       title: 'Working With Children',  desc: 'Background in mentoring, youth support, wellbeing, and residential care. Roles involved supporting children across a range of needs and environments.', accent: '#4a7eb8' },
+  { Icon: BookOpen,    title: 'Academic Tutor',          desc: 'Focused on helping children build strong foundations in science, English, and maths through personalised one-to-one support.', accent: '#2d8c62' },
+  { Icon: GraduationCap, title: 'Psychology Background', desc: "Academic training from King's College London and The University of Manchester. Core focus on child development, trauma, and behaviour.", accent: '#7a48c0' },
+  { Icon: Dices,       title: 'Dedicated Chess Study',   desc: 'Four years of dedicated chess study and competitive play, with a genuine understanding of the learning journey from beginner upwards.', accent: '#b8790a' },
 ];
 
 
@@ -34,10 +34,9 @@ export default function About() {
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
             className="max-w-4xl mx-auto px-6 lg:px-12 text-center mb-14"
           >
-            <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2 mb-6">
-              <Heart size={14} className="text-[#b8790a]" />
-              <span className="font-nunito text-[#b8790a] text-sm font-700">The story behind Rook Foundations</span>
-            </div>
+            <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-6">
+              <Heart size={14} /> The story behind Rook Foundations
+            </span>
             <h1 className="font-fredoka text-[#2D2520] leading-tight mb-0"
               style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)' }}>
               Hello, welcome 👋
@@ -131,19 +130,18 @@ export default function About() {
       {/* Credentials */}
       <section className="py-20 bg-[#F5F3EE]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 rounded-full px-4 py-2 mb-4">
-              <CheckCircle size={14} className="text-amber-700" />
-              <span className="font-nunito text-amber-700 text-sm font-700">Qualifications & experience</span>
-            </div>
+          <div className="text-center mb-14">
+            <span className="inline-flex items-center gap-1.5 font-nunito text-amber-700 text-sm font-800 uppercase tracking-widest mb-4">
+              <CheckCircle size={14} /> Qualifications & experience
+            </span>
             <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
               Why families trust us
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {credentials.map(({ Icon, title, desc, color, accent }) => (
-              <div key={title} className={`play-card ${color} border-2 rounded-3xl p-7`}>
-                <div className="mb-4"><Icon size={28} style={{ color: accent }} /></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
+            {credentials.map(({ Icon, title, desc, accent }) => (
+              <div key={title} className="group">
+                <div className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"><Icon size={28} style={{ color: accent }} /></div>
                 <h3 className="font-fredoka text-lg mb-2" style={{ color: accent }}>{title}</h3>
                 <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">{desc}</p>
               </div>
@@ -171,11 +169,12 @@ export default function About() {
           <p className="font-nunito text-white/80 text-lg mb-8">
             Get 50% off your first lesson and discover the Rook Foundations difference for yourself.
           </p>
-          <Link
+          <MotionLink
+            whileTap={ctaTap}
             to="/contact"
             className="inline-flex items-center gap-2 bg-white text-[#E8A020] font-fredoka font-600 text-lg px-8 py-4 rounded-2xl hover:bg-[#fdf6e8] transition-all hover:shadow-xl hover:-translate-y-0.5">
             Claim 50% Off First Lesson <ArrowRight size={20} />
-          </Link>
+          </MotionLink>
         </div>
       </section>
     </div>

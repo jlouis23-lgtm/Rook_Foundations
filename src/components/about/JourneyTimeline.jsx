@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useRef, useState, useLayoutEffect } from 'react';
+import { motion, useScroll } from 'framer-motion';
 
 const timeline = [
   { year: '2018', emoji: '📚', event: "Began tutoring GCSE students in Maths, Science, and English. Developed skills in providing personalised academic support, building on previous lessons and using well-timed breaks to maximise concentration and learning." },
@@ -30,63 +31,100 @@ const positions = [
   { col: 'right' },   // 2026
 ];
 
-function TimelineCard({ t, idx, col }) {
-  const isLeft = col === 'left';
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: isLeft ? -30 : 30 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.55, delay: idx * 0.07 }}
-      className={`relative flex items-start gap-4 ${isLeft ? 'flex-row' : 'flex-row-reverse'}`}
-    >
-      {/* Card */}
-      <div className={`bg-white border border-[#E8A020]/15 rounded-2xl p-5 shadow-sm flex-1 max-w-xs ${isLeft ? 'mr-2' : 'ml-2'}`}>
-        <div className="flex items-center gap-2 mb-2">
-          <span className="text-lg">{t.emoji}</span>
-          <span className="font-fredoka text-[#E8A020] font-600 text-base">{t.year}</span>
-        </div>
-        <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{t.event}</p>
-      </div>
-
-      {/* Node connector dot */}
-      <div className="flex-shrink-0 flex flex-col items-center mt-2">
-        <div className="w-4 h-4 rounded-full bg-[#E8A020]/80 border-2 border-white shadow-md shadow-[#E8A020]/30 z-10" />
-      </div>
-    </motion.div>
-  );
-}
-
 // ─── Desktop zigzag layout ────────────────────────────────────────────────────
 function DesktopTimeline() {
+  const containerRef = useRef(null);
+  const itemRefs = useRef([]);
+  const [pathD, setPathD] = useState(
+    'M 200,40 C 200,120 600,120 600,240 C 600,360 200,360 200,480 C 200,600 600,600 600,720 C 600,840 200,840 200,960 C 200,1080 600,1080 600,1200 C 600,1280 400,1320 400,1380'
+  );
+  const [dims, setDims] = useState({ width: 800, height: 1400 });
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start 0.85', 'end 0.4'] });
+
+  useLayoutEffect(() => {
+    function measure() {
+      const container = containerRef.current;
+      if (!container) return;
+      const containerRect = container.getBoundingClientRect();
+      if (containerRect.height === 0) return;
+
+      // One waypoint per timeline card, at its true rendered vertical centre —
+      // this is what guarantees the line actually crosses every year, even
+      // when card heights vary with how much text each entry has.
+      const points = timeline.map((_, i) => {
+        const el = itemRefs.current[i];
+        if (!el) return null;
+        const rect = el.getBoundingClientRect();
+        const isLeft = positions[i].col === 'left';
+        return {
+          x: containerRect.width * (isLeft ? 0.25 : 0.75),
+          y: rect.top - containerRect.top + rect.height / 2,
+        };
+      }).filter(Boolean);
+
+      if (points.length < 2) return;
+
+      let d = `M ${points[0].x},${points[0].y}`;
+      for (let i = 1; i < points.length; i++) {
+        const prev = points[i - 1];
+        const curr = points[i];
+        const midY = (prev.y + curr.y) / 2;
+        d += ` C ${prev.x},${midY} ${curr.x},${midY} ${curr.x},${curr.y}`;
+      }
+      // Continue down to the convergence point at the bottom of the container
+      // (where the funnel lines lead into the "Today" milestone).
+      const last = points[points.length - 1];
+      const endX = containerRect.width / 2;
+      const endY = containerRect.height;
+      const endMidY = (last.y + endY) / 2;
+      d += ` C ${last.x},${endMidY} ${endX},${endMidY} ${endX},${endY}`;
+
+      setPathD(d);
+      setDims({ width: containerRect.width, height: containerRect.height });
+    }
+
+    measure();
+    window.addEventListener('resize', measure);
+    document.fonts?.ready?.then(measure);
+    const t = setTimeout(measure, 300);
+    return () => {
+      window.removeEventListener('resize', measure);
+      clearTimeout(t);
+    };
+  }, []);
+
   return (
-    <div className="hidden lg:block relative">
-      {/* Winding SVG road */}
+    <div ref={containerRef} className="hidden lg:block relative">
+      {/* Winding SVG road — draws itself as the journey is scrolled through.
+          Path is measured from the real card positions below so it always
+          passes through every year, regardless of card height. */}
       <svg
         className="absolute inset-0 w-full pointer-events-none"
         style={{ height: '100%', zIndex: 0 }}
         preserveAspectRatio="none"
-        viewBox="0 0 800 1400"
+        viewBox={`0 0 ${dims.width} ${dims.height}`}
         aria-hidden="true"
       >
         {/* Dashed winding path */}
-        <path
-          d="M 200,40 C 200,120 600,120 600,240 C 600,360 200,360 200,480 C 200,600 600,600 600,720 C 600,840 200,840 200,960 C 200,1080 600,1080 600,1200 C 600,1280 400,1320 400,1380"
+        <motion.path
+          d={pathD}
           fill="none"
           stroke="#E8A020"
           strokeWidth="3"
           strokeDasharray="10,8"
           strokeOpacity="0.25"
           strokeLinecap="round"
+          style={{ pathLength: scrollYProgress }}
         />
         {/* Glow overlay */}
-        <path
-          d="M 200,40 C 200,120 600,120 600,240 C 600,360 200,360 200,480 C 200,600 600,600 600,720 C 600,840 200,840 200,960 C 200,1080 600,1080 600,1200 C 600,1280 400,1320 400,1380"
+        <motion.path
+          d={pathD}
           fill="none"
           stroke="#F4C261"
           strokeWidth="1.5"
           strokeOpacity="0.12"
           strokeLinecap="round"
+          style={{ pathLength: scrollYProgress }}
         />
       </svg>
 
@@ -96,6 +134,7 @@ function DesktopTimeline() {
           return (
             <motion.div
               key={t.year}
+              ref={(el) => (itemRefs.current[i] = el)}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -107,7 +146,7 @@ function DesktopTimeline() {
                 <>
                   {/* Card on left */}
                   <div className="w-5/12">
-                    <div className="bg-white border-2 border-[#E8A020]/15 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-[#E8A020]/30 transition-all duration-300">
+                    <div className="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
                       <div className="flex items-center gap-2 mb-2">
                         <span className="text-lg">{t.emoji}</span>
                         <span className="font-fredoka text-[#E8A020] font-600 text-base">{t.year}</span>
@@ -115,12 +154,8 @@ function DesktopTimeline() {
                       <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{t.event}</p>
                     </div>
                   </div>
-                  {/* Connector line + dot */}
-                  <div className="w-2/12 flex justify-center items-center">
-                    <div className="h-0.5 w-full bg-[#E8A020]/20" />
-                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#E8A020] border-3 border-white shadow-lg shadow-[#E8A020]/30 -mx-2.5 z-10" />
-                    <div className="h-0.5 w-full bg-[#E8A020]/20" />
-                  </div>
+                  {/* Gutter — winding path passes through here */}
+                  <div className="w-2/12" />
                   {/* Empty right */}
                   <div className="w-5/12" />
                 </>
@@ -128,15 +163,11 @@ function DesktopTimeline() {
                 <>
                   {/* Empty left */}
                   <div className="w-5/12" />
-                  {/* Connector line + dot */}
-                  <div className="w-2/12 flex justify-center items-center">
-                    <div className="h-0.5 w-full bg-[#E8A020]/20" />
-                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#E8A020] border-3 border-white shadow-lg shadow-[#E8A020]/30 -mx-2.5 z-10" />
-                    <div className="h-0.5 w-full bg-[#E8A020]/20" />
-                  </div>
+                  {/* Gutter — winding path passes through here */}
+                  <div className="w-2/12" />
                   {/* Card on right */}
                   <div className="w-5/12">
-                    <div className="bg-white border-2 border-[#E8A020]/15 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-[#E8A020]/30 transition-all duration-300">
+                    <div className="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
                       <div className="flex items-center gap-2 mb-2">
                         <span className="text-lg">{t.emoji}</span>
                         <span className="font-fredoka text-[#E8A020] font-600 text-base">{t.year}</span>
@@ -168,10 +199,16 @@ function DesktopTimeline() {
 
 // ─── Mobile / tablet layout ───────────────────────────────────────────────────
 function MobileTimeline() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start 0.85', 'end 0.4'] });
+
   return (
-    <div className="lg:hidden relative">
-      {/* Vertical road line */}
-      <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#E8A020]/15 via-[#E8A020]/40 to-[#E8A020]/80 rounded-full" />
+    <div ref={containerRef} className="lg:hidden relative">
+      {/* Vertical road line — grows as the journey is scrolled through */}
+      <motion.div
+        style={{ scaleY: scrollYProgress, transformOrigin: 'top' }}
+        className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#E8A020]/15 via-[#E8A020]/40 to-[#E8A020]/80 rounded-full"
+      />
 
       <div className="space-y-6 relative z-10">
         {timeline.map((t, i) => (
@@ -188,7 +225,7 @@ function MobileTimeline() {
               <div className="w-5 h-5 rounded-full bg-[#E8A020] border-2 border-white shadow-md shadow-[#E8A020]/30 z-10" />
             </div>
             {/* Card */}
-            <div className="bg-white border border-[#E8A020]/15 rounded-2xl p-4 flex-1 shadow-sm">
+            <div className="bg-white rounded-2xl p-4 flex-1 shadow-sm">
               <div className="flex items-center gap-2 mb-1.5">
                 <span className="text-base">{t.emoji}</span>
                 <span className="font-fredoka text-[#E8A020] font-600 text-sm">{t.year}</span>
@@ -258,7 +295,7 @@ function FinalMilestone() {
 
         <div className="relative z-10 text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-white/20 border border-white/30 rounded-full px-4 py-1.5 mb-5">
+          <div className="inline-flex items-center gap-2 bg-white/15 rounded-full px-4 py-1.5 mb-5">
             <span className="text-white font-nunito font-800 text-sm tracking-wide uppercase">The destination</span>
           </div>
 
@@ -292,10 +329,9 @@ export default function JourneyTimeline() {
       <div className="max-w-5xl mx-auto px-6 lg:px-12">
         {/* Section header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-200 rounded-full px-4 py-2 mb-4">
-            <span className="text-sm">🗺️</span>
-            <span className="font-nunito text-blue-700 text-sm font-700">The journey here</span>
-          </div>
+          <span className="inline-flex items-center gap-1.5 font-nunito text-blue-700 text-sm font-800 uppercase tracking-widest mb-4">
+            🗺️ The journey here
+          </span>
           <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
             Study and experience gained over the years
           </h2>

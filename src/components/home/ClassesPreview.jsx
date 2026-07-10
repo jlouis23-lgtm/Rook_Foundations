@@ -1,39 +1,31 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, BookOpen, Users, Sprout, Puzzle, Trophy } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
+import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 
 const phases = [
   {
-    phase: '01', title: 'Discovery', ages: '', icon: '♟', tagline: 'Just starting out',
-    emoji: '🌱',
-    color: 'from-green-50 to-emerald-50',
+    phase: '01', title: 'Discovery', ages: '', tagline: 'Just starting out',
+    Icon: Sprout,
     accent: '#2d8c62',
-    border: 'border-green-200',
-    tag: 'bg-green-100 text-green-700',
     desc: 'Through play and hands-on learning, young beginners explore the magic of chess one piece at a time. Visual, fun, and confidence-building from day one.',
     features: ['How each piece moves', 'Setting up the board', 'Your first checkmate', 'Learning through stories'],
     image: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=600&q=80'
   },
   {
-    phase: '02', title: 'Development', ages: '', icon: '♞', tagline: 'Growing thinkers',
-    emoji: '🧩',
-    color: 'from-blue-50 to-sky-50',
+    phase: '02', title: 'Development', ages: '', tagline: 'Growing thinkers',
+    Icon: Puzzle,
     accent: '#4a7eb8',
-    border: 'border-blue-200',
-    tag: 'bg-blue-100 text-blue-700',
     desc: 'Children start to see patterns, set traps, and think 2–3 moves ahead. They begin to understand that chess is about plans, not just moves.',
     features: ['Tactics & patterns', 'Opening principles', 'Reading the board', 'Friendly mini-tournaments'],
     image: 'https://images.unsplash.com/photo-1586165368502-1bad197a6461?w=600&q=80'
   },
   {
-    phase: '03', title: 'Strategy', ages: '', icon: '♛', tagline: 'Independent thinkers',
-    emoji: '🏆',
-    color: 'from-purple-50 to-violet-50',
+    phase: '03', title: 'Strategy', ages: '', tagline: 'Independent thinkers',
+    Icon: Trophy,
     accent: '#7a48c0',
-    border: 'border-purple-200',
-    tag: 'bg-purple-100 text-purple-700',
     desc: 'Deeper analysis, competitive play, and the psychological dimensions of chess. These students are building a mindset for life — on and off the board.',
     features: ['Position and judgement', 'Timed challenges', 'Puzzle thinking', 'Endgame tips'],
     image: 'https://images.unsplash.com/photo-1528819622765-d6bcf132f793?w=600&q=80'
@@ -52,11 +44,10 @@ export default function ClassesPreview() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2 mb-4">
-            <span className="text-sm">📚</span>
-            <span className="font-nunito text-[#b8790a] text-sm font-700">Every child's journey is different</span>
-          </div>
+        <div className="text-center mb-16">
+          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+            <BookOpen size={14} /> Every child's journey is different
+          </span>
           <h2 className="font-fredoka text-[#2D2520] leading-tight mb-4"
             style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
             Where does your child fit in?
@@ -72,14 +63,21 @@ export default function ClassesPreview() {
             <button
               key={i}
               onClick={() => setActive(i)}
-              className={`flex items-center gap-3 px-6 py-3.5 rounded-2xl font-nunito font-700 text-sm transition-all duration-300 border-2 ${
+              className={`relative overflow-hidden flex items-center gap-3 px-6 py-3.5 rounded-2xl font-nunito font-700 text-sm transition-colors duration-300 border-2 ${
                 active === i
-                  ? `bg-[#E8A020] text-white border-[#E8A020] shadow-lg shadow-[#E8A020]/25`
+                  ? `text-white border-[#E8A020]`
                   : `bg-white text-[#2D2520]/60 border-[#E8A020]/20 hover:border-[#E8A020]/50 hover:text-[#2D2520]`
               }`}
             >
-              <span className="text-xl">{ph.emoji}</span>
-              <div className="text-left">
+              {active === i && (
+                <motion.div
+                  layoutId="classes-preview-pill"
+                  className="absolute inset-0 bg-[#E8A020] rounded-2xl shadow-lg shadow-[#E8A020]/25"
+                  transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                />
+              )}
+              <ph.Icon size={20} className="relative z-10" />
+              <div className="relative z-10 text-left">
                 <span className="block leading-tight">{ph.title}</span>
                 <span className={`text-[10px] font-600 leading-tight ${active === i ? 'text-white/70' : 'text-[#E8A020]/60'}`}>{ph.ages}</span>
               </div>
@@ -87,52 +85,50 @@ export default function ClassesPreview() {
           ))}
         </div>
 
-        {/* Content card */}
+        {/* Content */}
         <motion.div
           key={active}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className={`bg-gradient-to-br ${p.color} border-2 ${p.border} rounded-3xl overflow-hidden shadow-lg`}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            {/* Text side */}
-            <div className="p-8 lg:p-12">
-              <div className={`inline-flex items-center gap-2 ${p.tag} rounded-full px-4 py-1.5 mb-5 font-nunito text-xs font-700 uppercase tracking-wide`}>
-                <span className="text-base">{p.emoji}</span>
-                {p.tagline}
-              </div>
-              <h3 className="font-fredoka mb-4" style={{ fontSize: '2rem', color: p.accent }}>
-                {p.title} Level
-              </h3>
-              <p className="font-nunito text-[#2D2520]/70 text-base leading-relaxed mb-7">{p.desc}</p>
-              <ul className="space-y-3 mb-8">
-                {p.features.map((f, i) => (
-                  <li key={i} className="flex items-center gap-3 font-nunito text-[#2D2520]/75 text-sm">
-                    <span className="w-6 h-6 rounded-full flex items-center justify-center text-white text-xs flex-shrink-0"
-                      style={{ backgroundColor: p.accent }}>✓</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 text-white font-fredoka font-600 text-base px-7 py-3.5 rounded-2xl hover:opacity-90 transition-all hover:-translate-y-0.5 hover:shadow-lg"
-                style={{ backgroundColor: p.accent }}>
-                Enquire About This Level
-                <ArrowRight size={18} />
-              </Link>
+          {/* Text side */}
+          <div>
+            <div className="inline-flex items-center gap-2 mb-5 font-nunito text-xs font-800 uppercase tracking-widest" style={{ color: p.accent }}>
+              <p.Icon size={16} />
+              {p.tagline}
             </div>
+            <h3 className="font-fredoka mb-4" style={{ fontSize: '2rem', color: p.accent }}>
+              {p.title} Level
+            </h3>
+            <p className="font-nunito text-[#2D2520]/70 text-base leading-relaxed mb-7">{p.desc}</p>
+            <ul className="space-y-3 mb-8">
+              {p.features.map((f, i) => (
+                <li key={i} className="flex items-center gap-3 font-nunito text-[#2D2520]/75 text-sm">
+                  <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: p.accent }} />
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <MotionLink
+              whileTap={ctaTap}
+              to="/contact"
+              className="inline-flex items-center gap-2 text-white font-fredoka font-600 text-base px-7 py-3.5 rounded-2xl hover:opacity-90 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+              style={{ backgroundColor: p.accent }}>
+              Enquire About This Level
+              <ArrowRight size={18} />
+            </MotionLink>
+          </div>
 
-            {/* Image side */}
-            <div className="relative overflow-hidden min-h-64 lg:min-h-0">
-              <img src={p.image} alt={p.title} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <div className="bg-white/90 backdrop-blur-sm rounded-2xl px-5 py-3 inline-flex items-center gap-2">
-                  <span className="text-base">👥</span>
-                  <span className="font-nunito text-[#2D2520] text-sm font-700">In-person · Small groups · {p.ages}</span>
-                </div>
+          {/* Image side */}
+          <div className="relative overflow-hidden rounded-3xl min-h-64 lg:min-h-[22rem] shadow-lg">
+            <img src={p.image} alt={p.title} className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4">
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl px-5 py-3 inline-flex items-center gap-2">
+                <Users size={16} className="text-[#2D2520]/70" />
+                <span className="font-nunito text-[#2D2520] text-sm font-700">In-person · Small groups · {p.ages}</span>
               </div>
             </div>
           </div>

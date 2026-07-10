@@ -2,7 +2,11 @@
  * ChessBg — refined chess.com-style piece silhouettes.
  * Minimal, intentional placement in negative space only.
  * Smaller, subtle appearance; sparse coverage prioritising clean composition.
+ * Pieces drift a few pixels as the section scrolls through view, like a
+ * board seen from a slowly moving perspective. Disabled under reduced motion.
  */
+import { useRef } from 'react';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 
 // Authentic chess.com–style filled SVG paths, viewBox "0 0 45 45"
 const PIECES = {
@@ -146,7 +150,27 @@ const LAYOUTS = {
     { piece: 'queen',  edge: 'right', fromEdge: 16, fromTop: 80,   rotate: 11 },
     { piece: 'bishop', edge: 'left',  fromEdge: 16, fromTop: 80,   rotate: -7 },
   ],
-  
+
+  // Research summary: warm, sparse
+  research: [
+    { piece: 'rook',   edge: 'right', fromEdge: 18, fromTop: 90,   rotate: 9  },
+    { piece: 'pawn',   edge: 'left',  fromEdge: 18, fromTop: 90,   rotate: -8 },
+    { piece: 'knight', edge: 'left',  fromEdge: 16, fromTop: 560,  rotate: -10, hideOnMobile: true },
+    { piece: 'bishop', edge: 'right', fromEdge: 16, fromTop: 560,  rotate: 8,   hideOnMobile: true },
+  ],
+
+  // Risk assessment: minimal, calm
+  risk: [
+    { piece: 'king',   edge: 'right', fromEdge: 18, fromTop: 90,   rotate: 7  },
+    { piece: 'pawn',   edge: 'left',  fromEdge: 18, fromTop: 90,   rotate: -6 },
+  ],
+
+  // Terms & Conditions: minimal, understated for a legal document
+  legal: [
+    { piece: 'rook',   edge: 'right', fromEdge: 18, fromTop: 90,   rotate: 6  },
+    { piece: 'pawn',   edge: 'left',  fromEdge: 18, fromTop: 90,   rotate: -7 },
+  ],
+
   // Default/Page: sparse
   page: [
     { piece: 'bishop', edge: 'right', fromEdge: 18, fromTop: 100,  rotate: 8   },
@@ -158,36 +182,48 @@ const LAYOUTS = {
 const PIECE_SIZE = 36;
 const PIECE_OPACITY = 0.09;
 
-export default function ChessBg({ variant = 'page' }) {
-  const pieces = LAYOUTS[variant] || LAYOUTS.page;
+function Piece({ p, i, scrollYProgress, prefersReducedMotion }) {
+  const driftRange = prefersReducedMotion ? 0 : 6 + (i % 3) * 5;
+  const direction = i % 2 === 0 ? 1 : -1;
+  const y = useTransform(scrollYProgress, [0, 1], [-driftRange * direction, driftRange * direction]);
+
+  const style = {
+    position: 'absolute',
+    [p.edge === 'left' ? 'left' : 'right']: p.fromEdge,
+    top: p.fromTop,
+    width: PIECE_SIZE,
+    height: PIECE_SIZE,
+    opacity: PIECE_OPACITY,
+    rotate: p.rotate,
+    flexShrink: 0,
+    y,
+  };
+
+  const mobileClass = p.hideOnMobile ? 'hidden md:block' : 'block';
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none select-none" aria-hidden="true">
-      {pieces.map((p, i) => {
-        const style = {
-          position: 'absolute',
-          [p.edge === 'left' ? 'left' : 'right']: p.fromEdge,
-          top: p.fromTop,
-          width: PIECE_SIZE,
-          height: PIECE_SIZE,
-          opacity: PIECE_OPACITY,
-          transform: `rotate(${p.rotate}deg)`,
-          flexShrink: 0,
-        };
+    <motion.div className={`absolute ${mobileClass}`} style={style}>
+      <svg
+        viewBox="0 0 45 45"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ width: '100%', height: '100%' }}
+        dangerouslySetInnerHTML={{ __html: PIECES[p.piece] }}
+      />
+    </motion.div>
+  );
+}
 
-        const mobileClass = p.hideOnMobile ? 'hidden md:block' : 'block';
+export default function ChessBg({ variant = 'page' }) {
+  const pieces = LAYOUTS[variant] || LAYOUTS.page;
+  const containerRef = useRef(null);
+  const prefersReducedMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start end', 'end start'] });
 
-        return (
-          <div key={i} className={`absolute ${mobileClass}`} style={style}>
-            <svg
-              viewBox="0 0 45 45"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{ width: '100%', height: '100%' }}
-              dangerouslySetInnerHTML={{ __html: PIECES[p.piece] }}
-            />
-          </div>
-        );
-      })}
+  return (
+    <div ref={containerRef} className="absolute inset-0 overflow-hidden pointer-events-none select-none print:hidden" aria-hidden="true">
+      {pieces.map((p, i) => (
+        <Piece key={i} p={p} i={i} scrollYProgress={scrollYProgress} prefersReducedMotion={prefersReducedMotion} />
+      ))}
     </div>
   );
 }

@@ -1,34 +1,27 @@
 import { motion } from 'framer-motion';
+import { Heart, Brain, Sprout, Target, Handshake } from 'lucide-react';
 
 const values = [
   {
-    emoji: '♟',
-    bg: 'bg-blue-50',
-    border: 'border-blue-200',
+    Icon: Brain,
     accent: '#4a7eb8',
     heading: 'They Learn to Think',
     body: 'Every move on the chess board teaches children to slow down, consider their options, and act with intention. These kind of learning extends far beyond the game.',
   },
   {
-    emoji: '🌱',
-    bg: 'bg-green-50',
-    border: 'border-green-200',
+    Icon: Sprout,
     accent: '#2d8c62',
     heading: 'Confidence Blooms Naturally',
-    body: 'Children discover that making mistakes is part of learning. They learn that being creative and thinking outside of the box is the best habit and that persistence pays off.',
+    body: 'Children discover that making mistakes is a part of learning, thinking outside of the box is encouraged, and that confidence emerges when taking worthy risks.',
   },
   {
-    emoji: '🎯',
-    bg: 'bg-purple-50',
-    border: 'border-purple-200',
+    Icon: Target,
     accent: '#7a48c0',
     heading: 'Focus Grows with Every Game',
-    body: 'Chess is one of the few activities that demands full attention from young minds. Children who practise regularly develop stronger focus and patience.',
+    body: 'Chess and similar games provide opportunities to develop stronger focus and patience.',
   },
   {
-    emoji: '🤝',
-    bg: 'bg-amber-50',
-    border: 'border-amber-200',
+    Icon: Handshake,
     accent: '#b8790a',
     heading: 'A Place They Feel Supported',
     body: 'Small groups, personalised attention, and a warm teaching style mean every child feels seen, heard, and valued from their very first session.',
@@ -43,11 +36,10 @@ export default function TestimonialsPreview() {
       <ChessBg variant="testimonials" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 bg-green-100 border border-green-200 rounded-full px-4 py-2 mb-4">
-            <span className="text-sm">💛</span>
-            <span className="font-nunito text-green-700 text-sm font-700">What families can look forward to</span>
-          </div>
+        <div className="text-center mb-16">
+          <span className="inline-flex items-center gap-1.5 font-nunito text-green-700 text-sm font-800 uppercase tracking-widest mb-4">
+            <Heart size={14} /> What families can look forward to
+          </span>
           <h2 className="font-fredoka text-[#2D2520] leading-tight mb-4"
             style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
             More than chess lessons.
@@ -57,7 +49,7 @@ export default function TestimonialsPreview() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
           {values.map((v, i) => (
             <motion.div
               key={i}
@@ -65,19 +57,17 @@ export default function TestimonialsPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              className={`play-card ${v.bg} border-2 ${v.border} rounded-3xl p-7 cursor-default`}
+              className="group flex items-start gap-4 cursor-default"
             >
-              <div className="flex items-start gap-4">
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
-                  style={{ backgroundColor: `${v.accent}18`, border: `2px solid ${v.accent}30` }}>
-                  {v.emoji}
-                </div>
-                <div>
-                  <h3 className="font-fredoka text-xl mb-2" style={{ color: v.accent }}>
-                    {v.heading}
-                  </h3>
-                  <p className="font-nunito text-[#2D2520]/70 text-sm leading-relaxed">{v.body}</p>
-                </div>
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"
+                style={{ backgroundColor: `${v.accent}14` }}>
+                <v.Icon size={24} style={{ color: v.accent }} />
+              </div>
+              <div>
+                <h3 className="font-fredoka text-xl mb-2" style={{ color: v.accent }}>
+                  {v.heading}
+                </h3>
+                <p className="font-nunito text-[#2D2520]/70 text-sm leading-relaxed">{v.body}</p>
               </div>
             </motion.div>
           ))}

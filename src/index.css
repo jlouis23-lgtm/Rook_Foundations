@@ -110,3 +110,14 @@ html { scroll-behavior: smooth; }
   clip-path: ellipse(55% 100% at 50% 0%);
   margin-top: -39px;
 }
+
+/* Clean printing: hide site chrome, keep page content readable.
+   Tailwind's print: variant handles per-element opt-outs elsewhere. */
+@media print {
+  nav, footer, #scroll-progress {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+  }
+}

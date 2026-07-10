@@ -29,10 +29,9 @@ export default function GamesGallery() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 rounded-full px-4 py-2 mb-3">
-            <Shuffle size={14} className="text-amber-700" />
-            <span className="font-nunito text-amber-700 text-sm font-700">Beyond chess</span>
-          </div>
+          <span className="inline-flex items-center gap-1.5 font-nunito text-amber-700 text-sm font-800 uppercase tracking-widest mb-3">
+            <Shuffle size={14} /> Beyond chess
+          </span>
           <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}>
             A wider world of thinking games
           </h2>
@@ -60,12 +59,12 @@ export default function GamesGallery() {
           ))}
         </div>
 
-        {/* Supporting cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {/* Supporting content */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-10">
           {[
-            { Icon: BrainCircuit, label: 'Developing Thinking Skills',      color: 'bg-blue-50 border-blue-200',   accent: '#4a7eb8', body: 'We use a wide range of games to help children strengthen problem-solving, strategic thinking, and confidence when approaching new challenges. Each game provides opportunities to practise planning, reasoning, and decision-making in an engaging way.' },
-            { Icon: Shuffle,      label: 'Learning Through Different Games', color: 'bg-amber-50 border-amber-200', accent: '#b8790a', body: 'Every game encourages a different way of thinking. By exploring multiple games, children learn to adapt their strategies, consider new perspectives, and develop greater flexibility in their thinking. This variety helps to keep learning both challenging and enjoyable.' },
-            { Icon: UserCheck,    label: 'Tailored to Every Child',          color: 'bg-green-50 border-green-200', accent: '#2d8c62', body: 'Different games require different levels of concentration and complexity. We carefully select activities that match each child\'s age, ability, and stage of development. Our lessons aim to build confidence as well as progress.' },
+            { Icon: BrainCircuit, label: 'Developing Thinking Skills',       accent: '#4a7eb8', body: 'We use a wide range of games to help children strengthen problem-solving, strategic thinking, and confidence when approaching new challenges. Each game provides opportunities to practise planning, reasoning, and decision-making in an engaging way.' },
+            { Icon: Shuffle,      label: 'Learning Through Different Games', accent: '#b8790a', body: 'Every game encourages a different way of thinking. By exploring multiple games, children learn to adapt their strategies, consider new perspectives, and develop greater flexibility in their thinking. This variety helps to keep learning both challenging and enjoyable.' },
+            { Icon: UserCheck,    label: 'Tailored to Every Child',          accent: '#2d8c62', body: 'Different games require different levels of concentration and complexity. We carefully select activities that match each child\'s age, ability, and stage of development. Our lessons aim to build confidence as well as progress.' },
           ].map((card, i) => (
             <motion.div
               key={card.label}
@@ -73,9 +72,9 @@ export default function GamesGallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`play-card ${card.color} border-2 rounded-3xl p-7`}
+              className="group"
             >
-              <div className="mb-4"><card.Icon size={28} style={{ color: card.accent }} /></div>
+              <div className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"><card.Icon size={28} style={{ color: card.accent }} /></div>
               <h3 className="font-fredoka text-lg mb-3" style={{ color: card.accent }}>{card.label}</h3>
               <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{card.body}</p>
             </motion.div>

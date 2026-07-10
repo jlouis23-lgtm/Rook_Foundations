@@ -1,15 +1,32 @@
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, Shield, ScanEye, Swords, Trophy, Sprout } from 'lucide-react';
+import { ArrowRight, Sparkles, Star, Shield, ScanEye, Lightbulb, Sprout, Users } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
+import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 
 const LEAFLET_IMG = 'https://media.base44.com/images/public/69fe1341895fe99f147fce64/3b7300d3f_51E37187-F312-43E1-8058-02E71B191F4B.png';
 
-const pillars = [
-  { Icon: ScanEye,  label: 'Focus',      color: 'bg-blue-50 text-blue-700 border-blue-200' },
-  { Icon: Swords,   label: 'Strategy',   color: 'bg-amber-50 text-amber-700 border-amber-200' },
-  { Icon: Trophy,   label: 'Confidence', color: 'bg-purple-50 text-purple-700 border-purple-200' },
-  { Icon: Sprout,   label: 'Growth',     color: 'bg-green-50 text-green-700 border-green-200' },
+const features = [
+  {
+    Icon: ScanEye,
+    accent: '#4a7eb8',
+    tag: 'Focus & Confidence',
+    title: 'Confidence, one move at a time',
+    body: 'Fun, in-person strategy games — including chess — help children aged 5–12 build focus and strong decision-making skills.',
+  },
+  {
+    Icon: Lightbulb,
+    accent: '#b8790a',
+    tag: 'Strategic Thinking',
+    title: 'Skills that go beyond the board',
+    body: 'Every lesson encourages children to think ahead, weigh up possibilities, and make thoughtful decisions with confidence.',
+  },
+  {
+    Icon: Sprout,
+    accent: '#2d8c62',
+    tag: 'Supportive Growth',
+    title: 'Growth at their own pace',
+    body: 'A patient, positive environment where learning is enjoyable and every child is encouraged to grow from both success and mistakes.',
+  },
 ];
 
 export default function HeroSection() {
@@ -18,27 +35,25 @@ export default function HeroSection() {
 
       <ChessBg variant="hero" />
 
-
-
       {/* Floating sparkles */}
       <motion.div
         animate={{ y: [-8, 8, -8], rotate: [0, 10, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-32 right-1/4 text-[#E8A020]/40 text-4xl pointer-events-none hidden lg:block"
-      >✦</motion.div>
+        className="absolute top-32 right-1/4 text-[#E8A020]/40 pointer-events-none hidden lg:block"
+      ><Sparkles size={36} /></motion.div>
       <motion.div
         animate={{ y: [8, -8, 8], rotate: [0, -10, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        className="absolute bottom-40 right-12 text-purple-300/50 text-2xl pointer-events-none hidden lg:block"
-      >✦</motion.div>
+        className="absolute bottom-40 right-12 text-purple-300/50 pointer-events-none hidden lg:block"
+      ><Sparkles size={22} /></motion.div>
       <motion.div
         animate={{ y: [-6, 6, -6] }}
         transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-        className="absolute top-48 left-16 text-green-300/40 text-3xl pointer-events-none hidden lg:block"
-      >★</motion.div>
+        className="absolute top-48 left-16 text-green-300/40 pointer-events-none hidden lg:block"
+      ><Star size={28} /></motion.div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-28 pb-16 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-28 pb-20 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* Mobile image */}
           <motion.div
@@ -61,54 +76,35 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
 
-            {/* Badges */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2">
-                <Sparkles size={14} className="text-[#E8A020]" />
-                <span className="font-nunito text-[#b8790a] text-sm font-700">Chess for curious minds</span>
-              </div>
-              <div className="inline-flex items-center gap-2 bg-purple-100 border border-purple-200 rounded-full px-4 py-2">
-                <span className="text-purple-500 text-sm">♟</span>
-                <span className="font-nunito text-purple-700 text-sm font-700">Strategy for curious minds</span>
-              </div>
-            </div>
+            <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-6">
+              <Sparkles size={14} /> Chess & strategy games for curious minds
+            </span>
 
             <h1 className="font-fredoka text-[#2D2520] leading-[1.1] mb-3"
               style={{ fontSize: 'clamp(2.8rem, 7vw, 5rem)', fontWeight: 600 }}>
               More than a game.
             </h1>
-            <h2 className="font-fredoka text-[#E8A020] leading-[1.1] mb-6"
+            <h2 className="font-fredoka text-[#E8A020] leading-[1.1] mb-7"
               style={{ fontSize: 'clamp(2.8rem, 7vw, 5rem)', fontWeight: 600 }}>
               Skills for life.
             </h2>
 
-            <div className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed mb-8 max-w-lg space-y-4">
-              <p>Helping children build confidence, focus and strong decision-making skills through fun, engaging strategy games. Our in-person classes for children aged 5–12 use games such as chess and other carefully chosen strategy activities.</p>
-              <p>These games are used to develop thinking skills that extend far beyond each game itself. Every lesson encourages children to think ahead, solve problems, consider different possibilities and make thoughtful decisions with confidence.</p>
-              <p>My goal is to help support growth of patience, concentration, creativity, and the confidence to learn from both success and mistakes. This is done in a supportive, positive environment where learning is enjoyable, and every child is encouraged to grow at their own pace.</p>
-            </div>
+            <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed mb-10 max-w-lg">
+              Helping children build confidence, focus and strong decision-making skills through fun, engaging strategy games — for ages 5–12, in a warm and supportive environment.
+            </p>
 
-            {/* Pillars */}
-            <div className="flex flex-wrap gap-3 mb-10">
-              {pillars.map(({ Icon, label, color }) => (
-                <div key={label} className={`flex items-center gap-2 ${color} border rounded-2xl px-4 py-2`}>
-                  <Icon size={16} />
-                  <span className="font-nunito text-sm font-700">{label}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <Link
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+              <MotionLink
+                whileTap={ctaTap}
                 to="/contact"
                 onClick={() => window.scrollTo(0, 0)}
                 className="group bg-[#E8A020] text-white font-fredoka font-600 text-lg px-8 py-4 rounded-2xl hover:bg-[#d4940e] transition-all duration-300 hover:shadow-xl hover:shadow-[#E8A020]/30 hover:-translate-y-0.5 flex items-center gap-3">
                 Claim 50% Off Your First Lesson
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <div className="flex items-center gap-2 bg-white border border-[#E8A020]/20 rounded-2xl px-5 py-3.5 shadow-sm">
-                <span className="text-xl">👧🧒</span>
-                <span className="font-nunito text-[#2D2520] text-sm font-700">Ages 5–12</span>
+              </MotionLink>
+              <div className="flex items-center gap-2">
+                <Users size={18} className="text-[#2D2520]/50" />
+                <span className="font-nunito text-[#2D2520]/70 text-sm font-700">Ages 5–12</span>
               </div>
             </div>
 
@@ -160,8 +156,26 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
+        {/* Feature strip — the three supporting ideas, given real visual weight */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="mt-20 lg:mt-24 pt-12 border-t border-[#2D2520]/10 grid grid-cols-1 sm:grid-cols-3 gap-y-10 divide-y sm:divide-y-0 sm:divide-x divide-[#2D2520]/10"
+        >
+          {features.map(({ Icon, accent, tag, title, body }, i) => (
+            <div key={tag} className={`group ${i === 0 ? '' : 'sm:pl-10'} ${i > 0 ? 'pt-8 sm:pt-0' : ''}`}>
+              <Icon size={26} style={{ color: accent }} className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" />
+              <span className="block font-nunito text-xs font-800 uppercase tracking-widest mb-2" style={{ color: accent }}>{tag}</span>
+              <h3 className="font-fredoka text-[#2D2520] text-lg mb-2 leading-snug">{title}</h3>
+              <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">{body}</p>
+            </div>
+          ))}
+        </motion.div>
+
         {/* Affiliations */}
-        <div className="relative lg:absolute lg:bottom-12 lg:right-6 flex flex-col items-start gap-1.5 mt-10 lg:mt-0">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-x-8 gap-y-1.5 mt-10">
           <div className="flex items-center gap-1.5">
             <Shield size={16} className="text-[#E8A020]/40" />
             <span className="font-nunito text-[#2D2520]/40 text-sm font-600">Proud member of <a href="https://www.wholeschoolsend.org.uk/page/nasen-home-page" target="_blank" rel="noopener noreferrer" className="hover:text-[#E8A020]/70 transition-colors underline underline-offset-2">NASEN</a> (National Association for Special Educational Needs).</span>

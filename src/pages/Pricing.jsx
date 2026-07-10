@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Coins, Star } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import PeopleIcon from '@/components/pricing/PeopleIcon';
+import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
+import Reveal from '@/components/ui/Reveal';
 
 const plans = [
   {
@@ -12,7 +13,7 @@ const plans = [
     subtitle: '1 student',
     tag: null,
     tagStyle: '',
-    cardStyle: 'bg-white border-[#E8A020]/20',
+    cardStyle: 'bg-white border-[#2D2520]/10',
     prices: { '1 Hour': { total: 15, note: 'total' }, '2 Hours': { total: 25, note: 'total' } },
     features: ['Fully personalised lesson plan', 'One-to-one instructor attention', 'Deeper conceptual learning', 'Progress report every session'],
   },
@@ -22,7 +23,7 @@ const plans = [
     subtitle: '2 students',
     tag: 'Most Popular',
     tagStyle: 'bg-[#E8A020] text-white',
-    cardStyle: 'bg-amber-50 border-[#E8A020]/40 shadow-xl shadow-[#E8A020]/10',
+    cardStyle: 'bg-amber-50/60 border-[#E8A020]/30 shadow-lg shadow-[#E8A020]/8',
     prices: { '1 Hour': { total: 20, note: '£10 per student' }, '2 Hours': { total: 30, note: '£15 per student' } },
     features: ['Shared learning dynamic', 'Friendly in-session competition', 'Great for siblings or friends', 'Progress report every session'],
   },
@@ -32,7 +33,7 @@ const plans = [
     subtitle: '3-4 students',
     tag: null,
     tagStyle: '',
-    cardStyle: 'bg-white border-[#E8A020]/20',
+    cardStyle: 'bg-white border-[#2D2520]/10',
     prices: { '1 Hour': { total: 25, note: '£6.25 per student' }, '2 Hours': { total: 30, note: '£7.50 per student' } },
     features: ['Group problem solving', 'Collaborative & individual learning', 'Ideal for three friends', 'Progress report every session'],
   },
@@ -42,7 +43,7 @@ const plans = [
     subtitle: '5-7 students',
     tag: 'Best Value',
     tagStyle: 'bg-green-500 text-white',
-    cardStyle: 'bg-green-50 border-green-200',
+    cardStyle: 'bg-green-50/60 border-green-200',
     prices: { '1 Hour': { total: 30, note: '£4.29 per student' }, '2 Hours': { total: 35, note: '£5.00 per student' } },
     features: ['Cooperative problem solving', 'Team challenges & competitions', 'Rotate through different strategy games', 'Progress report every session'],
   },
@@ -56,18 +57,17 @@ export default function Pricing() {
       {/* Header */}
       <section className="relative overflow-hidden py-20">
         <ChessBg variant="pricing" />
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 bg-[#E8A020]/12 border border-[#E8A020]/25 rounded-full px-4 py-2 mb-5">
-          <Coins size={14} className="text-[#b8790a]" />
-          <span className="font-nunito text-[#b8790a] text-sm font-700">Simple, honest pricing</span>
-          </div>
+        <Reveal className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
+          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-5">
+            <Coins size={14} /> Simple, honest pricing
+          </span>
           <h1 className="font-fredoka text-[#2D2520] mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
             What does it cost?
           </h1>
           <p className="font-nunito text-[#2D2520]/60 text-lg leading-relaxed max-w-2xl mx-auto">
             Choose the format that works best for your family. All sessions are in-person, with a patient and child-friendly instructor. Our approach is working in small groups, tailoring learning and maximising growth.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       {/* Pricing Cards */}
@@ -91,7 +91,7 @@ export default function Pricing() {
               <motion.div
                 key={plan.label}
                 variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
-                className={`play-card relative flex flex-col border-2 rounded-3xl p-7 ${plan.cardStyle}`}
+                className={`play-card relative flex flex-col border rounded-3xl p-7 ${plan.cardStyle}`}
               >
                 {plan.tag && (
                   <span className={`absolute -top-3 left-1/2 -translate-x-1/2 ${plan.tagStyle} font-nunito text-xs font-700 px-4 py-1.5 rounded-full shadow-md`}>
@@ -110,7 +110,7 @@ export default function Pricing() {
                 </div>
 
                 {/* Prices */}
-                <div className="space-y-3 mb-7 pb-7 border-b-2 border-[#E8A020]/12">
+                <div className="space-y-3 mb-7 pb-7 border-b border-[#2D2520]/10">
                   {['1 Hour', '2 Hours'].map((duration) => (
                     <div key={duration} className="flex items-end justify-between">
                       <span className="font-nunito text-[#2D2520]/50 text-sm font-600">{duration}</span>
@@ -134,12 +134,13 @@ export default function Pricing() {
                   ))}
                 </ul>
 
-                <Link
+                <MotionLink
+                  whileTap={ctaTap}
                   to="/contact"
                   className="w-full bg-[#E8A020] text-white font-fredoka font-600 text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 hover:bg-[#d4940e] transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#E8A020]/20"
                 >
                   Book Now <ArrowRight size={14} />
-                </Link>
+                </MotionLink>
               </motion.div>
             ))}
           </motion.div>
@@ -151,7 +152,7 @@ export default function Pricing() {
         <ChessBg variant="pricingcta" color="#ffffff" />
         <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center relative z-10">
           <div className="mb-5"><Star size={36} className="text-white mx-auto" /></div>
-          <div className="inline-flex items-center gap-2 bg-white/20 border border-white/30 rounded-full px-5 py-2 mb-6">
+          <div className="inline-flex items-center gap-2 bg-white/15 rounded-full px-5 py-2 mb-6">
             <Star size={14} className="text-white" />
             <span className="font-nunito text-white font-700 text-sm">Limited Time — 50% Off Your First Lesson</span>
           </div>
@@ -159,12 +160,13 @@ export default function Pricing() {
           <p className="font-nunito text-white/80 text-base leading-relaxed mb-8 max-w-xl mx-auto">
             Book at half price — no long-term commitment. We'll assess your child's level and recommend the perfect format and session length.
           </p>
-          <Link
+          <MotionLink
+            whileTap={ctaTap}
             to="/contact"
             className="inline-flex items-center gap-2 bg-white text-[#E8A020] font-fredoka font-600 text-lg px-10 py-4 rounded-2xl hover:bg-[#fdf6e8] transition-all hover:shadow-xl hover:-translate-y-0.5"
           >
             Claim 50% Off First Lesson <ArrowRight size={18} />
-          </Link>
+          </MotionLink>
         </div>
       </section>
     </div>

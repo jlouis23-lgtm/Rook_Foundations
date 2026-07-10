@@ -8,9 +8,7 @@ const sections = [
   {
     topic: "Chess, Focus & Child Development",
     emoji: "🔬",
-    color: "bg-amber-50 border-amber-200",
     accent: "#b8790a",
-    tag: "bg-amber-100 text-amber-700",
     refs: [
       {
         citation: "Zhang, Y., et al. (2025). Chess and the development of logical reasoning and patience in children. Frontiers in Psychology, 16.",
@@ -41,9 +39,7 @@ const sections = [
   {
     topic: "Chess and Learning Difficulties",
     emoji: "📚",
-    color: "bg-blue-50 border-blue-200",
     accent: "#4a7eb8",
-    tag: "bg-blue-100 text-blue-700",
     refs: [
       {
         citation: "Scholtz, S., Mundt, A., Lüders, A., & Rüter, A. (2008).",
@@ -62,9 +58,7 @@ const sections = [
   {
     topic: "Chess and Children with Autism",
     emoji: "🧩",
-    color: "bg-purple-50 border-purple-200",
     accent: "#7a48c0",
-    tag: "bg-purple-100 text-purple-700",
     refs: [
       {
         citation: "National Autistic Society.",
@@ -84,9 +78,7 @@ const sections = [
   {
     topic: "Chess and Children with ADHD",
     emoji: "⚡",
-    color: "bg-amber-50 border-amber-200",
     accent: "#b8790a",
-    tag: "bg-amber-100 text-amber-700",
     refs: [
       {
         citation: "Agarwal, R. (2023).",
@@ -101,9 +93,7 @@ const sections = [
   {
     topic: "Chess, Girls, and Gender Inclusivity",
     emoji: "♛",
-    color: "bg-pink-50 border-pink-200",
     accent: "#b84880",
-    tag: "bg-pink-100 text-pink-700",
     refs: [
       {
         citation: "Polgár, J. (career record, 1984–2014).",
@@ -118,9 +108,7 @@ const sections = [
   {
     topic: "Motivation, Engagement, and Learning",
     emoji: "🌱",
-    color: "bg-green-50 border-green-200",
     accent: "#2d8c62",
-    tag: "bg-green-100 text-green-700",
     refs: [
       {
         citation: "Deci, E. L., & Ryan, R. M. (2000).",
@@ -152,17 +140,16 @@ export default function References() {
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
             Back to home
           </Link>
-          <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 rounded-full px-4 py-2 mb-5">
-            <BookOpen size={14} className="text-amber-700" />
-            <span className="font-nunito text-amber-700 text-sm font-700">Research & evidence</span>
-          </div>
+          <span className="inline-flex items-center gap-1.5 font-nunito text-amber-700 text-sm font-800 uppercase tracking-widest mb-5">
+            <BookOpen size={14} /> Research & evidence
+          </span>
           <h1 className="font-fredoka text-[#2D2520] mb-4" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)' }}>
             The research behind our approach
           </h1>
           <p className="font-nunito text-[#2D2520]/60 text-lg leading-relaxed max-w-2xl">
             We believe families deserve to know what informs our teaching. Below you will find the research, studies, and expert guidance that shape the answers in our FAQ section — organised by topic so they are easy to explore.
           </p>
-          <div className="mt-6 bg-amber-50 border-2 border-amber-200 rounded-2xl px-6 py-4 inline-block">
+          <div className="mt-6 border-l-4 border-amber-300 pl-5 max-w-2xl">
             <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">
               <span className="font-700 text-[#b8790a]">Please note:</span> Some references are cited to acknowledge the source of an idea or finding. Where a URL is not provided, the work can typically be found through academic databases such as Google Scholar, JSTOR, or your local library.
             </p>
@@ -172,28 +159,24 @@ export default function References() {
 
       {/* Reference sections */}
       <section className="max-w-4xl mx-auto px-6 lg:px-12">
-        <div className="space-y-8">
+        <div className="border-t border-[#2D2520]/10 divide-y divide-[#2D2520]/10">
           {sections.map((section, si) => (
             <motion.div
               key={si}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: si * 0.08 }}
-              className={`${section.color} border-2 rounded-3xl overflow-hidden`}
+              transition={{ duration: 0.5, delay: si * 0.05 }}
+              className="py-10"
             >
               {/* Section header */}
-              <div className="px-7 py-5 border-b-2 border-current/10 flex items-center gap-3"
-                style={{ borderBottomColor: `${section.accent}18` }}>
+              <div className="flex items-center gap-3 mb-6">
                 <span className="text-2xl">{section.emoji}</span>
-                <div>
-                  <span className={`inline-block ${section.tag} rounded-full px-3 py-0.5 text-xs font-nunito font-700 mb-1`}>Research topic</span>
-                  <h2 className="font-fredoka text-xl" style={{ color: section.accent }}>{section.topic}</h2>
-                </div>
+                <h2 className="font-fredoka text-xl" style={{ color: section.accent }}>{section.topic}</h2>
               </div>
 
               {/* References */}
-              <div className="px-7 py-5 space-y-5">
+              <div className="space-y-5">
                 {section.refs.map((ref, ri) => (
                   <div key={ri} className="flex gap-4">
                     <div className="w-1.5 rounded-full flex-shrink-0 mt-1"

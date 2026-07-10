@@ -1,12 +1,22 @@
 import { Link } from 'react-router-dom';
+import { Sparkles } from 'lucide-react';
+import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 
 const navLinks = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
-  { label: 'Classes', path: '/classes' },
+  { label: 'Chess', path: '/classes' },
   { label: 'Pricing', path: '/pricing' },
   { label: 'Book a Session', path: '/booking' },
   { label: 'Contact', path: '/contact' },
+];
+
+// Add future legal pages here (Privacy Policy, Cookie Policy, Safeguarding Policy, etc.)
+// — the row below wraps automatically and needs no layout changes.
+const legalLinks = [
+  { label: 'Privacy Policy', path: '/privacy-policy' },
+  { label: 'Terms & Conditions', path: '/terms-and-conditions' },
+  { label: 'Cookie Policy', path: '/cookies-policy' },
 ];
 
 export default function Footer() {
@@ -71,10 +81,11 @@ export default function Footer() {
                 <p className="font-nunito text-white/65 text-sm">Great Dunmow, Essex</p>
               </div>
             </div>
-            <Link to="/contact"
-              className="inline-block mt-7 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-3 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/25">
-              Claim 50% Off First Lesson 🎉
-            </Link>
+            <MotionLink whileTap={ctaTap} to="/contact"
+              className="inline-flex items-center gap-1.5 mt-7 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-3 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/25">
+              <Sparkles size={14} />
+              Claim 50% Off First Lesson
+            </MotionLink>
           </div>
         </div>
       </div>
@@ -84,6 +95,22 @@ export default function Footer() {
           <p className="font-nunito text-white/25 text-sm">
             © 2026 RookFoundations. All rights reserved.
           </p>
+
+          <nav aria-label="Legal" className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+            {legalLinks.map((link, i) => (
+              <span key={link.path} className="flex items-center gap-2">
+                {i > 0 && <span className="text-white/15" aria-hidden="true">·</span>}
+                <Link
+                  to={link.path}
+                  onClick={() => window.scrollTo(0, 0)}
+                  className="font-nunito text-white/35 hover:text-[#E8A020] transition-colors text-xs font-600"
+                >
+                  {link.label}
+                </Link>
+              </span>
+            ))}
+          </nav>
+
           <div className="flex items-center gap-2">
             <span className="text-[#E8A020] text-lg">♜</span>
             <span className="font-nunito text-white/30 text-xs">More than a game. Skills for life.</span>
