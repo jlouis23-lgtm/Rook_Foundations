@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Heart, Brain, Sprout, Target, Handshake } from 'lucide-react';
 
 const values = [
@@ -45,7 +46,15 @@ export default function TestimonialsPreview() {
             More than chess lessons.
           </h2>
           <p className="font-nunito text-[#2D2520]/55 text-base max-w-xl mx-auto leading-relaxed">
-            Parents tell us the biggest changes happen away from the chess board — in school, at home, and in how their child sees the world.
+            At Rook Foundations, we believe that chess and similar games provide powerful ways to build confidence, character and skills for life. Explore our{' '}
+            <Link
+              to="/about"
+              onClick={() => window.scrollTo(0, 0)}
+              className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors font-600"
+            >
+              About page
+            </Link>{' '}
+            to discover the games we use as tools for learning, and the values that shape every lesson.
           </p>
         </div>
 
