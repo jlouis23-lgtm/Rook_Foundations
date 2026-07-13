@@ -1,47 +1,61 @@
 import { useState, useId } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Target, Sprout, BrainCircuit, MessageCircle } from 'lucide-react';
+import { Heart, Shapes, BrainCircuit, MessageCircleQuestion, TrendingUp, MonitorSmartphone } from 'lucide-react';
 
 const EASE = [0.22, 1, 0.36, 1];
 
 const principles = [
   {
-    Icon: Target,
-    title: 'Process Over Outcome',
-    accent: '#b8790a',
-    body: 'We focus on the quality of a child\'s thinking rather than simply the result. A well-reasoned and clearly explained loss often teaches more than a lucky win.',
+    Icon: Heart,
+    title: 'Child-Centred',
+    accent: '#c05050',
+    body: "We don't believe every child should learn the same game in the same way. Instead, we observe how each child thinks and introduce activities that match their interests, confidence and stage of development.",
   },
   {
-    Icon: Sprout,
-    title: 'Every Child Progresses',
-    accent: '#2d8c62',
-    body: 'Children learn differently. We identify each child\'s individual needs and provide tailored guidance to help them grow steadily and confidently.',
+    Icon: Shapes,
+    title: 'Strategy Games, Not Just Chess',
+    accent: '#b8790a',
+    body: "Chess is one of many wonderful strategy games. However, it isn't the right starting point for every child. We use a variety of carefully chosen games to create opportunities for thinking, communication and problem-solving. The game is never the goal. The child's development is.",
   },
   {
     Icon: BrainCircuit,
     title: 'Learning at the Right Level',
     accent: '#4a7eb8',
-    body: 'Lessons are carefully adapted so that children are challenged without becoming overwhelmed. As confidence grows, children are gradually introduced to new games, deeper ideas, and more complex forms of thinking.',
+    body: 'Children make the greatest progress when they are challenged without becoming overwhelmed. We continually adjust activities to provide just the right level of difficulty that stretches thinking while ensuring learning remains enjoyable and achievable.',
   },
   {
-    Icon: MessageCircle,
-    title: 'Thinking Aloud & Social Learning',
+    Icon: MessageCircleQuestion,
+    title: 'Questions Before Answers',
     accent: '#7a48c0',
-    body: 'Children are encouraged to explain their ideas, discuss their decisions, and consider how others may respond. Through gameplay they develop patience, respect, listening skills, and the confidence to express their thoughts clearly.',
+    body: 'Rather than simply telling children the correct move, we encourage them to explain their thinking. By asking thoughtful questions, children learn to think more independently and become increasingly confident in explaining their ideas.',
+  },
+  {
+    Icon: TrendingUp,
+    title: 'Our Tracking System',
+    accent: '#2d8c62',
+    body: "Personalised feedback is recorded through observation and note-taking. Parents can view learning goals, achievements and areas for development in one place. Children also have access to their own progress, helping them build confidence, independence and ownership of their learning journey.",
+  },
+  {
+    Icon: MonitorSmartphone,
+    title: 'Using Technology Carefully',
+    accent: '#2a8c88',
+    body: 'Our approach combines the benefits of hands-on learning with the thoughtful use of digital tools. Children learn using real boards and practical activities, while carefully selected digital resources support thinking, strengthen memory and enhance learning only where they add genuine educational value.',
   },
 ];
 
-// Crenellation x-ranges within the 0 0 400 520 viewBox — four evenly spaced
-// teeth with three gaps, used both to draw the rook and to size/tint each
+// Crenellation x-ranges within the 0 0 400 520 viewBox — six evenly spaced
+// teeth with five gaps, used both to draw the rook and to size/tint each
 // tooth in sync with the label buttons below.
 const TEETH = [
-  { x: 90, w: 40 },
-  { x: 150, w: 40 },
-  { x: 210, w: 40 },
-  { x: 270, w: 40 },
+  { x: 70, w: 30 },
+  { x: 116, w: 30 },
+  { x: 162, w: 30 },
+  { x: 208, w: 30 },
+  { x: 254, w: 30 },
+  { x: 300, w: 30 },
 ];
-const TOOTH_TOP = 40;
-const TOOTH_BOTTOM = 130;
+const TOOTH_TOP = 30;
+const TOOTH_BOTTOM = 125;
 
 function RookIllustration({ active, hovered, onSelect, onHover }) {
   const gradId = useId();
@@ -50,7 +64,7 @@ function RookIllustration({ active, hovered, onSelect, onHover }) {
   return (
     <svg
       viewBox="0 0 400 520"
-      className="w-full h-auto max-w-[240px] sm:max-w-[300px] mx-auto"
+      className="w-full h-auto max-w-[280px] sm:max-w-[340px] mx-auto"
       aria-hidden="true"
       focusable="false"
     >
@@ -65,21 +79,21 @@ function RookIllustration({ active, hovered, onSelect, onHover }) {
         </filter>
       </defs>
 
-      {/* Base plinth (two-tier) */}
-      <rect x="60" y="465" width="280" height="26" rx="6" style={{ fill: `url(#${gradId})` }} opacity="0.92" />
-      <rect x="80" y="435" width="240" height="32" rx="4" style={{ fill: `url(#${gradId})` }} />
+      {/* Base plinth (two-tier) — broadened for a sturdier, more grounded base */}
+      <rect x="40" y="480" width="320" height="24" rx="6" style={{ fill: `url(#${gradId})` }} opacity="0.92" />
+      <rect x="60" y="445" width="280" height="38" rx="4" style={{ fill: `url(#${gradId})` }} />
       {/* Base flare */}
-      <path d="M 160,395 L 240,395 L 310,435 L 90,435 Z" style={{ fill: `url(#${gradId})` }} />
-      {/* Shaft */}
-      <rect x="160" y="215" width="80" height="180" style={{ fill: `url(#${gradId})` }} />
+      <path d="M 130,400 L 270,400 L 330,445 L 70,445 Z" style={{ fill: `url(#${gradId})` }} />
+      {/* Shaft — substantially widened so the piece reads as a rook, not a torch */}
+      <rect x="130" y="225" width="140" height="175" style={{ fill: `url(#${gradId})` }} />
       {/* Collar band */}
-      <rect x="148" y="285" width="104" height="17" rx="4" fill="#c98a12" opacity="0.55" />
+      <rect x="115" y="295" width="170" height="20" rx="4" fill="#c98a12" opacity="0.55" />
       {/* Neck taper */}
-      <path d="M 80,175 L 320,175 L 240,215 L 160,215 Z" style={{ fill: `url(#${gradId})` }} />
+      <path d="M 90,175 L 310,175 L 270,225 L 130,225 Z" style={{ fill: `url(#${gradId})` }} />
       {/* Crown slab */}
-      <rect x="80" y="130" width="240" height="45" rx="3" style={{ fill: `url(#${gradId})` }} />
+      <rect x="55" y="125" width="290" height="50" rx="3" style={{ fill: `url(#${gradId})` }} />
 
-      {/* Four crenellations — decorative + mouse/touch clickable, kept out of
+      {/* Six crenellations — decorative + mouse/touch clickable, kept out of
           the tab order since the labelled buttons below are the canonical
           accessible controls. */}
       {TEETH.map((t, i) => {
@@ -88,11 +102,11 @@ function RookIllustration({ active, hovered, onSelect, onHover }) {
           <g key={i}>
             {isLit && (
               <rect
-                x={t.x - 6}
+                x={t.x - 5}
                 y={TOOTH_TOP - 8}
-                width={t.w + 12}
+                width={t.w + 10}
                 height={TOOTH_BOTTOM - TOOTH_TOP + 16}
-                rx="10"
+                rx="9"
                 fill={principles[i].accent}
                 opacity="0.55"
                 filter={`url(#${glowId})`}
@@ -136,8 +150,8 @@ export default function InteractiveRookPillars() {
     >
       <RookIllustration active={active} hovered={hovered} onSelect={toggle} onHover={setHovered} />
 
-      {/* Four labelled, keyboard-accessible controls — the canonical way to open each principle */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 max-w-2xl mx-auto">
+      {/* Six labelled, keyboard-accessible controls — the canonical way to open each principle */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-6 max-w-2xl mx-auto">
         {principles.map((p, i) => {
           const isActive = active === i;
           return (

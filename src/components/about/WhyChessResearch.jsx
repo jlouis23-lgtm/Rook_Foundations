@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown, ScanEye, GitBranch, HeartHandshake, GraduationCap, PuzzleIcon, TrendingUp, MonitorSmartphone, Users, BookOpen, FlaskConical } from 'lucide-react';
+import { ArrowRight, ChevronDown, ScanEye, GitBranch, HeartHandshake, GraduationCap, Users, BookOpen, FlaskConical, Compass, Sparkles } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import InteractiveRookPillars from '@/components/about/InteractiveRookPillars';
+import LearningJourney from '@/components/about/LearningJourney';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -142,70 +143,61 @@ export default function WhyChessResearch() {
           </Link>
         </motion.div>
 
-        {/* How We Teach — expanded mission section */}
+        {/* How We Teach — standalone section heading, matching the header pattern above */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
+        >
+          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+            <Compass size={14} /> Our approach
+          </span>
+          <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+            How We Teach
+          </h2>
+          <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-xl mx-auto leading-relaxed">
+            Chess and strategy games are simply the vehicle. What actually shapes how your child grows with us is a consistent six-stage journey that repeats and deepens with every session. We don't claim these skills transfer automatically, but nurtured through relationship, challenge and reflection like this, they very often do.
+          </p>
+        </motion.div>
+      </div>
+
+      {/* Learning journey diagram — full-width breakout for the circular layout */}
+      <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10 mb-16">
+        <LearningJourney />
+      </div>
+
+      {/* What Makes Us Different — standalone heading for the six-pillar rook */}
+      <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+            <Sparkles size={14} /> What sets us apart
+          </span>
+          <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+            What Makes Us Different?
+          </h2>
+          <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-xl mx-auto leading-relaxed">
+            These six principles guide everything we teach, and they're what set Rook Foundations apart from traditional chess coaching and many other educational programmes.
+          </p>
+        </motion.div>
+
+        {/* Core principles — interactive rook illustration */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.65 }}
-          className="mb-10"
+          transition={{ duration: 0.65 }}
+          className="mb-14"
         >
-          {/* Section header — intentional dark surface for emphasis */}
-          <div className="bg-[#2D2520] rounded-3xl px-8 py-8 mb-10 relative overflow-hidden">
-            <div className="absolute right-6 bottom-3 text-white/5 font-fredoka select-none pointer-events-none" style={{ fontSize: '6rem', lineHeight: 1 }} aria-hidden="true">♜</div>
-
-            {/* Disclaimer indicator — absolutely positioned, no impact on flow */}
-            <div className="absolute top-6 right-8 flex flex-col items-center gap-0.5 z-20">
-              <svg width="36" height="32" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M13.134 2.5C13.5188 1.833 14.4812 1.833 14.866 2.5L26.1244 22C26.5092 22.667 26.028 23.5 25.2583 23.5H2.74167C1.97202 23.5 1.49076 22.667 1.87565 22L13.134 2.5Z" fill="#E8A020" fillOpacity="0.22" stroke="#E8A020" strokeOpacity="0.65" strokeWidth="1.5" strokeLinejoin="round"/>
-                <text x="14" y="18" textAnchor="middle" fontFamily="Fredoka, sans-serif" fontSize="11" fontWeight="600" fill="#F4C261">!</text>
-              </svg>
-              <span className="font-nunito text-[#E8A020]/70 text-xs font-700 tracking-wide uppercase">Disclaimer</span>
-              <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M22 2 C22 12, 16 24, 6 38" stroke="#E8A020" strokeOpacity="0.45" strokeWidth="1.6" strokeLinecap="round" fill="none" strokeDasharray="3.5 2.5"/>
-                <path d="M2 34 L6 40 L11 36" stroke="#E8A020" strokeOpacity="0.45" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-              </svg>
-            </div>
-
-            <span className="font-nunito text-[#E8A020] text-xs font-700 uppercase tracking-widest block mb-2">Our Mission</span>
-            <h3 className="font-fredoka text-white text-3xl mb-4 relative z-10">How We Teach</h3>
-            <div className="w-10 h-1 bg-[#E8A020] rounded-full mb-5" />
-
-            <p className="font-nunito text-white/75 text-base leading-relaxed mb-3 relative z-10">
-              We recognise the limitations of transferring skills from strategy games into other domains and do NOT claim that these games alone guarantee academic or financial success.
-            </p>
-            <p className="font-nunito text-white/65 text-sm leading-relaxed relative z-10">
-              Instead, our aim is to create an engaging thinking environment using a wide variety of tactics and ways of thinking. Through these games, children develop <span className="text-[#F4C261] font-700">focus, reasoning, patience, communication, and discipline</span>. We believe that, when nurtured through enjoyment and challenging play, the skills that they learn with us can support broader learning and extend positively into other areas of life.
-            </p>
-          </div>
-
-          {/* Core principles — interactive rook illustration */}
           <InteractiveRookPillars />
         </motion.div>
-      </div>
-
-      {/* Secondary pillars — full-width breakout, matching the games gallery supporting content above */}
-      <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10 mb-14">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-10">
-          {[
-            { Icon: PuzzleIcon,        label: 'Puzzles & Decision Making', accent: '#b8790a', body: 'Puzzles are designed to strengthen reasoning and problem-solving skills. Rather than teaching that one move is "right" and another "wrong", we encourage children to explore multiple possibilities, evaluate their options, and make thoughtful decisions based on reflection.' },
-            { Icon: TrendingUp,        label: 'Tracking Progress',          accent: '#2d8c62', body: 'Personalised feedback is recorded through observation and note taking. Parents can view learning goals, achievements, and areas for development in one place. Children also have access to their progress, helping them build confidence and ownership of their learning journey.' },
-            { Icon: MonitorSmartphone, label: 'Using Technology Carefully',  accent: '#4a7eb8', body: 'Children deserve meaningful face-to-face interaction while in education. We value hands-on learning using real boards. However, some selected digital tools are used to help aid understanding and memory of more complex concepts.' },
-          ].map((item, i) => (
-            <motion.div
-              key={item.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group"
-            >
-              <div className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"><item.Icon size={28} style={{ color: item.accent }} /></div>
-              <h3 className="font-fredoka text-lg mb-3" style={{ color: item.accent }}>{item.label}</h3>
-              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{item.body}</p>
-            </motion.div>
-          ))}
-        </div>
       </div>
 
       <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
