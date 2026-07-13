@@ -217,7 +217,7 @@ export default function WhyChessResearch() {
             Which Learning Environment Is Right for Your Child?
           </h2>
           <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-xl mx-auto leading-relaxed">
-            We don't believe one format is inherently better than the other. We take the time to understand how each child learns best, then help you choose the environment where they'll thrive.
+            We don't believe one format is inherently better than the other. We take the time to understand how each child learns best.
           </p>
         </motion.div>
       </div>
