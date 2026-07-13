@@ -5,6 +5,7 @@ import { ArrowRight, ChevronDown, ScanEye, GitBranch, HeartHandshake, Graduation
 import ChessBg from '@/components/ui/ChessBg';
 import InteractiveRookPillars from '@/components/about/InteractiveRookPillars';
 import LearningJourney from '@/components/about/LearningJourney';
+import IndividualGroupSessions from '@/components/about/IndividualGroupSessions';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -200,31 +201,32 @@ export default function WhyChessResearch() {
         </motion.div>
       </div>
 
+      {/* Individual & Group Learning — standalone heading, matching the pattern above */}
       <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
-        {/* Individual vs Group */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.55 }}
-          className="border-t border-b border-[#2D2520]/10 py-7 mb-6"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
         >
-          <div className="flex items-center gap-2 mb-5">
-            <Users size={18} className="text-[#b8790a] flex-shrink-0" />
-            <h4 className="font-fredoka text-lg text-[#b8790a]">Individual & Group Learning</h4>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            <div>
-              <span className="font-nunito text-[#b8790a] text-xs font-700 uppercase tracking-wide block mb-2">Individual Sessions</span>
-              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">Focus on developing thinking skills through puzzles, strategy, and personalised guidance tailored to each child's learning needs.</p>
-            </div>
-            <div className="sm:border-l sm:border-[#2D2520]/10 sm:pl-8">
-              <span className="font-nunito text-[#b8790a] text-xs font-700 uppercase tracking-wide block mb-2">Group Sessions</span>
-              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">Focus on applying these skills through gameplay. Children learn to communicate ideas, collaborate, show respect, and practise patience in a positive social environment.</p>
-            </div>
-          </div>
+          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+            <Users size={14} /> Two ways to learn
+          </span>
+          <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+            Individual & Group Learning
+          </h2>
+          <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-xl mx-auto leading-relaxed">
+            We don't believe one format is inherently better than the other. We take the time to understand how each child learns best, then help you choose the environment where they'll thrive.
+          </p>
         </motion.div>
+      </div>
 
+      <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10 mb-16">
+        <IndividualGroupSessions />
+      </div>
+
+      <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
         {/* Values line */}
         <div className="mb-14 flex items-center justify-center gap-2">
           <div className="w-1.5 h-1.5 rounded-full bg-[#E8A020]" />
