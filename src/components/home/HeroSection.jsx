@@ -9,10 +9,9 @@ const trustItems = [
       <>Proud member of <a href="https://www.wholeschoolsend.org.uk/page/nasen-home-page" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-[#E8A020] transition-colors">NASEN</a></>
     ),
   },
-  { content: 'Connected with the English Chess Federation' },
+  { content: 'Connected with English Chess Federation' },
   { content: 'Enhanced DBS Checked' },
   { content: 'Safeguarding Trained' },
-  { content: 'Fully Insured' },
 ];
 
 const features = [
@@ -115,12 +114,9 @@ export default function HeroSection() {
           className="max-w-3xl mx-auto mt-12 pt-10 border-t border-[#2D2520]/8 text-center"
         >
           <h3 className="font-fredoka text-[#2D2520]/70 text-base sm:text-lg mb-5">Trusted &amp; Connected</h3>
-          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
             {trustItems.map((item, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-1.5 bg-white border border-[#2D2520]/8 rounded-xl px-3.5 py-2 shadow-sm"
-              >
+              <div key={i} className="flex items-center gap-1.5">
                 <ShieldCheck size={14} className="text-[#E8A020] flex-shrink-0" />
                 <span className="font-nunito text-[#2D2520]/70 text-xs sm:text-sm font-600">{item.content}</span>
               </div>
