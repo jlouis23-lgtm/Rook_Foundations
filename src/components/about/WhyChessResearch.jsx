@@ -118,32 +118,6 @@ export default function WhyChessResearch() {
           ))}
         </motion.div>
 
-        {/* Research summary CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-14"
-        >
-          <Link
-            to="/research-summary"
-            onClick={() => window.scrollTo(0, 0)}
-            className="group flex flex-col sm:flex-row items-start sm:items-center gap-5 bg-gradient-to-br from-amber-50 to-white border border-[#E8A020]/20 rounded-3xl p-7 hover:border-[#E8A020]/40 hover:shadow-lg hover:shadow-[#E8A020]/10 hover:-translate-y-0.5 transition-all"
-          >
-            <div className="w-14 h-14 rounded-2xl bg-[#E8A020]/12 flex items-center justify-center flex-shrink-0">
-              <FlaskConical size={26} className="text-[#E8A020]" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <h3 className="font-fredoka text-[#2D2520] text-xl mb-1">Want to know what UK research really shows?</h3>
-              <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">
-                See how strategy games can support children's learning, confidence and emotional wellbeing, in a plain English summary of UK studies on academic performance, emotional regulation and trauma informed practice.
-              </p>
-            </div>
-            <ArrowRight size={20} className="text-[#E8A020] flex-shrink-0 group-hover:translate-x-1 transition-transform hidden sm:block" />
-          </Link>
-        </motion.div>
-
         {/* How We Teach — standalone section heading, matching the header pattern above */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
