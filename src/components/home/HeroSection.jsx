@@ -96,7 +96,7 @@ export default function HeroSection() {
           </h2>
 
           <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed mb-10 max-w-lg mx-auto">
-            Helping children build confidence, focus and strong decision-making skills through fun, engaging strategy games — for ages 5–12, in a warm and supportive environment.
+            Helping children discover the joy of thinking through strategy games, meaningful conversation and thoughtful learning.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
