@@ -14,6 +14,10 @@ const games = [
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/b561fd629_generated_image.png', alt: 'Yamma' },
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/da5ffd037_generated_image.png', alt: 'Janggi' },
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/d883f0092_generated_image.png', alt: 'Mastermind' },
+  { src: '/images/games/quarto.svg', alt: 'Quarto' },
+  { src: '/images/games/qawale.svg', alt: 'Qawale' },
+  { src: '/images/games/pylos.svg', alt: 'Pylos' },
+  { src: '/images/games/seanorth.svg', alt: 'SeaNorth' },
 ];
 
 export default function GamesGallery() {

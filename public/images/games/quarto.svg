@@ -1,0 +1,69 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="q-navy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#37477A" />
+      <stop offset="100%" stop-color="#1B2440" />
+    </linearGradient>
+    <linearGradient id="q-light" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F6E3B4" />
+      <stop offset="100%" stop-color="#D9AE6E" />
+    </linearGradient>
+    <linearGradient id="q-dark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9C6A3B" />
+      <stop offset="100%" stop-color="#5A371A" />
+    </linearGradient>
+    <radialGradient id="q-shadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="200" cy="356" rx="150" ry="16" fill="url(#q-shadow)" />
+
+  <rect x="24" y="24" width="352" height="352" rx="22" fill="url(#q-navy)" />
+
+  <!-- Grid ring markers -->
+  <g fill="none" stroke="#E8B23D" stroke-opacity="0.5" stroke-width="3">
+    <circle cx="95" cy="95" r="27" />
+    <circle cx="165" cy="95" r="27" />
+    <circle cx="235" cy="95" r="27" />
+    <circle cx="305" cy="95" r="27" />
+    <circle cx="95" cy="165" r="27" />
+    <circle cx="165" cy="165" r="27" />
+    <circle cx="235" cy="165" r="27" />
+    <circle cx="305" cy="165" r="27" />
+    <circle cx="95" cy="235" r="27" />
+    <circle cx="165" cy="235" r="27" />
+    <circle cx="235" cy="235" r="27" />
+    <circle cx="305" cy="235" r="27" />
+    <circle cx="95" cy="305" r="27" />
+    <circle cx="165" cy="305" r="27" />
+    <circle cx="235" cy="305" r="27" />
+    <circle cx="305" cy="305" r="27" />
+  </g>
+
+  <!-- Pieces: solid cylinder -->
+  <circle cx="95" cy="95" r="24" fill="url(#q-light)" />
+  <ellipse cx="87" cy="87" rx="8" ry="5" fill="#ffffff" fill-opacity="0.4" />
+
+  <circle cx="235" cy="165" r="24" fill="url(#q-dark)" />
+  <ellipse cx="227" cy="157" rx="8" ry="5" fill="#ffffff" fill-opacity="0.25" />
+
+  <!-- Pieces: hollow cylinder -->
+  <circle cx="305" cy="235" r="24" fill="url(#q-light)" />
+  <circle cx="305" cy="235" r="10" fill="#232D52" />
+
+  <circle cx="95" cy="305" r="24" fill="url(#q-dark)" />
+  <circle cx="95" cy="305" r="10" fill="#232D52" />
+
+  <!-- Pieces: solid square -->
+  <rect x="212" y="82" width="46" height="46" rx="6" fill="url(#q-dark)" />
+  <rect x="303" y="82" width="46" height="46" rx="6" fill="url(#q-light)" />
+
+  <!-- Pieces: hollow square -->
+  <rect x="72" y="212" width="46" height="46" rx="6" fill="url(#q-light)" />
+  <rect x="87" y="227" width="16" height="16" rx="3" fill="#232D52" />
+
+  <rect x="212" y="282" width="46" height="46" rx="6" fill="url(#q-dark)" />
+  <rect x="227" y="297" width="16" height="16" rx="3" fill="#232D52" />
+</svg>
