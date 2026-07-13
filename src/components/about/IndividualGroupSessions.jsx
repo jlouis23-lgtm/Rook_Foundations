@@ -45,7 +45,7 @@ function SessionCard({ session, isOpen, onToggle }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.5, ease: EASE }}
-      className="h-full rounded-3xl bg-white border-2 p-7 sm:p-8 flex flex-col transition-all duration-300 hover:shadow-lg"
+      className="rounded-3xl bg-white border-2 p-7 sm:p-8 flex flex-col transition-all duration-300 hover:shadow-lg"
       style={{
         borderColor: isOpen ? accent : `${accent}20`,
         boxShadow: isOpen ? `0 12px 32px ${accent}18` : undefined,
@@ -60,7 +60,7 @@ function SessionCard({ session, isOpen, onToggle }) {
 
       <h3 className="font-fredoka text-[#2D2520] text-2xl mb-3">{heading}</h3>
 
-      <ul className="space-y-3 mb-6 flex-1">
+      <ul className="space-y-3 mb-6">
         <li className="flex items-start gap-3 font-nunito text-sm leading-relaxed">
           <span
             className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
@@ -129,7 +129,7 @@ export default function IndividualGroupSessions() {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mb-10">
         {sessionTypes.map((session) => (
           <SessionCard
             key={session.key}
