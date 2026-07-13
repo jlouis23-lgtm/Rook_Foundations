@@ -1,28 +1,18 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, Star, Shield, ScanEye, Lightbulb, Sprout, Users } from 'lucide-react';
+import { ArrowRight, Sparkles, Star, ShieldCheck, ScanEye, Lightbulb, Sprout, Users } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 
-const socialLinks = [
+const trustItems = [
   {
-    href: 'https://www.instagram.com/rookfoundations/',
-    label: 'Instagram',
-    color: '#c2255c',
-    svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>,
+    content: (
+      <>Proud member of <a href="https://www.wholeschoolsend.org.uk/page/nasen-home-page" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-[#E8A020] transition-colors">NASEN</a></>
+    ),
   },
-  {
-    href: 'https://www.tiktok.com/@rookfoundations',
-    label: 'TikTok',
-    color: '#2D2520',
-    dark: true,
-    svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>,
-  },
-  {
-    href: 'https://www.facebook.com/profile.php?id=61561285444390',
-    label: 'Facebook',
-    color: '#4a7eb8',
-    svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>,
-  },
+  { content: 'Connected with the English Chess Federation' },
+  { content: 'Enhanced DBS Checked' },
+  { content: 'Safeguarding Trained' },
+  { content: 'Fully Insured' },
 ];
 
 const features = [
@@ -114,28 +104,28 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Social links */}
-          <div className="flex flex-col items-center gap-3 mt-10">
-            <span className="font-nunito text-[#2D2520]/70 text-xs font-700 uppercase tracking-wide">Follow on:</span>
-            <div className="flex items-center gap-3">
-              {socialLinks.map(({ href, label, svg, color, dark }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  style={dark
-                    ? { backgroundColor: color, border: `1.5px solid ${color}`, color: '#fff' }
-                    : { backgroundColor: `${color}18`, border: `1.5px solid ${color}40`, color }}
-                  className="w-10 h-10 rounded-xl flex items-center justify-center hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
-                >
-                  {svg}
-                </a>
-              ))}
-            </div>
-          </div>
+        </motion.div>
 
+        {/* Trust & Connected — a lightweight credibility strip, front and centre right after the CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mx-auto mt-12 pt-10 border-t border-[#2D2520]/8 text-center"
+        >
+          <h3 className="font-fredoka text-[#2D2520]/70 text-base sm:text-lg mb-5">Trusted &amp; Connected</h3>
+          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
+            {trustItems.map((item, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-1.5 bg-white border border-[#2D2520]/8 rounded-xl px-3.5 py-2 shadow-sm"
+              >
+                <ShieldCheck size={14} className="text-[#E8A020] flex-shrink-0" />
+                <span className="font-nunito text-[#2D2520]/70 text-xs sm:text-sm font-600">{item.content}</span>
+              </div>
+            ))}
+          </div>
         </motion.div>
 
         {/* Feature strip — the three supporting ideas, given real visual weight */}
@@ -144,7 +134,7 @@ export default function HeroSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="mt-20 lg:mt-24 grid grid-cols-1 sm:grid-cols-3 gap-x-10 gap-y-10"
+          className="mt-16 lg:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-x-10 gap-y-10"
         >
           {features.map(({ Icon, accent, tag, title, body }) => (
             <div key={tag} className="group">
@@ -155,18 +145,6 @@ export default function HeroSection() {
             </div>
           ))}
         </motion.div>
-
-        {/* Affiliations */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-x-8 gap-y-1.5 mt-10">
-          <div className="flex items-center gap-1.5">
-            <Shield size={16} className="text-[#E8A020]/40" />
-            <span className="font-nunito text-[#2D2520]/40 text-sm font-600">Proud member of <a href="https://www.wholeschoolsend.org.uk/page/nasen-home-page" target="_blank" rel="noopener noreferrer" className="hover:text-[#E8A020]/70 transition-colors underline underline-offset-2">NASEN</a> (National Association for Special Educational Needs).</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <Shield size={16} className="text-[#E8A020]/40" />
-            <span className="font-nunito text-[#2D2520]/40 text-sm font-600">Connected with English Chess Federation</span>
-          </div>
-        </div>
       </div>
     </section>
   );
