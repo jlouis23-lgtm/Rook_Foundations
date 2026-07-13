@@ -3,8 +3,6 @@ import { ArrowRight, Sparkles, Star, Shield, ScanEye, Lightbulb, Sprout, Users }
 import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 
-const LEAFLET_IMG = 'https://media.base44.com/images/public/69fe1341895fe99f147fce64/3b7300d3f_51E37187-F312-43E1-8058-02E71B191F4B.png';
-
 const features = [
   {
     Icon: ScanEye,
@@ -31,7 +29,7 @@ const features = [
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen bg-[#FAFAF7] overflow-hidden flex items-center">
+    <section className="relative bg-[#FAFAF7] overflow-hidden pt-36 pb-20 lg:pb-24">
 
       <ChessBg variant="hero" />
 
@@ -52,109 +50,76 @@ export default function HeroSection() {
         className="absolute top-48 left-16 text-green-300/40 pointer-events-none hidden lg:block"
       ><Star size={28} /></motion.div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-28 pb-20 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 w-full">
 
-          {/* Mobile image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex lg:hidden flex-col items-center">
-            <div className="relative max-w-xs w-full mx-auto">
-              <div className="absolute inset-0 bg-[#E8A020]/20 blob-shape blur-2xl scale-110" />
-              <img
-                src={LEAFLET_IMG}
-                alt="RookFoundations"
-                className="relative z-10 w-full rounded-full border-4 border-white shadow-2xl shadow-[#E8A020]/20" />
+        {/* Text — centred now that the hero no longer has a companion image */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-3xl mx-auto text-center"
+        >
+
+          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-6">
+            <Sparkles size={14} /> Chess & strategy games for curious minds
+          </span>
+
+          <h1 className="font-fredoka text-[#2D2520] leading-[1.1] mb-3"
+            style={{ fontSize: 'clamp(2.8rem, 7vw, 5rem)', fontWeight: 600 }}>
+            More than a game.
+          </h1>
+          <h2 className="font-fredoka text-[#E8A020] leading-[1.1] mb-7"
+            style={{ fontSize: 'clamp(2.8rem, 7vw, 5rem)', fontWeight: 600 }}>
+            Skills for life.
+          </h2>
+
+          <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed mb-10 max-w-lg mx-auto">
+            Helping children build confidence, focus and strong decision-making skills through fun, engaging strategy games — for ages 5–12, in a warm and supportive environment.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+            <MotionLink
+              whileTap={ctaTap}
+              to="/contact"
+              onClick={() => window.scrollTo(0, 0)}
+              className="group bg-[#E8A020] text-white font-fredoka font-600 text-lg px-8 py-4 rounded-2xl hover:bg-[#d4940e] transition-all duration-300 hover:shadow-xl hover:shadow-[#E8A020]/30 hover:-translate-y-0.5 flex items-center gap-3">
+              Claim 50% Off Your First Lesson
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            </MotionLink>
+            <div className="flex items-center gap-2">
+              <Users size={18} className="text-[#2D2520]/50" />
+              <span className="font-nunito text-[#2D2520]/70 text-sm font-700">Ages 5–12</span>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Left: Text */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
+          {/* Social links */}
+          <div className="flex items-center justify-center gap-3 mt-10">
+            <span className="font-nunito text-[#2D2520]/70 text-xs font-700 uppercase tracking-wide mr-1">Follow along</span>
+            {[
+              {
+                href: 'https://www.instagram.com/rookfoundations/',
+                label: 'Instagram',
+                svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>,
+              },
+              {
+                href: 'https://www.tiktok.com/@rookfoundations',
+                label: 'TikTok',
+                svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>,
+              },
+              {
+                href: 'https://www.facebook.com/profile.php?id=61561285444390',
+                label: 'Facebook',
+                svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>,
+              },
+            ].map(({ href, label, svg }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
+                className="w-9 h-9 bg-white border border-[#E8A020]/40 rounded-xl flex items-center justify-center text-[#2D2520]/70 hover:text-[#E8A020] hover:border-[#E8A020] hover:shadow-md transition-all duration-200">
+                {svg}
+              </a>
+            ))}
+          </div>
 
-            <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-6">
-              <Sparkles size={14} /> Chess & strategy games for curious minds
-            </span>
-
-            <h1 className="font-fredoka text-[#2D2520] leading-[1.1] mb-3"
-              style={{ fontSize: 'clamp(2.8rem, 7vw, 5rem)', fontWeight: 600 }}>
-              More than a game.
-            </h1>
-            <h2 className="font-fredoka text-[#E8A020] leading-[1.1] mb-7"
-              style={{ fontSize: 'clamp(2.8rem, 7vw, 5rem)', fontWeight: 600 }}>
-              Skills for life.
-            </h2>
-
-            <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed mb-10 max-w-lg">
-              Helping children build confidence, focus and strong decision-making skills through fun, engaging strategy games — for ages 5–12, in a warm and supportive environment.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-              <MotionLink
-                whileTap={ctaTap}
-                to="/contact"
-                onClick={() => window.scrollTo(0, 0)}
-                className="group bg-[#E8A020] text-white font-fredoka font-600 text-lg px-8 py-4 rounded-2xl hover:bg-[#d4940e] transition-all duration-300 hover:shadow-xl hover:shadow-[#E8A020]/30 hover:-translate-y-0.5 flex items-center gap-3">
-                Claim 50% Off Your First Lesson
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </MotionLink>
-              <div className="flex items-center gap-2">
-                <Users size={18} className="text-[#2D2520]/50" />
-                <span className="font-nunito text-[#2D2520]/70 text-sm font-700">Ages 5–12</span>
-              </div>
-            </div>
-
-          </motion.div>
-
-          {/* Right: Image — desktop */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="hidden lg:flex flex-col items-center justify-center gap-6">
-
-            <div className="relative max-w-md w-full mx-auto">
-              <div className="absolute inset-0 bg-[#E8A020]/18 blob-shape blur-3xl scale-110" />
-              <motion.img
-                animate={{ y: [-6, 6, -6] }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                src={LEAFLET_IMG}
-                alt="RookFoundations"
-                className="relative z-10 w-full rounded-full border-4 border-white shadow-2xl shadow-[#E8A020]/20" />
-            </div>
-
-            {/* Social links */}
-            <div className="flex items-center gap-3 pt-2">
-              <span className="font-nunito text-[#2D2520]/70 text-xs font-700 uppercase tracking-wide mr-1">Follow along</span>
-              {[
-                {
-                  href: 'https://www.instagram.com/rookfoundations/',
-                  label: 'Instagram',
-                  svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>,
-                },
-                {
-                  href: 'https://www.tiktok.com/@rookfoundations',
-                  label: 'TikTok',
-                  svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>,
-                },
-                {
-                  href: 'https://www.facebook.com/profile.php?id=61561285444390',
-                  label: 'Facebook',
-                  svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>,
-                },
-              ].map(({ href, label, svg }) => (
-                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
-                  className="w-9 h-9 bg-white border border-[#E8A020]/40 rounded-xl flex items-center justify-center text-[#2D2520]/70 hover:text-[#E8A020] hover:border-[#E8A020] hover:shadow-md transition-all duration-200">
-                  {svg}
-                </a>
-              ))}
-            </div>
-          </motion.div>
-        </div>
+        </motion.div>
 
         {/* Feature strip — the three supporting ideas, given real visual weight */}
         <motion.div
@@ -162,7 +127,7 @@ export default function HeroSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="mt-20 lg:mt-24 pt-12 border-t border-[#2D2520]/10 grid grid-cols-1 sm:grid-cols-3 gap-y-10 divide-y sm:divide-y-0 sm:divide-x divide-[#2D2520]/10"
+          className="mt-16 lg:mt-20 pt-12 border-t border-[#2D2520]/10 grid grid-cols-1 sm:grid-cols-3 gap-y-10 divide-y sm:divide-y-0 sm:divide-x divide-[#2D2520]/10"
         >
           {features.map(({ Icon, accent, tag, title, body }, i) => (
             <div key={tag} className={`group ${i === 0 ? '' : 'sm:pl-10'} ${i > 0 ? 'pt-8 sm:pt-0' : ''}`}>
@@ -175,7 +140,7 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Affiliations */}
-        <div className="flex flex-col sm:flex-row sm:items-center gap-x-8 gap-y-1.5 mt-10">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-x-8 gap-y-1.5 mt-10">
           <div className="flex items-center gap-1.5">
             <Shield size={16} className="text-[#E8A020]/40" />
             <span className="font-nunito text-[#2D2520]/40 text-sm font-600">Proud member of <a href="https://www.wholeschoolsend.org.uk/page/nasen-home-page" target="_blank" rel="noopener noreferrer" className="hover:text-[#E8A020]/70 transition-colors underline underline-offset-2">NASEN</a> (National Association for Special Educational Needs).</span>
