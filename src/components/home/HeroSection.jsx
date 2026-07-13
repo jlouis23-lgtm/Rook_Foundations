@@ -144,10 +144,10 @@ export default function HeroSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="mt-16 lg:mt-20 pt-12 border-t border-[#2D2520]/10 grid grid-cols-1 sm:grid-cols-3 gap-y-10 divide-y sm:divide-y-0 sm:divide-x divide-[#2D2520]/10"
+          className="mt-20 lg:mt-24 grid grid-cols-1 sm:grid-cols-3 gap-x-10 gap-y-10"
         >
-          {features.map(({ Icon, accent, tag, title, body }, i) => (
-            <div key={tag} className={`group ${i === 0 ? '' : 'sm:pl-10'} ${i > 0 ? 'pt-8 sm:pt-0' : ''}`}>
+          {features.map(({ Icon, accent, tag, title, body }) => (
+            <div key={tag} className="group">
               <Icon size={26} style={{ color: accent }} className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" />
               <span className="block font-nunito text-xs font-800 uppercase tracking-widest mb-2" style={{ color: accent }}>{tag}</span>
               <h3 className="font-fredoka text-[#2D2520] text-lg mb-2 leading-snug">{title}</h3>
