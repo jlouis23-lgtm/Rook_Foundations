@@ -43,7 +43,7 @@ export default function TestimonialsPreview() {
           </span>
           <h2 className="font-fredoka text-[#2D2520] leading-tight mb-4"
             style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
-            More than chess lessons.
+            More than just games.
           </h2>
           <p className="font-nunito text-[#2D2520]/55 text-base max-w-xl mx-auto leading-relaxed">
             At Rook Foundations, we believe that chess and similar games provide powerful ways to build confidence, character and skills for life. Explore our{' '}
