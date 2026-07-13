@@ -55,7 +55,7 @@ export default function FAQAccordionItem({ question, answer, variant = 'default'
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <p className={`${v.answerWrap} ${v.answer}`}>{answer}</p>
+            <div className={`${v.answerWrap} ${v.answer}`}>{answer}</div>
           </motion.div>
         )}
       </AnimatePresence>
