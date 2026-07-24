@@ -1,6 +1,15 @@
-import { Grid3x3, Sparkles, ScanEye, Repeat } from 'lucide-react';
+import { Grid3x3, Sparkles, ScanEye, Repeat, Crown } from 'lucide-react';
 
 export const EXERCISES = [
+  {
+    id: 'board-recall',
+    path: '/board-recall',
+    title: 'Board Recall',
+    skill: 'Chess Memory',
+    Icon: Crown,
+    color: '#E8A020',
+    blurb: 'Memorize where the pieces sit, then rebuild the board by dragging each one back into place.',
+  },
   {
     id: 'memory-match',
     path: '/memory-match',
