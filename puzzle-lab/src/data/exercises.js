@@ -1,6 +1,15 @@
-import { Grid3x3, Sparkles, ScanEye, Repeat, Crown, Calculator } from 'lucide-react';
+import { Grid3x3, Sparkles, ScanEye, Repeat, Crown, Calculator, Compass } from 'lucide-react';
 
 export const EXERCISES = [
+  {
+    id: 'coordinate-memory',
+    path: '/coordinate-memory',
+    title: 'Coordinate Memory',
+    skill: 'Coordinates & Memory',
+    Icon: Compass,
+    color: '#5b5fc7',
+    blurb: "Memorise the board's coordinates, then place and move pieces from memory across 10 levels.",
+  },
   {
     id: 'piece-value-counter',
     path: '/piece-value-counter',
