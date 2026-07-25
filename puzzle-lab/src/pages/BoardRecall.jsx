@@ -182,8 +182,14 @@ export default function BoardRecall() {
         <div className="flex flex-col lg:flex-row gap-8 items-center lg:items-start justify-center">
           {/* Board */}
           <div
-            className="grid grid-cols-8 rounded-xl overflow-hidden border-2 flex-shrink-0"
-            style={{ borderColor: '#8a6a3f', width: 'min(88vw, 400px)', height: 'min(88vw, 400px)' }}
+            className="grid rounded-xl overflow-hidden border-2 flex-shrink-0"
+            style={{
+              borderColor: '#8a6a3f',
+              width: 'min(88vw, 400px)',
+              height: 'min(88vw, 400px)',
+              gridTemplateColumns: 'repeat(8, 1fr)',
+              gridTemplateRows: 'repeat(8, 1fr)',
+            }}
           >
             {SQUARES.map((square, i) => {
               const row = Math.floor(i / 8);
