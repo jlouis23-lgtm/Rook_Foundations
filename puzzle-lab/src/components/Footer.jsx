@@ -11,7 +11,7 @@ export default function Footer() {
             <span className="font-700 text-ink/70">Rook Foundations</span>
           </span>
         </div>
-        <p className="font-nunito text-ink/35 text-xs">No accounts, no saved data — just puzzles, played fresh every time.</p>
+        <p className="font-nunito text-ink/35 text-xs">No accounts, no sign-in — most puzzles reset fresh each visit; Castle Crossing remembers progress on this device only.</p>
       </div>
     </footer>
   );

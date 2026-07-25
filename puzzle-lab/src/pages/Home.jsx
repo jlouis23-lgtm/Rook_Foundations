@@ -22,8 +22,8 @@ export default function Home() {
           </h1>
           <p className="font-nunito text-ink/60 text-lg leading-relaxed max-w-2xl mx-auto">
             Puzzle Lab is a free collection of puzzles and thinking games from Rook Foundations —
-            no accounts, no saved scores, just a bit of brain-stretching fun. Pick a puzzle below
-            and choose a level that fits.
+            no accounts needed, just a bit of brain-stretching fun. Pick a puzzle below and choose
+            a level that fits.
           </p>
         </div>
       </section>

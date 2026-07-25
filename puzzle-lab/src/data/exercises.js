@@ -1,6 +1,15 @@
-import { Grid3x3, Sparkles, ScanEye, Repeat, Crown, Calculator, Compass, Eye } from 'lucide-react';
+import { Grid3x3, Sparkles, ScanEye, Repeat, Crown, Calculator, Compass, Eye, Castle } from 'lucide-react';
 
 export const EXERCISES = [
+  {
+    id: 'castle-crossing',
+    path: '/castle-crossing',
+    title: 'Castle Crossing',
+    skill: 'Planning & Logic',
+    Icon: Castle,
+    color: '#9c3d54',
+    blurb: 'Ferry every animal and supply safely across the river without ever leaving trouble unsupervised.',
+  },
   {
     id: 'whats-changed',
     path: '/whats-changed',
