@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { Compass, CheckCircle2, ArrowRight, RotateCcw, PlayCircle, Trophy } from 'lucide-react';
 import PuzzleHeader from '@/components/PuzzleHeader';
-import { FILES, RANKS, PIECE_GLYPHS } from '@/lib/chessMemory';
+import { FILES, RANKS, PIECE_GLYPHS, pieceFontSize, pieceFontSizeResponsive } from '@/lib/chessMemory';
 import { generatePuzzle, instructionItems, MAX_LEVEL } from '@/lib/chessCoordinates';
 
 const COLOR = '#5b5fc7';
@@ -324,7 +324,7 @@ export default function CoordinateMemory() {
                     <span
                       onPointerDown={(e) => beginDrag(e, type, 'board', square)}
                       className="select-none leading-none cursor-grab active:cursor-grabbing touch-none"
-                      style={{ fontSize: 'min(6vw, 28px)', color: isWrong ? '#c0446b' : '#2D2520' }}
+                      style={{ fontSize: pieceFontSizeResponsive(6, 28, type), color: isWrong ? '#c0446b' : '#2D2520' }}
                     >
                       {PIECE_GLYPHS[type]}
                     </span>
@@ -345,8 +345,12 @@ export default function CoordinateMemory() {
                     <button
                       key={type}
                       onPointerDown={(e) => beginDrag(e, type, 'tray', null)}
-                      className="w-14 h-14 rounded-2xl bg-[#f7ecd6] border-2 border-[#c99a54]/50 flex items-center justify-center text-3xl cursor-grab active:cursor-grabbing touch-none"
-                      style={{ opacity: dragging?.type === type && dragging.source === 'tray' ? 0.25 : 1, color: '#2D2520' }}
+                      className="w-14 h-14 rounded-2xl bg-[#f7ecd6] border-2 border-[#c99a54]/50 flex items-center justify-center cursor-grab active:cursor-grabbing touch-none"
+                      style={{
+                        opacity: dragging?.type === type && dragging.source === 'tray' ? 0.25 : 1,
+                        color: '#2D2520',
+                        fontSize: pieceFontSize(30, type),
+                      }}
                     >
                       {PIECE_GLYPHS[type]}
                     </button>
@@ -439,8 +443,8 @@ export default function CoordinateMemory() {
       <AnimatePresence>
         {dragging && (
           <motion.div
-            className="fixed z-50 pointer-events-none text-4xl"
-            style={{ left: dragging.x - 20, top: dragging.y - 20, color: COLOR }}
+            className="fixed z-50 pointer-events-none"
+            style={{ left: dragging.x - 20, top: dragging.y - 20, color: COLOR, fontSize: pieceFontSize(36, dragging.type) }}
             initial={{ scale: 0.9 }}
             animate={{ scale: 1.1 }}
           >

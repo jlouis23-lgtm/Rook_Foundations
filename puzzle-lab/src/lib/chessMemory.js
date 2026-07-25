@@ -16,6 +16,31 @@ export const PIECE_GLYPHS = {
 
 export const PIECE_TYPES = Object.keys(PIECE_GLYPHS);
 
+// The Unicode chess glyphs don't share a consistent visual weight at a single
+// font-size in most system fonts — the pawn glyph in particular renders
+// noticeably larger than bishop/knight/queen/king. Scale relative to a
+// shared base size so every piece reads as roughly the same visual size.
+export const PIECE_SIZE_SCALE = {
+  pawn: 0.74,
+  rook: 1,
+  bishop: 1.18,
+  knight: 1.18,
+  queen: 1.18,
+  king: 1.18,
+};
+
+export function pieceFontSize(basePx, type) {
+  const scale = PIECE_SIZE_SCALE[type] ?? 1;
+  return `${Math.round(basePx * scale * 100) / 100}px`;
+}
+
+export function pieceFontSizeResponsive(baseVw, capPx, type) {
+  const scale = PIECE_SIZE_SCALE[type] ?? 1;
+  const vw = Math.round(baseVw * scale * 100) / 100;
+  const cap = Math.round(capPx * scale * 100) / 100;
+  return `min(${vw}vw, ${cap}px)`;
+}
+
 export const DIFFICULTY_CONFIG = {
   explorer: { start: 2, increment: 1, memorizeMs: 6000 },
   thinker: { start: 3, increment: 1, memorizeMs: 4500 },

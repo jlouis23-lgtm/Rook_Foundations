@@ -5,7 +5,7 @@ import { Calculator, CheckCircle2, XCircle, ArrowRight } from 'lucide-react';
 import PuzzleHeader from '@/components/PuzzleHeader';
 import DifficultyPicker from '@/components/DifficultyPicker';
 import RestartButton from '@/components/RestartButton';
-import { SQUARES } from '@/lib/chessMemory';
+import { SQUARES, pieceFontSize, pieceFontSizeResponsive } from '@/lib/chessMemory';
 import { PIECE_VALUES, WHITE_GLYPHS, BLACK_GLYPHS, REFERENCE_ORDER, generatePuzzle } from '@/lib/pieceValues';
 
 const COLOR = '#1f9e9e';
@@ -141,7 +141,7 @@ export default function PieceValueCounter() {
                   style={{ backgroundColor: isDark ? DARK_SQUARE : LIGHT_SQUARE }}
                 >
                   {type && (
-                    <span className="select-none leading-none" style={{ fontSize: 'min(6.5vw, 30px)', color: '#2D2520' }}>
+                    <span className="select-none leading-none" style={{ fontSize: pieceFontSizeResponsive(6.5, 30, type), color: '#2D2520' }}>
                       {glyphs[type]}
                     </span>
                   )}
@@ -157,7 +157,7 @@ export default function PieceValueCounter() {
               {REFERENCE_ORDER.map((type) => (
                 <div key={type} className="flex items-center justify-between gap-3 py-2 border-b border-ink/8 last:border-0">
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl leading-none w-7 text-center" style={{ color: '#2D2520' }}>
+                    <span className="leading-none w-7 text-center" style={{ color: '#2D2520', fontSize: pieceFontSize(24, type) }}>
                       {glyphs[type]}
                     </span>
                     <span className="font-nunito text-ink/70 text-sm font-700 capitalize">{type}</span>

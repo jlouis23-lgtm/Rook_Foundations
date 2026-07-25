@@ -5,7 +5,7 @@ import { Crown, Play, Sparkles } from 'lucide-react';
 import PuzzleHeader from '@/components/PuzzleHeader';
 import DifficultyPicker from '@/components/DifficultyPicker';
 import RestartButton from '@/components/RestartButton';
-import { SQUARES, PIECE_GLYPHS, DIFFICULTY_CONFIG, pieceCountForRound, generateLayout } from '@/lib/chessMemory';
+import { SQUARES, PIECE_GLYPHS, DIFFICULTY_CONFIG, pieceCountForRound, generateLayout, pieceFontSize, pieceFontSizeResponsive } from '@/lib/chessMemory';
 import { shuffle } from '@/lib/difficulty';
 
 const COLOR = '#E8A020';
@@ -224,7 +224,7 @@ export default function BoardRecall() {
                     <span
                       className="select-none leading-none"
                       style={{
-                        fontSize: 'min(6.5vw, 30px)',
+                        fontSize: pieceFontSizeResponsive(6.5, 30, showPiece),
                         color: isMistakeSquare ? '#c0446b' : '#2D2520',
                       }}
                     >
@@ -263,8 +263,12 @@ export default function BoardRecall() {
                     <button
                       key={item.id}
                       onPointerDown={(e) => handlePointerDownTray(e, item)}
-                      className="w-14 h-14 rounded-2xl bg-[#f7ecd6] border-2 border-[#c99a54]/50 flex items-center justify-center text-3xl cursor-grab active:cursor-grabbing touch-none"
-                      style={{ opacity: dragging?.id === item.id ? 0.25 : 1, color: '#2D2520' }}
+                      className="w-14 h-14 rounded-2xl bg-[#f7ecd6] border-2 border-[#c99a54]/50 flex items-center justify-center cursor-grab active:cursor-grabbing touch-none"
+                      style={{
+                        opacity: dragging?.id === item.id ? 0.25 : 1,
+                        color: '#2D2520',
+                        fontSize: pieceFontSize(30, item.type),
+                      }}
                     >
                       {PIECE_GLYPHS[item.type]}
                     </button>
@@ -295,8 +299,8 @@ export default function BoardRecall() {
       <AnimatePresence>
         {dragging && (
           <motion.div
-            className="fixed z-50 pointer-events-none text-4xl"
-            style={{ left: dragging.x - 20, top: dragging.y - 20, color: COLOR }}
+            className="fixed z-50 pointer-events-none"
+            style={{ left: dragging.x - 20, top: dragging.y - 20, color: COLOR, fontSize: pieceFontSize(36, dragging.type) }}
             initial={{ scale: 0.9 }}
             animate={{ scale: 1.1 }}
           >

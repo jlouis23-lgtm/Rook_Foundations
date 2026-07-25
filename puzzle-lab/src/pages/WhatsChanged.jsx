@@ -4,7 +4,7 @@ import confetti from 'canvas-confetti';
 import { Eye, CheckCircle2, ArrowRight, Trophy } from 'lucide-react';
 import PuzzleHeader from '@/components/PuzzleHeader';
 import RestartButton from '@/components/RestartButton';
-import { FILES, RANKS } from '@/lib/chessMemory';
+import { FILES, RANKS, PIECE_SIZE_SCALE } from '@/lib/chessMemory';
 import { WHITE_GLYPHS, BLACK_GLYPHS } from '@/lib/pieceValues';
 import {
   generatePuzzle,
@@ -24,7 +24,7 @@ function LabeledBoard({ pieces, color, size = 440, highlightSquare }) {
   const pieceMap = useMemo(() => Object.fromEntries(pieces.map((p) => [p.square, p.type])), [pieces]);
   const gutter = Math.max(16, Math.round(size * 0.062));
   const labelFont = Math.max(9, Math.round(size * 0.026));
-  const pieceFont = Math.max(12, Math.round(size * 0.062));
+  const basePieceFont = Math.max(12, Math.round(size * 0.062));
 
   const cells = [];
   for (let row = 0; row < 10; row++) {
@@ -89,7 +89,10 @@ function LabeledBoard({ pieces, color, size = 440, highlightSquare }) {
               <div className="absolute inset-0" style={{ boxShadow: `inset 0 0 0 3px ${COLOR}`, backgroundColor: `${COLOR}25` }} />
             )}
             {type && (
-              <span className="select-none leading-none" style={{ fontSize: pieceFont, color: '#2D2520' }}>
+              <span
+                className="select-none leading-none"
+                style={{ fontSize: basePieceFont * (PIECE_SIZE_SCALE[type] ?? 1), color: '#2D2520' }}
+              >
                 {glyphs[type]}
               </span>
             )}
@@ -275,7 +278,7 @@ export default function WhatsChanged() {
                         className="flex flex-col items-center gap-1 py-3 rounded-2xl border-2 transition-colors"
                         style={{ borderColor: isSelected ? COLOR : '#e5e0d3', backgroundColor: isSelected ? `${COLOR}12` : '#fff' }}
                       >
-                        <span className="text-2xl leading-none" style={{ color: '#2D2520' }}>
+                        <span className="leading-none" style={{ color: '#2D2520', fontSize: 24 * (PIECE_SIZE_SCALE[type] ?? 1) }}>
                           {glyphs[type]}
                         </span>
                         <span className="font-nunito text-xs font-700" style={{ color: isSelected ? COLOR : '#2D2520' }}>
