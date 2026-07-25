@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Home from '@/pages/Home';
+import PieceValueCounter from '@/pages/PieceValueCounter';
 import BoardRecall from '@/pages/BoardRecall';
 import MemoryMatch from '@/pages/MemoryMatch';
 import PatternDetective from '@/pages/PatternDetective';
@@ -15,6 +16,7 @@ export default function App() {
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/piece-value-counter" element={<PieceValueCounter />} />
           <Route path="/board-recall" element={<BoardRecall />} />
           <Route path="/memory-match" element={<MemoryMatch />} />
           <Route path="/pattern-detective" element={<PatternDetective />} />

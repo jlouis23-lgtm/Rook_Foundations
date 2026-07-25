@@ -1,6 +1,15 @@
-import { Grid3x3, Sparkles, ScanEye, Repeat, Crown } from 'lucide-react';
+import { Grid3x3, Sparkles, ScanEye, Repeat, Crown, Calculator } from 'lucide-react';
 
 export const EXERCISES = [
+  {
+    id: 'piece-value-counter',
+    path: '/piece-value-counter',
+    title: 'Piece Value Counter',
+    skill: 'Counting & Addition',
+    Icon: Calculator,
+    color: '#1f9e9e',
+    blurb: 'Add up the value of every piece on the board using the reference key, then check your total.',
+  },
   {
     id: 'board-recall',
     path: '/board-recall',
