@@ -1,6 +1,15 @@
-import { Grid3x3, Sparkles, ScanEye, Repeat, Crown, Calculator, Compass } from 'lucide-react';
+import { Grid3x3, Sparkles, ScanEye, Repeat, Crown, Calculator, Compass, Eye } from 'lucide-react';
 
 export const EXERCISES = [
+  {
+    id: 'whats-changed',
+    path: '/whats-changed',
+    title: "What's Changed?",
+    skill: 'Visual Memory',
+    Icon: Eye,
+    color: '#c2419a',
+    blurb: 'Study the board, then spot the one new piece that appeared and remember exactly where it landed.',
+  },
   {
     id: 'coordinate-memory',
     path: '/coordinate-memory',

@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Home from '@/pages/Home';
+import WhatsChanged from '@/pages/WhatsChanged';
 import CoordinateMemory from '@/pages/CoordinateMemory';
 import PieceValueCounter from '@/pages/PieceValueCounter';
 import BoardRecall from '@/pages/BoardRecall';
@@ -17,6 +18,7 @@ export default function App() {
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/whats-changed" element={<WhatsChanged />} />
           <Route path="/coordinate-memory" element={<CoordinateMemory />} />
           <Route path="/piece-value-counter" element={<PieceValueCounter />} />
           <Route path="/board-recall" element={<BoardRecall />} />
