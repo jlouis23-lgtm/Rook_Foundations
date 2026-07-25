@@ -219,7 +219,8 @@ export default function CoordinateMemory() {
         <div className="flex items-center gap-3">
           <button
             onClick={replayInstructions}
-            className="inline-flex items-center gap-1.5 font-nunito font-700 text-sm px-4 py-2 rounded-2xl border-2 hover:-translate-y-0.5 transition-all"
+            disabled={phase === 'memorize'}
+            className="inline-flex items-center gap-1.5 font-nunito font-700 text-sm px-4 py-2 rounded-2xl border-2 hover:-translate-y-0.5 transition-all disabled:opacity-40 disabled:hover:translate-y-0 disabled:cursor-not-allowed"
             style={{ borderColor: COLOR, color: COLOR }}
           >
             <PlayCircle size={15} /> Replay instructions
@@ -333,7 +334,8 @@ export default function CoordinateMemory() {
             })}
           </div>
 
-          {/* Sidebar: tray + checklist */}
+          {/* Sidebar: tray + checklist (revealed once the coordinates hide) */}
+          {phase !== 'memorize' && (
           <div className="w-full lg:w-64 flex-shrink-0 space-y-6">
             {tray.length > 0 && (
               <div>
@@ -388,6 +390,7 @@ export default function CoordinateMemory() {
               </div>
             </div>
           </div>
+          )}
         </div>
 
         {/* Feedback */}
