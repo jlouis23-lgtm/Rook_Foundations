@@ -4,7 +4,6 @@ import { ArrowRight, Clock, Users, MapPin, Info, BookOpen, Heart, HelpCircle, Sh
 import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import HowWeTeachSection from '@/components/classes/HowWeTeachSection';
-import LearningNetworkHero from '@/components/classes/LearningNetworkHero';
 
 const otherGames = ['Go', 'Reversi / Othello', 'Xiangqi', 'Quoridor', 'Tower of Hanoi', 'Mastermind', 'Janggi', 'Marble Solitaire'];
 
@@ -35,8 +34,6 @@ export default function Classes() {
           <h1 className="font-fredoka text-[#2D2520] mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
             A class for every curious mind
           </h1>
-
-          <LearningNetworkHero />
 
           <p className="font-nunito text-[#2D2520]/60 text-lg leading-relaxed max-w-2xl mx-auto">
             Every course we teach follows the same three-phase journey — Discovery, Development, and Strategy — carefully adapted to suit each game, taking every child from their very first move to confident, independent strategic thinking.
