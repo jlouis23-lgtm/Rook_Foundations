@@ -115,8 +115,8 @@ function DesktopPyramid() {
               style={{ backgroundColor: stage.accent, clipPath: bandClipPath(top, bottom), flex: bandFlex(DELTAS[i]) }}
             >
               <span
-                className="font-fredoka text-white leading-tight px-1 pb-2 sm:pb-3"
-                style={{ fontSize: 'clamp(0.68rem, 1.5vw, 1.05rem)' }}
+                className="font-fredoka text-white leading-tight px-1 pb-2 sm:pb-3 whitespace-nowrap"
+                style={{ fontSize: 'clamp(0.6rem, 1vw, 0.8rem)' }}
               >
                 {stage.title}
               </span>
