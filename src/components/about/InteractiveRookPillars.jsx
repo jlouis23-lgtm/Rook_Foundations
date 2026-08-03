@@ -13,7 +13,7 @@ const principles = [
   },
   {
     Icon: BrainCircuit,
-    title: 'Learning at the Right Level',
+    title: 'Learn at the Right Level',
     accent: '#4a7eb8',
     body: 'Children make the greatest progress when they are challenged without becoming overwhelmed. We continually adjust activities to provide just the right level of difficulty that stretches thinking while ensuring learning remains enjoyable and achievable.',
   },
@@ -131,7 +131,7 @@ export default function InteractiveRookPillars() {
       <RookIllustration active={active} hovered={hovered} onSelect={toggle} onHover={setHovered} />
 
       {/* Three labelled, keyboard-accessible controls — the canonical way to open each principle */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6 max-w-xl mx-auto">
+      <div className="grid grid-cols-3 gap-2 sm:gap-3 mt-6 max-w-xl mx-auto">
         {principles.map((p, i) => {
           const isActive = active === i;
           return (
@@ -145,7 +145,7 @@ export default function InteractiveRookPillars() {
               onMouseLeave={() => setHovered(null)}
               onFocus={() => setHovered(i)}
               onBlur={() => setHovered(null)}
-              className={`group flex flex-col items-center text-center gap-1.5 rounded-2xl px-3 py-4 border-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#FAFAF7] ${
+              className={`group aspect-square flex flex-col items-center justify-center text-center gap-1 sm:gap-1.5 rounded-2xl px-1.5 py-2 sm:px-3 sm:py-4 border-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#FAFAF7] ${
                 isActive
                   ? 'shadow-md -translate-y-0.5'
                   : 'border-transparent hover:-translate-y-0.5 hover:shadow-sm'
@@ -157,12 +157,13 @@ export default function InteractiveRookPillars() {
               }}
             >
               <span
-                className="w-9 h-9 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                className="w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110 flex-shrink-0"
                 style={{ backgroundColor: `${p.accent}18` }}
               >
-                <p.Icon size={17} style={{ color: p.accent }} />
+                <p.Icon size={14} className="sm:hidden" style={{ color: p.accent }} />
+                <p.Icon size={17} className="hidden sm:block" style={{ color: p.accent }} />
               </span>
-              <span className="font-fredoka text-xs sm:text-sm leading-tight" style={{ color: p.accent }}>
+              <span className="font-fredoka text-[10px] sm:text-sm leading-tight" style={{ color: p.accent }}>
                 {p.title}
               </span>
             </button>
