@@ -85,13 +85,10 @@ function Heading() {
   );
 }
 
-// Tablet / desktop — a single connected infographic: six horizontal rows,
-// each pairing its pyramid band directly against a lightly-tinted panel
-// holding that stage's description. Row height is set once on the outer
-// wrapper (a responsive clamp, independent of text length) and divided
-// between rows via the same proportional flex-grow as the band widths, so
-// the coloured band and its panel always start and end at the exact same
-// pixel — no separate columns to fall out of sync.
+// Tablet / desktop — unchanged layout: pyramid on the left, every stage's
+// description permanently visible alongside it on the right. The pyramid's
+// own height comes from its width via a fixed aspect-ratio, so its shape
+// never depends on how much space the neighbouring text needs.
 function DesktopPyramid() {
   return (
     <motion.div
@@ -99,9 +96,12 @@ function DesktopPyramid() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: EASE }}
-      className="max-w-6xl mx-auto rounded-3xl border border-[#2D2520]/8 shadow-sm overflow-hidden bg-white"
+      className="flex items-stretch gap-x-3 sm:gap-x-6 lg:gap-x-10 max-w-4xl mx-auto"
     >
-      <div className="flex flex-col" style={{ height: 'clamp(480px, 46vw, 620px)' }}>
+      <div
+        className="flex flex-col flex-shrink-0"
+        style={{ width: 'clamp(150px, 34vw, 240px)', aspectRatio: '4 / 5' }}
+      >
         {pyramidOrder.map((stage, i) => {
           const top = BOUNDARIES[i];
           const bottom = BOUNDARIES[i + 1];
@@ -109,42 +109,34 @@ function DesktopPyramid() {
           return (
             <div
               key={stage.num}
-              className={`group flex items-stretch ${i !== 0 ? 'border-t border-[#2D2520]/8' : ''}`}
-              style={{ flex: bandFlex(DELTAS[i]) }}
+              tabIndex={0}
+              aria-describedby={descId}
+              className="relative flex items-end justify-center text-center outline-none min-h-0 transition-[filter] duration-300 hover:brightness-110 focus-visible:brightness-110 cursor-default"
+              style={{ backgroundColor: stage.accent, clipPath: bandClipPath(top, bottom), flex: bandFlex(DELTAS[i]) }}
             >
-              <div
-                tabIndex={0}
-                aria-describedby={descId}
-                className="relative flex items-end justify-center text-center outline-none flex-shrink-0 transition-[filter] duration-300 group-hover:brightness-110 focus-visible:brightness-110 cursor-default"
-                style={{
-                  width: 'clamp(215px, 22vw, 300px)',
-                  backgroundColor: stage.accent,
-                  clipPath: bandClipPath(top, bottom),
-                }}
+              <span
+                className="font-fredoka text-white leading-tight px-1 pb-2 sm:pb-3 whitespace-nowrap"
+                style={{ fontSize: 'clamp(0.6rem, 1vw, 0.8rem)' }}
               >
-                <span
-                  className="font-fredoka text-white leading-tight px-1 pb-3 sm:pb-4 whitespace-nowrap"
-                  style={{ fontSize: 'clamp(0.72rem, 1vw, 0.92rem)' }}
-                >
-                  {stage.title}
-                </span>
-              </div>
-
-              <div
-                className="flex-1 flex items-center px-6 sm:px-8 lg:px-10 py-3 transition-colors duration-300"
-                style={{ backgroundColor: `${stage.accent}14` }}
-              >
-                <p
-                  id={descId}
-                  className="font-nunito text-[#2D2520]/75"
-                  style={{ fontSize: 'clamp(0.85rem, 0.95vw, 0.95rem)', lineHeight: 1.7 }}
-                >
-                  {stage.body}
-                </p>
-              </div>
+                {stage.title}
+              </span>
             </div>
           );
         })}
+      </div>
+
+      <div className="flex-1 flex flex-col">
+        {pyramidOrder.map((stage) => (
+          <div key={stage.num} className="flex-1 min-h-0 flex items-center py-1.5 sm:py-2">
+            <p
+              id={`pyramid-desc-${stage.num}`}
+              className="font-nunito text-[#2D2520]/70 leading-snug"
+              style={{ fontSize: 'clamp(0.72rem, 1vw, 0.85rem)' }}
+            >
+              {stage.body}
+            </p>
+          </div>
+        ))}
       </div>
     </motion.div>
   );
