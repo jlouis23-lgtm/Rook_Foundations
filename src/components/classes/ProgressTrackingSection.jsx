@@ -131,7 +131,7 @@ export default function ProgressTrackingSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: EASE }}
-          className="border border-[#E8A020]/30 bg-[#E8A020]/5 rounded-3xl px-6 sm:px-10 py-7 text-center"
+          className="border border-[#E8A020]/30 bg-[#E8A020]/5 rounded-3xl px-6 sm:px-10 py-7 text-center mb-16"
         >
           <p className="font-nunito text-[#2D2520]/75 italic leading-relaxed max-w-2xl mx-auto">
             We use structured observations and ongoing review to understand how each child learns best. By regularly recording strengths, challenges and progress towards personalised learning targets, we can adapt future sessions to keep children engaged, appropriately challenged and moving forward.

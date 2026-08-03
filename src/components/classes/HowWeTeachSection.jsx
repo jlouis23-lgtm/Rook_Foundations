@@ -5,7 +5,6 @@ import LearningJourney from '@/components/about/LearningJourney';
 import InteractiveRookPillars from '@/components/about/InteractiveRookPillars';
 import IndividualGroupSessions from '@/components/about/IndividualGroupSessions';
 import ProgressTrackingSection from '@/components/classes/ProgressTrackingSection';
-import LearningNetworkHero from '@/components/classes/LearningNetworkHero';
 
 export default function HowWeTeachSection() {
   return (
@@ -72,11 +71,6 @@ export default function HowWeTeachSection() {
 
       {/* How We Track Your Child's Progress */}
       <ProgressTrackingSection />
-
-      {/* Connected-games network — introduces the wider learning ecosystem */}
-      <div className="mb-16">
-        <LearningNetworkHero />
-      </div>
 
       {/* Individual & Group Learning — standalone heading */}
       <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">

@@ -4,6 +4,7 @@ import { ArrowRight, Clock, Users, MapPin, Info, BookOpen, Heart, HelpCircle, Sh
 import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import HowWeTeachSection from '@/components/classes/HowWeTeachSection';
+import LearningNetworkHero from '@/components/classes/LearningNetworkHero';
 
 const otherGames = ['Go', 'Reversi / Othello', 'Xiangqi', 'Quoridor', 'Tower of Hanoi', 'Mastermind', 'Janggi', 'Marble Solitaire'];
 
@@ -31,29 +32,18 @@ export default function Classes() {
           <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-5">
             <BookOpen size={14} /> Learning at every level
           </span>
-          <h1 className="font-fredoka text-[#2D2520] mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
+          <h1 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
             A class for every curious mind
           </h1>
 
-          <p className="font-nunito text-[#2D2520]/60 text-lg leading-relaxed max-w-2xl mx-auto">
-            Every course we teach follows the same three-phase journey — Discovery, Development, and Strategy — carefully adapted to suit each game, taking every child from their very first move to confident, independent strategic thinking.
-          </p>
+          <LearningNetworkHero />
         </div>
       </section>
 
       {/* How every course is structured */}
-      <section className="py-8 pb-20 relative overflow-hidden">
+      <section className="py-16 relative overflow-hidden">
         <ChessBg variant="classes" />
         <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="font-fredoka text-[#2D2520] mb-3" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}>
-              How every course is structured
-            </h2>
-            <p className="font-nunito text-[#2D2520]/60 text-base leading-relaxed max-w-xl mx-auto">
-              Whichever game your child is learning, their journey moves through the same three phases.
-            </p>
-          </div>
-
           {/* Chess curriculum link box */}
           <div className="max-w-xl mx-auto text-center">
             <MotionLink
