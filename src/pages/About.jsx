@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, BookOpen, Users, Heart, CheckCircle, Dices, GraduationCap } from 'lucide-react';
 import WhyChessResearch from '../components/about/WhyChessResearch';
@@ -19,7 +20,18 @@ const credentials = [
 
 
 export default function About() {
-  useEffect(() => { window.scrollTo(0, 0); }, []);
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const el = document.querySelector(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+    }
+    window.scrollTo(0, 0);
+  }, [hash]);
 
   return (
     <div className="bg-[#FAFAF7] pt-20">
@@ -39,17 +51,17 @@ export default function About() {
             </span>
             <h1 className="font-fredoka text-[#2D2520] leading-tight mb-0"
               style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)' }}>
-              Hello, welcome 👋
+              Hello, welcome
             </h1>
           </motion.div>
 
           {/* Part 1 — Centred introductory statement */}
           <motion.div
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.15 }}
-            className="max-w-2xl mx-auto px-6 lg:px-12 text-center mb-16"
+            className="max-w-4xl mx-auto px-6 lg:px-12 text-center mb-16"
           >
             <p className="font-nunito text-[#2D2520] font-700 leading-relaxed" style={{ fontSize: 'clamp(1.15rem, 2.2vw, 1.4rem)' }}>
-              Rook Foundations is an education programme built on years of experience working with children, academic training in psychology, and a genuine belief that games afford opportunities to strengthen the mind.
+              Rook Foundations is an education platform which uses games with strong developmental benefits to map and accommodate your child's unique learning preferences.
             </p>
             <div className="mt-6 flex justify-center">
               <div className="h-1 w-12 bg-gradient-to-r from-[#E8A020] to-[#F4C261] rounded-full" />
@@ -59,7 +71,7 @@ export default function About() {
           {/* Subsection title */}
           <motion.div
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.22 }}
-            className="max-w-2xl mx-auto px-6 lg:px-12 text-center mb-10"
+            className="max-w-4xl mx-auto px-6 lg:px-12 text-center mb-10"
           >
             <h2 className="font-fredoka text-[#2D2520]/70" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.75rem)' }}>
               Why Rook Foundations?
@@ -67,7 +79,7 @@ export default function About() {
           </motion.div>
 
           {/* Parts 2 & 3 — Story paragraphs, left-aligned prose */}
-          <div className="max-w-2xl mx-auto px-6 lg:px-12">
+          <div className="max-w-4xl mx-auto px-6 lg:px-12">
 
             {/* Part 2 — Chess & sacrifice */}
             <motion.p
@@ -167,13 +179,13 @@ export default function About() {
             Ready to meet in person?
           </h2>
           <p className="font-nunito text-white/80 text-lg mb-8">
-            Get 50% off your first lesson and discover the Rook Foundations difference for yourself.
+            Book a £5 trial session and discover the Rook Foundations difference for yourself.
           </p>
           <MotionLink
             whileTap={ctaTap}
             to="/contact"
             className="inline-flex items-center gap-2 bg-white text-[#E8A020] font-fredoka font-600 text-lg px-8 py-4 rounded-2xl hover:bg-[#fdf6e8] transition-all hover:shadow-xl hover:-translate-y-0.5">
-            Claim 50% Off First Lesson <ArrowRight size={20} />
+            Book a £5 Trial Session <ArrowRight size={20} />
           </MotionLink>
         </div>
       </section>
