@@ -1,282 +1,143 @@
-import { useState, useId } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { HeartHandshake, Lightbulb, Mountain, BrainCircuit, Search, Sprout, RotateCw } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { HeartHandshake, Lightbulb, Mountain, BrainCircuit, Search, Sprout } from 'lucide-react';
 
 const EASE = [0.22, 1, 0.36, 1];
 
+// Ordered bottom (foundation) to top (culmination), matching the reading /
+// tab order. The pyramid silhouette itself is produced visually via
+// flex-col-reverse further down, so stage 1 still renders first in the DOM.
 const stages = [
   {
     num: 1,
     title: 'Relationship',
+    descriptor: 'Building Trust First',
     accent: '#2d8c62',
     Icon: HeartHandshake,
-    body: 'Children learn through people before they learn through content. We take time to know, listen to and understand every child.',
+    body: 'Every learning journey begins with understanding the child. By getting to know their interests, communication style and personality, we create a supportive environment where they feel comfortable to learn.',
+    width: 'w-full',
   },
   {
     num: 2,
     title: 'Curiosity',
+    descriptor: 'Inspiring Exploration',
     accent: '#b8790a',
     Icon: Lightbulb,
-    body: "Puzzles, surprises and interesting questions spark curiosity, turning a child's attention into real motivation to learn.",
+    body: 'A wide variety of strategy games and puzzles spark curiosity and encourage children to explore new ideas. Every activity is introduced with enthusiasm to create a genuine desire to learn and improve.',
+    width: 'w-[94%] sm:w-[90%] lg:w-[86%]',
   },
   {
     num: 3,
     title: 'Challenge',
+    descriptor: 'Stretching Thinking with Confidence',
     accent: '#4a7eb8',
     Icon: Mountain,
-    body: "We find each child's perfect level of challenge — enough to stretch their thinking without ever feeling overwhelming.",
+    body: "Activities are carefully matched to each child's ability, providing enough challenge to promote growth without becoming overwhelming. The right level of challenge builds confidence, resilience and independence.",
+    width: 'w-[88%] sm:w-[80%] lg:w-[74%]',
   },
   {
     num: 4,
     title: 'Thinking',
+    descriptor: 'Developing Thoughtful Decision-Making',
     accent: '#7a48c0',
     Icon: BrainCircuit,
-    body: 'We ask questions, not answers. Children explain what they notice, predict and decide, because their thinking matters.',
+    body: 'Children are encouraged to explain their thinking, consider different options and make decisions with purpose rather than impulse. Speaking their ideas aloud helps develop reasoning, confidence and communication.',
+    width: 'w-[82%] sm:w-[70%] lg:w-[62%]',
   },
   {
     num: 5,
     title: 'Reflection',
+    descriptor: 'Learning Through Reflection',
     accent: '#c05050',
     Icon: Search,
-    body: "We pause to look back together: what happened, what surprised us, and what we'd try differently next time.",
+    body: 'Children pause to look back on what they did well, what challenged them and what they might do differently next time. Reflection helps strengthen understanding and prepares them for future learning.',
+    width: 'w-[76%] sm:w-[60%] lg:w-[50%]',
   },
   {
     num: 6,
     title: 'Transfer',
+    descriptor: 'Applying Learning Beyond the Game',
     accent: '#2a8c88',
     Icon: Sprout,
-    body: "We connect today's thinking to everyday life — at school, at home, and in every challenge still to come.",
+    body: 'Learning doesn’t end when the game finishes. We help children recognise how the thinking, decisions and strategies they practised can be applied to situations in everyday life.',
+    width: 'w-[70%] sm:w-[50%] lg:w-[40%]',
   },
 ];
 
-const RADIUS_PERCENT = 38;
-const ARROW_TRIM_DEG = 14;
-
-function pointAtAngle(degrees, radius = RADIUS_PERCENT) {
-  const rad = degrees * (Math.PI / 180);
-  return { x: 50 + radius * Math.cos(rad), y: 50 + radius * Math.sin(rad) };
-}
-
-// Small curved connectors between consecutive stages only (1→2→3→4→5→6) —
-// deliberately no arrow from 6 back to 1, so it reads as a guided path
-// rather than a closed loop. Trimmed short of each icon so arrowheads
-// stay subtle and don't crowd the stages themselves.
-function ConnectorArrows() {
+function PyramidLevel({ stage, index }) {
   return (
-    <svg className="absolute inset-0 pointer-events-none" viewBox="0 0 100 100" aria-hidden="true">
-      <defs>
-        <marker id="journey-arrowhead" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
-          <path d="M 0 0 L 10 5 L 0 10 z" fill="#E8A020" fillOpacity="0.5" />
-        </marker>
-      </defs>
-      {stages.slice(0, -1).map((_, i) => {
-        const startDeg = i * 60 - 90 + ARROW_TRIM_DEG;
-        const endDeg = (i + 1) * 60 - 90 - ARROW_TRIM_DEG;
-        const start = pointAtAngle(startDeg);
-        const end = pointAtAngle(endDeg);
-        return (
-          <path
-            key={i}
-            d={`M ${start.x},${start.y} A ${RADIUS_PERCENT},${RADIUS_PERCENT} 0 0,1 ${end.x},${end.y}`}
-            fill="none"
-            stroke="#E8A020"
-            strokeOpacity="0.45"
-            strokeWidth="0.35"
-            strokeLinecap="round"
-            markerEnd="url(#journey-arrowhead)"
+    <motion.li
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.08, ease: EASE }}
+      className={`${stage.width} mx-auto`}
+    >
+      <div
+        tabIndex={0}
+        className="group relative bg-white border border-[#2D2520]/10 rounded-2xl shadow-sm outline-none transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 focus-visible:shadow-lg focus-visible:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-offset-2 cursor-default"
+        style={{
+          borderTopWidth: 3,
+          borderTopColor: stage.accent,
+          padding: 'clamp(1rem, 2.4vw, 1.75rem) clamp(1.1rem, 3vw, 2rem)',
+          '--tw-ring-color': `${stage.accent}80`,
+        }}
+      >
+        <div className="flex items-center gap-3 mb-1.5">
+          <span
+            className="font-fredoka leading-none flex-shrink-0"
+            style={{ color: stage.accent, fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}
+          >
+            {String(stage.num).padStart(2, '0')}
+          </span>
+          <h3
+            className="font-fredoka text-[#2D2520] leading-snug"
+            style={{ fontSize: 'clamp(1.05rem, 2.2vw, 1.4rem)' }}
+          >
+            {stage.title}
+          </h3>
+          <stage.Icon
+            size={17}
+            style={{ color: stage.accent }}
+            className="ml-auto flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
+            aria-hidden="true"
           />
-        );
-      })}
-    </svg>
-  );
-}
-
-function CenterLogo() {
-  return (
-    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center gap-2 pointer-events-none">
-      <div className="w-20 h-20 lg:w-24 lg:h-24 bg-[#E8A020] rounded-full flex items-center justify-center shadow-lg shadow-[#E8A020]/30 border-4 border-[#FAFAF7]">
-        <span className="text-white text-3xl lg:text-4xl leading-none">♜</span>
-      </div>
-      <span className="font-fredoka text-[#2D2520]/70 text-xs lg:text-sm text-center leading-tight max-w-[6rem]">
-        The Learning<br />Journey
-      </span>
-    </div>
-  );
-}
-
-function DesktopCircle({ active, hovered, onSelect, onHover, panelId }) {
-  return (
-    <div className="hidden lg:block relative mx-auto" style={{ width: '100%', maxWidth: 760, aspectRatio: '1 / 1' }}>
-      <ConnectorArrows />
-      <CenterLogo />
-      {stages.map((stage, i) => {
-        const { x, y } = pointAtAngle(i * 60 - 90);
-        const isLit = active === i || hovered === i;
-        return (
-          // Positioning lives on this plain, non-animated element so its
-          // `translate(-50%, -50%)` centering can't be clobbered by Framer
-          // Motion, which manages `transform` itself on motion.* elements
-          // for scale/opacity animation.
-          <div
-            key={stage.num}
-            className="absolute"
-            style={{ left: `${x}%`, top: `${y}%`, transform: 'translate(-50%, -50%)' }}
-          >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
-          >
-            <button
-              type="button"
-              onClick={() => onSelect(active === i ? null : i)}
-              onMouseEnter={() => onHover(i)}
-              onMouseLeave={() => onHover(null)}
-              onFocus={() => onHover(i)}
-              onBlur={() => onHover(null)}
-              aria-expanded={isLit}
-              aria-controls={panelId}
-              className="group flex flex-col items-center gap-2 focus-visible:outline-none"
-            >
-              <span
-                className="relative rounded-full flex items-center justify-center shadow-sm transition-all duration-300"
-                style={{
-                  width: 76,
-                  height: 76,
-                  backgroundColor: isLit ? stage.accent : `${stage.accent}15`,
-                  border: `3px solid ${stage.accent}${isLit ? '' : '30'}`,
-                  transform: isLit ? 'scale(1.1)' : 'scale(1)',
-                  boxShadow: isLit ? `0 6px 20px ${stage.accent}45` : undefined,
-                }}
-              >
-                <stage.Icon size={32} style={{ color: isLit ? '#fff' : stage.accent }} />
-                <span
-                  className="absolute -top-2 -right-2 w-7 h-7 rounded-full flex items-center justify-center text-white text-sm font-nunito font-800 shadow"
-                  style={{ backgroundColor: stage.accent }}
-                >
-                  {stage.num}
-                </span>
-              </span>
-              <span className="font-fredoka text-lg whitespace-nowrap" style={{ color: stage.accent }}>{stage.title}</span>
-            </button>
-          </motion.div>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-function RevealPanel({ activeStage, panelId }) {
-  return (
-    <div id={panelId} className="max-w-lg mx-auto mt-8 lg:mt-10 min-h-[7rem]">
-      <AnimatePresence mode="wait">
-        {activeStage ? (
-          <motion.div
-            key={activeStage.num}
-            initial={{ opacity: 0, y: -8, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -8, scale: 0.98 }}
-            transition={{ duration: 0.3, ease: EASE }}
-            className="bg-white rounded-2xl border-l-4 px-6 py-5 shadow-sm text-center lg:text-left"
-            style={{ borderColor: activeStage.accent }}
-          >
-            <h3 className="font-fredoka text-lg mb-1.5" style={{ color: activeStage.accent }}>
-              {activeStage.num}. {activeStage.title}
-            </h3>
-            <p className="font-nunito text-[#2D2520]/70 text-sm leading-relaxed">{activeStage.body}</p>
-          </motion.div>
-        ) : (
-          <motion.p
-            key="prompt"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="font-nunito text-[#2D2520]/40 text-sm text-center italic"
-          >
-            Hover or tap a stage above to see how it works.
-          </motion.p>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
-
-function MobileList() {
-  return (
-    <div className="lg:hidden">
-      <div className="flex justify-center mb-10">
-        <div className="flex flex-col items-center gap-2">
-          <div className="w-16 h-16 bg-[#E8A020] rounded-full flex items-center justify-center shadow-lg shadow-[#E8A020]/30">
-            <span className="text-white text-2xl leading-none">♜</span>
-          </div>
-          <span className="font-fredoka text-[#2D2520]/70 text-sm">The Learning Journey</span>
         </div>
-      </div>
 
-      <div className="space-y-5">
-        {stages.map((stage, i) => (
-          <motion.div
-            key={stage.num}
-            initial={{ opacity: 0, x: -16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45, delay: i * 0.06, ease: EASE }}
-            className="flex items-start gap-4 bg-white rounded-2xl p-5 shadow-sm"
-          >
-            <div
-              className="relative w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
-              style={{ backgroundColor: `${stage.accent}15`, border: `2px solid ${stage.accent}30` }}
-            >
-              <stage.Icon size={18} style={{ color: stage.accent }} />
-              <span
-                className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full flex items-center justify-center text-white text-[10px] font-nunito font-800 shadow"
-                style={{ backgroundColor: stage.accent }}
-              >
-                {stage.num}
-              </span>
-            </div>
-            <div>
-              <h3 className="font-fredoka text-base mb-1" style={{ color: stage.accent }}>{stage.title}</h3>
-              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{stage.body}</p>
-            </div>
-          </motion.div>
-        ))}
+        <p
+          className="font-nunito font-700 uppercase tracking-wide mb-2"
+          style={{ color: stage.accent, fontSize: 'clamp(0.68rem, 1.2vw, 0.78rem)' }}
+        >
+          {stage.descriptor}
+        </p>
+
+        <p
+          className="font-nunito text-[#2D2520]/65 leading-relaxed"
+          style={{ fontSize: 'clamp(0.82rem, 1.6vw, 0.95rem)' }}
+        >
+          {stage.body}
+        </p>
       </div>
-    </div>
+    </motion.li>
   );
 }
 
 export default function LearningJourney() {
-  const [active, setActive] = useState(null);
-  const [hovered, setHovered] = useState(null);
-  const panelId = useId();
-  const activeStage = stages[hovered !== null ? hovered : active] ?? null;
-
   return (
     <div>
-      <DesktopCircle active={active} hovered={hovered} onSelect={setActive} onHover={setHovered} panelId={panelId} />
-      <div className="hidden lg:block">
-        <RevealPanel activeStage={activeStage} panelId={panelId} />
+      <div className="text-center mb-10 lg:mb-12 max-w-2xl mx-auto">
+        <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+          The Rook Foundations Learning Pyramid
+        </h2>
+        <p className="font-nunito text-[#2D2520]/55 text-base mt-3 leading-relaxed">
+          Every session follows the same six-stage journey, helping children progress from feeling understood to confidently applying their learning beyond the game.
+        </p>
       </div>
 
-      <MobileList />
-
-      {/* Cycle continues note */}
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        className="mt-10 lg:mt-10 flex items-center justify-center gap-3 bg-[#F5F3EE] rounded-2xl px-6 py-4 max-w-md mx-auto text-center"
-      >
-        <RotateCw size={18} className="text-[#E8A020] flex-shrink-0" />
-        <p className="font-nunito text-[#2D2520]/70 text-sm leading-relaxed">
-          <span className="font-700 text-[#2D2520]">The cycle continues.</span> Every session builds on the last.
-        </p>
-      </motion.div>
+      <ol className="flex flex-col-reverse gap-3 sm:gap-4 max-w-3xl mx-auto list-none">
+        {stages.map((stage, i) => (
+          <PyramidLevel key={stage.num} stage={stage} index={i} />
+        ))}
+      </ol>
     </div>
   );
 }
