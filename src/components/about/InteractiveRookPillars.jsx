@@ -1,6 +1,6 @@
 import { useState, useId } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Heart, Shapes, BrainCircuit, MessageCircleQuestion, TrendingUp, MonitorSmartphone } from 'lucide-react';
+import { Heart, BrainCircuit, MessageCircleQuestion } from 'lucide-react';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -10,12 +10,6 @@ const principles = [
     title: 'Child-Centred',
     accent: '#c05050',
     body: "We don't believe every child should learn the same game in the same way. Instead, we observe how each child thinks and introduce activities that match their interests, confidence and stage of development.",
-  },
-  {
-    Icon: Shapes,
-    title: 'Strategy Games, Not Just Chess',
-    accent: '#b8790a',
-    body: "Chess is one of many wonderful strategy games. However, it isn't the right starting point for every child. We use a variety of carefully chosen games to create opportunities for thinking, communication and problem-solving. The game is never the goal. The child's development is.",
   },
   {
     Icon: BrainCircuit,
@@ -29,30 +23,16 @@ const principles = [
     accent: '#7a48c0',
     body: 'Rather than simply telling children the correct move, we encourage them to explain their thinking. By asking thoughtful questions, children learn to think more independently and become increasingly confident in explaining their ideas.',
   },
-  {
-    Icon: TrendingUp,
-    title: 'Our Tracking System',
-    accent: '#2d8c62',
-    body: "Personalised feedback is recorded through observation and note-taking. Parents can view learning goals, achievements and areas for development in one place. Children also have access to their own progress, helping them build confidence, independence and ownership of their learning journey.",
-  },
-  {
-    Icon: MonitorSmartphone,
-    title: 'Using Technology Carefully',
-    accent: '#2a8c88',
-    body: 'Our approach combines the benefits of hands-on learning with the thoughtful use of digital tools. Children learn using real boards and practical activities, while carefully selected digital resources support thinking, strengthen memory and enhance learning only where they add genuine educational value.',
-  },
 ];
 
-// Crenellation x-ranges within the 0 0 400 520 viewBox — six evenly spaced
-// teeth with five gaps, used both to draw the rook and to size/tint each
-// tooth in sync with the label buttons below.
+// Crenellation x-ranges within the 0 0 400 520 viewBox — three evenly spaced
+// teeth with two gaps, matching the Rook Foundations logo mark. Used both to
+// draw the rook and to size/tint each tooth in sync with the label buttons
+// below.
 const TEETH = [
-  { x: 70, w: 30 },
-  { x: 116, w: 30 },
-  { x: 162, w: 30 },
-  { x: 208, w: 30 },
-  { x: 254, w: 30 },
-  { x: 300, w: 30 },
+  { x: 70, w: 60 },
+  { x: 170, w: 60 },
+  { x: 270, w: 60 },
 ];
 const TOOTH_TOP = 30;
 const TOOTH_BOTTOM = 125;
@@ -64,7 +44,7 @@ function RookIllustration({ active, hovered, onSelect, onHover }) {
   return (
     <svg
       viewBox="0 0 400 520"
-      className="w-full h-auto max-w-[280px] sm:max-w-[340px] mx-auto"
+      className="w-full h-auto max-w-[170px] sm:max-w-[210px] mx-auto"
       aria-hidden="true"
       focusable="false"
     >
@@ -93,7 +73,7 @@ function RookIllustration({ active, hovered, onSelect, onHover }) {
       {/* Crown slab */}
       <rect x="55" y="125" width="290" height="50" rx="3" style={{ fill: `url(#${gradId})` }} />
 
-      {/* Six crenellations — decorative + mouse/touch clickable, kept out of
+      {/* Three crenellations — decorative + mouse/touch clickable, kept out of
           the tab order since the labelled buttons below are the canonical
           accessible controls. */}
       {TEETH.map((t, i) => {
@@ -150,8 +130,8 @@ export default function InteractiveRookPillars() {
     >
       <RookIllustration active={active} hovered={hovered} onSelect={toggle} onHover={setHovered} />
 
-      {/* Six labelled, keyboard-accessible controls — the canonical way to open each principle */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-6 max-w-2xl mx-auto">
+      {/* Three labelled, keyboard-accessible controls — the canonical way to open each principle */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6 max-w-xl mx-auto">
         {principles.map((p, i) => {
           const isActive = active === i;
           return (
