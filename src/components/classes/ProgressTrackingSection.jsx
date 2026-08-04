@@ -71,24 +71,62 @@ export default function ProgressTrackingSection() {
         </motion.div>
 
         {/* Workflow */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
-          className="flex flex-wrap lg:flex-nowrap items-center justify-center gap-x-1.5 gap-y-3 mb-14"
-        >
-          {workflow.map((step, i) => (
-            <div key={step} className="flex items-center gap-1.5">
-              <div className="bg-white border border-[#E8A020]/15 rounded-2xl px-3.5 py-3 sm:px-4 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 whitespace-nowrap">
-                <span className="font-fredoka text-[#2D2520] text-xs sm:text-sm">{step}</span>
+        <div className="mb-14">
+          {/* Mobile — vertical numbered roadmap, one clear path top to bottom */}
+          <ol className="sm:hidden relative max-w-[15rem] mx-auto">
+            <div
+              className="absolute left-4 top-4 bottom-4 w-px bg-gradient-to-b from-[#E8A020]/50 via-[#E8A020]/25 to-[#E8A020]/10"
+              aria-hidden="true"
+            />
+            {workflow.map((step, i) => (
+              <motion.li
+                key={step}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.08, ease: EASE }}
+                className="relative flex items-center gap-3 pb-4 last:pb-0"
+              >
+                <span className="relative z-10 flex-shrink-0 w-8 h-8 rounded-full bg-[#E8A020] text-white font-fredoka text-sm flex items-center justify-center shadow-sm shadow-[#E8A020]/30">
+                  {i + 1}
+                </span>
+                <span className="flex-1 bg-white border border-[#E8A020]/15 rounded-2xl px-4 py-3 shadow-sm transition-all duration-300 active:scale-[0.98] active:bg-[#E8A020]/5">
+                  <span className="font-fredoka text-[#2D2520] text-sm">{step}</span>
+                </span>
+              </motion.li>
+            ))}
+          </ol>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.6, ease: EASE }}
+            className="sm:hidden flex items-center justify-center gap-1.5 mt-5"
+          >
+            <Repeat size={12} className="text-[#E8A020]/45 flex-shrink-0" />
+            <span className="font-nunito text-[#2D2520]/40 text-xs">Then the cycle begins again</span>
+          </motion.div>
+
+          {/* Tablet / desktop — unchanged horizontal flow */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
+            className="hidden sm:flex sm:flex-wrap lg:flex-nowrap items-center justify-center gap-x-1.5 gap-y-3"
+          >
+            {workflow.map((step, i) => (
+              <div key={step} className="flex items-center gap-1.5">
+                <div className="bg-white border border-[#E8A020]/15 rounded-2xl px-3.5 py-3 sm:px-4 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 whitespace-nowrap">
+                  <span className="font-fredoka text-[#2D2520] text-xs sm:text-sm">{step}</span>
+                </div>
+                {i < workflow.length - 1 && (
+                  <ArrowRight size={16} className="text-[#E8A020] flex-shrink-0" />
+                )}
               </div>
-              {i < workflow.length - 1 && (
-                <ArrowRight size={16} className="text-[#E8A020] flex-shrink-0" />
-              )}
-            </div>
-          ))}
-        </motion.div>
+            ))}
+          </motion.div>
+        </div>
 
         {/* Info cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
