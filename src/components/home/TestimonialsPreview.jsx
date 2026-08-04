@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Heart, Brain, Sprout, Target, Handshake } from 'lucide-react';
+import { Brain, Sprout, Target, Handshake } from 'lucide-react';
 
 const values = [
   {
     Icon: Brain,
     accent: '#4a7eb8',
-    heading: 'They Learn to Think',
+    heading: 'Learning to Think Critically',
     body: 'Every move on the chess board teaches children to slow down, consider their options, and act with intention. These kind of learning extends far beyond the game.',
   },
   {
@@ -39,7 +39,7 @@ export default function TestimonialsPreview() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="text-center mb-16">
           <span className="inline-flex items-center gap-1.5 font-nunito text-green-700 text-sm font-800 uppercase tracking-widest mb-4">
-            <Heart size={14} /> What families can look forward to
+            What families can look forward to
           </span>
           <h2 className="font-fredoka text-[#2D2520] leading-tight mb-4"
             style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
