@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion';
-import { Repeat, NotebookText, ArrowRight, BookOpenCheck, Target, ClipboardCheck } from 'lucide-react';
+import { useState, useId } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Repeat, ArrowRight, ChevronDown, BookOpenCheck, Target, ClipboardCheck } from 'lucide-react';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -43,17 +44,11 @@ const cards = [
 ];
 
 export default function ProgressTrackingSection() {
+  const [open, setOpen] = useState(false);
+  const panelId = useId();
+
   return (
     <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10">
-        {/* Notion badge — subtle, top-right */}
-        <div
-          className="hidden sm:flex absolute top-0 right-6 lg:right-12 w-11 h-11 rounded-2xl bg-[#2D2520] items-center justify-center shadow-sm"
-          title="Organised with Notion"
-          aria-hidden="true"
-        >
-          <NotebookText size={18} className="text-white" strokeWidth={1.8} />
-        </div>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -96,7 +91,7 @@ export default function ProgressTrackingSection() {
         </motion.div>
 
         {/* Info cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {cards.map((c, i) => (
             <motion.div
               key={c.title}
@@ -124,6 +119,75 @@ export default function ProgressTrackingSection() {
             </motion.div>
           ))}
         </div>
+
+        {/* Converging arrows + Notion icon — the destination all three cards feed into */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3, ease: EASE }}
+          className="flex flex-col items-center mb-14"
+        >
+          {/* Desktop / tablet — three arrows converging on the icon */}
+          <svg className="hidden md:block w-full max-w-3xl h-10" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M 16.7 0 Q 16.7 22 48 31" fill="none" stroke="#E8A020" strokeOpacity="0.35" strokeWidth="0.8" strokeLinecap="round" />
+            <path d="M 50 0 L 50 31" fill="none" stroke="#E8A020" strokeOpacity="0.35" strokeWidth="0.8" strokeLinecap="round" />
+            <path d="M 83.3 0 Q 83.3 22 52 31" fill="none" stroke="#E8A020" strokeOpacity="0.35" strokeWidth="0.8" strokeLinecap="round" />
+          </svg>
+
+          {/* Mobile — simplified single connector */}
+          <div className="md:hidden flex flex-col items-center h-8 justify-end">
+            <div className="w-px h-5 bg-[#E8A020]/35" />
+            <ChevronDown size={14} className="text-[#E8A020]/50 -mt-0.5" />
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls={panelId}
+            className="group flex flex-col items-center gap-2 outline-none"
+          >
+            <span className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:-translate-y-0.5 group-focus-visible:scale-105 group-focus-visible:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-[#E8A020] group-focus-visible:ring-offset-2">
+              <picture>
+                <source srcSet="/images/icons/notion-logo.webp" type="image/webp" />
+                <img
+                  src="/images/icons/notion-logo.png"
+                  alt="Notion"
+                  width={240}
+                  height={240}
+                  className="w-14 h-14 sm:w-16 sm:h-16"
+                />
+              </picture>
+            </span>
+            <span className="font-nunito text-[#2D2520]/45 text-xs">
+              {open ? 'Hide details' : 'How we organise it all'}
+            </span>
+          </button>
+
+          <AnimatePresence>
+            {open && (
+              <motion.div
+                id={panelId}
+                initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                animate={{ opacity: 1, height: 'auto', marginTop: 20 }}
+                exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                transition={{ duration: 0.35, ease: EASE }}
+                className="overflow-hidden w-full max-w-lg"
+              >
+                <div className="bg-white border border-[#2D2520]/8 rounded-3xl px-6 py-6 shadow-sm text-center">
+                  <h3 className="font-fredoka text-[#2D2520] text-lg mb-2">What is Notion?</h3>
+                  <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mb-3">
+                    Notion is the system I use behind the scenes to keep every lesson connected. It's where I record lesson observations, document each child's strengths, note any areas that need extra support, track progress over time, keep learning targets up to date, and plan the next lesson around how the last one went.
+                  </p>
+                  <p className="font-nunito text-[#b8790a] text-sm font-700">
+                    It's used for one purpose only — personalising and improving your child's learning journey.
+                  </p>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
 
         {/* Closing summary */}
         <motion.div
