@@ -175,16 +175,9 @@ export default function ChessCurriculum() {
               <div className="pt-2">
                 <HelpCircle size={28} className="text-[#E8A020] block mb-3" />
                 <h4 className="font-fredoka text-[#2D2520] text-xl mb-2">Not sure which level?</h4>
-                <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed mb-5">
-                  In our first session, we'll recommend the perfect starting point. You can also book a £5 trial session.
+                <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">
+                  In our first session, we'll recommend the perfect starting point.
                 </p>
-                <MotionLink
-                  whileTap={ctaTap}
-                  to="/contact"
-                  className="block bg-[#E8A020] text-white font-fredoka font-600 text-sm py-3 rounded-2xl text-center hover:bg-[#d4940e] transition-all hover:shadow-md"
-                >
-                  Free Assessment Session
-                </MotionLink>
               </div>
             </div>
           </motion.div>
