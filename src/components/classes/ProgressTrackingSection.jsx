@@ -4,7 +4,7 @@ import { Repeat, ArrowRight, ChevronDown, BookOpenCheck, Target, ClipboardCheck 
 
 const EASE = [0.22, 1, 0.36, 1];
 
-const workflow = ['Lesson', 'Observation', 'Learning Targets', 'Review Progress', 'Update Targets', 'Plan Next Lesson'];
+const workflow = ['Gameplay', 'Observation', 'Learning Targets', 'Review Progress', 'Update Targets', 'Plan Next Lesson'];
 
 const cards = [
   {
