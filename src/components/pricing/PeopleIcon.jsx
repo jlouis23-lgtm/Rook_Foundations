@@ -3,8 +3,8 @@
  * Same visual style (filled head + stroked shoulder arc) across all counts.
  * count=1  Individual
  * count=2  Pair
- * count=4  Small Group
- * count=7  Group (rendered as 2 rows: 4 top + 3 bottom to avoid cramping)
+ * count=4  Group
+ * count=7  (rendered as 2 rows: 4 top + 3 bottom to avoid cramping)
  */
 const person = (cx, cy, r, sR, sBaseline, key) => (
   <g key={key}>

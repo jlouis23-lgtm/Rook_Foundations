@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Check, Coins, Star } from 'lucide-react';
+import { ArrowRight, Check, Coins } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import PeopleIcon from '@/components/pricing/PeopleIcon';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
@@ -14,8 +14,12 @@ const plans = [
     tag: null,
     tagStyle: '',
     cardStyle: 'bg-white border-[#2D2520]/10',
-    prices: { '1 Hour': { total: 15, note: 'total' }, '2 Hours': { total: 25, note: 'total' } },
-    features: ['Fully personalised lesson plan', 'One-to-one instructor attention', 'Deeper conceptual learning', 'Progress report every session'],
+    prices: {
+      '30 Mins': { total: 7, note: 'total' },
+      '1 Hour': { total: 10, note: 'total' },
+      '2 Hours': { total: 20, note: 'total' },
+    },
+    features: ['Fully personalised lesson plan', 'One-to-one instructor attention', 'Deeper conceptual learning'],
   },
   {
     label: 'Pair',
@@ -24,28 +28,26 @@ const plans = [
     tag: 'Most Popular',
     tagStyle: 'bg-[#E8A020] text-white',
     cardStyle: 'bg-amber-50/60 border-[#E8A020]/30 shadow-lg shadow-[#E8A020]/8',
-    prices: { '1 Hour': { total: 20, note: '£10 per student' }, '2 Hours': { total: 30, note: '£15 per student' } },
-    features: ['Shared learning dynamic', 'Friendly in-session competition', 'Great for siblings or friends', 'Progress report every session'],
-  },
-  {
-    label: 'Small Group',
-    people: 4,
-    subtitle: '3-4 students',
-    tag: null,
-    tagStyle: '',
-    cardStyle: 'bg-white border-[#2D2520]/10',
-    prices: { '1 Hour': { total: 25, note: '£6.25 per student' }, '2 Hours': { total: 30, note: '£7.50 per student' } },
-    features: ['Group problem solving', 'Collaborative & individual learning', 'Ideal for three friends', 'Progress report every session'],
+    prices: {
+      '30 Mins': { total: 10, note: '£5 per student' },
+      '1 Hour': { total: 20, note: '£10 per student' },
+      '2 Hours': { total: 25, note: '£12.50 per student' },
+    },
+    features: ['Shared learning dynamic', 'Friendly in-session competition', 'Great for siblings or friends'],
   },
   {
     label: 'Group',
-    people: 7,
-    subtitle: '5-7 students',
+    people: 4,
+    subtitle: '3-4 students',
     tag: 'Best Value',
     tagStyle: 'bg-green-500 text-white',
     cardStyle: 'bg-green-50/60 border-green-200',
-    prices: { '1 Hour': { total: 30, note: '£4.29 per student' }, '2 Hours': { total: 35, note: '£5.00 per student' } },
-    features: ['Cooperative problem solving', 'Team challenges & competitions', 'Rotate through different strategy games', 'Progress report every session'],
+    prices: {
+      '30 Mins': { total: 20, note: '£5 per student' },
+      '1 Hour': { total: 25, note: '£6.25 per student' },
+      '2 Hours': { total: 30, note: '£7.50 per student' },
+    },
+    features: ['Cooperative problem solving', 'Team challenges & competitions', 'Rotate through different strategy games'],
   },
 ];
 
@@ -76,7 +78,7 @@ export default function Pricing() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center mb-10">
             <p className="font-nunito text-[#2D2520]/50 text-sm font-600">
-              Prices shown are <span className="text-[#E8A020] font-700">total cost per session</span>. Two session lengths available.
+              Prices shown are <span className="text-[#E8A020] font-700">total cost per session</span>. Three session lengths available.
             </p>
           </div>
 
@@ -85,7 +87,7 @@ export default function Pricing() {
             whileInView="show"
             viewport={{ once: true, margin: '-80px' }}
             variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto"
           >
             {plans.map((plan) => (
               <motion.div
@@ -111,7 +113,7 @@ export default function Pricing() {
 
                 {/* Prices */}
                 <div className="space-y-3 mb-7 pb-7 border-b border-[#2D2520]/10">
-                  {['1 Hour', '2 Hours'].map((duration) => (
+                  {['30 Mins', '1 Hour', '2 Hours'].map((duration) => (
                     <div key={duration} className="flex items-end justify-between">
                       <span className="font-nunito text-[#2D2520]/50 text-sm font-600">{duration}</span>
                       <div className="text-right">
@@ -151,21 +153,19 @@ export default function Pricing() {
       <section className="bg-[#E8A020] py-20 relative overflow-hidden">
         <ChessBg variant="pricingcta" color="#ffffff" />
         <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center relative z-10">
-          <div className="mb-5"><Star size={36} className="text-white mx-auto" /></div>
-          <div className="inline-flex items-center gap-2 bg-white/15 rounded-full px-5 py-2 mb-6">
-            <Star size={14} className="text-white" />
-            <span className="font-nunito text-white font-700 text-sm">Limited Time — 50% Off Your First Lesson</span>
+          <div className="mb-6 text-center">
+            <span className="text-white leading-none" style={{ fontSize: '2.5rem' }}>♜</span>
           </div>
           <h2 className="font-fredoka text-white text-3xl mb-4">Not sure where to start?</h2>
           <p className="font-nunito text-white/80 text-base leading-relaxed mb-8 max-w-xl mx-auto">
-            Book at half price — no long-term commitment. We'll assess your child's level and recommend the perfect format and session length.
+            Book a £5 trial session — no long-term commitment. We'll assess your child's level and recommend the perfect format and session length.
           </p>
           <MotionLink
             whileTap={ctaTap}
             to="/contact"
             className="inline-flex items-center gap-2 bg-white text-[#E8A020] font-fredoka font-600 text-lg px-10 py-4 rounded-2xl hover:bg-[#fdf6e8] transition-all hover:shadow-xl hover:-translate-y-0.5"
           >
-            Claim 50% Off First Lesson <ArrowRight size={18} />
+            Book a £5 Trial Session <ArrowRight size={18} />
           </MotionLink>
         </div>
       </section>
