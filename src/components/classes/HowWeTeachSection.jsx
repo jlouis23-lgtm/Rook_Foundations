@@ -5,6 +5,7 @@ import LearningJourney from '@/components/about/LearningJourney';
 import InteractiveRookPillars from '@/components/about/InteractiveRookPillars';
 import IndividualGroupSessions from '@/components/about/IndividualGroupSessions';
 import ProgressTrackingSection from '@/components/classes/ProgressTrackingSection';
+import ChessCurriculumButton from '@/components/classes/ChessCurriculumButton';
 
 export default function HowWeTeachSection() {
   return (
@@ -29,6 +30,8 @@ export default function HowWeTeachSection() {
           <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-2xl mx-auto leading-relaxed">
             Games of strategy provide joyful opportunities when processing new information, adapting to different rules, and evaluating the choices of others. They are the vehicle. What shapes how your child grows with us is a consistent six-stage journey that repeats and deepens with every session. We don't claim these skills transfer automatically. But rest assured, our sessions are nurtured through relationship, challenge, and reflection. We bring the engagement and provide the encouragement for children to approach challenges that they might otherwise find difficult or unwilling to approach on their own.
           </p>
+
+          <ChessCurriculumButton className="mt-8" />
         </motion.div>
       </div>
 

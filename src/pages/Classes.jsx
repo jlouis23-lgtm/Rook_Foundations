@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { ArrowRight, Clock, Users, MapPin, Info, BookOpen, Heart, HelpCircle, Shuffle } from 'lucide-react';
+import { ArrowRight, Clock, Users, MapPin, BookOpen, Heart, HelpCircle, Shuffle } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import HowWeTeachSection from '@/components/classes/HowWeTeachSection';
@@ -37,32 +37,6 @@ export default function Classes() {
           </h1>
 
           <LearningNetworkHero />
-        </div>
-      </section>
-
-      {/* How every course is structured */}
-      <section className="py-16 relative overflow-hidden">
-        <ChessBg variant="classes" />
-        <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
-          {/* Chess curriculum link box */}
-          <div className="max-w-xl mx-auto text-center">
-            <MotionLink
-              whileTap={ctaTap}
-              to="/classes/chess-curriculum"
-              className="group block text-left bg-white/70 border border-[#E8A020]/20 rounded-2xl px-6 py-5 hover:border-[#E8A020]/50 hover:shadow-lg hover:shadow-[#E8A020]/10 transition-all duration-300"
-            >
-              <span className="font-nunito text-[#b8790a] text-xs font-800 uppercase tracking-widest mb-2 flex items-center justify-between gap-1.5">
-                <span className="flex items-center gap-1.5"><Info size={14} /> Our chess curriculum</span>
-                <ArrowRight size={15} className="text-[#E8A020] group-hover:translate-x-1 transition-transform" />
-              </span>
-              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
-                This is our lesson structure for chess. We use a similar step-by-step framework for the other strategy games we teach, though each one is adapted in its own way to suit that game. Chess remains our core focus, because of the depth it offers for building planning, patience, and independent thinking.
-              </p>
-            </MotionLink>
-            <p className="font-nunito text-[#2D2520]/45 text-xs mt-3">
-              Click the box above to see the full Discovery, Development and Strategy breakdown for chess.
-            </p>
-          </div>
         </div>
       </section>
 
