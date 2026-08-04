@@ -54,10 +54,10 @@ export default function ChessCurriculum() {
             <BookOpen size={14} /> Our chess curriculum
           </span>
           <h1 className="font-fredoka text-[#2D2520] mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
-            Three phases, one confident thinker
+            Three Learning Phases
           </h1>
           <p className="font-nunito text-[#2D2520]/60 text-lg leading-relaxed max-w-2xl mx-auto">
-            This is the full lesson structure for chess — our core focus, because of the depth it offers for building planning, patience, and independent thinking. Explore each phase below to see exactly what your child will learn.
+            This is our full lesson structure for children who are interested in playing chess. Chess is one of the main games that we use because of its proven positive benefits on building planning, patience, and independent thinking. Explore each phase below to see exactly what your child will learn.
           </p>
         </div>
       </section>
