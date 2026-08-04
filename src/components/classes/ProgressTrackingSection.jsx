@@ -1,6 +1,6 @@
 import { Fragment, useState, useId } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Repeat, RotateCcw, ArrowRight, ArrowDown, Gamepad2, Eye, Target } from 'lucide-react';
+import { Repeat, RotateCcw, ArrowRight, ArrowDown, Castle, Eye, Target } from 'lucide-react';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -13,7 +13,7 @@ const sessions = [
     title: 'Discover',
     accent: '#2d8c62',
     stages: [
-      { Icon: Gamepad2, title: 'Gameplay', body: 'Children explore carefully selected strategy games that provide meaningful opportunities for observation.' },
+      { Icon: Castle, title: 'Gameplay', body: 'Children explore carefully selected strategy games that provide meaningful opportunities for observation.' },
       { Icon: Eye, title: 'Observation', body: 'The instructor observes how the child approaches challenges, communicates, plans and solves problems.' },
       { Icon: Target, title: 'Initial Learning Targets', body: 'Personalised learning targets are created from the observations made during the session.', highlight: true },
     ],
@@ -23,7 +23,7 @@ const sessions = [
     title: 'Develop',
     accent: '#4a7eb8',
     stages: [
-      { Icon: Gamepad2, title: 'Targeted Gameplay', body: 'Games are selected specifically to develop the learning targets identified during Session 1.' },
+      { Icon: Castle, title: 'Targeted Gameplay', body: 'Games are selected specifically to develop the learning targets identified during Session 1.' },
       { Icon: Eye, title: 'Observation & Review', body: 'Progress towards existing learning targets is reviewed throughout gameplay.' },
       { Icon: Target, title: 'Refined Learning Targets', body: "Learning targets are updated, refined or expanded based on the child's progress.", highlight: true },
     ],
@@ -33,7 +33,7 @@ const sessions = [
     title: 'Build',
     accent: '#7a48c0',
     stages: [
-      { Icon: Gamepad2, title: 'Purposeful Gameplay', body: 'Activities continue to strengthen and extend personalised learning targets.' },
+      { Icon: Castle, title: 'Purposeful Gameplay', body: 'Activities continue to strengthen and extend personalised learning targets.' },
       { Icon: Eye, title: 'Ongoing Review', body: 'Repeated observations help identify long-term strengths, emerging challenges and meaningful progress.' },
       { Icon: Target, title: 'Plan the Next Stage', body: 'Future lessons are planned using all previous observations and learning targets.', highlight: true },
     ],
