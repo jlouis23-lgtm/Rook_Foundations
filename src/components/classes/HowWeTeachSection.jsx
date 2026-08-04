@@ -26,8 +26,8 @@ export default function HowWeTeachSection() {
           <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
             How We Teach
           </h2>
-          <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-xl mx-auto leading-relaxed">
-            Chess and strategy games are simply the vehicle. What actually shapes how your child grows with us is a consistent six-stage journey that repeats and deepens with every session. We don't claim these skills transfer automatically, but nurtured through relationship, challenge and reflection like this, they very often do.
+          <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-2xl mx-auto leading-relaxed">
+            Games of strategy provide joyful opportunities when processing new information, adapting to different rules, and evaluating the choices of others. They are the vehicle. What shapes how your child grows with us is a consistent six-stage journey that repeats and deepens with every session. We don't claim these skills transfer automatically. But rest assured, our sessions are nurtured through relationship, challenge, and reflection. We bring the engagement and provide the encouragement for children to approach challenges that they might otherwise find difficult or unwilling to approach on their own.
           </p>
         </motion.div>
       </div>
