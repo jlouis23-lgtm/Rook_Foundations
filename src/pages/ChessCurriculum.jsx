@@ -8,7 +8,7 @@ const phases = [
   {
     phase: '01', title: 'Discovery', subtitle: 'The First Move', ages: '', Icon: Sprout,
     accent: '#2d8c62',
-    duration: '1 or 2 hours', groupSize: 'Up to 4 students',
+    duration: '30 mins, 1 hour or 2 hours', groupSize: 'Up to 4 students',
     description: 'An introduction to the wonderful world of chess, designed for young learners who are completely new to the game. We use storytelling, colourful pieces, and tactile learning to make chess feel magical.',
     whatYouLearn: ['Names and movements of all piece types', 'How to set up the board correctly', 'Basic check and checkmate concepts', 'Simple 1-move tactical puzzles', 'Sportsmanship and turn-taking'],
     parentNote: 'Every child develops at their own pace, and that is something we fully embrace. Some children will grasp concepts quickly. Others may need repetition or take longer to build confidence. That is completely normal. My approach ensures no child is ever pushed ahead before they are ready. The focus is on encouragement and building a love of thinking.',
@@ -16,7 +16,7 @@ const phases = [
   {
     phase: '02', title: 'Development', subtitle: 'The Middle Game', ages: '', Icon: Puzzle,
     accent: '#4a7eb8',
-    duration: '1 or 2 hours', groupSize: 'Up to 4 students',
+    duration: '30 mins, 1 hour or 2 hours', groupSize: 'Up to 4 students',
     description: 'For students with a basic understanding of the rules, this phase introduces the art of planning. Students begin to see patterns, set traps, and think 2–3 moves ahead.',
     whatYouLearn: ['Opening principles (control the centre)', 'Tactical motifs: forks, pins, discovered attacks', 'Basic endgame technique', 'Time management and tactics', 'Friendly in-class tournament play'],
     parentNote: "In a world that increasingly rewards speed and instant reactions, we believe there is real value in motivating children to slow down, think carefully, and act with intention over impulse.",
@@ -24,7 +24,7 @@ const phases = [
   {
     phase: '03', title: 'Strategy', subtitle: 'The Endgame', ages: '', Icon: Trophy,
     accent: '#7a48c0',
-    duration: '1 or 2 hours', groupSize: 'Up to 4 students',
+    duration: '30 mins, 1 hour or 2 hours', groupSize: 'Up to 4 students',
     description: 'For students ready to take the next step. This phase focuses on stronger positional understanding, tactical awareness, and confidence in competitive play.',
     whatYouLearn: ['Opening theory', 'Judging positions and planning attacks', 'Focus on puzzles', 'Board memory and thinking with time pressure', 'Finding tactics and special moves'],
     parentNote: "Rook Foundations is designed primarily for beginner to intermediate students. Some students may reach a point where they would benefit from a more competitive environment. This is something I will always be transparent about. Every lesson is designed to adapt as closely as possible to each child's individual strengths.",
@@ -46,7 +46,7 @@ export default function ChessCurriculum() {
           <MotionLink
             whileTap={ctaTap}
             to="/classes"
-            className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-700 mb-5 hover:text-[#E8A020] transition-colors"
+            className="flex items-center justify-center gap-1.5 font-nunito text-[#b8790a] text-sm font-700 mb-5 hover:text-[#E8A020] transition-colors"
           >
             <ArrowLeft size={15} /> Back to Our Learning Approach
           </MotionLink>
