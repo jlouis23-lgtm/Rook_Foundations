@@ -180,7 +180,7 @@ export default function ProgressTrackingSection() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.3, ease: EASE }}
-        className="flex flex-col items-center"
+        className="flex flex-col items-center mb-16"
       >
         <button
           type="button"
@@ -189,7 +189,7 @@ export default function ProgressTrackingSection() {
           aria-controls={panelId}
           className="group flex flex-col items-center gap-2 outline-none"
         >
-          <span className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:-translate-y-0.5 group-focus-visible:scale-105 group-focus-visible:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-[#E8A020] group-focus-visible:ring-offset-2">
+          <span className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:-translate-y-0.5 group-focus-visible:scale-105 group-focus-visible:-translate-y-0.5 group-focus-visible:ring-2 group-focus-visible:ring-[#E8A020] group-focus-visible:ring-offset-2">
             <picture>
               <source srcSet="/images/icons/notion-logo.webp" type="image/webp" />
               <img
@@ -197,7 +197,7 @@ export default function ProgressTrackingSection() {
                 alt="Notion"
                 width={240}
                 height={240}
-                className="w-14 h-14 sm:w-16 sm:h-16"
+                className="w-16 h-16 sm:w-20 sm:h-20"
               />
             </picture>
           </span>
