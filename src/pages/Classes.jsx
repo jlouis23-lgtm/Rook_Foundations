@@ -33,7 +33,7 @@ export default function Classes() {
             <BookOpen size={14} /> Learning at every level
           </span>
           <h1 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
-            A class for every curious mind
+            Strategy games for every curious mind
           </h1>
 
           <LearningNetworkHero />
