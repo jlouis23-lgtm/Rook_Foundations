@@ -42,14 +42,17 @@ export default function ChessCurriculum() {
       <section className="relative overflow-hidden py-20">
         <ChessBg variant="page" />
 
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
+        <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10 mb-6">
           <MotionLink
             whileTap={ctaTap}
             to="/classes"
-            className="flex items-center justify-center gap-1.5 font-nunito text-[#b8790a] text-sm font-700 mb-5 hover:text-[#E8A020] transition-colors"
+            className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-700 hover:text-[#E8A020] transition-colors"
           >
             <ArrowLeft size={15} /> Back to Our Learning Approach
           </MotionLink>
+        </div>
+
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
           <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-5">
             <BookOpen size={14} /> Our chess curriculum
           </span>
