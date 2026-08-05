@@ -17,7 +17,7 @@ export default function CTABanner() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="text-5xl mb-5">♜</div>
+          <div className="text-white text-5xl mb-5">♜</div>
 
           <h2 className="font-fredoka text-white leading-tight mb-3"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>

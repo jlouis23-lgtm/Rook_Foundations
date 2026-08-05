@@ -174,7 +174,7 @@ export default function About() {
       <section className="py-20 text-center bg-[#E8A020] relative overflow-hidden">
         <ChessBg variant="cta" color="#ffffff" />
         <div className="max-w-2xl mx-auto px-6 relative z-10">
-          <div className="text-4xl mb-4">♜</div>
+          <div className="text-white text-4xl mb-4">♜</div>
           <h2 className="font-fredoka text-white mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)' }}>
             Ready to meet in person?
           </h2>

@@ -260,7 +260,7 @@ function MobileTimeline() {
               <div className="inline-flex items-center gap-2 bg-white/20 rounded-full px-3 py-1 mb-3">
                 <span className="text-white font-fredoka font-700 text-sm">Today</span>
               </div>
-              <div className="text-4xl mb-3">♜</div>
+              <div className="text-white text-4xl mb-3">♜</div>
               <p className="font-nunito text-white font-700 text-base leading-relaxed">
                 {finalMilestone.event}
               </p>
@@ -300,7 +300,7 @@ function FinalMilestone() {
           </div>
 
           {/* King piece */}
-          <div className="text-6xl mb-4 drop-shadow-lg">♜</div>
+          <div className="text-white text-6xl mb-4 drop-shadow-lg">♜</div>
 
           {/* Year */}
           <div className="font-fredoka text-white/80 text-2xl font-600 mb-3">Today</div>
