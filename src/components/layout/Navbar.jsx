@@ -7,7 +7,7 @@ import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 const navLinks = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
-  { label: 'Programmes', path: '/classes' },
+  { label: 'Our Learning Approach', path: '/classes' },
   { label: 'Pricing', path: '/pricing' },
   { label: 'Events', path: '/events' },
   { label: 'Book a Session', path: '/booking' },
@@ -69,7 +69,7 @@ export default function Navbar() {
               to="/contact"
               className="ml-2 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-2.5 rounded-2xl hover:bg-[#d4940e] transition-all duration-300 hover:shadow-lg hover:shadow-[#E8A020]/30 hover:-translate-y-0.5 flex items-center"
             >
-              50% Off First Lesson
+              Book a £5 Trial Session
             </MotionLink>
           </div>
 
@@ -89,22 +89,8 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="fixed inset-0 z-40 bg-[#FAFAF7] flex flex-col"
+            className="fixed top-20 left-0 right-0 bottom-0 z-40 bg-[#FAFAF7] border-t border-[#E8A020]/15 flex flex-col"
           >
-            <div className="flex items-center justify-between px-6 h-20 border-b border-[#E8A020]/15">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-[#E8A020] rounded-xl flex items-center justify-center">
-                  <span className="text-white text-xl">♜</span>
-                </div>
-                <div>
-                  <span className="font-fredoka text-[#2D2520] text-xl block">Rook</span>
-                  <span className="font-fredoka text-[#E8A020] text-xl block">Foundations</span>
-                </div>
-              </div>
-              <button onClick={() => setMenuOpen(false)} className="text-[#2D2520]/50 hover:text-[#2D2520]">
-                <X size={22} />
-              </button>
-            </div>
             <div className="flex-1 flex flex-col justify-center px-8 gap-2">
               {navLinks.map((link, i) => (
                 <Link
@@ -123,7 +109,7 @@ export default function Navbar() {
                 to="/contact"
                 className="mt-8 bg-[#E8A020] text-white font-fredoka font-600 text-lg px-8 py-4 text-center rounded-2xl hover:bg-[#d4940e] transition-all flex items-center justify-center"
               >
-                Claim 50% Off Your First Lesson
+                Book a £5 Trial Session
               </MotionLink>
             </div>
           </motion.div>

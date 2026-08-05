@@ -55,7 +55,7 @@ function CpBlock({ block }) {
 const contactRows = [
   { Icon: User2, label: 'Operated by', value: 'Louis Emile Jenkins', badge: 'Founder' },
   { Icon: Mail, label: 'Email', value: 'louis.jenkins@rookfoundations.com', href: 'mailto:louis.jenkins@rookfoundations.com' },
-  { Icon: Phone, label: 'Telephone', value: '07707 267563', href: 'tel:+447707267563' },
+  { Icon: Phone, label: 'Telephone', value: '07466 760885', href: 'tel:+447466760885' },
   { Icon: Globe, label: 'Website', value: 'www.rookfoundations.co.uk', href: 'https://www.rookfoundations.co.uk' },
 ];
 

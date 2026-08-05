@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
+import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
+
+const WHATSAPP_URL = 'https://wa.me/447466760885';
 
 const navLinks = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
-  { label: 'Programmes', path: '/classes' },
+  { label: 'Our Learning Approach', path: '/classes' },
   { label: 'Pricing', path: '/pricing' },
   { label: 'Book a Session', path: '/booking' },
   { label: 'Contact', path: '/contact' },
@@ -71,8 +74,18 @@ export default function Footer() {
               </div>
               <div>
                 <p className="font-nunito text-white/35 text-xs uppercase tracking-wide mb-1 font-700">Phone</p>
-                <a href="tel:+447707267563" className="font-nunito text-white/65 hover:text-[#E8A020] transition-colors text-sm">
-                  +44 7707 267563
+                <a href="tel:+447466760885" className="font-nunito text-white/65 hover:text-[#E8A020] transition-colors text-sm block">
+                  +44 7466 760885
+                </a>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Message us on WhatsApp"
+                  className="inline-flex items-center gap-1.5 font-nunito text-white/65 hover:text-[#E8A020] transition-colors text-sm mt-1"
+                >
+                  <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
+                  Message us on WhatsApp
                 </a>
               </div>
               <div>
@@ -82,7 +95,7 @@ export default function Footer() {
             </div>
             <MotionLink whileTap={ctaTap} to="/contact"
               className="inline-flex items-center mt-7 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-3 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/25">
-              Claim 50% Off First Lesson
+              Book a £5 Trial Session
             </MotionLink>
           </div>
         </div>

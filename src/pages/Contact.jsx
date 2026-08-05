@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Send, Check, MessageCircle, Gift } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import Reveal from '@/components/ui/Reveal';
+import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
+
+const WHATSAPP_URL = 'https://wa.me/447466760885';
 
 export default function Contact() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -51,7 +54,7 @@ export default function Contact() {
                 <div className="space-y-5">
                   {[
                     { icon: Mail, label: 'Email', value: 'louis.jenkins@rookfoundations.com', href: 'mailto:louis.jenkins@rookfoundations.com' },
-                    { icon: Phone, label: 'Phone', value: '+44 7707 267 563', href: 'tel:+447707267563' },
+                    { icon: Phone, label: 'Phone', value: '+44 7466 760 885', href: 'tel:+447466760885' },
                     { icon: MapPin, label: 'Location', value: 'Dunmow Library\n47 White Hart Way\nGreat Dunmow, CM6 1FS', href: null },
                     { icon: Clock, label: 'Hours', value: 'Mon–Fri: 8am – 6pm\nWeekends: By appointment', href: null },
                   ].map(({ icon: Icon, label, value, href }) => (
@@ -70,13 +73,24 @@ export default function Contact() {
                     </div>
                   ))}
                 </div>
+
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Message us on WhatsApp"
+                  className="mt-6 w-full flex items-center justify-center gap-2.5 bg-[#25D366] text-white font-fredoka font-600 text-sm py-3.5 rounded-2xl hover:bg-[#1fbd5a] transition-all hover:shadow-lg hover:shadow-[#25D366]/25 hover:-translate-y-0.5"
+                >
+                  <WhatsAppIcon className="w-5 h-5 flex-shrink-0" />
+                  Message us on WhatsApp
+                </a>
               </Reveal>
 
               <Reveal direction="left" delay={0.1} className="bg-amber-50 rounded-3xl p-7">
                 <Gift size={30} className="text-[#E8A020] mb-3" />
-                <h3 className="font-fredoka text-[#2D2520] text-xl mb-2">First Lesson — 50% Off</h3>
+                <h3 className="font-fredoka text-[#2D2520] text-xl mb-2">£5 Trial Session</h3>
                 <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">
-                  Your first assessment lesson is half price. We'll find the perfect starting point for your child and make sure they feel comfortable from the very first move.
+                  Your first assessment lesson is just £5. We'll find the perfect starting point for your child and make sure they feel comfortable from the very first move.
                 </p>
               </Reveal>
             </div>
@@ -172,7 +186,7 @@ export default function Contact() {
                       <>Send My Message <Send size={18} /></>
                     )}
                   </motion.button>
-                  <p className="font-nunito text-[#2D2520]/35 text-xs text-center">Your first assessment lesson is 50% off. No long-term commitment required.</p>
+                  <p className="font-nunito text-[#2D2520]/35 text-xs text-center">Your first assessment lesson is just £5. No long-term commitment required.</p>
                 </form>
               )}
             </Reveal>

@@ -226,7 +226,7 @@ export const privacySections = [
     "kind": "para",
     "spans": [
      {
-      "text": "07707 267563",
+      "text": "07466 760885",
       "bold": false,
       "size": null
      }
