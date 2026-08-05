@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, Star, ShieldCheck, ScanEye, Lightbulb, Sprout, Users } from 'lucide-react';
+import { ArrowRight, ShieldCheck, ScanEye, Lightbulb, Sprout, Users } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 
@@ -44,23 +44,6 @@ export default function HeroSection() {
 
       <ChessBg variant="hero" />
 
-      {/* Floating sparkles */}
-      <motion.div
-        animate={{ y: [-8, 8, -8], rotate: [0, 10, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-32 right-1/4 text-[#E8A020]/40 pointer-events-none hidden lg:block"
-      ><Sparkles size={36} /></motion.div>
-      <motion.div
-        animate={{ y: [8, -8, 8], rotate: [0, -10, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        className="absolute bottom-40 right-12 text-purple-300/50 pointer-events-none hidden lg:block"
-      ><Sparkles size={22} /></motion.div>
-      <motion.div
-        animate={{ y: [-6, 6, -6] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-        className="absolute top-48 left-16 text-green-300/40 pointer-events-none hidden lg:block"
-      ><Star size={28} /></motion.div>
-
       <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 w-full">
 
         {/* Text — centred now that the hero no longer has a companion image */}
@@ -71,8 +54,8 @@ export default function HeroSection() {
           className="max-w-3xl mx-auto text-center"
         >
 
-          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-6">
-            <Sparkles size={14} /> Chess & strategy games for curious minds
+          <span className="inline-flex items-center font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-6">
+            Chess & strategy games for curious minds
           </span>
 
           <h1 className="font-fredoka text-[#2D2520] leading-[1.1] mb-3"

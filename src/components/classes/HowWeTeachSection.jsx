@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Compass, Sparkles, Users } from 'lucide-react';
+import { Compass, Users } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import LearningJourney from '@/components/about/LearningJourney';
 import InteractiveRookPillars from '@/components/about/InteractiveRookPillars';
@@ -49,8 +49,8 @@ export default function HowWeTeachSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
-            <Sparkles size={14} /> What sets us apart
+          <span className="inline-flex items-center font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+            What sets us apart
           </span>
           <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
             What Makes Us Different?

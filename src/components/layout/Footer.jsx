@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { Sparkles } from 'lucide-react';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 
 const navLinks = [
@@ -82,8 +81,7 @@ export default function Footer() {
               </div>
             </div>
             <MotionLink whileTap={ctaTap} to="/contact"
-              className="inline-flex items-center gap-1.5 mt-7 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-3 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/25">
-              <Sparkles size={14} />
+              className="inline-flex items-center mt-7 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-3 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/25">
               Claim 50% Off First Lesson
             </MotionLink>
           </div>

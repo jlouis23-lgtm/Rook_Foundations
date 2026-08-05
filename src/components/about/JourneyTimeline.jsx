@@ -311,10 +311,8 @@ function FinalMilestone() {
           </p>
 
           {/* Decorative underline */}
-          <div className="mt-6 flex items-center justify-center gap-2">
-            <div className="h-px w-12 bg-white/40 rounded-full" />
-            <span className="text-white/60 text-xl">✦</span>
-            <div className="h-px w-12 bg-white/40 rounded-full" />
+          <div className="mt-6 flex items-center justify-center">
+            <div className="h-px w-28 bg-white/40 rounded-full" />
           </div>
         </div>
       </div>

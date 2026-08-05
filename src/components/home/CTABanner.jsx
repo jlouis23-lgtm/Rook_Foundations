@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, Star } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
@@ -9,18 +9,6 @@ export default function CTABanner() {
   return (
     <section className="relative overflow-hidden bg-[#E8A020] py-20">
       <ChessBg variant="cta" color="#ffffff" />
-
-
-      <motion.div
-        animate={{ y: [-8, 8, -8], rotate: [0, 10, 0] }}
-        transition={{ duration: 5, repeat: Infinity }}
-        className="absolute top-8 left-12 text-white/20 pointer-events-none hidden lg:block"
-      ><Sparkles size={48} /></motion.div>
-      <motion.div
-        animate={{ y: [8, -8, 8] }}
-        transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-        className="absolute bottom-8 right-20 text-white/15 pointer-events-none hidden lg:block"
-      ><Star size={32} /></motion.div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center">
         <motion.div
@@ -40,8 +28,7 @@ export default function CTABanner() {
             Skills for life.
           </h2>
 
-          <div className="inline-flex items-center gap-2 bg-white/15 rounded-full px-5 py-2 mb-7">
-            <Sparkles size={14} className="text-white" />
+          <div className="inline-flex items-center bg-white/15 rounded-full px-5 py-2 mb-7">
             <span className="font-nunito text-white font-700 text-sm">Limited Time — 50% Off Your First Lesson</span>
           </div>
 

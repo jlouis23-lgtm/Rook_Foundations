@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 
@@ -67,9 +67,8 @@ export default function Navbar() {
             <MotionLink
               whileTap={ctaTap}
               to="/contact"
-              className="ml-2 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-2.5 rounded-2xl hover:bg-[#d4940e] transition-all duration-300 hover:shadow-lg hover:shadow-[#E8A020]/30 hover:-translate-y-0.5 flex items-center gap-1.5"
+              className="ml-2 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-2.5 rounded-2xl hover:bg-[#d4940e] transition-all duration-300 hover:shadow-lg hover:shadow-[#E8A020]/30 hover:-translate-y-0.5 flex items-center"
             >
-              <Sparkles size={14} />
               50% Off First Lesson
             </MotionLink>
           </div>
@@ -122,9 +121,8 @@ export default function Navbar() {
               <MotionLink
                 whileTap={ctaTap}
                 to="/contact"
-                className="mt-8 bg-[#E8A020] text-white font-fredoka font-600 text-lg px-8 py-4 text-center rounded-2xl hover:bg-[#d4940e] transition-all flex items-center justify-center gap-2"
+                className="mt-8 bg-[#E8A020] text-white font-fredoka font-600 text-lg px-8 py-4 text-center rounded-2xl hover:bg-[#d4940e] transition-all flex items-center justify-center"
               >
-                <Sparkles size={18} />
                 Claim 50% Off Your First Lesson
               </MotionLink>
             </div>

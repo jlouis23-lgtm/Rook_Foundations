@@ -208,8 +208,8 @@ export default function Events() {
         <ChessBg variant="whychess" />
         <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center mb-14">
-            <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
-              <Sparkles size={14} /> Why it matters
+            <span className="inline-flex items-center font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+              Why it matters
             </span>
             <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
               What Children Gain
