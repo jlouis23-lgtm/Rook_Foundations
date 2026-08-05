@@ -34,8 +34,8 @@ const TEETH = [
   { x: 170, w: 60 },
   { x: 270, w: 60 },
 ];
-const TOOTH_TOP = 30;
-const TOOTH_BOTTOM = 125;
+const TOOTH_TOP = 25;
+const TOOTH_BOTTOM = 115;
 
 function RookIllustration({ active, hovered, onSelect, onHover }) {
   const gradId = useId();
@@ -59,19 +59,30 @@ function RookIllustration({ active, hovered, onSelect, onHover }) {
         </filter>
       </defs>
 
-      {/* Base plinth (two-tier) — broadened for a sturdier, more grounded base */}
-      <rect x="40" y="480" width="320" height="24" rx="6" style={{ fill: `url(#${gradId})` }} opacity="0.92" />
-      <rect x="60" y="445" width="280" height="38" rx="4" style={{ fill: `url(#${gradId})` }} />
-      {/* Base flare */}
-      <path d="M 130,400 L 270,400 L 330,445 L 70,445 Z" style={{ fill: `url(#${gradId})` }} />
-      {/* Shaft — substantially widened so the piece reads as a rook, not a torch */}
-      <rect x="130" y="225" width="140" height="175" style={{ fill: `url(#${gradId})` }} />
-      {/* Collar band */}
-      <rect x="115" y="295" width="170" height="20" rx="4" fill="#c98a12" opacity="0.55" />
-      {/* Neck taper */}
-      <path d="M 90,175 L 310,175 L 270,225 L 130,225 Z" style={{ fill: `url(#${gradId})` }} />
-      {/* Crown slab */}
-      <rect x="55" y="125" width="290" height="50" rx="3" style={{ fill: `url(#${gradId})` }} />
+      {/* Plinth */}
+      <rect x="38" y="460" width="324" height="28" rx="11" style={{ fill: `url(#${gradId})` }} opacity="0.92" />
+      {/* Shaft and base flare — one seamless curve, no straight edges */}
+      <path
+        d="M 133,228
+           C 127,270 126,310 130,348
+           C 133,378 128,398 100,418
+           C 80,433 68,442 66,458
+           L 334,458
+           C 332,442 320,433 300,418
+           C 272,398 267,378 270,348
+           C 274,310 273,270 267,228
+           Z"
+        style={{ fill: `url(#${gradId})` }}
+      />
+      {/* Collar ring at the neck/crown junction */}
+      <ellipse cx="200" cy="228" rx="67" ry="7" fill="#c98a12" opacity="0.5" />
+      {/* Neck taper — crown rim curving down into the shaft */}
+      <path
+        d="M 90,170 C 90,188 102,206 133,228 L 267,228 C 298,206 310,188 310,170 Z"
+        style={{ fill: `url(#${gradId})` }}
+      />
+      {/* Crown rim */}
+      <rect x="50" y="115" width="300" height="56" rx="6" style={{ fill: `url(#${gradId})` }} />
 
       {/* Three crenellations — decorative + mouse/touch clickable, kept out of
           the tab order since the labelled buttons below are the canonical
