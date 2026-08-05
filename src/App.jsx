@@ -12,6 +12,7 @@ import PageLayout from './components/layout/PageLayout';
 import Home from './pages/Home';
 import About from './pages/About';
 import Classes from './pages/Classes';
+import ChessCurriculum from './pages/ChessCurriculum';
 import Contact from './pages/Contact';
 import Booking from './pages/Booking';
 import Pricing from './pages/Pricing';
@@ -54,6 +55,7 @@ const AuthenticatedApp = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/classes" element={<Classes />} />
+        <Route path="/classes/chess-curriculum" element={<ChessCurriculum />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/booking" element={<Booking />} />
