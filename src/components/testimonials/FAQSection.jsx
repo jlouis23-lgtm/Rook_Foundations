@@ -31,6 +31,10 @@ const faqs = [
     a: "Yes. Our sessions are designed to meet children where they are. Whether they're completely new to strategy games or already have experience, activities are adapted to provide the right level of challenge.",
   },
   {
+    q: "My child is only 5. Are they too young for this?",
+    a: "Not at all. Our games and our approach can be made adaptable and suitable for your child.",
+  },
+  {
     q: "How is Rook Foundations different from traditional chess coaching?",
     a: "Traditional coaching often focuses on improving performance within the game. Our focus is broader. We use strategy games to help children develop thinking skills, communication, reflection, patience and confidence that extend beyond the board.",
   },
@@ -78,7 +82,7 @@ const faqs = [
         <p className="mb-3">Individual sessions allow for more personalised guidance, deeper questioning and detailed reflection.</p>
         <p>
           Group sessions place greater emphasis on communication, teamwork, respectful competition and learning alongside others. You can read more on our{' '}
-          <Link to="/about" onClick={() => window.scrollTo(0, 0)} className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">
+          <Link to="/classes" onClick={() => window.scrollTo(0, 0)} className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">
             How We Teach page
           </Link>.
         </p>
@@ -87,7 +91,15 @@ const faqs = [
   },
   {
     q: "How do you measure progress?",
-    a: "Rather than relying solely on game results, we observe how children develop over time. This may include improvements in communication, confidence, decision-making, reflection and engagement. For individual sessions, we also keep personalised learning notes to help guide future teaching.",
+    a: (
+      <>
+        <p className="mb-3">
+          Progress is NOT measured by how well a child plays a game. It is measured by how they grow as a learner. We use a structured developmental framework to observe and record progress across the six main stages of our learning cycle. See our six-stage learning cycle{' '}
+          <Link to="/classes#learning-journey" className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">here</Link>.
+        </p>
+        <p>Regular observations and personalised learning records provide a clear view of each child's strengths. It also helps us celebrate progress, reinforce existing learning and identify the next steps in their learning journey.</p>
+      </>
+    ),
   },
   {
     q: "Will I receive feedback about my child?",
@@ -176,7 +188,7 @@ export default function FAQSection() {
           </span>
           <h2 className="font-fredoka text-[#2D2520] leading-tight mb-4"
             style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-            Things families often ask us
+            Your questions answered.
           </h2>
           <p className="font-nunito text-[#2D2520]/55 text-base leading-relaxed max-w-xl mx-auto">
             Before launching, I asked prospective parents what mattered most to them about Rook Foundations, and what they were unsure about. These are the questions which came up the most.

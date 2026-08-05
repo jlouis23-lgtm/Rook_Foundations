@@ -1,5 +1,14 @@
-import { motion } from 'framer-motion';
-import { BrainCircuit, Shuffle, UserCheck } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { BrainCircuit, Shuffle, UserCheck, ChevronDown } from 'lucide-react';
+
+const EASE = [0.22, 1, 0.36, 1];
+
+const infoCards = [
+  { Icon: BrainCircuit, label: 'Developing Thinking Skills', accent: '#4a7eb8', body: 'We use a wide range of games to help children strengthen problem-solving, strategic thinking, and confidence when approaching new challenges. Each game provides opportunities to practise planning, reasoning, and decision-making in an engaging way.' },
+  { Icon: Shuffle, label: 'Learning Through Different Games', accent: '#b8790a', body: 'Every game encourages a different way of thinking. By exploring multiple games, children learn to adapt their strategies, consider new perspectives, and develop greater flexibility in their thinking. This variety helps to keep learning both challenging and enjoyable.' },
+  { Icon: UserCheck, label: 'Tailored to Every Child', accent: '#2d8c62', body: 'Different games require different levels of concentration and complexity. We carefully select activities that match each child\'s age, ability, and stage of development. Our lessons aim to build confidence as well as progress.' },
+];
 
 const games = [
   { src: 'https://media.base44.com/images/public/6a23e24248d670657218b06c/330e1e1cd_generated_image.png', alt: 'Memory Match Chess' },
@@ -21,8 +30,18 @@ const games = [
 ];
 
 export default function GamesGallery() {
+  const [openCards, setOpenCards] = useState(() => new Set());
+
+  const toggleCard = (i) => {
+    setOpenCards((prev) => {
+      const next = new Set(prev);
+      if (next.has(i)) next.delete(i); else next.add(i);
+      return next;
+    });
+  };
+
   return (
-    <section className="py-20 bg-[#FAFAF7]">
+    <section id="games" className="py-20 bg-[#FAFAF7] scroll-mt-24">
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
 
         {/* Subtle intro tag */}
@@ -63,26 +82,64 @@ export default function GamesGallery() {
           ))}
         </div>
 
-        {/* Supporting content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-10">
-          {[
-            { Icon: BrainCircuit, label: 'Developing Thinking Skills',       accent: '#4a7eb8', body: 'We use a wide range of games to help children strengthen problem-solving, strategic thinking, and confidence when approaching new challenges. Each game provides opportunities to practise planning, reasoning, and decision-making in an engaging way.' },
-            { Icon: Shuffle,      label: 'Learning Through Different Games', accent: '#b8790a', body: 'Every game encourages a different way of thinking. By exploring multiple games, children learn to adapt their strategies, consider new perspectives, and develop greater flexibility in their thinking. This variety helps to keep learning both challenging and enjoyable.' },
-            { Icon: UserCheck,    label: 'Tailored to Every Child',          accent: '#2d8c62', body: 'Different games require different levels of concentration and complexity. We carefully select activities that match each child\'s age, ability, and stage of development. Our lessons aim to build confidence as well as progress.' },
-          ].map((card, i) => (
-            <motion.div
-              key={card.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group"
-            >
-              <div className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"><card.Icon size={28} style={{ color: card.accent }} /></div>
-              <h3 className="font-fredoka text-lg mb-3" style={{ color: card.accent }}>{card.label}</h3>
-              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{card.body}</p>
-            </motion.div>
-          ))}
+        {/* Supporting content — click a card to reveal its detail */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+          {infoCards.map((card, i) => {
+            const isOpen = openCards.has(i);
+            return (
+              <motion.div
+                key={card.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <button
+                  type="button"
+                  onClick={() => toggleCard(i)}
+                  aria-expanded={isOpen}
+                  className="group w-full text-left bg-white border-2 rounded-2xl p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#FAFAF7]"
+                  style={{
+                    borderColor: isOpen ? card.accent : `${card.accent}20`,
+                    boxShadow: isOpen ? `0 10px 28px ${card.accent}18` : undefined,
+                    '--tw-ring-color': card.accent,
+                  }}
+                >
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <span
+                      className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:-rotate-6"
+                      style={{ backgroundColor: isOpen ? card.accent : `${card.accent}14` }}
+                    >
+                      <card.Icon size={22} style={{ color: isOpen ? '#fff' : card.accent }} />
+                    </span>
+                    <motion.span
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.25, ease: EASE }}
+                      className="flex-shrink-0 mt-1"
+                    >
+                      <ChevronDown size={18} style={{ color: card.accent }} />
+                    </motion.span>
+                  </div>
+
+                  <h3 className="font-fredoka text-lg leading-snug" style={{ color: card.accent }}>{card.label}</h3>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: EASE }}
+                        className="overflow-hidden"
+                      >
+                        <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed pt-3">{card.body}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </button>
+              </motion.div>
+            );
+          })}
         </div>
 
       </div>

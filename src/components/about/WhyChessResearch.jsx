@@ -1,11 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown, ScanEye, GitBranch, HeartHandshake, GraduationCap, Users, BookOpen, FlaskConical, Compass, Sparkles } from 'lucide-react';
+import { ArrowRight, ChevronDown, ScanEye, GitBranch, HeartHandshake, GraduationCap, BookOpen, FlaskConical } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
-import InteractiveRookPillars from '@/components/about/InteractiveRookPillars';
-import LearningJourney from '@/components/about/LearningJourney';
-import IndividualGroupSessions from '@/components/about/IndividualGroupSessions';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -118,89 +115,6 @@ export default function WhyChessResearch() {
           ))}
         </motion.div>
 
-        {/* How We Teach — standalone section heading, matching the header pattern above */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-14"
-        >
-          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
-            <Compass size={14} /> Our approach
-          </span>
-          <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-            How We Teach
-          </h2>
-          <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-xl mx-auto leading-relaxed">
-            Chess and strategy games are simply the vehicle. What actually shapes how your child grows with us is a consistent six-stage journey that repeats and deepens with every session. We don't claim these skills transfer automatically, but nurtured through relationship, challenge and reflection like this, they very often do.
-          </p>
-        </motion.div>
-      </div>
-
-      {/* Learning journey diagram — full-width breakout for the circular layout */}
-      <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10 mb-16">
-        <LearningJourney />
-      </div>
-
-      {/* What Makes Us Different — standalone heading for the six-pillar rook */}
-      <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
-            <Sparkles size={14} /> What sets us apart
-          </span>
-          <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-            What Makes Us Different?
-          </h2>
-          <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-xl mx-auto leading-relaxed">
-            These six principles guide everything we teach, and they're what set Rook Foundations apart from traditional chess coaching and many other educational programmes.
-          </p>
-        </motion.div>
-
-        {/* Core principles — interactive rook illustration */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.65 }}
-          className="mb-14"
-        >
-          <InteractiveRookPillars />
-        </motion.div>
-      </div>
-
-      {/* Individual & Group Learning — standalone heading, matching the pattern above */}
-      <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
-            <Users size={14} /> Two ways to learn
-          </span>
-          <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-            Which Learning Environment Is Right for Your Child?
-          </h2>
-          <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-xl mx-auto leading-relaxed">
-            We don't believe one format is inherently better than the other. We take the time to understand how each child learns best.
-          </p>
-        </motion.div>
-      </div>
-
-      <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10 mb-16">
-        <IndividualGroupSessions />
-      </div>
-
-      <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
         {/* Values line */}
         <div className="mb-14 flex items-center justify-center gap-2">
           <div className="w-1.5 h-1.5 rounded-full bg-[#E8A020]" />
