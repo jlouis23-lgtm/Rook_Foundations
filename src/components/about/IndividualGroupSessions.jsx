@@ -140,7 +140,7 @@ export default function IndividualGroupSessions() {
         ))}
       </div>
 
-      {/* Comparison table */}
+      {/* Comparison — stacked paired cards on mobile, table from sm and up */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -148,39 +148,61 @@ export default function IndividualGroupSessions() {
         transition={{ duration: 0.5, ease: EASE }}
         className="rounded-3xl border border-[#2D2520]/10 bg-white overflow-hidden shadow-sm"
       >
-        <div className="relative">
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[560px] border-collapse">
-              <thead>
-                <tr>
-                  <th className="font-fredoka text-left text-base sm:text-lg px-4 sm:px-6 py-4" style={{ color: sessionTypes[0].accent, backgroundColor: `${sessionTypes[0].accent}10` }}>
-                    Individual Learning
-                  </th>
-                  <th className="font-fredoka text-left text-base sm:text-lg px-4 sm:px-6 py-4" style={{ color: sessionTypes[1].accent, backgroundColor: `${sessionTypes[1].accent}10` }}>
-                    Group Learning
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparisonRows.map((row, i) => (
-                  <tr key={i} className={i % 2 === 1 ? 'bg-[#F5F3EE]/60' : 'bg-white'}>
-                    <td className="font-nunito text-[#2D2520]/70 text-sm leading-relaxed px-4 sm:px-6 py-4 border-t border-[#2D2520]/8 align-top">
-                      {row[0]}
-                    </td>
-                    <td className="font-nunito text-[#2D2520]/70 text-sm leading-relaxed px-4 sm:px-6 py-4 border-t border-l border-[#2D2520]/8 align-top">
-                      {row[1]}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        {/* Mobile — no horizontal scroll; each row becomes a paired card read top to bottom */}
+        <div className="sm:hidden p-5">
+          <h4 className="font-fredoka text-[#2D2520] text-base mb-4">At a glance</h4>
+          <div className="flex items-center gap-5 mb-4">
+            {sessionTypes.map((s) => (
+              <div key={s.key} className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: s.accent }} />
+                <span className="font-nunito text-xs font-700 uppercase tracking-wide" style={{ color: s.accent }}>
+                  {s.heading.replace(' Sessions', '')}
+                </span>
+              </div>
+            ))}
           </div>
-          {/* Fade hint indicating horizontal scroll — only relevant below the table's min-width breakpoint */}
-          <div className="sm:hidden absolute top-0 right-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent pointer-events-none" />
+          <div className="space-y-3">
+            {comparisonRows.map((row, i) => (
+              <div key={i} className="rounded-2xl bg-[#F5F3EE]/60 p-4">
+                <div className="flex items-start gap-2.5">
+                  <span className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: sessionTypes[0].accent }} />
+                  <p className="font-nunito text-[#2D2520]/75 text-sm leading-relaxed">{row[0]}</p>
+                </div>
+                <div className="my-3 ml-[18px] border-t border-[#2D2520]/10" />
+                <div className="flex items-start gap-2.5">
+                  <span className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: sessionTypes[1].accent }} />
+                  <p className="font-nunito text-[#2D2520]/75 text-sm leading-relaxed">{row[1]}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-        <p className="sm:hidden text-center font-nunito text-[#2D2520]/35 text-xs mt-3">
-          Swipe sideways to compare both columns →
-        </p>
+
+        {/* Tablet & desktop — unchanged table layout */}
+        <table className="hidden sm:table w-full border-collapse">
+          <thead>
+            <tr>
+              <th className="font-fredoka text-left text-base sm:text-lg px-4 sm:px-6 py-4" style={{ color: sessionTypes[0].accent, backgroundColor: `${sessionTypes[0].accent}10` }}>
+                Individual Learning
+              </th>
+              <th className="font-fredoka text-left text-base sm:text-lg px-4 sm:px-6 py-4" style={{ color: sessionTypes[1].accent, backgroundColor: `${sessionTypes[1].accent}10` }}>
+                Group Learning
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {comparisonRows.map((row, i) => (
+              <tr key={i} className={i % 2 === 1 ? 'bg-[#F5F3EE]/60' : 'bg-white'}>
+                <td className="font-nunito text-[#2D2520]/70 text-sm leading-relaxed px-4 sm:px-6 py-4 border-t border-[#2D2520]/8 align-top">
+                  {row[0]}
+                </td>
+                <td className="font-nunito text-[#2D2520]/70 text-sm leading-relaxed px-4 sm:px-6 py-4 border-t border-l border-[#2D2520]/8 align-top">
+                  {row[1]}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </motion.div>
     </div>
   );
