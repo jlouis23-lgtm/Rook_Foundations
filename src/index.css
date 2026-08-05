@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Fredoka:wght@400;500;600;700&family=Lato:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -36,12 +36,15 @@
   body {
     background-color: #FAFAF7;
     color: #2D2520;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Karla', sans-serif;
+    line-height: 1.65;
     border-right: none !important;
   }
   h1, h2, h3, h4 {
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Fraunces', serif;
     font-weight: 600;
+    letter-spacing: -0.01em;
+    font-optical-sizing: auto;
   }
 }
 

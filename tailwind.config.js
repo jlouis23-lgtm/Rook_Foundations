@@ -10,10 +10,24 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
       fontFamily: {
-        fredoka: ['Fredoka', 'sans-serif'],
-        nunito: ['Nunito', 'sans-serif'],
-        lato: ['Lato', 'sans-serif'],
-        oswald: ['Fredoka', 'sans-serif'],
+        // Class names kept as-is (referenced in ~430 places across the app) —
+        // only the underlying typefaces changed, from Fredoka/Nunito/Lato to
+        // Fraunces/Karla, as part of a site-wide typography refresh.
+        fredoka: ['Fraunces', 'serif'],
+        nunito: ['Karla', 'sans-serif'],
+        lato: ['Karla', 'sans-serif'],
+        oswald: ['Fraunces', 'serif'],
+      },
+      fontWeight: {
+        // Numeric weight utilities (font-600, font-700, font-800 etc.) used
+        // throughout the app — Tailwind only ships named keys by default, so
+        // without this these classes silently did nothing.
+        400: '400',
+        500: '500',
+        600: '600',
+        700: '700',
+        800: '800',
+        900: '900',
       },
   		colors: {
         gold: {
