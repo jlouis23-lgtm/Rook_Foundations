@@ -120,13 +120,13 @@ export default function Benefits() {
             See it for yourself.
           </h2>
           <p className="font-lato text-white/50 text-lg mb-8">
-            Get 50% off your child's first lesson and experience the Rook Foundations difference first-hand.
+            Book a £5 trial session and experience the Rook Foundations difference first-hand.
           </p>
           <Link
             to="/contact"
             className="inline-flex items-center gap-2 bg-[#D4A843] text-[#0A0A0A] font-oswald font-700 tracking-wider px-8 py-4 hover:bg-[#e8c06a] transition-all"
           >
-            CLAIM 50% OFF FIRST LESSON <ArrowRight size={18} />
+            BOOK A £5 TRIAL SESSION <ArrowRight size={18} />
           </Link>
         </div>
       </section>

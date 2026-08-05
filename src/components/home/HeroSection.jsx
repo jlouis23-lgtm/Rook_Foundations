@@ -20,7 +20,7 @@ const features = [
     accent: '#4a7eb8',
     tag: 'Focus & Confidence',
     title: 'Confidence, one move at a time',
-    body: 'Fun, in-person strategy games — including chess — help children aged 5–12 build focus and strong decision-making skills.',
+    body: 'Fun, in-person strategy games used to help children aged 5–12 build focus and strong decision-making skills.',
   },
   {
     Icon: Lightbulb,
@@ -77,7 +77,7 @@ export default function HeroSection() {
               to="/contact"
               onClick={() => window.scrollTo(0, 0)}
               className="group bg-[#E8A020] text-white font-fredoka font-600 text-lg px-8 py-4 rounded-2xl hover:bg-[#d4940e] transition-all duration-300 hover:shadow-xl hover:shadow-[#E8A020]/30 hover:-translate-y-0.5 flex items-center gap-3">
-              Claim 50% Off Your First Lesson
+              Book a £5 Trial Session
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </MotionLink>
             <div className="flex items-center gap-2">

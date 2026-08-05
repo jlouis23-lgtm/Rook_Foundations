@@ -29,7 +29,7 @@ export default function CTABanner() {
           </h2>
 
           <div className="inline-flex items-center bg-white/15 rounded-full px-5 py-2 mb-7">
-            <span className="font-nunito text-white font-700 text-sm">Limited Time — 50% Off Your First Lesson</span>
+            <span className="font-nunito text-white font-700 text-sm">Book a £5 Trial Session</span>
           </div>
 
           <p className="font-nunito text-white/80 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
@@ -43,7 +43,7 @@ export default function CTABanner() {
               onClick={() => window.scrollTo(0, 0)}
               className="group bg-white text-[#E8A020] font-fredoka font-600 text-lg px-10 py-4 rounded-2xl hover:bg-[#fdf6e8] transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-3"
             >
-              Claim Your 50% Off Now
+              Book a £5 Trial Session
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </MotionLink>
             <Link
