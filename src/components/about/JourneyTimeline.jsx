@@ -1,342 +1,292 @@
-import { useRef, useState, useLayoutEffect } from 'react';
-import { motion, useScroll } from 'framer-motion';
+import { useEffect, useId, useRef, useState } from 'react';
+import { motion, AnimatePresence, useScroll } from 'framer-motion';
+import { TrendingUp, X } from 'lucide-react';
 
-const timeline = [
-  { year: '2018', emoji: '📚', event: "Began tutoring GCSE students in Maths, Science, and English. Developed skills in providing personalised academic support, building on previous lessons and using well-timed breaks to maximise concentration and learning." },
-  { year: '2019', emoji: '⛺', event: "Worked as a Youth Officer at a children's camp, designing age-specific activities that deepened an understanding of child engagement, teamwork, and structured play." },
-  { year: '2021', emoji: '🧠', event: 'Started a BSc in Psychology at the University of Manchester, focusing on developmental psychology, cognitive development, and how children build resilience through supportive environments.' },
-  { year: '2022', emoji: '🤝', event: "Volunteered with Midlands charity ReachOut as a Peer Mentor, helping children from disadvantaged backgrounds build academic confidence, communication skills, and self-belief." },
-  { year: '2023', emoji: '🔍', event: "Conducted research with parents experiencing mental illness, exploring how stigma affects parenting and children's emotional wellbeing." },
-  { year: '2024', emoji: '🏛️', event: "Began an MSc in War and Psychology at King's College London, studying trauma therapy, CBT, resilience, and emotional recovery in young people." },
-  { year: '2025', emoji: '💻', event: 'Conducted an independent study exploring whether AI and machine learning could be used as a screening tool for mental health issues in veterans post conflict.' },
-  { year: '2026', emoji: '🏠', event: "Began working as a Children's Residential Support Worker, supporting young people from complex backgrounds with structure, safety, and stability." },
+const EASE = [0.22, 1, 0.36, 1];
+
+const milestones = [
+  { year: '2018', title: 'Academic Tutoring', body: 'Tutoring GCSE students in Maths, Science and English.' },
+  { year: '2019', title: 'Youth Camp Officer', body: "Working as a Youth Officer at a children's camp, designing age-specific activities for primary school children." },
+  { year: '2021', title: 'BSc Psychology', body: 'BSc in Psychology at the University of Manchester, focusing on developmental psychology, cognitive development and how children build resilience through supportive environments.' },
+  { year: '2022', title: 'Peer Mentoring', body: 'Volunteering with Midlands charity ReachOut as a Peer Mentor, helping children from disadvantaged backgrounds build academic confidence, communication skills and self-belief.' },
+  { year: '2023', title: 'Mental Health Research', body: "Conducting research with parents experiencing mental illness, exploring how stigma affects parenting and children's emotional wellbeing." },
+  { year: '2024', title: 'MSc War & Psychiatry', body: "MSc in War and Psychiatry at King's College London, studying trauma therapy, CBT, resilience and human response to conflict." },
+  { year: '2025', title: 'AI & PTSD Research', body: 'Conducting independent research exploring whether AI and machine learning could be used as a screening tool for post-traumatic stress in the UK Armed Forces.' },
+  { year: '2026', title: 'Residential Support Worker', body: "Working as a Children's Residential Support Worker, supporting young people from complex backgrounds with structure, safety and stability." },
 ];
 
 const finalMilestone = {
   year: 'Today',
-  emoji: '♜',
-  event: 'Rook Foundations was born from a belief that chess and other games like it build positive life skills if they are rewarded and encouraged properly.',
+  title: 'Rook Foundations',
+  body: 'Rook Foundations was born from a belief that chess and other strategy games can build lifelong thinking skills, resilience and confidence when children are guided, challenged and encouraged in the right environment.',
 };
 
-// Each entry: position on desktop (col = 1..3), and side label alignment
-// Pattern: zigzag across 3 columns — left, right, left, right...
-const positions = [
-  { col: 'left' },    // 2018
-  { col: 'right' },   // 2019
-  { col: 'left' },    // 2021
-  { col: 'right' },   // 2022
-  { col: 'left' },    // 2023
-  { col: 'right' },   // 2024
-  { col: 'left' },    // 2025
-  { col: 'right' },   // 2026
+// Illustrative coordinates in percentage space — hand-placed, not a computed
+// function. Y is ordinal by entry order (this is a story axis, not a literal
+// calendar scale): 2018 sits low, "today" sits at the very top. X advances
+// every step, with slightly longer strides later on, so the climb visibly
+// steepens as each experience compounds on the last.
+const points = [
+  { x: 8, y: 93 },
+  { x: 16, y: 82 },
+  { x: 24, y: 71 },
+  { x: 33, y: 60 },
+  { x: 42, y: 49 },
+  { x: 54, y: 38 },
+  { x: 66, y: 26 },
+  { x: 79, y: 14 },
+  { x: 92, y: 3 }, // Rook Foundations
 ];
 
-// ─── Desktop zigzag layout ────────────────────────────────────────────────────
-function DesktopTimeline() {
-  const containerRef = useRef(null);
-  const itemRefs = useRef([]);
-  const [pathD, setPathD] = useState(
-    'M 200,40 C 200,120 600,120 600,240 C 600,360 200,360 200,480 C 200,600 600,600 600,720 C 600,840 200,840 200,960 C 200,1080 600,1080 600,1200 C 600,1280 400,1320 400,1380'
-  );
-  const [dims, setDims] = useState({ width: 800, height: 1400 });
-  const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start 0.85', 'end 0.4'] });
-
-  useLayoutEffect(() => {
-    function measure() {
-      const container = containerRef.current;
-      if (!container) return;
-      const containerRect = container.getBoundingClientRect();
-      if (containerRect.height === 0) return;
-
-      // One waypoint per timeline card, at its true rendered vertical centre —
-      // this is what guarantees the line actually crosses every year, even
-      // when card heights vary with how much text each entry has.
-      const points = timeline.map((_, i) => {
-        const el = itemRefs.current[i];
-        if (!el) return null;
-        const rect = el.getBoundingClientRect();
-        const isLeft = positions[i].col === 'left';
-        return {
-          x: containerRect.width * (isLeft ? 0.25 : 0.75),
-          y: rect.top - containerRect.top + rect.height / 2,
-        };
-      }).filter(Boolean);
-
-      if (points.length < 2) return;
-
-      let d = `M ${points[0].x},${points[0].y}`;
-      for (let i = 1; i < points.length; i++) {
-        const prev = points[i - 1];
-        const curr = points[i];
-        const midY = (prev.y + curr.y) / 2;
-        d += ` C ${prev.x},${midY} ${curr.x},${midY} ${curr.x},${curr.y}`;
-      }
-      // Continue down to the convergence point at the bottom of the container
-      // (where the funnel lines lead into the "Today" milestone).
-      const last = points[points.length - 1];
-      const endX = containerRect.width / 2;
-      const endY = containerRect.height;
-      const endMidY = (last.y + endY) / 2;
-      d += ` C ${last.x},${endMidY} ${endX},${endMidY} ${endX},${endY}`;
-
-      setPathD(d);
-      setDims({ width: containerRect.width, height: containerRect.height });
-    }
-
-    measure();
-    window.addEventListener('resize', measure);
-    document.fonts?.ready?.then(measure);
-    const t = setTimeout(measure, 300);
-    return () => {
-      window.removeEventListener('resize', measure);
-      clearTimeout(t);
-    };
-  }, []);
-
-  return (
-    <div ref={containerRef} className="hidden lg:block relative">
-      {/* Winding SVG road — draws itself as the journey is scrolled through.
-          Path is measured from the real card positions below so it always
-          passes through every year, regardless of card height. */}
-      <svg
-        className="absolute inset-0 w-full pointer-events-none"
-        style={{ height: '100%', zIndex: 0 }}
-        preserveAspectRatio="none"
-        viewBox={`0 0 ${dims.width} ${dims.height}`}
-        aria-hidden="true"
-      >
-        {/* Dashed winding path */}
-        <motion.path
-          d={pathD}
-          fill="none"
-          stroke="#E8A020"
-          strokeWidth="3"
-          strokeDasharray="10,8"
-          strokeOpacity="0.25"
-          strokeLinecap="round"
-          style={{ pathLength: scrollYProgress }}
-        />
-        {/* Glow overlay */}
-        <motion.path
-          d={pathD}
-          fill="none"
-          stroke="#F4C261"
-          strokeWidth="1.5"
-          strokeOpacity="0.12"
-          strokeLinecap="round"
-          style={{ pathLength: scrollYProgress }}
-        />
-      </svg>
-
-      <div className="relative z-10 space-y-0">
-        {timeline.map((t, i) => {
-          const isLeft = positions[i].col === 'left';
-          return (
-            <motion.div
-              key={t.year}
-              ref={(el) => (itemRefs.current[i] = el)}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: i * 0.08 }}
-              className={`flex items-center gap-0 ${isLeft ? 'justify-start' : 'justify-end'}`}
-              style={{ marginBottom: '2.5rem' }}
-            >
-              {isLeft ? (
-                <>
-                  {/* Card on left */}
-                  <div className="w-5/12">
-                    <div className="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-lg">{t.emoji}</span>
-                        <span className="font-fredoka text-[#E8A020] font-600 text-base">{t.year}</span>
-                      </div>
-                      <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{t.event}</p>
-                    </div>
-                  </div>
-                  {/* Gutter — winding path passes through here */}
-                  <div className="w-2/12" />
-                  {/* Empty right */}
-                  <div className="w-5/12" />
-                </>
-              ) : (
-                <>
-                  {/* Empty left */}
-                  <div className="w-5/12" />
-                  {/* Gutter — winding path passes through here */}
-                  <div className="w-2/12" />
-                  {/* Card on right */}
-                  <div className="w-5/12">
-                    <div className="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-lg">{t.emoji}</span>
-                        <span className="font-fredoka text-[#E8A020] font-600 text-base">{t.year}</span>
-                      </div>
-                      <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{t.event}</p>
-                    </div>
-                  </div>
-                </>
-              )}
-            </motion.div>
-          );
-        })}
-      </div>
-
-      {/* Convergence funnel lines */}
-      <div className="relative flex justify-center mt-2 mb-2 z-10">
-        <div className="flex items-end gap-0 w-full justify-center">
-          <div className="h-10 w-px bg-gradient-to-b from-[#E8A020]/30 to-[#E8A020]/70 mx-1" style={{ marginRight: '4rem' }} />
-          <div className="h-16 w-px bg-gradient-to-b from-[#E8A020]/10 to-[#E8A020]/60" />
-          <div className="h-10 w-px bg-gradient-to-b from-[#E8A020]/30 to-[#E8A020]/70 mx-1" style={{ marginLeft: '4rem' }} />
-        </div>
-      </div>
-
-      {/* Today — Final milestone */}
-      <FinalMilestone />
-    </div>
-  );
+function buildPath(pts) {
+  let d = `M ${pts[0].x} ${pts[0].y}`;
+  for (let i = 1; i < pts.length; i++) {
+    const p0 = pts[i - 1];
+    const p1 = pts[i];
+    const midY = (p0.y + p1.y) / 2;
+    d += ` C ${p0.x} ${midY}, ${p1.x} ${midY}, ${p1.x} ${p1.y}`;
+  }
+  return d;
 }
 
-// ─── Mobile / tablet layout ───────────────────────────────────────────────────
-function MobileTimeline() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start 0.85', 'end 0.4'] });
+const pathD = buildPath(points);
+const allEntries = [...milestones, finalMilestone];
+const finalIndex = milestones.length;
 
-  return (
-    <div ref={containerRef} className="lg:hidden relative">
-      {/* Vertical road line — grows as the journey is scrolled through */}
-      <motion.div
-        style={{ scaleY: scrollYProgress, transformOrigin: 'top' }}
-        className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#E8A020]/15 via-[#E8A020]/40 to-[#E8A020]/80 rounded-full"
-      />
-
-      <div className="space-y-6 relative z-10">
-        {timeline.map((t, i) => (
-          <motion.div
-            key={t.year}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.07 }}
-            className="flex items-start gap-4 pl-2"
-          >
-            {/* Node */}
-            <div className="flex-shrink-0 mt-3">
-              <div className="w-5 h-5 rounded-full bg-[#E8A020] border-2 border-white shadow-md shadow-[#E8A020]/30 z-10" />
-            </div>
-            {/* Card */}
-            <div className="bg-white rounded-2xl p-4 flex-1 shadow-sm">
-              <div className="flex items-center gap-2 mb-1.5">
-                <span className="text-base">{t.emoji}</span>
-                <span className="font-fredoka text-[#E8A020] font-600 text-sm">{t.year}</span>
-              </div>
-              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{t.event}</p>
-            </div>
-          </motion.div>
-        ))}
-
-        {/* Converging arrow on mobile */}
-        <div className="flex items-center justify-center pl-2 py-2">
-          <div className="flex flex-col items-center gap-1">
-            <div className="w-0.5 h-8 bg-gradient-to-b from-[#E8A020]/40 to-[#E8A020]" />
-            <div className="text-[#E8A020] text-lg">▼</div>
-          </div>
-        </div>
-
-        {/* Today mobile */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="pl-2"
-        >
-          <div className="relative bg-[#E8A020] rounded-3xl p-6 shadow-xl shadow-[#E8A020]/30 overflow-hidden">
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-2 right-4 text-white text-6xl font-fredoka">♜</div>
-              <div className="absolute bottom-2 left-2 text-white text-4xl font-fredoka">♜</div>
-            </div>
-            <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 bg-white/20 rounded-full px-3 py-1 mb-3">
-                <span className="text-white font-fredoka font-700 text-sm">Today</span>
-              </div>
-              <div className="text-white text-4xl mb-3">♜</div>
-              <p className="font-nunito text-white font-700 text-base leading-relaxed">
-                {finalMilestone.event}
-              </p>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-    </div>
-  );
-}
-
-// ─── Final "Today" milestone ──────────────────────────────────────────────────
-function FinalMilestone() {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 40, scale: 0.95 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="relative z-10 mx-auto max-w-2xl"
-    >
-      {/* Glow halo */}
-      <div className="absolute -inset-4 bg-[#E8A020]/10 rounded-[2.5rem] blur-xl" />
-
-      <div className="relative bg-gradient-to-br from-[#E8A020] to-[#d4920a] rounded-3xl p-8 sm:p-10 shadow-2xl shadow-[#E8A020]/35 overflow-hidden border-2 border-[#F4C261]/40">
-        {/* Background chess pieces */}
-        <div className="absolute inset-0 overflow-hidden opacity-10 pointer-events-none select-none">
-          <span className="absolute top-3 right-5 text-white text-7xl font-fredoka">♜</span>
-          <span className="absolute bottom-4 left-4 text-white text-5xl font-fredoka">♛</span>
-          <span className="absolute top-1/2 right-1/4 text-white text-3xl font-fredoka">♞</span>
-        </div>
-
-        <div className="relative z-10 text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-white/15 rounded-full px-4 py-1.5 mb-5">
-            <span className="text-white font-nunito font-800 text-sm tracking-wide uppercase">The destination</span>
-          </div>
-
-          {/* King piece */}
-          <div className="text-white text-6xl mb-4 drop-shadow-lg">♜</div>
-
-          {/* Year */}
-          <div className="font-fredoka text-white/80 text-2xl font-600 mb-3">Today</div>
-
-          {/* Main text */}
-          <p className="font-nunito text-white font-700 text-xl sm:text-2xl leading-relaxed max-w-lg mx-auto">
-            {finalMilestone.event}
-          </p>
-
-          {/* Decorative underline */}
-          <div className="mt-6 flex items-center justify-center">
-            <div className="h-px w-28 bg-white/40 rounded-full" />
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
-// ─── Main export ──────────────────────────────────────────────────────────────
 export default function JourneyTimeline() {
+  const [active, setActive] = useState(null);
+  const [hovered, setHovered] = useState(null);
+  const wrapperRef = useRef(null);
+  const graphRef = useRef(null);
+  const panelId = useId();
+  const { scrollYProgress } = useScroll({ target: graphRef, offset: ['start 0.85', 'end 0.5'] });
+
+  useEffect(() => {
+    if (active === null) return;
+    function handleOutside(e) {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target)) setActive(null);
+    }
+    function handleKey(e) {
+      if (e.key === 'Escape') setActive(null);
+    }
+    document.addEventListener('mousedown', handleOutside);
+    document.addEventListener('touchstart', handleOutside);
+    document.addEventListener('keydown', handleKey);
+    return () => {
+      document.removeEventListener('mousedown', handleOutside);
+      document.removeEventListener('touchstart', handleOutside);
+      document.removeEventListener('keydown', handleKey);
+    };
+  }, [active]);
+
+  const toggle = (i) => setActive((cur) => (cur === i ? null : i));
+  const activeEntry = active !== null ? allEntries[active] : null;
+  const isFinalActive = active === finalIndex;
+
   return (
     <section className="bg-[#F5F3EE] py-20">
       <div className="max-w-5xl mx-auto px-6 lg:px-12">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <span className="inline-flex items-center gap-1.5 font-nunito text-blue-700 text-sm font-800 uppercase tracking-widest mb-4">
-            🗺️ The journey here
+        <div className="text-center mb-14">
+          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+            <TrendingUp size={14} /> The journey here
           </span>
           <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
             Study and experience gained over the years
           </h2>
+          <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-xl mx-auto leading-relaxed">
+            Every stage built on the last. Tap a point on the graph to see how it led here.
+          </p>
         </div>
 
-        <DesktopTimeline />
-        <MobileTimeline />
+        <div ref={wrapperRef}>
+          {/* Graph */}
+          <div className="flex">
+            {/* Y-axis — Year */}
+            <div className="relative w-12 sm:w-16 flex-shrink-0 h-[440px] sm:h-[520px] lg:h-[620px]">
+              <span className="absolute -top-7 left-0 font-nunito text-[#2D2520]/35 text-[10px] font-800 uppercase tracking-widest">
+                Year
+              </span>
+              <div className="absolute top-0 bottom-0 right-2 w-px bg-[#2D2520]/10" />
+              {allEntries.map((entry, i) => (
+                <div
+                  key={entry.year}
+                  className="absolute right-2.5 -translate-y-1/2 flex items-center gap-1.5"
+                  style={{ top: `${points[i].y}%` }}
+                >
+                  <div className="w-2 h-px bg-[#2D2520]/20 flex-shrink-0" />
+                  {i === finalIndex ? (
+                    <span className="text-[#E8A020] text-sm leading-none">♜</span>
+                  ) : (
+                    <span className="font-nunito text-[#2D2520]/45 text-[10px] sm:text-xs font-700 whitespace-nowrap">
+                      {entry.year}
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Graph area */}
+            <div ref={graphRef} className="relative flex-1 h-[440px] sm:h-[520px] lg:h-[620px]">
+              <svg
+                className="absolute inset-0 w-full h-full pointer-events-none"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <defs>
+                  <linearGradient id="growthLine" x1="0" y1="1" x2="0" y2="0">
+                    <stop offset="0%" stopColor="#E8A020" stopOpacity="0.3" />
+                    <stop offset="100%" stopColor="#E8A020" stopOpacity="0.95" />
+                  </linearGradient>
+                </defs>
+                <motion.path
+                  d={pathD}
+                  fill="none"
+                  stroke="url(#growthLine)"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  vectorEffect="non-scaling-stroke"
+                  style={{ pathLength: scrollYProgress }}
+                />
+              </svg>
+
+              {/* Milestone nodes */}
+              {milestones.map((m, i) => {
+                const isActive = active === i;
+                const isHovered = hovered === i;
+                return (
+                  <motion.button
+                    key={m.year}
+                    type="button"
+                    aria-expanded={isActive}
+                    aria-controls={panelId}
+                    aria-label={`${m.year}: ${m.title}`}
+                    onClick={() => toggle(i)}
+                    onMouseEnter={() => setHovered(i)}
+                    onMouseLeave={() => setHovered(null)}
+                    onFocus={() => setHovered(i)}
+                    onBlur={() => setHovered(null)}
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.06, ease: EASE }}
+                    whileTap={{ scale: 0.85 }}
+                    className="absolute -translate-x-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center focus-visible:outline-none"
+                    style={{ left: `${points[i].x}%`, top: `${points[i].y}%` }}
+                  >
+                    {(isActive || isHovered) && (
+                      <span className="absolute inset-0 m-auto w-7 h-7 rounded-full bg-[#E8A020]/25 blur-md" aria-hidden="true" />
+                    )}
+                    <motion.span
+                      animate={{ scale: isActive || isHovered ? 1.35 : 1 }}
+                      transition={{ duration: 0.25, ease: EASE }}
+                      className={`relative rounded-full border-2 border-white shadow-md transition-colors duration-300 ${
+                        isActive ? 'bg-[#2D2520]' : 'bg-[#E8A020]'
+                      }`}
+                      style={{ width: 12, height: 12 }}
+                    />
+                  </motion.button>
+                );
+              })}
+
+              {/* Rook Foundations — the destination */}
+              <motion.button
+                type="button"
+                aria-expanded={isFinalActive}
+                aria-controls={panelId}
+                aria-label="Rook Foundations — the destination"
+                onClick={() => toggle(finalIndex)}
+                onMouseEnter={() => setHovered(finalIndex)}
+                onMouseLeave={() => setHovered(null)}
+                onFocus={() => setHovered(finalIndex)}
+                onBlur={() => setHovered(null)}
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: finalIndex * 0.06, ease: EASE }}
+                whileTap={{ scale: 0.9 }}
+                className="absolute -translate-x-1/2 -translate-y-1/2 w-16 h-16 flex items-center justify-center focus-visible:outline-none"
+                style={{ left: `${points[finalIndex].x}%`, top: `${points[finalIndex].y}%` }}
+              >
+                <motion.span
+                  className="absolute inset-0 m-auto rounded-full bg-[#E8A020]/40 blur-lg pointer-events-none"
+                  style={{ width: 44, height: 44 }}
+                  animate={{ opacity: [0.4, 0.75, 0.4] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                  aria-hidden="true"
+                />
+                <motion.span
+                  animate={{ scale: isFinalActive || hovered === finalIndex ? 1.1 : 1 }}
+                  transition={{ duration: 0.25, ease: EASE }}
+                  className="relative w-11 h-11 rounded-full flex items-center justify-center shadow-lg shadow-[#E8A020]/40 border-2 border-white"
+                  style={{ background: 'linear-gradient(180deg, #F4C261 0%, #E8A020 55%, #c98a12 100%)' }}
+                >
+                  <span className="text-white text-xl leading-none">♜</span>
+                </motion.span>
+              </motion.button>
+            </div>
+          </div>
+
+          {/* X-axis title */}
+          <div className="flex justify-end mt-4 pr-1">
+            <span className="font-nunito text-[#E8A020] text-xs sm:text-sm font-800 uppercase tracking-widest">
+              Professional Growth →
+            </span>
+          </div>
+
+          {/* Info panel — single shared panel, appears below the graph rather than over it */}
+          <div id={panelId} className="max-w-xl mx-auto mt-8 min-h-[3rem]">
+            <AnimatePresence mode="wait">
+              {activeEntry ? (
+                <motion.div
+                  key={active}
+                  initial={{ opacity: 0, y: -8, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -8, scale: 0.98 }}
+                  transition={{ duration: 0.3, ease: EASE }}
+                  className={`relative rounded-2xl px-6 py-5 shadow-md border-l-4 ${
+                    isFinalActive ? 'bg-[#2D2520] border-[#F4C261]' : 'bg-white border-[#E8A020]'
+                  }`}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setActive(null)}
+                    aria-label="Close"
+                    className={`absolute top-4 right-4 w-6 h-6 rounded-full flex items-center justify-center transition-colors ${
+                      isFinalActive ? 'text-white/40 hover:text-white' : 'text-[#2D2520]/30 hover:text-[#2D2520]'
+                    }`}
+                  >
+                    <X size={15} />
+                  </button>
+                  <div className="flex items-center gap-2 mb-2 pr-6">
+                    <span className={`font-fredoka font-600 text-sm ${isFinalActive ? 'text-[#F4C261]' : 'text-[#E8A020]'}`}>
+                      {activeEntry.year}
+                    </span>
+                    <span className={`w-1 h-1 rounded-full flex-shrink-0 ${isFinalActive ? 'bg-white/30' : 'bg-[#2D2520]/20'}`} />
+                    <h4 className={`font-fredoka text-base ${isFinalActive ? 'text-white' : 'text-[#2D2520]'}`}>
+                      {activeEntry.title}
+                    </h4>
+                  </div>
+                  <p className={`font-nunito text-sm leading-relaxed ${isFinalActive ? 'text-white/80' : 'text-[#2D2520]/65'}`}>
+                    {activeEntry.body}
+                  </p>
+                </motion.div>
+              ) : (
+                <motion.p
+                  key="prompt"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="font-nunito text-[#2D2520]/40 text-sm text-center italic"
+                >
+                  Tap a point on the graph to explore that year.
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
       </div>
     </section>
   );
