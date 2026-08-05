@@ -158,7 +158,7 @@ export default function Pricing() {
           </div>
           <h2 className="font-fredoka text-white text-3xl mb-4">Not sure where to start?</h2>
           <p className="font-nunito text-white/80 text-base leading-relaxed mb-8 max-w-xl mx-auto">
-            Book a £5 trial session — no long-term commitment. We'll assess your child's level and recommend the perfect format and session length.
+            We'll assess your child's approach to learning and recommend the most suitable format and session length.
           </p>
           <MotionLink
             whileTap={ctaTap}
