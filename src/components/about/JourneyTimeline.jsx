@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef, useState } from 'react';
-import { motion, AnimatePresence, useScroll } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { TrendingUp, X } from 'lucide-react';
 
 const EASE = [0.22, 1, 0.36, 1];
@@ -41,10 +41,7 @@ const points = [
 function buildPath(pts) {
   let d = `M ${pts[0].x} ${pts[0].y}`;
   for (let i = 1; i < pts.length; i++) {
-    const p0 = pts[i - 1];
-    const p1 = pts[i];
-    const midY = (p0.y + p1.y) / 2;
-    d += ` C ${p0.x} ${midY}, ${p1.x} ${midY}, ${p1.x} ${p1.y}`;
+    d += ` L ${pts[i].x} ${pts[i].y}`;
   }
   return d;
 }
@@ -57,9 +54,7 @@ export default function JourneyTimeline() {
   const [active, setActive] = useState(null);
   const [hovered, setHovered] = useState(null);
   const wrapperRef = useRef(null);
-  const graphRef = useRef(null);
   const panelId = useId();
-  const { scrollYProgress } = useScroll({ target: graphRef, offset: ['start 0.85', 'end 0.5'] });
 
   useEffect(() => {
     if (active === null) return;
@@ -127,27 +122,25 @@ export default function JourneyTimeline() {
             </div>
 
             {/* Graph area */}
-            <div ref={graphRef} className="relative flex-1 h-[440px] sm:h-[520px] lg:h-[620px]">
+            <div className="relative flex-1 h-[440px] sm:h-[520px] lg:h-[620px]">
               <svg
                 className="absolute inset-0 w-full h-full pointer-events-none"
                 viewBox="0 0 100 100"
                 preserveAspectRatio="none"
                 aria-hidden="true"
               >
-                <defs>
-                  <linearGradient id="growthLine" x1="0" y1="1" x2="0" y2="0">
-                    <stop offset="0%" stopColor="#E8A020" stopOpacity="0.3" />
-                    <stop offset="100%" stopColor="#E8A020" stopOpacity="0.95" />
-                  </linearGradient>
-                </defs>
                 <motion.path
                   d={pathD}
                   fill="none"
-                  stroke="url(#growthLine)"
-                  strokeWidth="2.5"
+                  stroke="#2D2520"
+                  strokeWidth="2"
                   strokeLinecap="round"
+                  strokeLinejoin="round"
                   vectorEffect="non-scaling-stroke"
-                  style={{ pathLength: scrollYProgress }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, ease: EASE }}
                 />
               </svg>
 
@@ -181,11 +174,14 @@ export default function JourneyTimeline() {
                     <motion.span
                       animate={{ scale: isActive || isHovered ? 1.35 : 1 }}
                       transition={{ duration: 0.25, ease: EASE }}
-                      className={`relative rounded-full border-2 border-white shadow-md transition-colors duration-300 ${
-                        isActive ? 'bg-[#2D2520]' : 'bg-[#E8A020]'
-                      }`}
-                      style={{ width: 12, height: 12 }}
-                    />
+                      className="relative"
+                    >
+                      <X
+                        size={16}
+                        strokeWidth={3}
+                        className={`transition-colors duration-300 ${isActive ? 'text-[#2D2520]' : 'text-[#E8A020]'}`}
+                      />
+                    </motion.span>
                   </motion.button>
                 );
               })}
