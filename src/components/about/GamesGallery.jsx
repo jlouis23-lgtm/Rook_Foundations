@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BrainCircuit, Shuffle, UserCheck, ChevronDown } from 'lucide-react';
+import { Shuffle, ChevronDown } from 'lucide-react';
 
 const EASE = [0.22, 1, 0.36, 1];
 
 const infoCards = [
-  { Icon: BrainCircuit, label: 'Developing Thinking Skills', accent: '#4a7eb8', body: 'We use a wide range of games to help children strengthen problem-solving, strategic thinking, and confidence when approaching new challenges. Each game provides opportunities to practise planning, reasoning, and decision-making in an engaging way.' },
-  { Icon: Shuffle, label: 'Learning Through Different Games', accent: '#b8790a', body: 'Every game encourages a different way of thinking. By exploring multiple games, children learn to adapt their strategies, consider new perspectives, and develop greater flexibility in their thinking. This variety helps to keep learning both challenging and enjoyable.' },
-  { Icon: UserCheck, label: 'Tailored to Every Child', accent: '#2d8c62', body: 'Different games require different levels of concentration and complexity. We carefully select activities that match each child\'s age, ability, and stage of development. Our lessons aim to build confidence as well as progress.' },
+  { label: 'Developing Thinking Skills', accent: '#4a7eb8', body: 'We use a wide range of games to help children strengthen problem-solving, strategic thinking, and confidence when approaching new challenges. Each game provides opportunities to practise planning, reasoning, and decision-making in an engaging way.' },
+  { label: 'Learning Through Different Games', accent: '#b8790a', body: 'Every game encourages a different way of thinking. By exploring multiple games, children learn to adapt their strategies, consider new perspectives, and develop greater flexibility in their thinking. This variety helps to keep learning both challenging and enjoyable.' },
+  { label: 'Tailored to Every Child', accent: '#2d8c62', body: 'Different games require different levels of concentration and complexity. We carefully select activities that match each child\'s age, ability, and stage of development. Our lessons aim to build confidence as well as progress.' },
 ];
 
 const games = [
@@ -30,18 +30,14 @@ const games = [
 ];
 
 export default function GamesGallery() {
-  const [openCards, setOpenCards] = useState(() => new Set());
+  const [openIndex, setOpenIndex] = useState(null);
 
   const toggleCard = (i) => {
-    setOpenCards((prev) => {
-      const next = new Set(prev);
-      if (next.has(i)) next.delete(i); else next.add(i);
-      return next;
-    });
+    setOpenIndex((cur) => (cur === i ? null : i));
   };
 
   return (
-    <section id="games" className="py-20 bg-[#FAFAF7] scroll-mt-24">
+    <section id="games" className="pt-20 pb-8 sm:pb-10 bg-[#FAFAF7] scroll-mt-24">
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
 
         {/* Subtle intro tag */}
@@ -83,9 +79,9 @@ export default function GamesGallery() {
         </div>
 
         {/* Supporting content — click a card to reveal its detail */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 items-start">
           {infoCards.map((card, i) => {
-            const isOpen = openCards.has(i);
+            const isOpen = openIndex === i;
             return (
               <motion.div
                 key={card.label}
@@ -98,30 +94,23 @@ export default function GamesGallery() {
                   type="button"
                   onClick={() => toggleCard(i)}
                   aria-expanded={isOpen}
-                  className="group w-full text-left bg-white border-2 rounded-2xl p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#FAFAF7]"
+                  className="group w-full text-left bg-white border-2 rounded-2xl px-4 py-3.5 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#FAFAF7]"
                   style={{
                     borderColor: isOpen ? card.accent : `${card.accent}20`,
-                    boxShadow: isOpen ? `0 10px 28px ${card.accent}18` : undefined,
+                    boxShadow: isOpen ? `0 8px 20px ${card.accent}18` : undefined,
                     '--tw-ring-color': card.accent,
                   }}
                 >
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <span
-                      className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:-rotate-6"
-                      style={{ backgroundColor: isOpen ? card.accent : `${card.accent}14` }}
-                    >
-                      <card.Icon size={22} style={{ color: isOpen ? '#fff' : card.accent }} />
-                    </span>
+                  <div className="flex items-center justify-between gap-3">
+                    <h3 className="font-fredoka text-base sm:text-lg leading-snug" style={{ color: card.accent }}>{card.label}</h3>
                     <motion.span
                       animate={{ rotate: isOpen ? 180 : 0 }}
                       transition={{ duration: 0.25, ease: EASE }}
-                      className="flex-shrink-0 mt-1"
+                      className="flex-shrink-0"
                     >
-                      <ChevronDown size={18} style={{ color: card.accent }} />
+                      <ChevronDown size={16} style={{ color: card.accent }} />
                     </motion.span>
                   </div>
-
-                  <h3 className="font-fredoka text-lg leading-snug" style={{ color: card.accent }}>{card.label}</h3>
 
                   <AnimatePresence initial={false}>
                     {isOpen && (
@@ -132,7 +121,7 @@ export default function GamesGallery() {
                         transition={{ duration: 0.3, ease: EASE }}
                         className="overflow-hidden"
                       >
-                        <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed pt-3">{card.body}</p>
+                        <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed pt-2.5">{card.body}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>

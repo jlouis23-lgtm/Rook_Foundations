@@ -68,7 +68,7 @@ export default function WhyChessResearch() {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section className="py-20 bg-[#FAFAF7] relative overflow-hidden">
+    <section className="pt-8 sm:pt-10 pb-20 bg-[#FAFAF7] relative overflow-hidden">
       <ChessBg variant="whychess" />
 
       <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
