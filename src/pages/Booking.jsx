@@ -1,28 +1,81 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Clock } from 'lucide-react';
+import { Clock, ArrowRight } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
+import { ctaTap } from '@/components/ui/MotionLink';
 
-const sessionOptions = [
+// TODO: replace each placeholder below with the matching Google Appointment
+// Schedule URL once the new schedules are live — do not ship placeholder text.
+const sessionCards = [
   {
-    id: '1hr',
-    label: '1 Hour Session',
-    sub: '60 minutes',
-    scheduleUrl: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ04eY24j1TkFtl0mGtFq_hHbNiBpYi1VzspUjXJe51xfq9rqjFnXt9qJ2dMq9YynjCsgJ59DCuy?gv=true',
+    title: 'Focus Session',
+    duration: '30 Minutes',
+    description: 'A focused one-to-one session designed around one or two personalised learning goals. Ideal for younger learners, shorter attention spans, or families looking for a concise lesson.',
+    buttonLabel: 'Book Focus Session',
+    scheduleUrl: 'Focus Session Google Appointment URL',
+    recommended: false,
   },
   {
-    id: '2hr',
-    label: '2 Hour Session',
-    sub: '120 minutes',
-    scheduleUrl: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3fXud7O906lmx0V4Cb06VTW5jDKE9yBAl-daRNiC8c20oa6GO1E6KC1ON_8MUr57YfA3ROwWjK?gv=true',
+    title: 'Core Session',
+    duration: '60 Minutes',
+    description: 'Our recommended session length, providing the ideal balance of gameplay, discussion and reflection while working towards personalised learning targets.',
+    buttonLabel: 'Book Core Session',
+    scheduleUrl: 'Core Session Google Appointment URL',
+    recommended: true,
+  },
+  {
+    title: 'Extended Session',
+    duration: '90 Minutes',
+    description: 'A longer session allowing deeper exploration of strategy games, extended discussion and additional opportunities for guided thinking and reflection.',
+    buttonLabel: 'Book Extended Session',
+    scheduleUrl: 'Extended Session Google Appointment URL',
+    recommended: false,
   },
 ];
 
-export default function Booking() {
-  const [selected, setSelected] = useState('1hr');
-  useEffect(() => { window.scrollTo(0, 0); }, []);
+function SessionCard({ session, index }) {
+  return (
+    <motion.a
+      href={session.scheduleUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      whileTap={ctaTap}
+      whileHover={{ y: -4, rotate: 0.5, transition: { duration: 0.25, ease: 'easeOut' } }}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      aria-label={`${session.buttonLabel} — opens Google Calendar in a new tab`}
+      className={`play-card group relative flex flex-col border rounded-3xl p-7 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A020] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FAFAF7] ${
+        session.recommended ? 'border-[#E8A020]/30 shadow-lg shadow-[#E8A020]/8' : 'border-[#2D2520]/10'
+      }`}
+    >
+      {session.recommended && (
+        <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#E8A020] text-white font-nunito text-xs font-700 px-4 py-1.5 rounded-full shadow-md whitespace-nowrap">
+          Recommended
+        </span>
+      )}
 
-  const active = sessionOptions.find((o) => o.id === selected);
+      <div className="mb-5">
+        <h2 className="font-fredoka text-[#2D2520] text-2xl mb-2">{session.title}</h2>
+        <span className="inline-flex items-center gap-1.5 font-nunito text-[#E8A020] text-sm font-700 bg-[#E8A020]/10 rounded-full px-3 py-1">
+          <Clock size={13} /> {session.duration}
+        </span>
+      </div>
+
+      <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed flex-1 mb-7">
+        {session.description}
+      </p>
+
+      <span className="w-full bg-[#E8A020] text-white font-fredoka font-600 text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 transition-all group-hover:bg-[#d4940e] group-hover:-translate-y-0.5 group-hover:shadow-lg group-hover:shadow-[#E8A020]/20">
+        {session.buttonLabel} <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+      </span>
+    </motion.a>
+  );
+}
+
+export default function Booking() {
+  useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <div className="bg-[#FAFAF7] pt-32">
@@ -37,61 +90,22 @@ export default function Booking() {
             Find a session that works for your family
           </h1>
           <p className="font-nunito text-[#2D2520]/60 text-lg max-w-2xl mx-auto leading-relaxed">
-            Choose a session length, browse available slots, and book directly. Sessions are confirmed instantly and synced to my calendar.
+            Choose the session that best suits your child's needs. Every session is personalised to support their individual learning journey through carefully selected strategy games.
           </p>
         </div>
       </section>
 
-      {/* Google Calendar booking */}
-      <section className="pb-24" style={{ backgroundColor: '#FAFAF7' }}>
-        <div className="max-w-6xl mx-auto px-6 lg:px-12">
-          {/* Session length selector */}
-          <div className="flex justify-center gap-3 mb-10">
-            {sessionOptions.map((o) => (
-              <button
-                key={o.id}
-                onClick={() => setSelected(o.id)}
-                aria-pressed={selected === o.id}
-                className={`relative overflow-hidden flex items-center gap-3 px-6 py-3.5 rounded-2xl font-nunito font-700 text-sm transition-colors duration-300 border-2 ${
-                  selected === o.id
-                    ? 'text-white border-[#E8A020]'
-                    : 'bg-white text-[#2D2520]/60 border-[#E8A020]/20 hover:border-[#E8A020]/50'
-                }`}
-              >
-                {selected === o.id && (
-                  <motion.div
-                    layoutId="booking-session-pill"
-                    className="absolute inset-0 bg-[#E8A020] rounded-2xl shadow-lg shadow-[#E8A020]/25"
-                    transition={{ type: 'spring', stiffness: 380, damping: 32 }}
-                  />
-                )}
-                <Clock size={16} className="relative z-10" />
-                <div className="relative z-10 text-left">
-                  <span className="block leading-tight">{o.label}</span>
-                  <span className={`text-[10px] font-600 leading-tight ${selected === o.id ? 'text-white/70' : 'text-[#E8A020]/60'}`}>{o.sub}</span>
-                </div>
-              </button>
+      {/* Booking cards */}
+      <section className="pb-24 relative overflow-hidden">
+        <ChessBg variant="page" />
+        <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-3 max-w-xl lg:max-w-none mx-auto">
+            {sessionCards.map((session, i) => (
+              <SessionCard key={session.title} session={session} index={i} />
             ))}
           </div>
 
-          <motion.div
-            key={selected}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35 }}
-            className="bg-white border border-[#E8A020]/15 rounded-3xl overflow-hidden shadow-sm"
-          >
-            <div className="h-1 bg-gradient-to-r from-[#E8A020] via-[#F4C261] to-[#E8A020]" />
-            <iframe
-              src={active.scheduleUrl}
-              width="100%"
-              height="700"
-              frameBorder="0"
-              title={`Book a ${active.label} — Rook Foundations`}
-              style={{ display: 'block', border: 0, minWidth: '320px', backgroundColor: '#FFFFFF' }}
-            />
-          </motion.div>
-          <p className="font-nunito text-[#2D2520]/35 text-xs text-center mt-5 font-600">
+          <p className="font-nunito text-[#2D2520]/35 text-xs text-center mt-10 font-600">
             Scheduling powered by Google Calendar
           </p>
         </div>
