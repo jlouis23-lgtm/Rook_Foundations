@@ -86,63 +86,27 @@ function SessionNode({ session, index, vertical = false }) {
 
 // Single compact diagram replacing the old three-card layout: a short flow
 // of numbered nodes (horizontal on tablet/desktop, a left-aligned timeline
-// on mobile) with a dashed return path closing the loop from Session 3 back
-// to Session 1 — the cycle is the point, not the length of each session's
-// description. The dashed-line technique matches the connector already used
-// between SessionIncludesGrid and this section's heading, above.
+// on mobile). No connecting lines or arrows — just the node numbers, colour
+// and spacing carry the progression, with the rotating icon below standing
+// in for the "repeats" cue.
 function SessionCycle() {
   return (
     <div className="max-w-3xl mx-auto mb-14">
-      {/* Tablet & desktop — horizontal flow with a traced return arc beneath */}
-      <div className="hidden sm:block">
-        <div className="relative">
-          <svg viewBox="0 0 100 4" preserveAspectRatio="none" className="absolute left-0 top-[18px] w-full h-1" aria-hidden="true">
-            <motion.line
-              x1="17" y1="2" x2="83" y2="2"
-              stroke="#E8A020" strokeOpacity="0.4" strokeWidth="1.6" strokeLinecap="round" strokeDasharray="3.5 4"
-              animate={{ strokeDashoffset: [0, -15] }}
-              transition={{ duration: 1.4, repeat: Infinity, ease: 'linear' }}
-            />
-          </svg>
-          <div className="flex items-start justify-between gap-2">
-            {sessions.map((session, i) => (
-              <SessionNode key={session.label} session={session} index={i} />
-            ))}
-          </div>
-        </div>
-
-        <svg viewBox="0 0 100 22" preserveAspectRatio="none" className="w-full h-6 mt-1" aria-hidden="true">
-          <motion.path
-            d="M 83 1 C 83 18, 17 18, 17 1"
-            fill="none" stroke="#E8A020" strokeOpacity="0.5" strokeWidth="1.6" strokeLinecap="round" strokeDasharray="3.5 4"
-            animate={{ strokeDashoffset: [0, -15] }}
-            transition={{ duration: 1.4, repeat: Infinity, ease: 'linear' }}
-          />
-          <path d="M 17 1 L 12.5 5.5 M 17 1 L 21.5 5.5" stroke="#E8A020" strokeOpacity="0.5" strokeWidth="1.6" strokeLinecap="round" fill="none" />
-        </svg>
+      {/* Tablet & desktop — horizontal flow */}
+      <div className="hidden sm:flex items-start justify-between gap-2">
+        {sessions.map((session, i) => (
+          <SessionNode key={session.label} session={session} index={i} />
+        ))}
       </div>
 
-      {/* Mobile — left-aligned vertical timeline; a traced return arc has no
-          clean path on a narrow column, so the rotating loop icon below
-          carries the "repeats" cue instead */}
-      <div className="sm:hidden relative">
-        {/* Plain CSS dashed rule rather than an SVG line — an absolutely
-            positioned <svg> with top+bottom set keeps its viewBox aspect
-            ratio instead of stretching, which silently clipped this to a
-            fixed height regardless of content length. */}
-        <div
-          className="absolute left-[17px] top-[18px] bottom-[18px] w-[1.6px] opacity-40"
-          style={{ backgroundImage: 'repeating-linear-gradient(to bottom, #E8A020 0, #E8A020 4px, transparent 4px, transparent 8px)' }}
-          aria-hidden="true"
-        />
-        <div className="flex flex-col gap-5">
-          {sessions.map((session, i) => (
-            <SessionNode key={session.label} session={session} index={i} vertical />
-          ))}
-        </div>
+      {/* Mobile — left-aligned vertical timeline */}
+      <div className="sm:hidden flex flex-col gap-5">
+        {sessions.map((session, i) => (
+          <SessionNode key={session.label} session={session} index={i} vertical />
+        ))}
       </div>
 
-      <div className="flex items-center justify-center gap-2 mt-3 sm:mt-2">
+      <div className="flex items-center justify-center gap-2 mt-5">
         <motion.span
           animate={{ rotate: -360 }}
           transition={{ duration: 7, repeat: Infinity, ease: 'linear' }}
@@ -164,10 +128,7 @@ export default function ProgressTrackingSection() {
     <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
       {/* Subheading — deliberately lighter than the page's "What Makes Us
           Different?" heading above, since this section is the answer to
-          that question rather than a new topic of its own. The small dot
-          is the landing point for the connector traced down from the
-          Ongoing Progress Tracking item in SessionIncludesGrid above —
-          same purple as that card's accent (and Session 3 "Build" below). */}
+          that question rather than a new topic of its own. */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -175,7 +136,6 @@ export default function ProgressTrackingSection() {
         transition={{ duration: 0.6, ease: EASE }}
         className="text-center mb-10"
       >
-        <span className="block w-1.5 h-1.5 rounded-full bg-[#7a48c0]/40 mx-auto mb-3" aria-hidden="true" />
         <h3 className="font-fredoka text-[#2D2520] text-xl sm:text-2xl">
           Tracking Progress Over Time
         </h3>
