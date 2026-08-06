@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown, ScanEye, GitBranch, HeartHandshake, GraduationCap, BookOpen, FlaskConical } from 'lucide-react';
+import { ArrowRight, ChevronDown, ScanEye, GitBranch, HeartHandshake, BookOpen, FlaskConical } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 
 const EASE = [0.22, 1, 0.36, 1];
@@ -27,13 +27,6 @@ const bubbles = [
     label: 'Emotional & Social Growth',
     body: 'Children learn to respect opponents, follow rules, manage the emotions of winning and losing, and think under pressure.',
     citation: '(Fuentes et al., 2018)',
-  },
-  {
-    Icon: GraduationCap,
-    accent: '#7a48c0',
-    label: 'The Role of Teaching Quality',
-    body: 'A large-scale study across 300+ schools found that chess has limited impact when instructors are not actively engaged throughout every session.',
-    citation: '(EEF, 2018; Trinchero & Sala, 2016)',
   },
 ];
 
