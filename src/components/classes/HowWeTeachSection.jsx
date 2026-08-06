@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { Compass, Users } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import LearningJourney from '@/components/about/LearningJourney';
-import InteractiveRookPillars from '@/components/about/InteractiveRookPillars';
 import IndividualGroupSessions from '@/components/about/IndividualGroupSessions';
 import ProgressTrackingSection from '@/components/classes/ProgressTrackingSection';
 import ChessCurriculumButton from '@/components/classes/ChessCurriculumButton';
@@ -40,7 +39,9 @@ export default function HowWeTeachSection() {
         <LearningJourney />
       </div>
 
-      {/* What Makes Us Different — standalone heading for the three-pillar rook */}
+      {/* What Makes Us Different — heading for the merged philosophy +
+          progress-tracking narrative that follows (ProgressTrackingSection
+          below has no major heading of its own, by design) */}
       <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -56,19 +57,8 @@ export default function HowWeTeachSection() {
             What Makes Us Different?
           </h2>
           <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-xl mx-auto leading-relaxed">
-            These three principles guide everything we teach, and they're what set Rook Foundations apart from traditional chess coaching and many other educational programmes.
+            What truly sets us apart is how closely we track your child's progress. Every session builds on personalised learning targets shaped by careful observation, not guesswork — here's exactly how that works.
           </p>
-        </motion.div>
-
-        {/* Core principles — interactive rook illustration */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.65 }}
-          className="mb-14"
-        >
-          <InteractiveRookPillars />
         </motion.div>
       </div>
 
