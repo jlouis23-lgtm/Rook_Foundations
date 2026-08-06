@@ -108,7 +108,10 @@ export default function ProgressTrackingSection() {
     <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
       {/* Subheading — deliberately lighter than the page's "What Makes Us
           Different?" heading above, since this section is the answer to
-          that question rather than a new topic of its own. */}
+          that question rather than a new topic of its own. The small dot
+          is the landing point for the connector traced down from the
+          Ongoing Progress Tracking item in SessionIncludesGrid above —
+          same purple as that card's accent (and Session 3 "Build" below). */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -116,6 +119,7 @@ export default function ProgressTrackingSection() {
         transition={{ duration: 0.6, ease: EASE }}
         className="text-center mb-10"
       >
+        <span className="block w-1.5 h-1.5 rounded-full bg-[#7a48c0]/40 mx-auto mb-3" aria-hidden="true" />
         <h3 className="font-fredoka text-[#2D2520] text-xl sm:text-2xl">
           Tracking Progress Over Time
         </h3>
