@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion';
-import { ArrowRight, ArrowDown } from 'lucide-react';
+import { useEffect, useId, useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, ArrowDown, ArrowUpRight } from 'lucide-react';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -72,6 +73,104 @@ function Connector({ index }) {
   );
 }
 
+// Mobile-only diagonal "staircase" — each step nudged further right than
+// the last so the row order alone reads as an ascending climb even though
+// the page itself only ever scrolls vertically. Box width (62%) and offsets
+// (0/13/26/38%) are chosen so the last step's right edge lands exactly at
+// the container's right edge, never forcing horizontal scroll.
+const STAIR_OFFSETS = [0, 10, 20, 30];
+const STAIR_BOX_WIDTH = '70%';
+
+function MobileStaircase() {
+  const [activeIndex, setActiveIndex] = useState(null);
+  const wrapperRef = useRef(null);
+  const panelId = useId();
+
+  useEffect(() => {
+    if (activeIndex === null) return;
+    function handleOutside(e) {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target)) setActiveIndex(null);
+    }
+    function handleKey(e) {
+      if (e.key === 'Escape') setActiveIndex(null);
+    }
+    document.addEventListener('mousedown', handleOutside);
+    document.addEventListener('touchstart', handleOutside);
+    document.addEventListener('keydown', handleKey);
+    return () => {
+      document.removeEventListener('mousedown', handleOutside);
+      document.removeEventListener('touchstart', handleOutside);
+      document.removeEventListener('keydown', handleKey);
+    };
+  }, [activeIndex]);
+
+  const toggle = (i) => setActiveIndex((cur) => (cur === i ? null : i));
+
+  return (
+    <div ref={wrapperRef} className="md:hidden max-w-sm mx-auto">
+      {steps.map((step, i) => {
+        const isOpen = activeIndex === i;
+        const isLast = i === steps.length - 1;
+        return (
+          <div key={step.num}>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5, delay: i * 0.1, ease: EASE }}
+              style={{ marginLeft: `${STAIR_OFFSETS[i]}%` }}
+            >
+              <button
+                type="button"
+                onClick={() => toggle(i)}
+                aria-expanded={isOpen}
+                aria-controls={`${panelId}-${i}`}
+                style={{ width: STAIR_BOX_WIDTH, backgroundColor: step.accent }}
+                className="relative flex items-center gap-3 rounded-2xl py-3.5 px-4 shadow-md text-left transition-transform duration-200 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#F5F3EE]"
+              >
+                <span className="font-fredoka text-white/70 text-xl flex-shrink-0">
+                  {String(step.num).padStart(2, '0')}
+                </span>
+                <span className="font-fredoka text-white text-sm leading-snug flex-1 pr-1">{step.title}</span>
+                {isLast && (
+                  <span className="absolute top-2.5 right-3 text-white/70 text-sm leading-none" aria-hidden="true">♜</span>
+                )}
+              </button>
+            </motion.div>
+
+            <AnimatePresence>
+              {isOpen && (
+                <motion.div
+                  id={`${panelId}-${i}`}
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3, ease: EASE }}
+                  className="overflow-hidden"
+                >
+                  <div className="mt-2 mb-1 bg-white border border-[#2D2520]/8 rounded-2xl px-4 py-3.5 shadow-sm">
+                    <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{step.body}</p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {!isLast && (
+              <div
+                className="flex py-2"
+                style={{ marginLeft: `${(STAIR_OFFSETS[i] + STAIR_OFFSETS[i + 1]) / 2}%` }}
+                aria-hidden="true"
+              >
+                <ArrowUpRight size={18} strokeWidth={2.5} className="text-[#E8A020]/60" />
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function WhatHappensNextSection() {
   return (
     <div className="max-w-6xl mx-auto px-6 lg:px-12">
@@ -90,15 +189,8 @@ export default function WhatHappensNextSection() {
         </p>
       </motion.div>
 
-      {/* Mobile — vertical stack with connecting arrows */}
-      <div className="flex md:hidden flex-col items-center gap-2 max-w-xs sm:max-w-sm mx-auto">
-        {steps.map((step, i) => (
-          <div key={step.num} className="flex flex-col items-center w-full">
-            <Step step={step} index={i} />
-            {i < steps.length - 1 && <Connector index={i} />}
-          </div>
-        ))}
-      </div>
+      {/* Mobile — diagonal ascending staircase, tap a stage to reveal its description */}
+      <MobileStaircase />
 
       {/* Tablet — balanced 2x2 grid; the numbers alone carry the sequence
           here rather than forcing an awkward snaking connector between rows */}
