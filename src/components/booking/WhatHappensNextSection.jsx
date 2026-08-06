@@ -57,16 +57,16 @@ function Connector({ index }) {
       <motion.span
         animate={{ x: [0, 4, 0] }}
         transition={{ duration: 1.8, repeat: Infinity, ease: EASE, delay: index * 0.15 }}
-        className="hidden lg:block text-[#E8A020]/40 mt-6"
+        className="hidden lg:block text-[#E8A020]/70 mt-6"
       >
-        <ArrowRight size={20} />
+        <ArrowRight size={26} strokeWidth={2.5} />
       </motion.span>
       <motion.span
         animate={{ y: [0, 4, 0] }}
         transition={{ duration: 1.8, repeat: Infinity, ease: EASE, delay: index * 0.15 }}
-        className="lg:hidden text-[#E8A020]/40"
+        className="lg:hidden text-[#E8A020]/70"
       >
-        <ArrowDown size={20} />
+        <ArrowDown size={26} strokeWidth={2.5} />
       </motion.span>
     </div>
   );
