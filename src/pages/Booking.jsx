@@ -4,15 +4,13 @@ import { Clock, ArrowRight } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import { ctaTap } from '@/components/ui/MotionLink';
 
-// TODO: replace each placeholder below with the matching Google Appointment
-// Schedule URL once the new schedules are live — do not ship placeholder text.
 const sessionCards = [
   {
     title: 'Focus Session',
     duration: '30 Minutes',
     description: 'A focused one-to-one session designed around one or two personalised learning goals. Ideal for younger learners, shorter attention spans, or families looking for a concise lesson.',
     buttonLabel: 'Book Focus Session',
-    scheduleUrl: 'Focus Session Google Appointment URL',
+    scheduleUrl: 'https://calendar.app.google/btKSKkRKfRatY6m3A',
     recommended: false,
   },
   {
@@ -20,7 +18,7 @@ const sessionCards = [
     duration: '60 Minutes',
     description: 'Our recommended session length, providing the ideal balance of gameplay, discussion and reflection while working towards personalised learning targets.',
     buttonLabel: 'Book Core Session',
-    scheduleUrl: 'Core Session Google Appointment URL',
+    scheduleUrl: 'https://calendar.app.google/YHKcCMkE477HWNBg7',
     recommended: true,
   },
   {
@@ -28,7 +26,7 @@ const sessionCards = [
     duration: '90 Minutes',
     description: 'A longer session allowing deeper exploration of strategy games, extended discussion and additional opportunities for guided thinking and reflection.',
     buttonLabel: 'Book Extended Session',
-    scheduleUrl: 'Extended Session Google Appointment URL',
+    scheduleUrl: 'https://calendar.app.google/QM8JkChdny7yU8Cs9',
     recommended: false,
   },
 ];
