@@ -10,6 +10,11 @@ const sessionCards = [
     title: 'Focus Session',
     duration: '30 Minutes',
     description: 'A focused one-to-one session designed around one or two personalised learning goals. Ideal for younger learners, shorter attention spans, or families looking for a concise lesson.',
+    goodFor: [
+      "You're looking for a shorter, highly focused session.",
+      'Your child learns best in shorter periods of concentrated learning.',
+      "You'd like to work towards one or two specific learning goals.",
+    ],
     buttonLabel: 'Book Focus Session',
     scheduleUrl: 'https://calendar.app.google/btKSKkRKfRatY6m3A',
     recommended: false,
@@ -18,6 +23,11 @@ const sessionCards = [
     title: 'Core Session',
     duration: '60 Minutes',
     description: 'Our recommended session length, providing the ideal balance of gameplay, discussion and reflection while working towards personalised learning targets.',
+    goodFor: [
+      "You're looking for our recommended session for most children.",
+      "You'd like a balanced mix of gameplay, discussion and reflection.",
+      "You're looking for regular, personalised sessions that build progress over time.",
+    ],
     buttonLabel: 'Book Core Session',
     scheduleUrl: 'https://calendar.app.google/YHKcCMkE477HWNBg7',
     recommended: true,
@@ -26,6 +36,11 @@ const sessionCards = [
     title: 'Extended Session',
     duration: '90 Minutes',
     description: 'A longer session allowing deeper exploration of strategy games, extended discussion and additional opportunities for guided thinking and reflection.',
+    goodFor: [
+      'Your child enjoys spending longer exploring new ideas and challenges.',
+      "You'd like more time for gameplay, discussion and reflection.",
+      "You're looking for a deeper learning experience across a wider range of activities.",
+    ],
     buttonLabel: 'Book Extended Session',
     scheduleUrl: 'https://calendar.app.google/QM8JkChdny7yU8Cs9',
     recommended: false,
@@ -62,9 +77,21 @@ function SessionCard({ session, index }) {
         </span>
       </div>
 
-      <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed flex-1 mb-7">
+      <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed flex-1 mb-5">
         {session.description}
       </p>
+
+      <div className="mb-5 pt-4 border-t border-[#2D2520]/8">
+        <p className="font-fredoka text-[#2D2520] text-sm font-600 mb-2">A great choice if…</p>
+        <ul className="space-y-1.5">
+          {session.goodFor.map((item) => (
+            <li key={item} className="flex items-start gap-2 font-nunito text-[#2D2520]/60 text-xs leading-snug">
+              <span className="mt-1.5 w-1 h-1 rounded-full bg-[#E8A020] flex-shrink-0" />
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
 
       <span className="w-full bg-[#E8A020] text-white font-fredoka font-600 text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 transition-all group-hover:bg-[#d4940e] group-hover:-translate-y-0.5 group-hover:shadow-lg group-hover:shadow-[#E8A020]/20">
         {session.buttonLabel} <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
