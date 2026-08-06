@@ -206,7 +206,7 @@ export default function ProgressTrackingSection() {
               <div className="bg-white border border-[#2D2520]/8 rounded-3xl px-6 py-6 shadow-sm text-center">
                 <h3 className="font-fredoka text-[#2D2520] text-lg mb-2">What is Notion?</h3>
                 <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
-                  Notion is the system I use behind the scenes to keep every lesson connected. It's where I record lesson observations, document each child's strengths, note any areas that need extra support, track progress over time, keep learning targets up to date, and plan the next lesson around how the last one went.
+                  Notion contains the secure database I use behind the scenes to keep every lesson connected. It's where I record lesson observations, document each child's strengths, and note any areas that need extra support. It tracks progress over time, keeps learning targets up to date, and plans the next lesson around how the last one went. This data provides valuable insights into skills learnt through specific games, which are then used to personalise learning experiences.
                 </p>
               </div>
             </motion.div>
