@@ -5,6 +5,7 @@ import LearningJourney from '@/components/about/LearningJourney';
 import IndividualGroupSessions from '@/components/about/IndividualGroupSessions';
 import ProgressTrackingSection from '@/components/classes/ProgressTrackingSection';
 import ChessCurriculumButton from '@/components/classes/ChessCurriculumButton';
+import SessionIncludesGrid from '@/components/classes/SessionIncludesGrid';
 
 export default function HowWeTeachSection() {
   return (
@@ -41,14 +42,18 @@ export default function HowWeTeachSection() {
 
       {/* What Makes Us Different — heading for the merged philosophy +
           progress-tracking narrative that follows (ProgressTrackingSection
-          below has no major heading of its own, by design) */}
+          below has no major heading of its own, by design). The
+          SessionIncludesGrid list right after continues this same
+          narrative beat rather than starting a new section: it establishes
+          what's consistent about every session before ProgressTrackingSection
+          shows how that consistency is tracked and built on over time. */}
       <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
           <span className="inline-flex items-center font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
             What sets us apart
@@ -61,6 +66,11 @@ export default function HowWeTeachSection() {
           </p>
         </motion.div>
       </div>
+
+      {/* Every session, regardless of length, consistently includes these six
+          elements — continues directly from the intro above with no heading
+          of its own */}
+      <SessionIncludesGrid />
 
       {/* How We Track Your Child's Progress */}
       <ProgressTrackingSection />
