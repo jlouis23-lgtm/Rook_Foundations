@@ -1,6 +1,6 @@
-import { Fragment, useState, useId } from 'react';
+import { useState, useId } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { RotateCcw, ArrowRight, ArrowDown, Castle, Eye, Target } from 'lucide-react';
+import { RotateCcw } from 'lucide-react';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -15,88 +15,144 @@ const ROOK_HIGHLIGHTS = [
   'M 23.64 85.02 L 23.15 84.86 L 23.15 84.31 L 24.02 78.32 L 24.13 76.03 L 26.63 55.01 L 26.85 54.47 L 27.83 44.77 L 28.21 43.08 L 37.04 41.88 L 40.96 41.78 L 45.32 41.34 L 50.54 41.23 L 54.47 41.34 L 55.34 41.56 L 64.92 42.21 L 66.23 42.54 L 70.48 42.97 L 70.97 43.25 L 73.80 68.08 L 74.02 68.63 L 75.44 81.59 L 75.65 82.14 L 75.87 84.20 L 75.71 84.91 L 69.93 84.15 L 60.02 83.61 L 42.27 83.50 L 30.28 84.15 L 24.18 84.80 L 23.64 85.02 Z',
 ];
 
-// Three consecutive sessions, each ending in a learning-targets moment that
-// feeds directly into the next session's gameplay — the loop back to
-// Session 1 (below) is what makes this a cycle rather than a one-off list.
+// Three consecutive sessions compressed to one line of movement each — the
+// point being made is the cycle itself (observe, set targets, adapt, repeat)
+// rather than the detail of any single lesson. No per-stage icons: the node
+// numbers, connecting line and return loop carry the progression instead.
 const sessions = [
   {
     label: 'Session 1',
-    title: 'Discover',
     accent: '#2d8c62',
-    stages: [
-      { Icon: Castle, title: 'Gameplay', body: 'Children explore carefully selected strategy games that provide meaningful opportunities for observation.' },
-      { Icon: Eye, title: 'Observation', body: 'The instructor observes how the child approaches challenges, communicates, plans and solves problems.' },
-      { Icon: Target, title: 'Initial Learning Targets', body: 'Personalised learning targets are created from the observations made during the session.', highlight: true },
-    ],
+    body: 'Gameplay reveals strengths and shapes initial learning targets.',
   },
   {
     label: 'Session 2',
-    title: 'Develop',
     accent: '#4a7eb8',
-    stages: [
-      { Icon: Castle, title: 'Targeted Gameplay', body: 'Games are selected specifically to develop the learning targets identified during Session 1.' },
-      { Icon: Eye, title: 'Observation & Review', body: 'Progress towards existing learning targets is reviewed throughout gameplay.' },
-      { Icon: Target, title: 'Refined Learning Targets', body: "Learning targets are updated, refined or expanded based on the child's progress.", highlight: true },
-    ],
+    body: 'Games are chosen to build those targets, then progress is reviewed.',
   },
   {
     label: 'Session 3',
-    title: 'Build',
     accent: '#7a48c0',
-    stages: [
-      { Icon: Castle, title: 'Purposeful Gameplay', body: 'Activities continue to strengthen and extend personalised learning targets.' },
-      { Icon: Eye, title: 'Ongoing Review', body: 'Repeated observations help identify long-term strengths, emerging challenges and meaningful progress.' },
-      { Icon: Target, title: 'Plan the Next Stage', body: 'Future lessons are planned using all previous observations and learning targets.', highlight: true },
-    ],
+    body: 'Targets adapt, strengths are reinforced, and new challenges begin.',
   },
 ];
 
-function SessionCard({ session, index }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.12, ease: EASE }}
-      className="w-full lg:flex-1 bg-white border border-[#2D2520]/8 rounded-3xl p-6 shadow-sm"
+function SessionNode({ session, index, vertical = false }) {
+  const badge = (
+    <span
+      className="w-9 h-9 rounded-full flex items-center justify-center font-fredoka text-white text-sm shadow-md flex-shrink-0 relative z-10"
+      style={{ backgroundColor: session.accent, boxShadow: `0 6px 14px ${session.accent}35` }}
     >
-      <div className="flex items-center gap-2.5 mb-4">
-        <span
-          className="w-7 h-7 rounded-full flex items-center justify-center font-fredoka text-xs text-white flex-shrink-0"
-          style={{ backgroundColor: session.accent }}
-        >
-          {index + 1}
-        </span>
-        <div>
+      {index + 1}
+    </span>
+  );
+
+  if (vertical) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, x: -10 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.45, delay: index * 0.1, ease: EASE }}
+        className="flex items-start gap-3"
+      >
+        {badge}
+        <div className="pt-1.5">
           <p className="font-nunito text-[0.65rem] font-800 uppercase tracking-widest" style={{ color: session.accent }}>
             {session.label}
           </p>
-          <h3 className="font-fredoka text-[#2D2520] text-lg leading-none mt-0.5">{session.title}</h3>
+          <p className="font-nunito text-[#2D2520]/60 text-xs leading-snug mt-1">{session.body}</p>
+        </div>
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.45, delay: index * 0.1, ease: EASE }}
+      className="relative z-10 flex flex-col items-center text-center flex-1 px-1"
+    >
+      {badge}
+      <p className="font-nunito text-[0.65rem] font-800 uppercase tracking-widest mt-2.5" style={{ color: session.accent }}>
+        {session.label}
+      </p>
+      <p className="font-nunito text-[#2D2520]/60 text-xs leading-snug mt-1 max-w-[10.5rem]">{session.body}</p>
+    </motion.div>
+  );
+}
+
+// Single compact diagram replacing the old three-card layout: a short flow
+// of numbered nodes (horizontal on tablet/desktop, a left-aligned timeline
+// on mobile) with a dashed return path closing the loop from Session 3 back
+// to Session 1 — the cycle is the point, not the length of each session's
+// description. The dashed-line technique matches the connector already used
+// between SessionIncludesGrid and this section's heading, above.
+function SessionCycle() {
+  return (
+    <div className="max-w-3xl mx-auto mb-14">
+      {/* Tablet & desktop — horizontal flow with a traced return arc beneath */}
+      <div className="hidden sm:block">
+        <div className="relative">
+          <svg viewBox="0 0 100 4" preserveAspectRatio="none" className="absolute left-0 top-[18px] w-full h-1" aria-hidden="true">
+            <motion.line
+              x1="17" y1="2" x2="83" y2="2"
+              stroke="#E8A020" strokeOpacity="0.4" strokeWidth="1.6" strokeLinecap="round" strokeDasharray="3.5 4"
+              animate={{ strokeDashoffset: [0, -15] }}
+              transition={{ duration: 1.4, repeat: Infinity, ease: 'linear' }}
+            />
+          </svg>
+          <div className="flex items-start justify-between gap-2">
+            {sessions.map((session, i) => (
+              <SessionNode key={session.label} session={session} index={i} />
+            ))}
+          </div>
+        </div>
+
+        <svg viewBox="0 0 100 22" preserveAspectRatio="none" className="w-full h-6 mt-1" aria-hidden="true">
+          <motion.path
+            d="M 83 1 C 83 18, 17 18, 17 1"
+            fill="none" stroke="#E8A020" strokeOpacity="0.5" strokeWidth="1.6" strokeLinecap="round" strokeDasharray="3.5 4"
+            animate={{ strokeDashoffset: [0, -15] }}
+            transition={{ duration: 1.4, repeat: Infinity, ease: 'linear' }}
+          />
+          <path d="M 17 1 L 12.5 5.5 M 17 1 L 21.5 5.5" stroke="#E8A020" strokeOpacity="0.5" strokeWidth="1.6" strokeLinecap="round" fill="none" />
+        </svg>
+      </div>
+
+      {/* Mobile — left-aligned vertical timeline; a traced return arc has no
+          clean path on a narrow column, so the rotating loop icon below
+          carries the "repeats" cue instead */}
+      <div className="sm:hidden relative">
+        {/* Plain CSS dashed rule rather than an SVG line — an absolutely
+            positioned <svg> with top+bottom set keeps its viewBox aspect
+            ratio instead of stretching, which silently clipped this to a
+            fixed height regardless of content length. */}
+        <div
+          className="absolute left-[17px] top-[18px] bottom-[18px] w-[1.6px] opacity-40"
+          style={{ backgroundImage: 'repeating-linear-gradient(to bottom, #E8A020 0, #E8A020 4px, transparent 4px, transparent 8px)' }}
+          aria-hidden="true"
+        />
+        <div className="flex flex-col gap-5">
+          {sessions.map((session, i) => (
+            <SessionNode key={session.label} session={session} index={i} vertical />
+          ))}
         </div>
       </div>
 
-      <div>
-        {session.stages.map((stage, i) => (
-          <div key={stage.title}>
-            <div
-              className={`flex items-start gap-2.5 ${stage.highlight ? 'rounded-2xl p-2.5 -mx-2.5' : ''}`}
-              style={stage.highlight ? { backgroundColor: `${session.accent}0F` } : undefined}
-            >
-              <stage.Icon size={15} style={{ color: session.accent }} className="flex-shrink-0 mt-0.5" />
-              <div>
-                <p className="font-fredoka text-[#2D2520] text-sm leading-tight">{stage.title}</p>
-                <p className="font-nunito text-[#2D2520]/55 text-xs leading-relaxed mt-1">{stage.body}</p>
-              </div>
-            </div>
-            {i < session.stages.length - 1 && (
-              <div className="flex justify-center py-1.5" aria-hidden="true">
-                <ArrowDown size={13} className="text-[#E8A020]/40" />
-              </div>
-            )}
-          </div>
-        ))}
+      <div className="flex items-center justify-center gap-2 mt-3 sm:mt-2">
+        <motion.span
+          animate={{ rotate: -360 }}
+          transition={{ duration: 7, repeat: Infinity, ease: 'linear' }}
+          className="text-[#E8A020] flex-shrink-0"
+        >
+          <RotateCcw size={13} />
+        </motion.span>
+        <span className="font-fredoka text-[#b8790a] text-xs sm:text-sm italic">Every session builds on the last</span>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -125,66 +181,9 @@ export default function ProgressTrackingSection() {
         </h3>
       </motion.div>
 
-      {/* Three-session cycle */}
-      <div className="flex flex-col lg:flex-row lg:items-stretch gap-4 sm:gap-5 lg:gap-4">
-        {sessions.map((session, i) => (
-          <Fragment key={session.label}>
-            <SessionCard session={session} index={i} />
-            {i < sessions.length - 1 && (
-              <div className="flex items-center justify-center" aria-hidden="true">
-                <motion.span
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{ duration: 1.8, repeat: Infinity, ease: EASE }}
-                  className="hidden lg:block text-[#E8A020]/50"
-                >
-                  <ArrowRight size={20} />
-                </motion.span>
-                <motion.span
-                  animate={{ y: [0, 4, 0] }}
-                  transition={{ duration: 1.8, repeat: Infinity, ease: EASE }}
-                  className="lg:hidden text-[#E8A020]/50"
-                >
-                  <ArrowDown size={20} />
-                </motion.span>
-              </div>
-            )}
-          </Fragment>
-        ))}
-      </div>
-
-      {/* Loop back to Session 1 — the journey is a cycle, not a line */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.4, ease: EASE }}
-        className="flex flex-col items-center mt-8 mb-14"
-      >
-        <svg width="96" height="28" viewBox="0 0 96 28" className="mb-1" aria-hidden="true">
-          <motion.path
-            d="M 82 4 C 82 20, 14 20, 14 4"
-            fill="none"
-            stroke="#E8A020"
-            strokeOpacity="0.55"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeDasharray="3.5 4"
-            animate={{ strokeDashoffset: [0, -15] }}
-            transition={{ duration: 1.4, repeat: Infinity, ease: 'linear' }}
-          />
-          <path d="M 14 4 L 9.5 8.5 M 14 4 L 19 7.5" stroke="#E8A020" strokeOpacity="0.55" strokeWidth="1.6" strokeLinecap="round" fill="none" />
-        </svg>
-        <div className="flex items-center gap-2">
-          <motion.span
-            animate={{ rotate: -360 }}
-            transition={{ duration: 7, repeat: Infinity, ease: 'linear' }}
-            className="text-[#E8A020] flex-shrink-0"
-          >
-            <RotateCcw size={15} />
-          </motion.span>
-          <span className="font-fredoka text-[#b8790a] text-sm italic">The learning journey continues</span>
-        </div>
-      </motion.div>
+      {/* Session 1 → 2 → 3, looping back — a single compact diagram in
+          place of three large cards */}
+      <SessionCycle />
 
       {/* Notion, housed inside the redesigned rook — the piece that carries
           the page's visual identity becomes the container for the system
