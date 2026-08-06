@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Clock, ArrowRight } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import { ctaTap } from '@/components/ui/MotionLink';
+import WhatHappensNextSection from '@/components/booking/WhatHappensNextSection';
 
 const sessionCards = [
   {
@@ -107,6 +108,11 @@ export default function Booking() {
             Scheduling powered by Google Calendar
           </p>
         </div>
+      </section>
+
+      {/* What Happens Next */}
+      <section className="py-20 bg-[#F5F3EE]">
+        <WhatHappensNextSection />
       </section>
     </div>
   );
