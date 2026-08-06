@@ -4,6 +4,7 @@ import { Clock, ArrowRight } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import { ctaTap } from '@/components/ui/MotionLink';
 import WhatHappensNextSection from '@/components/booking/WhatHappensNextSection';
+import EverySessionIncludesSection from '@/components/booking/EverySessionIncludesSection';
 
 const sessionCards = [
   {
@@ -140,6 +141,11 @@ export default function Booking() {
       {/* What Happens Next */}
       <section className="py-20 bg-[#F5F3EE]">
         <WhatHappensNextSection />
+      </section>
+
+      {/* Every Session Includes */}
+      <section className="py-20 bg-[#FAFAF7]">
+        <EverySessionIncludesSection />
       </section>
     </div>
   );
