@@ -1,28 +1,25 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown, ScanEye, GitBranch, HeartHandshake, BookOpen, FlaskConical } from 'lucide-react';
+import { ArrowRight, ChevronDown, BookOpen, FlaskConical } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 
 const EASE = [0.22, 1, 0.36, 1];
 
 const bubbles = [
   {
-    Icon: ScanEye,
     accent: '#2d8c62',
     label: 'Focus & Concentration',
     body: 'Chess trains children to slow down, sustain attention, and think before acting. These skills can extend beyond the board.',
     citation: '(Zhang et al., 2025)',
   },
   {
-    Icon: GitBranch,
     accent: '#4a7eb8',
     label: 'Decision-Making & Reasoning',
     body: 'Every move requires planning ahead, weighing consequences, and adapting when things change. This can help children become logical, independent thinkers.',
     citation: '(Sala & Gobet, 2016)',
   },
   {
-    Icon: HeartHandshake,
     accent: '#b8790a',
     label: 'Emotional & Social Growth',
     body: 'Children learn to respect opponents, follow rules, manage the emotions of winning and losing, and think under pressure.',
@@ -38,10 +35,7 @@ function ResearchItem({ bubble, isOpen, onToggle }) {
         aria-expanded={isOpen}
         className="group w-full flex items-center justify-between gap-4 py-6 text-left"
       >
-        <div className="flex items-center gap-3">
-          <bubble.Icon size={20} style={{ color: bubble.accent, flexShrink: 0 }} className="transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6" />
-          <h3 className="font-fredoka text-lg sm:text-xl" style={{ color: bubble.accent }}>{bubble.label}</h3>
-        </div>
+        <h3 className="font-fredoka text-lg sm:text-xl" style={{ color: bubble.accent }}>{bubble.label}</h3>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.25, ease: EASE }}
@@ -59,7 +53,7 @@ function ResearchItem({ bubble, isOpen, onToggle }) {
             transition={{ duration: 0.3, ease: EASE }}
             className="overflow-hidden"
           >
-            <div className="pl-8 pb-6 -mt-1">
+            <div className="pb-6 -mt-1">
               <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mb-2">{bubble.body}</p>
               <span className="font-nunito text-xs italic" style={{ color: `${bubble.accent}99` }}>{bubble.citation}</span>
             </div>
