@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, ShieldCheck, ScanEye, Lightbulb, Sprout, Users } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Users } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 
@@ -16,21 +16,18 @@ const trustItems = [
 
 const features = [
   {
-    Icon: ScanEye,
     accent: '#4a7eb8',
     tag: 'Focus & Confidence',
     title: 'Confidence, one move at a time',
     body: 'Fun, in-person strategy games used to help children aged 5–12 build focus and strong decision-making skills.',
   },
   {
-    Icon: Lightbulb,
     accent: '#b8790a',
     tag: 'Strategic Thinking',
     title: 'Skills that go beyond the board',
     body: 'Every lesson encourages children to think ahead, weigh up possibilities, and make thoughtful decisions with confidence.',
   },
   {
-    Icon: Sprout,
     accent: '#2d8c62',
     tag: 'Supportive Growth',
     title: 'Growth at their own pace',
@@ -115,9 +112,8 @@ export default function HeroSection() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="mt-16 lg:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-x-10 gap-y-10"
         >
-          {features.map(({ Icon, accent, tag, title, body }) => (
+          {features.map(({ accent, tag, title, body }) => (
             <div key={tag} className="group">
-              <Icon size={26} style={{ color: accent }} className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" />
               <span className="block font-nunito text-xs font-800 uppercase tracking-widest mb-2" style={{ color: accent }}>{tag}</span>
               <h3 className="font-fredoka text-[#2D2520] text-lg mb-2 leading-snug">{title}</h3>
               <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">{body}</p>
