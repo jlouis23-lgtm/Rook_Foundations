@@ -1,13 +1,11 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { ArrowRight, Clock, Users, MapPin, BookOpen, Heart, HelpCircle, Shuffle } from 'lucide-react';
+import { ArrowRight, Clock, Users, MapPin, BookOpen, Heart, HelpCircle } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import HowWeTeachSection from '@/components/classes/HowWeTeachSection';
 import LearningNetworkHero from '@/components/classes/LearningNetworkHero';
 import CulturalSymbolAccents from '@/components/classes/CulturalSymbolAccents';
-
-const otherGames = ['Go', 'Reversi / Othello', 'Xiangqi', 'Quoridor', 'Tower of Hanoi', 'Mastermind', 'Janggi', 'Marble Solitaire'];
 
 export default function Classes() {
   const { hash } = useLocation();
@@ -43,36 +41,6 @@ export default function Classes() {
       </section>
 
       <HowWeTeachSection />
-
-      {/* More than just chess */}
-      <section className="py-16 bg-white/60">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
-          <span className="inline-flex items-center gap-1.5 font-nunito text-amber-700 text-sm font-800 uppercase tracking-widest mb-4">
-            <Shuffle size={14} /> Beyond chess
-          </span>
-          <h2 className="font-fredoka text-[#2D2520] mb-4" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}>
-            Chess is only one of our courses
-          </h2>
-          <p className="font-nunito text-[#2D2520]/60 text-base leading-relaxed max-w-2xl mx-auto mb-8">
-            Alongside chess, we teach a wider world of strategy games — each one building the same skills of planning, patience, and independent thinking in its own way.
-          </p>
-          <div className="flex flex-wrap justify-center gap-2.5 mb-8">
-            {otherGames.map((game) => (
-              <span key={game} className="font-nunito text-[#2D2520]/70 text-sm font-600 bg-white border border-[#E8A020]/15 rounded-full px-4 py-2">
-                {game}
-              </span>
-            ))}
-            <span className="font-nunito text-[#2D2520]/40 text-sm font-600 px-4 py-2">& more</span>
-          </div>
-          <MotionLink
-            whileTap={ctaTap}
-            to="/about#games"
-            className="inline-flex items-center gap-1.5 font-nunito text-[#E8A020] text-sm font-700 hover:text-[#d4940e] transition-colors"
-          >
-            See all the games we teach <ArrowRight size={15} />
-          </MotionLink>
-        </div>
-      </section>
 
       {/* What every session looks like */}
       <section className="py-20 relative overflow-hidden">
