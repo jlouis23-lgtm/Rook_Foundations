@@ -1,4 +1,4 @@
-import { useId, useState } from 'react';
+import { Fragment, useId, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, ChevronDown } from 'lucide-react';
 
@@ -145,14 +145,28 @@ export default function IndividualGroupSessions() {
   const toggle = (key) => setOpenKey((cur) => (cur === key ? null : key));
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-12 items-start">
-      {sessionTypes.map((session) => (
-        <SessionBlock
-          key={session.key}
-          session={session}
-          isOpen={openKey === session.key}
-          onToggle={() => toggle(session.key)}
-        />
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-0 md:gap-y-12 items-start">
+      {sessionTypes.map((session, i) => (
+        <Fragment key={session.key}>
+          {/* Mobile-only divider between Individual and Group. The grid's
+              own row-gap is zeroed below md (restored at md and up, where
+              this divider is hidden and the two sit side by side as
+              before) so the wrapper's own padding is the single source of
+              spacing here, rather than stacking on top of a structural
+              grid gutter. Colour is set inline rather than via
+              bg-[#2D2520]/12 since that utility wasn't generating a
+              visible background for this element in dev. */}
+          {i > 0 && (
+            <div className="md:hidden py-6" aria-hidden="true">
+              <div className="h-px" style={{ backgroundColor: '#2D2520', opacity: 0.12 }} />
+            </div>
+          )}
+          <SessionBlock
+            session={session}
+            isOpen={openKey === session.key}
+            onToggle={() => toggle(session.key)}
+          />
+        </Fragment>
       ))}
     </div>
   );
