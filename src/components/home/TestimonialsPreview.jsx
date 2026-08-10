@@ -1,28 +1,23 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Brain, Sprout, Target, Handshake } from 'lucide-react';
 
 const values = [
   {
-    Icon: Brain,
     accent: '#4a7eb8',
     heading: 'Learning to Think Critically',
     body: 'Every move on the chess board teaches children to slow down, consider their options, and act with intention. These kind of learning extends far beyond the game.',
   },
   {
-    Icon: Sprout,
     accent: '#2d8c62',
     heading: 'Confidence Blooms Naturally',
     body: 'Children discover that making mistakes is a part of learning, thinking outside of the box is encouraged, and that confidence emerges when taking worthy risks.',
   },
   {
-    Icon: Target,
     accent: '#7a48c0',
     heading: 'Focus Grows with Every Game',
     body: 'Chess and similar games provide opportunities to develop stronger focus and patience.',
   },
   {
-    Icon: Handshake,
     accent: '#b8790a',
     heading: 'A Place They Feel Supported',
     body: 'Small groups, personalised attention, and a warm teaching style mean every child feels seen, heard, and valued from their very first session.',
@@ -66,18 +61,12 @@ export default function TestimonialsPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="group flex items-start gap-4 cursor-default"
+              className="cursor-default"
             >
-              <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"
-                style={{ backgroundColor: `${v.accent}14` }}>
-                <v.Icon size={24} style={{ color: v.accent }} />
-              </div>
-              <div>
-                <h3 className="font-fredoka text-xl mb-2" style={{ color: v.accent }}>
-                  {v.heading}
-                </h3>
-                <p className="font-nunito text-[#2D2520]/70 text-sm leading-relaxed">{v.body}</p>
-              </div>
+              <h3 className="font-fredoka text-xl mb-2" style={{ color: v.accent }}>
+                {v.heading}
+              </h3>
+              <p className="font-nunito text-[#2D2520]/70 text-sm leading-relaxed">{v.body}</p>
             </motion.div>
           ))}
         </div>
