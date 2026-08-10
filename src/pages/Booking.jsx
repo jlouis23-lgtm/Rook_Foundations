@@ -2,8 +2,17 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Clock, ArrowRight } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
-import { ctaTap } from '@/components/ui/MotionLink';
+import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import WhatHappensNextSection from '@/components/booking/WhatHappensNextSection';
+
+const EASE = [0.22, 1, 0.36, 1];
+
+// Pre-launch switch. Flip to true once Rook Foundations opens bookings —
+// this alone restores the live Google Calendar links, the original
+// "Book X Session" button copy and the "Scheduling powered by Google
+// Calendar" caption, and hides the pre-launch box and "Interested in Rook
+// Foundations?" prompt below. Nothing else needs to change.
+const BOOKINGS_OPEN = false;
 
 const sessionCards = [
   {
@@ -48,19 +57,33 @@ const sessionCards = [
 ];
 
 function SessionCard({ session, index }) {
+  const Wrapper = BOOKINGS_OPEN ? motion.a : motion.div;
+
+  const interactiveProps = BOOKINGS_OPEN
+    ? {
+        href: session.scheduleUrl,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        whileTap: ctaTap,
+        whileHover: { y: -4, rotate: 0.5, transition: { duration: 0.25, ease: 'easeOut' } },
+        'aria-label': `${session.buttonLabel} — opens Google Calendar in a new tab`,
+      }
+    : {
+        // Not a link/button, so it can't be tabbed to or accidentally
+        // activated — the card is informational only during pre-launch.
+        'aria-label': `${session.title}: bookings are not yet open`,
+      };
+
   return (
-    <motion.a
-      href={session.scheduleUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      whileTap={ctaTap}
-      whileHover={{ y: -4, rotate: 0.5, transition: { duration: 0.25, ease: 'easeOut' } }}
+    <Wrapper
+      {...interactiveProps}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      aria-label={`${session.buttonLabel} — opens Google Calendar in a new tab`}
-      className={`play-card group relative flex flex-col border rounded-3xl p-7 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A020] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FAFAF7] ${
+      className={`play-card group relative flex flex-col border rounded-3xl p-7 bg-white ${
+        BOOKINGS_OPEN ? 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A020] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FAFAF7]' : ''
+      } ${
         session.recommended ? 'border-[#E8A020]/30 shadow-lg shadow-[#E8A020]/8' : 'border-[#2D2520]/10'
       }`}
     >
@@ -93,10 +116,16 @@ function SessionCard({ session, index }) {
         </ul>
       </div>
 
-      <span className="w-full bg-[#E8A020] text-white font-fredoka font-600 text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 transition-all group-hover:bg-[#d4940e] group-hover:-translate-y-0.5 group-hover:shadow-lg group-hover:shadow-[#E8A020]/20">
-        {session.buttonLabel} <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-      </span>
-    </motion.a>
+      {BOOKINGS_OPEN ? (
+        <span className="w-full bg-[#E8A020] text-white font-fredoka font-600 text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 transition-all group-hover:bg-[#d4940e] group-hover:-translate-y-0.5 group-hover:shadow-lg group-hover:shadow-[#E8A020]/20">
+          {session.buttonLabel} <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+        </span>
+      ) : (
+        <span className="w-full bg-[#2D2520]/[0.06] text-[#2D2520]/70 font-fredoka font-600 text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 border border-[#2D2520]/12">
+          <Clock size={14} className="text-[#2D2520]/50" aria-hidden="true" /> Bookings Opening Soon
+        </span>
+      )}
+    </Wrapper>
   );
 }
 
@@ -122,15 +151,56 @@ export default function Booking() {
       <section className="pb-24 relative overflow-hidden">
         <ChessBg variant="page" />
         <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
+          {!BOOKINGS_OPEN && (
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: EASE }}
+              className="max-w-xl mx-auto text-center bg-white border border-[#2D2520]/10 rounded-3xl px-6 py-7 sm:px-8 sm:py-8 shadow-sm mb-12"
+            >
+              <h2 className="font-fredoka text-[#2D2520] text-xl sm:text-2xl mb-3">Bookings Opening Soon</h2>
+              <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">
+                Rook Foundations is currently preparing for launch and running pilot sessions and workshops to refine our approach. These sessions help us test our resources, learn how different children respond to different games and ensure that every session provides a thoughtful and engaging learning experience.
+              </p>
+              <p className="font-nunito text-[#2D2520] text-sm leading-relaxed font-600 mt-4">
+                Bookings will open once our initial programme is ready.
+              </p>
+            </motion.div>
+          )}
+
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-3 max-w-xl lg:max-w-none mx-auto">
             {sessionCards.map((session, i) => (
               <SessionCard key={session.title} session={session} index={i} />
             ))}
           </div>
 
-          <p className="font-nunito text-[#2D2520]/35 text-xs text-center mt-10 font-600">
-            Scheduling powered by Google Calendar
-          </p>
+          {BOOKINGS_OPEN ? (
+            <p className="font-nunito text-[#2D2520]/35 text-xs text-center mt-10 font-600">
+              Scheduling powered by Google Calendar
+            </p>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: EASE }}
+              className="text-center mt-14"
+            >
+              <p className="font-fredoka text-[#2D2520] text-lg mb-2">Interested in Rook Foundations?</p>
+              <p className="font-nunito text-[#2D2520]/60 text-sm max-w-md mx-auto leading-relaxed mb-5">
+                We're currently preparing our first programme. If you'd like to hear when bookings open, please get in touch.
+              </p>
+              <MotionLink
+                whileTap={ctaTap}
+                to="/contact"
+                onClick={() => window.scrollTo(0, 0)}
+                className="inline-flex items-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-3.5 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/20"
+              >
+                Get in Touch <ArrowRight size={14} />
+              </MotionLink>
+            </motion.div>
+          )}
         </div>
       </section>
 
