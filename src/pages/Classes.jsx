@@ -5,6 +5,7 @@ import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import HowWeTeachSection from '@/components/classes/HowWeTeachSection';
 import LearningNetworkHero from '@/components/classes/LearningNetworkHero';
+import CulturalSymbolAccents from '@/components/classes/CulturalSymbolAccents';
 
 const otherGames = ['Go', 'Reversi / Othello', 'Xiangqi', 'Quoridor', 'Tower of Hanoi', 'Mastermind', 'Janggi', 'Marble Solitaire'];
 
@@ -27,6 +28,7 @@ export default function Classes() {
       {/* Header */}
       <section className="relative overflow-hidden py-20">
         <ChessBg variant="page" />
+        <CulturalSymbolAccents />
 
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
           <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-5">
