@@ -128,8 +128,21 @@ function SessionCycle() {
   );
 }
 
+// Notion and the data-protection icon share one info panel — only one of
+// the two can be open at a time, switching (not stacking) between them.
+const PANELS = {
+  notion: {
+    title: 'What is Notion?',
+    body: "Notion contains the secure database I use behind the scenes to keep every lesson connected. It's where I record lesson observations, document each child's strengths, and note any areas that need extra support. It tracks progress over time, keeps learning targets up to date, and plans the next lesson around how the last one went. This data provides valuable insights into skills learnt through specific games, which are then used to personalise learning experiences.",
+  },
+  data: {
+    title: 'How is your data protected?',
+    body: "Your child's information is treated with care and stored securely within a private, access-controlled system. Access is protected by strong authentication and device security, while Notion uses encryption to protect data during storage and transfer. I only collect information that is needed to support your child's learning and regularly review what we hold to ensure it remains necessary and appropriately protected.",
+  },
+};
+
 export default function ProgressTrackingSection() {
-  const [open, setOpen] = useState(false);
+  const [openPanel, setOpenPanel] = useState(null);
   const panelId = useId();
 
   return (
@@ -155,9 +168,8 @@ export default function ProgressTrackingSection() {
 
       {/* Notion → data protection: the system used to organise a child's
           learning, and the secure handling of that information, presented
-          as two connected, equally-weighted icons rather than the previous
-          single Notion-in-a-rook illustration. The data-protection image
-          has no interaction yet — only the Notion icon is clickable. */}
+          as two connected, equally-weighted icons that share one info
+          panel — only one of the two can be open at a time. */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -168,13 +180,17 @@ export default function ProgressTrackingSection() {
         <div className="flex items-center justify-center gap-3 sm:gap-6 lg:gap-8">
           <button
             type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
+            onClick={() => setOpenPanel((p) => (p === 'notion' ? null : 'notion'))}
+            aria-expanded={openPanel === 'notion'}
             aria-controls={panelId}
             aria-label="How we use Notion to personalise lessons"
             className="group flex-shrink-0 h-14 sm:h-20 lg:h-24 w-14 sm:w-20 lg:w-24 flex items-center justify-center outline-none focus-visible:ring-2 focus-visible:ring-[#E8A020] focus-visible:ring-offset-2 rounded-2xl"
           >
-            <picture className="w-full h-full transition-transform duration-300 group-hover:scale-105 group-hover:-translate-y-0.5 group-focus-visible:scale-105">
+            <picture
+              className={`w-full h-full transition-transform duration-300 group-hover:scale-105 group-hover:-translate-y-0.5 group-focus-visible:scale-105 ${
+                openPanel === 'notion' ? 'scale-105 -translate-y-0.5' : ''
+              }`}
+            >
               <source srcSet="/images/icons/notion-logo.webp" type="image/webp" />
               <img
                 src="/images/icons/notion-logo.png"
@@ -190,20 +206,34 @@ export default function ProgressTrackingSection() {
           <ArrowRight size={28} strokeWidth={2.5} className="hidden sm:block lg:hidden flex-shrink-0 text-[#E8A020]/65" aria-hidden="true" />
           <ArrowRight size={32} strokeWidth={2.5} className="hidden lg:block flex-shrink-0 text-[#E8A020]/65" aria-hidden="true" />
 
-          <div role="img" aria-label="Data protection" className="flex-shrink-0 h-14 sm:h-20 lg:h-24 w-auto">
-            <svg viewBox={`0 0 ${FOLDER_LOCK_RATIO} 1`} className="h-full w-auto block" focusable="false">
-              <path d={FOLDER_LOCK_PATHS} fill="#2D2520" fillOpacity="0.72" fillRule="evenodd" />
-            </svg>
-          </div>
+          <button
+            type="button"
+            onClick={() => setOpenPanel((p) => (p === 'data' ? null : 'data'))}
+            aria-expanded={openPanel === 'data'}
+            aria-controls={panelId}
+            aria-label="How your child's data is protected"
+            className="group flex-shrink-0 h-14 sm:h-20 lg:h-24 flex items-center justify-center outline-none focus-visible:ring-2 focus-visible:ring-[#E8A020] focus-visible:ring-offset-2 rounded-2xl"
+          >
+            <span
+              className={`block h-full w-auto transition-transform duration-300 group-hover:scale-105 group-hover:-translate-y-0.5 group-focus-visible:scale-105 ${
+                openPanel === 'data' ? 'scale-105 -translate-y-0.5' : ''
+              }`}
+            >
+              <svg viewBox={`0 0 ${FOLDER_LOCK_RATIO} 1`} className="h-full w-auto block" focusable="false">
+                <path d={FOLDER_LOCK_PATHS} fill="#000" fillRule="evenodd" />
+              </svg>
+            </span>
+          </button>
         </div>
 
         <span className="font-nunito text-[#2D2520]/45 text-xs mt-4">
-          {open ? 'Hide details' : 'Tap to see how we organise it all'}
+          {openPanel ? 'Hide details' : 'Tap to see how we organise it all'}
         </span>
 
-        <AnimatePresence>
-          {open && (
+        <AnimatePresence mode="wait">
+          {openPanel && (
             <motion.div
+              key={openPanel}
               id={panelId}
               initial={{ opacity: 0, height: 0, marginTop: 0 }}
               animate={{ opacity: 1, height: 'auto', marginTop: 20 }}
@@ -212,9 +242,9 @@ export default function ProgressTrackingSection() {
               className="overflow-hidden w-full max-w-lg"
             >
               <div className="bg-white border border-[#2D2520]/8 rounded-3xl px-6 py-6 shadow-sm text-center">
-                <h3 className="font-fredoka text-[#2D2520] text-lg mb-2">What is Notion?</h3>
+                <h3 className="font-fredoka text-[#2D2520] text-lg mb-2">{PANELS[openPanel].title}</h3>
                 <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
-                  Notion contains the secure database I use behind the scenes to keep every lesson connected. It's where I record lesson observations, document each child's strengths, and note any areas that need extra support. It tracks progress over time, keeps learning targets up to date, and plans the next lesson around how the last one went. This data provides valuable insights into skills learnt through specific games, which are then used to personalise learning experiences.
+                  {PANELS[openPanel].body}
                 </p>
               </div>
             </motion.div>
