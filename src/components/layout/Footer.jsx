@@ -9,6 +9,7 @@ const navLinks = [
   { label: 'About', path: '/about' },
   { label: 'Our Learning Approach', path: '/classes' },
   { label: 'Pricing', path: '/pricing' },
+  { label: 'Clubs', path: '/events' },
   { label: 'Book a Session', path: '/booking' },
   { label: 'Contact', path: '/contact' },
 ];
