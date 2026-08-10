@@ -112,12 +112,9 @@ export default function Booking() {
           <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-5">
             📅 Pick a time that suits you
           </span>
-          <h1 className="font-fredoka text-[#2D2520] mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
+          <h1 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
             Find a session that works for your family
           </h1>
-          <p className="font-nunito text-[#2D2520]/60 text-lg max-w-2xl lg:max-w-none leading-relaxed mx-auto">
-            Every child has different attention spans and learning preferences, so different session lengths offer different balances of gameplay, discussion, and reflection. Longer sessions allow more time for gameplay, deeper discussion, and meaningful reflection, while shorter sessions provide a focused and engaging learning experience. Whichever session you choose, every lesson is personalised to your child's interests, learning preferences and current learning targets.
-          </p>
         </div>
       </section>
 
