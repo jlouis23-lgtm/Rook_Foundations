@@ -1,19 +1,27 @@
 import { useState, useId } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { RotateCcw } from 'lucide-react';
+import { RotateCcw, ArrowRight } from 'lucide-react';
 
 const EASE = [0.22, 1, 0.36, 1];
 
-// Rook outline traced from the reference Staunton piece (IMG_2868) — same
-// silhouette used site-wide, reused here as the frame that houses the
-// Notion icon rather than as an interactive three-pillar diagram.
-const GOLD = '#C99A34';
-const ROOK_OUTER =
-  'M 90.52 109.86 L 8.61 109.86 L 8.44 109.69 L 8.44 101.09 L 8.66 98.26 L 9.31 95.1 L 10.19 92.92 L 11.49 90.74 L 13.83 88.4 L 16.23 86.98 L 19.88 85.62 L 25.0 42.81 L 24.4 42.21 L 22.88 41.56 L 21.13 40.36 L 18.9 38.24 L 17.7 36.49 L 16.5 33.77 L 15.85 30.83 L 15.52 25.16 L 14.65 16.45 L 14.43 12.96 L 14.81 12.47 L 17.86 10.84 L 22.33 9.31 L 26.14 8.66 L 30.94 8.66 L 31.86 11.98 L 33.71 20.7 L 34.2 21.19 L 37.36 21.19 L 37.8 21.08 L 37.96 20.81 L 39.38 7.63 L 39.87 7.03 L 41.07 6.81 L 46.41 6.15 L 50.44 6.05 L 54.79 6.37 L 59.48 7.14 L 59.75 7.84 L 61.06 20.15 L 61.17 20.81 L 61.55 21.19 L 64.92 21.19 L 65.31 21.02 L 68.19 8.66 L 72.98 8.66 L 76.8 9.31 L 81.26 10.84 L 84.48 12.53 L 84.69 12.85 L 84.69 13.62 L 83.61 24.84 L 83.28 30.72 L 82.3 34.53 L 81.1 36.93 L 79.79 38.67 L 77.45 40.69 L 74.29 42.43 L 74.13 43.25 L 79.14 85.4 L 79.74 85.89 L 83.44 87.31 L 85.73 88.83 L 87.96 91.29 L 89.27 93.68 L 90.14 96.62 L 90.47 98.91 L 90.69 104.36 L 90.69 109.69 L 90.52 109.86 Z';
-const ROOK_HIGHLIGHTS = [
-  'M 72.11 39.92 L 61.98 38.73 L 52.94 38.07 L 43.68 38.18 L 36.82 38.73 L 28.32 39.92 L 26.80 39.92 L 25.49 39.38 L 23.09 37.85 L 21.51 36.38 L 20.32 34.64 L 19.44 32.57 L 18.79 28.76 L 18.79 27.02 L 17.81 16.88 L 17.81 14.38 L 20.37 13.13 L 22.44 12.47 L 25.82 11.82 L 28.32 11.71 L 28.70 12.09 L 31.21 23.86 L 31.59 24.24 L 40.52 24.24 L 40.80 23.75 L 41.01 22.22 L 41.99 12.20 L 42.21 11.66 L 42.21 10.46 L 42.48 9.86 L 45.97 9.31 L 49.24 9.10 L 55.99 9.64 L 56.64 9.86 L 56.92 10.57 L 58.44 24.07 L 58.61 24.24 L 67.65 24.24 L 67.92 23.86 L 68.46 21.57 L 68.57 20.37 L 70.59 11.82 L 73.31 11.82 L 76.25 12.36 L 80.07 13.78 L 81.32 14.49 L 81.32 15.90 L 80.34 26.14 L 80.34 28.10 L 79.68 32.35 L 78.81 34.53 L 77.51 36.38 L 74.84 38.62 L 72.11 39.92 Z',
-  'M 23.64 85.02 L 23.15 84.86 L 23.15 84.31 L 24.02 78.32 L 24.13 76.03 L 26.63 55.01 L 26.85 54.47 L 27.83 44.77 L 28.21 43.08 L 37.04 41.88 L 40.96 41.78 L 45.32 41.34 L 50.54 41.23 L 54.47 41.34 L 55.34 41.56 L 64.92 42.21 L 66.23 42.54 L 70.48 42.97 L 70.97 43.25 L 73.80 68.08 L 74.02 68.63 L 75.44 81.59 L 75.65 82.14 L 75.87 84.20 L 75.71 84.91 L 69.93 84.15 L 60.02 83.61 L 42.27 83.50 L 30.28 84.15 L 24.18 84.80 L 23.64 85.02 Z',
-];
+// Folder-with-lock icon traced from the reference photo (IMG_2893) — a bold
+// line-art glyph, so the ink itself (not a filled silhouette) is traced and
+// rendered with fill-rule evenodd, which reproduces the outline strokes at
+// their original width rather than approximating them with a chosen stroke
+// weight. Normalised so 1 unit = the icon's own height; the 1.4354 viewBox
+// width reproduces its true (wider-than-tall) proportions.
+const FOLDER_LOCK_RATIO = 1.4354;
+const FOLDER_LOCK_PATHS = [
+  'M 1.135 1.0006 L 1.085 0.9983 L 1.0373 0.9889 L 0.9919 0.9726 L 0.9604 0.9563 L 0.929 0.9354 L 0.8877 0.8976 L 0.8597 0.8626 L 0.837 0.826 L 0.0955 0.826 L 0.0594 0.8143 L 0.0407 0.8015 L 0.0122 0.7672 L 0.0029 0.7462 L -0.0006 0.7253 L -0.0006 0.1001 L 0.0099 0.0617 L 0.0285 0.0349 L 0.0594 0.0111 L 0.0931 -0.0006 L 0.4529 -0.0006 L 0.4761 0.0064 L 0.5017 0.0227 L 0.5437 0.0728 L 1.0384 0.0716 L 1.071 0.0809 L 1.0966 0.0972 L 1.1228 0.1281 L 1.1368 0.1641 L 1.138 0.3655 L 1.1909 0.3743 L 1.2515 0.3952 L 1.3097 0.4302 L 1.358 0.475 L 1.3906 0.5192 L 1.4162 0.5716 L 1.4302 0.6193 L 1.436 0.6764 L 1.4302 0.7474 L 1.4162 0.7951 L 1.3906 0.8475 L 1.3556 0.8941 L 1.3201 0.9284 L 1.2584 0.968 L 1.1944 0.9913 L 1.135 1.0006 Z',
+  'M 0.8225 0.7905 L 0.8085 0.7381 L 0.8038 0.6764 L 0.8085 0.6286 L 0.8178 0.5891 L 0.8411 0.5343 L 0.862 0.5006 L 0.8877 0.4692 L 0.9302 0.4302 L 0.9581 0.4115 L 1.0244 0.3813 L 1.1019 0.3667 L 1.1013 0.2648 L 0.6531 0.2637 L 0.6432 0.2561 L 0.4849 0.0559 L 0.4668 0.0413 L 0.4447 0.0343 L 0.1013 0.0343 L 0.078 0.0413 L 0.0495 0.0652 L 0.0402 0.0815 L 0.0343 0.1059 L 0.0343 0.7194 L 0.0425 0.7485 L 0.064 0.7747 L 0.0792 0.7841 L 0.1024 0.791 L 0.8225 0.7905 Z',
+  'M 1.1426 0.9627 L 1.1769 0.9587 L 1.234 0.94 L 1.2887 0.9075 L 1.33 0.8696 L 1.3673 0.8161 L 1.3906 0.759 L 1.3999 0.709 L 1.3999 0.6566 L 1.3859 0.5925 L 1.3603 0.5378 L 1.33 0.4971 L 1.2922 0.4616 L 1.2421 0.4302 L 1.1921 0.4115 L 1.142 0.4034 L 1.0827 0.4045 L 1.0396 0.4139 L 0.9849 0.4371 L 0.9395 0.4686 L 0.897 0.5134 L 0.862 0.5728 L 0.8481 0.6135 L 0.8411 0.6508 L 0.8411 0.7159 L 0.8574 0.7823 L 0.8807 0.83 L 0.9086 0.8673 L 0.9441 0.9016 L 0.979 0.9261 L 1.0373 0.9517 L 1.099 0.9633 L 1.1426 0.9627 Z',
+  'M 1.248 0.8399 L 0.9919 0.8399 L 0.9738 0.8254 L 0.9715 0.6065 L 0.9796 0.5937 L 0.9919 0.5861 L 1.0297 0.5856 L 1.0297 0.553 L 1.039 0.5192 L 1.0617 0.4907 L 1.0838 0.4767 L 1.1048 0.4697 L 1.135 0.4697 L 1.17 0.4837 L 1.1927 0.5052 L 1.2043 0.5262 L 1.2101 0.5506 L 1.2101 0.5844 L 1.248 0.5861 L 1.2561 0.5896 L 1.2672 0.6019 L 1.2695 0.8172 L 1.2648 0.8277 L 1.248 0.8399 Z',
+  'M 1.1019 0.2282 L 1.1019 0.1723 L 1.0972 0.156 L 1.0856 0.1362 L 1.0745 0.1251 L 1.0431 0.1088 L 0.5733 0.1094 L 0.6671 0.2288 L 1.1019 0.2282 Z',
+  'M 1.2322 0.8044 L 1.2328 0.6211 L 1.0064 0.6217 L 1.007 0.8038 L 1.2322 0.8044 Z',
+  'M 1.1234 0.7794 L 1.1106 0.7771 L 1.1042 0.7695 L 1.1019 0.7334 L 1.0832 0.7183 L 1.0751 0.6973 L 1.0763 0.6787 L 1.0809 0.6682 L 1.0955 0.6537 L 1.1118 0.6467 L 1.1281 0.6467 L 1.1455 0.6537 L 1.1577 0.6659 L 1.1647 0.6822 L 1.1624 0.7101 L 1.1554 0.7206 L 1.138 0.7346 L 1.1368 0.7695 L 1.1234 0.7794 Z',
+  'M 1.174 0.5856 L 1.1717 0.5402 L 1.1647 0.5274 L 1.1432 0.5093 L 1.1257 0.5047 L 1.0978 0.5093 L 1.0786 0.5239 L 1.0693 0.539 L 1.0658 0.5565 L 1.0675 0.5861 L 1.174 0.5856 Z',
+  'M 1.1228 0.7008 L 1.1298 0.695 L 1.1298 0.6892 L 1.1199 0.6816 L 1.1112 0.6868 L 1.1112 0.6962 L 1.1228 0.7008 Z',
+].join(' ');
 
 // Three consecutive sessions compressed to one line of movement each — the
 // point being made is the cycle itself (observe, set targets, adapt, repeat)
@@ -145,9 +153,11 @@ export default function ProgressTrackingSection() {
           place of three large cards */}
       <SessionCycle />
 
-      {/* Notion, housed inside the redesigned rook — the piece that carries
-          the page's visual identity becomes the container for the system
-          that keeps every child's learning organised. */}
+      {/* Notion → data protection: the system used to organise a child's
+          learning, and the secure handling of that information, presented
+          as two connected, equally-weighted icons rather than the previous
+          single Notion-in-a-rook illustration. The data-protection image
+          has no interaction yet — only the Notion icon is clickable. */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -155,26 +165,14 @@ export default function ProgressTrackingSection() {
         transition={{ duration: 0.6, delay: 0.3, ease: EASE }}
         className="flex flex-col items-center mb-16"
       >
-        <div className="relative w-full max-w-[220px] sm:max-w-[260px] mx-auto">
-          <svg viewBox="0 0 100 114.6" className="w-full h-auto block" aria-hidden="true" focusable="false">
-            <path d={ROOK_OUTER} fill="#fff" />
-            <path d={ROOK_HIGHLIGHTS[0]} fill={GOLD} opacity="0.08" />
-            <path d={ROOK_HIGHLIGHTS[1]} fill={GOLD} opacity="0.08" />
-            <path d={ROOK_OUTER} fill="none" stroke={GOLD} strokeWidth="2.4" strokeLinejoin="round" />
-          </svg>
-
-          {/* Notion icon — centred within the rook's body, well clear of
-              the outline on every side at every breakpoint since it's
-              positioned as a percentage of the same viewBox the rook is
-              traced in. */}
+        <div className="flex items-center justify-center gap-3 sm:gap-6 lg:gap-8">
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls={panelId}
             aria-label="How we use Notion to personalise lessons"
-            className="group absolute flex items-center justify-center outline-none focus-visible:ring-2 focus-visible:ring-[#E8A020] focus-visible:ring-offset-2 rounded-2xl"
-            style={{ left: '33%', top: '41%', width: '34%', height: '30%' }}
+            className="group flex-shrink-0 h-14 sm:h-20 lg:h-24 w-14 sm:w-20 lg:w-24 flex items-center justify-center outline-none focus-visible:ring-2 focus-visible:ring-[#E8A020] focus-visible:ring-offset-2 rounded-2xl"
           >
             <picture className="w-full h-full transition-transform duration-300 group-hover:scale-105 group-hover:-translate-y-0.5 group-focus-visible:scale-105">
               <source srcSet="/images/icons/notion-logo.webp" type="image/webp" />
@@ -187,6 +185,16 @@ export default function ProgressTrackingSection() {
               />
             </picture>
           </button>
+
+          <ArrowRight size={22} strokeWidth={2.5} className="flex-shrink-0 text-[#E8A020]/65 sm:hidden" aria-hidden="true" />
+          <ArrowRight size={28} strokeWidth={2.5} className="hidden sm:block lg:hidden flex-shrink-0 text-[#E8A020]/65" aria-hidden="true" />
+          <ArrowRight size={32} strokeWidth={2.5} className="hidden lg:block flex-shrink-0 text-[#E8A020]/65" aria-hidden="true" />
+
+          <div role="img" aria-label="Data protection" className="flex-shrink-0 h-14 sm:h-20 lg:h-24 w-auto">
+            <svg viewBox={`0 0 ${FOLDER_LOCK_RATIO} 1`} className="h-full w-auto block" focusable="false">
+              <path d={FOLDER_LOCK_PATHS} fill="#2D2520" fillOpacity="0.72" fillRule="evenodd" />
+            </svg>
+          </div>
         </div>
 
         <span className="font-nunito text-[#2D2520]/45 text-xs mt-4">
