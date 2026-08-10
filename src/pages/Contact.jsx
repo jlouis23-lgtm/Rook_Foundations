@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock, Send, Check, MessageCircle, Gift } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, Check, MessageCircle } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import Reveal from '@/components/ui/Reveal';
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
@@ -86,8 +86,7 @@ export default function Contact() {
                 </a>
               </Reveal>
 
-              <Reveal direction="left" delay={0.1} className="bg-amber-50 rounded-3xl p-7">
-                <Gift size={30} className="text-[#E8A020] mb-3" />
+              <Reveal direction="left" delay={0.1} className="bg-amber-50 rounded-3xl p-6">
                 <h3 className="font-fredoka text-[#2D2520] text-xl mb-2">£5 Trial Session</h3>
                 <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">
                   Your first assessment lesson is just £5. We'll find the perfect starting point for your child and make sure they feel comfortable from the very first move.
