@@ -41,7 +41,7 @@ export default function TestimonialsPreview() {
             More than just games.
           </h2>
           <p className="font-nunito text-[#2D2520]/55 text-base max-w-xl mx-auto leading-relaxed">
-            At Rook Foundations, we believe that chess and similar games provide powerful ways to build confidence, character and skills for life. Explore our{' '}
+            Rook Foundations is a growing project which uses chess and similar games to provide powerful ways of building confidence, character, and skills for life. Explore the{' '}
             <Link
               to="/about"
               onClick={() => window.scrollTo(0, 0)}
@@ -49,7 +49,7 @@ export default function TestimonialsPreview() {
             >
               About page
             </Link>{' '}
-            to discover the games we use as tools for learning, and the values that shape every lesson.
+            to discover the games Rook Foundations uses as tools for learning, and the experiences and values that have shaped the project.
           </p>
         </div>
 

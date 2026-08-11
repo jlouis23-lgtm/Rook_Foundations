@@ -27,7 +27,7 @@ export default function PreLaunchNotice() {
           Rook Foundations is currently preparing for launch.
         </h2>
         <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">
-          We're currently running pilot sessions and workshops with children to refine our approach and develop the best possible learning experience for families.
+          I am currently running pilot sessions and workshops with children to refine my approach and develop the best possible learning experience for families.
         </p>
         <Link
           to="/classes"
