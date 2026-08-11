@@ -8,7 +8,7 @@ import Reveal from '@/components/ui/Reveal';
 
 const EASE = [0.22, 1, 0.36, 1];
 
-const DURATIONS = ['30 Minutes', '60 Minutes'];
+const DURATIONS = ['30 Minutes', '60 Minutes', '90 Minutes'];
 
 const plans = [
   {
@@ -16,7 +16,8 @@ const plans = [
     people: 1,
     subtitle: '1 student',
     descriptor: 'Personalised Learning',
-    cardStyle: 'bg-white border-[#2D2520]/10',
+    descriptorStyle: 'bg-[#7a48c0] text-white',
+    cardStyle: 'bg-[#7a48c0]/10 border-[#7a48c0]/30',
     features: ['Fully personalised lesson plan', 'One-to-one instructor attention', 'Deeper conceptual learning'],
   },
   {
@@ -24,6 +25,7 @@ const plans = [
     people: 2,
     subtitle: '2 students',
     descriptor: 'Learning Together',
+    descriptorStyle: 'bg-[#b8790a] text-white',
     cardStyle: 'bg-amber-50/60 border-[#E8A020]/30 shadow-lg shadow-[#E8A020]/8',
     features: ['Shared learning dynamic', 'Friendly in-session competition', 'Great for siblings or friends'],
   },
@@ -32,6 +34,7 @@ const plans = [
     people: 4,
     subtitle: '3-4 students',
     descriptor: 'Collaborative Learning',
+    descriptorStyle: 'bg-[#2d8c62] text-white',
     cardStyle: 'bg-green-50/60 border-green-200',
     features: ['Cooperative problem solving', 'Team challenges & competitions', 'Rotate through different strategy games'],
   },
@@ -70,7 +73,7 @@ export default function Pricing() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center mb-10">
             <p className="font-nunito text-[#2D2520]/50 text-sm font-600">
-              Each format below is available across <span className="text-[#E8A020] font-700">two session lengths</span>.
+              Each format below is available across <span className="text-[#E8A020] font-700">three session lengths</span>.
             </p>
           </div>
 
@@ -87,7 +90,7 @@ export default function Pricing() {
                 variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
                 className={`play-card relative flex flex-col border rounded-3xl p-7 ${plan.cardStyle}`}
               >
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#2D2520] text-white font-nunito text-xs font-700 px-4 py-1.5 rounded-full shadow-md whitespace-nowrap">
+                <span className={`absolute -top-3 left-1/2 -translate-x-1/2 ${plan.descriptorStyle} font-nunito text-xs font-700 px-4 py-1.5 rounded-full shadow-md whitespace-nowrap`}>
                   {plan.descriptor}
                 </span>
 
@@ -102,13 +105,13 @@ export default function Pricing() {
                 </div>
 
                 {/* Session lengths */}
-                <div className="grid grid-cols-2 gap-3 mb-7 pb-7 border-b border-[#2D2520]/10">
+                <div className="grid grid-cols-3 gap-2 mb-7 pb-7 border-b border-[#2D2520]/10">
                   {DURATIONS.map((duration) => (
                     <div
                       key={duration}
-                      className="bg-[#2D2520]/5 rounded-2xl py-3.5 px-2 text-center"
+                      className="bg-[#2D2520]/5 rounded-2xl py-3.5 px-1 text-center"
                     >
-                      <span className="font-nunito text-[#2D2520]/75 text-sm font-700">
+                      <span className="font-nunito text-[#2D2520]/75 text-xs sm:text-sm font-700">
                         {duration}
                       </span>
                     </div>
@@ -116,7 +119,7 @@ export default function Pricing() {
                 </div>
 
                 {/* Features */}
-                <ul className="space-y-3 flex-1 mb-7">
+                <ul className="space-y-3 flex-1">
                   {plan.features.map((f) => (
                     <li key={f} className="flex items-start gap-3 font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
                       <span className="w-5 h-5 bg-[#E8A020] rounded-full flex items-center justify-center text-white flex-shrink-0 mt-0.5">
@@ -126,14 +129,6 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
-
-                <MotionLink
-                  whileTap={ctaTap}
-                  to="/contact"
-                  className="w-full bg-[#E8A020] text-white font-fredoka font-600 text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 hover:bg-[#d4940e] transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#E8A020]/20"
-                >
-                  Get in Touch <ArrowRight size={14} />
-                </MotionLink>
               </motion.div>
             ))}
           </motion.div>
