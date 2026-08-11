@@ -92,7 +92,7 @@ export default function Events() {
               Coming soon to schools and community settings
             </p>
             <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed max-w-2xl mx-auto">
-              We're currently developing our school and community club programme, designed to bring the Rook Foundations approach into longer-term group settings. Our early workshops and pilot sessions are helping us refine the activities, resources and structure before we begin establishing regular clubs.
+              I'm currently developing the Rook Foundations school and community club programme, designed to bring the approach into longer-term group settings. My early workshops and pilot sessions are helping me refine the activities, resources and structure before I begin establishing regular clubs.
             </p>
           </motion.div>
         </div>
