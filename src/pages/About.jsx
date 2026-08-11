@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, BookOpen, Users, Heart, Dices, GraduationCap } from 'lucide-react';
+import { ArrowRight, BookOpen, Users, Dices, GraduationCap } from 'lucide-react';
 import WhyChessResearch from '../components/about/WhyChessResearch';
 import ProfessionalTraining from '../components/about/ProfessionalTraining';
 import BoardVisionSection from '../components/about/BoardVisionSection';
@@ -47,7 +47,7 @@ export default function About() {
             className="max-w-4xl mx-auto px-6 lg:px-12 text-center mb-14"
           >
             <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-6">
-              <Heart size={14} /> The story behind Rook Foundations
+              The story behind Rook Foundations
             </span>
             <h1 className="font-fredoka text-[#2D2520] leading-tight mb-0"
               style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)' }}>
