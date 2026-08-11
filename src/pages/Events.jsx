@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
-  Check, Shield, Dices, MapPin, Calendar,
+  Check, Dices, MapPin, Calendar,
 } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 
@@ -164,36 +164,31 @@ export default function Events() {
       {/* Safety spotlight — carried over from the existing page; the
           practices described already apply to current pilot sessions,
           so this remains accurate rather than a claim about future clubs. */}
-      <section className="py-16 bg-white border-y border-[#2D2520]/8">
+      <section className="py-16">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-green-50 rounded-3xl p-8 flex flex-col md:flex-row gap-6 items-start"
+            className="bg-green-50 rounded-3xl p-8"
           >
-            <div className="w-14 h-14 bg-green-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
-              <Shield size={26} className="text-white" />
-            </div>
-            <div>
-              <h3 className="font-fredoka text-[#2D2520] text-2xl mb-3">Safeguarding & Safety</h3>
-              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mb-4">
-                The safety and welfare of every child taking part in our workshops and pilot sessions is our absolute priority, and the same standards will carry through into future clubs. We operate in full compliance with safeguarding best practices.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                {[
-                  'DBS-checked staff',
-                  'Safeguarding training completed',
-                  'Safe, structured, supervised sessions',
-                  'Children\'s welfare comes first',
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-2 font-nunito text-[#2D2520]/70 text-sm font-600">
-                    <Check size={13} className="text-green-500 flex-shrink-0" />
-                    {item}
-                  </div>
-                ))}
-              </div>
+            <h3 className="font-fredoka text-[#2D2520] text-2xl mb-3">Safeguarding & Safety</h3>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mb-4">
+              The safety and welfare of every child taking part in our workshops and pilot sessions is our absolute priority, and the same standards will carry through into future clubs. We operate in full compliance with safeguarding best practices.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              {[
+                'DBS-checked staff',
+                'Safeguarding training completed',
+                'Safe, structured, supervised sessions',
+                'Children\'s welfare comes first',
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-2 font-nunito text-[#2D2520]/70 text-sm font-600">
+                  <Check size={13} className="text-green-500 flex-shrink-0" />
+                  {item}
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>
