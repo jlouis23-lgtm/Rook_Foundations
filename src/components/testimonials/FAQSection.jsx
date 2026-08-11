@@ -184,7 +184,7 @@ export default function FAQSection() {
       <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
         <Reveal className="text-center mb-14">
           <span className="inline-flex items-center gap-1.5 font-nunito text-amber-700 text-sm font-800 uppercase tracking-widest mb-4">
-            <MessageCircle size={14} /> Questions from parents like you
+            Questions from parents like you
           </span>
           <h2 className="font-fredoka text-[#2D2520] leading-tight mb-4"
             style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
