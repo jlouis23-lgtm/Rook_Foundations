@@ -14,10 +14,10 @@ const EASE = [0.22, 1, 0.36, 1];
 // programme, not a currently-running one.
 const offerings = [
   { Icon: Dices, title: 'Strategy Games', body: 'A varied selection of games and puzzles designed to encourage children to explore different ways of thinking.' },
+  { Icon: Users, title: 'Engaging Activities', body: 'Children will also have opportunities to work in teams, building on ideas together and enjoying themselves in a fun, supportive environment.' },
+  { Icon: Sprout, title: 'Progressive Challenges', body: 'Activities can be adapted over time as children become more familiar with different games, challenges and ways of thinking.' },
   { Icon: Brain, title: 'Thinking & Problem Solving', body: 'Activities that encourage children to plan, predict, make decisions and explain their reasoning.' },
   { Icon: MessageCircle, title: 'Discussion & Reflection', body: 'Opportunities for children to talk about their decisions, consider different approaches and reflect on what they have learned.' },
-  { Icon: Sprout, title: 'Progressive Challenges', body: 'Activities can be adapted over time as children become more familiar with different games, challenges and ways of thinking.' },
-  { Icon: Users, title: 'Engaging Activities', body: 'Children will also have opportunities to work in teams, building on ideas together and enjoying themselves in a fun, supportive environment.' },
 ];
 
 // Planned formats — explicitly labelled, not presented as bookable today.
