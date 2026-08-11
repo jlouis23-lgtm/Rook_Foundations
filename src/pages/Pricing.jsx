@@ -52,34 +52,19 @@ export default function Pricing() {
           <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-5">
             <Coins size={14} /> Simple, honest pricing
           </span>
-          <h1 className="font-fredoka text-[#2D2520] mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
+          <h1 className="font-fredoka text-[#2D2520] leading-[1.1] mb-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
             What does it cost?
           </h1>
-          <p className="font-nunito text-[#2D2520]/60 text-lg leading-relaxed max-w-2xl mx-auto">
-            Choose the format that works best for your family. All sessions are in-person, with a patient and child-friendly instructor. Our approach is working in small groups, tailoring learning and maximising growth.
-          </p>
-        </Reveal>
-      </section>
-
-      {/* Pre-launch pricing notice */}
-      <section className="px-6 lg:px-12 pb-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: EASE }}
-          className="max-w-xl mx-auto text-center bg-white border border-[#2D2520]/10 rounded-3xl px-6 py-7 sm:px-8 sm:py-8 shadow-sm"
-        >
-          <h2 className="font-fredoka text-[#2D2520] text-xl sm:text-2xl mb-3">
+          <p className="font-fredoka text-[#E8A020] mb-6" style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)' }}>
             Pricing is currently being finalised
-          </h2>
-          <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">
+          </p>
+          <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed max-w-2xl mx-auto">
             Rook Foundations is currently in its pilot and development stage. As I begin working with children across different ages, group sizes and settings, I'm taking the time to make sure our session structure and pricing are fair and appropriate for families.
           </p>
-          <p className="font-nunito text-[#2D2520] text-sm leading-relaxed font-600 mt-4">
+          <p className="font-nunito text-[#2D2520] text-lg leading-relaxed font-600 mt-4 max-w-2xl mx-auto">
             Final pricing will be confirmed when bookings open.
           </p>
-        </motion.div>
+        </Reveal>
       </section>
 
       {/* Pricing Cards */}
