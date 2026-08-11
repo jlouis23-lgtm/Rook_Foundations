@@ -80,7 +80,7 @@ export default function Classes() {
               <HelpCircle size={28} className="text-[#E8A020] block mb-3" />
               <h4 className="font-fredoka text-[#2D2520] text-xl mb-2">Not sure which game or level?</h4>
               <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed mb-5">
-                In our first session, we'll recommend the perfect starting point for your child. You can also book a £5 trial session.
+                With over 30 games to choose from, I adapt each session to your child's interests, focus and confidence. From independent challenges to games played together, I'll explore the right level to engage, support and stretch them.
               </p>
               <MotionLink
                 whileTap={ctaTap}
