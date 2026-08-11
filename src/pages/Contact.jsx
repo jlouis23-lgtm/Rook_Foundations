@@ -38,6 +38,53 @@ export default function Contact() {
           <p className="font-nunito text-[#2D2520]/60 text-lg max-w-2xl mx-auto leading-relaxed">
             No pressure, no commitment. Just a warm conversation about what's right for your child.
           </p>
+          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-xs font-700 uppercase tracking-widest bg-[#E8A020]/10 rounded-full px-3 py-1.5 mt-5">
+            £5 Trial Session
+          </span>
+        </Reveal>
+      </section>
+
+      {/* A little about your child */}
+      <section className="pb-4 relative overflow-hidden">
+        <Reveal className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
+          <div className="bg-white border border-[#2D2520]/10 rounded-3xl p-7 sm:p-9 shadow-sm">
+            <h2 className="font-fredoka text-[#2D2520] text-xl sm:text-2xl mb-3">A little about your child</h2>
+            <p className="font-nunito text-[#2D2520]/65 text-sm sm:text-base leading-relaxed mb-4">
+              I'm building Rook Foundations around the children who take part. Before we begin, I'd love to understand a little about your child, what they enjoy, how they learn and what you'd like them to get from the experience.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-sm sm:text-base leading-relaxed mb-4">
+              You might want to tell me about their interests, availability, how they engage with games, any areas where they may need additional support, or anything else you think would help me understand them better.
+            </p>
+            <p className="font-nunito text-[#2D2520]/60 text-sm sm:text-base leading-relaxed italic">
+              There's no right or wrong answer — the more I understand, the better I can shape the experience around them.
+            </p>
+
+            <div className="border-t border-[#2D2520]/10 mt-6 pt-6">
+              <h3 className="font-fredoka text-[#2D2520]/80 text-base mb-2">Why this matters</h3>
+              <p className="font-nunito text-[#2D2520]/50 text-sm leading-relaxed">
+                Rook Foundations is about more than playing games. I'm exploring how strategy games can become meaningful learning opportunities — helping children develop the way they think, communicate, make decisions and reflect. Your feedback will help me continue developing that approach.
+              </p>
+            </div>
+
+            <div className="border-t border-[#2D2520]/10 mt-6 pt-6">
+              <h3 className="font-fredoka text-[#2D2520] text-base mb-3">What would be helpful to know?</h3>
+              <ul className="space-y-2.5">
+                {[
+                  { title: "Your child's interests", body: 'games, hobbies or subjects they enjoy.' },
+                  { title: 'How they engage', body: 'what tends to motivate or frustrate them.' },
+                  { title: 'Learning needs', body: 'anything you think I should understand about how they learn or communicate.' },
+                  { title: 'Your goals', body: "anything you'd particularly like your child to develop." },
+                  { title: 'Availability', body: 'days or times that would work for you.' },
+                  { title: 'Pricing preferences', body: "if you have a particular budget or session structure that would work best for your family, you're welcome to let me know." },
+                ].map(({ title, body }) => (
+                  <li key={title} className="flex items-start gap-2.5 font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#E8A020] flex-shrink-0" />
+                    <span><span className="font-700 text-[#2D2520]">{title}</span> — {body}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </Reveal>
       </section>
 
@@ -168,9 +215,9 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="font-nunito text-[#2D2520]/60 text-xs font-700 uppercase tracking-wide block mb-2">Any Questions or Context?</label>
+                    <label className="font-nunito text-[#2D2520]/60 text-xs font-700 uppercase tracking-wide block mb-2">Tell me a little about your child <span className="normal-case font-500 text-[#2D2520]/35">(Optional)</span></label>
                     <textarea name="message" value={form.message} onChange={handleChange} rows={4}
-                      placeholder="Tell us about your child — learning style, any questions, or anything that would help us prepare..."
+                      placeholder="Anything you'd like me to know about their interests, learning style, goals, availability or anything else that might help me prepare…"
                       className="w-full bg-[#FAFAF7] border-2 border-[#E8A020]/20 rounded-2xl px-4 py-3 font-nunito text-[#2D2520] text-sm placeholder:text-[#2D2520]/30 gold-focus transition-all outline-none resize-none" />
                   </div>
 
