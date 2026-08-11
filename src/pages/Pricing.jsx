@@ -199,7 +199,7 @@ export default function Pricing() {
             to="/contact"
             className="inline-flex items-center gap-2 bg-white text-[#E8A020] font-fredoka font-600 text-lg px-10 py-4 rounded-2xl hover:bg-[#fdf6e8] transition-all hover:shadow-xl hover:-translate-y-0.5"
           >
-            Book a £5 Trial Session <ArrowRight size={18} />
+            Register Your Interest <ArrowRight size={18} />
           </MotionLink>
         </div>
       </section>

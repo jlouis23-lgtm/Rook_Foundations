@@ -96,7 +96,7 @@ export default function Footer() {
             </div>
             <MotionLink whileTap={ctaTap} to="/contact"
               className="inline-flex items-center mt-7 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-3 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/25">
-              Book a £5 Trial Session
+              Register Your Interest
             </MotionLink>
           </div>
         </div>

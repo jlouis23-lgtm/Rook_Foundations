@@ -69,7 +69,7 @@ export default function Navbar() {
               to="/contact"
               className="ml-2 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-2.5 rounded-2xl hover:bg-[#d4940e] transition-all duration-300 hover:shadow-lg hover:shadow-[#E8A020]/30 hover:-translate-y-0.5 flex items-center"
             >
-              Book a £5 Trial Session
+              Register Your Interest
             </MotionLink>
           </div>
 
@@ -109,7 +109,7 @@ export default function Navbar() {
                 to="/contact"
                 className="mt-8 bg-[#E8A020] text-white font-fredoka font-600 text-lg px-8 py-4 text-center rounded-2xl hover:bg-[#d4940e] transition-all flex items-center justify-center"
               >
-                Book a £5 Trial Session
+                Register Your Interest
               </MotionLink>
             </div>
           </motion.div>
