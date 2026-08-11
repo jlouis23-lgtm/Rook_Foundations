@@ -1,36 +1,95 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Check, Users, Clock, MapPin, Calendar, Star, Shield, Sparkles, Brain, Dices, Target, Backpack, UserCheck, MessageCircle } from 'lucide-react';
+import {
+  ArrowRight, Check, Users, Clock, Shield, Brain, Dices, Target,
+  Backpack, MessageCircle, MapPin, FlaskConical, Handshake, Calendar, Sprout,
+  UtensilsCrossed,
+} from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
-import Reveal from '@/components/ui/Reveal';
-import FAQAccordionItem from '@/components/ui/FAQAccordionItem';
 
-const benefits = [
-  { Icon: Sparkles, label: 'Builds Confidence', desc: 'Children practise decision-making in a relaxed, encouraging environment.' },
-  { Icon: Users, label: 'Social Interaction', desc: 'Meet and play with other children who share a love of strategy games.' },
-  { Icon: Brain, label: 'Problem-Solving', desc: 'Games naturally develop logical thinking, planning, and critical reasoning.' },
-  { Icon: Dices, label: 'Learning Through Play', desc: 'A fun, low-pressure setting where children explore new games each week.' },
+const EASE = [0.22, 1, 0.36, 1];
+
+// "What will Rook Foundations Clubs offer?" — describes the intended
+// programme, not a currently-running one.
+const offerings = [
+  { Icon: Dices, title: 'Strategy Games', body: 'A varied selection of games and puzzles designed to encourage children to explore different ways of thinking.' },
+  { Icon: Brain, title: 'Thinking & Problem Solving', body: 'Activities that encourage children to plan, predict, make decisions and explain their reasoning.' },
+  { Icon: MessageCircle, title: 'Discussion & Reflection', body: 'Opportunities for children to talk about their decisions, consider different approaches and reflect on what they have learned.' },
+  { Icon: Target, title: 'Personalised Learning', body: 'Where appropriate, observations from sessions can help identify individual strengths, areas for development and future learning targets.' },
+  { Icon: Sprout, title: 'Progressive Learning', body: 'Activities can be adapted over time as children become more familiar with different games, challenges and ways of thinking.' },
 ];
 
-const keyInfo = [
-  { icon: <Calendar size={16} />, label: 'Session Type', value: 'Weekend Club' },
-  { icon: <Users size={16} />, label: 'Max Capacity', value: '15 children' },
-  { icon: <Shield size={16} />, label: 'Staff Present', value: '2 members of staff' },
-  { icon: <MapPin size={16} />, label: 'Location', value: 'TBC — local venue' },
-  { icon: <Clock size={16} />, label: 'Duration', value: 'TBC' },
-  { icon: <Star size={16} />, label: 'Age Range', value: '6–12 years' },
-  { icon: <Calendar size={16} />, label: 'Upcoming Dates', value: 'Coming soon' },
-  { icon: <span className="text-sm font-700">£</span>, label: 'Pricing', value: 'Coming soon' },
+// Planned formats — explicitly labelled, not presented as bookable today.
+const formats = [
+  { Icon: Clock, title: 'After-School Clubs', body: 'Longer sessions designed to give children time to explore strategy games, challenges and discussion after the school day.' },
+  { Icon: UtensilsCrossed, title: 'Lunchtime Clubs', body: 'Shorter, focused sessions designed to fit naturally into the school day and provide children with an engaging opportunity to play and think.' },
+  { Icon: Backpack, title: 'Holiday Workshops', body: 'More flexible sessions providing additional time to explore a wider variety of games and activities.' },
 ];
 
-const faqs = [
-  { q: 'What games are available?', a: 'Sessions feature a wide variety of strategy and tabletop games including chess, draughts, Connect 4, Blokus, and more. The selection grows over time as children bring favourites from home.' },
-  { q: 'Can my child bring their own games?', a: 'Absolutely! We actively encourage children to bring strategy games from home to share with others. Staff will assess suitability where necessary to ensure games are age-appropriate and safe for all participants.' },
-  { q: 'Are staff DBS checked?', a: 'Yes. All staff present at club sessions are fully DBS-checked and have completed safeguarding training. Children\'s welfare and safety are our highest priority.' },
-  { q: 'How many children attend each session?', a: 'Each session can accommodate up to 15 children, allowing for a safe, supervised, and genuinely enjoyable experience for everyone.' },
-  { q: 'How do I book a place?', a: 'Booking details are coming soon. In the meantime, please register your interest via the contact page and we\'ll get in touch as soon as sessions are available to book.' },
+// The first two stages are happening now; the last two are the direction
+// the programme is heading in, not something already reached — the
+// active/muted treatment (rather than a percentage progress bar) is what
+// communicates that distinction.
+const journeyStages = [
+  { num: 1, Icon: FlaskConical, title: 'Pilot Sessions', body: 'Testing games and teaching resources with children.', accent: '#2d8c62', active: true },
+  { num: 2, Icon: Users, title: 'Workshops', body: 'Exploring the approach across different ages and settings.', accent: '#4a7eb8', active: true },
+  { num: 3, Icon: Handshake, title: 'School Partnerships', body: 'Beginning to work with schools and community organisations.', accent: '#2D2520', active: false },
+  { num: 4, Icon: Calendar, title: 'Regular Clubs', body: 'Developing ongoing strategy-game clubs for children.', accent: '#2D2520', active: false },
 ];
+
+function JourneyNode({ stage, index, vertical = false }) {
+  const badge = (
+    <span
+      className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 border-2"
+      style={
+        stage.active
+          ? { backgroundColor: stage.accent, borderColor: stage.accent, boxShadow: `0 6px 14px ${stage.accent}35` }
+          : { backgroundColor: '#fff', borderColor: `${stage.accent}25` }
+      }
+    >
+      <stage.Icon size={18} style={{ color: stage.active ? '#fff' : `${stage.accent}55` }} />
+    </span>
+  );
+
+  if (vertical) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, x: -10 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.45, delay: index * 0.08, ease: EASE }}
+        className="flex items-start gap-3"
+      >
+        {badge}
+        <div className="pt-1.5">
+          <p className="font-nunito text-[0.65rem] font-800 uppercase tracking-widest" style={{ color: stage.active ? stage.accent : `${stage.accent}55` }}>
+            Stage {stage.num}
+          </p>
+          <p className="font-fredoka text-base leading-tight mt-0.5" style={{ color: stage.active ? '#2D2520' : '#2D2520AA' }}>{stage.title}</p>
+          <p className="font-nunito text-[#2D2520]/55 text-xs leading-snug mt-1">{stage.body}</p>
+        </div>
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.45, delay: index * 0.08, ease: EASE }}
+      className="flex flex-col items-center text-center flex-1 px-1"
+    >
+      {badge}
+      <p className="font-nunito text-[0.65rem] font-800 uppercase tracking-widest mt-2.5" style={{ color: stage.active ? stage.accent : `${stage.accent}55` }}>
+        Stage {stage.num}
+      </p>
+      <p className="font-fredoka text-base leading-tight mt-0.5" style={{ color: stage.active ? '#2D2520' : '#2D2520AA' }}>{stage.title}</p>
+      <p className="font-nunito text-[#2D2520]/55 text-xs leading-snug mt-1 max-w-[10.5rem]">{stage.body}</p>
+    </motion.div>
+  );
+}
 
 export default function Events() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -38,181 +97,96 @@ export default function Events() {
   return (
     <div className="bg-[#FAFAF7] pt-32">
 
-      {/* Hero */}
-      <section className="relative overflow-hidden py-16 lg:py-24">
+      {/* Hero — the club programme's current status, not a live offering */}
+      <section className="relative overflow-hidden py-16 lg:py-20">
         <ChessBg variant="hero" />
         <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-5">
-              <Dices size={14} /> Weekend sessions for children
+              <Dices size={14} /> School & community programme
             </span>
-            <h1 className="font-fredoka text-[#2D2520] leading-[1.1] mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
-              Weekend Strategy<br />
-              <span className="text-[#E8A020]">Games Club</span>
+            <h1 className="font-fredoka text-[#2D2520] leading-[1.1] mb-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
+              Rook Foundations Clubs
             </h1>
-            <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed mb-8 max-w-lg mx-auto">
-              A fun, supervised weekend activity where children explore strategy games, sharpen their thinking, make new friends, and enjoy every moment. Designed for curious minds aged 6–12.
+            <p className="font-fredoka text-[#E8A020] mb-6" style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)' }}>
+              Coming soon to schools and community settings
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-8">
-              {['Ages 6–12', 'Up to 15 children', 'Two staff present', 'DBS-checked staff', 'Weekends'].map((tag) => (
-                <span key={tag} className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-700">
-                  <Check size={13} />
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <MotionLink
-                whileTap={ctaTap}
-                to="/contact"
-                onClick={() => window.scrollTo(0, 0)}
-                className="group bg-[#E8A020] text-white font-fredoka font-600 text-lg px-8 py-4 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-xl hover:shadow-[#E8A020]/30 hover:-translate-y-0.5 flex items-center justify-center gap-3"
-              >
-                Register Interest
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </MotionLink>
-              <a
-                href="#key-info"
-                className="bg-white border-2 border-[#E8A020]/25 text-[#2D2520] font-fredoka font-600 text-lg px-8 py-4 rounded-2xl hover:border-[#E8A020]/60 transition-all flex items-center justify-center gap-2"
-              >
-                Learn More
-              </a>
-            </div>
+            <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed max-w-2xl mx-auto">
+              We're currently developing our school and community club programme, designed to bring the Rook Foundations approach into longer-term group settings. Our early workshops and pilot sessions are helping us refine the activities, resources and structure before we begin establishing regular clubs.
+            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Key Info Panel */}
-      <section id="key-info" className="py-16 bg-white border-y border-[#2D2520]/8">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
-          <Reveal className="text-center mb-12">
-            <h2 className="font-fredoka text-[#2D2520] text-3xl mb-2">Session at a Glance</h2>
-            <p className="font-nunito text-[#2D2520]/50 text-sm font-600">Everything you need to know before booking.</p>
-          </Reveal>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
-            {keyInfo.map(({ icon, label, value }, i) => (
-              <Reveal key={label} delay={i * 0.06} className="group flex flex-col gap-2">
-                <div className="flex items-center gap-2 text-[#E8A020] transition-transform duration-300 group-hover:scale-110">{icon}</div>
-                <span className="font-nunito text-[#2D2520]/45 text-xs font-700 uppercase tracking-wider">{label}</span>
-                <span className="font-fredoka text-[#2D2520] text-base">{value}</span>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* What Happens */}
-      <section className="py-20 relative overflow-hidden">
-        <ChessBg variant="classes" />
-        <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <div className="text-center mb-14">
-              <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
-                <Target size={14} /> What to expect
-              </span>
-              <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-                What Happens at Club?
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-10">
-              {[
-                {
-                  Icon: Dices,
-                  title: 'Games & Activities',
-                  items: [
-                    'Play a wide variety of strategy and tabletop games',
-                    'Explore games beyond weekly lesson content',
-                    'Develop critical thinking, planning, and teamwork',
-                    'Meet other children who share similar interests',
-                  ],
-                },
-                {
-                  Icon: Backpack,
-                  title: 'Bring Your Own Games',
-                  items: [
-                    'Children are welcome to bring games from home',
-                    'Share favourites with the group',
-                    'Staff will assess suitability where needed',
-                    'Encourages ownership, variety, and social interaction',
-                  ],
-                },
-                {
-                  Icon: Shield,
-                  title: 'Safety & Supervision',
-                  items: [
-                    'Two members of staff present throughout each session',
-                    'All staff are fully DBS-checked',
-                    'All staff have completed safeguarding training',
-                    'Children\'s welfare is our highest priority',
-                  ],
-                },
-                {
-                  Icon: UserCheck,
-                  title: 'Who Can Attend?',
-                  items: [
-                    'Open to children aged 6–12',
-                    'No prior chess or gaming experience needed',
-                    'Suitable for beginners and experienced players alike',
-                    'A welcoming, inclusive environment for all',
-                  ],
-                },
-              ].map(({ Icon, title, items }) => (
-                <div key={title}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <Icon size={26} className="text-[#E8A020]" />
-                    <h3 className="font-fredoka text-[#2D2520] text-xl">{title}</h3>
-                  </div>
-                  <ul className="space-y-2.5">
-                    {items.map((item) => (
-                      <li key={item} className="flex items-start gap-3 font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
-                        <span className="w-5 h-5 bg-[#E8A020] rounded-full flex items-center justify-center text-white flex-shrink-0 mt-0.5">
-                          <Check size={10} />
-                        </span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Benefits */}
+      {/* What will Rook Foundations Clubs offer? */}
       <section className="py-20 bg-white border-y border-[#2D2520]/8 relative overflow-hidden">
         <ChessBg variant="whychess" />
         <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center mb-14">
             <span className="inline-flex items-center font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
-              Why it matters
+              The plan
             </span>
             <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-              What Children Gain
+              What will Rook Foundations Clubs offer?
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
-            {benefits.map(({ Icon, label, desc }, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+            {offerings.map(({ Icon, title, body }, i) => (
               <motion.div
-                key={label}
+                key={title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="group flex flex-col gap-3"
               >
-                <Icon size={32} className="text-[#E8A020] transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" />
-                <h3 className="font-fredoka text-[#2D2520] text-xl">{label}</h3>
-                <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">{desc}</p>
+                <Icon size={30} className="text-[#E8A020] transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" />
+                <h3 className="font-fredoka text-[#2D2520] text-xl">{title}</h3>
+                <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">{body}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Safety spotlight */}
-      <section className="py-16">
+      {/* Our planned club formats */}
+      <section className="py-20 relative overflow-hidden">
+        <ChessBg variant="classes" />
+        <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10">
+          <div className="text-center mb-14">
+            <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+              <Calendar size={14} /> Formats being developed
+            </span>
+            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+              Our planned club formats
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {formats.map(({ Icon, title, body }, i) => (
+              <motion.div
+                key={title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="bg-white border border-[#2D2520]/10 rounded-3xl p-7 flex flex-col"
+              >
+                <Icon size={26} className="text-[#E8A020] mb-4" />
+                <span className="inline-flex self-start items-center font-nunito text-[#b8790a] bg-[#E8A020]/10 text-[0.65rem] font-800 uppercase tracking-widest rounded-full px-3 py-1 mb-3">
+                  Planned offering
+                </span>
+                <h3 className="font-fredoka text-[#2D2520] text-xl mb-2">{title}</h3>
+                <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">{body}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Safety spotlight — carried over from the existing page; the
+          practices described already apply to current pilot sessions,
+          so this remains accurate rather than a claim about future clubs. */}
+      <section className="py-16 bg-white border-y border-[#2D2520]/8">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -227,14 +201,14 @@ export default function Events() {
             <div>
               <h3 className="font-fredoka text-[#2D2520] text-2xl mb-3">Safeguarding & Safety</h3>
               <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mb-4">
-                The safety and welfare of every child attending our club sessions is our absolute priority. We operate in full compliance with safeguarding best practices.
+                The safety and welfare of every child taking part in our workshops and pilot sessions is our absolute priority, and the same standards will carry through into future clubs. We operate in full compliance with safeguarding best practices.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {[
-                  'Two members of staff present at all sessions',
-                  'All staff are fully DBS-checked',
-                  'Safeguarding training completed by all staff',
-                  'Safe, structured, and supervised environment',
+                  'DBS-checked staff',
+                  'Safeguarding training completed',
+                  'Safe, structured, supervised sessions',
+                  'Children\'s welfare comes first',
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2 font-nunito text-[#2D2520]/70 text-sm font-600">
                     <Check size={13} className="text-green-500 flex-shrink-0" />
@@ -247,56 +221,86 @@ export default function Events() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* Where we're heading */}
       <section className="py-20 relative overflow-hidden">
         <ChessBg variant="faq" />
-        <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center mb-10">
             <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
-              <MessageCircle size={14} /> Common questions
+              <MapPin size={14} /> The road ahead
             </span>
             <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-              Frequently Asked Questions
+              Where we're heading
             </h2>
           </div>
-          <div className="border-t border-[#2D2520]/10 divide-y divide-[#2D2520]/10">
-            {faqs.map((faq) => <FAQAccordionItem key={faq.q} question={faq.q} answer={faq.a} variant="compact" />)}
+
+          {/* Tablet & desktop — horizontal flow */}
+          <div className="hidden sm:flex items-start justify-between gap-2 mb-10">
+            {journeyStages.map((stage, i) => (
+              <JourneyNode key={stage.title} stage={stage} index={i} />
+            ))}
+          </div>
+
+          {/* Mobile — left-aligned vertical timeline */}
+          <div className="sm:hidden flex flex-col gap-5 mb-10">
+            {journeyStages.map((stage, i) => (
+              <JourneyNode key={stage.title} stage={stage} index={i} vertical />
+            ))}
+          </div>
+
+          <div className="flex justify-center">
+            <span className="inline-flex items-center gap-2 bg-[#E8A020]/10 border border-[#E8A020]/20 rounded-full px-5 py-2.5">
+              <MapPin size={14} className="text-[#b8790a] flex-shrink-0" />
+              <span className="font-nunito text-[#b8790a] font-700 text-sm">Current stage: Pilot Sessions &amp; Workshops</span>
+            </span>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-[#E8A020] py-20 relative overflow-hidden">
-        <ChessBg variant="cta" />
-        <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center relative z-10">
-          <Dices size={36} className="text-white mx-auto mb-5" />
-          <div className="inline-flex items-center gap-2 bg-white/15 rounded-full px-5 py-2 mb-6">
-            <Calendar size={14} className="text-white" />
-            <span className="font-nunito text-white font-700 text-sm">Sessions launching soon</span>
-          </div>
-          <h2 className="font-fredoka text-white text-3xl mb-4">Ready to join the club?</h2>
-          <p className="font-nunito text-white/80 text-base leading-relaxed mb-8 max-w-xl mx-auto">
-            Register your interest today and be the first to know when weekend sessions open for booking. No commitment required.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <MotionLink
-              whileTap={ctaTap}
-              to="/contact"
-              onClick={() => window.scrollTo(0, 0)}
-              className="inline-flex items-center justify-center gap-2 bg-white text-[#E8A020] font-fredoka font-600 text-lg px-10 py-4 rounded-2xl hover:bg-[#fdf6e8] transition-all hover:shadow-xl hover:-translate-y-0.5"
-            >
-              Register Interest <ArrowRight size={18} />
-            </MotionLink>
-            <MotionLink
-              whileTap={ctaTap}
-              to="/contact"
-              onClick={() => window.scrollTo(0, 0)}
-              className="inline-flex items-center justify-center gap-2 bg-white/15 border-2 border-white/40 text-white font-fredoka font-600 text-lg px-10 py-4 rounded-2xl hover:bg-white/25 transition-all"
-            >
-              Get in Touch
-            </MotionLink>
-          </div>
+      {/* Why the pilot stage matters — personal, not corporate */}
+      <section className="py-20 bg-white border-y border-[#2D2520]/8">
+        <div className="max-w-2xl mx-auto px-6 lg:px-12 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: EASE }}
+          >
+            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)' }}>
+              We're taking the time to get it right.
+            </h2>
+            <p className="font-nunito text-[#2D2520]/60 text-base leading-relaxed mt-4">
+              Before establishing regular clubs, we're using workshops and pilot sessions to understand how different children respond to different games, challenges and teaching approaches. This allows us to refine our resources and create a club experience that is engaging, purposeful and adaptable to the children taking part.
+            </p>
+          </motion.div>
         </div>
+      </section>
+
+      {/* Be part of the beginning */}
+      <section className="bg-[#F5F3EE] py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: EASE }}
+          className="max-w-xl mx-auto px-6 lg:px-12 text-center"
+        >
+          <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)' }}>
+            Be part of the beginning
+          </h2>
+          <p className="font-nunito text-[#2D2520]/60 text-base mt-4 mb-8 leading-relaxed">
+            Rook Foundations is currently working towards its first school and community partnerships. If you're interested in bringing strategy-based learning to your school or organisation, I'd love to hear from you.
+          </p>
+          <MotionLink
+            whileTap={ctaTap}
+            to="/contact"
+            onClick={() => window.scrollTo(0, 0)}
+            className="group inline-flex items-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-3.5 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/20"
+          >
+            Get in Touch
+            <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+          </MotionLink>
+        </motion.div>
       </section>
     </div>
   );
