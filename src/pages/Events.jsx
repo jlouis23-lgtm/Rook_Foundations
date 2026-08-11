@@ -175,7 +175,7 @@ export default function Events() {
           >
             <h3 className="font-fredoka text-[#2D2520] text-2xl mb-3">Safeguarding & Safety</h3>
             <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mb-4">
-              The safety and welfare of every child taking part in our workshops and pilot sessions is our absolute priority, and the same standards will carry through into future clubs. We operate in full compliance with safeguarding best practices.
+              The safety and welfare of every child taking part in my workshops and pilot sessions is my absolute priority, and the same standards will carry through into future Rook Foundations clubs. I follow established safeguarding best practices to help ensure every child has a safe, supportive and positive experience.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {[
