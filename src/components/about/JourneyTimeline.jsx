@@ -90,7 +90,7 @@ export default function JourneyTimeline() {
             Study and experience gained over the years
           </h2>
           <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-xl mx-auto leading-relaxed">
-            Every stage built on the last. Tap a point on the graph to see how it led here.
+            Curious about the journey behind Rook Foundations? Explore the experiences that have shaped my approach and led me to create it.
           </p>
         </div>
 
