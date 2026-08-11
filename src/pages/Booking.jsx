@@ -157,13 +157,15 @@ export default function Booking() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, ease: EASE }}
-              className="max-w-xl mx-auto text-center bg-white border border-[#2D2520]/10 rounded-3xl px-6 py-7 sm:px-8 sm:py-8 shadow-sm mb-12"
+              className="max-w-2xl mx-auto text-center mb-14"
             >
-              <h2 className="font-fredoka text-[#2D2520] text-xl sm:text-2xl mb-3">Bookings Opening Soon</h2>
-              <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">
+              <p className="font-fredoka text-[#E8A020] mb-4" style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)' }}>
+                Bookings coming soon
+              </p>
+              <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed">
                 Rook Foundations is currently preparing for launch and running pilot sessions and workshops to refine our approach. These sessions help us test our resources, learn how different children respond to different games and ensure that every session provides a thoughtful and engaging learning experience.
               </p>
-              <p className="font-nunito text-[#2D2520] text-sm leading-relaxed font-600 mt-4">
+              <p className="font-nunito text-[#2D2520] text-lg leading-relaxed font-600 mt-4">
                 Bookings will open once our initial programme is ready.
               </p>
             </motion.div>
