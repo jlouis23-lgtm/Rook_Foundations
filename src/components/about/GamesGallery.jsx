@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Shuffle, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -49,7 +49,7 @@ export default function GamesGallery() {
           className="text-center mb-10"
         >
           <span className="inline-flex items-center gap-1.5 font-nunito text-amber-700 text-sm font-800 uppercase tracking-widest mb-3">
-            <Shuffle size={14} /> Beyond chess
+            Beyond chess
           </span>
           <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}>
             A wider world of thinking games

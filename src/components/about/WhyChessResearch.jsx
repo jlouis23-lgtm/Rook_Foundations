@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown, BookOpen, FlaskConical } from 'lucide-react';
+import { ArrowRight, ChevronDown, BookOpen } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 
 const EASE = [0.22, 1, 0.36, 1];
@@ -74,7 +74,7 @@ export default function WhyChessResearch() {
       <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-14">
           <span className="inline-flex items-center gap-1.5 font-nunito text-green-700 text-sm font-800 uppercase tracking-widest mb-4">
-            <FlaskConical size={14} /> Backed by research
+            Backed by research
           </span>
           <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
             How can strategy games benefit my child?

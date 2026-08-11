@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Shield, Brain, HandHeart, HeartPulse, Globe, ClipboardCheck, GraduationCap, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Shield, Brain, HandHeart, HeartPulse, Globe, ClipboardCheck, ShieldCheck, ArrowRight } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 
@@ -50,7 +50,7 @@ export default function ProfessionalTraining() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-14">
           <span className="inline-flex items-center gap-1.5 font-nunito text-blue-700 text-sm font-800 uppercase tracking-widest mb-4">
-            <GraduationCap size={14} /> Professional training & safeguarding
+            Professional training & safeguarding
           </span>
           <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
             Your child is in safe hands
