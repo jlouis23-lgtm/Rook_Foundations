@@ -15,8 +15,7 @@ const plans = [
     label: 'Individual',
     people: 1,
     subtitle: '1 student',
-    tag: null,
-    tagStyle: '',
+    descriptor: 'Personalised Learning',
     cardStyle: 'bg-white border-[#2D2520]/10',
     features: ['Fully personalised lesson plan', 'One-to-one instructor attention', 'Deeper conceptual learning'],
   },
@@ -24,8 +23,7 @@ const plans = [
     label: 'Pair',
     people: 2,
     subtitle: '2 students',
-    tag: 'Most Popular',
-    tagStyle: 'bg-[#E8A020] text-white',
+    descriptor: 'Learning Together',
     cardStyle: 'bg-amber-50/60 border-[#E8A020]/30 shadow-lg shadow-[#E8A020]/8',
     features: ['Shared learning dynamic', 'Friendly in-session competition', 'Great for siblings or friends'],
   },
@@ -33,8 +31,7 @@ const plans = [
     label: 'Group',
     people: 4,
     subtitle: '3-4 students',
-    tag: 'Best Value',
-    tagStyle: 'bg-green-500 text-white',
+    descriptor: 'Collaborative Learning',
     cardStyle: 'bg-green-50/60 border-green-200',
     features: ['Cooperative problem solving', 'Team challenges & competitions', 'Rotate through different strategy games'],
   },
@@ -90,11 +87,9 @@ export default function Pricing() {
                 variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
                 className={`play-card relative flex flex-col border rounded-3xl p-7 ${plan.cardStyle}`}
               >
-                {plan.tag && (
-                  <span className={`absolute -top-3 left-1/2 -translate-x-1/2 ${plan.tagStyle} font-nunito text-xs font-700 px-4 py-1.5 rounded-full shadow-md`}>
-                    {plan.tag}
-                  </span>
-                )}
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#2D2520] text-white font-nunito text-xs font-700 px-4 py-1.5 rounded-full shadow-md whitespace-nowrap">
+                  {plan.descriptor}
+                </span>
 
                 <div className="flex justify-center mb-5">
                   <div className="w-16 h-16 rounded-2xl bg-[#E8A020]/10 md:w-auto md:h-auto md:rounded-none md:bg-transparent flex items-center justify-center">
