@@ -231,7 +231,7 @@ export default function Events() {
       </section>
 
       {/* Why the pilot stage matters — personal, not corporate */}
-      <section className="py-20 bg-white border-y border-[#2D2520]/8">
+      <section className="py-20 bg-[#E8A020]">
         <div className="max-w-2xl mx-auto px-6 lg:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -239,10 +239,10 @@ export default function Events() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: EASE }}
           >
-            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)' }}>
+            <h2 className="font-fredoka text-white" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)' }}>
               We're taking the time to get it right.
             </h2>
-            <p className="font-nunito text-[#2D2520]/60 text-base leading-relaxed mt-4">
+            <p className="font-nunito text-white/80 text-base leading-relaxed mt-4">
               Before establishing regular clubs, we're using workshops and pilot sessions to understand how different children respond to different games, challenges and teaching approaches. This allows us to refine our resources and create a club experience that is engaging, purposeful and adaptable to the children taking part.
             </p>
           </motion.div>
