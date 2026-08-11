@@ -64,8 +64,12 @@ export default function HeroSection() {
             Skills for life.
           </h2>
 
-          <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed mb-10 max-w-lg mx-auto">
+          <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed mb-6 max-w-lg mx-auto">
             Helping children discover the joy of thinking through strategy games, meaningful conversation and thoughtful learning.
+          </p>
+
+          <p className="font-nunito text-[#2D2520]/50 text-sm font-600 mb-8">
+            📍 Essex-based · Supporting local families and schools
           </p>
 
           <div className="max-w-sm mx-auto mb-5">
