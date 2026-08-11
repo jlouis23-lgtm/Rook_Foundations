@@ -243,7 +243,7 @@ export default function Events() {
               We're taking the time to get it right.
             </h2>
             <p className="font-nunito text-white/80 text-base leading-relaxed mt-4">
-              Before establishing regular clubs, we're using workshops and pilot sessions to understand how different children respond to different games, challenges and teaching approaches. This allows us to refine our resources and create a club experience that is engaging, purposeful and adaptable to the children taking part.
+              Before establishing regular clubs, I'm using workshops and pilot sessions to understand how different children respond to different games, challenges and teaching approaches. These experiences are helping me refine the resources and develop a club experience that is engaging, purposeful and adaptable to the children taking part.
             </p>
           </motion.div>
         </div>
