@@ -1,9 +1,7 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
-  ArrowRight, Check, Users, Clock, Shield, Brain, Dices,
-  Backpack, MessageCircle, MapPin, FlaskConical, Handshake, Calendar, Sprout,
-  UtensilsCrossed,
+  ArrowRight, Check, Shield, Dices, MapPin, Calendar,
 } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
@@ -13,18 +11,18 @@ const EASE = [0.22, 1, 0.36, 1];
 // "What will Rook Foundations Clubs offer?" — describes the intended
 // programme, not a currently-running one.
 const offerings = [
-  { Icon: Dices, title: 'Strategy Games', body: 'A varied selection of games and puzzles designed to encourage children to explore different ways of thinking.' },
-  { Icon: Users, title: 'Engaging Activities', body: 'Children will also have opportunities to work in teams, building on ideas together and enjoying themselves in a fun, supportive environment.' },
-  { Icon: Sprout, title: 'Progressive Challenges', body: 'Activities can be adapted over time as children become more familiar with different games, challenges and ways of thinking.' },
-  { Icon: Brain, title: 'Thinking & Problem Solving', body: 'Activities that encourage children to plan, predict, make decisions and explain their reasoning.' },
-  { Icon: MessageCircle, title: 'Discussion & Reflection', body: 'Opportunities for children to talk about their decisions, consider different approaches and reflect on what they have learned.' },
+  { title: 'Strategy Games', body: 'A varied selection of games and puzzles designed to encourage children to explore different ways of thinking.' },
+  { title: 'Engaging Activities', body: 'Children will also have opportunities to work in teams, building on ideas together and enjoying themselves in a fun, supportive environment.' },
+  { title: 'Progressive Challenges', body: 'Activities can be adapted over time as children become more familiar with different games, challenges and ways of thinking.' },
+  { title: 'Thinking & Problem Solving', body: 'Activities that encourage children to plan, predict, make decisions and explain their reasoning.' },
+  { title: 'Discussion & Reflection', body: 'Opportunities for children to talk about their decisions, consider different approaches and reflect on what they have learned.' },
 ];
 
 // Planned formats — explicitly labelled, not presented as bookable today.
 const formats = [
-  { Icon: Clock, title: 'After-School Clubs', body: 'Longer sessions designed to give children time to explore strategy games, challenges and discussion after the school day.' },
-  { Icon: UtensilsCrossed, title: 'Lunchtime Clubs', body: 'Shorter, focused sessions designed to fit naturally into the school day and provide children with an engaging opportunity to play and think.' },
-  { Icon: Backpack, title: 'Holiday Workshops', body: 'More flexible sessions providing additional time to explore a wider variety of games and activities.' },
+  { title: 'After-School Clubs', body: 'Longer sessions designed to give children time to explore strategy games, challenges and discussion after the school day.' },
+  { title: 'Lunchtime Clubs', body: 'Shorter, focused sessions designed to fit naturally into the school day and provide children with an engaging opportunity to play and think.' },
+  { title: 'Holiday Workshops', body: 'More flexible sessions providing additional time to explore a wider variety of games and activities.' },
 ];
 
 // The first two stages are happening now; the last two are the direction
@@ -32,26 +30,13 @@ const formats = [
 // active/muted treatment (rather than a percentage progress bar) is what
 // communicates that distinction.
 const journeyStages = [
-  { num: 1, Icon: FlaskConical, title: 'Pilot Sessions', body: 'Testing games and teaching resources with children.', accent: '#2d8c62', active: true },
-  { num: 2, Icon: Users, title: 'Workshops', body: 'Exploring the approach across different ages and settings.', accent: '#4a7eb8', active: true },
-  { num: 3, Icon: Handshake, title: 'School Partnerships', body: 'Beginning to work with schools and community organisations.', accent: '#2D2520', active: false },
-  { num: 4, Icon: Calendar, title: 'Regular Clubs', body: 'Developing ongoing strategy-game clubs for children.', accent: '#2D2520', active: false },
+  { num: 1, title: 'Pilot Sessions', body: 'Testing games and teaching resources with children.', accent: '#2d8c62', active: true },
+  { num: 2, title: 'Workshops', body: 'Exploring the approach across different ages and settings.', accent: '#4a7eb8', active: true },
+  { num: 3, title: 'School Partnerships', body: 'Beginning to work with schools and community organisations.', accent: '#2D2520', active: false },
+  { num: 4, title: 'Regular Clubs', body: 'Developing ongoing strategy-game clubs for children.', accent: '#2D2520', active: false },
 ];
 
 function JourneyNode({ stage, index, vertical = false }) {
-  const badge = (
-    <span
-      className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 border-2"
-      style={
-        stage.active
-          ? { backgroundColor: stage.accent, borderColor: stage.accent, boxShadow: `0 6px 14px ${stage.accent}35` }
-          : { backgroundColor: '#fff', borderColor: `${stage.accent}25` }
-      }
-    >
-      <stage.Icon size={18} style={{ color: stage.active ? '#fff' : `${stage.accent}55` }} />
-    </span>
-  );
-
   if (vertical) {
     return (
       <motion.div
@@ -59,16 +44,13 @@ function JourneyNode({ stage, index, vertical = false }) {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.45, delay: index * 0.08, ease: EASE }}
-        className="flex items-start gap-3"
+        className="flex flex-col gap-0.5"
       >
-        {badge}
-        <div className="pt-1.5">
-          <p className="font-nunito text-[0.65rem] font-800 uppercase tracking-widest" style={{ color: stage.active ? stage.accent : `${stage.accent}55` }}>
-            Stage {stage.num}
-          </p>
-          <p className="font-fredoka text-base leading-tight mt-0.5" style={{ color: stage.active ? '#2D2520' : '#2D2520AA' }}>{stage.title}</p>
-          <p className="font-nunito text-[#2D2520]/55 text-xs leading-snug mt-1">{stage.body}</p>
-        </div>
+        <p className="font-nunito text-[0.65rem] font-800 uppercase tracking-widest" style={{ color: stage.active ? stage.accent : `${stage.accent}55` }}>
+          Stage {stage.num}
+        </p>
+        <p className="font-fredoka text-base leading-tight mt-0.5" style={{ color: stage.active ? '#2D2520' : '#2D2520AA' }}>{stage.title}</p>
+        <p className="font-nunito text-[#2D2520]/55 text-xs leading-snug mt-1">{stage.body}</p>
       </motion.div>
     );
   }
@@ -81,8 +63,7 @@ function JourneyNode({ stage, index, vertical = false }) {
       transition={{ duration: 0.45, delay: index * 0.08, ease: EASE }}
       className="flex flex-col items-center text-center flex-1 px-1"
     >
-      {badge}
-      <p className="font-nunito text-[0.65rem] font-800 uppercase tracking-widest mt-2.5" style={{ color: stage.active ? stage.accent : `${stage.accent}55` }}>
+      <p className="font-nunito text-[0.65rem] font-800 uppercase tracking-widest" style={{ color: stage.active ? stage.accent : `${stage.accent}55` }}>
         Stage {stage.num}
       </p>
       <p className="font-fredoka text-base leading-tight mt-0.5" style={{ color: stage.active ? '#2D2520' : '#2D2520AA' }}>{stage.title}</p>
@@ -130,17 +111,16 @@ export default function Events() {
               What will Rook Foundations Clubs offer?
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
-            {offerings.map(({ Icon, title, body }, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8">
+            {offerings.map(({ title, body }, i) => (
               <motion.div
                 key={title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="group flex flex-col gap-3"
+                className="flex flex-col gap-2"
               >
-                <Icon size={30} className="text-[#E8A020] transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" />
                 <h3 className="font-fredoka text-[#2D2520] text-xl">{title}</h3>
                 <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">{body}</p>
               </motion.div>
@@ -162,16 +142,15 @@ export default function Events() {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {formats.map(({ Icon, title, body }, i) => (
+            {formats.map(({ title, body }, i) => (
               <motion.div
                 key={title}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white border border-[#2D2520]/10 rounded-3xl p-7 flex flex-col"
+                className="bg-white border border-[#2D2520]/10 rounded-3xl p-6 flex flex-col"
               >
-                <Icon size={26} className="text-[#E8A020] mb-4" />
                 <span className="inline-flex self-start items-center font-nunito text-[#b8790a] bg-[#E8A020]/10 text-[0.65rem] font-800 uppercase tracking-widest rounded-full px-3 py-1 mb-3">
                   Planned offering
                 </span>
