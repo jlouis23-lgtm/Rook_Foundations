@@ -68,13 +68,20 @@ export default function HeroSection() {
             Helping children discover the joy of thinking through strategy games, meaningful conversation and thoughtful learning.
           </p>
 
+          <div className="max-w-sm mx-auto mb-5">
+            <p className="font-fredoka text-[#2D2520] text-xl mb-1.5">Interested in a £5 Trial Session?</p>
+            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed">
+              I'm currently inviting a small number of families to take part in introductory sessions as I prepare Rook Foundations for launch.
+            </p>
+          </div>
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
             <MotionLink
               whileTap={ctaTap}
               to="/contact"
               onClick={() => window.scrollTo(0, 0)}
               className="group bg-[#E8A020] text-white font-fredoka font-600 text-lg px-8 py-4 rounded-2xl hover:bg-[#d4940e] transition-all duration-300 hover:shadow-xl hover:shadow-[#E8A020]/30 hover:-translate-y-0.5 flex items-center gap-3">
-              Book a £5 Trial Session
+              Register Your Interest
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </MotionLink>
             <div className="flex items-center gap-2">

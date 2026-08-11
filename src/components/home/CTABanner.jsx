@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
@@ -19,21 +18,13 @@ export default function CTABanner() {
         >
           <div className="text-white text-5xl mb-5">♜</div>
 
-          <h2 className="font-fredoka text-white leading-tight mb-3"
+          <h2 className="font-fredoka text-white leading-tight mb-6"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
-            More than a game.
+            Interested in Rook Foundations?
           </h2>
-          <h2 className="font-fredoka text-white/80 leading-tight mb-6"
-            style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
-            Skills for life.
-          </h2>
-
-          <div className="inline-flex items-center bg-white/15 rounded-full px-5 py-2 mb-7">
-            <span className="font-nunito text-white font-700 text-sm">Book a £5 Trial Session</span>
-          </div>
 
           <p className="font-nunito text-white/80 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-            Give your child the gift of strategic thinking. One session could change the way they approach every challenge in life.
+            I'm currently inviting a small number of families to take part in £5 trial sessions as I prepare for launch. If you'd like to find out more, I'd love to hear from you.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -43,16 +34,9 @@ export default function CTABanner() {
               onClick={() => window.scrollTo(0, 0)}
               className="group bg-white text-[#E8A020] font-fredoka font-600 text-lg px-10 py-4 rounded-2xl hover:bg-[#fdf6e8] transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-3"
             >
-              Book a £5 Trial Session
+              Register Your Interest
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </MotionLink>
-            <Link
-              to="/classes"
-              onClick={() => window.scrollTo(0, 0)}
-              className="font-nunito text-white/70 text-sm font-600 hover:text-white transition-colors underline underline-offset-4"
-            >
-              View class schedule first
-            </Link>
           </div>
         </motion.div>
       </div>
