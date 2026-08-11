@@ -141,9 +141,22 @@ export default function Booking() {
           <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-5">
             📅 Pick a time that suits you
           </span>
-          <h1 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
-            Find a session that works for your family
+          <h1 className="font-fredoka text-[#2D2520] leading-[1.1] mb-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
+            Finding the right session
           </h1>
+          {!BOOKINGS_OPEN && (
+            <>
+              <p className="font-fredoka text-[#E8A020] mb-6" style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)' }}>
+                Bookings coming soon
+              </p>
+              <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed max-w-2xl mx-auto">
+                Rook Foundations is currently preparing for launch and running pilot sessions and workshops to refine our approach. These sessions help us test our resources, learn how different children respond to different games and ensure that every session provides a thoughtful and engaging learning experience.
+              </p>
+              <p className="font-nunito text-[#2D2520] text-lg leading-relaxed font-600 mt-4 max-w-2xl mx-auto">
+                Bookings will open once our initial programme is ready.
+              </p>
+            </>
+          )}
         </div>
       </section>
 
@@ -151,26 +164,6 @@ export default function Booking() {
       <section className="pb-24 relative overflow-hidden">
         <ChessBg variant="page" />
         <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
-          {!BOOKINGS_OPEN && (
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: EASE }}
-              className="max-w-2xl mx-auto text-center mb-14"
-            >
-              <p className="font-fredoka text-[#E8A020] mb-4" style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)' }}>
-                Bookings coming soon
-              </p>
-              <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed">
-                Rook Foundations is currently preparing for launch and running pilot sessions and workshops to refine our approach. These sessions help us test our resources, learn how different children respond to different games and ensure that every session provides a thoughtful and engaging learning experience.
-              </p>
-              <p className="font-nunito text-[#2D2520] text-lg leading-relaxed font-600 mt-4">
-                Bookings will open once our initial programme is ready.
-              </p>
-            </motion.div>
-          )}
-
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-3 max-w-xl lg:max-w-none mx-auto">
             {sessionCards.map((session, i) => (
               <SessionCard key={session.title} session={session} index={i} />
