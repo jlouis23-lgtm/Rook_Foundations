@@ -8,7 +8,7 @@ import Reveal from '@/components/ui/Reveal';
 
 const EASE = [0.22, 1, 0.36, 1];
 
-const DURATIONS = ['30 Mins', '1 Hour', '2 Hours'];
+const DURATIONS = ['30 Minutes', '60 Minutes'];
 
 const plans = [
   {
@@ -73,7 +73,7 @@ export default function Pricing() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center mb-10">
             <p className="font-nunito text-[#2D2520]/50 text-sm font-600">
-              Each format below is available across <span className="text-[#E8A020] font-700">three session lengths</span>.
+              Each format below is available across <span className="text-[#E8A020] font-700">two session lengths</span>.
             </p>
           </div>
 
@@ -106,21 +106,18 @@ export default function Pricing() {
                   <p className="font-nunito text-[#E8A020] text-sm font-600 mt-0.5">{plan.subtitle}</p>
                 </div>
 
-                {/* Session lengths & pricing status */}
-                <div className="mb-7 pb-7 border-b border-[#2D2520]/10">
-                  <div className="flex flex-wrap justify-center gap-2 mb-5">
-                    {DURATIONS.map((duration) => (
-                      <span
-                        key={duration}
-                        className="font-nunito text-[#2D2520]/60 text-xs font-700 uppercase tracking-wide bg-[#2D2520]/5 rounded-full px-3 py-1.5"
-                      >
+                {/* Session lengths */}
+                <div className="grid grid-cols-2 gap-3 mb-7 pb-7 border-b border-[#2D2520]/10">
+                  {DURATIONS.map((duration) => (
+                    <div
+                      key={duration}
+                      className="bg-[#2D2520]/5 rounded-2xl py-3.5 px-2 text-center"
+                    >
+                      <span className="font-nunito text-[#2D2520]/75 text-sm font-700">
                         {duration}
                       </span>
-                    ))}
-                  </div>
-                  <p className="font-fredoka text-[#E8A020] text-lg text-center">
-                    Pricing being finalised
-                  </p>
+                    </div>
+                  ))}
                 </div>
 
                 {/* Features */}
