@@ -6,8 +6,6 @@ import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import Reveal from '@/components/ui/Reveal';
 import FAQAccordionItem from '@/components/ui/FAQAccordionItem';
 
-const PLACEHOLDER_IMG = 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=800&q=80';
-
 const benefits = [
   { Icon: Sparkles, label: 'Builds Confidence', desc: 'Children practise decision-making in a relaxed, encouraging environment.' },
   { Icon: Users, label: 'Social Interaction', desc: 'Meet and play with other children who share a love of strategy games.' },
@@ -43,65 +41,44 @@ export default function Events() {
       {/* Hero */}
       <section className="relative overflow-hidden py-16 lg:py-24">
         <ChessBg variant="hero" />
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-            {/* Text */}
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-              <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-5">
-                <Dices size={14} /> Weekend sessions for children
-              </span>
-              <h1 className="font-fredoka text-[#2D2520] leading-[1.1] mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
-                Weekend Strategy<br />
-                <span className="text-[#E8A020]">Games Club</span>
-              </h1>
-              <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed mb-8 max-w-lg">
-                A fun, supervised weekend activity where children explore strategy games, sharpen their thinking, make new friends, and enjoy every moment. Designed for curious minds aged 6–12.
-              </p>
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mb-8">
-                {['Ages 6–12', 'Up to 15 children', 'Two staff present', 'DBS-checked staff', 'Weekends'].map((tag) => (
-                  <span key={tag} className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-700">
-                    <Check size={13} />
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <MotionLink
-                  whileTap={ctaTap}
-                  to="/contact"
-                  onClick={() => window.scrollTo(0, 0)}
-                  className="group bg-[#E8A020] text-white font-fredoka font-600 text-lg px-8 py-4 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-xl hover:shadow-[#E8A020]/30 hover:-translate-y-0.5 flex items-center gap-3"
-                >
-                  Register Interest
-                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                </MotionLink>
-                <a
-                  href="#key-info"
-                  className="bg-white border-2 border-[#E8A020]/25 text-[#2D2520] font-fredoka font-600 text-lg px-8 py-4 rounded-2xl hover:border-[#E8A020]/60 transition-all flex items-center justify-center gap-2"
-                >
-                  Learn More
-                </a>
-              </div>
-            </motion.div>
-
-            {/* Image */}
-            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }}>
-              <div className="relative">
-                <div className="absolute inset-0 bg-[#E8A020]/18 blob-shape blur-3xl scale-110" />
-                <img
-                  src={PLACEHOLDER_IMG}
-                  alt="Children playing strategy games at Rook Foundations weekend club"
-                  className="relative z-10 w-full rounded-3xl border-4 border-white shadow-2xl shadow-[#E8A020]/15 object-cover aspect-[4/3]"
-                />
-                <div className="absolute -bottom-4 -left-4 bg-white border-2 border-[#E8A020]/20 rounded-2xl px-5 py-3 shadow-lg z-20">
-                  <span className="font-fredoka text-[#2D2520] text-lg">Up to </span>
-                  <span className="font-fredoka text-[#E8A020] text-lg">15 children</span>
-                  <span className="font-nunito text-[#2D2520]/50 text-xs block">per session</span>
-                </div>
-              </div>
-            </motion.div>
-          </div>
+        <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center relative z-10">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+            <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-5">
+              <Dices size={14} /> Weekend sessions for children
+            </span>
+            <h1 className="font-fredoka text-[#2D2520] leading-[1.1] mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
+              Weekend Strategy<br />
+              <span className="text-[#E8A020]">Games Club</span>
+            </h1>
+            <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed mb-8 max-w-lg mx-auto">
+              A fun, supervised weekend activity where children explore strategy games, sharpen their thinking, make new friends, and enjoy every moment. Designed for curious minds aged 6–12.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-8">
+              {['Ages 6–12', 'Up to 15 children', 'Two staff present', 'DBS-checked staff', 'Weekends'].map((tag) => (
+                <span key={tag} className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-700">
+                  <Check size={13} />
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <MotionLink
+                whileTap={ctaTap}
+                to="/contact"
+                onClick={() => window.scrollTo(0, 0)}
+                className="group bg-[#E8A020] text-white font-fredoka font-600 text-lg px-8 py-4 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-xl hover:shadow-[#E8A020]/30 hover:-translate-y-0.5 flex items-center justify-center gap-3"
+              >
+                Register Interest
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </MotionLink>
+              <a
+                href="#key-info"
+                className="bg-white border-2 border-[#E8A020]/25 text-[#2D2520] font-fredoka font-600 text-lg px-8 py-4 rounded-2xl hover:border-[#E8A020]/60 transition-all flex items-center justify-center gap-2"
+              >
+                Learn More
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
 
