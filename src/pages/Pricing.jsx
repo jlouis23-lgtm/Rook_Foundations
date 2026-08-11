@@ -6,6 +6,10 @@ import PeopleIcon from '@/components/pricing/PeopleIcon';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import Reveal from '@/components/ui/Reveal';
 
+const EASE = [0.22, 1, 0.36, 1];
+
+const DURATIONS = ['30 Mins', '1 Hour', '2 Hours'];
+
 const plans = [
   {
     label: 'Individual',
@@ -14,11 +18,6 @@ const plans = [
     tag: null,
     tagStyle: '',
     cardStyle: 'bg-white border-[#2D2520]/10',
-    prices: {
-      '30 Mins': { total: 7, note: 'total' },
-      '1 Hour': { total: 10, note: 'total' },
-      '2 Hours': { total: 20, note: 'total' },
-    },
     features: ['Fully personalised lesson plan', 'One-to-one instructor attention', 'Deeper conceptual learning'],
   },
   {
@@ -28,11 +27,6 @@ const plans = [
     tag: 'Most Popular',
     tagStyle: 'bg-[#E8A020] text-white',
     cardStyle: 'bg-amber-50/60 border-[#E8A020]/30 shadow-lg shadow-[#E8A020]/8',
-    prices: {
-      '30 Mins': { total: 10, note: '£5 per student' },
-      '1 Hour': { total: 20, note: '£10 per student' },
-      '2 Hours': { total: 25, note: '£12.50 per student' },
-    },
     features: ['Shared learning dynamic', 'Friendly in-session competition', 'Great for siblings or friends'],
   },
   {
@@ -42,11 +36,6 @@ const plans = [
     tag: 'Best Value',
     tagStyle: 'bg-green-500 text-white',
     cardStyle: 'bg-green-50/60 border-green-200',
-    prices: {
-      '30 Mins': { total: 20, note: '£5 per student' },
-      '1 Hour': { total: 25, note: '£6.25 per student' },
-      '2 Hours': { total: 30, note: '£7.50 per student' },
-    },
     features: ['Cooperative problem solving', 'Team challenges & competitions', 'Rotate through different strategy games'],
   },
 ];
@@ -72,13 +61,34 @@ export default function Pricing() {
         </Reveal>
       </section>
 
+      {/* Pre-launch pricing notice */}
+      <section className="px-6 lg:px-12 pb-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: EASE }}
+          className="max-w-xl mx-auto text-center bg-white border border-[#2D2520]/10 rounded-3xl px-6 py-7 sm:px-8 sm:py-8 shadow-sm"
+        >
+          <h2 className="font-fredoka text-[#2D2520] text-xl sm:text-2xl mb-3">
+            Pricing is currently being finalised
+          </h2>
+          <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">
+            Rook Foundations is currently in its pilot and development stage. As I begin working with children across different ages, group sizes and settings, I'm taking the time to make sure our session structure and pricing are fair and appropriate for families.
+          </p>
+          <p className="font-nunito text-[#2D2520] text-sm leading-relaxed font-600 mt-4">
+            Final pricing will be confirmed when bookings open.
+          </p>
+        </motion.div>
+      </section>
+
       {/* Pricing Cards */}
       <section className="py-12 pb-24 relative overflow-hidden">
         <ChessBg variant="page" />
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center mb-10">
             <p className="font-nunito text-[#2D2520]/50 text-sm font-600">
-              Prices shown are <span className="text-[#E8A020] font-700">total cost per session</span>. Three session lengths available.
+              Each format below is available across <span className="text-[#E8A020] font-700">three session lengths</span>.
             </p>
           </div>
 
@@ -111,17 +121,21 @@ export default function Pricing() {
                   <p className="font-nunito text-[#E8A020] text-sm font-600 mt-0.5">{plan.subtitle}</p>
                 </div>
 
-                {/* Prices */}
-                <div className="space-y-3 mb-7 pb-7 border-b border-[#2D2520]/10">
-                  {['30 Mins', '1 Hour', '2 Hours'].map((duration) => (
-                    <div key={duration} className="flex items-end justify-between">
-                      <span className="font-nunito text-[#2D2520]/50 text-sm font-600">{duration}</span>
-                      <div className="text-right">
-                        <span className="font-fredoka text-[#E8A020] text-2xl">£{plan.prices[duration].total}</span>
-                        <span className="font-nunito text-[#2D2520]/40 text-xs block">{plan.prices[duration].note}</span>
-                      </div>
-                    </div>
-                  ))}
+                {/* Session lengths & pricing status */}
+                <div className="mb-7 pb-7 border-b border-[#2D2520]/10">
+                  <div className="flex flex-wrap justify-center gap-2 mb-5">
+                    {DURATIONS.map((duration) => (
+                      <span
+                        key={duration}
+                        className="font-nunito text-[#2D2520]/60 text-xs font-700 uppercase tracking-wide bg-[#2D2520]/5 rounded-full px-3 py-1.5"
+                      >
+                        {duration}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="font-fredoka text-[#E8A020] text-lg text-center">
+                    Pricing being finalised
+                  </p>
                 </div>
 
                 {/* Features */}
@@ -141,12 +155,60 @@ export default function Pricing() {
                   to="/contact"
                   className="w-full bg-[#E8A020] text-white font-fredoka font-600 text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 hover:bg-[#d4940e] transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#E8A020]/20"
                 >
-                  Book Now <ArrowRight size={14} />
+                  Get in Touch <ArrowRight size={14} />
                 </MotionLink>
               </motion.div>
             ))}
           </motion.div>
         </div>
+      </section>
+
+      {/* Why is pricing being finalised? */}
+      <section className="py-16 bg-white border-y border-[#2D2520]/8">
+        <div className="max-w-2xl mx-auto px-6 lg:px-12 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: EASE }}
+          >
+            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)' }}>
+              Why is pricing being finalised?
+            </h2>
+            <p className="font-nunito text-[#2D2520]/60 text-base leading-relaxed mt-4">
+              I'm currently using pilot sessions and workshops to understand how different session lengths, group sizes and learning environments work best for children. This will help me develop a pricing structure that is fair for families while allowing Rook Foundations to provide the quality and personalised support at the heart of the programme.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* What happens next? */}
+      <section className="bg-[#F5F3EE] py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: EASE }}
+          className="max-w-xl mx-auto px-6 lg:px-12 text-center"
+        >
+          <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)' }}>
+            What happens next?
+          </h2>
+          <p className="font-nunito text-[#2D2520]/60 text-base leading-relaxed mt-4">
+            Rook Foundations is currently preparing for launch. As the pilot sessions and workshops develop, I'll continue refining the session structure and pricing before bookings open.
+          </p>
+          <p className="font-nunito text-[#2D2520]/60 text-base leading-relaxed mt-4 mb-8">
+            If you'd like to hear when sessions become available, I'd love to hear from you.
+          </p>
+          <MotionLink
+            whileTap={ctaTap}
+            to="/contact"
+            className="group inline-flex items-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-3.5 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/20"
+          >
+            Get in Touch
+            <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+          </MotionLink>
+        </motion.div>
       </section>
 
       {/* Offer CTA */}
