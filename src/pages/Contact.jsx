@@ -56,13 +56,13 @@ export default function Contact() {
               You might want to tell me about their interests, availability, how they engage with games, any areas where they may need additional support, or anything else you think would help me understand them better.
             </p>
             <p className="font-nunito text-[#2D2520]/60 text-sm sm:text-base leading-relaxed italic">
-              There's no right or wrong answer — the more I understand, the better I can shape the experience around them.
+              There's no right or wrong answer: the more I understand, the better I can shape the experience around them.
             </p>
 
             <div className="border-t border-[#2D2520]/10 mt-6 pt-6">
               <h3 className="font-fredoka text-[#2D2520]/80 text-base mb-2">Why this matters</h3>
               <p className="font-nunito text-[#2D2520]/50 text-sm leading-relaxed">
-                Rook Foundations is about more than playing games. I'm exploring how strategy games can become meaningful learning opportunities — helping children develop the way they think, communicate, make decisions and reflect. Your feedback will help me continue developing that approach.
+                Rook Foundations is about more than playing games. I'm exploring how strategy games can become meaningful learning opportunities. The goal is helping children develop the way they think, communicate, make decisions and reflect. Your feedback will help me continue developing that approach.
               </p>
             </div>
 
