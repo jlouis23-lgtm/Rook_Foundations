@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
-  ArrowRight, Check, Shield, Dices, MapPin, Calendar,
+  Check, Shield, Dices, MapPin, Calendar,
 } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
-import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -253,33 +252,6 @@ export default function Events() {
             </p>
           </motion.div>
         </div>
-      </section>
-
-      {/* Be part of the beginning */}
-      <section className="bg-[#F5F3EE] py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: EASE }}
-          className="max-w-xl mx-auto px-6 lg:px-12 text-center"
-        >
-          <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)' }}>
-            Be part of the beginning
-          </h2>
-          <p className="font-nunito text-[#2D2520]/60 text-base mt-4 mb-8 leading-relaxed">
-            Rook Foundations is currently working towards its first school and community partnerships. If you're interested in bringing strategy-based learning to your school or organisation, I'd love to hear from you.
-          </p>
-          <MotionLink
-            whileTap={ctaTap}
-            to="/contact"
-            onClick={() => window.scrollTo(0, 0)}
-            className="group inline-flex items-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-3.5 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/20"
-          >
-            Get in Touch
-            <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-          </MotionLink>
-        </motion.div>
       </section>
     </div>
   );
