@@ -58,7 +58,7 @@ export default function PreLaunchNotice() {
           variants={item}
           className="font-nunito text-white/65 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-8"
         >
-          I am currently running pilot sessions and workshops with children to refine my approach and develop the best possible learning experience for families.
+          I am running pilot sessions and workshops with children to refine my approach and create meaningful learning experiences for children, while ensuring they work well for families too.
         </motion.p>
 
         <motion.div variants={item}>
