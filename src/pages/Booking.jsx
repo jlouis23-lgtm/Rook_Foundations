@@ -139,7 +139,7 @@ export default function Booking() {
         <ChessBg variant="booking" />
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
           <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-5">
-            📅 Pick a time that suits you
+            Pick a time that suits you
           </span>
           <h1 className="font-fredoka text-[#2D2520] leading-[1.1] mb-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
             Finding the right session

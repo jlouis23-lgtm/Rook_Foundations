@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock, Send, Check, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, Check } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import Reveal from '@/components/ui/Reveal';
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
@@ -31,7 +31,7 @@ export default function Contact() {
         <Reveal className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center">
             <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-5">
-              <MessageCircle size={14} /> We'd love to hear from you
+              We'd love to hear from you
             </span>
             <h1 className="font-fredoka text-[#2D2520] mb-6" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
               Let's talk about your child

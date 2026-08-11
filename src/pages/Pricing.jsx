@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Check, Coins } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import PeopleIcon from '@/components/pricing/PeopleIcon';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
@@ -50,7 +50,7 @@ export default function Pricing() {
         <ChessBg variant="pricing" />
         <Reveal className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
           <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-5">
-            <Coins size={14} /> Simple, honest pricing
+            Simple, honest pricing
           </span>
           <h1 className="font-fredoka text-[#2D2520] leading-[1.1] mb-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
             What does it cost?

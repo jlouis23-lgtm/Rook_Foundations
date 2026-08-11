@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
-  Check, Dices, MapPin, Calendar,
+  Check, MapPin,
 } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 
@@ -83,7 +83,7 @@ export default function Events() {
         <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-5">
-              <Dices size={14} /> School & community programme
+              School & community programme
             </span>
             <h1 className="font-fredoka text-[#2D2520] leading-[1.1] mb-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
               Rook Foundations Clubs
@@ -134,7 +134,7 @@ export default function Events() {
         <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center mb-14">
             <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
-              <Calendar size={14} /> Formats being developed
+              Formats being developed
             </span>
             <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
               Our planned club formats
@@ -200,7 +200,7 @@ export default function Events() {
         <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center mb-10">
             <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
-              <MapPin size={14} /> The road ahead
+              The road ahead
             </span>
             <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
               Where we're heading

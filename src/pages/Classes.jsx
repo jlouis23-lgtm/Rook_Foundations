@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { ArrowRight, Clock, Users, MapPin, BookOpen, Heart, HelpCircle } from 'lucide-react';
+import { ArrowRight, Clock, Users, MapPin, Heart, HelpCircle } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import HowWeTeachSection from '@/components/classes/HowWeTeachSection';
@@ -30,7 +30,7 @@ export default function Classes() {
 
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
           <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-5">
-            <BookOpen size={14} /> Learning at every level
+            Learning at every level
           </span>
           <h1 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
             Strategy games for every curious mind
