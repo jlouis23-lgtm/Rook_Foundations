@@ -21,7 +21,7 @@ const stages = [
   {
     num: '03',
     title: 'Psychology & Development',
-    body: "I studied Psychology at The University of Manchester before completing an MSc in War and Psychiatry at King's College London, developing a deeper understanding of development, behaviour and how experiences can shape learning.",
+    body: "I studied Psychology at The University of Manchester before completing an MSc centered around trauma and resilience at King's College London. Here, I developed a deeper understanding of development, behaviour and how experiences can shape learning.",
   },
   {
     num: '04',
