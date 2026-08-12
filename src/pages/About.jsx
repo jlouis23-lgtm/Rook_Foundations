@@ -1,24 +1,16 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, BookOpen, Users, Dices, GraduationCap } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import WhyChessResearch from '../components/about/WhyChessResearch';
 import ProfessionalTraining from '../components/about/ProfessionalTraining';
 import BoardVisionSection from '../components/about/BoardVisionSection';
 import GamesGallery from '../components/about/GamesGallery';
 import SacrificeSymbols from '../components/about/SacrificeSymbols';
+import ExperienceJourney from '../components/about/ExperienceJourney';
 import ChessBg from '@/components/ui/ChessBg';
 import JourneyTimeline from '../components/about/JourneyTimeline';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
-
-const credentials = [
-  { Icon: Users,       title: 'Working With Children',  desc: 'Background in mentoring, youth support, wellbeing, and residential care. Roles involved supporting children across a range of needs and environments.', accent: '#4a7eb8' },
-  { Icon: BookOpen,    title: 'Academic Tutor',          desc: 'Focused on helping children build strong foundations in science, English, and maths through personalised one-to-one support.', accent: '#2d8c62' },
-  { Icon: GraduationCap, title: 'Psychology Background', desc: "Academic training from King's College London and The University of Manchester. Core focus on child development, trauma, and behaviour.", accent: '#7a48c0' },
-  { Icon: Dices,       title: 'Dedicated Chess Study',   desc: 'Four years of dedicated chess study and competitive play, with a genuine understanding of the learning journey from beginner upwards.', accent: '#b8790a' },
-];
-
-
 
 export default function About() {
   const { hash } = useLocation();
@@ -141,28 +133,8 @@ export default function About() {
       {/* Why Chess Research — immediately after intro */}
       <WhyChessResearch />
 
-      {/* Credentials */}
-      <section className="py-20 bg-[#F5F3EE]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-14">
-            <span className="inline-flex items-center gap-1.5 font-nunito text-amber-700 text-sm font-800 uppercase tracking-widest mb-4">
-              Qualifications & experience
-            </span>
-            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-              Why families trust us
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
-            {credentials.map(({ Icon, title, desc, accent }) => (
-              <div key={title} className="group">
-                <div className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"><Icon size={28} style={{ color: accent }} /></div>
-                <h3 className="font-fredoka text-lg mb-2" style={{ color: accent }}>{title}</h3>
-                <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">{desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* The Experience Behind Rook Foundations */}
+      <ExperienceJourney />
 
       {/* Professional Training */}
       <ProfessionalTraining />
