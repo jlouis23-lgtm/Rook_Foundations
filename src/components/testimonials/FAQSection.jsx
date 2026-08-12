@@ -127,7 +127,15 @@ const faqs = [
   },
   {
     q: "Where can I learn more about your educational approach?",
-    a: "The website provides an overview of my teaching approach. For those interested in the thinking behind Rook Foundations, I've also developed the Rook Foundations Philosophy & Practice Handbook, which explains the educational principles that guide my work.",
+    a: (
+      <>
+        You can explore the{' '}
+        <Link to="/classes" onClick={() => window.scrollTo(0, 0)} className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">
+          Our Learning Approach
+        </Link>{' '}
+        page, where I explain how I use games to support learning, and how sessions will be adapted to each child.
+      </>
+    ),
   },
 ];
 
