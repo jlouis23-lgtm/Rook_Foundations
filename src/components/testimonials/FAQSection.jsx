@@ -57,7 +57,7 @@ const faqs = [
   },
   {
     q: "Do children only play games?",
-    a: "No. Games are central to my sessions, but they are only one part of the learning process. Children are encouraged to explain their thinking, ask questions, reflect on decisions and learn from one another.",
+    a: "Games form the identity of Rook Foundations, but they also serve as a tool for something much broader. Through play, I create opportunities for children to think, explain their ideas, reflect on decisions and develop communication, confidence and social skills. The aim is for children to enjoy themselves while using games as a meaningful way to learn, explore and grow.",
   },
   {
     q: "Why do you ask children so many questions?",
