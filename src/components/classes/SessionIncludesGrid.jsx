@@ -68,7 +68,7 @@ function FeatureRow({ feature, index }) {
 
 export default function SessionIncludesGrid() {
   return (
-    <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10 mb-10">
+    <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10 mb-16">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-1 sm:gap-y-1.5">
         {features.map((feature, i) => (
           <FeatureRow key={feature.title} feature={feature} index={i} />
