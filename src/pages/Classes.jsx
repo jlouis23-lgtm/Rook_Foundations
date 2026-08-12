@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { ArrowRight, Clock, Users, MapPin, Heart, HelpCircle } from 'lucide-react';
+import { ArrowRight, Clock, Users, MapPin, HelpCircle } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import HowWeTeachSection from '@/components/classes/HowWeTeachSection';
@@ -79,18 +79,8 @@ export default function Classes() {
             <div className="bg-white border border-[#E8A020]/15 rounded-3xl p-7 shadow-sm flex flex-col justify-center">
               <HelpCircle size={28} className="text-[#E8A020] block mb-3" />
               <h4 className="font-fredoka text-[#2D2520] text-xl mb-2">Not sure which game or level?</h4>
-              <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed mb-5">
+              <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">
                 With over 30 games to choose from, I adapt each session to your child's interests, focus and confidence. From independent challenges to games played together, I'll explore the right level to engage, support and stretch them.
-              </p>
-              <MotionLink
-                whileTap={ctaTap}
-                to="/contact"
-                className="inline-block bg-[#E8A020] text-white font-fredoka font-600 text-sm py-3 px-6 rounded-2xl text-center hover:bg-[#d4940e] transition-all hover:shadow-md self-start"
-              >
-                Free Assessment Session
-              </MotionLink>
-              <p className="font-nunito text-[#2D2520]/45 text-xs mt-4 flex items-center gap-1.5">
-                <Heart size={13} className="text-[#E8A020]/70" /> Every lesson adapts to how your child learns best.
               </p>
             </div>
           </div>
