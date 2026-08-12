@@ -115,7 +115,7 @@ const faqs = [
   },
   {
     q: "How many children are in a group?",
-    a: "Group sizes vary depending on the setting and age of the children. I always aim to create an environment where every child can participate meaningfully.",
+    a: "For now, I'm keeping sessions small: one-to-one, pairs of two, or small groups of up to four children. My pilot sessions are helping me understand how different games work across these settings and how best to structure sessions so every child can stay engaged, focused and involved. I'll continue refining group sizes as Rook Foundations develops.",
   },
   {
     q: "Do you work with schools?",
