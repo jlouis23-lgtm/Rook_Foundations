@@ -158,7 +158,7 @@ export default function Booking() {
                 Bookings coming soon
               </p>
               <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed max-w-2xl mx-auto">
-                Rook Foundations is currently preparing for launch and running pilot sessions and workshops to refine our approach. These sessions help us test our resources, learn how different children respond to different games and ensure that every session provides a thoughtful and engaging learning experience.
+                Rook Foundations is currently preparing for launch, and I'm running pilot sessions and workshops to refine the approach. These sessions are helping me test the resources, understand how different children respond to different games and ensure that each session provides a thoughtful and engaging learning experience.
               </p>
               <p className="font-nunito text-[#2D2520] text-lg leading-relaxed font-600 mt-4 max-w-2xl mx-auto">
                 Bookings will open once our initial programme is ready.
