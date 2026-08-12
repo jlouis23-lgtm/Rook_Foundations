@@ -192,7 +192,7 @@ export default function Booking() {
             >
               <p className="font-fredoka text-[#2D2520] text-lg mb-2">Interested in Rook Foundations?</p>
               <p className="font-nunito text-[#2D2520]/60 text-sm max-w-md mx-auto leading-relaxed mb-5">
-                We're currently preparing our first programme. If you'd like to hear when bookings open, please get in touch.
+                Please get in touch If you'd like to hear when bookings open, or if you have any other queries about this project. I'd like to hear your input to help me make this right for your child.
               </p>
               <MotionLink
                 whileTap={ctaTap}
