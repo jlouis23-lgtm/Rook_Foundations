@@ -19,7 +19,7 @@ const faqs = [
     a: "Not exactly. While chess is one of the strategy games we use, Rook Foundations is a child development organisation that uses a variety of strategy games to encourage thoughtful learning, communication and decision-making. The game is never the goal. The child's development is.",
   },
   {
-    q: "Does my child need to know how to play chess?",
+    q: "Does my child need to know how to play chess or other strategy games?",
     a: "No. Many children join with little or no experience. We introduce games gradually and choose activities that suit each child's current level of understanding.",
   },
   {
