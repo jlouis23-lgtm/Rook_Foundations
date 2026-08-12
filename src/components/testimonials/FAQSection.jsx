@@ -12,15 +12,15 @@ const EASE = [0.22, 1, 0.36, 1];
 const faqs = [
   {
     q: "What is your main goal?",
-    a: "Our goal isn't simply to help children become better at strategy games. Our goal is to help children become thoughtful, curious learners who enjoy thinking, communicate their ideas with confidence and approach challenges with patience and resilience. If they also develop a lifelong love of strategy games along the way, that's a wonderful bonus.",
+    a: "My goal isn't simply to help children become better at strategy games. My goal is to help children become thoughtful, curious learners who enjoy thinking, communicate their ideas with confidence and approach challenges with patience and resilience. If they also develop a lifelong love of strategy games along the way, that's a wonderful bonus.",
   },
   {
     q: "Is Rook Foundations a chess club?",
-    a: "Not exactly. While chess is one of the strategy games we use, Rook Foundations is a child development organisation that uses a variety of strategy games to encourage thoughtful learning, communication and decision-making. The game is never the goal. The child's development is.",
+    a: "Not exactly. While chess is one of the strategy games I use, Rook Foundations is a child development project that uses a variety of strategy games to encourage thoughtful learning, communication and decision-making. The game is never the goal. The child's development is.",
   },
   {
     q: "Does my child need to know how to play chess or other strategy games?",
-    a: "No. Many children join with little or no experience. We introduce games gradually and choose activities that suit each child's current level of understanding.",
+    a: "No. Many children join with little or no experience. I introduce games gradually and choose activities that suit each child's current level of understanding.",
   },
   {
     q: "What if chess feels too demanding for my child?",
@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     q: "Is this suitable for beginners?",
-    a: "Yes. Our sessions are designed to meet children where they are. Whether they're completely new to strategy games or already have experience, activities are adapted to provide the right level of challenge.",
+    a: "Yes. My sessions are designed to meet children where they are. Whether they're completely new to strategy games or already have experience, activities are adapted to provide the right level of challenge.",
   },
   {
     q: "My child is only 5. Are they too young for this?",
@@ -36,13 +36,13 @@ const faqs = [
   },
   {
     q: "How is Rook Foundations different from traditional chess coaching?",
-    a: "Traditional coaching often focuses on improving performance within the game. Our focus is broader. We use strategy games to help children develop thinking skills, communication, reflection, patience and confidence that extend beyond the board.",
+    a: "Traditional coaching often focuses on improving performance within the game. Rook Foundations' focus is broader. I use strategy games to help children develop thinking skills, communication, reflection, patience and confidence that extend beyond the board.",
   },
   {
     q: "What does a typical session look like?",
     a: (
       <>
-        <p className="mb-3">Sessions usually include:</p>
+        <p className="mb-3">I'm currently using a flexible session structure during my pilot sessions to explore what works best for different children. This gives each session a clear foundation while allowing me to adapt the pace, activities and level of challenge to keep your child engaged and support their learning. A typical session may include:</p>
         <ul className="list-disc pl-5 space-y-1.5 mb-3">
           <li>A warm welcome and conversation</li>
           <li>Strategy games and puzzles</li>
@@ -51,25 +51,25 @@ const faqs = [
           <li>Reflection</li>
           <li>Connecting learning to everyday life</li>
         </ul>
-        <p>Each session is adapted to the needs of the children attending.</p>
+        <p>The structure isn't fixed. I'm using these pilot sessions to refine how each element can best support your child's needs, interests and engagement.</p>
       </>
     ),
   },
   {
     q: "Do children only play games?",
-    a: "No. Games are central to our sessions, but they are only one part of the learning process. Children are encouraged to explain their thinking, ask questions, reflect on decisions and learn from one another.",
+    a: "No. Games are central to my sessions, but they are only one part of the learning process. Children are encouraged to explain their thinking, ask questions, reflect on decisions and learn from one another.",
   },
   {
     q: "Why do you ask children so many questions?",
-    a: "Because thinking grows through participation. Rather than simply giving answers, we encourage children to explain their reasoning, consider alternatives and reflect on their decisions. This helps develop independent thinking and confidence.",
+    a: "Because thinking grows through participation. Rather than simply giving answers, I encourage children to explain their reasoning, consider alternatives and reflect on their decisions. This helps develop independent thinking and confidence.",
   },
   {
     q: "Do you guarantee improvements in school or academic performance?",
-    a: "No. Every child is different. Our sessions provide opportunities to practise skills such as attention, communication, reflection and thoughtful decision-making, but we do not claim that strategy games automatically improve academic results.",
+    a: "No. Every child is different. My sessions provide opportunities to practise skills such as attention, communication, reflection and thoughtful decision-making, but I do not claim that strategy games automatically improve academic results.",
   },
   {
     q: "My child struggles to concentrate. Can you help?",
-    a: "Many children find strategy games engaging because they provide a fun reason to think carefully. Sessions are always adapted to the child, and we aim to create an environment where sustained attention develops naturally through meaningful activities.",
+    a: "Many children find strategy games engaging because they provide a fun reason to think carefully. Sessions are always adapted to the child, and I aim to create an environment where sustained attention develops naturally through meaningful activities.",
   },
   {
     q: "My child has SEN. How can Rook Foundations support them?",
@@ -81,7 +81,7 @@ const faqs = [
       <>
         <p className="mb-3">Individual sessions allow for more personalised guidance, deeper questioning and detailed reflection.</p>
         <p>
-          Group sessions place greater emphasis on communication, teamwork, respectful competition and learning alongside others. You can read more on our{' '}
+          Group sessions place greater emphasis on communication, teamwork, respectful competition and learning alongside others. You can read more on the{' '}
           <Link to="/classes" onClick={() => window.scrollTo(0, 0)} className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">
             How We Teach page
           </Link>.
@@ -94,32 +94,32 @@ const faqs = [
     a: (
       <>
         <p className="mb-3">
-          Progress is NOT measured by how well a child plays a game. It is measured by how they grow as a learner. We use a structured developmental framework to observe and record progress across the six main stages of our learning cycle. See our six-stage learning cycle{' '}
+          Progress is NOT measured by how well a child plays a game. It is measured by how they grow as a learner. I use a structured developmental framework to observe and record progress across the six main stages of the learning cycle. See the six-stage learning cycle{' '}
           <Link to="/classes#learning-journey" className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">here</Link>.
         </p>
-        <p>Regular observations and personalised learning records provide a clear view of each child's strengths. It also helps us celebrate progress, reinforce existing learning and identify the next steps in their learning journey.</p>
+        <p>Regular observations and personalised learning records provide a clear view of each child's strengths. It also helps me celebrate progress, reinforce existing learning and identify the next steps in their learning journey.</p>
       </>
     ),
   },
   {
     q: "Will I receive feedback about my child?",
-    a: "Yes. Where appropriate, we provide regular feedback about your child's learning journey and the areas we're working on together. Individual sessions allow for more detailed observations.",
+    a: "Yes. Where appropriate, I provide regular feedback about your child's learning journey and the areas we're working on together. Individual sessions allow for more detailed observations.",
   },
   {
     q: "Are your sessions competitive?",
-    a: "They can be. Friendly competition is a valuable part of learning, but winning is never treated as the primary goal. We encourage children to enjoy challenge while learning to respect opponents, reflect on mistakes and celebrate progress.",
+    a: "They can be. Friendly competition is a valuable part of learning, but winning is never treated as the primary goal. I encourage children to enjoy challenge while learning to respect opponents, reflect on mistakes and celebrate progress.",
   },
   {
     q: "What if my child becomes upset after losing?",
-    a: "This can happen, and it's often an important learning opportunity. We support children in understanding their emotions, reflecting on what happened and recognising that mistakes and setbacks are a natural part of learning.",
+    a: "This can happen, and it's often an important learning opportunity. I support children in understanding their emotions, reflecting on what happened and recognising that mistakes and setbacks are a natural part of learning.",
   },
   {
     q: "How many children are in a group?",
-    a: "Group sizes vary depending on the setting and age of the children. We always aim to create an environment where every child can participate meaningfully.",
+    a: "Group sizes vary depending on the setting and age of the children. I always aim to create an environment where every child can participate meaningfully.",
   },
   {
     q: "Do you work with schools?",
-    a: "Yes. We offer after-school clubs, lunchtime sessions and other educational opportunities for schools. Please visit our For Schools section for more information.",
+    a: "I'm currently developing after-school clubs, lunchtime sessions and other educational opportunities for schools — you can find out more on the Clubs page.",
   },
   {
     q: "Do I need to stay during the session?",
@@ -127,11 +127,11 @@ const faqs = [
   },
   {
     q: "Are you DBS checked and insured?",
-    a: "Yes. All appropriate safeguarding, DBS and insurance requirements are in place. Further details are available upon request and within our school information pack.",
+    a: "Yes. All appropriate safeguarding, DBS and insurance requirements are in place. Further details are available upon request and within the school information pack.",
   },
   {
     q: "Where can I learn more about your educational approach?",
-    a: "Our website provides an overview of how we teach. For those interested in the thinking behind Rook Foundations, we've also developed the Rook Foundations Philosophy & Practice Handbook, which explains the educational principles that guide our work.",
+    a: "The website provides an overview of my teaching approach. For those interested in the thinking behind Rook Foundations, I've also developed the Rook Foundations Philosophy & Practice Handbook, which explains the educational principles that guide my work.",
   },
 ];
 
@@ -142,7 +142,7 @@ const chessFaqs = [
   },
   {
     q: "How do I know which phase is right for my child?",
-    a: "You do not need to decide alone. Our first assessment will identify your child's interest and engagement with chess. This will include an honest evaluation of whether I believe chess is something they could genuinely connect with over time."
+    a: "You do not need to decide alone. My first assessment will identify your child's interest and engagement with chess. This will include an honest evaluation of whether I believe chess is something they could genuinely connect with over time."
   },
   {
     q: "What if my child progresses quickly?",
@@ -162,7 +162,7 @@ const chessFaqs = [
   },
   {
     q: "Can your lessons support children with ADHD?",
-    a: "Yes, and there is good reason to be optimistic. Chess has been shown to support improvements in planning, working memory, and impulse control. These can be more challenging for children with ADHD. I do expect that these children may find it harder to focus for extended periods, to pause before acting, or to hold multiple possibilities in mind at once. My approach responds to this by keeping sessions varied and at the right pace for your child. We aim to break concepts into bite-size chunks, and recognise and positively reinforce small improvements throughout. Building confidence, trust, and long-term motivation is our main goal here at Rook Foundations."
+    a: "Yes, and there is good reason to be optimistic. Chess has been shown to support improvements in planning, working memory, and impulse control. These can be more challenging for children with ADHD. I do expect that these children may find it harder to focus for extended periods, to pause before acting, or to hold multiple possibilities in mind at once. My approach responds to this by keeping sessions varied and at the right pace for your child. I aim to break concepts into bite-size chunks, and recognise and positively reinforce small improvements throughout. Building confidence, trust, and long-term motivation is my main goal here at Rook Foundations."
   },
   {
     q: "Chess is a boy thing. Could my daughter engage with it?",
