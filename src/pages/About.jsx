@@ -6,6 +6,7 @@ import WhyChessResearch from '../components/about/WhyChessResearch';
 import ProfessionalTraining from '../components/about/ProfessionalTraining';
 import BoardVisionSection from '../components/about/BoardVisionSection';
 import GamesGallery from '../components/about/GamesGallery';
+import SacrificeSymbols from '../components/about/SacrificeSymbols';
 import ChessBg from '@/components/ui/ChessBg';
 import JourneyTimeline from '../components/about/JourneyTimeline';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
@@ -71,8 +72,9 @@ export default function About() {
           {/* Subsection title */}
           <motion.div
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.22 }}
-            className="max-w-4xl mx-auto px-6 lg:px-12 text-center mb-10"
+            className="relative max-w-4xl mx-auto px-6 lg:px-12 pt-12 sm:pt-14 text-center mb-10"
           >
+            <SacrificeSymbols />
             <h2 className="font-fredoka text-[#2D2520]/70" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.75rem)' }}>
               Why Rook Foundations?
             </h2>
