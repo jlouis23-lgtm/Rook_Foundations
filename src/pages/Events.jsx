@@ -14,7 +14,6 @@ const offerings = [
   { title: 'Engaging Activities', body: 'Children will also have opportunities to work in teams, building on ideas together and enjoying themselves in a fun, supportive environment.' },
   { title: 'Progressive Challenges', body: 'Activities can be adapted over time as children become more familiar with different games, challenges and ways of thinking.' },
   { title: 'Thinking & Problem Solving', body: 'Activities that encourage children to plan, predict, make decisions and explain their reasoning.' },
-  { title: 'Discussion & Reflection', body: 'Opportunities for children to talk about their decisions, consider different approaches and reflect on what they have learned.' },
 ];
 
 // Planned formats — explicitly labelled, not presented as bookable today.
@@ -110,7 +109,7 @@ export default function Events() {
               What will Rook Foundations Clubs offer?
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8 max-w-2xl mx-auto">
             {offerings.map(({ title, body }, i) => (
               <motion.div
                 key={title}
