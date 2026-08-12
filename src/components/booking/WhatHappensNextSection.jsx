@@ -185,7 +185,7 @@ export default function WhatHappensNextSection() {
           What Happens Next?
         </h2>
         <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-xl mx-auto leading-relaxed">
-          Booking is simple, and every lesson is personalised from the very first session.
+          The booking process will be simple and every lesson will be personalised from the very first session.
         </p>
       </motion.div>
 
