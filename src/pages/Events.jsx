@@ -172,7 +172,7 @@ export default function Events() {
             transition={{ duration: 0.6 }}
             className="bg-green-50 rounded-3xl p-8"
           >
-            <h3 className="font-fredoka text-[#2D2520] text-2xl mb-3">Safeguarding & Safety</h3>
+            <h3 className="font-fredoka text-[#2D2520] text-2xl mb-3">Safeguarding and Safety</h3>
             <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mb-4">
               The safety and welfare of every child taking part in my workshops and pilot sessions is my absolute priority, and the same standards will carry through into future Rook Foundations clubs. I follow established safeguarding best practices to help ensure every child has a safe, supportive and positive experience.
             </p>
