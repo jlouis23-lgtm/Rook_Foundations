@@ -119,7 +119,7 @@ const faqs = [
   },
   {
     q: "Do you work with schools?",
-    a: "I'm currently developing after-school clubs, lunchtime sessions and other educational opportunities for schools — you can find out more on the Clubs page.",
+    a: "Working with schools is an important part of what I hope to build with Rook Foundations. Once I've completed my workshops and pilot sessions and refined the approach, I plan to connect with local schools to explore opportunities for after-school clubs, lunchtime sessions and other learning experiences.",
   },
   {
     q: "Do I need to stay during the session?",
