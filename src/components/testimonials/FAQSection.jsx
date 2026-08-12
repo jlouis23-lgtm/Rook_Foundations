@@ -23,8 +23,8 @@ const faqs = [
     a: "No. Many children join with little or no experience. We introduce games gradually and choose activities that suit each child's current level of understanding.",
   },
   {
-    q: "What if my child doesn't enjoy chess?",
-    a: "That's absolutely fine. Chess is just one of many strategy games we use. If another game provides a better opportunity for your child to engage, think and learn, we'll happily adapt our approach.",
+    q: "What if chess feels too demanding for my child?",
+    a: "That's completely understandable. I now have access to a growing selection of fun educational games, each offering different learning experiences such as pattern recognition, problem-solving and strategy. As I learn what your child responds to best, I can shape sessions around the games that engage them most positively.",
   },
   {
     q: "Is this suitable for beginners?",
