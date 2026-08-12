@@ -103,7 +103,19 @@ const faqs = [
   },
   {
     q: "Will I receive feedback about my child?",
-    a: "Yes. Where appropriate, I provide regular feedback about your child's learning journey and the areas we're working on together. Individual sessions allow for more detailed observations.",
+    a: (
+      <>
+        <p className="mb-3">
+          Yes. I keep a record of each child's progress, using observations from games and activities to set and review personalised learning targets. As I introduce new games and challenges, I can track how your child approaches problems, responds to challenges and develops over time. I'll be happy to share this progress with you, particularly in individual and small-group sessions.
+        </p>
+        <p>
+          You can learn more about how I track progress{' '}
+          <Link to="/classes#tracking-progress" className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">
+            here
+          </Link>.
+        </p>
+      </>
+    ),
   },
   {
     q: "Are your sessions competitive?",

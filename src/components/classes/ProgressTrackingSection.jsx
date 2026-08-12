@@ -146,7 +146,7 @@ export default function ProgressTrackingSection() {
   const panelId = useId();
 
   return (
-    <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
+    <div id="tracking-progress" className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10 scroll-mt-24">
       {/* Subheading — deliberately lighter than the page's "What Makes Us
           Different?" heading above, since this section is the answer to
           that question rather than a new topic of its own. */}
