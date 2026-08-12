@@ -122,10 +122,6 @@ const faqs = [
     a: "Working with schools is an important part of what I hope to build with Rook Foundations. Once I've completed my workshops and pilot sessions and refined the approach, I plan to connect with local schools to explore opportunities for after-school clubs, lunchtime sessions and other learning experiences.",
   },
   {
-    q: "Do I need to stay during the session?",
-    a: "No. Unless otherwise stated, children attend independently while parents are welcome to ask questions before or after the session.",
-  },
-  {
     q: "Are you DBS checked and insured?",
     a: "Yes. All appropriate safeguarding, DBS and insurance requirements are in place. Further details are available upon request and within the school information pack.",
   },
