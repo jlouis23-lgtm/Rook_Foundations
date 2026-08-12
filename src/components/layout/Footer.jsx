@@ -45,7 +45,7 @@ export default function Footer() {
               "More than a game. Skills for life."
             </p>
             <div className="w-10 h-1 bg-[#E8A020] rounded-full mb-5" />
-            <p className="font-nunito text-white/35 text-sm">In-person chess · Ages 5–15</p>
+            <p className="font-nunito text-white/35 text-sm">In-person strategy building · Ages 5–12</p>
           </div>
 
           {/* Navigation */}
