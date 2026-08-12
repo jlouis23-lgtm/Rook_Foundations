@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     q: "My child is only 5. Are they too young for this?",
-    a: "Not at all. Our games and our approach can be made adaptable and suitable for your child.",
+    a: "Not at all. Rook Foundations uses games with different levels of challenge, so there are plenty of options suitable for younger children. Some can be played independently, while others can be explored together with an adult for additional support and challenge. Each session is adapted to your child's abilities, interests and confidence, helping them explore what they're capable of at their own pace.",
   },
   {
     q: "How is Rook Foundations different from traditional chess coaching?",
