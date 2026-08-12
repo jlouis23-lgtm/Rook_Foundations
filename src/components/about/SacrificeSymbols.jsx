@@ -51,10 +51,10 @@ function SeiSymbol({ className }) {
 export default function SacrificeSymbols() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none select-none print:hidden" aria-hidden="true">
-      <div className="absolute top-0 left-[16%] sm:left-[20%] md:left-[26%] h-8 sm:h-10 lg:h-12 w-auto opacity-[0.16]">
+      <div className="absolute top-0 left-2 sm:left-4 md:left-6 lg:left-8 h-8 sm:h-10 lg:h-12 w-auto opacity-[0.16]">
         <GiSymbol className="h-full w-auto" />
       </div>
-      <div className="absolute top-0 right-[16%] sm:right-[20%] md:right-[26%] h-8 sm:h-10 lg:h-12 w-auto opacity-[0.16]">
+      <div className="absolute top-0 right-2 sm:right-4 md:right-6 lg:right-8 h-8 sm:h-10 lg:h-12 w-auto opacity-[0.16]">
         <SeiSymbol className="h-full w-auto" />
       </div>
     </div>
