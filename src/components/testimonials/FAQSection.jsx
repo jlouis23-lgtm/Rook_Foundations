@@ -72,8 +72,8 @@ const faqs = [
     a: "Many children find strategy games engaging because they provide a fun reason to think carefully. Sessions are always adapted to the child, and we aim to create an environment where sustained attention develops naturally through meaningful activities.",
   },
   {
-    q: "My child has SEND. Can they attend?",
-    a: "In many cases, yes. Every child is different, so we recommend getting in touch to discuss your child's individual needs before booking. We'll always be honest about whether we feel our sessions are the right fit.",
+    q: "My child has SEN. How can Rook Foundations support them?",
+    a: "Every child is different, and I'm still learning how Rook Foundations can best support children with different needs through my pilot sessions. The games and activities can be adapted in different ways, so I'd be happy to hear about your child's needs and discuss whether the approach could be a good fit.",
   },
   {
     q: "What's the difference between individual and group sessions?",
