@@ -14,37 +14,50 @@ const EASE = [0.22, 1, 0.36, 1];
 // Foundations?" prompt below. Nothing else needs to change.
 const BOOKINGS_OPEN = false;
 
+// Colour treatment reused from the Pricing page's three session-format
+// cards (Individual/Pair/Group), reapplied here in the same order purely as
+// part of the shared Rook Foundations visual system — the two pages group
+// sessions differently (length vs. group size), so the colours don't imply
+// the categories are equivalent. All three cards use the same card
+// structure/elevation so none reads as more prominent than the others.
 const sessionCards = [
   {
     title: 'Focus Session',
     duration: '30 Minutes',
-    description: 'A focused one-to-one session designed around one or two personalised learning goals. Ideal for younger learners, shorter attention spans, or families looking for a concise lesson.',
+    label: 'Focused Learning',
+    labelStyle: 'bg-[#7a48c0] text-white',
+    cardStyle: 'bg-[#7a48c0]/10 border-[#7a48c0]/30',
+    description: 'A shorter, concentrated learning experience that can work well around specific goals.',
     goodFor: [
       "You're looking for a shorter, highly focused session.",
-      'Your child learns best in shorter periods of concentrated learning.',
+      'Your child engages particularly well with shorter periods of concentrated learning.',
       "You'd like to work towards one or two specific learning goals.",
     ],
     buttonLabel: 'Book Focus Session',
     scheduleUrl: 'https://calendar.app.google/btKSKkRKfRatY6m3A',
-    recommended: false,
   },
   {
     title: 'Core Session',
     duration: '60 Minutes',
-    description: 'Our recommended session length, providing the ideal balance of gameplay, discussion and reflection while working towards personalised learning targets.',
+    label: 'Balanced Learning',
+    labelStyle: 'bg-[#b8790a] text-white',
+    cardStyle: 'bg-amber-50/60 border-[#E8A020]/30',
+    description: 'A balanced combination of gameplay, puzzles, discussion and reflection.',
     goodFor: [
-      "You're looking for our recommended session for most children.",
+      "You'd like a session that combines different elements of the Rook Foundations approach.",
       "You'd like a balanced mix of gameplay, discussion and reflection.",
       "You're looking for regular, personalised sessions that build progress over time.",
     ],
     buttonLabel: 'Book Core Session',
     scheduleUrl: 'https://calendar.app.google/YHKcCMkE477HWNBg7',
-    recommended: true,
   },
   {
     title: 'Extended Session',
     duration: '90 Minutes',
-    description: 'A longer session allowing deeper exploration of strategy games, extended discussion and additional opportunities for guided thinking and reflection.',
+    label: 'Deep Learning',
+    labelStyle: 'bg-[#2d8c62] text-white',
+    cardStyle: 'bg-green-50/60 border-green-200',
+    description: 'A longer opportunity for sustained engagement, exploration and deeper learning through a wider range of activities.',
     goodFor: [
       'Your child enjoys spending longer exploring new ideas and challenges.',
       "You'd like more time for gameplay, discussion and reflection.",
@@ -52,7 +65,6 @@ const sessionCards = [
     ],
     buttonLabel: 'Book Extended Session',
     scheduleUrl: 'https://calendar.app.google/QM8JkChdny7yU8Cs9',
-    recommended: false,
   },
 ];
 
@@ -81,17 +93,13 @@ function SessionCard({ session, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={`play-card group relative flex flex-col border rounded-3xl p-7 bg-white ${
+      className={`play-card group relative flex flex-col border rounded-3xl p-7 ${session.cardStyle} ${
         BOOKINGS_OPEN ? 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A020] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FAFAF7]' : ''
-      } ${
-        session.recommended ? 'border-[#E8A020]/30 shadow-lg shadow-[#E8A020]/8' : 'border-[#2D2520]/10'
       }`}
     >
-      {session.recommended && (
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#E8A020] text-white font-nunito text-xs font-700 px-4 py-1.5 rounded-full shadow-md whitespace-nowrap">
-          Recommended
-        </span>
-      )}
+      <span className={`absolute -top-3 left-1/2 -translate-x-1/2 ${session.labelStyle} font-nunito text-xs font-700 px-4 py-1.5 rounded-full shadow-md whitespace-nowrap`}>
+        {session.label}
+      </span>
 
       <div className="mb-5">
         <h2 className="font-fredoka text-[#2D2520] text-2xl mb-2">{session.title}</h2>
