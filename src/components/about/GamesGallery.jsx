@@ -5,9 +5,9 @@ import { ChevronDown } from 'lucide-react';
 const EASE = [0.22, 1, 0.36, 1];
 
 const infoCards = [
-  { label: 'Developing Thinking Skills', accent: '#4a7eb8', body: 'We use a wide range of games to help children strengthen problem-solving, strategic thinking, and confidence when approaching new challenges. Each game provides opportunities to practise planning, reasoning, and decision-making in an engaging way.' },
+  { label: 'Developing Thinking Skills', accent: '#4a7eb8', body: 'I use a wide range of games to help children strengthen problem-solving, strategic thinking, and confidence when approaching new challenges. Each game provides opportunities to practise planning, reasoning, and decision-making in an engaging way.' },
   { label: 'Learning Through Different Games', accent: '#b8790a', body: 'Every game encourages a different way of thinking. By exploring multiple games, children learn to adapt their strategies, consider new perspectives, and develop greater flexibility in their thinking. This variety helps to keep learning both challenging and enjoyable.' },
-  { label: 'Tailored to Every Child', accent: '#2d8c62', body: 'Different games require different levels of concentration and complexity. We carefully select activities that match each child\'s age, ability, and stage of development. Our lessons aim to build confidence as well as progress.' },
+  { label: 'Tailored to Every Child', accent: '#2d8c62', body: 'Different games require different levels of concentration and complexity. I carefully select activities that match each child\'s age, ability, and stage of development. Each lesson aims to build confidence as well as progress.' },
 ];
 
 const games = [
