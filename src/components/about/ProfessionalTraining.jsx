@@ -1,41 +1,35 @@
 import { motion } from 'framer-motion';
-import { Shield, Brain, HandHeart, HeartPulse, Globe, ClipboardCheck, ShieldCheck, ArrowRight } from 'lucide-react';
+import { ShieldCheck, ArrowRight } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 
 const trainings = [
   {
-    icon: Shield, emoji: '🛡️',
     title: 'Safeguarding Children & Young People',
     desc: 'Understanding child protection responsibilities, safeguarding procedures, and safe practice when working with children and young people.',
     accent: '#4a7eb8',
   },
   {
-    icon: Brain, emoji: '🧠',
     title: 'Mental Health & Emotional Wellbeing',
     desc: 'Training focused on emotional wellbeing, resilience, and recognising mental health needs in young people.',
     accent: '#7a48c0',
   },
   {
-    icon: HandHeart, emoji: '🤲',
     title: 'Behaviour Support',
     desc: 'Experience and training in responding calmly and effectively to behaviours that challenge while maintaining supportive environments.',
     accent: '#2d8c62',
   },
   {
-    icon: HeartPulse, emoji: '🚑',
     title: 'First Aid',
     desc: 'Emergency first aid training completed through professional child-support work and safeguarding environments.',
     accent: '#c05050',
   },
   {
-    icon: Globe, emoji: '🌍',
     title: 'Equality, Diversity & Inclusion',
     desc: 'Creating respectful, inclusive, and supportive learning environments for children from all backgrounds.',
     accent: '#b8790a',
   },
   {
-    icon: ClipboardCheck, emoji: '📋',
     title: 'Professional Practice & Child Safety',
     desc: 'Additional training in GDPR, record keeping, lone working, safeguarding procedures, and professional boundaries.',
     accent: '#2a8c88',
@@ -60,26 +54,21 @@ export default function ProfessionalTraining() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
-          {trainings.map((t, i) => {
-            const Icon = t.icon;
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="group"
-              >
-                <div className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"><Icon size={28} style={{ color: t.accent }} /></div>
-                <h3 className="font-fredoka text-lg mb-2 leading-snug" style={{ color: t.accent }}>
-                  {t.title}
-                </h3>
-                <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">{t.desc}</p>
-              </motion.div>
-            );
-          })}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8">
+          {trainings.map((t, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+            >
+              <h3 className="font-fredoka text-lg mb-2 leading-snug" style={{ color: t.accent }}>
+                {t.title}
+              </h3>
+              <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">{t.desc}</p>
+            </motion.div>
+          ))}
         </div>
 
         <motion.div
