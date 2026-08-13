@@ -220,7 +220,6 @@ export default function Contact() {
                       <>Send My Message <Send size={18} /></>
                     )}
                   </motion.button>
-                  <p className="font-nunito text-[#2D2520]/35 text-xs text-center">Your first assessment lesson is just £5. No long-term commitment required.</p>
                 </form>
               )}
             </Reveal>
