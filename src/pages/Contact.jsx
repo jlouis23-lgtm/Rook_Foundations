@@ -91,7 +91,7 @@ export default function Contact() {
                     { icon: Mail, label: 'Email', value: 'louis.jenkins@rookfoundations.com', href: 'mailto:louis.jenkins@rookfoundations.com' },
                     { icon: Phone, label: 'Phone', value: '+44 7466 760 885', href: 'tel:+447466760885' },
                     { icon: MapPin, label: 'Location', value: 'To be confirmed.', href: null },
-                    { icon: Clock, label: 'Hours', value: 'Mon–Fri: 8am – 6pm\nWeekends: By appointment', href: null },
+                    { icon: Clock, label: 'Hours', value: 'Mon–Fri: 9am to 5pm\nWeekends: By appointment', href: null },
                   ].map(({ icon: Icon, label, value, href }) => (
                     <div key={label} className="group flex items-start gap-4">
                       <div className="mt-0.5 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
