@@ -39,10 +39,7 @@ export default function Contact() {
           </div>
 
           <p className="font-nunito text-[#2D2520]/65 text-base sm:text-lg leading-relaxed mb-4">
-            I'm building Rook Foundations around the children who take part. Before we begin, I'd love to understand a little about your child, what they enjoy, how they learn and what you'd like them to get from the experience.
-          </p>
-          <p className="font-nunito text-[#2D2520]/65 text-base sm:text-lg leading-relaxed mb-4">
-            You might want to tell me about their interests, availability, how they engage with games, any areas where they may need additional support, or anything else you think would help me understand them better.
+            I'm building Rook Foundations around the children who take part. Before we begin, I'd love to understand a little about your child, what they enjoy, how they learn and what you'd like them to get from the experience. You might want to tell me about their interests, availability, how they engage with games, any areas where they may need additional support, or anything else you think would help me understand them better.
           </p>
           <p className="font-nunito text-[#2D2520]/60 text-base sm:text-lg leading-relaxed italic">
             There's no right or wrong answer: the more I understand, the better I can shape the experience around them.
