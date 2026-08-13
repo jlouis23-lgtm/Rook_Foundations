@@ -28,7 +28,7 @@ export default function HowWeTeachSection() {
             How We Teach
           </h2>
           <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-2xl mx-auto leading-relaxed">
-            Games of strategy provide joyful opportunities when processing new information, adapting to different rules, and evaluating the choices of others. They are the vehicle. What shapes how your child grows with us is a consistent six-stage journey that repeats and deepens with every session. We don't claim these skills transfer automatically. But rest assured, our sessions are nurtured through relationship, challenge, and reflection. We bring the engagement and provide the encouragement for children to approach challenges that they might otherwise find difficult or unwilling to approach on their own.
+            Games of strategy provide joyful opportunities to process new information, adapt to different rules and evaluate the choices of others. They are the vehicle. What shapes how your child develops is a six-stage learning journey that I'm continuing to refine through each session. I don't claim these skills transfer automatically. Instead, I use relationship, challenge and reflection to create opportunities for children to practise them. I bring the games, structure and encouragement that can help children approach challenges they might otherwise find difficult or be reluctant to tackle on their own.
           </p>
 
           <ChessCurriculumButton className="mt-8" />
