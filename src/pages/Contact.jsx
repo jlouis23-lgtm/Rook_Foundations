@@ -9,7 +9,7 @@ const WHATSAPP_URL = 'https://wa.me/447466760885';
 
 export default function Contact() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
-  const [form, setForm] = useState({ parentName: '', email: '', phone: '', childName: '', childAge: '', phase: '', message: '' });
+  const [form, setForm] = useState({ parentName: '', email: '', phone: '', childAge: '', learningStyle: '', additionalNotes: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -160,7 +160,6 @@ export default function Contact() {
                       { name: 'parentName', label: "Your Name", type: 'text', placeholder: "Emma's Mum / Dad", required: true },
                       { name: 'email', label: 'Email Address', type: 'email', placeholder: 'you@example.com', required: true },
                       { name: 'phone', label: 'Phone Number', type: 'tel', placeholder: 'Optional', required: false },
-                      { name: 'childName', label: "Child's Name", type: 'text', placeholder: "Your child's first name", required: true },
                     ].map((f) => (
                       <div key={f.name}>
                         <label className="font-nunito text-[#2D2520]/60 text-xs font-700 uppercase tracking-wide block mb-2">{f.label} {f.required && '*'}</label>
@@ -187,16 +186,20 @@ export default function Contact() {
                       </select>
                     </div>
 
-                    <div>
-                      <label className="font-nunito text-[#2D2520]/60 text-xs font-700 uppercase tracking-wide block mb-2">Level of Interest</label>
-                      <select name="phase" value={form.phase} onChange={handleChange}
-                        className="w-full bg-[#FAFAF7] border-2 border-[#E8A020]/20 rounded-2xl px-4 py-3 font-nunito text-[#2D2520] text-sm gold-focus transition-all outline-none">
-                        <option value="">Not sure — we'll advise!</option>
-                        <option value="discovery">Discovery (Beginners)</option>
-                        <option value="strategy">Strategy (Intermediate)</option>
-                        <option value="advanced">Advanced</option>
-                      </select>
-                    </div>
+                  </div>
+
+                  <div>
+                    <label className="font-nunito text-[#2D2520]/60 text-xs font-700 uppercase tracking-wide block mb-2">Is there anything you'd like me to know?</label>
+                    <textarea name="additionalNotes" value={form.additionalNotes} onChange={handleChange} rows={4}
+                      placeholder="Tell me anything that might help me understand your child and make their experience more enjoyable."
+                      className="w-full bg-[#FAFAF7] border-2 border-[#E8A020]/20 rounded-2xl px-4 py-3 font-nunito text-[#2D2520] text-sm placeholder:text-[#2D2520]/30 gold-focus transition-all outline-none resize-none" />
+                  </div>
+
+                  <div>
+                    <label className="font-nunito text-[#2D2520]/60 text-xs font-700 uppercase tracking-wide block mb-2">How does your child learn best?</label>
+                    <textarea name="learningStyle" value={form.learningStyle} onChange={handleChange} rows={4}
+                      placeholder="Anything you've noticed about how they engage, concentrate or respond to new challenges."
+                      className="w-full bg-[#FAFAF7] border-2 border-[#E8A020]/20 rounded-2xl px-4 py-3 font-nunito text-[#2D2520] text-sm placeholder:text-[#2D2520]/30 gold-focus transition-all outline-none resize-none" />
                   </div>
 
                   <div>
