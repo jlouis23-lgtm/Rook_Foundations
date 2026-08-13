@@ -56,13 +56,13 @@ export default function HowWeTeachSection() {
           className="text-center mb-10"
         >
           <span className="inline-flex items-center font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
-            What sets us apart
+            What Sets Rook Foundations Apart
           </span>
           <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-            What Makes Us Different?
+            A Different Way to Understand Learning
           </h2>
           <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-xl mx-auto leading-relaxed">
-            What truly sets us apart is how closely we track your child's progress. Every session builds on personalised learning targets shaped by careful observation, not guesswork — here's exactly how that works.
+            What sets Rook Foundations apart is the emphasis I place on understanding how your child learns. Below is an overview of what is being done to achieve this goal.
           </p>
         </motion.div>
       </div>
