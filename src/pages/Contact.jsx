@@ -181,7 +181,7 @@ export default function Contact() {
                       <select name="childAge" value={form.childAge} onChange={handleChange} required
                         className="w-full bg-[#FAFAF7] border-2 border-[#E8A020]/20 rounded-2xl px-4 py-3 font-nunito text-[#2D2520] text-sm gold-focus transition-all outline-none">
                         <option value="">Select age</option>
-                        {Array.from({ length: 11 }, (_, i) => i + 5).map((age) => (
+                        {Array.from({ length: 8 }, (_, i) => i + 5).map((age) => (
                           <option key={age} value={age}>{age} years old</option>
                         ))}
                       </select>
