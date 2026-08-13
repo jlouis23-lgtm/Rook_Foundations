@@ -90,7 +90,7 @@ export default function Contact() {
                   {[
                     { icon: Mail, label: 'Email', value: 'louis.jenkins@rookfoundations.com', href: 'mailto:louis.jenkins@rookfoundations.com' },
                     { icon: Phone, label: 'Phone', value: '+44 7466 760 885', href: 'tel:+447466760885' },
-                    { icon: MapPin, label: 'Location', value: 'Dunmow Library\n47 White Hart Way\nGreat Dunmow, CM6 1FS', href: null },
+                    { icon: MapPin, label: 'Location', value: 'To be confirmed.', href: null },
                     { icon: Clock, label: 'Hours', value: 'Mon–Fri: 8am – 6pm\nWeekends: By appointment', href: null },
                   ].map(({ icon: Icon, label, value, href }) => (
                     <div key={label} className="group flex items-start gap-4">
