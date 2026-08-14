@@ -4,6 +4,7 @@ import {
   Check, MapPin,
 } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
+import { usePageMeta } from '@/hooks/use-page-meta';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -71,6 +72,10 @@ function JourneyNode({ stage, index, vertical = false }) {
 }
 
 export default function Events() {
+  usePageMeta(
+    'Rook Foundations Clubs | School & Community Programme',
+    'Rook Foundations is developing a school and community club programme using chess and strategy games, currently through workshops and pilot sessions.'
+  );
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (

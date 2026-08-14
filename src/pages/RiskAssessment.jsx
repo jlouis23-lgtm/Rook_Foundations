@@ -7,6 +7,7 @@ import {
 import ChessBg from '@/components/ui/ChessBg';
 import Reveal from '@/components/ui/Reveal';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
+import { usePageMeta } from '@/hooks/use-page-meta';
 
 const meta = [
   { Icon: Building2, label: 'Provider', value: 'Rook Foundations' },
@@ -59,6 +60,10 @@ function BulletList({ items }) {
 }
 
 export default function RiskAssessment() {
+  usePageMeta(
+    'General Risk Assessment | Rook Foundations',
+    'The general risk assessment for Rook Foundations workshops, covering safeguarding, health and safety and emergency procedures for schools and parents.'
+  );
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (

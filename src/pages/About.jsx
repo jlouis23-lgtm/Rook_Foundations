@@ -11,9 +11,15 @@ import ExperienceJourney from '../components/about/ExperienceJourney';
 import ChessBg from '@/components/ui/ChessBg';
 import JourneyTimeline from '../components/about/JourneyTimeline';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
+import { usePageMeta } from '@/hooks/use-page-meta';
 
 export default function About() {
   const { hash } = useLocation();
+
+  usePageMeta(
+    'About Rook Foundations — The Story Behind the Project',
+    'Louis Jenkins founded Rook Foundations to help children think for themselves through chess and strategy games. Read the story behind the project.'
+  );
 
   useEffect(() => {
     if (hash) {

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, BookOpen } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
+import { usePageMeta } from '@/hooks/use-page-meta';
 
 const sections = [
   {
@@ -123,6 +124,10 @@ const sections = [
 ];
 
 export default function References() {
+  usePageMeta(
+    'The Research Behind Our Approach | Rook Foundations',
+    'Explore the research, studies and guidance that inform the Rook Foundations educational approach, organised by topic for parents to explore.'
+  );
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (

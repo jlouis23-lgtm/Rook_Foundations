@@ -7,6 +7,7 @@ import ChessBg from '@/components/ui/ChessBg';
 import Reveal from '@/components/ui/Reveal';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import { privacyMeta, privacySections } from '@/data/privacyPolicy';
+import { usePageMeta } from '@/hooks/use-page-meta';
 
 function Spans({ spans }) {
   return spans.map((s, i) =>
@@ -103,6 +104,10 @@ function ContactSection({ section, isFirst }) {
 }
 
 export default function PrivacyPolicy() {
+  usePageMeta(
+    'Privacy Policy | Rook Foundations',
+    "Rook Foundations' privacy policy, explaining what personal information is collected from parents and guardians and how it is used and protected."
+  );
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (

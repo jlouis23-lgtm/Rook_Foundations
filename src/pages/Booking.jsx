@@ -4,6 +4,7 @@ import { Clock, ArrowRight } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import WhatHappensNextSection from '@/components/booking/WhatHappensNextSection';
+import { usePageMeta } from '@/hooks/use-page-meta';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -138,6 +139,10 @@ function SessionCard({ session, index }) {
 }
 
 export default function Booking() {
+  usePageMeta(
+    'Explore Sessions | Rook Foundations',
+    'Explore Focus, Core and Extended session formats combining chess and strategy games, with bookings opening as pilot sessions continue.'
+  );
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (

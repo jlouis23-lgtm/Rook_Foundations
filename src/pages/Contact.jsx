@@ -4,10 +4,15 @@ import { MapPin, Phone, Mail, Clock, Send, Check } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import Reveal from '@/components/ui/Reveal';
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
+import { usePageMeta } from '@/hooks/use-page-meta';
 
 const WHATSAPP_URL = 'https://wa.me/447466760885';
 
 export default function Contact() {
+  usePageMeta(
+    'Contact Rook Foundations',
+    'Get in touch with Rook Foundations to talk about your child, ask questions or register interest in a session. Personal replies from the founder.'
+  );
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const [form, setForm] = useState({ parentName: '', email: '', phone: '', childAge: '', learningStyle: '', additionalNotes: '', message: '' });
   const [submitted, setSubmitted] = useState(false);

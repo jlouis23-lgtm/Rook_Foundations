@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, ArrowLeft, Clock, Users, MapPin, BookOpen, Search, Check, Heart, HelpCircle, Sprout, Puzzle, Trophy } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
+import { usePageMeta } from '@/hooks/use-page-meta';
 
 const phases = [
   {
@@ -33,6 +34,10 @@ const phases = [
 
 export default function ChessCurriculum() {
   const [activePhase, setActivePhase] = useState(0);
+  usePageMeta(
+    'Chess Curriculum: Three Learning Phases | Rook Foundations',
+    'The three-phase chess curriculum at Rook Foundations — Discovery, Development and Strategy — for beginner to intermediate young players.'
+  );
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const p = phases[activePhase];
 

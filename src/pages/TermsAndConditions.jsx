@@ -7,6 +7,7 @@ import ChessBg from '@/components/ui/ChessBg';
 import Reveal from '@/components/ui/Reveal';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import { tcMeta, tcSections } from '@/data/termsAndConditions';
+import { usePageMeta } from '@/hooks/use-page-meta';
 
 function Spans({ spans }) {
   return spans.map((s, i) =>
@@ -115,6 +116,10 @@ function ContactSection({ section, isFirst }) {
 }
 
 export default function TermsAndConditions() {
+  usePageMeta(
+    'Coaching & Booking Terms | Rook Foundations',
+    'The Parent & Guardian Coaching Agreement setting out the terms for booking Rook Foundations sessions, workshops and related educational activities.'
+  );
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (

@@ -6,9 +6,15 @@ import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import HowWeTeachSection from '@/components/classes/HowWeTeachSection';
 import LearningNetworkHero from '@/components/classes/LearningNetworkHero';
 import CulturalSymbolAccents from '@/components/classes/CulturalSymbolAccents';
+import { usePageMeta } from '@/hooks/use-page-meta';
 
 export default function Classes() {
   const { hash } = useLocation();
+
+  usePageMeta(
+    'Our Learning Approach | Strategy Games for Children',
+    'Rook Foundations uses chess and a growing selection of strategy games to create opportunities for children aged 5–12 to practise focus, patience and independent thinking.'
+  );
 
   useEffect(() => {
     if (hash) {

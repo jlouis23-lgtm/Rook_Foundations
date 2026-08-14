@@ -7,6 +7,7 @@ import ChessBg from '@/components/ui/ChessBg';
 import Reveal from '@/components/ui/Reveal';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import { cookiesMeta, cookiesSections } from '@/data/cookiesPolicy';
+import { usePageMeta } from '@/hooks/use-page-meta';
 
 function Spans({ spans }) {
   return spans.map((s, i) =>
@@ -103,6 +104,10 @@ function ContactSection({ section, isFirst }) {
 }
 
 export default function CookiesPolicy() {
+  usePageMeta(
+    'Cookie Policy | Rook Foundations',
+    'How Rook Foundations uses cookies on its website, and how parents can manage cookie preferences when browsing.'
+  );
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (

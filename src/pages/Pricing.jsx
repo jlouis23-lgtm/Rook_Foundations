@@ -5,6 +5,7 @@ import ChessBg from '@/components/ui/ChessBg';
 import PeopleIcon from '@/components/pricing/PeopleIcon';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import Reveal from '@/components/ui/Reveal';
+import { usePageMeta } from '@/hooks/use-page-meta';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -41,6 +42,10 @@ const plans = [
 ];
 
 export default function Pricing() {
+  usePageMeta(
+    'Session Pricing | Rook Foundations',
+    'Rook Foundations is finalising pricing for individual, pair and group sessions during its current pilot stage — confirmed once bookings open.'
+  );
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
