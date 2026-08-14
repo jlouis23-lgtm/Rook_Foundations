@@ -50,7 +50,7 @@ export default function ChessCurriculum() {
         <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10 mb-6">
           <MotionLink
             whileTap={ctaTap}
-            to="/classes"
+            to="/our-approach"
             className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-700 hover:text-[#E8A020] transition-colors"
           >
             <ArrowLeft size={15} /> Back to Our Learning Approach

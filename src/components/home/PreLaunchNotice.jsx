@@ -63,7 +63,7 @@ export default function PreLaunchNotice() {
 
         <motion.div variants={item}>
           <Link
-            to="/classes"
+            to="/our-approach"
             onClick={() => window.scrollTo(0, 0)}
             className="group inline-flex items-center gap-1.5 font-nunito text-[#E8A020] text-sm font-700 hover:text-[#F4C261] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8A020] rounded-sm"
           >

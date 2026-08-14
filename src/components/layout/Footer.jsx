@@ -7,10 +7,10 @@ const WHATSAPP_URL = 'https://wa.me/447466760885';
 const navLinks = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
-  { label: 'Our Learning Approach', path: '/classes' },
+  { label: 'Our Learning Approach', path: '/our-approach' },
   { label: 'Pricing', path: '/pricing' },
-  { label: 'Clubs', path: '/events' },
-  { label: 'Explore Sessions', path: '/booking' },
+  { label: 'Clubs', path: '/clubs' },
+  { label: 'Explore Sessions', path: '/sessions' },
   { label: 'Contact', path: '/contact' },
 ];
 

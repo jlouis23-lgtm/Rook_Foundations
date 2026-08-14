@@ -53,17 +53,17 @@ const AuthenticatedApp = () => {
       <Route element={<PageLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/classes" element={<Classes />} />
+        <Route path="/our-approach" element={<Classes />} />
         <Route path="/classes/chess-curriculum" element={<ChessCurriculum />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/booking" element={<Booking />} />
+        <Route path="/sessions" element={<Booking />} />
         <Route path="/references" element={<References />} />
         <Route path="/risk-assessment" element={<RiskAssessment />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/cookies-policy" element={<CookiesPolicy />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/events" element={<Events />} />
+        <Route path="/clubs" element={<Events />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>

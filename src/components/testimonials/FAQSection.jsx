@@ -82,7 +82,7 @@ const faqs = [
         <p className="mb-3">Individual sessions allow for more personalised guidance, deeper questioning and detailed reflection.</p>
         <p>
           Group sessions place greater emphasis on communication, teamwork, respectful competition and learning alongside others. You can read more on the{' '}
-          <Link to="/classes" onClick={() => window.scrollTo(0, 0)} className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">
+          <Link to="/our-approach" onClick={() => window.scrollTo(0, 0)} className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">
             How We Teach page
           </Link>.
         </p>
@@ -142,7 +142,7 @@ const faqs = [
     a: (
       <>
         You can explore the{' '}
-        <Link to="/classes" onClick={() => window.scrollTo(0, 0)} className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">
+        <Link to="/our-approach" onClick={() => window.scrollTo(0, 0)} className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">
           Our Learning Approach
         </Link>{' '}
         page, where I explain how I use games to support learning, and how sessions will be adapted to each child.
