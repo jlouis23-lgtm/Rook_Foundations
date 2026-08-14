@@ -17,7 +17,6 @@ import Contact from './pages/Contact';
 import Booking from './pages/Booking';
 import Pricing from './pages/Pricing';
 import References from './pages/References';
-import ResearchSummary from './pages/ResearchSummary';
 import RiskAssessment from './pages/RiskAssessment';
 import TermsAndConditions from './pages/TermsAndConditions';
 import CookiesPolicy from './pages/CookiesPolicy';
@@ -60,7 +59,6 @@ const AuthenticatedApp = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/references" element={<References />} />
-        <Route path="/research-summary" element={<ResearchSummary />} />
         <Route path="/risk-assessment" element={<RiskAssessment />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/cookies-policy" element={<CookiesPolicy />} />
