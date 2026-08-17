@@ -11,7 +11,7 @@ const stages = [
     num: 1,
     title: 'Relationship',
     accent: '#2d8c62',
-    body: 'Every learning journey begins with understanding the child. By getting to know their interests, communication style and personality, we create a supportive environment where they feel comfortable to learn.',
+    body: 'Every learning journey begins with understanding the child. By getting to know their interests, communication style and personality, a supportive environment is created where they feel comfortable to learn.',
   },
   {
     num: 2,
@@ -41,7 +41,7 @@ const stages = [
     num: 6,
     title: 'Transfer',
     accent: '#2a8c88',
-    body: 'Learning doesn’t end when the game finishes. We help children recognise how the thinking, decisions and strategies they practised can be applied to situations in everyday life.',
+    body: 'Learning doesn’t end when the game finishes. Children are helped to recognise how the thinking, decisions and strategies they practised can be applied to situations in everyday life.',
   },
 ];
 
