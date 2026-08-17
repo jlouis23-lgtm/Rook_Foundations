@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: "Does my child need to know how to play chess or other strategy games?",
-    a: "No. Many children join with little or no experience. I introduce games gradually and choose activities that suit each child's current level of understanding.",
+    a: "No. Many children will join with little or no experience. I introduce games gradually and choose activities that suit each child's current level of understanding.",
   },
   {
     q: "What if chess feels too demanding for my child?",
