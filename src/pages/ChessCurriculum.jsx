@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ArrowLeft, Clock, Users, MapPin, BookOpen, Search, Check, Heart, HelpCircle, Sprout, Puzzle, Trophy } from 'lucide-react';
+import { ArrowRight, ArrowLeft, BookOpen, Search, Check, Heart, HelpCircle, Sprout, Puzzle, Trophy } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import { usePageMeta } from '@/hooks/use-page-meta';
@@ -9,7 +9,6 @@ const phases = [
   {
     phase: '01', title: 'Discovery', subtitle: 'The First Move', ages: '', Icon: Sprout,
     accent: '#2d8c62',
-    duration: '30 mins, 1 hour or 2 hours', groupSize: 'Up to 4 students',
     description: 'An introduction to the wonderful world of chess, designed for young learners who are completely new to the game. We use storytelling, colourful pieces, and tactile learning to make chess feel magical.',
     whatYouLearn: ['Names and movements of all piece types', 'How to set up the board correctly', 'Basic check and checkmate concepts', 'Simple 1-move tactical puzzles', 'Sportsmanship and turn-taking'],
     parentNote: 'Every child develops at their own pace, and that is something we fully embrace. Some children will grasp concepts quickly. Others may need repetition or take longer to build confidence. That is completely normal. My approach ensures no child is ever pushed ahead before they are ready. The focus is on encouragement and building a love of thinking.',
@@ -17,7 +16,6 @@ const phases = [
   {
     phase: '02', title: 'Development', subtitle: 'The Middle Game', ages: '', Icon: Puzzle,
     accent: '#4a7eb8',
-    duration: '30 mins, 1 hour or 2 hours', groupSize: 'Up to 4 students',
     description: 'For students with a basic understanding of the rules, this phase introduces the art of planning. Students begin to see patterns, set traps, and think 2–3 moves ahead.',
     whatYouLearn: ['Opening principles (control the centre)', 'Tactical motifs: forks, pins, discovered attacks', 'Basic endgame technique', 'Time management and tactics', 'Friendly in-class tournament play'],
     parentNote: "In a world that increasingly rewards speed and instant reactions, we believe there is real value in motivating children to slow down, think carefully, and act with intention over impulse.",
@@ -25,7 +23,6 @@ const phases = [
   {
     phase: '03', title: 'Strategy', subtitle: 'The Endgame', ages: '', Icon: Trophy,
     accent: '#7a48c0',
-    duration: '30 mins, 1 hour or 2 hours', groupSize: 'Up to 4 students',
     description: 'For students ready to take the next step. This phase focuses on stronger positional understanding, tactical awareness, and confidence in competitive play.',
     whatYouLearn: ['Opening theory', 'Judging positions and planning attacks', 'Focus on puzzles', 'Board memory and thinking with time pressure', 'Finding tactics and special moves'],
     parentNote: "Rook Foundations is designed primarily for beginner to intermediate students. Some students may reach a point where they would benefit from a more competitive environment. This is something I will always be transparent about. Every lesson is designed to adapt as closely as possible to each child's individual strengths.",
@@ -152,28 +149,10 @@ export default function ChessCurriculum() {
             {/* Sidebar */}
             <div className="space-y-8">
               <div className="bg-white border border-[#E8A020]/15 rounded-3xl p-7 shadow-sm">
-                <h3 className="font-fredoka text-[#2D2520] text-xl mb-5">Session details</h3>
-                <div className="space-y-4">
-                  {[
-                    { icon: Clock, label: 'Session Length', value: p.duration },
-                    { icon: Users, label: 'Group Size', value: p.groupSize },
-                    { icon: MapPin, label: 'Format', value: 'In-person only' },
-                  ].map(({ icon: Icon, label, value }) => (
-                    <div key={label} className="flex items-center gap-3 py-3 border-b border-[#E8A020]/8 last:border-0">
-                      <div className="w-8 h-8 bg-[#E8A020]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <Icon size={14} className="text-[#E8A020]" />
-                      </div>
-                      <div>
-                        <p className="font-nunito text-[#E8A020]/70 text-xs font-700 uppercase tracking-wide">{label}</p>
-                        <p className="font-nunito text-[#2D2520] text-sm font-700 mt-0.5">{value}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
                 <MotionLink
                   whileTap={ctaTap}
                   to="/contact"
-                  className="w-full mt-6 bg-[#E8A020] text-white font-fredoka font-600 text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/20"
+                  className="w-full bg-[#E8A020] text-white font-fredoka font-600 text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/20"
                 >
                   Enquire Now <ArrowRight size={16} />
                 </MotionLink>
