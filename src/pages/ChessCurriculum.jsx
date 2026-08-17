@@ -1,27 +1,27 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ArrowLeft, BookOpen, Search, Check, Heart, HelpCircle, Sprout, Puzzle, Trophy } from 'lucide-react';
+import { ArrowRight, ArrowLeft, BookOpen, Search, Check, Heart, HelpCircle } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import { usePageMeta } from '@/hooks/use-page-meta';
 
 const phases = [
   {
-    phase: '01', title: 'Discovery', subtitle: 'The First Move', ages: '', Icon: Sprout,
+    phase: '01', title: 'Discovery', subtitle: 'The First Move', ages: '',
     accent: '#2d8c62',
     description: 'An introduction to the wonderful world of chess, designed for young learners who are completely new to the game. We use storytelling, colourful pieces, and tactile learning to make chess feel magical.',
     whatYouLearn: ['Names and movements of all piece types', 'How to set up the board correctly', 'Basic check and checkmate concepts', 'Simple 1-move tactical puzzles', 'Sportsmanship and turn-taking'],
     parentNote: 'Every child develops at their own pace, and that is something we fully embrace. Some children will grasp concepts quickly. Others may need repetition or take longer to build confidence. That is completely normal. My approach ensures no child is ever pushed ahead before they are ready. The focus is on encouragement and building a love of thinking.',
   },
   {
-    phase: '02', title: 'Development', subtitle: 'The Middle Game', ages: '', Icon: Puzzle,
+    phase: '02', title: 'Development', subtitle: 'The Middle Game', ages: '',
     accent: '#4a7eb8',
     description: 'For students with a basic understanding of the rules, this phase introduces the art of planning. Students begin to see patterns, set traps, and think 2–3 moves ahead.',
     whatYouLearn: ['Opening principles (control the centre)', 'Tactical motifs: forks, pins, discovered attacks', 'Basic endgame technique', 'Time management and tactics', 'Friendly in-class tournament play'],
     parentNote: "In a world that increasingly rewards speed and instant reactions, we believe there is real value in motivating children to slow down, think carefully, and act with intention over impulse.",
   },
   {
-    phase: '03', title: 'Strategy', subtitle: 'The Endgame', ages: '', Icon: Trophy,
+    phase: '03', title: 'Strategy', subtitle: 'The Endgame', ages: '',
     accent: '#7a48c0',
     description: 'For students ready to take the next step. This phase focuses on stronger positional understanding, tactical awareness, and confidence in competitive play.',
     whatYouLearn: ['Opening theory', 'Judging positions and planning attacks', 'Focus on puzzles', 'Board memory and thinking with time pressure', 'Finding tactics and special moves'],
@@ -77,7 +77,7 @@ export default function ChessCurriculum() {
               <button
                 key={i}
                 onClick={() => setActivePhase(i)}
-                className={`relative overflow-hidden flex items-center gap-3 px-6 py-3.5 rounded-2xl font-nunito font-700 text-sm transition-colors duration-300 border-2 ${
+                className={`relative overflow-hidden px-6 py-3.5 rounded-2xl font-nunito font-700 text-sm transition-colors duration-300 border-2 ${
                   activePhase === i
                     ? 'text-white border-[#E8A020]'
                     : 'bg-white text-[#2D2520]/60 border-[#E8A020]/20 hover:border-[#E8A020]/50'
@@ -90,7 +90,6 @@ export default function ChessCurriculum() {
                     transition={{ type: 'spring', stiffness: 380, damping: 32 }}
                   />
                 )}
-                <ph.Icon size={20} className="relative z-10" />
                 <div className="relative z-10 text-left">
                   <span className="block leading-tight">{ph.title}</span>
                   <span className={`text-[10px] font-600 leading-tight ${activePhase === i ? 'text-white/70' : 'text-[#E8A020]/60'}`}>Phase {ph.phase}</span>
@@ -109,14 +108,9 @@ export default function ChessCurriculum() {
             {/* Main content */}
             <div className="lg:col-span-2 space-y-10">
               <div>
-                <div className="flex items-center gap-4 mb-5">
-                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${p.accent}18` }}>
-                    <p.Icon size={30} style={{ color: p.accent }} />
-                  </div>
-                  <div>
-                    <span className="font-nunito text-xs font-800 uppercase tracking-widest block mb-1" style={{ color: p.accent }}>{p.subtitle}</span>
-                    <h2 className="font-fredoka text-3xl" style={{ color: p.accent }}>{p.title} Level</h2>
-                  </div>
+                <div className="mb-5">
+                  <span className="font-nunito text-xs font-800 uppercase tracking-widest block mb-1" style={{ color: p.accent }}>{p.subtitle}</span>
+                  <h2 className="font-fredoka text-3xl" style={{ color: p.accent }}>{p.title} Level</h2>
                 </div>
                 <p className="font-nunito text-[#2D2520]/70 text-base leading-relaxed">{p.description}</p>
               </div>
