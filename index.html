@@ -15,5 +15,21 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Static mirror of the Contact page form, used only so Netlify's
+         build-time form-detection bot (which does not execute JS, so it
+         can't see the React-rendered form) registers "contact" as a Netlify
+         Form. Field names must match src/pages/Contact.jsx exactly. The real
+         submission is sent via fetch() from that component, not this form. -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="parentName" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="childAge" />
+      <input type="text" name="learningStyle" />
+      <input type="text" name="additionalNotes" />
+      <input type="text" name="message" />
+      <input type="text" name="bot-field" />
+    </form>
   </body>
 </html>

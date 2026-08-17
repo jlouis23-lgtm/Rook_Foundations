@@ -7,6 +7,12 @@ import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
 import { usePageMeta } from '@/hooks/use-page-meta';
 
 const WHATSAPP_URL = 'https://wa.me/447466760885';
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const encodeFormData = (data) =>
+  Object.keys(data)
+    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key] ?? '')}`)
+    .join('&');
 
 export default function Contact() {
   usePageMeta(
@@ -15,17 +21,52 @@ export default function Contact() {
   );
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const [form, setForm] = useState({ parentName: '', email: '', phone: '', childAge: '', learningStyle: '', additionalNotes: '', message: '' });
+  const [botField, setBotField] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
+
+    // Honeypot field: real visitors never fill this in. If it's filled,
+    // silently drop the submission without tipping off the bot.
+    if (botField) {
+      setSubmitted(true);
+      return;
+    }
+
+    if (!form.parentName.trim() || !form.email.trim() || !form.childAge) {
+      setError("Please fill in your name, email address and your child's age before sending.");
+      return;
+    }
+    if (!EMAIL_PATTERN.test(form.email.trim())) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setSubmitted(true);
-    setLoading(false);
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encodeFormData({ 'form-name': 'contact', ...form, 'bot-field': botField }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Contact form submission failed with status ${response.status}`);
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Contact form submission failed:', err);
+      setError('Something went wrong sending your message. Please try again, or email me directly at louis.jenkins@rookfoundations.com.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -146,10 +187,6 @@ export default function Contact() {
                   <p className="font-nunito text-[#2D2520]/60 text-lg leading-relaxed max-w-md">
                     I'll personally review your message and respond within 24 hours. Looking forward to welcoming your child to Rook Foundations.
                   </p>
-                  <div className="mt-8 flex items-center gap-2 text-[#E8A020] font-nunito text-sm font-700">
-                    <span>♜</span>
-                    <span>Check your inbox for confirmation.</span>
-                  </div>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="bg-white border border-[#E8A020]/15 rounded-3xl p-8 lg:p-10 space-y-5 shadow-sm">
@@ -159,6 +196,16 @@ export default function Contact() {
                     </h3>
                     <p className="font-nunito text-[#2D2520]/45 text-sm">We'll be in touch within 24 hours.</p>
                   </div>
+
+                  {/* Honeypot: hidden from real visitors, catches simple bots that fill every field. */}
+                  <div className="hidden" aria-hidden="true">
+                    <label htmlFor="bot-field">Leave this field blank</label>
+                    <input type="text" id="bot-field" name="bot-field" tabIndex={-1} autoComplete="off" value={botField} onChange={(e) => setBotField(e.target.value)} />
+                  </div>
+
+                  {error && (
+                    <p className="bg-red-50 border border-red-200 text-red-700 font-nunito text-sm rounded-2xl px-4 py-3">{error}</p>
+                  )}
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {[
