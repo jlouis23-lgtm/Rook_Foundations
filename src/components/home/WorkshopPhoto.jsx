@@ -53,7 +53,7 @@ export default function WorkshopPhoto() {
               Where Rook Foundations began
             </h2>
             <p className="font-nunito text-[#2D2520]/65 text-base sm:text-lg leading-relaxed">
-              This is from my very first Rook Foundations workshop — every game on the table was chosen and brought along by me personally. Rook Foundations isn't just an idea on a website; it's already running, hands-on, with real children.
+              This is from my very first Rook Foundations workshop. Every game and activity on the table was chosen and brought along by me personally. Rook Foundations isn't just an idea on a website; it's already running, hands-on, with real children.
             </p>
           </motion.div>
         </div>
