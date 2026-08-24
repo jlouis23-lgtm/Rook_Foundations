@@ -14,7 +14,7 @@ const EASE = [0.22, 1, 0.36, 1];
 // with no separate radiusX/radiusY needed. Every label is centred on its
 // own point (translate(-50%,-50%)) rather than anchored to hang off it, so
 // only half the label's width needs clearance from the container edge —
-// this keeps the diagram safe at narrow (sm:) widths without clipping.
+// this keeps the diagram safe at the narrowest supported width without clipping.
 // `align` still varies per side purely for text-alignment nuance.
 const dimensions = [
   {
@@ -54,10 +54,10 @@ const dimensions = [
   },
 ];
 
-const LINE_R_DESKTOP = 24;
-const LINE_R_MOBILE = 29;
-const LABEL_R_DESKTOP = 36;
-const LABEL_R_MOBILE = 37;
+const LINE_R_DESKTOP = 26;
+const LINE_R_MOBILE = 23;
+const LABEL_R_DESKTOP = 43;
+const LABEL_R_MOBILE = 41;
 
 // Radius (same unit-circle scale as LINE_R/LABEL_R) at which each line
 // STARTS, rather than starting at the literal centre point (50,50). This is
@@ -68,7 +68,7 @@ const LABEL_R_MOBILE = 37;
 // exactly as before — leaves a clean, unobstructed gap around the label
 // with no line ever entering it.
 const CENTRE_GAP_DESKTOP = 18;
-const CENTRE_GAP_MOBILE = 21;
+const CENTRE_GAP_MOBILE = 18;
 
 const outcomeSteps = ['Engagement', 'Thinking', 'Reflection', 'Development'];
 
@@ -100,7 +100,7 @@ function CentreLabel({ compact = false }) {
   return (
     <div
       className="absolute text-center"
-      style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)', width: compact ? '9rem' : '11rem' }}
+      style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)', width: compact ? '6.5rem' : '11rem' }}
     >
       <p className={`font-fredoka text-[#2D2520] leading-tight ${compact ? 'text-lg' : 'text-xl sm:text-2xl'}`}>
         Individual Child
@@ -128,7 +128,7 @@ function DesktopDiagram() {
       {dimensions.map((d) => (
         <div
           key={d.key}
-          className="absolute w-32 sm:w-36 lg:w-44"
+          className="absolute w-36 lg:w-44"
           style={{
             left: pct(50 + d.x * LABEL_R_DESKTOP),
             top: pct(50 + d.y * LABEL_R_DESKTOP),
@@ -251,10 +251,10 @@ export default function PersonalisedApproach() {
         transition={{ duration: 0.7, ease: EASE }}
         className="max-w-4xl mx-auto relative z-10 mb-10"
       >
-        <div className="hidden sm:block px-6 lg:px-12">
+        <div className="hidden md:block px-6 lg:px-12">
           <DesktopDiagram />
         </div>
-        <div className="sm:hidden">
+        <div className="md:hidden">
           <MobileDiagram />
         </div>
       </motion.div>
