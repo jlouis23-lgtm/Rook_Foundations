@@ -4,9 +4,11 @@ import { MotionConfig } from 'framer-motion'
 import { queryClientInstance } from '@/lib/query-client'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
-import { AuthProvider, useAuth } from '@/lib/AuthContext';
-import UserNotRegisteredError from '@/components/UserNotRegisteredError';
+import { AuthProvider } from '@/lib/AuthContext';
 import PageLayout from './components/layout/PageLayout';
+import ProtectedRoute from './components/ProtectedRoute';
+import PlayLayout from './components/play/layout/PlayLayout';
+import PlaySignInPrompt from './components/play/PlaySignInPrompt';
 
 // Page imports
 import Home from './pages/Home';
@@ -23,32 +25,14 @@ import TermsAndConditions from './pages/TermsAndConditions';
 import CookiesPolicy from './pages/CookiesPolicy';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Events from './pages/Events';
+import PlayHome from './pages/play/PlayHome';
+import PlayManageProfiles from './pages/play/PlayManageProfiles';
+import PlayDashboard from './pages/play/PlayDashboard';
+import PlayGamePage from './pages/play/PlayGamePage';
+import PlayFriends from './pages/play/PlayFriends';
+import PlayChallenges from './pages/play/PlayChallenges';
 
-const AuthenticatedApp = () => {
-  const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
-
-  if (isLoadingPublicSettings || isLoadingAuth) {
-    return (
-      <div className="fixed inset-0 flex items-center justify-center bg-[#FAFAF7]">
-        <div className="flex flex-col items-center gap-4">
-          <div className="w-16 h-16 bg-[#E8A020] rounded-2xl flex items-center justify-center shadow-lg shadow-[#E8A020]/30 animate-pulse">
-            <span className="text-white text-3xl">♜</span>
-          </div>
-          <div className="w-8 h-8 border-2 border-[#E8A020]/20 border-t-[#E8A020] rounded-full animate-spin"></div>
-        </div>
-      </div>
-    );
-  }
-
-  if (authError) {
-    if (authError.type === 'user_not_registered') {
-      return <UserNotRegisteredError />;
-    } else if (authError.type === 'auth_required') {
-      navigateToLogin();
-      return null;
-    }
-  }
-
+const AppRoutes = () => {
   return (
     <Routes>
       <Route element={<PageLayout />}>
@@ -67,6 +51,16 @@ const AuthenticatedApp = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/clubs" element={<Events />} />
       </Route>
+      <Route element={<ProtectedRoute unauthenticatedElement={<PlaySignInPrompt />} />}>
+        <Route element={<PlayLayout />}>
+          <Route path="/play" element={<PlayHome />} />
+          <Route path="/play/manage" element={<PlayManageProfiles />} />
+          <Route path="/play/:childId" element={<PlayDashboard />} />
+          <Route path="/play/:childId/games/:gameId" element={<PlayGamePage />} />
+          <Route path="/play/:childId/friends" element={<PlayFriends />} />
+          <Route path="/play/:childId/challenges" element={<PlayChallenges />} />
+        </Route>
+      </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
@@ -78,7 +72,7 @@ function App() {
       <AuthProvider>
         <QueryClientProvider client={queryClientInstance}>
           <Router>
-            <AuthenticatedApp />
+            <AppRoutes />
           </Router>
           <Toaster />
         </QueryClientProvider>

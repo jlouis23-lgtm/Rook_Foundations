@@ -28,6 +28,17 @@ VITE_BASE44_APP_BASE_URL=https://my-to-do-list-81bfaad7.base44.app
 
 Run the app: `npm run dev`
 
+**Rook Play (Supabase)**
+
+The "Rook Play" section (`/play`) uses [Supabase](https://supabase.com) for parent accounts and data — create a free Supabase project, run `supabase/schema.sql` once in its SQL Editor, then add to `.env.local`:
+
+```
+VITE_SUPABASE_URL=your_project_url
+VITE_SUPABASE_ANON_KEY=your_anon_public_key
+```
+
+Both values are in the Supabase dashboard under Project Settings -> API.
+
 **Publish your changes**
 
 Open [Base44.com](http://Base44.com) and click on Publish.
