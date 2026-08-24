@@ -34,7 +34,7 @@ const sessionTypes = [
     tag: 'Social reflection',
     idealFor: 'Ideal for children who enjoy learning with others while developing confidence, communication and social thinking.',
     ctaLabel: 'How Group Sessions Work',
-    body: 'Children play strategy games together, solve problems, communicate ideas and learn how to approach challenge in a respectful and supportive environment. Alongside developing their decision-making, they also practise important social skills such as patience, teamwork, listening and healthy competition. The instructor guides learning through demonstrations, discussion and timely questioning while allowing children the opportunity to think, play and learn from one another.',
+    body: 'Children play educational games together, solve problems, communicate ideas and learn how to approach challenges in a respectful and supportive environment. Alongside developing their decision-making, they also practise important social skills such as patience, teamwork, listening and healthy competition. The instructor guides learning through demonstrations, while allowing children the opportunity to think, play and learn from one another.',
     bulletPoints: [
       'Applying thinking with others',
       'More collaborative discussion',
