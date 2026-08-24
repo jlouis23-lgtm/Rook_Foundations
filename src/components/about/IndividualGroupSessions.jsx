@@ -30,7 +30,7 @@ const sessionTypes = [
     accent: '#2d8c62',
     count: '2–4',
     countLabel: 'students',
-    heading: 'Group Sessions',
+    heading: 'Paired and Group Sessions',
     tag: 'Social reflection',
     idealFor: 'Ideal for children who enjoy learning with others while developing confidence, communication and social thinking.',
     ctaLabel: 'How Group Sessions Work',
