@@ -13,6 +13,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Classes from './pages/Classes';
 import ChessCurriculum from './pages/ChessCurriculum';
+import LearningFramework from './pages/LearningFramework';
 import Contact from './pages/Contact';
 import Booking from './pages/Booking';
 import Pricing from './pages/Pricing';
@@ -55,6 +56,7 @@ const AuthenticatedApp = () => {
         <Route path="/about" element={<About />} />
         <Route path="/our-approach" element={<Classes />} />
         <Route path="/classes/chess-curriculum" element={<ChessCurriculum />} />
+        <Route path="/learning-framework" element={<LearningFramework />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/sessions" element={<Booking />} />
