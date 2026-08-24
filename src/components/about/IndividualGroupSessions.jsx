@@ -16,7 +16,7 @@ const sessionTypes = [
     tag: 'Self reflection',
     idealFor: 'Ideal for children who benefit from personalised guidance, deeper reflection and learning at their own pace.',
     ctaLabel: 'How Individual Sessions Work',
-    body: "With fewer distractions, children have more time to explain their thinking, explore different ideas and reflect on the decisions they make. Through thoughtful questioning, puzzles and carefully chosen strategy games, we help children develop confidence in the way they think, not just the moves they make. Because learning is more personalised, we can also make detailed observations, identify areas for growth and adapt future sessions to the child's individual needs.",
+    body: "With fewer distractions, children have more time to explain their thinking, explore different ideas and reflect on the decisions they make. Because learning is more personalised, this allows us to also make detailed observations, identify areas for growth and adapt future sessions to the child's individual needs.",
     bulletPoints: [
       'Deeper exploration of thinking',
       'More personalised questioning',
