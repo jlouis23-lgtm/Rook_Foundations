@@ -1,7 +1,12 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, ShieldCheck, Users } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
+import FacebookIcon from '@/components/ui/FacebookIcon';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
+
+// FACEBOOK PAGE LINK — update here to change where the "Follow us on
+// Facebook" CTA below points.
+const FACEBOOK_URL = 'https://www.facebook.com/RookFoundations/';
 
 const trustItems = [
   {
@@ -92,6 +97,31 @@ export default function HeroSection() {
               <Users size={18} className="text-[#2D2520]/50" />
               <span className="font-nunito text-[#2D2520]/70 text-sm font-700">Ages 5–12</span>
             </div>
+          </div>
+
+          {/* Facebook follow — a quiet, secondary CTA directly beneath
+              Register Your Interest, deliberately styled lighter (icon
+              badge + text link, not a solid button) so it never competes
+              with the primary CTA above it. */}
+          <div className="max-w-sm mx-auto mt-8">
+            <div className="flex items-center justify-center gap-2.5 mb-2">
+              <span className="w-8 h-8 rounded-full bg-[#1877F2] flex items-center justify-center flex-shrink-0">
+                <FacebookIcon className="w-4 h-4 text-white" />
+              </span>
+              <p className="font-fredoka text-[#2D2520] text-xl">Follow Rook Foundations</p>
+            </div>
+            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed mb-3">
+              Keep up with sessions, activities, events and updates from Rook Foundations by following along on Facebook.
+            </p>
+            <a
+              href={FACEBOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 font-nunito text-[#E8A020] text-sm font-700 hover:text-[#b8790a] transition-colors"
+            >
+              Follow us on Facebook
+              <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+            </a>
           </div>
 
         </motion.div>
