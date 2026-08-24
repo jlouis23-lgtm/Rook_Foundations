@@ -221,7 +221,7 @@ function MobileDiagram() {
 
 export default function PersonalisedApproach() {
   return (
-    <div className="py-4">
+    <div className="pt-4 pb-20">
       {/* Heading — same rhythm as every other block in this section */}
       <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
         <motion.div
