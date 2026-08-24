@@ -1,94 +1,201 @@
-import { motion } from 'framer-motion';
-import {
-  Sparkles, Puzzle, TrendingUp, Presentation, Users, HeartHandshake, Compass, MapPin, ChevronRight,
-} from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronRight } from 'lucide-react';
 
 const EASE = [0.22, 1, 0.36, 1];
 
-// Seven adaptable dimensions, arranged to fill a 3-top / 1-left / 1-right /
-// 2-bottom ring around the child on desktop (see `gridArea` below). Six
-// colours come from the site's existing stage-accent rotation (also used by
-// LearningJourney and the Learning Framework page); the seventh — Choice —
-// deliberately uses the site's own primary gold rather than a rotation
-// colour, since it's the one dimension that's literally about the child's
-// own input.
+// Seven adaptable dimensions, placed evenly around a circle (angle = -90deg
+// + i*360/7, i.e. one point due north, the rest spaced every ~51.4deg
+// clockwise) using plain unit-circle coordinates. The SAME percentage table
+// drives both the SVG connecting lines (viewBox 0-100, preserveAspectRatio
+// "none") and the absolutely-positioned label divs (left/top %) — because
+// the container itself is a wide rectangle rather than a perfect square,
+// this uniform circle math renders as a natural, balanced ellipse for free,
+// with no separate radiusX/radiusY needed. Every label is centred on its
+// own point (translate(-50%,-50%)) rather than anchored to hang off it, so
+// only half the label's width needs clearance from the container edge —
+// this keeps the diagram safe at narrow (sm:) widths without clipping.
+// `align` still varies per side purely for text-alignment nuance.
 const dimensions = [
   {
-    area: 'top1', accent: '#2d8c62', Icon: Puzzle, tag: 'Activity',
-    label: 'What we play', body: 'Games and puzzles, solo or together', dot: 'bottom',
+    key: 'activity', accent: '#2d8c62', label: 'Activity',
+    body: 'Different games, puzzles and competitive or cooperative activities.',
+    x: 0, y: -1, align: 'center',
   },
   {
-    area: 'top2', accent: '#c9860f', Icon: TrendingUp, tag: 'Difficulty',
-    label: 'How challenging it is', body: 'Simpler steps or bigger stretches', dot: 'bottom',
+    key: 'presentation', accent: '#4a7eb8', label: 'Presentation',
+    body: 'Visual demonstrations, verbal explanations, hands-on exploration and written representation.',
+    x: 0.7818, y: -0.6235, align: 'left',
   },
   {
-    area: 'top3', accent: '#4a7eb8', Icon: Presentation, tag: 'Presentation',
-    label: 'How we explain it', body: 'Shown, talked through, or explored hands-on', dot: 'bottom',
+    key: 'interaction', accent: '#7a48c0', label: 'Interaction',
+    body: 'Independent work, instructor questioning, collaborative problem-solving and competitive play.',
+    x: 0.9749, y: 0.2225, align: 'left',
   },
   {
-    area: 'left', accent: '#7a48c0', Icon: Users, tag: 'Interaction',
-    label: 'How they engage', body: 'Alone, guided, together or in friendly competition', dot: 'right',
+    key: 'support', accent: '#c05050', label: 'Support',
+    body: 'Independent attempts, questions, prompts, hints, demonstrations and direct support where necessary.',
+    x: 0.4339, y: 0.9010, align: 'left',
   },
   {
-    area: 'right', accent: '#c05050', Icon: HeartHandshake, tag: 'Support',
-    label: 'How we support them', body: 'From a gentle prompt to hands-on help', dot: 'left',
+    key: 'choice', accent: '#E8A020', label: 'Choice',
+    body: 'Child choice where appropriate, instructor direction where needed, and alternative activities when engagement is low.',
+    x: -0.4339, y: 0.9010, align: 'right',
   },
   {
-    area: 'bottom1', accent: '#E8A020', Icon: Compass, tag: 'Choice',
-    label: 'Their choices', body: 'Real input into what they try', dot: 'top',
+    key: 'difficulty', accent: '#c9860f', label: 'Difficulty',
+    body: 'Simpler or more complex challenges with graduated difficulty.',
+    x: -0.9749, y: 0.2225, align: 'right',
   },
   {
-    area: 'bottom2', accent: '#2a8c88', Icon: MapPin, tag: 'Setting',
-    label: 'Where & how they learn', body: 'Individually, in pairs, or in a group', dot: 'top',
+    key: 'setting', accent: '#2a8c88', label: 'Setting',
+    body: 'Individual, paired, small-group, competitive and collaborative environments.',
+    x: -0.7818, y: -0.6235, align: 'right',
   },
 ];
 
+const LINE_R = 24;
+const LABEL_R_DESKTOP = 36;
+const LABEL_R_MOBILE = 37;
+
 const outcomeSteps = ['Engagement', 'Thinking', 'Reflection', 'Development'];
 
-const dotPosition = {
-  bottom: 'left-1/2 -bottom-1.5 -translate-x-1/2',
-  top: 'left-1/2 -top-1.5 -translate-x-1/2',
-  left: 'top-1/2 -left-1.5 -translate-y-1/2',
-  right: 'top-1/2 -right-1.5 -translate-y-1/2',
-};
+function pct(v) { return `${v}%`; }
 
-function DimensionCard({ d, compact = false }) {
-  const { Icon } = d;
+function ConnectorLines({ accentOpacity = 0.35 }) {
+  return (
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 w-full h-full" aria-hidden="true">
+      {dimensions.map((d) => (
+        <line
+          key={d.key}
+          x1="50" y1="50"
+          x2={50 + d.x * LINE_R} y2={50 + d.y * LINE_R}
+          stroke={d.accent}
+          strokeWidth="0.35"
+          strokeOpacity={accentOpacity}
+          strokeLinecap="round"
+        />
+      ))}
+      <circle cx="50" cy="50" r="1.1" fill="#E8A020" />
+    </svg>
+  );
+}
+
+function CentreLabel({ compact = false }) {
   return (
     <div
-      className={`relative bg-white border border-[#2D2520]/8 rounded-2xl border-l-4 ${compact ? 'p-4' : 'p-5'}`}
-      style={{ borderLeftColor: d.accent }}
+      className="absolute text-center"
+      style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)', width: compact ? '9rem' : '14rem' }}
     >
-      {!compact && (
-        <span
-          className={`hidden lg:block absolute w-3 h-3 rounded-full border-2 border-[#FAFAF7] ${dotPosition[d.dot]}`}
-          style={{ backgroundColor: d.accent }}
-          aria-hidden="true"
-        />
-      )}
-      <div className="flex items-center gap-2.5 mb-1.5">
-        <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${d.accent}18` }}>
-          <Icon size={15} style={{ color: d.accent }} />
-        </span>
-        <span className="font-nunito text-[10px] font-800 uppercase tracking-wide" style={{ color: d.accent }}>{d.tag}</span>
-      </div>
-      <p className="font-fredoka text-[#2D2520] text-sm leading-snug mb-1">{d.label}</p>
-      <p className="font-nunito text-[#2D2520]/55 text-xs leading-snug">{d.body}</p>
+      <p className={`font-fredoka text-[#2D2520] leading-tight ${compact ? 'text-lg' : 'text-2xl sm:text-3xl'}`}>
+        Individual Child
+      </p>
+      <div className={`bg-[#E8A020] rounded-full mx-auto ${compact ? 'w-6 h-[3px] my-1.5' : 'w-8 h-1 my-2.5'}`} />
+      <p className={`font-nunito text-[#2D2520]/50 leading-snug ${compact ? 'text-[10px]' : 'text-xs sm:text-sm'}`}>
+        Learning goals, strengths, interests &amp; needs
+      </p>
     </div>
   );
 }
 
-function ChildCard({ className = '' }) {
+// Desktop / tablet — full radial diagram with permanently-visible
+// descriptions, matching how LearningJourney's own desktop pyramid keeps
+// every description visible rather than requiring interaction.
+function DesktopDiagram() {
   return (
-    <div
-      className={`bg-white rounded-3xl flex flex-col items-center justify-center text-center px-6 py-8 ${className}`}
-      style={{ boxShadow: '0 0 0 1px rgba(45,37,32,0.06), 0 0 50px rgba(232,160,32,0.25)' }}
-    >
-      <span className="font-nunito text-[#b8790a] text-[11px] font-800 uppercase tracking-widest mb-2">The constant</span>
-      <p className="font-fredoka text-[#2D2520] text-xl sm:text-2xl leading-tight mb-2">Individual Child</p>
-      <p className="font-nunito text-[#2D2520]/55 text-xs sm:text-sm leading-snug max-w-[14rem]">
-        Learning goals, strengths, interests &amp; needs
-      </p>
+    <div className="relative w-full py-10" style={{ height: 'clamp(560px, 46vw, 680px)' }}>
+      <ConnectorLines />
+      <CentreLabel />
+      {dimensions.map((d) => (
+        <div
+          key={d.key}
+          className="absolute w-32 sm:w-36 lg:w-44"
+          style={{
+            left: pct(50 + d.x * LABEL_R_DESKTOP),
+            top: pct(50 + d.y * LABEL_R_DESKTOP),
+            transform: 'translate(-50%, -50%)',
+            textAlign: d.align,
+          }}
+        >
+          <p className="font-nunito text-xs font-800 uppercase tracking-widest mb-1" style={{ color: d.accent }}>
+            {d.label}
+          </p>
+          <p className="font-nunito text-[#2D2520]/60 text-xs leading-snug">{d.body}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// Mobile — compact, headings only, sized to fit one screen. Tapping a
+// heading reveals its description in a single shared panel beneath (not
+// seven permanent sections), reusing the same tap-to-reveal interaction
+// LearningJourney's own MobilePyramid already uses for the same reason.
+function MobileDiagram() {
+  const [activeKey, setActiveKey] = useState(null);
+  const active = dimensions.find((d) => d.key === activeKey);
+
+  return (
+    <div>
+      <div className="relative w-full" style={{ height: '380px' }}>
+        <ConnectorLines accentOpacity={0.3} />
+        <CentreLabel compact />
+        {dimensions.map((d) => {
+          const isActive = activeKey === d.key;
+          return (
+            <button
+              key={d.key}
+              type="button"
+              onClick={() => setActiveKey((k) => (k === d.key ? null : d.key))}
+              aria-pressed={isActive}
+              aria-expanded={isActive}
+              aria-controls="personalised-approach-detail"
+              className="absolute font-nunito text-[10px] font-800 uppercase tracking-wide whitespace-nowrap px-1 py-0.5 -m-1 outline-none focus-visible:ring-2 focus-visible:ring-[#E8A020] rounded"
+              style={{
+                left: pct(50 + d.x * LABEL_R_MOBILE),
+                top: pct(50 + d.y * LABEL_R_MOBILE),
+                transform: 'translate(-50%, -50%)',
+                color: d.accent,
+                opacity: isActive ? 1 : 0.85,
+              }}
+            >
+              {d.label}
+            </button>
+          );
+        })}
+      </div>
+
+      <div id="personalised-approach-detail" className="min-h-[3.5rem] px-6">
+        <AnimatePresence mode="wait">
+          {active ? (
+            <motion.div
+              key={active.key}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.2, ease: EASE }}
+              className="text-center pt-3 border-t"
+              style={{ borderColor: `${active.accent}40` }}
+            >
+              <p className="font-nunito text-xs font-800 uppercase tracking-widest mb-1.5" style={{ color: active.accent }}>
+                {active.label}
+              </p>
+              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{active.body}</p>
+            </motion.div>
+          ) : (
+            <motion.p
+              key="hint"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="font-nunito text-[#2D2520]/35 text-xs text-center italic pt-3"
+            >
+              Tap a heading above to explore it
+            </motion.p>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 }
@@ -103,10 +210,10 @@ export default function PersonalisedApproach() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="text-center mb-10"
         >
-          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
-            <Sparkles size={14} /> Personalising the approach
+          <span className="inline-flex items-center font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+            Personalising the approach
           </span>
           <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
             One Goal. Different Routes.
@@ -119,50 +226,17 @@ export default function PersonalisedApproach() {
 
       {/* Diagram — full-width breakout, matching the pyramid/progress diagrams above */}
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.6, ease: EASE }}
-        className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10 mb-14"
+        transition={{ duration: 0.7, ease: EASE }}
+        className="max-w-4xl mx-auto relative z-10 mb-10"
       >
-        {/* Desktop / large tablet — child surrounded on all sides via a
-            named CSS grid (3 top, 1 each side, 2 bottom = 7), no literal
-            circle or absolute-position trigonometry. */}
-        <div
-          className="hidden lg:grid gap-5"
-          style={{
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gridTemplateAreas: '"top1 top2 top3" "left center right" "bottom1 center bottom2"',
-          }}
-        >
-          {dimensions.map((d) => (
-            <div key={d.area} style={{ gridArea: d.area }} className="flex items-center">
-              <DimensionCard d={d} />
-            </div>
-          ))}
-          <div style={{ gridArea: 'center' }} className="flex items-center px-4">
-            <ChildCard className="w-full h-full" />
-          </div>
+        <div className="hidden sm:block px-6 lg:px-12">
+          <DesktopDiagram />
         </div>
-
-        {/* Tablet — child as a banner above a simplified 2-column grid */}
-        <div className="hidden sm:block lg:hidden">
-          <ChildCard className="mb-6" />
-          <div className="grid grid-cols-2 gap-4">
-            {dimensions.map((d) => (
-              <DimensionCard key={d.area} d={d} compact />
-            ))}
-          </div>
-        </div>
-
-        {/* Mobile — single stacked column */}
         <div className="sm:hidden">
-          <ChildCard className="mb-6" />
-          <div className="space-y-3">
-            {dimensions.map((d) => (
-              <DimensionCard key={d.area} d={d} compact />
-            ))}
-          </div>
+          <MobileDiagram />
         </div>
       </motion.div>
 
