@@ -47,16 +47,14 @@ export default function Classes() {
 
       <HowWeTeachSection />
 
-      <section className="py-20 relative overflow-hidden">
+      <section className="pt-2 pb-20 relative overflow-hidden">
         <ChessBg variant="classes" />
         <div className="max-w-2xl mx-auto px-6 lg:px-12 relative z-10">
-          <div className="bg-white border border-[#E8A020]/15 rounded-3xl p-7 shadow-sm">
-            <HelpCircle size={28} className="text-[#E8A020] block mb-3" />
-            <h4 className="font-fredoka text-[#2D2520] text-xl mb-2">Not sure which game or level?</h4>
-            <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">
-              With over 30 games to choose from, I adapt each session to your child's interests, focus and confidence. From independent challenges to games played together, I'll explore the right level to engage, support and stretch them.
-            </p>
-          </div>
+          <HelpCircle size={28} className="text-[#E8A020] block mb-3" />
+          <h4 className="font-fredoka text-[#2D2520] text-xl mb-2">Not sure which game or level?</h4>
+          <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">
+            With over 30 games to choose from, I adapt each session to your child's interests, focus and confidence. From independent challenges to games played together, I'll explore the right level to engage, support and stretch them.
+          </p>
         </div>
       </section>
     </div>
