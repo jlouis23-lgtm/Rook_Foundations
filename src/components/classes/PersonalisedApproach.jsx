@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, ChevronDown } from 'lucide-react';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -259,13 +259,13 @@ export default function PersonalisedApproach() {
         </div>
       </motion.div>
 
-      {/* Outcome chain */}
+      {/* Outcome chain — desktop/tablet: horizontal row, unchanged */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10 flex flex-wrap items-center justify-center gap-x-2 gap-y-3"
+        className="hidden md:flex max-w-3xl mx-auto px-6 lg:px-12 relative z-10 flex-wrap items-center justify-center gap-x-2 gap-y-3"
       >
         {outcomeSteps.map((step, i) => (
           <div key={step} className="flex items-center gap-2">
@@ -274,6 +274,27 @@ export default function PersonalisedApproach() {
             </span>
             {i < outcomeSteps.length - 1 && <ChevronRight size={16} className="text-[#E8A020]/50 flex-shrink-0" aria-hidden="true" />}
           </div>
+        ))}
+      </motion.div>
+
+      {/* Outcome chain — mobile: a single vertical pathway (rather than the
+          desktop row's wrap-into-two-rows behaviour, which read as two
+          separate pairs on narrow screens) so the four stages are
+          unambiguously one continuous progression, top to bottom. */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="md:hidden flex flex-col items-center gap-1 relative z-10"
+      >
+        {outcomeSteps.map((step, i) => (
+          <Fragment key={step}>
+            <span className="font-nunito text-[#2D2520] text-xs font-700 bg-[#E8A020]/10 border border-[#E8A020]/20 rounded-full px-3.5 py-1.5 whitespace-nowrap">
+              {step}
+            </span>
+            {i < outcomeSteps.length - 1 && <ChevronDown size={13} className="text-[#E8A020]/50" aria-hidden="true" />}
+          </Fragment>
         ))}
       </motion.div>
     </div>
