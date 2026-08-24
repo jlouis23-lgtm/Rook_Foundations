@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BookOpen } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
-import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -62,7 +61,7 @@ export default function PreLaunchNotice() {
           I am running pilot sessions and workshops with children to refine my approach and create meaningful learning experiences for children, while ensuring they work well for families too.
         </motion.p>
 
-        <motion.div variants={item}>
+        <motion.div variants={item} className="flex flex-col items-center gap-3">
           <Link
             to="/our-approach"
             onClick={() => window.scrollTo(0, 0)}
@@ -71,31 +70,14 @@ export default function PreLaunchNotice() {
             Discover our approach
             <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
           </Link>
-        </motion.div>
-
-        {/* Framework CTA — a distinct nested card rather than another line of
-            text, so it reads as a genuine second option alongside "Discover
-            our approach" rather than competing with it. */}
-        <motion.div variants={item} className="mt-10 pt-10 border-t border-white/10">
-          <div className="max-w-md mx-auto bg-white/[0.04] border border-white/10 rounded-3xl p-6 sm:p-8">
-            <span className="inline-flex items-center gap-1.5 font-nunito text-[#E8A020] text-xs font-800 uppercase tracking-widest mb-3">
-              <BookOpen size={14} /> The learning framework
-            </span>
-            <h3 className="font-fredoka text-white text-xl sm:text-2xl mb-3">
-              See how I'm building my approach
-            </h3>
-            <p className="font-nunito text-white/60 text-sm sm:text-base leading-relaxed mb-6">
-              I'm continuing to develop and refine how I teach. Explore my preliminary learning framework to see the ideas and principles currently shaping every Rook Foundations session.
-            </p>
-            <MotionLink
-              whileTap={ctaTap}
-              to="/learning-framework"
-              onClick={() => window.scrollTo(0, 0)}
-              className="inline-flex items-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-base px-6 py-3.5 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/25 hover:-translate-y-0.5"
-            >
-              Explore the Learning Framework <ArrowRight size={16} />
-            </MotionLink>
-          </div>
+          <Link
+            to="/learning-framework"
+            onClick={() => window.scrollTo(0, 0)}
+            className="group inline-flex items-center gap-1.5 font-nunito text-[#E8A020] text-sm font-700 hover:text-[#F4C261] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8A020] rounded-sm"
+          >
+            Discover our first full educational framework
+            <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+          </Link>
         </motion.div>
       </motion.div>
     </section>
