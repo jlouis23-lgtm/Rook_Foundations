@@ -6,6 +6,7 @@ import IndividualGroupSessions from '@/components/about/IndividualGroupSessions'
 import ProgressTrackingSection from '@/components/classes/ProgressTrackingSection';
 import ChessCurriculumButton from '@/components/classes/ChessCurriculumButton';
 import SessionIncludesGrid from '@/components/classes/SessionIncludesGrid';
+import PersonalisedApproach from '@/components/classes/PersonalisedApproach';
 
 export default function HowWeTeachSection() {
   return (
@@ -74,6 +75,11 @@ export default function HowWeTeachSection() {
 
       {/* How We Track Your Child's Progress */}
       <ProgressTrackingSection />
+
+      {/* How the approach adapts to the individual child — bridges from
+          "what's consistent + how it's tracked" above into the individual
+          vs. group format question below. */}
+      <PersonalisedApproach />
 
       {/* Individual & Group Learning — standalone heading */}
       <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
