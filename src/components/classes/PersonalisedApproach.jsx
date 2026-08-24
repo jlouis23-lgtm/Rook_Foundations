@@ -54,46 +54,65 @@ const dimensions = [
   },
 ];
 
-const LINE_R = 24;
+const LINE_R_DESKTOP = 24;
+const LINE_R_MOBILE = 29;
 const LABEL_R_DESKTOP = 36;
 const LABEL_R_MOBILE = 37;
+
+// Radius (same unit-circle scale as LINE_R/LABEL_R) at which each line
+// STARTS, rather than starting at the literal centre point (50,50). This is
+// the "protective zone" around the centre label: since every line was
+// previously drawn from dead centre outward, its inner segment always ran
+// directly under the centre text. Trimming the start point outward to this
+// radius — for every line equally, so length/weight/symmetry are preserved
+// exactly as before — leaves a clean, unobstructed gap around the label
+// with no line ever entering it.
+const CENTRE_GAP_DESKTOP = 18;
+const CENTRE_GAP_MOBILE = 21;
 
 const outcomeSteps = ['Engagement', 'Thinking', 'Reflection', 'Development'];
 
 function pct(v) { return `${v}%`; }
 
-function ConnectorLines({ accentOpacity = 0.35 }) {
+function ConnectorLines({ accentOpacity = 0.35, gap, lineR }) {
   return (
     <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 w-full h-full" aria-hidden="true">
       {dimensions.map((d) => (
         <line
           key={d.key}
-          x1="50" y1="50"
-          x2={50 + d.x * LINE_R} y2={50 + d.y * LINE_R}
+          x1={50 + d.x * gap} y1={50 + d.y * gap}
+          x2={50 + d.x * lineR} y2={50 + d.y * lineR}
           stroke={d.accent}
           strokeWidth="0.35"
           strokeOpacity={accentOpacity}
           strokeLinecap="round"
         />
       ))}
-      <circle cx="50" cy="50" r="1.1" fill="#E8A020" />
     </svg>
   );
 }
 
+// Desktop centre label deliberately contains nothing but the name itself —
+// no supporting line, no divider — so the "protective zone" the connecting
+// lines now respect reads as genuinely clear space. Mobile keeps the
+// supporting line, since only the desktop label was asked to be simplified.
 function CentreLabel({ compact = false }) {
   return (
     <div
       className="absolute text-center"
-      style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)', width: compact ? '9rem' : '14rem' }}
+      style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)', width: compact ? '9rem' : '11rem' }}
     >
-      <p className={`font-fredoka text-[#2D2520] leading-tight ${compact ? 'text-lg' : 'text-2xl sm:text-3xl'}`}>
+      <p className={`font-fredoka text-[#2D2520] leading-tight ${compact ? 'text-lg' : 'text-xl sm:text-2xl'}`}>
         Individual Child
       </p>
-      <div className={`bg-[#E8A020] rounded-full mx-auto ${compact ? 'w-6 h-[3px] my-1.5' : 'w-8 h-1 my-2.5'}`} />
-      <p className={`font-nunito text-[#2D2520]/50 leading-snug ${compact ? 'text-[10px]' : 'text-xs sm:text-sm'}`}>
-        Learning goals, strengths, interests &amp; needs
-      </p>
+      {compact && (
+        <>
+          <div className="bg-[#E8A020] rounded-full mx-auto w-6 h-[3px] my-1.5" />
+          <p className="font-nunito text-[#2D2520]/50 leading-snug text-[10px]">
+            Learning goals, strengths, interests &amp; needs
+          </p>
+        </>
+      )}
     </div>
   );
 }
@@ -104,7 +123,7 @@ function CentreLabel({ compact = false }) {
 function DesktopDiagram() {
   return (
     <div className="relative w-full py-10" style={{ height: 'clamp(560px, 46vw, 680px)' }}>
-      <ConnectorLines />
+      <ConnectorLines gap={CENTRE_GAP_DESKTOP} lineR={LINE_R_DESKTOP} />
       <CentreLabel />
       {dimensions.map((d) => (
         <div
@@ -138,7 +157,7 @@ function MobileDiagram() {
   return (
     <div>
       <div className="relative w-full" style={{ height: '380px' }}>
-        <ConnectorLines accentOpacity={0.3} />
+        <ConnectorLines accentOpacity={0.3} gap={CENTRE_GAP_MOBILE} lineR={LINE_R_MOBILE} />
         <CentreLabel compact />
         {dimensions.map((d) => {
           const isActive = activeKey === d.key;
