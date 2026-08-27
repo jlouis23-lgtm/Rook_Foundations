@@ -57,6 +57,40 @@ export default function WorkshopPhoto() {
             </p>
           </motion.div>
         </div>
+
+        {/* Second, smaller photo — children actually playing, deliberately
+            secondary to the founder photo above (smaller max-width, wider
+            4:3 crop vs. the founder photo's near-square crop) so it reads
+            as supporting evidence for "hands-on, with real children" rather
+            than a second equally-weighted hero image. */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6, ease: EASE }}
+          className="max-w-md sm:max-w-lg mx-auto mt-14 sm:mt-16"
+        >
+          <picture>
+            <source
+              type="image/webp"
+              srcSet="/images/home/children-chess-photo-480w.webp 480w, /images/home/children-chess-photo.webp 900w"
+              sizes="(max-width: 640px) 88vw, 512px"
+            />
+            <img
+              src="/images/home/children-chess-photo.jpg"
+              srcSet="/images/home/children-chess-photo-480w.jpg 480w, /images/home/children-chess-photo.jpg 900w"
+              sizes="(max-width: 640px) 88vw, 512px"
+              width={900}
+              height={675}
+              loading="lazy"
+              alt="Two children playing chess together at a Rook Foundations session, one moving a piece as the other looks on."
+              className="w-full h-auto rounded-3xl shadow-lg shadow-black/10"
+            />
+          </picture>
+          <p className="font-nunito text-[#2D2520]/45 text-sm text-center italic mt-4">
+            Two children enjoying a real Rook Foundations session together.
+          </p>
+        </motion.div>
       </div>
     </section>
   );
