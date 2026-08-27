@@ -55,9 +55,7 @@ const dimensions = [
 ];
 
 const LINE_R_DESKTOP = 26;
-const LINE_R_MOBILE = 23;
 const LABEL_R_DESKTOP = 43;
-const LABEL_R_MOBILE = 41;
 
 // Radius (same unit-circle scale as LINE_R/LABEL_R) at which each line
 // STARTS, rather than starting at the literal centre point (50,50). This is
@@ -68,51 +66,83 @@ const LABEL_R_MOBILE = 41;
 // exactly as before — leaves a clean, unobstructed gap around the label
 // with no line ever entering it.
 const CENTRE_GAP_DESKTOP = 18;
-const CENTRE_GAP_MOBILE = 18;
+
+// Mobile — ELLIPTICAL radii (separate x/y), not a single uniform radius.
+// The mobile diagram's container is close to square, so a uniform circular
+// radius (the desktop approach) places Interaction/Difficulty — the two
+// points nearest the horizontal equator (largest |x|, smallest |y|) —
+// almost at the container's left/right edge, while Activity/Support/Choice
+// (smaller |x|) stay comfortably inset. Compressing the x-radius relative
+// to the y-radius is a single proportional transform applied to all seven
+// points equally: it still pulls Interaction/Difficulty in the most (they
+// have the most x to compress) while the others move proportionally less,
+// so the ring stays symmetrical without hand-picking bespoke offsets.
+const LINE_RX_MOBILE = 19;
+const LINE_RY_MOBILE = 26;
+const LABEL_RX_MOBILE = 35;
+const LABEL_RY_MOBILE = 36;
+
+// The mobile centre label is a short, WIDE rectangle (7rem × ~2 lines) —
+// much wider than it is tall. A single circular or even elliptical "gap"
+// radius can't protect a rectangle correctly: at diagonal angles (e.g.
+// Presentation, Interaction, Support, Setting) an ellipse sized to the
+// box's half-width/half-height still cuts inside its corners, so those
+// four lines started from a point still on top of the text. Instead, for
+// each dimension we solve for the exact distance at which the ray from
+// centre first crosses the box's actual rectangular edge (plus a small
+// buffer for visible whitespace) — the correct "protective zone" for a
+// rectangle is rectangular, not round.
+const CENTRE_HALF_W_MOBILE = 17; // half the 7rem box width, plus buffer, in viewBox %
+const CENTRE_HALF_H_MOBILE = 10; // half the ~2-line box height, plus buffer, in viewBox %
+
+function centreEdgePoint(d) {
+  const t = 1 / Math.max(Math.abs(d.x) / CENTRE_HALF_W_MOBILE, Math.abs(d.y) / CENTRE_HALF_H_MOBILE);
+  return { x: d.x * t, y: d.y * t };
+}
 
 const outcomeSteps = ['Engagement', 'Thinking', 'Reflection', 'Development'];
 
 function pct(v) { return `${v}%`; }
 
-function ConnectorLines({ accentOpacity = 0.35, gap, lineR }) {
+// innerFor/outerFor each take a dimension and return its {x, y} offset (as
+// a fraction of the unit circle, e.g. {x: d.x*radius, y: d.y*radius}) —
+// giving each endpoint full per-point control rather than one shared
+// radius, so desktop's simple circle and mobile's rectangle-aware centre
+// gap can both be expressed through the same component.
+function ConnectorLines({ accentOpacity = 0.35, innerFor, outerFor }) {
   return (
     <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 w-full h-full" aria-hidden="true">
-      {dimensions.map((d) => (
-        <line
-          key={d.key}
-          x1={50 + d.x * gap} y1={50 + d.y * gap}
-          x2={50 + d.x * lineR} y2={50 + d.y * lineR}
-          stroke={d.accent}
-          strokeWidth="0.35"
-          strokeOpacity={accentOpacity}
-          strokeLinecap="round"
-        />
-      ))}
+      {dimensions.map((d) => {
+        const p1 = innerFor(d);
+        const p2 = outerFor(d);
+        return (
+          <line
+            key={d.key}
+            x1={50 + p1.x} y1={50 + p1.y}
+            x2={50 + p2.x} y2={50 + p2.y}
+            stroke={d.accent}
+            strokeWidth="0.35"
+            strokeOpacity={accentOpacity}
+            strokeLinecap="round"
+          />
+        );
+      })}
     </svg>
   );
 }
 
-// Desktop centre label deliberately contains nothing but the name itself —
-// no supporting line, no divider — so the "protective zone" the connecting
-// lines now respect reads as genuinely clear space. Mobile keeps the
-// supporting line, since only the desktop label was asked to be simplified.
-function CentreLabel({ compact = false }) {
+// Contains nothing but the name itself — no supporting line, no divider, no
+// caption — on both breakpoints now, so the "protective zone" the
+// connecting lines respect reads as genuinely clear space either way.
+function CentreLabel({ mobile = false }) {
   return (
     <div
       className="absolute text-center"
-      style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)', width: compact ? '6.5rem' : '11rem' }}
+      style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)', width: mobile ? '7rem' : '11rem' }}
     >
-      <p className={`font-fredoka text-[#2D2520] leading-tight ${compact ? 'text-lg' : 'text-xl sm:text-2xl'}`}>
+      <p className={`font-fredoka text-[#2D2520] leading-tight ${mobile ? 'text-xl' : 'text-xl sm:text-2xl'}`}>
         Individual Child
       </p>
-      {compact && (
-        <>
-          <div className="bg-[#E8A020] rounded-full mx-auto w-6 h-[3px] my-1.5" />
-          <p className="font-nunito text-[#2D2520]/50 leading-snug text-[10px]">
-            Learning goals, strengths, interests &amp; needs
-          </p>
-        </>
-      )}
     </div>
   );
 }
@@ -123,7 +153,10 @@ function CentreLabel({ compact = false }) {
 function DesktopDiagram() {
   return (
     <div className="relative w-full py-10" style={{ height: 'clamp(560px, 46vw, 680px)' }}>
-      <ConnectorLines gap={CENTRE_GAP_DESKTOP} lineR={LINE_R_DESKTOP} />
+      <ConnectorLines
+        innerFor={(d) => ({ x: d.x * CENTRE_GAP_DESKTOP, y: d.y * CENTRE_GAP_DESKTOP })}
+        outerFor={(d) => ({ x: d.x * LINE_R_DESKTOP, y: d.y * LINE_R_DESKTOP })}
+      />
       <CentreLabel />
       {dimensions.map((d) => (
         <div
@@ -156,9 +189,13 @@ function MobileDiagram() {
 
   return (
     <div>
-      <div className="relative w-full" style={{ height: '380px' }}>
-        <ConnectorLines accentOpacity={0.3} gap={CENTRE_GAP_MOBILE} lineR={LINE_R_MOBILE} />
-        <CentreLabel compact />
+      <div className="relative w-full" style={{ height: '340px' }}>
+        <ConnectorLines
+          accentOpacity={0.3}
+          innerFor={centreEdgePoint}
+          outerFor={(d) => ({ x: d.x * LINE_RX_MOBILE, y: d.y * LINE_RY_MOBILE })}
+        />
+        <CentreLabel mobile />
         {dimensions.map((d) => {
           const isActive = activeKey === d.key;
           return (
@@ -169,10 +206,10 @@ function MobileDiagram() {
               aria-pressed={isActive}
               aria-expanded={isActive}
               aria-controls="personalised-approach-detail"
-              className="absolute font-nunito text-[10px] font-800 uppercase tracking-wide whitespace-nowrap px-1 py-0.5 -m-1 outline-none focus-visible:ring-2 focus-visible:ring-[#E8A020] rounded"
+              className="absolute font-nunito text-sm font-800 uppercase tracking-tight whitespace-nowrap px-1 py-0.5 -m-1 outline-none focus-visible:ring-2 focus-visible:ring-[#E8A020] rounded"
               style={{
-                left: pct(50 + d.x * LABEL_R_MOBILE),
-                top: pct(50 + d.y * LABEL_R_MOBILE),
+                left: pct(50 + d.x * LABEL_RX_MOBILE),
+                top: pct(50 + d.y * LABEL_RY_MOBILE),
                 transform: 'translate(-50%, -50%)',
                 color: d.accent,
                 opacity: isActive ? 1 : 0.85,
