@@ -31,7 +31,7 @@ const sessionFormats = [
   },
   {
     key: 'strategy-reasoning',
-    title: 'Strategy & Reasoning Sessions',
+    title: 'Strategy and Reasoning Sessions',
     people: 4,
     groupSize: 'Up to 4 children',
     price: '£8 per child / hour',
