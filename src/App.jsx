@@ -25,6 +25,7 @@ import TermsAndConditions from './pages/TermsAndConditions';
 import CookiesPolicy from './pages/CookiesPolicy';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Events from './pages/Events';
+import Schools from './pages/Schools';
 import PlayHome from './pages/play/PlayHome';
 import PlayManageProfiles from './pages/play/PlayManageProfiles';
 import PlayDashboard from './pages/play/PlayDashboard';
@@ -50,6 +51,7 @@ const AppRoutes = () => {
         <Route path="/cookies-policy" element={<CookiesPolicy />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/clubs" element={<Events />} />
+        <Route path="/schools" element={<Schools />} />
       </Route>
       <Route element={<ProtectedRoute unauthenticatedElement={<PlaySignInPrompt />} />}>
         <Route element={<PlayLayout />}>

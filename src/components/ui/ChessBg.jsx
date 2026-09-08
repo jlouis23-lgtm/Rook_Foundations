@@ -171,6 +171,14 @@ const LAYOUTS = {
     { piece: 'pawn',   edge: 'left',  fromEdge: 18, fromTop: 90,   rotate: -7 },
   ],
 
+  // Schools: minimal, balanced
+  schools: [
+    { piece: 'knight', edge: 'right', fromEdge: 16, fromTop: 100,  rotate: 10 },
+    { piece: 'rook',   edge: 'left',  fromEdge: 16, fromTop: 100,  rotate: -9 },
+    { piece: 'pawn',   edge: 'right', fromEdge: 18, fromTop: 560,  rotate: 6,  hideOnMobile: true },
+    { piece: 'bishop', edge: 'left',  fromEdge: 18, fromTop: 560,  rotate: -8, hideOnMobile: true },
+  ],
+
   // Default/Page: sparse
   page: [
     { piece: 'bishop', edge: 'right', fromEdge: 18, fromTop: 100,  rotate: 8   },

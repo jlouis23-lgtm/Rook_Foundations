@@ -31,6 +31,12 @@ export default function PeopleIcon({ count = 1, size = 44, className = '', style
     ];
   } else if (count === 4) {
     children = [4.5, 9.5, 14.5, 19.5].map((cx, i) => person(cx, 8, 2, 3, 19, i));
+  } else if (count === 8) {
+    // 8 people: two even rows of 4 — same spacing/scale as the 7-person
+    // layout below, just balanced instead of 4+3.
+    const row1 = [5, 10.5, 15, 20].map((cx, i) => person(cx, 6,  2, 2.5, 12.5, `r1-${i}`));
+    const row2 = [5, 10.5, 15, 20].map((cx, i) => person(cx, 16, 2, 2.5, 22,   `r2-${i}`));
+    children = [...row1, ...row2];
   } else {
     // 7 people: 4 on top row + 3 on bottom row — avoids density
     const row1 = [5, 10.5, 15, 20].map((cx, i) => person(cx, 6,  2, 2.5, 12.5, `r1-${i}`));

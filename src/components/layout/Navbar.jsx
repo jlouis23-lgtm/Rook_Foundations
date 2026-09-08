@@ -11,6 +11,7 @@ const navLinks = [
   { label: 'Explore Sessions', path: '/sessions' },
   { label: 'Pricing', path: '/pricing' },
   { label: 'Clubs', path: '/clubs' },
+  { label: 'School Information', path: '/schools' },
   { label: 'Contact', path: '/contact' },
 ];
 
