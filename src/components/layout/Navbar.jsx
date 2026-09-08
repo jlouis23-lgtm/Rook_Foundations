@@ -6,7 +6,7 @@ import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 
 const navLinks = [
   { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
+  { label: 'Parent Information', path: '/about' },
   { label: 'Our Learning Approach', path: '/our-approach' },
   { label: 'Explore Sessions', path: '/sessions' },
   { label: 'Pricing', path: '/pricing' },
