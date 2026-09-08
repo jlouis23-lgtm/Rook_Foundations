@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, GraduationCap } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import PeopleIcon from '@/components/pricing/PeopleIcon';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
@@ -188,6 +188,18 @@ export default function Schools() {
           <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed max-w-2xl mx-auto mt-4">
             Rook Foundations takes responsibility for preparing, organising and delivering each session, with activities adapted to meet the needs of the school and the children taking part.
           </p>
+
+          {/* Quiet professional-credibility note — a scaled-down version of
+              the homepage hero's "Trusted & Connected" coda (same hairline
+              border + muted icon-led chip treatment), sized for a single
+              fact rather than a row of badges, and placed last so it reads
+              as a closing reassurance rather than a claim. */}
+          <div className="max-w-md mx-auto mt-10 pt-8 border-t border-[#2D2520]/8 flex items-center justify-center gap-2">
+            <GraduationCap size={15} className="text-[#E8A020] flex-shrink-0" aria-hidden="true" />
+            <p className="font-nunito text-[#2D2520]/60 text-xs sm:text-sm">
+              <span className="font-700">Professional Membership:</span> Led by a Professional Affiliate Member of the Chartered College of Teaching.
+            </p>
+          </div>
         </Reveal>
       </section>
 
