@@ -92,6 +92,33 @@ const deliveryOptions = [
   },
 ];
 
+// Two funding models schools can choose between. Presented as two equal
+// neutral cards (bg-white border, NOT the coloured play-card treatment used
+// for the three session formats above) so this doesn't read as a fourth or
+// fifth "product" to pick between — it's a different kind of choice
+// (how payment works), so it gets a visually distinct, quieter treatment.
+// Parent-funded is established as the default through ORDER and a small
+// pill tag, not through making the other card smaller or duller — both
+// cards are the same size/weight so School-Funded doesn't read as
+// secondary. The second card renders an invisible copy of the same tag
+// purely so both headings align at the same height across the row.
+const fundingModels = [
+  {
+    key: 'parent-funded',
+    tag: 'Our standard model',
+    showTag: true,
+    title: 'Parent-Funded Extracurricular Activities',
+    body: "Our standard extracurricular provision is designed to be simple for schools. Rook Foundations manages bookings, payments and parent communication directly, meaning there is no direct cost to the school. The school simply provides a suitable space and helps let families know the sessions are available.",
+  },
+  {
+    key: 'school-funded',
+    tag: 'Our standard model',
+    showTag: false,
+    title: 'School-Funded Enrichment Programmes',
+    body: "Schools can also commission Rook Foundations directly to provide funded enrichment programmes, workshops or targeted sessions for pupils — from a single themed workshop to a structured programme for a specific year group. These can be tailored to the school's objectives, timetable and available budget.",
+  },
+];
+
 const pricingRows = [
   { label: 'Individual chess', groupSize: '1 child', price: '£18 / hour' },
   { label: 'Paired chess', groupSize: 'Up to 2 children', price: '£10 per child / hour' },
@@ -248,6 +275,51 @@ export default function Schools() {
         </div>
       </section>
 
+      {/* Flexible Partnership Options — deliberately placed here, between
+          Flexible Delivery and Pricing, so the funding model is established
+          BEFORE the reader reaches a table of numbers. Without this, "£18
+          per hour / £10 per child..." reads ambiguously as something the
+          school itself might be expected to pay. */}
+      <section className="py-20 bg-white border-y border-[#2D2520]/8 relative overflow-hidden">
+        <ChessBg variant="page" />
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+              Working with your school
+            </span>
+            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+              Flexible Partnership Options
+            </h2>
+            <p className="font-nunito text-[#2D2520]/55 text-base mt-4 max-w-xl mx-auto leading-relaxed">
+              Rook Foundations can work with schools through two straightforward funding models.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {fundingModels.map((model, i) => (
+              <motion.div
+                key={model.key}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="bg-white border border-[#2D2520]/10 rounded-3xl p-7"
+              >
+                <span className={`inline-flex items-center font-nunito text-[#b8790a] bg-[#E8A020]/10 text-xs font-800 uppercase tracking-widest rounded-full px-3 py-1 mb-4 ${model.showTag ? '' : 'invisible'}`}>
+                  {model.tag}
+                </span>
+                <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">{model.title}</h3>
+                <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{model.body}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <p className="font-nunito text-[#2D2520]/55 text-sm text-center leading-relaxed mt-10 max-w-xl mx-auto">
+            This flexible approach allows each school to choose the model that works best for its pupils, families and wider provision.
+          </p>
+        </div>
+      </section>
+
       {/* Pricing */}
       <section className="py-20 bg-[#F5F3EE] relative overflow-hidden">
         <ChessBg variant="pricing" />
@@ -259,6 +331,9 @@ export default function Schools() {
             <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
               Simple, flexible pricing
             </h2>
+            <p className="font-nunito text-[#2D2520]/55 text-base mt-4 max-w-xl mx-auto leading-relaxed">
+              The rates below apply to our parent-funded extracurricular activities. School-funded programmes are quoted individually based on your school's requirements.
+            </p>
           </div>
 
           <Reveal className="bg-white border border-[#2D2520]/10 rounded-3xl overflow-hidden shadow-sm" direction="up">
