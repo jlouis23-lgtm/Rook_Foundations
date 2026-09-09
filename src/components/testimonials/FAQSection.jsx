@@ -73,7 +73,12 @@ const faqs = [
   },
   {
     q: "My child has SEN. How can Rook Foundations support them?",
-    a: "Every child is different, and I'm still learning how Rook Foundations can best support children with different needs through my pilot sessions. The games and activities can be adapted in different ways, so I'd be happy to hear about your child's needs and discuss whether the approach could be a good fit.",
+    a: (
+      <>
+        <p className="mb-3">Every child is different, and I'm still learning through my pilot sessions how Rook Foundations can best support children with different needs. I'm also committed to developing my understanding of SEND-informed practice and am a member of nasen, the UK's leading professional membership organisation for SEND.</p>
+        <p>The games and activities can be adapted in different ways to help make them more accessible and inclusive for children with different learning needs. I'd be very happy to hear about your child's individual needs and discuss whether the approach could be a good fit for them.</p>
+      </>
+    ),
   },
   {
     q: "What's the difference between individual and group sessions?",
