@@ -79,6 +79,47 @@ const planningMoments = [
   },
 ];
 
+// The six-stage school journey. Same six-colour rotation already used for a
+// six-item sequence elsewhere on the site (SessionIncludesGrid), reused here
+// rather than introducing a new palette. Rendered as a single vertical
+// numbered list at every breakpoint — no horizontal/desktop variant, no
+// connecting arrows or staircase — deliberately simpler than
+// WhatHappensNextSection's treatment on the Booking page, per this brief's
+// specific steer against "excessive icons or decorative elements" and
+// against making the process look automated.
+const schoolJourney = [
+  {
+    accent: '#2d8c62',
+    title: 'Start a conversation',
+    body: "Get in touch to talk through your pupils, what you'd like the session to provide, and whether the provision looks like a good fit — an open conversation, including over WhatsApp where that's easier for you.",
+  },
+  {
+    accent: '#4a7eb8',
+    title: 'Share relevant information',
+    body: "Where it's useful, we'll ask for relevant information about the proposed group or pupils — the kind that helps with planning, accessibility and safe participation, sometimes using a short SEND Group Information Form. This isn't a formal assessment; we only ask for what's reasonably relevant to planning the session.",
+  },
+  {
+    accent: '#7a48c0',
+    title: 'Plan the provision',
+    body: "We consider what you've told us alongside the group size, purpose and environment to work out an appropriate approach, drawing on our knowledge of the activities available. You don't need to prescribe the activity — we may share our intended plan in advance, but it stays provisional.",
+  },
+  {
+    accent: '#c05050',
+    title: 'Confirm the booking',
+    body: 'A session becomes a formal booking once we issue a booking confirmation and you accept it, summarising the date, time, duration, group size, fee and other agreed arrangements — including that the intended activity remains adaptable.',
+  },
+  {
+    accent: '#2a8c88',
+    title: 'Deliver the session',
+    body: 'Our practitioner leads the session, adapting pace, complexity, instructions or activity choice as needed to support meaningful participation, without needing to check in with the school every time a reasonable adjustment is made.',
+  },
+  {
+    accent: '#c9860f',
+    title: 'Review and continue',
+    body: "Afterwards, we're happy to hear how it went and talk through whether further sessions would be useful — where appropriate, this can include commissioning a Personalised Enrichment Review.",
+  },
+];
+
 // Destination for the "Explore our approach to working with SEND pupils"
 // link on the Schools page. "What We Offer" is Section 2 of the wider SEND
 // project — the introductory hero is Section 1's own content, restated
@@ -399,6 +440,76 @@ export default function SendPupils() {
           <Reveal className="text-center mt-12" delay={0.2}>
             <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
               Once we understand the pupils, the circumstances and what you're hoping the session will provide, the next step is working with you to plan it — from that first conversation through to delivery.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Working With Your School — Section 6. White/border-y, restoring the
+          alternating rhythm after "How Activities Are Chosen"'s inherited
+          cream. The six-stage journey is a single vertical numbered list at
+          every width (no desktop horizontal row, no arrows/staircase) —
+          deliberately plainer than WhatHappensNextSection on the Booking
+          page, matching this brief's specific caution against decorative
+          elements and against the process reading as automated. */}
+      <section className="py-20 bg-white border-y border-[#2D2520]/8 relative overflow-hidden">
+        <ChessBg variant="booking" />
+        <div className="max-w-2xl mx-auto px-6 lg:px-12 relative z-10">
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+              Getting started
+            </span>
+            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+              Working With Your School
+            </h2>
+          </div>
+
+          <Reveal className="text-center mb-14">
+            <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
+              Starting SEND enrichment with Rook Foundations is a straightforward collaboration. You bring your knowledge of the pupils, the school environment and what you'd like the experience to provide; we bring our knowledge of the games, puzzles and activities available, and how to plan and adapt them appropriately. Here's how that comes together:
+            </p>
+          </Reveal>
+
+          <div className="space-y-8">
+            {schoolJourney.map((stage, i) => (
+              <motion.div
+                key={stage.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.4, delay: i * 0.06, ease: EASE }}
+                className="flex items-start gap-4"
+              >
+                <span
+                  className="w-9 h-9 rounded-full flex items-center justify-center font-fredoka text-white text-sm flex-shrink-0 mt-0.5"
+                  style={{ backgroundColor: stage.accent }}
+                >
+                  {i + 1}
+                </span>
+                <div>
+                  <p className="font-fredoka text-[#2D2520] text-lg leading-snug">{stage.title}</p>
+                  <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed mt-1">{stage.body}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <Reveal className="mt-14" delay={0.1}>
+            <h3 className="font-fredoka text-[#2D2520] text-xl mb-4 leading-snug">A few practical points</h3>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+              If something changes significantly before the session — such as the group's size, composition or support needs — we may need to check the arrangement is still suitable, and agree any change in price, before proceeding. The detailed rules around this sit in our pricing and booking terms.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
+              The booking confirmation is also where a school confirms it has the authority to share the relevant pupil information with us, and — where a Personalised Enrichment Review is commissioned — the authority to commission that, along with who should receive it. This is about making sure information and commissioning arrangements are handled properly, not a lengthy privacy process.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
+              Where possible, we'd recommend getting in touch at least a week ahead of when you'd like a session to take place, though we can sometimes accommodate shorter notice. Successful delivery depends on the school providing relevant information, a suitable space and any agreed support arrangements; we take responsibility for planning and delivering the enrichment content itself.
+            </p>
+          </Reveal>
+
+          <Reveal className="text-center mt-10" delay={0.15}>
+            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
+              That's the collaboration in outline — what we need from your school to make it work well is covered next.
             </p>
           </Reveal>
         </div>
