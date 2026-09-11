@@ -36,6 +36,13 @@ const offerAreas = [
   },
 ];
 
+// The seven ways participation can look, per the brief — deliberately
+// rendered as a loose, equal-weight cluster of pills (no numbering, no
+// checkmarks, no connecting arrows) rather than a checklist or a sequence:
+// none of these is "better" than another, and a pupil isn't expected to
+// move through them in any particular order.
+const waysToParticipate = ['Play', 'Observe', 'Explore', 'Work independently', 'Take a smaller role', 'Try an alternative', 'Return later'];
+
 // Destination for the "Explore our approach to working with SEND pupils"
 // link on the Schools page. "What We Offer" is Section 2 of the wider SEND
 // project — the introductory hero is Section 1's own content, restated
@@ -116,6 +123,84 @@ export default function SendPupils() {
           <Reveal className="max-w-2xl mx-auto text-center mt-12">
             <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed">
               Across all of this, our practitioners aren't working from a fixed list of prescribed SEND activities — they can select, adapt, combine or change what's happening in response to the session as it unfolds, always within our usual safeguarding, safety and professional boundaries. And just as the activities themselves can flex, so can the way a pupil takes part in them.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* A Flexible Approach to Participation — Section 3. Cream/inherited
+          background (no explicit bg-white here) since "What We Offer" above
+          already carries its own border-y to provide the divider. The seven
+          "ways of participating" are a pill cluster rather than seven small
+          cards, deliberately, per the brief's steer against turning this
+          into either a checklist or "a large collection of cards for the
+          sake of visual variety" — only the Puzzle & Exploration Kit gets
+          its own distinct (gold-tinted, not a new colour) callout, since the
+          brief calls that out specifically as needing to read as a
+          legitimate, integrated part of the offer rather than a footnote. */}
+      <section className="py-20 relative overflow-hidden">
+        <ChessBg variant="contact" />
+        <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+              How pupils take part
+            </span>
+            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+              A Flexible Approach to Participation
+            </h2>
+          </div>
+
+          <Reveal className="text-center">
+            <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
+              We don't expect every pupil to engage with an activity in exactly the same way. For one pupil, meaningful participation might mean actively playing a strategy game. For another, it might mean observing first, exploring the equipment, or working through a puzzle independently — and a pupil might move between several of these during the same session. All of these can represent genuine, meaningful engagement, depending on the pupil and the moment.
+            </p>
+          </Reveal>
+
+          {/* Ways of participating */}
+          <Reveal className="mt-10 text-center" delay={0.05}>
+            <p className="font-nunito text-[#2D2520]/45 text-xs font-800 uppercase tracking-widest mb-4">
+              This can look like
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-2.5">
+              {waysToParticipate.map((way) => (
+                <span
+                  key={way}
+                  className="font-nunito text-[#2D2520] text-sm font-700 bg-[#E8A020]/10 border border-[#E8A020]/20 rounded-full px-4 py-2 whitespace-nowrap"
+                >
+                  {way}
+                </span>
+              ))}
+            </div>
+            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto mt-6">
+              Depending on how a pupil engages, this flexibility can create opportunities to explore things like independence, communication, concentration, problem-solving, decision-making and confidence — opportunities the activity may offer, not outcomes we guarantee.
+            </p>
+          </Reveal>
+
+          {/* Puzzle & Exploration Kit */}
+          <Reveal className="mt-12 bg-[#E8A020]/5 border border-[#E8A020]/15 rounded-3xl p-7 sm:p-8" delay={0.1}>
+            <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">The Puzzle &amp; Exploration Kit</h3>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+              Alongside the main activity, sessions include a Puzzle &amp; Exploration Kit — puzzles, tactile resources and other suitable activities that give pupils an alternative way into the session. It isn't a consolation prize for pupils who don't take part in the main activity; it's a legitimate part of the enrichment offer in its own right, because different pupils genuinely find different things engaging. Not every pupil will need it, but it's there as a meaningful option whenever it's the right fit.
+            </p>
+          </Reveal>
+
+          {/* Responsive participation */}
+          <Reveal className="mt-12" delay={0.15}>
+            <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 text-center leading-snug">Responsive participation</h3>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+              Participation isn't fixed once a session begins. A pupil might start by observing and join in later, move between a game and a puzzle, take a reduced role within a group, or step away and return when they're ready. Our practitioners use their professional judgement throughout — adjusting the pace, changing a pupil's role, introducing an alternative, or moving on from the original plan altogether — always in response to what actually supports meaningful participation in the moment.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
+              Adapting an activity doesn't automatically mean making it easier. Depending on the pupil, that might mean less complexity or more, a different pace, a different way of explaining things, or a change of role, equipment or grouping. We don't assume every pupil needs a simplified version of an activity — the right adaptation depends entirely on the individual in front of us.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
+              Where appropriate, pupils can have a genuine say in how they take part — continuing with an activity, trying something else, taking a short pause, or returning to it later. This isn't unlimited choice or optional structure; our practitioners remain responsible for managing each session appropriately and safely. And if a pupil becomes uncomfortable or disengaged, that's never treated as a failure — it's simply something to respond to, whether that means pausing, adjusting, offering an alternative, or involving school staff where needed.
+            </p>
+          </Reveal>
+
+          <Reveal className="text-center mt-10" delay={0.2}>
+            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
+              That same flexibility extends to the structure of a session too — including the size of the group a pupil takes part in.
             </p>
           </Reveal>
         </div>
