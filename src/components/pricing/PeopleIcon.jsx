@@ -4,7 +4,9 @@
  * count=1  Individual
  * count=2  Pair
  * count=4  Group
+ * count=6  (rendered as 2 rows of 3)
  * count=7  (rendered as 2 rows: 4 top + 3 bottom to avoid cramping)
+ * count=8  (rendered as 2 rows of 4)
  */
 const person = (cx, cy, r, sR, sBaseline, key) => (
   <g key={key}>
@@ -31,6 +33,11 @@ export default function PeopleIcon({ count = 1, size = 44, className = '', style
     ];
   } else if (count === 4) {
     children = [4.5, 9.5, 14.5, 19.5].map((cx, i) => person(cx, 8, 2, 3, 19, i));
+  } else if (count === 6) {
+    // 6 people: two even rows of 3 — same two-row scale as 7/8, balanced.
+    const row1 = [6, 12, 18].map((cx, i) => person(cx, 6,  2, 2.5, 12.5, `r1-${i}`));
+    const row2 = [6, 12, 18].map((cx, i) => person(cx, 16, 2, 2.5, 22,   `r2-${i}`));
+    children = [...row1, ...row2];
   } else if (count === 8) {
     // 8 people: two even rows of 4 — same spacing/scale as the 7-person
     // layout below, just balanced instead of 4+3.

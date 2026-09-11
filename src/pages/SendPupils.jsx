@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
+import PeopleIcon from '@/components/pricing/PeopleIcon';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import Reveal from '@/components/ui/Reveal';
 import { usePageMeta } from '@/hooks/use-page-meta';
@@ -201,6 +202,78 @@ export default function SendPupils() {
           <Reveal className="text-center mt-10" delay={0.2}>
             <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
               That same flexibility extends to the structure of a session too — including the size of the group a pupil takes part in.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Small Groups & Individual Sessions — Section 4. White/border-y like
+          "Our Sessions"/"What We Offer", restoring the alternating rhythm
+          after the previous section's inherited-cream background. The "Up
+          to 6 Pupils" stat reuses PeopleIcon + the exact icon-badge
+          treatment already used for group size on the Schools page's
+          session cards, rather than inventing a new visual device — the
+          one deliberate bit of visual emphasis the brief specifically asks
+          for, everything else here stays plain prose with no extra cards. */}
+      <section className="py-20 bg-white border-y border-[#2D2520]/8 relative overflow-hidden">
+        <ChessBg variant="page" />
+        <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+              How sessions are structured
+            </span>
+            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+              Small Groups &amp; Individual Sessions
+            </h2>
+          </div>
+
+          <Reveal className="text-center">
+            <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
+              Rook Foundations normally delivers SEND enrichment in small groups, with a normal maximum of up to six pupils. This isn't a target group size — smaller groups, and individual sessions, may often be more appropriate depending on the pupils and circumstances. There's no fixed minimum group size.
+            </p>
+          </Reveal>
+
+          {/* Up to 6 Pupils — the one deliberate visual moment in this
+              section, per the brief's request for "a clear visual
+              indication of the normal maximum group size". */}
+          <Reveal className="flex flex-col items-center mt-10" delay={0.05}>
+            <div className="w-16 h-16 rounded-2xl bg-[#E8A020]/10 flex items-center justify-center mb-4">
+              <PeopleIcon count={6} size={34} style={{ color: '#E8A020' }} />
+            </div>
+            <p className="font-fredoka text-[#2D2520] text-2xl">Up to 6 pupils</p>
+            <p className="font-nunito text-[#2D2520]/55 text-sm mt-1.5">Our normal maximum for SEND enrichment sessions</p>
+          </Reveal>
+
+          <Reveal className="mt-14" delay={0.1}>
+            <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">Smaller groups</h3>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+              A smaller group can allow the practitioner to give more individual attention and respond more closely to how each pupil is participating. This can be particularly useful where pupils benefit from a quieter or more focused setting, need more personalised pacing, or have quite different interests or levels of independence from one another. Suitability always depends on the individual pupils, the activity and the circumstances — a smaller group isn't automatically the right fit for every pupil.
+            </p>
+          </Reveal>
+
+          <Reveal className="mt-10" delay={0.15}>
+            <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">1-to-1 sessions</h3>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+              Individual, 1-to-1 sessions are available where appropriate, giving the practitioner the opportunity to focus entirely on one pupil and respond closely to their interests, engagement and participation — with more flexibility in pace, activity choice, level of challenge, and the amount of repetition or explanation involved. This remains enrichment, not therapy or specialist teaching, and it isn't something every pupil needs or would necessarily benefit from; it's simply one of the arrangements available where it's the right fit.
+            </p>
+          </Reveal>
+
+          <Reveal className="mt-10" delay={0.2}>
+            <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">Finding the right format</h3>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+              The right group size is a practical decision, not something determined by a pupil's diagnosis, age or SEND category alone. Two pupils with similar needs may respond very differently to the same group, and a pupil who needs significant support in one setting may participate quite independently in another. We consider things like the nature of the activity, how pupils are likely to interact and participate together, and what's likely to work well — from an individual pupil, to a very small group, up to our normal maximum of six.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
+              School staff remain responsible for pupils' wider support; our practitioners lead the content and delivery of the enrichment session itself, and we'll discuss any additional support needs with the school as part of planning.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
+              Pricing reflects the booked group size and session length, with smaller groups and 1-to-1 sessions carrying a higher cost per pupil, since they involve more capacity and personalisation on our part — the arrangement is based on the confirmed booked group, rather than simply who attends on the day. Exact pricing is something we're happy to talk through as part of an enquiry.
+            </p>
+          </Reveal>
+
+          <Reveal className="text-center mt-10" delay={0.25}>
+            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
+              Once the right group or individual arrangement has been found, the next question is what happens within it — and that's something we consider just as carefully, based on the pupils and circumstances.
             </p>
           </Reveal>
         </div>
