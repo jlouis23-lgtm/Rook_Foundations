@@ -231,6 +231,45 @@ export default function Schools() {
         </Reveal>
       </section>
 
+      {/* Working with SEND Pupils — a gateway introduction, not the full SEND
+          approach: warm, brief, experience-led rather than a diagnosis/needs
+          list, and deliberately silent on specialist teaching, therapy,
+          assessment or outcome guarantees rather than explicitly disclaiming
+          them (an explicit disclaimer here would itself read as leading with
+          limitations). Sits directly beneath the hero, before the general
+          session-format content, so it's one of the first things a visiting
+          school sees. A top hairline separates it from the hero above,
+          since neither this nor the hero carries an explicit background
+          colour to provide that break on its own. The detailed material
+          (Sections 2–11) lives on its own page, linked below, so this
+          section can stay a short, calm introduction. */}
+      <section className="py-20 relative overflow-hidden border-t border-[#2D2520]/8">
+        <ChessBg variant="faq" />
+        <Reveal className="max-w-2xl mx-auto px-6 lg:px-12 text-center relative z-10">
+          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+            Inclusive enrichment
+          </span>
+          <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+            Working with SEND Pupils
+          </h2>
+          <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed mt-5">
+            Rook Foundations welcomes the opportunity to work with pupils with SEND, offering inclusive enrichment through games, puzzles and strategic activities. Sessions are designed around meaningful participation, enjoyment and engagement, giving pupils the chance to take part in ways that feel right for them, explore new challenges and experience genuine success.
+          </p>
+          <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed mt-4">
+            Activities, and the way pupils take part in them, can be adapted to suit the individual pupil or group. Rather than expecting every child to engage in the same way, we shape each session around the people taking part, drawing on professional judgement to select and adjust activities as appropriate.
+          </p>
+
+          <Link
+            to="/schools/send"
+            onClick={() => window.scrollTo(0, 0)}
+            className="group inline-flex items-center gap-1.5 font-nunito text-[#E8A020] text-sm font-700 hover:text-[#b8790a] transition-colors mt-6"
+          >
+            Explore our approach to working with SEND pupils
+            <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+          </Link>
+        </Reveal>
+      </section>
+
       {/* Our Sessions */}
       <section className="py-20 bg-white border-y border-[#2D2520]/8 relative overflow-hidden">
         <ChessBg variant="page" />
@@ -365,43 +404,6 @@ export default function Schools() {
             All prices are based on one-hour sessions.
           </p>
         </div>
-      </section>
-
-      {/* Working with SEND Pupils — a gateway introduction, not the full SEND
-          approach: warm, brief, experience-led rather than a diagnosis/needs
-          list, and deliberately silent on specialist teaching, therapy,
-          assessment or outcome guarantees rather than explicitly disclaiming
-          them (an explicit disclaimer here would itself read as leading with
-          limitations). Sits after Pricing/CTA-adjacent content rather than
-          interrupting the core sessions → funding → pricing flow, as one
-          more important thing to know before the closing CTA. The detailed
-          material (Sections 2–11) lives on its own page, linked below, so
-          this section can stay a short, calm introduction. */}
-      <section className="py-20 relative overflow-hidden">
-        <ChessBg variant="faq" />
-        <Reveal className="max-w-2xl mx-auto px-6 lg:px-12 text-center relative z-10">
-          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
-            Inclusive enrichment
-          </span>
-          <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-            Working with SEND Pupils
-          </h2>
-          <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed mt-5">
-            Rook Foundations welcomes the opportunity to work with pupils with SEND, offering inclusive enrichment through games, puzzles and strategic activities. Sessions are designed around meaningful participation, enjoyment and engagement, giving pupils the chance to take part in ways that feel right for them, explore new challenges and experience genuine success.
-          </p>
-          <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed mt-4">
-            Activities, and the way pupils take part in them, can be adapted to suit the individual pupil or group. Rather than expecting every child to engage in the same way, we shape each session around the people taking part, drawing on professional judgement to select and adjust activities as appropriate.
-          </p>
-
-          <Link
-            to="/schools/send"
-            onClick={() => window.scrollTo(0, 0)}
-            className="group inline-flex items-center gap-1.5 font-nunito text-[#E8A020] text-sm font-700 hover:text-[#b8790a] transition-colors mt-6"
-          >
-            Explore our approach to working with SEND pupils
-            <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-          </Link>
-        </Reveal>
       </section>
 
       {/* Final CTA */}
