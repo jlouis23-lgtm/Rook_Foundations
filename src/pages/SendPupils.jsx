@@ -120,6 +120,38 @@ const schoolJourney = [
   },
 ];
 
+// What schools provide, in five areas. Left-accent-row treatment again
+// (third reuse on this page, after planningMoments and — in spirit —
+// schoolJourney) rather than five cards, so this reads as a related set of
+// practical points rather than a compliance checklist.
+const schoolProvides = [
+  {
+    accent: '#4a7eb8',
+    title: 'Relevant pupil information',
+    body: "Things like the number of pupils, the general nature of their needs where relevant, how they're likely to participate, relevant strengths or interests, and any known triggers or safety considerations — enough for us to plan appropriately, not a full personal history. Where several pupils are attending together, we're often able to work from group-level information rather than a detailed profile for every pupil.",
+  },
+  {
+    accent: '#2d8c62',
+    title: 'Suitable space',
+    body: "A space appropriate to the activity, with suitable seating and surfaces, enough room, and access to the agreed room at the agreed time. We can adjust layout, positioning and equipment to suit what's available, and we'll discuss anything unusual with you beforehand.",
+  },
+  {
+    accent: '#7a48c0',
+    title: 'Appropriate school support',
+    body: "We lead the content and delivery of the session, but school staff remain responsible for support that sits outside our role — things like personal care, medical needs, emergency situations or behaviour support beyond what we're able to provide. This isn't about staff needing to intervene constantly; it's about the right support being available if it's needed.",
+  },
+  {
+    accent: '#2a8c88',
+    title: 'A named contact',
+    body: "A named member of school staff who can be reached if something comes up during the session. A suitable substitute can act as the contact where needed — they don't need to stand beside the practitioner throughout unless the circumstances call for it.",
+  },
+  {
+    accent: '#c9860f',
+    title: 'Keeping us informed',
+    body: "If something changes materially before a session — who's attending, support arrangements, relevant health or safety circumstances, or information you'd previously given us — letting us know allows us to check the arrangement is still right. This isn't about flagging every small change, just anything that could genuinely affect the session.",
+  },
+];
+
 // Destination for the "Explore our approach to working with SEND pupils"
 // link on the Schools page. "What We Offer" is Section 2 of the wider SEND
 // project — the introductory hero is Section 1's own content, restated
@@ -510,6 +542,79 @@ export default function SendPupils() {
           <Reveal className="text-center mt-10" delay={0.15}>
             <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
               That's the collaboration in outline — what we need from your school to make it work well is covered next.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* What We Need From Schools — Section 7. Cream/inherited background,
+          continuing the alternating rhythm after "Working With Your
+          School"'s white/border-y. Five areas as left-accent rows (third
+          reuse of that pattern on this page) rather than five cards, plus
+          one distinct gold-tinted callout for the boundaries — reusing the
+          exact device from the Puzzle & Exploration Kit callout in Section
+          3 — so the whole section stays well short of reading like a
+          compliance checklist or legal agreement, per the brief's specific
+          caution against that. */}
+      <section className="py-20 relative overflow-hidden">
+        <ChessBg variant="whychess" />
+        <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+              Supporting a great session
+            </span>
+            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+              What We Need From Schools
+            </h2>
+          </div>
+
+          <Reveal className="text-center mb-12">
+            <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
+              We know our activities; you know your pupils and your school. For us to plan and deliver an appropriate session, we need relevant, current information from you — enough to plan and deliver safely, not a comprehensive medical or educational history. Here's what that looks like in practice.
+            </p>
+          </Reveal>
+
+          <div className="space-y-1">
+            {schoolProvides.map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, x: -8 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.4, delay: (i % 3) * 0.06, ease: EASE }}
+                className="pl-4 pr-2 py-4 border-l-[3px] rounded-r-lg transition-colors duration-200 hover:bg-[#2D2520]/[0.025]"
+                style={{ borderColor: item.accent }}
+              >
+                <p className="font-fredoka text-[#2D2520] text-base leading-tight">{item.title}</p>
+                <p className="font-nunito text-[#2D2520]/55 text-sm leading-snug mt-1.5">{item.body}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Our boundaries */}
+          <Reveal className="mt-10 bg-[#E8A020]/5 border border-[#E8A020]/15 rounded-3xl p-7 sm:p-8" delay={0.1}>
+            <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">Our boundaries</h3>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+              Rook Foundations doesn't provide personal care, toileting or feeding assistance, medication administration, or physical restraint — these remain the responsibility of the school. Where an activity calls for reasonable, low-risk physical assistance directly related to it, a practitioner may provide that within their competence; anything beyond this stays with the school, and if an activity would need support we can't safely provide, we'll adapt it, replace it, or take a different approach instead.
+            </p>
+          </Reveal>
+
+          <Reveal className="mt-12" delay={0.15}>
+            <h3 className="font-fredoka text-[#2D2520] text-xl mb-4 leading-snug">A few more things worth knowing</h3>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+              We work within our own safeguarding responsibilities, and your school's safeguarding and emergency procedures remain important throughout delivery — if an immediate concern arises, the usual school procedure should be followed.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
+              If things on the day differ materially from what was agreed — particularly where agreed support isn't available — we may need to adapt the activity, adjust the group, or in some cases decide the session can't safely go ahead as planned. We'll always use our professional judgement to find a safe, appropriate way forward wherever we can.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
+              As part of the booking confirmation, you'll also confirm you have the authority to share this information with us. Where a Personalised Enrichment Review has been commissioned, relevant information and observations may inform that review too.
+            </p>
+          </Reveal>
+
+          <Reveal className="text-center mt-10" delay={0.2}>
+            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
+              That review — what it involves and how it's used — is something we'll cover next.
             </p>
           </Reveal>
         </div>
