@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import PeopleIcon from '@/components/pricing/PeopleIcon';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
@@ -151,6 +151,43 @@ const schoolProvides = [
     body: "If something changes materially before a session — who's attending, support arrangements, relevant health or safety circumstances, or information you'd previously given us — letting us know allows us to check the arrangement is still right. This isn't about flagging every small change, just anything that could genuinely affect the session.",
   },
 ];
+
+// What a Personalised Enrichment Review provides — same loose pill-cluster
+// treatment used for waysToParticipate and sessionProvideExamples.
+const reviewProvides = [
+  'Engagement and participation',
+  'Observed strengths',
+  'Relevant activities',
+  'Useful adaptations',
+  'Patterns across sessions',
+  'Future enrichment considerations',
+];
+
+// The ten-area skills framework, names only — the brief explicitly permits
+// skipping the full descriptions where that would make the page "unnecessarily
+// dense", and with ten items here that applies. A plain numbered reference
+// list rather than a card grid or pill cluster: this is closer to an index
+// than a set of interchangeable options, so light numbering (01–10) suits it
+// better than either of those other two already-used patterns.
+const skillsFramework = [
+  'Strategic Thinking',
+  'Problem-Solving',
+  'Planning',
+  'Decision-Making',
+  'Attention & Concentration',
+  'Memory & Recall',
+  'Creativity & Imagination',
+  'Communication & Social Interaction',
+  'Emotional Regulation & Resilience',
+  'Independence',
+];
+
+// How a review comes together — short labels connected by chevrons, reusing
+// the exact outcome-chain pattern already established (PersonalisedApproach's
+// Engagement → Thinking → Reflection → Development), since this is the same
+// shape of content: a short, genuinely sequential chain, not a multi-sentence
+// journey like the schoolJourney list above.
+const reviewSteps = ['Commission', '4+ sessions', 'Observations gathered', 'Review prepared', 'Sent to your school'];
 
 // Destination for the "Explore our approach to working with SEND pupils"
 // link on the Schools page. "What We Offer" is Section 2 of the wider SEND
@@ -616,6 +653,146 @@ export default function SendPupils() {
             <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
               That review — what it involves and how it's used — is something we'll cover next.
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Personalised Enrichment Review — Section 8. White/border-y like
+          Sections 2/4/6. This is the densest brief so far, so several
+          established devices are reused deliberately rather than inventing
+          new ones for each piece: the "Up to 6 pupils" stat-badge treatment
+          from Section 4 (swapped to a plain numeral) for "Minimum 4
+          sessions", the pill cluster from Sections 3/5 for what the review
+          provides, the outcome-chain pill+chevron pattern for the short
+          "how it works" sequence, and a small muted note (not the gold-
+          tinted "legitimate offer" callout used elsewhere) for the
+          boundary disclaimer — per the brief's explicit instruction that
+          this should be understated and not the section's dominant
+          feature. The ten-item skills framework is names only, no
+          descriptions, per the brief's own permission to avoid density. */}
+      <section className="py-20 bg-white border-y border-[#2D2520]/8 relative overflow-hidden">
+        <ChessBg variant="training" />
+        <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+              An optional add-on
+            </span>
+            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+              Personalised Enrichment Review
+            </h2>
+          </div>
+
+          <Reveal className="text-center">
+            <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
+              A Personalised Enrichment Review summarises what we've observed through a pupil's Rook Foundations enrichment sessions — a personalised overview of their engagement, participation and observed strengths, including the activities and skills that stood out most during the review period.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed mt-4">
+              Activities throughout are selected with the individual pupil and group in mind, focused on creating enjoyable, accessible and engaging opportunities to participate, explore and build on a range of skills through games and activities. The review reflects that same approach — it's an observation-based enrichment summary, not a formal assessment.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed mt-4">
+              It's an optional add-on, not something every pupil automatically receives. It can be commissioned when you first arrange a block of sessions, or partway through one, and we'll always agree this with you explicitly beforehand.
+            </p>
+          </Reveal>
+
+          {/* Minimum 4 sessions */}
+          <Reveal className="flex flex-col items-center mt-10" delay={0.05}>
+            <div className="w-16 h-16 rounded-2xl bg-[#E8A020]/10 flex items-center justify-center mb-4">
+              <span className="font-fredoka text-[#E8A020] text-2xl">4</span>
+            </div>
+            <p className="font-fredoka text-[#2D2520] text-2xl">Minimum 4 sessions</p>
+            <p className="font-nunito text-[#2D2520]/55 text-sm mt-1.5 max-w-sm text-center leading-relaxed">
+              Enough opportunity to observe a pupil across more than a single encounter — not a guarantee that a particular conclusion will follow.
+            </p>
+          </Reveal>
+
+          {/* What it provides */}
+          <Reveal className="mt-14 text-center" delay={0.1}>
+            <h3 className="font-fredoka text-[#2D2520] text-xl mb-6 leading-snug">What it provides</h3>
+            <div className="flex flex-wrap items-center justify-center gap-2.5">
+              {reviewProvides.map((item) => (
+                <span
+                  key={item}
+                  className="font-nunito text-[#2D2520] text-sm font-700 bg-[#E8A020]/10 border border-[#E8A020]/20 rounded-full px-4 py-2 whitespace-nowrap"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </Reveal>
+
+          {/* Skills framework */}
+          <Reveal className="mt-14" delay={0.15}>
+            <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 text-center leading-snug">A broad skills framework</h3>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed text-center max-w-xl mx-auto">
+              To help organise what we observe, we use a broad skills framework — descriptive areas we look at, not a formal assessment framework:
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 max-w-lg mx-auto mt-6">
+              {skillsFramework.map((skill, i) => (
+                <div key={skill} className="flex items-baseline gap-3">
+                  <span className="font-nunito text-[#E8A020]/60 text-xs font-800 flex-shrink-0">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="font-fredoka text-[#2D2520] text-base leading-snug">{skill}</span>
+                </div>
+              ))}
+            </div>
+            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed text-center max-w-xl mx-auto mt-6">
+              These help structure our observations — they're descriptive, not scored, graded or diagnostic. For each relevant activity, the review can describe the kind of skill or engagement it offered an opportunity for, alongside what we actually observed during it — connecting what we did with what we saw, rather than assuming any activity automatically produces a particular skill.
+            </p>
+          </Reveal>
+
+          {/* What's in the final review */}
+          <Reveal className="mt-12" delay={0.2}>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+              Where commissioned, the finished review typically covers why it was commissioned, the approach and period involved, the activities and skills that were relevant, what we observed about engagement and participation, strengths, any adaptations that supported participation, and any meaningful patterns or changes across the sessions — closing with a concise overall summary and some practical considerations for future Rook Foundations enrichment.
+            </p>
+          </Reveal>
+
+          {/* How the review is written */}
+          <Reveal className="mt-10" delay={0.25}>
+            <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">How the review is written</h3>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+              The review is based primarily on what we directly observe through our own sessions, alongside our practitioner's records. Relevant information the school has already shared with us may inform the context where it's genuinely relevant, but we don't reinterpret or expand on it — the review stays a factual, evidence-based Rook Foundations observational document, without scores, grades or diagnostic categories.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
+              It's genuinely personalised to the pupil rather than a generic description of the activities on offer, written in plain, accessible language suitable for sharing with parents and carers through your school's usual process, and sent to the authorised recipient(s) agreed when the review is commissioned.
+            </p>
+          </Reveal>
+
+          {/* How it works */}
+          <Reveal className="mt-14 text-center" delay={0.3}>
+            <h3 className="font-fredoka text-[#2D2520] text-xl mb-6 leading-snug">How it works</h3>
+            <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-3">
+              {reviewSteps.map((step, i) => (
+                <Fragment key={step}>
+                  <span className="font-nunito text-[#2D2520] text-sm font-700 bg-[#E8A020]/10 border border-[#E8A020]/20 rounded-full px-4 py-2 whitespace-nowrap">
+                    {step}
+                  </span>
+                  {i < reviewSteps.length - 1 && <ChevronRight size={16} className="text-[#E8A020]/50 flex-shrink-0" aria-hidden="true" />}
+                </Fragment>
+              ))}
+            </div>
+            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto mt-6">
+              We aim to have the finished review with you within 10 working days of the final observation, letting you know if more time is ever needed.
+            </p>
+          </Reveal>
+
+          {/* Important distinction — small and understated by design, not
+              the section's dominant feature. */}
+          <div className="max-w-md mx-auto mt-10 pt-6 border-t border-[#2D2520]/8 text-center">
+            <p className="font-nunito text-[#2D2520]/50 text-xs leading-relaxed italic">
+              An enrichment-based observational review — not a diagnostic, therapeutic or formal educational assessment.
+            </p>
+          </div>
+
+          <Reveal className="text-center mt-8" delay={0.1}>
+            <MotionLink
+              whileTap={ctaTap}
+              to="/contact"
+              onClick={() => window.scrollTo(0, 0)}
+              className="group inline-flex items-center gap-1.5 font-nunito text-[#E8A020] text-sm font-700 hover:text-[#b8790a] transition-colors"
+            >
+              Ask about a Personalised Enrichment Review
+              <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+            </MotionLink>
           </Reveal>
         </div>
       </section>
