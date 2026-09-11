@@ -44,6 +44,41 @@ const offerAreas = [
 // move through them in any particular order.
 const waysToParticipate = ['Play', 'Observe', 'Explore', 'Work independently', 'Take a smaller role', 'Try an alternative', 'Return later'];
 
+// Examples only, per the brief — same loose pill-cluster treatment as
+// waysToParticipate, deliberately not framed as a menu a school must pick
+// from (the paragraph beneath makes that explicit).
+const sessionProvideExamples = [
+  'Enjoyable enrichment',
+  'Trying strategy games',
+  'Something new to experience',
+  'Meaningful engagement',
+  'Success and independence',
+  'Puzzles and problem-solving',
+  'Participating alongside others',
+];
+
+// When activity decisions actually happen — reuses the Schools page's
+// DeliveryRow left-accent treatment (flat, no card background) since this
+// is the same shape of content: a small set of related options, not
+// products to compare.
+const planningMoments = [
+  {
+    accent: '#c9860f',
+    title: 'Before the session',
+    body: "Using what you've told us about the pupils and our own knowledge of the activities available.",
+  },
+  {
+    accent: '#2a8c88',
+    title: 'At the start',
+    body: 'By seeing how pupils respond to the introduction, the environment and the activity itself.',
+  },
+  {
+    accent: '#c05050',
+    title: 'During the session',
+    body: 'By responding to engagement, interests, strengths or difficulties as they come up.',
+  },
+];
+
 // Destination for the "Explore our approach to working with SEND pupils"
 // link on the Schools page. "What We Offer" is Section 2 of the wider SEND
 // project — the introductory hero is Section 1's own content, restated
@@ -274,6 +309,96 @@ export default function SendPupils() {
           <Reveal className="text-center mt-10" delay={0.25}>
             <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
               Once the right group or individual arrangement has been found, the next question is what happens within it — and that's something we consider just as carefully, based on the pupils and circumstances.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* How Activities Are Chosen — Section 5. Cream/inherited background,
+          continuing the alternating rhythm after Small Groups' white/
+          border-y. Reuses two already-established patterns rather than
+          inventing new ones: the pill cluster from "ways of participating"
+          (Section 3) for the school's illustrative examples, and the
+          left-accent-row list from Flexible Delivery (Schools page) for the
+          before/at-the-start/during timing breakdown — deliberately NOT a
+          numbered "workflow" diagram, per the brief's caution against
+          making this look like a rigid automated process. */}
+      <section className="py-20 relative overflow-hidden">
+        <ChessBg variant="testimonials" />
+        <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+              Planning the session
+            </span>
+            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+              How Activities Are Chosen
+            </h2>
+          </div>
+
+          <Reveal className="text-center">
+            <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
+              You don't need to choose the game. Tell us what you'd like the session to provide and give us the relevant information about the pupils taking part, and we'll use our knowledge of the activities, resources and professional judgement to work out what's likely to be most appropriate.
+            </p>
+          </Reveal>
+
+          {/* Tell us what you'd like the session to provide */}
+          <Reveal className="mt-14" delay={0.05}>
+            <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 text-center leading-snug">Tell us what you'd like the session to provide</h3>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed text-center max-w-xl mx-auto mb-6">
+              During an initial conversation, we'll usually ask what you'd like the session to provide for your pupils — things like:
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-2.5">
+              {sessionProvideExamples.map((example) => (
+                <span
+                  key={example}
+                  className="font-nunito text-[#2D2520] text-sm font-700 bg-[#E8A020]/10 border border-[#E8A020]/20 rounded-full px-4 py-2 whitespace-nowrap"
+                >
+                  {example}
+                </span>
+              ))}
+            </div>
+            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed text-center max-w-xl mx-auto mt-6">
+              These are examples only — you don't need to specify a particular game or activity; that's something we'll work out together. We'll also ask for relevant information about the pupils themselves — the kind that helps us understand how they're likely to participate and what might support their engagement, rather than a detailed personal history.
+            </p>
+          </Reveal>
+
+          {/* We select the activities */}
+          <Reveal className="mt-14" delay={0.1}>
+            <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">We select the activities</h3>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+              Once we understand what you're looking for, deciding which activity or combination of activities is likely to work well is something we take responsibility for. That decision draws on pupils' interests, strengths and likely independence, group dynamics, anticipated support needs, complexity, pace, accessibility and the environment, alongside anything relevant you've told us. It's professional planning, not a formal assessment — we're not diagnosing or evaluating a pupil, simply using the information available to plan a session that's likely to work well.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
+              There's no single activity that suits every pupil with a particular need or profile, so we don't work from a fixed formula matching a diagnosis to an activity. The same game might be a great fit for one pupil and the wrong choice for another — and the right choice for the same pupil can change from one session to the next.
+            </p>
+          </Reveal>
+
+          {/* Plan, adapt and respond */}
+          <Reveal className="mt-14" delay={0.15}>
+            <h3 className="font-fredoka text-[#2D2520] text-xl mb-4 leading-snug">Plan, adapt and respond</h3>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mb-6">
+              Planning happens throughout, not just once, before a session begins:
+            </p>
+            <div className="space-y-1">
+              {planningMoments.map((moment) => (
+                <div
+                  key={moment.title}
+                  className="pl-4 pr-2 py-3 border-l-[3px] rounded-r-lg"
+                  style={{ borderColor: moment.accent }}
+                >
+                  <p className="font-fredoka text-[#2D2520] text-base leading-tight">{moment.title}</p>
+                  <p className="font-nunito text-[#2D2520]/55 text-sm leading-snug mt-1.5">{moment.body}</p>
+                </div>
+              ))}
+            </div>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-6">
+              A planned activity is a starting point, not a fixed commitment. If it isn't working the way we hoped, we can adapt it, change how it's presented, introduce something else, or move to a different activity altogether — the same flexibility described in how pupils can take part. The activity is there to provide the enrichment; it's never the point in itself, so if a different approach would give a pupil a more meaningful experience, that's what we'll do.
+            </p>
+          </Reveal>
+
+          <Reveal className="text-center mt-12" delay={0.2}>
+            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
+              Once we understand the pupils, the circumstances and what you're hoping the session will provide, the next step is working with you to plan it — from that first conversation through to delivery.
             </p>
           </Reveal>
         </div>
