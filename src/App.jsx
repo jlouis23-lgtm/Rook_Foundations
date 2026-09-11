@@ -26,6 +26,7 @@ import CookiesPolicy from './pages/CookiesPolicy';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Events from './pages/Events';
 import Schools from './pages/Schools';
+import SendPupils from './pages/SendPupils';
 import PlayHome from './pages/play/PlayHome';
 import PlayManageProfiles from './pages/play/PlayManageProfiles';
 import PlayDashboard from './pages/play/PlayDashboard';
@@ -52,6 +53,7 @@ const AppRoutes = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/clubs" element={<Events />} />
         <Route path="/schools" element={<Schools />} />
+        <Route path="/schools/send" element={<SendPupils />} />
       </Route>
       <Route element={<ProtectedRoute unauthenticatedElement={<PlaySignInPrompt />} />}>
         <Route element={<PlayLayout />}>
