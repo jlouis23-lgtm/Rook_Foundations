@@ -515,7 +515,7 @@ export default function SendPupils() {
               How sessions are structured
             </span>
             <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-              Small Groups &amp; Individual Sessions
+              Small Groups and Individual Sessions
             </h2>
           </div>
 
@@ -961,7 +961,7 @@ export default function SendPupils() {
               How we operate
             </span>
             <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-              Our Approach &amp; Professional Boundaries
+              Our Approach and professional Boundaries
             </h2>
           </div>
 
@@ -1063,7 +1063,7 @@ export default function SendPupils() {
               The commercial side
             </span>
             <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-              Pricing &amp; Booking
+              Pricing and Booking
             </h2>
           </div>
 
