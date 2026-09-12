@@ -1,6 +1,6 @@
 import { Fragment, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronRight, GraduationCap, BookOpen, ShieldCheck } from 'lucide-react';
+import { ArrowRight, ChevronRight, GraduationCap, BookOpen, ShieldCheck, MessageCircle } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import PeopleIcon from '@/components/pricing/PeopleIcon';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
@@ -283,6 +283,56 @@ const pricingFaqs = [
   {
     q: "What if Rook Foundations can't deliver a session?",
     a: "If we're genuinely unable to deliver a session ourselves, there's no charge for it, and we'll look at rearranging where practical. Sessions that have already gone ahead remain chargeable as normal.",
+  },
+];
+
+// Section 11 FAQs — verbatim per the brief, in the given order, only
+// normalising "1 to 1" to "1-to-1" to match the hyphenation already used
+// consistently everywhere else on this page.
+const sendFaqs = [
+  {
+    q: 'Do pupils need a diagnosis to take part?',
+    a: 'No. A formal diagnosis is not required. We consider each pupil or group individually, based on their circumstances, needs, strengths and the type of session being planned.',
+  },
+  {
+    q: 'How many pupils can attend?',
+    a: 'SEND sessions are normally provided for groups of up to 6 pupils. Smaller groups can be arranged where greater individual attention is helpful, and there is no fixed minimum group size.',
+  },
+  {
+    q: 'Can you provide 1-to-1 sessions?',
+    a: '1-to-1 sessions can be arranged where this is appropriate for the pupil and the planned activity.',
+  },
+  {
+    q: 'Does a member of school staff need to be present?',
+    a: "Appropriate school staff should remain available to provide any support that falls outside Rook Foundations' role, including personal care, medication, emergency support and other agreed needs. Rook Foundations leads the content and delivery of the session.",
+  },
+  {
+    q: 'Can pupils choose not to participate in the main activity?',
+    a: 'Yes. Participation can be flexible. A pupil may observe, take a smaller role, work independently, explore an alternative activity or return to the main activity later. An alternative activity is a legitimate way of participating, not a failure to engage.',
+  },
+  {
+    q: 'Can activities be changed during the session?',
+    a: 'Yes. Activities are planned around the pupil or group but are not fixed. Practitioners use their professional judgement to adapt, change, replace or develop activities during a session where this supports engagement, participation, suitability or safety.',
+  },
+  {
+    q: 'Can you work with pupils with complex needs?',
+    a: 'Potentially, depending on the individual circumstances and the support required. We consider suitability on a case by case basis and work within our competence, capacity and professional boundaries. Where a need falls outside these boundaries, we will discuss what arrangement may be appropriate or whether the session should proceed.',
+  },
+  {
+    q: 'Do you provide personal care or medication support?',
+    a: 'No. Rook Foundations does not provide personal care, medication administration or management, or physical restraint. These responsibilities remain with the school or appropriately qualified professionals.',
+  },
+  {
+    q: 'Can parents receive information about the session?',
+    a: "Yes, where appropriate. We can communicate with parents or carers about a pupil's participation and observations within appropriate professional boundaries. A formal Personalised Enrichment Review is provided to the school, which decides whether and how it should be shared with parents or carers.",
+  },
+  {
+    q: 'What is a Personalised Enrichment Review?',
+    a: 'A Personalised Enrichment Review is an optional paid add-on available after a minimum of 4 sessions. It provides a pupil specific, observation based summary of engagement, participation and observed strengths, including relevant activities and skills. It is not a diagnostic, therapeutic or formal educational assessment.',
+  },
+  {
+    q: 'How do we arrange a session?',
+    a: 'Simply get in touch to start a conversation. We will discuss what you would like the session to provide, gather the relevant information about the pupils and group, and use this to plan an appropriate session. Once the arrangements are agreed, we will provide a formal booking confirmation.',
   },
 ];
 
@@ -1080,6 +1130,52 @@ export default function SendPupils() {
               <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
             </MotionLink>
           </Reveal>
+        </div>
+      </section>
+
+      {/* FAQs — Section 11. This is a direct structural reuse of the
+          homepage's FAQSection.jsx: same section wrapper (py-24,
+          bg-[#F5F3EE], ChessBg "faq"), same max-w-3xl heading block (down
+          to the text-amber-700 eyebrow colour, which is that component's
+          own one-off rather than the site's usual text-[#b8790a]), the same
+          border-t/divide-y FAQAccordionItem list with variant="default",
+          and the same closing CTA shape (muted prompt line + solid gold
+          MessageCircle button) — not a new FAQ design, per the brief's
+          explicit instruction. The homepage's own extra links (research
+          page, chess-FAQ toggle) are homepage-specific asides and aren't
+          reused here, since the brief also says not to add anything beyond
+          what's genuinely needed. FAQSection.jsx itself is untouched. */}
+      <section className="py-24 bg-[#F5F3EE] relative overflow-hidden">
+        <ChessBg variant="faq" />
+        <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
+          <Reveal className="text-center mb-14">
+            <span className="inline-flex items-center gap-1.5 font-nunito text-amber-700 text-sm font-800 uppercase tracking-widest mb-4">
+              Questions from schools like yours
+            </span>
+            <h2 className="font-fredoka text-[#2D2520] leading-tight mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+              FAQs
+            </h2>
+            <p className="font-nunito text-[#2D2520]/55 text-base leading-relaxed max-w-xl mx-auto">
+              The practical questions schools most often ask before getting in touch about SEND enrichment.
+            </p>
+          </Reveal>
+
+          <div className="border-t border-[#2D2520]/10 divide-y divide-[#2D2520]/10 mb-12">
+            {sendFaqs.map((faq, i) => <FAQAccordionItem key={i} question={faq.q} answer={faq.a} variant="default" />)}
+          </div>
+
+          <div className="text-center space-y-6">
+            <p className="font-nunito text-[#2D2520]/50 text-sm font-600">Still have a question? We'd love to help.</p>
+            <MotionLink
+              whileTap={ctaTap}
+              to="/contact"
+              onClick={() => window.scrollTo(0, 0)}
+              className="inline-flex items-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-base px-8 py-3.5 rounded-2xl hover:bg-[#d4940e] transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#E8A020]/25"
+            >
+              <MessageCircle size={18} />
+              Start a conversation
+            </MotionLink>
+          </div>
         </div>
       </section>
 
