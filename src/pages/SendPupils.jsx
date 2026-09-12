@@ -5,6 +5,7 @@ import ChessBg from '@/components/ui/ChessBg';
 import PeopleIcon from '@/components/pricing/PeopleIcon';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import Reveal from '@/components/ui/Reveal';
+import FAQAccordionItem from '@/components/ui/FAQAccordionItem';
 import { usePageMeta } from '@/hooks/use-page-meta';
 
 const EASE = [0.22, 1, 0.36, 1];
@@ -252,6 +253,36 @@ const professionalStandards = [
   {
     Icon: ShieldCheck,
     text: 'Public liability insurance in place for our educational activities.',
+  },
+];
+
+// Group-size tiers, 1-to-1 through the Section 4-established maximum of six
+// — plain pills, no prices, per the brief's explicit instruction not to
+// invent figures that haven't been confirmed anywhere on the site.
+const groupSizeTiers = ['1-to-1', '2 pupils', '3 pupils', '4 pupils', '5 pupils', '6 pupils'];
+
+// Changes/cancellation/rescheduling/non-delivery — the brief itself
+// suggests "a small FAQ-style or expandable treatment", and the site
+// already has a purpose-built accordion component (FAQAccordionItem) used
+// elsewhere for exactly this "collapsed by default, expand for detail"
+// need, so it's reused directly rather than building a new disclosure
+// pattern for this one section.
+const pricingFaqs = [
+  {
+    q: 'What if we need to change the arrangement?',
+    a: "If a change would increase the cost — a bigger group, for example — we'll confirm the revised price with you before the new arrangement is agreed. If a change would reduce the cost, the originally confirmed fee still applies. And if a change wouldn't affect the price but does materially affect the arrangement, we'll confirm it's still feasible before going ahead.",
+  },
+  {
+    q: "What's your cancellation policy?",
+    a: "Cancelling 72 hours or more before the session carries no charge. Cancelling with less than 72 hours' notice means the full confirmed booking fee remains payable, since we'll have already reserved that time for your session.",
+  },
+  {
+    q: 'Can we reschedule instead of cancelling?',
+    a: "Yes — requested 72 hours or more in advance, we're happy to look at rescheduling, subject to availability and confirming the new arrangement. With less than 72 hours' notice, the original booking remains chargeable, and if the new arrangement costs more, the revised price applies once it's confirmed.",
+  },
+  {
+    q: "What if Rook Foundations can't deliver a session?",
+    a: "If we're genuinely unable to deliver a session ourselves, there's no charge for it, and we'll look at rearranging where practical. Sessions that have already gone ahead remain chargeable as normal.",
   },
 ];
 
@@ -959,6 +990,95 @@ export default function SendPupils() {
             <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
               That's the professional framework behind everything we've described — next, how the service can be arranged and priced.
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Pricing & Booking — Section 10. White/border-y, continuing the
+          alternating rhythm after Section 9's inherited cream. No SEND-
+          specific prices exist anywhere on the site to reuse, so the
+          group-size tiers are shown as plain pills with no figures, per
+          the brief's explicit instruction not to invent them — schools are
+          pointed to an enquiry for an actual quotation instead. The
+          changes/cancellation/rescheduling/non-delivery content reuses the
+          site's existing FAQAccordionItem component (compact variant, as
+          already used for page-specific FAQ lists) rather than a wall of
+          policy prose, per the brief's own suggestion of "a small FAQ-style
+          or expandable treatment". */}
+      <section className="py-20 bg-white border-y border-[#2D2520]/8 relative overflow-hidden">
+        <ChessBg variant="legal" />
+        <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+              The commercial side
+            </span>
+            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+              Pricing &amp; Booking
+            </h2>
+          </div>
+
+          <Reveal className="text-center">
+            <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
+              SEND enrichment is priced according to two things: the length of the session, and the size of the group booked. Because smaller groups and 1-to-1 sessions need greater practitioner capacity and allow more individual attention, the cost per pupil increases as the group gets smaller.
+            </p>
+          </Reveal>
+
+          {/* Group-size tiers */}
+          <Reveal className="mt-10 text-center" delay={0.05}>
+            <div className="flex flex-wrap items-center justify-center gap-2.5">
+              {groupSizeTiers.map((tier) => (
+                <span
+                  key={tier}
+                  className="font-nunito text-[#2D2520] text-sm font-700 bg-[#E8A020]/10 border border-[#E8A020]/20 rounded-full px-4 py-2 whitespace-nowrap"
+                >
+                  {tier}
+                </span>
+              ))}
+            </div>
+            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto mt-6">
+              We don't publish a fixed price list for SEND enrichment, since the right arrangement depends on the group, duration and circumstances involved — get in touch and we'll provide a quotation for your school.
+            </p>
+          </Reveal>
+
+          {/* Booking basics */}
+          <Reveal className="mt-14" delay={0.1}>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+              The confirmed booking is based on the group size agreed in advance, not simply the number of pupils who attend on the day — if fewer pupils take part than booked, the original fee still applies, since we've reserved that capacity for your session.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
+              A session becomes a formal booking once we issue a booking confirmation and you accept it, covering the date, time, duration, group size, fee and other agreed arrangements, as described in Working With Your School. The intended activity is always provisional, and can be adapted or replaced through the practitioner's professional judgement — pricing depends on the group size and duration you've booked, never on which activity happens to be used.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
+              Where possible, we'd recommend getting in touch at least a week ahead of when you'd like a session to take place, though shorter-notice requests can sometimes be accommodated too.
+            </p>
+          </Reveal>
+
+          {/* Changes, cancellation & rescheduling */}
+          <Reveal className="mt-14" delay={0.15}>
+            <h3 className="font-fredoka text-[#2D2520] text-xl mb-2 text-center leading-snug">Changes, cancellation &amp; rescheduling</h3>
+            <div className="divide-y divide-[#2D2520]/8 mt-4">
+              {pricingFaqs.map((faq) => (
+                <FAQAccordionItem key={faq.q} question={faq.q} answer={faq.a} variant="compact" />
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal className="text-center mt-12" delay={0.2}>
+            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
+              A Personalised Enrichment Review is priced separately from ordinary sessions and can be commissioned when you first arrange sessions or partway through a block — get in touch to discuss the fee.
+            </p>
+          </Reveal>
+
+          <Reveal className="text-center mt-8" delay={0.25}>
+            <MotionLink
+              whileTap={ctaTap}
+              to="/contact"
+              onClick={() => window.scrollTo(0, 0)}
+              className="group inline-flex items-center gap-1.5 font-nunito text-[#E8A020] text-sm font-700 hover:text-[#b8790a] transition-colors"
+            >
+              Ask us for a quotation
+              <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+            </MotionLink>
           </Reveal>
         </div>
       </section>
