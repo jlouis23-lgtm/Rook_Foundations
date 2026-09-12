@@ -1,6 +1,6 @@
 import { Fragment, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronRight, GraduationCap, BookOpen, ShieldCheck } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import PeopleIcon from '@/components/pricing/PeopleIcon';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
@@ -188,6 +188,72 @@ const skillsFramework = [
 // shape of content: a short, genuinely sequential chain, not a multi-sentence
 // journey like the schoolJourney list above.
 const reviewSteps = ['Commission', '4+ sessions', 'Observations gathered', 'Review prepared', 'Sent to your school'];
+
+// The seven guiding principles. Left-accent-row treatment again (fourth
+// reuse on this page) rather than seven cards — these are guiding
+// principles, not a formal academic framework, so the flattest, calmest
+// existing pattern fits better than another card grid. Six-colour rotation
+// cycles once (principle 7 repeats principle 1's colour) since there are
+// seven items and six established colours.
+const principles = [
+  {
+    accent: '#2d8c62',
+    title: 'Pupil Experience Comes First',
+    body: "The quality of a pupil's experience, participation and engagement is central to every decision we make.",
+  },
+  {
+    accent: '#4a7eb8',
+    title: 'Strengths-Based Practice',
+    body: 'We focus on what pupils can do, what interests them, and where they show strength.',
+  },
+  {
+    accent: '#7a48c0',
+    title: 'Individualised Practice',
+    body: "Activities and approaches are considered for the individual pupil or group, not assumed from a diagnosis or category.",
+  },
+  {
+    accent: '#c05050',
+    title: 'Accessibility & Inclusion',
+    body: 'We work to make activities accessible and create genuine opportunities for participation.',
+  },
+  {
+    accent: '#2a8c88',
+    title: 'Dignity & Respect',
+    body: 'Pupils are treated with respect and are never pressured into participation that feels inappropriate or distressing.',
+  },
+  {
+    accent: '#c9860f',
+    title: 'Within Competence & Capacity',
+    body: 'We work within our competence and capacity, and recognise when something falls outside our role.',
+  },
+  {
+    accent: '#2d8c62',
+    title: 'Evidence-Informed, Continually Developing Practice',
+    body: 'Our practice develops through experience, reflection, professional learning and feedback.',
+  },
+];
+
+// Professional standards — quiet icon-led chips, same treatment as the
+// Schools page hero's single "Professional Membership" note, extended to
+// three items. Wording matches what's already established elsewhere on the
+// site (HeroSection/FAQSection for nasen, Schools.jsx for the Chartered
+// College membership) rather than inventing new phrasing; the public
+// liability line uses the same factual, no-figure wording established when
+// that reassurance was originally approved for the Schools page.
+const professionalStandards = [
+  {
+    Icon: BookOpen,
+    text: "Member of nasen, the UK's leading professional membership organisation for SEND.",
+  },
+  {
+    Icon: GraduationCap,
+    text: 'Professional Affiliate Member of the Chartered College of Teaching.',
+  },
+  {
+    Icon: ShieldCheck,
+    text: 'Public liability insurance in place for our educational activities.',
+  },
+];
 
 // Destination for the "Explore our approach to working with SEND pupils"
 // link on the Schools page. "What We Offer" is Section 2 of the wider SEND
@@ -793,6 +859,106 @@ export default function SendPupils() {
               Ask about a Personalised Enrichment Review
               <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
             </MotionLink>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Our Approach & Professional Boundaries — Section 9. Cream/inherited
+          background, continuing the alternating rhythm after Section 8's
+          white/border-y. "Clear boundaries" deliberately does NOT repeat
+          Section 7's "Our boundaries" callout in full — it's a short
+          cross-reference/reinforcement instead, per the brief's caution
+          against repeating earlier content. Professional standards reuses
+          the Schools page hero's exact icon-chip device, extended from one
+          item to three, with wording pulled from what's already established
+          elsewhere on the site rather than rephrased fresh. */}
+      <section className="py-20 relative overflow-hidden">
+        <ChessBg variant="references" />
+        <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+              How we operate
+            </span>
+            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+              Our Approach &amp; Professional Boundaries
+            </h2>
+          </div>
+
+          <Reveal className="text-center">
+            <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
+              Rook Foundations provides inclusive enrichment, not specialist SEND provision. Our role is to create genuine opportunities for pupils to enjoy games and activities, participate meaningfully, explore their interests, experience challenge and success, and engage with others — not to provide specialist SEND teaching, therapy, clinical intervention, diagnosis, formal assessment, medical provision or personal care.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed mt-4">
+              We approach every pupil as an individual, working from their strengths, interests and engagement rather than a deficit-based view of what they can't do. We don't assume that pupils with SEND all need the same adaptations or activities — the aim is always an appropriate opportunity for meaningful participation, shaped around the pupil in front of us.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed mt-4">
+              Our practitioners use professional judgement throughout — there's no rigid script for every session. They can select and adapt activities, change pace or grouping, modify equipment, introduce alternatives, or respond to what they observe as a session unfolds, all within a clear professional framework of established principles, safeguarding, safety and competence.
+            </p>
+          </Reveal>
+
+          {/* Our principles */}
+          <Reveal className="mt-14" delay={0.05}>
+            <h3 className="font-fredoka text-[#2D2520] text-xl mb-6 text-center leading-snug">Our principles</h3>
+            <div className="space-y-1 max-w-2xl mx-auto">
+              {principles.map((principle, i) => (
+                <div
+                  key={principle.title}
+                  className="pl-4 pr-2 py-3 border-l-[3px] rounded-r-lg transition-colors duration-200 hover:bg-[#2D2520]/[0.025]"
+                  style={{ borderColor: principle.accent }}
+                >
+                  <p className="font-fredoka text-[#2D2520] text-base leading-tight">{i + 1}. {principle.title}</p>
+                  <p className="font-nunito text-[#2D2520]/55 text-sm leading-snug mt-1.5">{principle.body}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          {/* Working within our role */}
+          <Reveal className="mt-14" delay={0.1}>
+            <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">Working within our role</h3>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+              Knowing the limits of our role is what allows us to provide this service responsibly. Where a pupil's needs or circumstances sit outside our competence or capacity, we'll consider whether an appropriate arrangement is possible — a different activity, a reasonable adaptation, a smaller group, or additional school support. Where no safe, suitable arrangement exists, we may decline or step back from a proposed session — not out of reluctance to work with a pupil, but because that's the responsible thing to do.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
+              Suitability is always considered case by case rather than assumed. Where something calls for specialist SEND, medical, therapeutic or other professional expertise outside our role, that responsibility remains with the school or an appropriately qualified professional — we may seek external advice where it's helpful, but decisions about our own provision remain ours.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
+              When we describe our practice as evidence-informed, we mean it develops through practitioner observation, repeated experience, feedback from schools, relevant professional learning and trialling activities — not that we provide evidence-based therapy or clinical intervention, or that particular games are backed by SEND research.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
+              Our practice continues to develop over time, shaped by experience, reflection, relevant professional learning and feedback, with priorities guided by what's most relevant to our current provision and where it would genuinely help.
+            </p>
+          </Reveal>
+
+          {/* Professional standards */}
+          <Reveal className="mt-14 pt-8 border-t border-[#2D2520]/8" delay={0.15}>
+            <h3 className="font-fredoka text-[#2D2520] text-xl mb-6 text-center leading-snug">Professional standards</h3>
+            <div className="flex flex-col gap-3 max-w-md mx-auto">
+              {professionalStandards.map(({ Icon, text }) => (
+                <div key={text} className="flex items-start gap-2.5">
+                  <Icon size={15} className="text-[#E8A020] flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{text}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          {/* Clear boundaries — short cross-reference to Section 7, not a
+              re-explanation. */}
+          <Reveal className="mt-12 bg-[#E8A020]/5 border border-[#E8A020]/15 rounded-3xl p-7 sm:p-8" delay={0.2}>
+            <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">Clear boundaries</h3>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+              As with the rest of our SEND provision, personal care, medication administration and physical restraint sit outside our role and remain the school's responsibility — a boundary we've set out already, and one we hold to consistently. Where an activity calls for reasonable, low-risk physical assistance directly connected to it, a practitioner may provide that within their competence; anything more stays with the school.
+            </p>
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
+              We also work within our own safeguarding responsibilities, alongside your school's safeguarding and emergency procedures, which remain relevant throughout delivery.
+            </p>
+          </Reveal>
+
+          <Reveal className="text-center mt-10" delay={0.25}>
+            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
+              That's the professional framework behind everything we've described — next, how the service can be arranged and priced.
+            </p>
           </Reveal>
         </div>
       </section>
