@@ -79,7 +79,7 @@ function Heading() {
         The Rook Foundations Learning Pyramid
       </h2>
       <p className="font-nunito text-[#2D2520]/55 text-base mt-3 leading-relaxed">
-        Every session follows the same six-stage journey, helping children progress from feeling understood to confidently applying their learning beyond the game.
+        The Rook Foundations Learning Framework has been informed by established approaches to child-centred and relational practice, including the PACE model developed by Dr Dan Hughes. We have drawn on these principles as one source of inspiration when developing our own approach to creating positive, engaging and responsive learning experiences through games and activities.
       </p>
     </div>
   );
@@ -238,6 +238,28 @@ export default function LearningJourney() {
 
       <div className="hidden sm:block">
         <DesktopPyramid />
+      </div>
+
+      {/* Scholarly reference for the PACE model cited above — kept visually
+          secondary (small, muted, bordered off from the framework itself)
+          matching the site's other quiet disclaimer notes rather than
+          reading as marketing copy. */}
+      <div className="max-w-2xl mx-auto mt-8 sm:mt-10 pt-5 border-t border-[#2D2520]/8">
+        <p className="font-nunito text-[#2D2520]/45 text-xs leading-relaxed">
+          Reference: Hughes, D. A. (2017).{' '}
+          <a
+            href="https://www.bloomsbury.com/us/9781442274136/Building-the-Bonds-of-Attachment-Awakening-Love-in-Deeply-Traumatized-Children-Third-Edition"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-[#2D2520]/20 hover:decoration-[#2D2520]/50 hover:text-[#2D2520]/65 transition-colors"
+          >
+            Building the Bonds of Attachment: Awakening Love in Deeply Traumatized Children
+          </a>{' '}
+          (3rd ed.). Rowman &amp; Littlefield.
+        </p>
+        <p className="font-nunito text-[#2D2520]/40 text-xs italic leading-relaxed mt-2.5">
+          Context: The Rook Foundations Learning Framework is our own educational framework. It has been developed for use through games and activities and has been informed by a range of child-centred, relational and educational approaches, including principles associated with PACE.
+        </p>
       </div>
     </div>
   );
