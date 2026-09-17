@@ -246,16 +246,7 @@ export default function LearningJourney() {
           reading as marketing copy. */}
       <div className="max-w-2xl mx-auto mt-8 sm:mt-10 pt-5 border-t border-[#2D2520]/8">
         <p className="font-nunito text-[#2D2520]/45 text-xs leading-relaxed">
-          Reference: Hughes, D. A. (2017).{' '}
-          <a
-            href="https://www.bloomsbury.com/us/9781442274136/Building-the-Bonds-of-Attachment-Awakening-Love-in-Deeply-Traumatized-Children-Third-Edition"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline decoration-[#2D2520]/20 hover:decoration-[#2D2520]/50 hover:text-[#2D2520]/65 transition-colors"
-          >
-            Building the Bonds of Attachment: Awakening Love in Deeply Traumatized Children
-          </a>{' '}
-          (3rd ed.). Rowman &amp; Littlefield.
+          Reference: Hughes, D. A. (2017). Building the Bonds of Attachment: Awakening Love in Deeply Traumatized Children (3rd ed.). Rowman &amp; Littlefield.
         </p>
         <p className="font-nunito text-[#2D2520]/40 text-xs italic leading-relaxed mt-2.5">
           Context: The Rook Foundations Learning Framework is our own educational framework. It has been developed for use through games and activities and has been informed by a range of child-centred, relational and educational approaches, including principles associated with PACE.
