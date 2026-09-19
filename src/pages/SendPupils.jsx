@@ -389,7 +389,7 @@ export default function SendPupils() {
 
           <Reveal className="max-w-2xl mx-auto text-center mb-14">
             <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
-              Rook Foundations provides inclusive enrichment through a broad range of games, puzzles and activities — not a single fixed SEND programme. What we bring to a session is selected, adapted, combined or changed according to the pupils taking part, their interests and strengths, the purpose of the session, the environment, and how they respond once things get underway.
+              Our approach is broader than a single fixed SEND programme. What we bring to a session is selected, adapted, combined or changed according to the pupils taking part, their interests and strengths, the purpose of the session, the environment, and how they respond once things get underway.
             </p>
             <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed mt-4">
               The school knows its pupils; Rook Foundations knows its activities. Bringing the two together, and deciding what's most appropriate, is something we take seriously as part of our professional practice.
