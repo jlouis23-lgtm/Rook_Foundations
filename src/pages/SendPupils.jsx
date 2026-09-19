@@ -469,13 +469,7 @@ export default function SendPupils() {
           <Reveal className="mt-12" delay={0.15}>
             <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 text-center leading-snug">Responsive participation</h3>
             <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
-              Participation isn't fixed once a session begins. A pupil might start by observing and join in later, move between a game and a puzzle, take a reduced role within a group, or step away and return when they're ready. Our practitioners use their professional judgement throughout — adjusting the pace, changing a pupil's role, introducing an alternative, or moving on from the original plan altogether — always in response to what actually supports meaningful participation in the moment.
-            </p>
-            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
-              Adapting an activity doesn't automatically mean making it easier. Depending on the pupil, that might mean less complexity or more, a different pace, a different way of explaining things, or a change of role, equipment or grouping. We don't assume every pupil needs a simplified version of an activity — the right adaptation depends entirely on the individual in front of us.
-            </p>
-            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
-              Where appropriate, pupils can have a genuine say in how they take part — continuing with an activity, trying something else, taking a short pause, or returning to it later. This isn't unlimited choice or optional structure; our practitioners remain responsible for managing each session appropriately and safely. And if a pupil becomes uncomfortable or disengaged, that's never treated as a failure — it's simply something to respond to, whether that means pausing, adjusting, offering an alternative, or involving school staff where needed.
+              Participation is flexible. Children can observe, adapt their role, move between activities, take a short pause or return when ready. Practitioners use professional judgement to adjust the pace, complexity, explanation, equipment, grouping or activity in response to each pupil's needs. Pupils are given an appropriate voice in how they participate, while practitioners maintain structure, safety and responsibility throughout.
             </p>
           </Reveal>
 
