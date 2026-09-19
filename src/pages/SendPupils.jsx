@@ -45,19 +45,6 @@ const offerAreas = [
 // move through them in any particular order.
 const waysToParticipate = ['Play', 'Observe', 'Explore', 'Work independently', 'Take a smaller role', 'Try an alternative', 'Return later'];
 
-// Examples only, per the brief — same loose pill-cluster treatment as
-// waysToParticipate, deliberately not framed as a menu a school must pick
-// from (the paragraph beneath makes that explicit).
-const sessionProvideExamples = [
-  'Enjoyable enrichment',
-  'Trying strategy games',
-  'Something new to experience',
-  'Meaningful engagement',
-  'Success and independence',
-  'Puzzles and problem-solving',
-  'Participating alongside others',
-];
-
 // When activity decisions actually happen — reuses the Schools page's
 // DeliveryRow left-accent treatment (flat, no card background) since this
 // is the same shape of content: a small set of related options, not
@@ -154,7 +141,7 @@ const schoolProvides = [
 ];
 
 // What a Personalised Enrichment Review provides — same loose pill-cluster
-// treatment used for waysToParticipate and sessionProvideExamples.
+// treatment used for waysToParticipate.
 const reviewProvides = [
   'Engagement and participation',
   'Observed strengths',
@@ -559,27 +546,6 @@ export default function SendPupils() {
           <Reveal className="text-center">
             <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
               You don't need to choose the game. Tell us what you'd like the session to provide and give us the relevant information about the pupils taking part, and we'll use our knowledge of the activities, resources and professional judgement to work out what's likely to be most appropriate.
-            </p>
-          </Reveal>
-
-          {/* Tell us what you'd like the session to provide */}
-          <Reveal className="mt-14" delay={0.05}>
-            <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 text-center leading-snug">Tell us what you'd like the session to provide</h3>
-            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed text-center max-w-xl mx-auto mb-6">
-              During an initial conversation, we'll usually ask what you'd like the session to provide for your pupils — things like:
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-2.5">
-              {sessionProvideExamples.map((example) => (
-                <span
-                  key={example}
-                  className="font-nunito text-[#2D2520] text-sm font-700 bg-[#E8A020]/10 border border-[#E8A020]/20 rounded-full px-4 py-2 whitespace-nowrap"
-                >
-                  {example}
-                </span>
-              ))}
-            </div>
-            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed text-center max-w-xl mx-auto mt-6">
-              These are examples only — you don't need to specify a particular game or activity; that's something we'll work out together. We'll also ask for relevant information about the pupils themselves — the kind that helps us understand how they're likely to participate and what might support their engagement, rather than a detailed personal history.
             </p>
           </Reveal>
 
