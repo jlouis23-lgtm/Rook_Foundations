@@ -28,7 +28,7 @@ const offerAreas = [
     key: 'puzzles-exploration',
     accent: '#4a7eb8',
     title: 'Puzzles & Exploration',
-    body: "Not every pupil engages best through a competitive or turn-based game, so we also draw on puzzles and exploratory activities — from tactile problem-solving resources and Rubik's cubes to open-ended challenges pupils can experiment with, investigate and work through at their own pace. These aren't a fallback for pupils who find games difficult; they're a valuable way to participate in their own right, through exploration, observation and independent problem-solving.",
+    body: "Not every child engages best through competitive or turn-based games. We recognise this by drawing on a range of tactile activities like cubing and puzzles. These provide more open-ended challenges that they can engage with, investigate and work through at their own pace.",
   },
   {
     key: 'flexible-enrichment',
