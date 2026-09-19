@@ -412,12 +412,6 @@ export default function SendPupils() {
               </motion.div>
             ))}
           </div>
-
-          <Reveal className="max-w-2xl mx-auto text-center mt-12">
-            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed">
-              Across all of this, our practitioners aren't working from a fixed list of prescribed SEND activities — they can select, adapt, combine or change what's happening in response to the session as it unfolds, always within our usual safeguarding, safety and professional boundaries. And just as the activities themselves can flex, so can the way a pupil takes part in them.
-            </p>
-          </Reveal>
         </div>
       </section>
 
