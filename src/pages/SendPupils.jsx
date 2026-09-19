@@ -515,7 +515,7 @@ export default function SendPupils() {
           <Reveal className="mt-14" delay={0.1}>
             <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">Smaller groups</h3>
             <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
-              A smaller group can allow the practitioner to give more individual attention and respond more closely to how each pupil is participating. This can be particularly useful where pupils benefit from a quieter or more focused setting, need more personalised pacing, or have quite different interests or levels of independence from one another. Suitability always depends on the individual pupils, the activity and the circumstances — a smaller group isn't automatically the right fit for every pupil.
+              A smaller group can allow the practitioner to give more individual attention and respond more closely to how each pupil is participating. This can be particularly useful where pupils benefit from a quieter or more focused setting, need more personalised pacing, or have quite different interests or levels of independence from one another.
             </p>
           </Reveal>
 
