@@ -578,15 +578,6 @@ export default function SendPupils() {
                 </div>
               ))}
             </div>
-            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-6">
-              A planned activity is a starting point, not a fixed commitment. If it isn't working the way we hoped, we can adapt it, change how it's presented, introduce something else, or move to a different activity altogether — the same flexibility described in how pupils can take part. The activity is there to provide the enrichment; it's never the point in itself, so if a different approach would give a pupil a more meaningful experience, that's what we'll do.
-            </p>
-          </Reveal>
-
-          <Reveal className="text-center mt-12" delay={0.2}>
-            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
-              Once we understand the pupils, the circumstances and what you're hoping the session will provide, the next step is working with you to plan it — from that first conversation through to delivery.
-            </p>
           </Reveal>
         </div>
       </section>
