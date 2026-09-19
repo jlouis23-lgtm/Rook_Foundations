@@ -497,7 +497,7 @@ export default function SendPupils() {
 
           <Reveal className="text-center">
             <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
-              Rook Foundations normally delivers SEND enrichment in small groups, with a normal maximum of up to six pupils. This isn't a target group size — smaller groups, and individual sessions, may often be more appropriate depending on the pupils and circumstances. There's no fixed minimum group size.
+              Our SEND enrichment occurs in small groups, with a maximum of six pupils. There's no fixed minimum group size.
             </p>
           </Reveal>
 
