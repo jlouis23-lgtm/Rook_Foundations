@@ -437,14 +437,8 @@ export default function SendPupils() {
             </h2>
           </div>
 
-          <Reveal className="text-center">
-            <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
-              We don't expect every pupil to engage with an activity in exactly the same way. For one pupil, meaningful participation might mean actively playing a strategy game. For another, it might mean observing first, exploring the equipment, or working through a puzzle independently — and a pupil might move between several of these during the same session. All of these can represent genuine, meaningful engagement, depending on the pupil and the moment.
-            </p>
-          </Reveal>
-
           {/* Ways of participating */}
-          <Reveal className="mt-10 text-center" delay={0.05}>
+          <Reveal className="text-center" delay={0.05}>
             <p className="font-nunito text-[#2D2520]/45 text-xs font-800 uppercase tracking-widest mb-4">
               This can look like
             </p>
