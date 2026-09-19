@@ -472,12 +472,6 @@ export default function SendPupils() {
               Participation is flexible. Children can observe, adapt their role, move between activities, take a short pause or return when ready. Practitioners use professional judgement to adjust the pace, complexity, explanation, equipment, grouping or activity in response to each pupil's needs. Pupils are given an appropriate voice in how they participate, while practitioners maintain structure, safety and responsibility throughout.
             </p>
           </Reveal>
-
-          <Reveal className="text-center mt-10" delay={0.2}>
-            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
-              That same flexibility extends to the structure of a session too — including the size of the group a pupil takes part in.
-            </p>
-          </Reveal>
         </div>
       </section>
 
