@@ -529,19 +529,7 @@ export default function SendPupils() {
           <Reveal className="mt-10" delay={0.2}>
             <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">Finding the right format</h3>
             <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
-              The right group size is a practical decision, not something determined by a pupil's diagnosis, age or SEND category alone. Two pupils with similar needs may respond very differently to the same group, and a pupil who needs significant support in one setting may participate quite independently in another. We consider things like the nature of the activity, how pupils are likely to interact and participate together, and what's likely to work well — from an individual pupil, to a very small group, up to our normal maximum of six.
-            </p>
-            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
-              School staff remain responsible for pupils' wider support; our practitioners lead the content and delivery of the enrichment session itself, and we'll discuss any additional support needs with the school as part of planning.
-            </p>
-            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
-              Pricing reflects the booked group size and session length, with smaller groups and 1-to-1 sessions carrying a higher cost per pupil, since they involve more capacity and personalisation on our part — the arrangement is based on the confirmed booked group, rather than simply who attends on the day. Exact pricing is something we're happy to talk through as part of an enquiry.
-            </p>
-          </Reveal>
-
-          <Reveal className="text-center mt-10" delay={0.25}>
-            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
-              Once the right group or individual arrangement has been found, the next question is what happens within it — and that's something we consider just as carefully, based on the pupils and circumstances.
+              The right group size is a practical decision, not something determined by a pupil's diagnosis, age or SEND category alone. Two pupils with similar needs may respond very differently to the same group, and a pupil who needs significant support in one setting may participate quite independently in another. We discuss this with teachers, SENCOs, and parents to identify the approach that will best support the children involved.
             </p>
           </Reveal>
         </div>
