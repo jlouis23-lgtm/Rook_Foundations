@@ -522,7 +522,7 @@ export default function SendPupils() {
           <Reveal className="mt-10" delay={0.15}>
             <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">1-to-1 sessions</h3>
             <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
-              Individual, 1-to-1 sessions are available where appropriate, giving the practitioner the opportunity to focus entirely on one pupil and respond closely to their interests, engagement and participation — with more flexibility in pace, activity choice, level of challenge, and the amount of repetition or explanation involved. This remains enrichment, not therapy or specialist teaching, and it isn't something every pupil needs or would necessarily benefit from; it's simply one of the arrangements available where it's the right fit.
+              Individual, 1-to-1 sessions are available where appropriate. Focusing on only one pupil can enable the practitioner to respond closely to their interests, engagement and participation. It also allows for more flexibility in pace, activity choice, level of challenge, and the amount of repetition or explanation involved. This remains enrichment, not therapy or specialist teaching, and it isn't something every pupil needs or would necessarily benefit from. It is simply one of the arrangements available where the parents/carers or education providers believe it could be of genuine value.
             </p>
           </Reveal>
 
