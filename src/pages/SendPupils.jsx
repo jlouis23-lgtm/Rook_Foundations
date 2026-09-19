@@ -22,7 +22,7 @@ const offerAreas = [
     key: 'games-strategy',
     accent: '#2d8c62',
     title: 'Games & Strategy',
-    body: "Games can provide opportunities to explore strategy, planning and decision-making, and to practise turn-taking, concentration and persistence along the way. They can also create natural opportunities for interacting with others and thinking through choices and their consequences. Chess is one example we sometimes use, but it's just one part of a wider range of strategy and other games — each selected because it suits the pupils taking part, not because a particular game is assumed to be inherently better suited to SEND.",
+    body: "Games can provide opportunities to explore strategy, planning and decision-making, and to practise turn-taking, concentration and persistence along the way. They can also create natural opportunities for interacting with others and thinking through choices and their consequences.",
   },
   {
     key: 'puzzles-exploration',
