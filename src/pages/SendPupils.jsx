@@ -34,7 +34,7 @@ const offerAreas = [
     key: 'flexible-enrichment',
     accent: '#7a48c0',
     title: 'Flexible Enrichment',
-    body: "Activities can be adapted around the pupil or group in many ways — adjusting the complexity, pace, instructions, grouping, equipment or the amount of support offered, among others. Adaptation doesn't only mean making something simpler: where it's a better fit, an activity can just as easily be made more challenging, extended or developed further, based on a pupil's interests and abilities. Our practitioners use their professional judgement, session by session, to decide what's appropriate for the pupils in front of them.",
+    body: "Activities can be adapted around the pupil or group in many ways. Our session plan aims to adjust the complexity, pace, instructions, grouping, equipment or the amount of support offered, among others.",
   },
 ];
 
