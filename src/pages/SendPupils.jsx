@@ -365,7 +365,7 @@ export default function SendPupils() {
             Working with SEND Pupils
           </h1>
           <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed max-w-xl mx-auto">
-            Rook Foundations provides inclusive enrichment for pupils with SEND through games, puzzles and strategic activities. Sessions are shaped around meaningful participation, enjoyment and engagement, with activities adapted to suit the individual pupil or group.
+            Rook Foundations provides engaging, accessible activities for pupils with SEND. Our mission is to use games and positive encouragement to support their learning, confidence and participation. Sessions provide meaningful participation, enjoyment and engagement, and activities are adapted to suit the individual child or group.
           </p>
         </Reveal>
       </section>
