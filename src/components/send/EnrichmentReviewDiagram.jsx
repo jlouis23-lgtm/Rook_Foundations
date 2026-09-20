@@ -93,7 +93,6 @@ function DesktopDiagram({ activeIndex, onSelect }) {
           const a = skillAngle(i);
           const [x0, y0] = point(RING_R, a);
           const [x1, y1] = point(SKILL_R, a);
-          const active = activeIndex === i;
           return (
             <line
               key={i}
@@ -101,10 +100,10 @@ function DesktopDiagram({ activeIndex, onSelect }) {
               y1={y0}
               x2={x1}
               y2={y1}
-              stroke={active ? '#b8790a' : GOLD}
-              strokeOpacity={active ? 0.9 : 0.4}
-              strokeWidth={active ? 0.4 : 0.25}
-              strokeDasharray={active ? undefined : '0.8 0.9'}
+              stroke={GOLD}
+              strokeOpacity={0.4}
+              strokeWidth={0.25}
+              strokeDasharray="0.8 0.9"
               strokeLinecap="round"
             />
           );
@@ -175,7 +174,7 @@ function DesktopDiagram({ activeIndex, onSelect }) {
             onFocus={() => onSelect(i)}
             aria-pressed={active}
             className={`absolute rounded-xl text-center font-nunito font-700 leading-tight transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-[#E8A020] ${
-              active ? 'bg-[#E8A020]/15 border-[#E8A020] text-[#2D2520]' : 'bg-white border-[#2D2520]/12 text-[#2D2520]/85 hover:border-[#E8A020]/60'
+              active ? 'bg-[#FCF1DE] border-[#E8A020] text-[#2D2520]' : 'bg-white border-[#2D2520]/12 text-[#2D2520]/85 hover:border-[#E8A020]/60'
             }`}
             style={{
               left: `${x}%`,
@@ -244,7 +243,7 @@ function MobileDiagram({ activeIndex, onSelect }) {
                 onClick={() => onSelect(active ? null : i)}
                 aria-pressed={active}
                 className={`rounded-xl px-3 py-3 min-h-[3.25rem] text-center font-nunito font-700 text-sm leading-tight transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-[#E8A020] ${
-                  active ? 'bg-[#E8A020]/15 border-[#E8A020] text-[#2D2520]' : 'bg-white border-[#2D2520]/12 text-[#2D2520]/85'
+                  active ? 'bg-[#FCF1DE] border-[#E8A020] text-[#2D2520]' : 'bg-white border-[#2D2520]/12 text-[#2D2520]/85'
                 }`}
                 style={{ borderWidth: 1.5, borderStyle: 'solid' }}
               >
