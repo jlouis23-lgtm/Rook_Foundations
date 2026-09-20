@@ -252,7 +252,11 @@ export default function Schools() {
           <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
             Working with SEND Pupils
           </h2>
-          <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed mt-5">
+          <p className="font-nunito text-[#2D2520] text-lg sm:text-xl font-800 leading-snug mt-6">
+            Children with special educational needs deserve to attend school knowing that their staff have the right tools, knowledge and education in place to support their learning, build their confidence and help them reach their potential.
+          </p>
+          <div className="w-12 h-[3px] rounded-full bg-[#E8A020] mx-auto mt-6" aria-hidden="true" />
+          <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed mt-6">
             Rook Foundations welcomes the opportunity to work with pupils with SEND, offering inclusive enrichment through games, puzzles and strategic activities. Sessions are designed around meaningful participation, enjoyment and engagement, giving pupils the chance to take part in ways that feel right for them, explore new challenges and experience genuine success.
           </p>
           <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed mt-4">
