@@ -739,7 +739,7 @@ export default function SendPupils() {
           <Reveal className="mt-12" delay={0.25}>
             <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">How the review is written</h3>
             <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
-              The review is based primarily on what we directly observe through our own sessions, alongside our practitioner's records. Relevant information the school has already shared with us may inform the context where it's genuinely relevant, but we don't reinterpret or expand on it — the review stays a factual, evidence-based Rook Foundations observational document, without scores, grades or diagnostic categories.
+              The review is based on what we observe directly through our own sessions, alongside practitioner's records. Relevant information the school has already shared with us may inform the context where it's genuinely relevant, but we don't reinterpret or expand on it. The review stays a factual, evidence-based Rook Foundations observational document. This does not include scores, grades or diagnostic categories.
             </p>
           </Reveal>
 
