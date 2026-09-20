@@ -630,25 +630,6 @@ export default function SendPupils() {
               </motion.div>
             ))}
           </div>
-
-          <Reveal className="mt-14" delay={0.1}>
-            <h3 className="font-fredoka text-[#2D2520] text-xl mb-4 leading-snug">A few practical points</h3>
-            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
-              If something changes significantly before the session, such as the group's size, composition or support needs, we may need to check the arrangement is still suitable, and agree any change in price, before proceeding. The detailed rules around this sit in our pricing and booking terms.
-            </p>
-            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
-              The booking confirmation is also where a school confirms it has the authority to share the relevant pupil information with us, and, where a Personalised Enrichment Review is commissioned, the authority to commission that, along with who should receive it. This is about making sure information and commissioning arrangements are handled properly, not a lengthy privacy process.
-            </p>
-            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
-              Where possible, we'd recommend getting in touch at least a week ahead of when you'd like a session to take place, though we can sometimes accommodate shorter notice. Successful delivery depends on the school providing relevant information, a suitable space and any agreed support arrangements; we take responsibility for planning and delivering the enrichment content itself.
-            </p>
-          </Reveal>
-
-          <Reveal className="text-center mt-10" delay={0.15}>
-            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
-              That's the collaboration in outline. What we need from your school to make it work well is covered next.
-            </p>
-          </Reveal>
         </div>
       </section>
 
