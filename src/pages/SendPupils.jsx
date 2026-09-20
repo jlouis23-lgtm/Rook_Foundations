@@ -741,9 +741,6 @@ export default function SendPupils() {
             <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
               The review is based primarily on what we directly observe through our own sessions, alongside our practitioner's records. Relevant information the school has already shared with us may inform the context where it's genuinely relevant, but we don't reinterpret or expand on it — the review stays a factual, evidence-based Rook Foundations observational document, without scores, grades or diagnostic categories.
             </p>
-            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
-              It's genuinely personalised to the pupil rather than a generic description of the activities on offer, written in plain, accessible language suitable for sharing with parents and carers through your school's usual process, and sent to the authorised recipient(s) agreed when the review is commissioned.
-            </p>
           </Reveal>
 
           {/* How it works */}
