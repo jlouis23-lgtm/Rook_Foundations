@@ -684,25 +684,6 @@ export default function SendPupils() {
               Rook Foundations doesn't provide personal care, toileting or feeding assistance, medication administration, or physical restraint. These remain the responsibility of the school. Where an activity calls for reasonable, low-risk physical assistance directly related to it, a practitioner may provide that within their competence; anything beyond this stays with the school, and if an activity would need support we can't safely provide, we'll adapt it, replace it, or take a different approach instead.
             </p>
           </Reveal>
-
-          <Reveal className="mt-12" delay={0.15}>
-            <h3 className="font-fredoka text-[#2D2520] text-xl mb-4 leading-snug">A few more things worth knowing</h3>
-            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
-              We work within our own safeguarding responsibilities, and your school's safeguarding and emergency procedures remain important throughout delivery. If an immediate concern arises, the usual school procedure should be followed.
-            </p>
-            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
-              If things on the day differ materially from what was agreed, particularly where agreed support isn't available, we may need to adapt the activity, adjust the group, or in some cases decide the session can't safely go ahead as planned. We'll always use our professional judgement to find a safe, appropriate way forward wherever we can.
-            </p>
-            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
-              As part of the booking confirmation, you'll also confirm you have the authority to share this information with us. Where a Personalised Enrichment Review has been commissioned, relevant information and observations may inform that review too.
-            </p>
-          </Reveal>
-
-          <Reveal className="text-center mt-10" delay={0.2}>
-            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
-              That review, what it involves and how it's used, is something we'll cover next.
-            </p>
-          </Reveal>
         </div>
       </section>
 
