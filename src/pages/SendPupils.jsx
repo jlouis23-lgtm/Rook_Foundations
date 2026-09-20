@@ -735,15 +735,8 @@ export default function SendPupils() {
         </div>
 
         <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
-          {/* What's in the final review */}
-          <Reveal className="mt-12" delay={0.2}>
-            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
-              Where commissioned, the finished review typically covers why it was commissioned, the approach and period involved, the activities and skills that were relevant, what we observed about engagement and participation, strengths, any adaptations that supported participation, and any meaningful patterns or changes across the sessions — closing with a concise overall summary and some practical considerations for future Rook Foundations enrichment.
-            </p>
-          </Reveal>
-
           {/* How the review is written */}
-          <Reveal className="mt-10" delay={0.25}>
+          <Reveal className="mt-12" delay={0.25}>
             <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">How the review is written</h3>
             <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
               The review is based primarily on what we directly observe through our own sessions, alongside our practitioner's records. Relevant information the school has already shared with us may inform the context where it's genuinely relevant, but we don't reinterpret or expand on it — the review stays a factual, evidence-based Rook Foundations observational document, without scores, grades or diagnostic categories.
