@@ -6,6 +6,7 @@ import PeopleIcon from '@/components/pricing/PeopleIcon';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import Reveal from '@/components/ui/Reveal';
 import FAQAccordionItem from '@/components/ui/FAQAccordionItem';
+import EnrichmentReviewDiagram from '@/components/send/EnrichmentReviewDiagram';
 import { usePageMeta } from '@/hooks/use-page-meta';
 
 const EASE = [0.22, 1, 0.36, 1];
@@ -149,25 +150,6 @@ const reviewProvides = [
   'Useful adaptations',
   'Patterns across sessions',
   'Future enrichment considerations',
-];
-
-// The ten-area skills framework, names only — the brief explicitly permits
-// skipping the full descriptions where that would make the page "unnecessarily
-// dense", and with ten items here that applies. A plain numbered reference
-// list rather than a card grid or pill cluster: this is closer to an index
-// than a set of interchangeable options, so light numbering (01–10) suits it
-// better than either of those other two already-used patterns.
-const skillsFramework = [
-  'Strategic Thinking',
-  'Problem-Solving',
-  'Planning',
-  'Decision-Making',
-  'Attention & Concentration',
-  'Memory & Recall',
-  'Creativity & Imagination',
-  'Communication & Social Interaction',
-  'Emotional Regulation & Resilience',
-  'Independence',
 ];
 
 // How a review comes together — short labels connected by chevrons, reusing
@@ -744,25 +726,15 @@ export default function SendPupils() {
             </div>
           </Reveal>
 
-          {/* Skills framework */}
-          <Reveal className="mt-14" delay={0.15}>
-            <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 text-center leading-snug">A broad skills framework</h3>
-            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed text-center max-w-xl mx-auto">
-              To help organise what we observe, we use a broad skills framework — descriptive areas we look at, not a formal assessment framework:
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 max-w-lg mx-auto mt-6">
-              {skillsFramework.map((skill, i) => (
-                <div key={skill} className="flex items-baseline gap-3">
-                  <span className="font-nunito text-[#E8A020]/60 text-xs font-800 flex-shrink-0">{String(i + 1).padStart(2, '0')}</span>
-                  <span className="font-fredoka text-[#2D2520] text-base leading-snug">{skill}</span>
-                </div>
-              ))}
-            </div>
-            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed text-center max-w-xl mx-auto mt-6">
-              These help structure our observations — they're descriptive, not scored, graded or diagnostic. For each relevant activity, the review can describe the kind of skill or engagement it offered an opportunity for, alongside what we actually observed during it — connecting what we did with what we saw, rather than assuming any activity automatically produces a particular skill.
-            </p>
-          </Reveal>
+        </div>
 
+        {/* Personalised Enrichment Review diagram. Wider than the text column
+            around it, so the concentric layout has room to breathe. */}
+        <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10 mt-16">
+          <EnrichmentReviewDiagram />
+        </div>
+
+        <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
           {/* What's in the final review */}
           <Reveal className="mt-12" delay={0.2}>
             <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
