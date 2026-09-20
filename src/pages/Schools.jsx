@@ -252,25 +252,20 @@ export default function Schools() {
           <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
             Working with SEND Pupils
           </h2>
-          <p className="font-nunito text-[#2D2520] text-lg sm:text-xl font-800 leading-snug mt-6">
+          <div className="w-12 h-[3px] rounded-full bg-[#E8A020] mx-auto mt-8 mb-8" aria-hidden="true" />
+          <p className="font-fredoka text-[#2D2520]/85 italic font-normal text-xl sm:text-2xl leading-relaxed max-w-xl mx-auto">
             Children with special educational needs deserve to attend school knowing that their staff have the right tools, knowledge and education in place to support their learning, build their confidence and help them reach their potential.
           </p>
-          <div className="w-12 h-[3px] rounded-full bg-[#E8A020] mx-auto mt-6" aria-hidden="true" />
-          <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed mt-6">
-            Rook Foundations welcomes the opportunity to work with pupils with SEND, offering inclusive enrichment through games, puzzles and strategic activities. Sessions are designed around meaningful participation, enjoyment and engagement, giving pupils the chance to take part in ways that feel right for them, explore new challenges and experience genuine success.
-          </p>
-          <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed mt-4">
-            Activities, and the way pupils take part in them, can be adapted to suit the individual pupil or group. Rather than expecting every child to engage in the same way, we shape each session around the people taking part, drawing on professional judgement to select and adjust activities as appropriate.
-          </p>
 
-          <Link
+          <MotionLink
+            whileTap={ctaTap}
             to="/schools/send"
             onClick={() => window.scrollTo(0, 0)}
-            className="group inline-flex items-center gap-1.5 font-nunito text-[#E8A020] text-sm font-700 hover:text-[#b8790a] transition-colors mt-6"
+            className="inline-flex items-center justify-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-base px-8 py-3.5 rounded-2xl hover:bg-[#d4940e] transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#E8A020]/25 mt-10"
           >
-            Explore our approach to working with SEND pupils
-            <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-          </Link>
+            Our Approach to Working with SEND Children
+            <ArrowRight size={18} className="flex-shrink-0" />
+          </MotionLink>
         </Reveal>
       </section>
 
