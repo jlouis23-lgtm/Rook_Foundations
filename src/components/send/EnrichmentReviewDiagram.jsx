@@ -5,8 +5,6 @@ import Reveal from '@/components/ui/Reveal';
 const INK = '#2D2520';
 const GOLD = '#E8A020';
 
-const gameExamples = ['Chess', 'Strategy Games', 'Puzzles', 'Board Games', 'Problem Solving Activities'];
-
 // The four-stage loop. `angle` is the node's position on the middle ring in
 // SVG screen degrees (0 = right, 90 = down), so the cycle reads clockwise from
 // the top left: Select, Adapt, Observe, Refine, then back to Select.
@@ -41,11 +39,11 @@ const exampleOptions = [
 ];
 
 // Geometry, in a 100 x 100 space centred on (50, 50).
-const RING_R = 25.5;
+const RING_R = 24;
 const SKILL_R = 43;
 const SKILL_START = -72;
 const SKILL_STEP = 36;
-const ARC_MARGIN = 26;
+const ARC_MARGIN = 31;
 
 const rad = (deg) => (deg * Math.PI) / 180;
 const point = (r, deg) => [50 + r * Math.cos(rad(deg)), 50 + r * Math.sin(rad(deg))];
@@ -125,13 +123,10 @@ function DesktopDiagram({ activeIndex, onSelect }) {
       {/* Centre: the game */}
       <div
         className="absolute rounded-full bg-[#2D2520] flex flex-col items-center justify-center text-center shadow-[0_0_0_0.9cqw_rgba(232,160,32,0.18)]"
-        style={{ left: '50%', top: '50%', width: '26%', aspectRatio: '1', transform: 'translate(-50%, -50%)', padding: '2.2cqw' }}
+        style={{ left: '50%', top: '50%', width: '19%', aspectRatio: '1', transform: 'translate(-50%, -50%)' }}
       >
-        <p className="font-fredoka text-[#E8A020] uppercase tracking-widest leading-none" style={{ fontSize: 'clamp(13px, 2.4cqw, 24px)' }}>
+        <p className="font-fredoka text-[#E8A020] uppercase tracking-widest leading-none whitespace-nowrap" style={{ fontSize: 'clamp(13px, 2.4cqw, 24px)' }}>
           The Game
-        </p>
-        <p className="font-nunito text-white/85 leading-snug" style={{ fontSize: 'clamp(10.5px, 1.5cqw, 16px)', marginTop: '1cqw' }}>
-          {gameExamples.join(' • ')}
         </p>
       </div>
 
@@ -145,16 +140,16 @@ function DesktopDiagram({ activeIndex, onSelect }) {
             style={{
               left: `${x}%`,
               top: `${y}%`,
-              width: '17.5%',
+              width: '19.5%',
               transform: 'translate(-50%, -50%)',
               border: `1.5px solid ${s.accent}66`,
-              padding: '1cqw 1.1cqw',
+              padding: '1.1cqw 1.2cqw',
             }}
           >
-            <p className="font-fredoka uppercase tracking-widest leading-none" style={{ color: s.text, fontSize: 'clamp(11.5px, 1.7cqw, 18px)' }}>
+            <p className="font-fredoka uppercase tracking-widest leading-none" style={{ color: s.text, fontSize: 'clamp(12.5px, 2.1cqw, 22px)' }}>
               {s.label}
             </p>
-            <p className="font-nunito text-[#2D2520]/70 leading-snug" style={{ fontSize: 'clamp(10.5px, 1.35cqw, 14px)', marginTop: '0.5cqw' }}>
+            <p className="font-nunito text-[#2D2520]/75 leading-snug" style={{ fontSize: 'clamp(11.5px, 1.6cqw, 17px)', marginTop: '0.7cqw' }}>
               {s.body}
             </p>
           </div>
@@ -179,12 +174,12 @@ function DesktopDiagram({ activeIndex, onSelect }) {
             style={{
               left: `${x}%`,
               top: `${y}%`,
-              width: '12.5%',
+              width: '14%',
               transform: 'translate(-50%, -50%)',
               borderWidth: 1.5,
               borderStyle: 'solid',
-              padding: '0.9cqw 0.5cqw',
-              fontSize: 'clamp(10.5px, 1.4cqw, 14.5px)',
+              padding: '1cqw 0.5cqw',
+              fontSize: 'clamp(11.5px, 1.7cqw, 18px)',
             }}
           >
             {skill.name}
@@ -198,9 +193,8 @@ function DesktopDiagram({ activeIndex, onSelect }) {
 function MobileDiagram({ activeIndex, onSelect }) {
   return (
     <div className="flex flex-col items-center max-w-md mx-auto">
-      <div className="w-full rounded-3xl bg-[#2D2520] text-center px-6 py-6">
+      <div className="w-full rounded-3xl bg-[#2D2520] text-center px-6 py-5">
         <p className="font-fredoka text-[#E8A020] uppercase tracking-widest text-lg leading-none">The Game</p>
-        <p className="font-nunito text-white/85 text-sm leading-relaxed mt-3">{gameExamples.join(' • ')}</p>
       </div>
 
       <ChevronDown size={20} className="text-[#E8A020]/60 my-3" aria-hidden="true" />
