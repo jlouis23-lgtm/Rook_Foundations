@@ -714,13 +714,7 @@ export default function SendPupils() {
 
           <Reveal className="text-center">
             <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
-              A Personalised Enrichment Review summarises what we've observed through a pupil's Rook Foundations enrichment sessions — a personalised overview of their engagement, participation and observed strengths, including the activities and skills that stood out most during the review period.
-            </p>
-            <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed mt-4">
-              Activities throughout are selected with the individual pupil and group in mind, focused on creating enjoyable, accessible and engaging opportunities to participate, explore and build on a range of skills through games and activities. The review reflects that same approach — it's an observation-based enrichment summary, not a formal assessment.
-            </p>
-            <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed mt-4">
-              It's an optional add-on, not something every pupil automatically receives. It can be commissioned when you first arrange a block of sessions, or partway through one, and we'll always agree this with you explicitly beforehand.
+              A Personalised Enrichment Review summarises what we've observed through a pupil's Rook Foundations enrichment sessions. This includes a personalised overview of their engagement, participation and observed strengths, including the activities and skills that stood out most during the review period. This is an optional add-on and can be commissioned when you first arrange a block of sessions, or partway through one, and we'll always agree this with you explicitly beforehand.
             </p>
           </Reveal>
 
