@@ -464,10 +464,7 @@ export default function SendPupils() {
           "ways of participating" are a pill cluster rather than seven small
           cards, deliberately, per the brief's steer against turning this
           into either a checklist or "a large collection of cards for the
-          sake of visual variety" — only the Puzzle & Exploration Kit gets
-          its own distinct (gold-tinted, not a new colour) callout, since the
-          brief calls that out specifically as needing to read as a
-          legitimate, integrated part of the offer rather than a footnote. */}
+          sake of visual variety". */}
       <section className="py-20 relative overflow-hidden">
         <ChessBg variant="contact" />
         <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
@@ -500,16 +497,8 @@ export default function SendPupils() {
             </p>
           </Reveal>
 
-          {/* Puzzle & Exploration Kit */}
-          <Reveal className="mt-12 bg-[#E8A020]/5 border border-[#E8A020]/15 rounded-3xl p-7 sm:p-8" delay={0.1}>
-            <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">The Puzzle &amp; Exploration Kit</h3>
-            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
-              Alongside the main activity, sessions include a Puzzle &amp; Exploration Kit — puzzles, tactile resources and other suitable activities that give pupils an alternative way into the session. It isn't a consolation prize for pupils who don't take part in the main activity; it's a legitimate part of the enrichment offer in its own right, because different pupils genuinely find different things engaging. Not every pupil will need it, but it's there as a meaningful option whenever it's the right fit.
-            </p>
-          </Reveal>
-
           {/* Responsive participation */}
-          <Reveal className="mt-12" delay={0.15}>
+          <Reveal className="mt-12" delay={0.1}>
             <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 text-center leading-snug">Responsive participation</h3>
             <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
               Participation is flexible. Children can observe, adapt their role, move between activities, take a short pause or return when ready. Practitioners use professional judgement to adjust the pace, complexity, explanation, equipment, grouping or activity in response to each pupil's needs. Pupils are given an appropriate voice in how they participate, while practitioners maintain structure, safety and responsibility throughout.
