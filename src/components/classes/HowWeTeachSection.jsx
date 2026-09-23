@@ -7,6 +7,7 @@ import ProgressTrackingSection from '@/components/classes/ProgressTrackingSectio
 import ChessCurriculumButton from '@/components/classes/ChessCurriculumButton';
 import SessionIncludesGrid from '@/components/classes/SessionIncludesGrid';
 import PersonalisedApproach from '@/components/classes/PersonalisedApproach';
+import RegulationStrategies from '@/components/classes/RegulationStrategies';
 
 export default function HowWeTeachSection() {
   return (
@@ -39,6 +40,12 @@ export default function HowWeTeachSection() {
       {/* Learning journey diagram — full-width breakout for the circular layout */}
       <div id="learning-journey" className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10 mb-16 scroll-mt-24">
         <LearningJourney />
+      </div>
+
+      {/* Regulation Before Participation — sits directly beneath the pyramid,
+          before "What Makes Us Different" begins. */}
+      <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10 mb-16">
+        <RegulationStrategies />
       </div>
 
       {/* What Makes Us Different — heading for the merged philosophy +
