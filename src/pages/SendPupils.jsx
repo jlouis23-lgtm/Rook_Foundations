@@ -498,13 +498,7 @@ export default function SendPupils() {
           <Reveal className="mt-12" delay={0.1}>
             <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 text-center leading-snug">Familiar Adults &amp; Support</h3>
             <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
-              Where helpful, we work alongside familiar school staff who already know the child, such as teaching assistants, class teachers, SENCOs, pastoral staff or other trusted adults. Their involvement can help children feel comfortable, communicate their needs and participate confidently, particularly when joining a new club or activity.
-            </p>
-            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
-              While familiar adults can provide an important safe and supportive starting point, we also encourage pupils, where appropriate, to gradually explore the club environment and activities with increasing independence. Our practitioners provide support, encouragement and positive relationships, while allowing children space to attempt puzzles, games and activities for themselves and at their own pace.
-            </p>
-            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
-              Depending on how a pupil engages, this flexibility can create opportunities to explore things like independence, communication, concentration, problem-solving, decision-making and confidence.
+              Where helpful, we work alongside familiar school staff who already know the child, such as teaching assistants, class teachers, SENCOs, pastoral staff or other trusted adults. Their involvement can help children feel comfortable, communicate their needs and participate confidently, particularly when joining a new club or activity. While familiar adults can provide an important safe and supportive starting point, we also encourage pupils, where appropriate, to gradually explore the club environment and activities with increasing independence. Our practitioners provide support, encouragement and positive relationships, while allowing children space to attempt puzzles, games and activities for themselves and at their own pace. Depending on how a pupil engages, this flexibility can create opportunities to explore things like independence, communication, concentration, problem-solving, decision-making and confidence.
             </p>
           </Reveal>
 
