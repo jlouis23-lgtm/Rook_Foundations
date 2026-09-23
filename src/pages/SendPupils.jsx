@@ -375,7 +375,7 @@ export default function SendPupils() {
               Informed by recognised SEND and inclusive-practice learning
             </span>
             <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-              Our SEND Professional Development
+              Professional Development
             </h2>
           </div>
 
