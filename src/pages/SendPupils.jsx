@@ -31,7 +31,7 @@ const cpdAreas = [
   { Icon: Users, label: 'Social, emotional and mental health' },
   { Icon: Hand, label: 'Physical and sensory needs' },
   { Icon: Brain, label: 'Cognition and learning' },
-  { Icon: Compass, label: 'Preparation for adulthood' },
+  { Icon: Compass, label: 'Transitions and next steps' },
 ];
 
 const offerAreas = [
