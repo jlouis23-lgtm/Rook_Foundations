@@ -57,7 +57,7 @@ export default function RegulationStrategies() {
 
       <Reveal className="max-w-2xl mx-auto text-center mb-10">
         <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
-          If a child becomes dysregulated, the objective isn't to get them back to the activity as quickly as possible. It is to help them feel sufficiently settled and supported to decide whether and how they want to continue. Research indicates that difficulties with emotional regulation can negatively affect children's learning and social functioning (Bennet, 2024). In response, have incorporated three main self-calming strategies to support regulation and create the conditions for meaningful engagement and learning:
+          If a child becomes dysregulated, the objective isn't to get them back to the activity as quickly as possible. It is to help them feel sufficiently settled and supported to decide whether and how they want to continue. Research has shown that is important that children become sufficiently settled and supported before expecting them to engage with new or demanding learning experiences (Bennet, 2024). In response, have incorporated three main self-calming strategies to support regulation and create the conditions for meaningful engagement and learning:
         </p>
       </Reveal>
 
@@ -127,6 +127,15 @@ export default function RegulationStrategies() {
             </motion.p>
           )}
         </AnimatePresence>
+      </div>
+
+      {/* Scholarly reference for the research cited above — same treatment as
+          the Learning Pyramid's own reference note directly above this
+          section (small, muted, border-t separator). */}
+      <div className="max-w-2xl mx-auto mt-8 sm:mt-10 pt-5 border-t border-[#2D2520]/8">
+        <p className="font-nunito text-[#2D2520]/45 text-xs leading-relaxed">
+          Reference: Bennett, J., Parsons, S., &amp; Kovshoff, H. (2024). Developing the emotion regulation skills of autistic pupils in educational settings: A systematic literature review. Journal of Research in Special Educational Needs, 24(3), 475-491.
+        </p>
       </div>
     </div>
   );
