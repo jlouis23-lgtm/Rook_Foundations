@@ -1,6 +1,6 @@
 import { Fragment, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronRight, GraduationCap, BookOpen, ShieldCheck, MessageCircle } from 'lucide-react';
+import { ArrowRight, ChevronRight, GraduationCap, BookOpen, ShieldCheck, MessageCircle, HeartHandshake, Users, Hand, Brain, Compass } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import PeopleIcon from '@/components/pricing/PeopleIcon';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
@@ -18,6 +18,22 @@ const EASE = [0.22, 1, 0.36, 1];
 // of one flexible offer, so equal/neutral styling avoids implying they're
 // competing options. Each gets a small coloured heading rule rather than an
 // icon, per the brief's steer away from decorative/generic SEND imagery.
+// The six nasen CPD subject areas, icon-badge cards matching the established
+// icon-in-a-square convention (LearningFramework's engagementModes) — a
+// single gold accent rather than a colour rotation, since these are six
+// equal-weight descriptive areas, not a sequence or journey. Icons are
+// deliberately generic/educational rather than clinical (Hand for physical
+// and sensory rather than an accessibility/medical glyph, Brain for
+// cognition rather than a neuro-specific icon).
+const cpdAreas = [
+  { Icon: HeartHandshake, label: 'Emotionally safe and inclusive environments' },
+  { Icon: MessageCircle, label: 'Speech, language and communication' },
+  { Icon: Users, label: 'Social, emotional and mental health' },
+  { Icon: Hand, label: 'Physical and sensory needs' },
+  { Icon: Brain, label: 'Cognition and learning' },
+  { Icon: Compass, label: 'Preparation for adulthood' },
+];
+
 const offerAreas = [
   {
     key: 'games-strategy',
@@ -337,6 +353,64 @@ export default function SendPupils() {
             Rook Foundations provides engaging, accessible activities for pupils with SEND. Our mission is to use games and positive encouragement to support their learning, confidence and participation. Sessions provide meaningful participation, enjoyment and engagement, and activities are adapted to suit the individual child or group.
           </p>
         </Reveal>
+      </section>
+
+      {/* Our SEND Professional Development — sits directly beneath the hero,
+          before "What We Offer" begins. border-t since neither this nor the
+          hero above carries its own background colour. Presented as a
+          contained white "credibility panel" (bordered rounded-3xl card) on
+          the inherited cream section background, rather than as a full-width
+          coloured section, so it reads as a professional credibility panel
+          rather than another content section competing with What We Offer's
+          own white/border-y treatment directly below. The nasen CPD figure
+          reuses the exact stat-badge device already established for
+          "Minimum 4 sessions"/"Up to 6 pupils" (numeral in a rounded-2xl
+          badge + bold label + caption) rather than a certificate/qualification
+          graphic, so it reads as a fact, not an accreditation. */}
+      <section className="py-20 relative overflow-hidden border-t border-[#2D2520]/8">
+        <ChessBg variant="instructor" />
+        <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+              Informed by recognised SEND and inclusive-practice learning
+            </span>
+            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+              Our SEND Professional Development
+            </h2>
+          </div>
+
+          <Reveal className="bg-white border border-[#2D2520]/10 rounded-3xl p-7 sm:p-10">
+            <div className="flex flex-col items-center text-center mb-10">
+              <div className="w-16 h-16 rounded-2xl bg-[#E8A020]/10 flex items-center justify-center mb-4">
+                <span className="font-fredoka text-[#E8A020] text-2xl">20</span>
+              </div>
+              <p className="font-fredoka text-[#2D2520] text-2xl">SEND CPD Units</p>
+              <p className="font-nunito text-[#2D2520]/55 text-sm mt-1.5">Completed through nasen</p>
+              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed max-w-lg mt-4">
+                Rook Foundations practitioners have completed 20 SEND CPD units through nasen, developing knowledge across key areas of inclusive practice and supporting children and young people with diverse learning and participation needs.
+              </p>
+            </div>
+
+            <p className="font-nunito text-[#2D2520] text-sm font-700 text-center mb-5">Our professional development includes:</p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mb-9">
+              {cpdAreas.map(({ Icon, label }) => (
+                <div key={label} className="bg-[#FAFAF7] border border-[#2D2520]/8 rounded-2xl p-4 flex flex-col items-center text-center gap-2.5">
+                  <span className="w-10 h-10 rounded-xl bg-[#E8A020]/10 flex items-center justify-center flex-shrink-0">
+                    <Icon size={17} className="text-[#E8A020]" />
+                  </span>
+                  <p className="font-fredoka text-[#2D2520] text-sm leading-snug">{label}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+              This learning informs how we understand individual needs, select appropriate activities and adapt games, environments and participation opportunities. We use these principles to create sessions that are engaging, respectful and responsive to each child, while recognising that every pupil brings different strengths, preferences and ways of learning.
+            </p>
+            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed mt-4">
+              Our approach is educational and enrichment-focused. We do not provide clinical diagnosis, therapy or specialist educational assessment.
+            </p>
+          </Reveal>
+        </div>
       </section>
 
       {/* What We Offer — Section 2. Matches "Our Sessions" on the Schools
