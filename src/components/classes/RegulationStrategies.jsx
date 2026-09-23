@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Hourglass } from 'lucide-react';
 import Reveal from '@/components/ui/Reveal';
 
 const EASE = [0.22, 1, 0.36, 1];
@@ -128,6 +129,20 @@ export default function RegulationStrategies() {
           )}
         </AnimatePresence>
       </div>
+
+      {/* The Reset Zone — a calm, supervised-space concept sitting beneath
+          the three self-calming strategies. Kept as plain centred text, no
+          card treatment, so it reads as lightweight explanatory context
+          rather than competing with the interactive circles/panel above. */}
+      <Reveal className="max-w-2xl mx-auto text-center mt-12">
+        <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug inline-flex items-center gap-2">
+          <Hourglass size={18} className="text-[#E8A020] flex-shrink-0" aria-hidden="true" />
+          The Reset Zone
+        </h3>
+        <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+          Our Reset Zone provides a calm, supervised space where children can temporarily step away from an activity, reduce demands and use a self-calming strategy before deciding how they would like to continue. It is not a punishment, exclusion area or reward, but a supportive space designed to encourage regulation, co-regulation and independence. A visual sand timer may be used to provide predictability around the length of a pause, with flexibility depending on the child's needs. When ready, children are supported to choose whether to return to the activity, try something different or continue independently.
+        </p>
+      </Reveal>
 
       {/* Scholarly reference for the research cited above — same treatment as
           the Learning Pyramid's own reference note directly above this
