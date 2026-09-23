@@ -764,7 +764,7 @@ export default function SendPupils() {
 
           <Reveal className="text-center">
             <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
-              A Personalised Enrichment Review summarises what we've observed through a pupil's Rook Foundations enrichment sessions. This includes a personalised overview of their engagement, participation and observed strengths, including the activities and skills that stood out most during the review period. This is an optional add-on and can be commissioned when you first arrange a block of sessions, or partway through one, and we'll always agree this with you explicitly beforehand.
+              A Personalised Enrichment Review summarises what we have observed through a pupil's Rook Foundations enrichment sessions. It provides a personalised overview of their engagement, participation and observed strengths, including the activities and skills that stood out most during the review period. Alongside this, the review helps us identify what captures a pupil's interest, how they engage with different types of activities, and which adaptations, refinements or approaches appear to encourage participation and exploration of new concepts. Where appropriate, these observations can provide useful insight for collaboration with SENCOs, teachers, speech and language therapists, social workers and other relevant professionals, helping to inform wider understanding of a pupil's learning preferences and participation. This information may also contribute to discussions around appropriate educational support and the development or review of an Education, Health and Care Plan (EHCP), where relevant.
             </p>
           </Reveal>
 
