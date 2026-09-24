@@ -42,6 +42,30 @@ export default function HowWeTeachSection() {
         <LearningJourney />
       </div>
 
+      {/* Discussion and Communication — a shorter standalone section between
+          the pyramid and Regulation Before Participation. */}
+      <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10 mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
+          <span className="inline-flex items-center font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+            Communication through play
+          </span>
+          <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+            Discussion and Communication
+          </h2>
+          <p className="font-nunito text-[#2D2520]/55 text-base mt-4 max-w-2xl mx-auto leading-relaxed">
+            We use games and playful activities to encourage communication, vocabulary, creativity and thoughtful discussion. Activities include{' '}
+            <strong className="font-700 text-[#2D2520]">comprehension games, friendly debates, story starters, dice storytelling, communication cards and word-building games</strong>
+            , giving children opportunities to develop ideas, build stories with a beginning, middle and end, and challenge each other respectfully. Through a playful environment, children can express ideas, explore language, listen to others and reflect on different perspectives while learning through games.
+          </p>
+        </motion.div>
+      </div>
+
       {/* Regulation Before Participation — sits directly beneath the pyramid,
           before "What Makes Us Different" begins. */}
       <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10 mb-16">
