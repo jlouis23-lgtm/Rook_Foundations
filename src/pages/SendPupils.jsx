@@ -7,6 +7,7 @@ import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import Reveal from '@/components/ui/Reveal';
 import FAQAccordionItem from '@/components/ui/FAQAccordionItem';
 import EnrichmentReviewDiagram from '@/components/send/EnrichmentReviewDiagram';
+import ValuesFan from '@/components/send/ValuesFan';
 import { usePageMeta } from '@/hooks/use-page-meta';
 
 const EASE = [0.22, 1, 0.36, 1];
@@ -868,9 +869,11 @@ export default function SendPupils() {
               How we operate
             </span>
             <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-              Our Approach and professional Boundaries
+              Our Values, Approach &amp; Professional Boundaries
             </h2>
           </div>
+
+          <ValuesFan />
 
           <Reveal className="text-center">
             <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
