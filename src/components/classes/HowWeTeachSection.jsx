@@ -59,7 +59,7 @@ export default function HowWeTeachSection() {
             Language, Communication &amp; Discussion
           </h2>
           <p className="font-nunito text-[#2D2520]/55 text-base mt-4 max-w-2xl mx-auto leading-relaxed text-left">
-            Children are growing up in an increasingly digital environment, with social media, video games and online content competing with time traditionally spent reading and communicating. This changing environment makes opportunities to develop language and communication skills particularly important. Language helps children understand rules, communicate their needs and ideas, consider the consequences of their actions and interact positively with others; difficulties expressing themselves can sometimes contribute to frustration or behaviours that challenge.
+            Children are growing up in an increasingly digital environment, with social media, video games and online content competing with time traditionally spent reading and communicating. This changing environment makes opportunities to develop language and communication skills particularly important. Language helps children understand rules, communicate their needs and ideas, consider the consequences of their actions and interact positively with others. Some children have speech, language, and communication needs (SLCN). These children can struggle to express themselves verbally which cause them to get frustrated.
           </p>
           <p className="font-nunito text-[#2D2520]/55 text-base mt-4 max-w-2xl mx-auto leading-relaxed text-left">
             At Rook Foundations, we use games and playful activities to create enjoyable opportunities to develop vocabulary, communication, creativity and thoughtful discussion. Activities include{' '}
