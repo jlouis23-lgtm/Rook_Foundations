@@ -8,6 +8,7 @@ import ChessCurriculumButton from '@/components/classes/ChessCurriculumButton';
 import SessionIncludesGrid from '@/components/classes/SessionIncludesGrid';
 import PersonalisedApproach from '@/components/classes/PersonalisedApproach';
 import RegulationStrategies from '@/components/classes/RegulationStrategies';
+import CommunicationTable from '@/components/classes/CommunicationTable';
 
 export default function HowWeTeachSection() {
   return (
@@ -44,7 +45,7 @@ export default function HowWeTeachSection() {
 
       {/* Discussion and Communication — a shorter standalone section between
           the pyramid and Regulation Before Participation. */}
-      <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10 mb-16">
+      <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -67,6 +68,14 @@ export default function HowWeTeachSection() {
             , helping children develop ideas, create stories with a beginning, middle and end, and respectfully explore different perspectives. Through games, children can express ideas, explore language, listen to others and build confidence in communication while learning in an engaging and supportive environment.
           </p>
         </motion.div>
+      </div>
+
+      {/* How Games Can Support Participation — table subsection sitting
+          directly beneath the Language, Communication & Discussion intro.
+          Wider breakout (max-w-4xl vs. the max-w-3xl text column above)
+          since a three-column table needs more room to stay scannable. */}
+      <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10 mt-10 mb-16">
+        <CommunicationTable />
       </div>
 
       {/* Regulation Before Participation — sits directly beneath the pyramid,
