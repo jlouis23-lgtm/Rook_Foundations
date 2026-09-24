@@ -58,16 +58,13 @@ export default function HowWeTeachSection() {
           <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
             Language, Communication &amp; Discussion
           </h2>
-          <p className="font-nunito text-[#2D2520]/55 text-base mt-4 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-nunito text-[#2D2520]/55 text-base mt-4 max-w-2xl mx-auto leading-relaxed text-left">
             Children are growing up in an increasingly digital environment, with social media, video games and online content competing with time traditionally spent reading and communicating. This changing environment makes opportunities to develop language and communication skills particularly important. Language helps children understand rules, communicate their needs and ideas, consider the consequences of their actions and interact positively with others; difficulties expressing themselves can sometimes contribute to frustration or behaviours that challenge.
           </p>
-          <p className="font-nunito text-[#2D2520]/55 text-base mt-4 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-nunito text-[#2D2520]/55 text-base mt-4 max-w-2xl mx-auto leading-relaxed text-left">
             At Rook Foundations, we use games and playful activities to create enjoyable opportunities to develop vocabulary, communication, creativity and thoughtful discussion. Activities include{' '}
             <strong className="font-700 text-[#2D2520]">comprehension games, friendly debates, story starters, dice storytelling, communication cards and word-building games</strong>
-            , helping children develop ideas, create stories with a beginning, middle and end, and respectfully explore different perspectives.
-          </p>
-          <p className="font-nunito text-[#2D2520]/55 text-base mt-4 max-w-2xl mx-auto leading-relaxed">
-            Through games, children can express ideas, explore language, listen to others and build confidence in communication while learning in an engaging and supportive environment.
+            , helping children develop ideas, create stories with a beginning, middle and end, and respectfully explore different perspectives. Through games, children can express ideas, explore language, listen to others and build confidence in communication while learning in an engaging and supportive environment.
           </p>
         </motion.div>
       </div>
