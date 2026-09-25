@@ -57,7 +57,7 @@ export default function HeroSection() {
         >
 
           <span className="inline-flex items-center font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-6">
-            Chess & strategy games for curious minds
+            Strategy games for curious minds
           </span>
 
           <h1 className="font-fredoka text-[#2D2520] leading-[1.1] mb-3"
