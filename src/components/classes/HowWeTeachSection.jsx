@@ -9,6 +9,7 @@ import SessionIncludesGrid from '@/components/classes/SessionIncludesGrid';
 import PersonalisedApproach from '@/components/classes/PersonalisedApproach';
 import RegulationStrategies from '@/components/classes/RegulationStrategies';
 import CommunicationTable from '@/components/classes/CommunicationTable';
+import BehaviourFramework from '@/components/classes/BehaviourFramework';
 
 export default function HowWeTeachSection() {
   return (
@@ -78,9 +79,21 @@ export default function HowWeTeachSection() {
         <CommunicationTable />
       </div>
 
+      {/* Responding to Challenging Behaviour — sits directly before
+          Regulation Before Participation, and links forward into it (the
+          RESPOND stage's own inline link, and the larger connector block at
+          the end of this component) via the #regulation-before-participation
+          anchor on that section below. Wider breakout (max-w-6xl) so the
+          five-stage chevron diagram has room. */}
+      <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10 mb-16">
+        <BehaviourFramework />
+      </div>
+
       {/* Regulation Before Participation — sits directly beneath the pyramid,
-          before "What Makes Us Different" begins. */}
-      <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10 mb-16">
+          before "What Makes Us Different" begins. Anchor id is the scroll
+          target for the links inside Responding to Challenging Behaviour
+          above. */}
+      <div id="regulation-before-participation" className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10 mb-16 scroll-mt-24">
         <RegulationStrategies />
       </div>
 
