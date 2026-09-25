@@ -104,7 +104,7 @@ export default function CommunicationTable() {
   return (
     <div>
       <h3 className="font-fredoka text-[#2D2520] text-xl mb-6 text-center leading-snug">
-        How Games Can Support Participation
+        How Games Can Support Communication
       </h3>
 
       <Reveal>
