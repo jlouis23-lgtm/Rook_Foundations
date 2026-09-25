@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Reveal from '@/components/ui/Reveal';
 
 const EASE = [0.22, 1, 0.36, 1];
@@ -232,39 +232,9 @@ export default function BehaviourFramework() {
       {/* Philosophy statement */}
       <Reveal className="max-w-2xl mx-auto text-center mb-16">
         <div className="w-12 h-[3px] rounded-full bg-[#E8A020] mx-auto mb-6" aria-hidden="true" />
-        <p className="font-fredoka text-[#2D2520]/85 italic font-light text-xl sm:text-2xl leading-relaxed mb-5">
+        <p className="font-fredoka text-[#2D2520]/85 italic font-light text-xl sm:text-2xl leading-relaxed">
           Our aim is <strong className="font-600 not-italic">participation</strong>, not simply compliance.
         </p>
-        <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed max-w-xl mx-auto">
-          Challenging behaviour does not automatically mean that a child should be removed from an activity. Where it is safe and appropriate, we look for ways to reduce barriers, <strong className="font-700 text-[#2D2520]">adapt</strong> the experience and <strong className="font-700 text-[#2D2520]">support</strong> the child to remain involved. This may mean continuing with the original activity, changing how it is delivered, <strong className="font-700 text-[#2D2520]">choosing</strong> an alternative activity or allowing time to reset before deciding what to do next.
-        </p>
-      </Reveal>
-
-      {/* Connection into Regulation Before Participation */}
-      <Reveal className="max-w-md mx-auto text-center mb-10">
-        <div className="flex flex-col items-center gap-2 mb-6">
-          <span className="font-nunito text-[#2D2520] text-sm font-700 bg-[#E8A020]/10 border border-[#E8A020]/20 rounded-full px-4 py-2">
-            Respond
-          </span>
-          <ChevronDown size={16} className="text-[#E8A020]/50" aria-hidden="true" />
-          <span className="font-nunito text-[#2D2520]/70 text-sm bg-white border border-[#2D2520]/10 rounded-full px-4 py-2">
-            When regulation is needed
-          </span>
-          <ChevronDown size={16} className="text-[#E8A020]/50" aria-hidden="true" />
-          <span className="font-nunito text-[#2D2520] text-sm font-700 bg-[#E8A020]/10 border border-[#E8A020]/20 rounded-full px-4 py-2">
-            Regulation Before Participation
-          </span>
-        </div>
-        <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mb-6">
-          When a child is experiencing heightened emotion, frustration or difficulty engaging, regulation strategies may form part of our response. Our Regulation Before Participation approach provides children with practical ways to pause, reset and decide how they would like to continue.
-        </p>
-        <a
-          href="#regulation-before-participation"
-          className="inline-flex items-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-3 rounded-2xl hover:bg-[#d4940e] transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#E8A020]/25"
-        >
-          Explore Regulation Before Participation
-          <ChevronDown size={16} className="flex-shrink-0" />
-        </a>
       </Reveal>
 
       {/* Professional boundaries — small and understated, matching the
