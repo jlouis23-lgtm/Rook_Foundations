@@ -130,13 +130,13 @@ export default function HowWeTeachSection() {
             Building Independence Through Challenge
           </h2>
           <p className="font-nunito text-[#2D2520] text-lg font-700 leading-snug mt-5 mb-4">
-            Difficulty is not necessarily something to avoid.
+            Difficulty is not necessarily something to avoid
           </p>
           <p className="font-nunito text-[#2D2520]/55 text-base max-w-2xl mx-auto leading-relaxed">
             Through games and structured challenges, children have opportunities to tolerate uncertainty, respond to difficulty, consider their options and decide how to respond. We encourage children to reflect on mistakes, try different approaches and learn from their experiences, while understanding that asking for help is a positive part of learning.
           </p>
           <p className="font-nunito text-[#2D2520]/55 text-base max-w-2xl mx-auto leading-relaxed mt-4">
-            When a child gets stuck, we aim to support them without immediately solving the problem for them. We may give them time to think, ask a question, offer a clue, model an approach or provide more direct guidance when needed. The aim is to help children move forward while preserving opportunities for independent thinking and problem solving.
+            When a child gets stuck, we aim to support them without immediately solving the problem for them. We may give them time to think, ask a question, offer a clue, model an approach or provide more direct guidance when needed. When a child is learning a new strategy, we may initially provide a full example or model of how to approach a task. As their understanding develops, we gradually remove elements of this support, giving them more responsibility for completing the task themselves. The aim is to help children move from supported practice towards independent application, while preserving opportunities for independent thinking and problem solving.
           </p>
         </motion.div>
       </div>
