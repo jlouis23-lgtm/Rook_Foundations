@@ -79,7 +79,25 @@ function Heading() {
         The Rook Foundations Learning Pyramid
       </h2>
       <p className="font-nunito text-[#2D2520]/55 text-base mt-3 leading-relaxed">
-        The Rook Foundations Learning Framework has been informed by established approaches to child-centred and relational practice, including the PACE model developed by Dr Dan Hughes. We have drawn on these principles as one source of inspiration when developing our own approach to creating positive, engaging and responsive learning experiences through games and activities.
+        The Rook Foundations Learning Framework has been informed by established approaches to child-centred and relational practice, including the{' '}
+        <a
+          href="https://ddpnetwork.org/professionals/training/ddp-pace-training/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline decoration-[#2D2520]/25 hover:decoration-[#2D2520]/60 hover:text-[#2D2520]/75 transition-colors"
+        >
+          PACE model
+        </a>{' '}
+        developed by Dr Dan Hughes, alongside ideas about learning and teaching reflected in the{' '}
+        <a
+          href="https://www.ncetm.org.uk/teaching-for-mastery/mastery-explained/five-big-ideas-in-teaching-for-mastery/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline decoration-[#2D2520]/25 hover:decoration-[#2D2520]/60 hover:text-[#2D2520]/75 transition-colors"
+        >
+          Five Big Ideas in Teaching for Mastery
+        </a>
+        , developed by the National Centre for Excellence in the Teaching of Mathematics (NCETM). While the NCETM framework was developed specifically within mathematics education, we have considered how relevant ideas such as coherence, representation, variation, fluency and thinking can inform our approach to learning through strategy games. We draw on these approaches as sources of inspiration when developing positive, engaging and responsive learning experiences that encourage children to explore, think, reflect and apply their learning.
       </p>
     </div>
   );
