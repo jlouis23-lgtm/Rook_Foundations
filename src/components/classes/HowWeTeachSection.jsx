@@ -10,6 +10,7 @@ import PersonalisedApproach from '@/components/classes/PersonalisedApproach';
 import RegulationStrategies from '@/components/classes/RegulationStrategies';
 import CommunicationTable from '@/components/classes/CommunicationTable';
 import BehaviourFramework from '@/components/classes/BehaviourFramework';
+import ScaffoldingNote from '@/components/classes/ScaffoldingNote';
 import TeachingPrinciples from '@/components/classes/TeachingPrinciples';
 
 export default function HowWeTeachSection() {
@@ -98,11 +99,13 @@ export default function HowWeTeachSection() {
         <CommunicationTable />
       </div>
 
-      {/* Coping with Challenge and Uncertainty — closing subsection of
+      {/* Building Independence Through Challenge — closing subsection of
           Language, Communication and Discussion, sitting in the same
           max-w-3xl text column as that section's own intro so it reads as
           part of the same content, while its own h3 keeps it clearly
-          distinguished as a new subsection. */}
+          distinguished as a new subsection. ScaffoldingNote is a deliberately
+          understated expandable disclosure (smaller/quieter than the site's
+          FAQAccordionItem) so the EEF detail stays secondary to the main text. */}
       <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10 mb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -112,14 +115,19 @@ export default function HowWeTeachSection() {
           className="text-center"
         >
           <h3 className="font-fredoka text-[#2D2520] text-xl mb-5 leading-snug">
-            Coping with Challenge and Uncertainty
+            Building Independence Through Challenge
           </h3>
           <p className="font-nunito text-[#2D2520] text-lg font-700 leading-snug mb-4">
             Difficulty is not necessarily something to avoid.
           </p>
           <p className="font-nunito text-[#2D2520]/55 text-base max-w-2xl mx-auto leading-relaxed">
-            Through games and structured challenges, children learn to tolerate uncertainty, regulate their response to difficulty, consider their options and decide how to respond. We encourage children to reflect on mistakes, try different approaches and learn from their experiences, while understanding that asking for help is a positive part of learning.
+            Through games and structured challenges, children have opportunities to tolerate uncertainty, respond to difficulty, consider their options and decide how to respond. We encourage children to reflect on mistakes, try different approaches and learn from their experiences, while understanding that asking for help is a positive part of learning.
           </p>
+          <p className="font-nunito text-[#2D2520]/55 text-base max-w-2xl mx-auto leading-relaxed mt-4">
+            When a child gets stuck, we aim to support them without immediately solving the problem for them. We may give them time to think, ask a question, offer a clue, model an approach or provide more direct guidance when needed. The aim is to help children move forward while preserving opportunities for independent thinking and problem solving.
+          </p>
+
+          <ScaffoldingNote />
         </motion.div>
       </div>
 
