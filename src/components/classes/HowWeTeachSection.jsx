@@ -10,7 +10,6 @@ import PersonalisedApproach from '@/components/classes/PersonalisedApproach';
 import RegulationStrategies from '@/components/classes/RegulationStrategies';
 import CommunicationTable from '@/components/classes/CommunicationTable';
 import BehaviourFramework from '@/components/classes/BehaviourFramework';
-import ScaffoldingNote from '@/components/classes/ScaffoldingNote';
 import TeachingPrinciples from '@/components/classes/TeachingPrinciples';
 
 export default function HowWeTeachSection() {
@@ -112,9 +111,9 @@ export default function HowWeTeachSection() {
           (own eyebrow + h2, matching Regulation Before Participation and the
           page's other main sections exactly) sitting between Regulation
           Before Participation and Responding to Challenging Behaviour, per
-          the page's defined section order. ScaffoldingNote is a deliberately
-          understated expandable disclosure (smaller/quieter than the site's
-          FAQAccordionItem) so the EEF detail stays secondary to the main text. */}
+          the page's defined section order. The EEF framework reference below
+          matches the styling of the equivalent reference in Responding to
+          Challenging Behaviour exactly (italic, text-sm, /55 opacity). */}
       <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10 mb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -138,8 +137,18 @@ export default function HowWeTeachSection() {
           <p className="font-nunito text-[#2D2520]/55 text-base max-w-2xl mx-auto leading-relaxed mt-4">
             When a child gets stuck, we aim to support them without immediately solving the problem for them. We may give them time to think, ask a question, offer a clue, model an approach or provide more direct guidance when needed. The aim is to help children move forward while preserving opportunities for independent thinking and problem solving.
           </p>
-
-          <ScaffoldingNote />
+          <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed italic mt-4 max-w-2xl mx-auto">
+            Our approach to developing independence is informed by the{' '}
+            <a
+              href="https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-[#2D2520]/25 hover:decoration-[#2D2520]/60 hover:text-[#2D2520]/75 transition-colors not-italic"
+            >
+              Education Endowment Foundation's Seven Step Model for teaching metacognitive strategies
+            </a>
+            , which describes a progression from activating prior knowledge and explicit instruction through modelling and guided practice to independent practice and structured reflection. Rook Foundations has adapted these principles for its own educational enrichment context.
+          </p>
         </motion.div>
       </div>
 
