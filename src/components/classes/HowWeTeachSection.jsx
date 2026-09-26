@@ -10,6 +10,7 @@ import PersonalisedApproach from '@/components/classes/PersonalisedApproach';
 import RegulationStrategies from '@/components/classes/RegulationStrategies';
 import CommunicationTable from '@/components/classes/CommunicationTable';
 import BehaviourFramework from '@/components/classes/BehaviourFramework';
+import TeachingPrinciples from '@/components/classes/TeachingPrinciples';
 
 export default function HowWeTeachSection() {
   return (
@@ -23,7 +24,7 @@ export default function HowWeTeachSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="text-center"
         >
           <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
             <Compass size={14} /> Our approach
@@ -32,14 +33,20 @@ export default function HowWeTeachSection() {
             How We Teach
           </h2>
           <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-2xl mx-auto leading-relaxed">
-            Games of strategy provide joyful opportunities to process new information, adapt to different rules and evaluate the choices of others. They are the vehicle. What shapes how a child develops is a six-stage learning journey that continues to be refined through each session. The Rook Foundations approach has been shaped through research, professional learning and exploration of established approaches to how children learn, play, communicate and respond to challenge. This includes considering how games can be used intentionally to create meaningful opportunities for learning and development.
-          </p>
-          <p className="font-nunito text-[#2D2520]/55 text-base mt-4 max-w-2xl mx-auto leading-relaxed">
-            Activities are not simply selected because they are enjoyable. Games and activities are considered for the opportunities they provide to develop particular skills, and Rook Foundations also develops and adapts its own games and activities where a specific learning opportunity or skill can be targeted. The approach does not assume that skills transfer automatically from one activity to another. Instead, relationship, challenge and reflection are used to create opportunities for children to practise skills in different contexts. Rook Foundations brings the games, structure and encouragement that can help children approach challenges they might otherwise find difficult or be reluctant to tackle independently.
+            Games of strategy provide joyful opportunities to process new information, adapt to different rules and evaluate the choices of others. They are the vehicle. What shapes how a child develops is a six-stage learning journey, continually refined through each session.
           </p>
 
           <ChessCurriculumButton className="mt-8" />
         </motion.div>
+      </div>
+
+      {/* Three teaching principles — visual bridge between the "How We
+          Teach" intro above and the six-stage pyramid below. Wider breakout
+          (max-w-5xl) than the max-w-3xl intro text column, matching how
+          other multi-column content on this page (CommunicationTable) also
+          breaks out wider. */}
+      <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10 mt-14 mb-14">
+        <TeachingPrinciples />
       </div>
 
       {/* Learning journey diagram — full-width breakout for the circular layout */}
