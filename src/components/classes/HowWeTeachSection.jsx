@@ -108,7 +108,9 @@ export default function HowWeTeachSection() {
         <RegulationStrategies />
       </div>
 
-      {/* Building Independence Through Challenge — sits between Regulation
+      {/* Building Independence Through Challenge — a full top-level section
+          (own eyebrow + h2, matching Regulation Before Participation and the
+          page's other main sections exactly) sitting between Regulation
           Before Participation and Responding to Challenging Behaviour, per
           the page's defined section order. ScaffoldingNote is a deliberately
           understated expandable disclosure (smaller/quieter than the site's
@@ -121,10 +123,13 @@ export default function HowWeTeachSection() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <h3 className="font-fredoka text-[#2D2520] text-xl mb-5 leading-snug">
+          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+            Supporting independence
+          </span>
+          <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
             Building Independence Through Challenge
-          </h3>
-          <p className="font-nunito text-[#2D2520] text-lg font-700 leading-snug mb-4">
+          </h2>
+          <p className="font-nunito text-[#2D2520] text-lg font-700 leading-snug mt-5 mb-4">
             Difficulty is not necessarily something to avoid.
           </p>
           <p className="font-nunito text-[#2D2520]/55 text-base max-w-2xl mx-auto leading-relaxed">
