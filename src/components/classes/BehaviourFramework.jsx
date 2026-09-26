@@ -201,7 +201,16 @@ export default function BehaviourFramework() {
 
       <Reveal className="max-w-2xl mx-auto text-center mb-14" delay={0.05}>
         <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed italic">
-          Our approach has been informed by Sarah Dove's five-stage approach to behaviour, outlined in Behaving Together in the Classroom (2021): Identifying, Understanding, Responding, Communicating and Preventing. Rook Foundations has adapted these principles for its own educational enrichment context.
+          Our approach has been informed by Sarah Dove's five-stage approach to behaviour, outlined in{' '}
+          <a
+            href="https://www.mheducation.co.uk/behaving-together-in-the-classroom-a-teacher-s-guide-to-nurturing-behaviour-9780335249558-emea-group"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-[#2D2520]/25 hover:decoration-[#2D2520]/60 hover:text-[#2D2520]/75 transition-colors not-italic"
+          >
+            Behaving Together in the Classroom (2021)
+          </a>
+          : Identifying, Understanding, Responding, Communicating and Preventing. Rook Foundations has adapted these principles for its own educational enrichment context.
         </p>
       </Reveal>
 
@@ -246,14 +255,6 @@ export default function BehaviourFramework() {
         </p>
       </div>
 
-      {/* Attribution — left unlinked; no verified official source page was
-          available to link to, so an unlinked citation was used rather than
-          an invented URL. */}
-      <div className="max-w-xl mx-auto mt-5 text-center">
-        <p className="font-nunito text-[#2D2520]/40 text-xs leading-relaxed">
-          Informed by: Dove, S. (2021). Behaving Together in the Classroom: A Teacher's Guide to Nurturing Behaviour. Maidenhead: Open University Press / McGraw-Hill Education.
-        </p>
-      </div>
     </div>
   );
 }
