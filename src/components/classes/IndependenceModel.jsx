@@ -1,103 +1,60 @@
-import { ChevronRight, ChevronDown } from 'lucide-react';
-import Reveal from '@/components/ui/Reveal';
+// Seven stages, mirroring the visual system of the five-stage chevron model
+// in BehaviourFramework.jsx directly beneath this one on the page: same
+// interlocking notch/point geometry, same six-colour accent rotation (cycling
+// back to green for stage seven, closing the loop rather than introducing a
+// new colour), same numbering style and typography. Deliberately static (no
+// hover/click reveal) and text-only (number + name, no prompt line), per the
+// brief's explicit "no captions, no interactive element" instruction — this
+// diagram matches the five-stage model's look, not its interaction.
+const stages = [
+  { num: '01', title: 'PAUSE', accent: '#2d8c62' },
+  { num: '02', title: 'THINK', accent: '#c9860f' },
+  { num: '03', title: 'TRY', accent: '#4a7eb8' },
+  { num: '04', title: 'SUPPORT', accent: '#7a48c0' },
+  { num: '05', title: 'TRY AGAIN', accent: '#c05050' },
+  { num: '06', title: 'REFLECT', accent: '#2a8c88' },
+  { num: '07', title: 'INDEPENDENTLY APPLY', accent: '#2d8c62' },
+];
 
-// Seven stages, text only, no captions/numbers inside the shapes, per the
-// brief. Structure (rounded-left, pointed-right flag shapes sitting directly
-// adjacent, with a white circular chevron badge bridging each seam) mirrors
-// the supplied reference image; colours and typography are the site's own,
-// not copied from it. The final stage is solid ink rather than gold — a
-// single, unambiguous "arrival" marker rather than a colour gradient — so
-// the chain reads as one linear progression, not a repeating loop.
-const stages = ['Pause', 'Think', 'Try', 'Support', 'Try Again', 'Reflect', 'Independently Apply'];
-const GOLD = '#E8A020';
-const INK = '#2D2520';
-const TIP = 22;
+// Same interlocking geometry as the five-stage model (NOTCH = 22px, identical
+// clip-path shape), just spread across seven narrower segments instead of
+// five.
+const NOTCH = 22;
 
-function Badge({ Icon = ChevronRight }) {
-  return (
-    <div
-      className="absolute rounded-full bg-white flex items-center justify-center flex-shrink-0"
-      style={{ width: 34, height: 34, boxShadow: '0 3px 10px -2px rgba(45,37,32,0.35)' }}
-    >
-      <Icon size={16} className="text-[#2D2520]/70" />
-    </div>
-  );
+function chevronClipPath(isFirst, isLast) {
+  const rightTip = isLast ? '100% 0, 100% 100%' : `calc(100% - ${NOTCH}px) 0, 100% 50%, calc(100% - ${NOTCH}px) 100%`;
+  const leftNotch = isFirst ? '0 100%' : `0 100%, ${NOTCH}px 50%`;
+  return `polygon(0 0, ${rightTip}, ${leftNotch})`;
 }
 
-function DesktopChain() {
+function DesktopChevrons() {
   return (
     <div
-      className="hidden md:block relative"
+      className="hidden md:flex max-w-5xl mx-auto"
       role="img"
       aria-label="The Rook Foundations approach to building independence through challenge: Pause, Think, Try, Support, Try Again, Reflect, Independently Apply"
     >
-      <div className="flex items-stretch w-full">
-        {stages.map((label, i) => {
-          const isLast = i === stages.length - 1;
-          const fill = isLast ? INK : GOLD;
-          return (
-            <div key={label} className="flex items-stretch flex-1 min-w-0">
-              <div
-                className="flex-1 min-w-0 rounded-l-2xl flex items-center pl-5 pr-2"
-                style={{ height: 'clamp(76px, 9vw, 100px)', backgroundColor: fill }}
-              >
-                <span
-                  className="font-fredoka text-white leading-tight"
-                  style={{ fontSize: 'clamp(10px, 1.05vw, 14px)' }}
-                >
-                  {label}
-                </span>
-              </div>
-              <div
-                className="flex-shrink-0"
-                style={{
-                  width: TIP,
-                  height: 'clamp(76px, 9vw, 100px)',
-                  backgroundColor: fill,
-                  clipPath: 'polygon(0 0, 100% 50%, 0 100%)',
-                }}
-                aria-hidden="true"
-              />
-            </div>
-          );
-        })}
-      </div>
-
-      {stages.slice(0, -1).map((label, i) => (
-        <div
-          key={`badge-${label}`}
-          className="absolute top-1/2"
-          style={{ left: `${((i + 1) / stages.length) * 100}%`, transform: 'translate(-50%, -50%)' }}
-        >
-          <Badge />
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function MobileChain() {
-  return (
-    <div
-      className="md:hidden flex flex-col items-center"
-      role="img"
-      aria-label="The Rook Foundations approach to building independence through challenge: Pause, Think, Try, Support, Try Again, Reflect, Independently Apply"
-    >
-      {stages.map((label, i) => {
+      {stages.map((s, i) => {
+        const isFirst = i === 0;
         const isLast = i === stages.length - 1;
         return (
-          <div key={label} className="flex flex-col items-center w-full">
-            <div
-              className="w-full max-w-xs rounded-2xl flex items-center justify-center py-3.5 px-5"
-              style={{ backgroundColor: isLast ? INK : GOLD }}
-            >
-              <span className="font-fredoka text-white text-sm leading-tight">{label}</span>
-            </div>
-            {!isLast && (
-              <div className="relative my-1.5" style={{ width: 34, height: 34 }}>
-                <Badge Icon={ChevronDown} />
-              </div>
-            )}
+          <div
+            key={s.num}
+            className="relative flex-1 h-24 lg:h-28 flex flex-col items-center justify-center text-center"
+            style={{
+              backgroundColor: s.accent,
+              clipPath: chevronClipPath(isFirst, isLast),
+              marginLeft: isFirst ? 0 : -NOTCH,
+              zIndex: i + 1,
+              boxShadow: '0 4px 10px -4px rgba(45,37,32,0.25)',
+              paddingLeft: isFirst ? '0.75rem' : '1.6rem',
+              paddingRight: isLast ? '0.75rem' : '1.6rem',
+            }}
+          >
+            <span className="font-fredoka text-white/70 text-xs tracking-widest leading-none">{s.num}</span>
+            <span className="font-fredoka text-white leading-tight mt-1" style={{ fontSize: 'clamp(0.6rem, 0.95vw, 0.8rem)' }}>
+              {s.title}
+            </span>
           </div>
         );
       })}
@@ -105,13 +62,32 @@ function MobileChain() {
   );
 }
 
+function MobileStack() {
+  return (
+    <div
+      className="md:hidden max-w-md mx-auto space-y-2.5"
+      role="img"
+      aria-label="The Rook Foundations approach to building independence through challenge: Pause, Think, Try, Support, Try Again, Reflect, Independently Apply"
+    >
+      {stages.map((s) => (
+        <div
+          key={s.num}
+          className="w-full flex items-center gap-3 rounded-2xl px-4 py-3.5"
+          style={{ backgroundColor: s.accent, boxShadow: '0 2px 6px -2px rgba(45,37,32,0.2)' }}
+        >
+          <span className="font-fredoka text-white/70 text-xs flex-shrink-0">{s.num}</span>
+          <span className="font-fredoka text-white text-base leading-snug">{s.title}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function IndependenceModel() {
   return (
     <div className="max-w-6xl mx-auto">
-      <Reveal>
-        <DesktopChain />
-        <MobileChain />
-      </Reveal>
+      <DesktopChevrons />
+      <MobileStack />
       <p className="font-nunito text-[#2D2520]/50 text-sm text-center mt-6">
         The Rook Foundations approach to building independence through challenge.
       </p>
