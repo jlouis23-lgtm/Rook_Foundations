@@ -33,7 +33,16 @@ export default function HowWeTeachSection() {
             How We Teach
           </h2>
           <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-2xl mx-auto leading-relaxed">
-            Games of strategy provide joyful opportunities to process new information, adapt to different rules and evaluate the choices of others. They are the vehicle. What shapes how a child develops is a six-stage learning journey, continually refined through each session.
+            Games of strategy provide joyful opportunities to process new information, adapt to different rules and evaluate the choices of others. They are the vehicle. What shapes how a child develops is a six-stage learning journey, continually refined through each session. Our approach is child-centred and informed by established ideas about how children learn, communicate and participate, including the{' '}
+            <a
+              href="https://www.qub.ac.uk/research-centres/centre-for-childrens-rights/childrens-rights-research/lundy-model/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-[#2D2520]/25 hover:decoration-[#2D2520]/60 hover:text-[#2D2520]/75 transition-colors"
+            >
+              Lundy Model of Child Participation
+            </a>
+            .
           </p>
 
           <ChessCurriculumButton className="mt-8" />
