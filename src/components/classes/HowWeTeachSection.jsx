@@ -99,11 +99,18 @@ export default function HowWeTeachSection() {
         <CommunicationTable />
       </div>
 
-      {/* Building Independence Through Challenge — closing subsection of
-          Language, Communication and Discussion, sitting in the same
-          max-w-3xl text column as that section's own intro so it reads as
-          part of the same content, while its own h3 keeps it clearly
-          distinguished as a new subsection. ScaffoldingNote is a deliberately
+      {/* Regulation Before Participation — sits directly after "Language,
+          Communication and Discussion" and before "Building Independence
+          Through Challenge", per the page's defined section order. Anchor id
+          is the scroll target for the RESPOND-stage link inside "Responding
+          to Challenging Behaviour" further down the page. */}
+      <div id="regulation-before-participation" className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10 mb-16 scroll-mt-24">
+        <RegulationStrategies />
+      </div>
+
+      {/* Building Independence Through Challenge — sits between Regulation
+          Before Participation and Responding to Challenging Behaviour, per
+          the page's defined section order. ScaffoldingNote is a deliberately
           understated expandable disclosure (smaller/quieter than the site's
           FAQAccordionItem) so the EEF detail stays secondary to the main text. */}
       <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10 mb-16">
@@ -131,22 +138,13 @@ export default function HowWeTeachSection() {
         </motion.div>
       </div>
 
-      {/* Responding to Challenging Behaviour — sits directly before
-          Regulation Before Participation, and links forward into it (the
-          RESPOND stage's own inline link, and the larger connector block at
-          the end of this component) via the #regulation-before-participation
-          anchor on that section below. Wider breakout (max-w-6xl) so the
-          five-stage chevron diagram has room. */}
+      {/* Responding to Challenging Behaviour — sits directly before "What
+          Makes Us Different" begins, and links back up into Regulation
+          Before Participation above (the RESPOND stage's own inline link)
+          via the #regulation-before-participation anchor. Wider breakout
+          (max-w-6xl) so the five-stage chevron diagram has room. */}
       <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10 mb-16">
         <BehaviourFramework />
-      </div>
-
-      {/* Regulation Before Participation — sits directly beneath the pyramid,
-          before "What Makes Us Different" begins. Anchor id is the scroll
-          target for the links inside Responding to Challenging Behaviour
-          above. */}
-      <div id="regulation-before-participation" className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10 mb-16 scroll-mt-24">
-        <RegulationStrategies />
       </div>
 
       {/* What Makes Us Different — heading for the merged philosophy +
