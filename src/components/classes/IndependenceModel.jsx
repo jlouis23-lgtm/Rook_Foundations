@@ -51,8 +51,7 @@ function DesktopChevrons() {
               paddingRight: isLast ? '0.75rem' : '1.6rem',
             }}
           >
-            <span className="font-fredoka text-white/70 text-xs tracking-widest leading-none">{s.num}</span>
-            <span className="font-fredoka text-white leading-tight mt-1" style={{ fontSize: 'clamp(0.6rem, 0.95vw, 0.8rem)' }}>
+            <span className="font-fredoka text-white leading-tight" style={{ fontSize: 'clamp(0.7rem, 1.1vw, 0.92rem)' }}>
               {s.title}
             </span>
           </div>
