@@ -11,6 +11,7 @@ import RegulationStrategies from '@/components/classes/RegulationStrategies';
 import CommunicationTable from '@/components/classes/CommunicationTable';
 import BehaviourFramework from '@/components/classes/BehaviourFramework';
 import TeachingPrinciples from '@/components/classes/TeachingPrinciples';
+import IndependenceModel from '@/components/classes/IndependenceModel';
 
 export default function HowWeTeachSection() {
   return (
@@ -114,7 +115,7 @@ export default function HowWeTeachSection() {
           the page's defined section order. The EEF framework reference below
           matches the styling of the equivalent reference in Responding to
           Challenging Behaviour exactly (italic, text-sm, /55 opacity). */}
-      <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10 mb-16">
+      <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -137,7 +138,28 @@ export default function HowWeTeachSection() {
           <p className="font-nunito text-[#2D2520]/55 text-base max-w-2xl mx-auto leading-relaxed mt-4">
             When a child gets stuck, we aim to support them without immediately solving the problem for them. We may give them time to think, ask a question, offer a clue, model an approach or provide more direct guidance when needed. The aim is to help children move forward while preserving opportunities for independent thinking and problem solving.
           </p>
-          <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed italic mt-4 max-w-2xl mx-auto">
+        </motion.div>
+      </div>
+
+      {/* The Rook Foundations model for building independence through
+          challenge — an original seven-stage diagram (structure only
+          inspired by a reference image; colours/branding are the site's own).
+          Wider breakout (max-w-6xl) than the max-w-3xl text column either
+          side of it, since seven stages need more room than the surrounding
+          paragraphs. */}
+      <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10 mt-10">
+        <IndependenceModel />
+      </div>
+
+      <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10 mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
+          <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed italic mt-6 max-w-2xl mx-auto">
             Our approach to developing independence is informed by the{' '}
             <a
               href="https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition"
