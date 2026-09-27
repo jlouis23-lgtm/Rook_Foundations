@@ -18,7 +18,7 @@ export default function LearningNetworkHero() {
           loading="eager"
           fetchpriority="high"
           alt="A brain at the centre of a network connecting the strategy game publishers and platforms Rook Foundations draws from — Smart Games, Ravensburger, Blue Orange, Chess.com, Sensory Education, HABA, Arcane Wonders, Peaceable Kingdom, Gigamic, Thinkfun and Junior Learning."
-          className="w-full max-w-[500px] sm:max-w-[620px] lg:max-w-[820px] h-auto rounded-3xl shadow-sm"
+          className="w-full max-w-[500px] sm:max-w-[620px] lg:max-w-[820px] h-auto"
         />
       </picture>
     </div>
