@@ -6,6 +6,10 @@
 // hover/click reveal) and text-only (number + name, no prompt line), per the
 // brief's explicit "no captions, no interactive element" instruction — this
 // diagram matches the five-stage model's look, not its interaction.
+import { Fragment } from 'react';
+
+const INK = '#2D2520';
+
 const stages = [
   { num: '01', title: 'PAUSE', accent: '#2d8c62' },
   { num: '02', title: 'THINK', accent: '#c9860f' },
@@ -61,6 +65,58 @@ function DesktopChevrons() {
   );
 }
 
+// The principle behind the seven-stage sequence above: three inputs summing
+// to one outcome, rather than another sequence — deliberately a different
+// shape (rounded box, not a chevron/arrow) from the stage model, so the two
+// are never mistaken for one another, while still sharing the same colours,
+// font and shadow language.
+const inputs = [
+  { label: 'Appropriate Challenge', accent: '#2d8c62' },
+  { label: 'Appropriate Support', accent: '#4a7eb8' },
+  { label: 'Agency', accent: '#7a48c0' },
+];
+
+function PrincipleModel() {
+  return (
+    <div className="max-w-3xl mx-auto mt-8" role="img" aria-label="Appropriate challenge, appropriate support and agency together create opportunities to experience competence and confidence">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
+        {inputs.map((item, i) => (
+          <Fragment key={item.label}>
+            <div
+              className="rounded-2xl px-5 py-3.5 text-center"
+              style={{ backgroundColor: item.accent, boxShadow: '0 2px 6px -2px rgba(45,37,32,0.2)' }}
+            >
+              <span className="font-fredoka text-white text-sm sm:text-base leading-snug whitespace-nowrap">{item.label}</span>
+            </div>
+            {i < inputs.length - 1 && (
+              <span className="font-fredoka text-[#2D2520]/40 text-lg flex-shrink-0" aria-hidden="true">+</span>
+            )}
+          </Fragment>
+        ))}
+      </div>
+
+      <div className="flex justify-center my-3" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M8 2v10m0 0L3.5 7.5M8 12l4.5-4.5" stroke="#E8A020" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </div>
+
+      <div
+        className="rounded-2xl px-6 py-4 text-center"
+        style={{ backgroundColor: INK, boxShadow: '0 4px 10px -4px rgba(45,37,32,0.25)' }}
+      >
+        <span className="font-fredoka text-white text-sm sm:text-base leading-snug">
+          Opportunities to Experience Competence and Confidence
+        </span>
+      </div>
+
+      <p className="font-nunito text-[#2D2520]/45 text-xs italic text-center mt-4 leading-relaxed">
+        Appropriate challenge + appropriate support + agency → opportunities to experience competence and confidence.
+      </p>
+    </div>
+  );
+}
+
 function MobileStack() {
   return (
     <div
@@ -87,6 +143,7 @@ export default function IndependenceModel() {
     <div className="max-w-6xl mx-auto">
       <DesktopChevrons />
       <MobileStack />
+      <PrincipleModel />
       <p className="font-nunito text-[#2D2520]/50 text-sm text-center mt-6">
         The Rook Foundations approach to building independence through challenge.
       </p>
