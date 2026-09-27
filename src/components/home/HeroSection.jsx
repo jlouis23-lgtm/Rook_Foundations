@@ -143,6 +143,11 @@ export default function HeroSection() {
               </div>
             ))}
           </div>
+
+          <h4 className="font-fredoka text-[#2D2520]/70 text-base sm:text-lg mt-7 mb-2">Responsible Practice</h4>
+          <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
+            We take responsibility for the environment we create, the decisions we make and the way we work with children, continually reflecting on and developing our practice.
+          </p>
         </motion.div>
 
         {/* Feature strip — the three supporting ideas, given real visual weight */}
