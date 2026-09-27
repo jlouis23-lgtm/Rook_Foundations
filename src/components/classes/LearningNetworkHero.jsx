@@ -2,7 +2,7 @@ const SIZES = '(max-width: 640px) 92vw, (max-width: 1024px) 680px, 820px';
 
 export default function LearningNetworkHero() {
   return (
-    <div className="flex justify-center py-6 sm:py-10">
+    <div className="flex justify-center pt-10 sm:pt-14 pb-4 sm:pb-6">
       <picture>
         <source
           type="image/webp"

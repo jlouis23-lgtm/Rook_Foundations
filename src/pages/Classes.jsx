@@ -29,7 +29,7 @@ export default function Classes() {
   return (
     <div className="bg-[#FAFAF7] pt-32">
       {/* Header */}
-      <section className="relative overflow-hidden py-20">
+      <section className="relative overflow-hidden pt-20 pb-8 sm:pb-10">
         <ChessBg variant="page" />
         <CulturalSymbolAccents />
 

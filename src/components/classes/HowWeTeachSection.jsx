@@ -17,7 +17,7 @@ import DefiningPrinciples from '@/components/classes/DefiningPrinciples';
 
 export default function HowWeTeachSection() {
   return (
-    <section className="py-20 bg-[#FAFAF7] relative overflow-hidden">
+    <section className="pt-8 sm:pt-10 pb-20 bg-[#FAFAF7] relative overflow-hidden">
       <ChessBg variant="whychess" />
 
       {/* How We Teach — standalone section heading */}
