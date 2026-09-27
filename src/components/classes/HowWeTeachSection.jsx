@@ -120,7 +120,7 @@ export default function HowWeTeachSection() {
             Hands-on exploration
           </span>
           <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-            Puzzle &amp; Exploration Kit
+            Puzzle and Exploration Kit
           </h2>
           <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-2xl mx-auto leading-relaxed">
             The Puzzle &amp; Exploration Kit provides children with a range of hands-on objects to explore, touch and experiment with. It includes puzzles, shapes with different geometries such as cubes, and objects with a variety of tactile qualities that children can manipulate and investigate at their own pace. The kit creates opportunities for curiosity, problem solving, spatial exploration and persistence through hands-on discovery. For some children, particularly those who find conventional activities difficult, tactile and sensory exploration can provide another route into meaningful participation.
