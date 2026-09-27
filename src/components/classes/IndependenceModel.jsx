@@ -78,7 +78,7 @@ const inputs = [
 
 function PrincipleModel() {
   return (
-    <div className="max-w-3xl mx-auto mt-8" role="img" aria-label="Appropriate challenge, appropriate support and agency together create opportunities to experience competence and confidence">
+    <div className="max-w-3xl mx-auto mt-14 lg:mt-16 pt-10 border-t border-[#2D2520]/10" role="img" aria-label="Appropriate challenge, appropriate support and agency together create opportunities to experience competence and confidence">
       <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
         {inputs.map((item, i) => (
           <Fragment key={item.label}>
