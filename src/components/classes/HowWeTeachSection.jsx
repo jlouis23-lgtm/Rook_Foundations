@@ -181,10 +181,28 @@ export default function HowWeTeachSection() {
           className="text-center"
         >
           <p className="font-nunito text-[#2D2520]/55 text-base max-w-2xl mx-auto leading-relaxed">
-            Through games and structured challenges, children have opportunities to tolerate uncertainty, respond to difficulty, consider their options and decide how to respond. We encourage children to reflect on mistakes, try different approaches and learn from their experiences, while understanding that asking for help is a positive part of learning.
+            Through games and structured challenges, children have opportunities to tolerate uncertainty, respond to difficulty, consider their options and decide how to respond. We aim to provide appropriate challenge, appropriate support and meaningful agency and create opportunities for children to experience progress. We structure the environment without unnecessarily controlling the child's decisions within it.
           </p>
-          <p className="font-nunito text-[#2D2520]/55 text-base max-w-2xl mx-auto leading-relaxed mt-4">
-            When a child gets stuck, we aim to support them without immediately solving the problem for them. We may give them time to think, ask a question, offer a clue, model an approach or provide more direct guidance when needed. When a child is learning a new strategy, we may initially provide a full example or model of how to approach a task. As their understanding develops, we gradually remove elements of this support, giving them more responsibility for completing the task themselves. The aim is to help children move from supported practice towards independent application, while preserving opportunities for independent thinking and problem solving.
+          <p className="font-nunito text-[#2D2520] text-base font-700 max-w-2xl mx-auto leading-relaxed mt-5 text-left">
+            This might mean allowing children to
+          </p>
+          <ul className="max-w-2xl mx-auto mt-3 space-y-2 text-left">
+            {[
+              'choose between activities',
+              'decide how to approach a problem',
+              'try a strategy independently',
+              'decide whether to accept a clue',
+              'change their approach after a mistake',
+              'choose how to communicate an answer and reflect on their own decisions.',
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-3 font-nunito text-[#2D2520]/55 text-base leading-relaxed">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#E8A020] flex-shrink-0 mt-2.5" aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p className="font-nunito text-[#2D2520]/55 text-base max-w-2xl mx-auto leading-relaxed mt-5">
+            When a child gets stuck, we aim to support them without immediately solving the problem for them. We may give them time to think, ask a question, offer a clue, model an approach or provide more direct guidance when needed. When learning a new strategy, we may initially provide a full example or model, gradually removing elements of support as understanding develops. The aim is to move from supported practice towards independent application, while preserving opportunities for independent thinking, problem solving and decision making.
           </p>
         </motion.div>
       </div>
