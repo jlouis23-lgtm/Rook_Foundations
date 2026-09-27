@@ -12,6 +12,7 @@ import CommunicationTable from '@/components/classes/CommunicationTable';
 import BehaviourFramework from '@/components/classes/BehaviourFramework';
 import TeachingPrinciples from '@/components/classes/TeachingPrinciples';
 import IndependenceModel from '@/components/classes/IndependenceModel';
+import ActivityTable from '@/components/classes/ActivityTable';
 
 export default function HowWeTeachSection() {
   return (
@@ -81,14 +82,18 @@ export default function HowWeTeachSection() {
             Language, Communication and Discussion
           </h2>
           <p className="font-nunito text-[#2D2520]/55 text-base mt-4 max-w-2xl mx-auto leading-relaxed text-left">
-            Children are growing up in an increasingly digital environment, with social media, video games and online content competing with time traditionally spent reading and communicating. This changing environment makes opportunities to develop language and communication skills particularly important. Language helps children understand rules, communicate their needs and ideas, consider the consequences of their actions and interact positively with others. Some children have speech, language, and communication needs (SLCN). These children can struggle to express themselves verbally which cause them to get frustrated.
-          </p>
-          <p className="font-nunito text-[#2D2520]/55 text-base mt-4 max-w-2xl mx-auto leading-relaxed text-left">
-            At Rook Foundations, we use games and playful activities to create enjoyable opportunities to develop vocabulary, communication, creativity and thoughtful discussion. Activities include{' '}
-            <strong className="font-700 text-[#2D2520]">comprehension games, friendly debates, story starters, dice storytelling, communication cards and word-building games</strong>
-            , helping children develop ideas, create stories with a beginning, middle and end, and respectfully explore different perspectives. Through games, children can express ideas, explore language, listen to others and build confidence in communication while learning in an engaging and supportive environment.
+            Children are growing up in an increasingly digital environment, making opportunities to develop language and communication particularly important. Language helps children understand rules, express needs and ideas, consider consequences and interact positively with others. For children with speech, language and communication needs (SLCN), expressing themselves verbally can be difficult and frustrating. At Rook Foundations, games and playful activities create enjoyable opportunities to develop vocabulary, communication, creativity and thoughtful discussion, helping children express ideas, explore language, listen to others and build confidence.
           </p>
         </motion.div>
+      </div>
+
+      {/* Activity table — sits directly beneath the (now single) Language,
+          Communication and Discussion paragraph, before the existing "How
+          Games Can Support Communication" table. Compact max-w-2xl (matching
+          the intro paragraph's own width) rather than a wide breakout, per
+          the brief's explicit "don't stretch across the full page width". */}
+      <div className="max-w-2xl mx-auto px-6 lg:px-12 relative z-10 mt-10">
+        <ActivityTable />
       </div>
 
       {/* How Games Can Support Participation — table subsection sitting
