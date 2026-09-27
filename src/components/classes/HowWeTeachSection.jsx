@@ -13,6 +13,7 @@ import BehaviourFramework from '@/components/classes/BehaviourFramework';
 import TeachingPrinciples from '@/components/classes/TeachingPrinciples';
 import IndependenceModel from '@/components/classes/IndependenceModel';
 import ActivityTable from '@/components/classes/ActivityTable';
+import DefiningPrinciples from '@/components/classes/DefiningPrinciples';
 
 export default function HowWeTeachSection() {
   return (
@@ -158,9 +159,27 @@ export default function HowWeTeachSection() {
           <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
             Building Independence Through Challenge
           </h2>
-          <p className="font-nunito text-[#2D2520] text-lg font-700 leading-snug mt-5 mb-4">
-            Difficulty is not necessarily something to avoid
-          </p>
+        </motion.div>
+      </div>
+
+      {/* Three defining principles — a wider breakout (max-w-5xl) than the
+          max-w-3xl text column either side of it, so the statements use more
+          of the available width than the body paragraphs, per the brief.
+          The original standalone "Difficulty is not necessarily something to
+          avoid" statement now lives here as the first of the three, rather
+          than being duplicated above the paragraphs. */}
+      <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10 mt-8 mb-10">
+        <DefiningPrinciples />
+      </div>
+
+      <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
           <p className="font-nunito text-[#2D2520]/55 text-base max-w-2xl mx-auto leading-relaxed">
             Through games and structured challenges, children have opportunities to tolerate uncertainty, respond to difficulty, consider their options and decide how to respond. We encourage children to reflect on mistakes, try different approaches and learn from their experiences, while understanding that asking for help is a positive part of learning.
           </p>
