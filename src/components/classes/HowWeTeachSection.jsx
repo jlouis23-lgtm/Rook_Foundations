@@ -162,13 +162,14 @@ export default function HowWeTeachSection() {
         </motion.div>
       </div>
 
-      {/* Three defining principles — a wider breakout (max-w-5xl) than the
-          max-w-3xl text column either side of it, so the statements use more
-          of the available width than the body paragraphs, per the brief.
-          The original standalone "Difficulty is not necessarily something to
-          avoid" statement now lives here as the first of the three, rather
-          than being duplicated above the paragraphs. */}
-      <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10 mt-8 mb-10">
+      {/* Three defining principles — stacked vertically, matching the
+          max-w-3xl text column either side of it (DefiningPrinciples narrows
+          this further to max-w-2xl internally, aligning with the body
+          paragraph directly beneath). The original standalone "Difficulty is
+          not necessarily something to avoid" statement lives here as the
+          first of the three, rather than being duplicated above the
+          paragraphs. */}
+      <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10 mt-8 mb-10">
         <DefiningPrinciples />
       </div>
 
