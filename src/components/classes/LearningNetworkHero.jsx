@@ -1,4 +1,4 @@
-const SIZES = '(max-width: 640px) 88vw, (max-width: 1024px) 460px, 520px';
+const SIZES = '(max-width: 640px) 92vw, (max-width: 1024px) 680px, 820px';
 
 export default function LearningNetworkHero() {
   return (
@@ -6,19 +6,19 @@ export default function LearningNetworkHero() {
       <picture>
         <source
           type="image/webp"
-          srcSet="/images/learning/learning-network-700w.webp 700w, /images/learning/learning-network.webp 962w"
+          srcSet="/images/learning/learning-network-700w.webp 700w, /images/learning/learning-network.webp 2200w"
           sizes={SIZES}
         />
         <img
           src="/images/learning/learning-network.jpg"
-          srcSet="/images/learning/learning-network-700w.jpg 700w, /images/learning/learning-network.jpg 962w"
+          srcSet="/images/learning/learning-network-700w.jpg 700w, /images/learning/learning-network.jpg 2200w"
           sizes={SIZES}
-          width={962}
-          height={1118}
+          width={2200}
+          height={1555}
           loading="eager"
           fetchpriority="high"
-          alt="A brain at the centre of a network connecting the strategy games Rook Foundations teaches — Chess, Go, Mastermind, Quoridor, Tower of Hanoi, Xiangqi, Reversi/Othello, Janggi and Marble Solitaire — each developing a different thinking skill."
-          className="w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[460px] h-auto rounded-3xl shadow-sm"
+          alt="A brain at the centre of a network connecting the strategy game publishers and platforms Rook Foundations draws from — Smart Games, Ravensburger, Blue Orange, Chess.com, Sensory Education, HABA, Arcane Wonders, Peaceable Kingdom, Gigamic, Thinkfun and Junior Learning."
+          className="w-full max-w-[500px] sm:max-w-[620px] lg:max-w-[820px] h-auto rounded-3xl shadow-sm"
         />
       </picture>
     </div>
