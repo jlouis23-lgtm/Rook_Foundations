@@ -180,7 +180,7 @@ export default function HowWeTeachSection() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <p className="font-nunito text-[#2D2520]/55 text-base max-w-2xl mx-auto leading-relaxed">
+          <p className="font-nunito text-[#2D2520]/55 text-base max-w-2xl mx-auto leading-relaxed text-left">
             Through games and structured challenges, children have opportunities to tolerate uncertainty, respond to difficulty, consider their options and decide how to respond. We aim to provide appropriate challenge, appropriate support and meaningful agency and create opportunities for children to experience progress. We structure the environment without unnecessarily controlling the child's decisions within it.
           </p>
           <p className="font-nunito text-[#2D2520] text-base font-700 max-w-2xl mx-auto leading-relaxed mt-5 text-left">
@@ -201,7 +201,7 @@ export default function HowWeTeachSection() {
               </li>
             ))}
           </ul>
-          <p className="font-nunito text-[#2D2520]/55 text-base max-w-2xl mx-auto leading-relaxed mt-5">
+          <p className="font-nunito text-[#2D2520]/55 text-base max-w-2xl mx-auto leading-relaxed mt-5 text-left">
             When a child gets stuck, we aim to support them without immediately solving the problem for them. We may give them time to think, ask a question, offer a clue, model an approach or provide more direct guidance when needed. When learning a new strategy, we may initially provide a full example or model, gradually removing elements of support as understanding develops. The aim is to move from supported practice towards independent application, while preserving opportunities for independent thinking, problem solving and decision making.
           </p>
         </motion.div>
