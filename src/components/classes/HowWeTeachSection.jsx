@@ -104,6 +104,30 @@ export default function HowWeTeachSection() {
         <CommunicationTable />
       </div>
 
+      {/* Puzzle & Exploration Kit — a full top-level section (own eyebrow +
+          h2, matching the page's other main sections exactly) sitting
+          between Language, Communication and Discussion and Regulation
+          Before Participation, per the page's defined section order. */}
+      <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10 mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
+          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+            Hands-on exploration
+          </span>
+          <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+            Puzzle &amp; Exploration Kit
+          </h2>
+          <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-2xl mx-auto leading-relaxed">
+            The Puzzle &amp; Exploration Kit provides children with a range of hands-on objects to explore, touch and experiment with. It includes puzzles, shapes with different geometries such as cubes, and objects with a variety of tactile qualities that children can manipulate and investigate at their own pace. The kit creates opportunities for curiosity, problem solving, spatial exploration and persistence through hands-on discovery. For some children, particularly those who find conventional activities difficult, tactile and sensory exploration can provide another route into meaningful participation.
+          </p>
+        </motion.div>
+      </div>
+
       {/* Regulation Before Participation — sits directly after "Language,
           Communication and Discussion" and before "Building Independence
           Through Challenge", per the page's defined section order. Anchor id
