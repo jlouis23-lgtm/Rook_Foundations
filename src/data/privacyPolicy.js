@@ -1,6 +1,6 @@
 // Generated from RF privacy policy.docx — every clause preserved verbatim.
 // spans: [{ text, bold }] preserves inline bold emphasis exactly as authored.
-export const privacyMeta = {"title": "Rook Foundations", "subtitle": "Privacy Policy", "version": "Version: 1.0", "lastUpdated": "Last Updated: 8 July 2026"};
+export const privacyMeta = {"title": "Rook Foundations", "subtitle": "Privacy Policy", "version": "Version: 1.1", "lastUpdated": "Last Updated: 30 September 2026"};
 
 export const privacySections = [
  {
@@ -422,7 +422,7 @@ export const privacySections = [
      ],
      [
       {
-       "text": "payment information;",
+       "text": "payment records, such as the amount paid, the date of payment and whether a payment was successful or refunded (we do not see or store your full card details; see section 11);",
        "bold": false,
        "size": null
       }
@@ -702,6 +702,13 @@ export const privacySections = [
      ],
      [
       {
+       "text": "pay for a booking online;",
+       "bold": false,
+       "size": null
+      }
+     ],
+     [
+      {
        "text": "complete a contact form;",
        "bold": false,
        "size": null
@@ -869,7 +876,7 @@ export const privacySections = [
      ],
      [
       {
-       "text": "receive payments;",
+       "text": "take payment for bookings through our payment provider, Stripe;",
        "bold": false,
        "size": null
       }
@@ -1286,6 +1293,232 @@ export const privacySections = [
      }
     ],
     "all_bold": false
+   }
+  ]
+ },
+ {
+  "num": "11",
+  "title": "Online Payments and Service Providers",
+  "blocks": [
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "We use a small number of trusted service providers to run our website, take payments and send booking confirmations. They only receive the information they need to provide their service to us.",
+      "bold": false,
+      "size": null
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "subheading",
+    "title": "Stripe (Online Payments)"
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Online bookings are paid for through ",
+      "bold": false,
+      "size": null
+     },
+     {
+      "text": "Stripe",
+      "bold": true,
+      "size": null
+     },
+     {
+      "text": ", a regulated payment provider. When you pay, you enter your card or payment details directly on Stripe’s secure payment page. ",
+      "bold": false,
+      "size": null
+     },
+     {
+      "text": "Rook Foundations never sees, receives or stores your full card details.",
+      "bold": true,
+      "size": null
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "So that each payment is linked to the correct booking, the details you enter on our booking form are passed to Stripe with the payment. Depending on the service booked, this may include:",
+      "bold": false,
+      "size": null
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "list",
+    "format": "bullet",
+    "items": [
+     [
+      {
+       "text": "your name, email address and telephone number;",
+       "bold": false,
+       "size": null
+      }
+     ],
+     [
+      {
+       "text": "the service, number of sessions, preferred start date and times;",
+       "bold": false,
+       "size": null
+      }
+     ],
+     [
+      {
+       "text": "children’s first names and ages;",
+       "bold": false,
+       "size": null
+      }
+     ],
+     [
+      {
+       "text": "emergency contact name and telephone number;",
+       "bold": false,
+       "size": null
+      }
+     ],
+     [
+      {
+       "text": "whether a child has additional needs you would like to discuss (yes or no only);",
+       "bold": false,
+       "size": null
+      }
+     ],
+     [
+      {
+       "text": "the session address or school details, and any notes you add;",
+       "bold": false,
+       "size": null
+      }
+     ],
+     [
+      {
+       "text": "confirmation that you accepted our Terms & Conditions and cancellation policy.",
+       "bold": false,
+       "size": null
+      }
+     ]
+    ]
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Details of any medical conditions, allergies or SEND needs are not collected through the online booking form. We discuss these with you directly after booking.",
+      "bold": false,
+      "size": null
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Stripe also uses payment information for its own purposes, such as fraud prevention and meeting its legal and regulatory obligations. For this processing Stripe is responsible for your information under its own privacy policy, available at stripe.com/gb/privacy. Stripe will email you a receipt for your payment.",
+      "bold": false,
+      "size": null
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "subheading",
+    "title": "Resend (Booking Emails)"
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "When a booking is paid, the booking details listed above are sent to us by email using ",
+      "bold": false,
+      "size": null
+     },
+     {
+      "text": "Resend",
+      "bold": true,
+      "size": null
+     },
+     {
+      "text": ", an email delivery service, so that we can confirm and arrange your sessions.",
+      "bold": false,
+      "size": null
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "subheading",
+    "title": "Netlify (Website Hosting)"
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Our website is hosted by ",
+      "bold": false,
+      "size": null
+     },
+     {
+      "text": "Netlify",
+      "bold": true,
+      "size": null
+     },
+     {
+      "text": ", which also runs the secure functions that pass your booking to Stripe. Netlify may process technical information such as your IP address when you use our website.",
+      "bold": false,
+      "size": null
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "subheading",
+    "title": "International Transfers"
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Some of these providers may process information outside the United Kingdom, including in the United States. Where this happens, the transfer is protected by safeguards recognised under UK data protection law, such as the UK International Data Transfer Addendum or the UK Extension to the EU–US Data Privacy Framework.",
+      "bold": false,
+      "size": null
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "subheading",
+    "title": "Payment Records"
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "We keep records of payments and refunds for as long as required for tax and accounting purposes.",
+      "bold": false,
+      "size": null
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "We do not sell your personal information.",
+      "bold": true,
+      "size": null
+     }
+    ],
+    "all_bold": true
    }
   ]
  }
