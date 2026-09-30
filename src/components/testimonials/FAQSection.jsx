@@ -75,7 +75,7 @@ const faqs = [
     q: "My child has SEN. How can Rook Foundations support them?",
     a: (
       <>
-        <p className="mb-3">Every child is different, and I adapt games and activities around each child's needs. For schools, I also offer SEND enrichment sessions, described on the{' '}<Link to="/schools/send" className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">Working with SEND Pupils</Link>{' '}page. I'm also committed to developing my understanding of SEND-informed practice and am a member of nasen, the UK's leading professional membership organisation for SEND.</p>
+        <p className="mb-3">Every child is different, and I adapt games and activities around each child's needs. I'm also developing SEND enrichment for schools, which isn't available to book yet. You can read about the approach on the{' '}<Link to="/schools/send" className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">Working with SEND Pupils</Link>{' '}page. I'm also committed to developing my understanding of SEND-informed practice and am a member of nasen, the UK's leading professional membership organisation for SEND.</p>
         <p>The games and activities can be adapted in different ways to help make them more accessible and inclusive for children with different learning needs. I'd be very happy to hear about your child's individual needs and discuss whether the approach could be a good fit for them.</p>
       </>
     ),
@@ -136,7 +136,7 @@ const faqs = [
   },
   {
     q: "Do you work with schools?",
-    a: "Yes. I offer parent-funded after-school and lunchtime clubs held on school premises, SEND enrichment sessions for schools, and programmes funded by the school itself. You can read more on the School Information page, and prices are on the Pricing page.",
+    a: "Yes. I offer parent-funded after-school and lunchtime clubs held on school premises, and programmes funded by the school itself. SEND enrichment for schools is still being developed and isn't available to book yet. You can read more on the School Information page, and prices are on the Pricing page.",
   },
   {
     q: "Are you DBS checked and insured?",

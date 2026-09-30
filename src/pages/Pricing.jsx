@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Check, Clock } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import PeopleIcon from '@/components/pricing/PeopleIcon';
 import BookingForm from '@/components/pricing/BookingForm';
@@ -31,7 +31,7 @@ const sendRows = [
 const sections = [
   { id: 'private-sessions', label: 'Private sessions' },
   { id: 'school-clubs', label: 'School clubs' },
-  { id: 'send-pricing', label: 'SEND enrichment' },
+  { id: 'send-pricing', label: 'SEND enrichment (coming soon)' },
   { id: 'travel', label: 'Travel' },
   { id: 'book', label: 'Book & pay' },
 ];
@@ -52,7 +52,7 @@ const travelNotes = [
   'The travel fee is charged once per visit, not per child. Two or more sessions at the same place on the same day count as one visit.',
   'There’s no travel fee for sessions held at a venue we choose.',
   'School clubs don’t have a separate travel fee — the small per-child increase shown above covers it instead.',
-  'For SEND enrichment, the travel fee is charged once per visit to the school.',
+  'For SEND enrichment (not yet available to book), the travel fee will be charged once per visit to the school.',
   'In Zone 4, all sessions are 60 minutes — 30-minute sessions, including lunchtime clubs, aren’t available.',
   'Any travel fee is confirmed in your booking confirmation, and there’s no travel fee for a session that doesn’t go ahead.',
 ];
@@ -127,7 +127,20 @@ function PriceTable({ rows, unit }) {
   );
 }
 
-function PricingSection({ id, eyebrow, title, intro, rows, unit, notes, bg, children }) {
+// Same muted pill as the "Bookings Opening Soon" state on the Explore
+// Sessions page, so "not bookable yet" looks the same across the site.
+export function UnavailableBadge({ label = 'Coming soon · Not yet available to book' }) {
+  return (
+    <span className="inline-flex items-center gap-1.5 bg-[#2D2520]/[0.06] text-[#2D2520]/70 border border-[#2D2520]/12 rounded-full px-3.5 py-1.5 font-nunito text-xs font-800 uppercase tracking-wide">
+      <Clock size={12} className="text-[#2D2520]/50" aria-hidden="true" /> {label}
+    </span>
+  );
+}
+
+// `unavailable` keeps a service's information and planned prices visible
+// while greying them out, so it can't be mistaken for a bookable option.
+function PricingSection({ id, eyebrow, title, intro, rows, unit, notes, bg, children, unavailable = false }) {
+  const muted = unavailable ? 'opacity-55 grayscale' : '';
   return (
     <section id={id} className={`py-20 relative overflow-hidden scroll-mt-24 ${bg}`}>
       <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
@@ -138,16 +151,23 @@ function PricingSection({ id, eyebrow, title, intro, rows, unit, notes, bg, chil
           <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
             {title}
           </h2>
+          {unavailable && (
+            <div className="mt-4">
+              <UnavailableBadge />
+            </div>
+          )}
           <p className="font-nunito text-[#2D2520]/60 text-base leading-relaxed mt-4 max-w-xl mx-auto">{intro}</p>
         </Reveal>
 
         <Reveal delay={0.05}>
-          <PriceTable rows={rows} unit={unit} />
+          <div className={muted}>
+            <PriceTable rows={rows} unit={unit} />
+          </div>
         </Reveal>
 
         {notes && (
           <Reveal delay={0.1}>
-            <ul className="mt-8 space-y-3 max-w-xl mx-auto">
+            <ul className={`mt-8 space-y-3 max-w-xl mx-auto ${muted}`}>
               {notes.map((note) => (
                 <li key={note} className="flex items-start gap-3 font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
                   <span className="w-5 h-5 bg-[#E8A020] rounded-full flex items-center justify-center text-white flex-shrink-0 mt-0.5">
@@ -173,7 +193,7 @@ export default function Pricing() {
 
   usePageMeta(
     'Session Pricing | Rook Foundations',
-    'Clear prices for 30 and 60-minute chess and strategy-game sessions: private 1-to-1 and group sessions, school clubs, and SEND enrichment for schools.'
+    'Clear prices for 30 and 60-minute chess and strategy-game sessions: private 1-to-1 and group sessions and school clubs, plus planned SEND enrichment for schools.'
   );
 
   useEffect(() => {
@@ -261,7 +281,8 @@ export default function Pricing() {
         bg="bg-white border-y border-[#2D2520]/8"
         eyebrow="For schools"
         title="SEND enrichment"
-        intro="Small-group enrichment sessions for pupils with special educational needs and disabilities, arranged with the school."
+        intro="Small-group enrichment sessions for pupils with special educational needs and disabilities, arranged with the school. I'm still developing and testing this provision, so it isn't available to book yet. The prices below are planned prices."
+        unavailable
         rows={sendRows}
         unit="Fixed price per session, for groups of up to 6 pupils."
         notes={[
@@ -272,16 +293,19 @@ export default function Pricing() {
         {/* Personalised Enrichment Review — a per-pupil add-on, not a
             session, so it gets its own box rather than a table row. */}
         <Reveal className="mt-10" delay={0.15}>
-          <div className="bg-[#E8A020]/[0.07] border border-[#E8A020]/25 rounded-3xl p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">
+          <div className="mb-3 text-center sm:text-left">
+            <UnavailableBadge label="Not yet available to book" />
+          </div>
+          <div className="bg-[#2D2520]/[0.03] border border-[#2D2520]/12 rounded-3xl p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8 opacity-55 grayscale">
             <div className="flex-1">
               <p className="font-fredoka text-[#2D2520] text-xl leading-snug">Personalised Enrichment Review</p>
               <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-2">
-                An optional written summary of a pupil's engagement, participation and observed strengths. It can be booked at any time and is written once the pupil has attended at least 4 sessions.
+                A planned optional written summary of a pupil's engagement, participation and observed strengths, written once the pupil has attended at least 4 sessions. It isn't available to book yet.
               </p>
             </div>
             <div className="sm:text-right flex-shrink-0">
               <p className="font-fredoka text-[#E8A020] text-3xl leading-tight">{formatPrice(PER.price)}</p>
-              <p className="font-nunito text-[#2D2520]/55 text-xs mt-0.5">per pupil</p>
+              <p className="font-nunito text-[#2D2520]/55 text-xs mt-0.5">per pupil (planned)</p>
             </div>
           </div>
         </Reveal>
@@ -292,7 +316,7 @@ export default function Pricing() {
             to="/schools/send"
             className="group inline-flex items-center gap-1.5 font-nunito text-[#E8A020] text-sm font-700 hover:text-[#b8790a] transition-colors"
           >
-            Learn about our SEND provision
+            Read about the SEND provision I'm developing
             <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
           </MotionLink>
         </Reveal>

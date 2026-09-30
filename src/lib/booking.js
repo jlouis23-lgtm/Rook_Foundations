@@ -14,9 +14,15 @@ import {
 export const SERVICES = [
   { id: 'private', label: 'Private sessions', hint: 'For families — held at your home, a venue you choose, or a venue we arrange.' },
   { id: 'club', label: 'School club place', hint: "For families — a place at an after-school or lunchtime club at your child's school." },
-  { id: 'send', label: 'SEND enrichment', hint: 'For schools — sessions for groups of up to 6 pupils.' },
-  { id: 'per', label: 'Personalised Enrichment Review', hint: 'For schools — a written review, prepared once a pupil has attended at least 4 sessions.' },
+  // SEND enrichment and the Personalised Enrichment Review are still being
+  // developed. They stay defined (with their prices) but can't be booked
+  // until `bookable` is set to true.
+  { id: 'send', label: 'SEND enrichment', hint: 'For schools — sessions for groups of up to 6 pupils.', bookable: false },
+  { id: 'per', label: 'Personalised Enrichment Review', hint: 'For schools — a written review, prepared once a pupil has attended at least 4 sessions.', bookable: false },
 ];
+
+// The services offered in the booking form and accepted at checkout.
+export const BOOKABLE_SERVICES = SERVICES.filter((s) => s.bookable !== false);
 
 export const MAX_SESSIONS = { private: 12, club: 15, send: 12 };
 export const MAX_CLUB_CHILDREN = CLUB.maxChildren;
@@ -47,6 +53,10 @@ export function validateBooking(input = {}) {
   const service = input.service;
   if (!['private', 'club', 'send', 'per'].includes(service)) {
     e.service = 'Please choose what you would like to book.';
+    return e;
+  }
+  if (!BOOKABLE_SERVICES.some((s) => s.id === service)) {
+    e.service = `${SERVICES.find((s) => s.id === service).label} is not available to book yet.`;
     return e;
   }
 

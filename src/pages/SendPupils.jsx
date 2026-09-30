@@ -1,6 +1,6 @@
 import { Fragment, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronRight, GraduationCap, BookOpen, ShieldCheck, MessageCircle, HeartHandshake, Users, Hand, Brain, Compass } from 'lucide-react';
+import { ArrowRight, ChevronRight, Clock, GraduationCap, BookOpen, ShieldCheck, MessageCircle, HeartHandshake, Users, Hand, Brain, Compass } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import PeopleIcon from '@/components/pricing/PeopleIcon';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
@@ -102,7 +102,7 @@ const schoolJourney = [
   {
     accent: '#4a7eb8',
     title: 'Share relevant information',
-    body: "Where it's useful, we'll ask for relevant information about the proposed group or pupils. This is the kind of information that helps with planning, accessibility and safe participation, and we sometimes use a short SEND Group Information Form. This isn't a formal assessment; we only ask for what's reasonably relevant to planning the session.",
+    body: "Where it's useful, we'll ask for relevant information about the proposed group or pupils. This is the kind of information that helps with planning, accessibility and safe participation, and we may use a short SEND Group Information Form. This isn't a formal assessment; we only ask for what's reasonably relevant to planning the session.",
   },
   {
     accent: '#7a48c0',
@@ -122,7 +122,7 @@ const schoolJourney = [
   {
     accent: '#c9860f',
     title: 'Review and continue',
-    body: "Afterwards, we're happy to hear how it went and talk through whether further sessions would be useful. Where appropriate, this can include commissioning a Personalised Enrichment Review.",
+    body: "Afterwards, we're happy to hear how it went and talk through whether further sessions would be useful. Where appropriate, this could include a Personalised Enrichment Review, once reviews are available.",
   },
 ];
 
@@ -272,16 +272,20 @@ const pricingFaqs = [
 // consistently everywhere else on this page.
 const sendFaqs = [
   {
+    q: 'Can we book SEND enrichment now?',
+    a: "Not yet. I'm still developing, testing and refining how I work with SEND schools and pupils, so SEND enrichment sessions and Personalised Enrichment Reviews are not currently available to book. You're welcome to get in touch to talk about your school's interest or to hear when they become available.",
+  },
+  {
     q: 'Do pupils need a diagnosis to take part?',
     a: 'No. A formal diagnosis is not required. We consider each pupil or group individually, based on their circumstances, needs, strengths and the type of session being planned.',
   },
   {
     q: 'How many pupils can attend?',
-    a: 'SEND sessions are normally provided for groups of up to 6 pupils. Smaller groups can be arranged where greater individual attention is helpful, and there is no fixed minimum group size.',
+    a: 'SEND sessions are planned for groups of up to 6 pupils. Smaller groups would be possible where greater individual attention is helpful, with no fixed minimum group size.',
   },
   {
     q: 'Can you provide 1-to-1 sessions?',
-    a: '1-to-1 sessions can be arranged where this is appropriate for the pupil and the planned activity.',
+    a: '1-to-1 sessions are planned to be available where this is appropriate for the pupil and the planned activity.',
   },
   {
     q: 'Does a member of school staff need to be present?',
@@ -305,15 +309,15 @@ const sendFaqs = [
   },
   {
     q: 'Can parents receive information about the session?',
-    a: "Yes, where appropriate. We can communicate with parents or carers about a pupil's participation and observations within appropriate professional boundaries. A formal Personalised Enrichment Review is provided to the school, which decides whether and how it should be shared with parents or carers.",
+    a: "Yes, where appropriate. We can communicate with parents or carers about a pupil's participation and observations within appropriate professional boundaries. Once Personalised Enrichment Reviews are available, a formal review would be provided to the school, which decides whether and how it should be shared with parents or carers.",
   },
   {
     q: 'What is a Personalised Enrichment Review?',
-    a: 'A Personalised Enrichment Review is an optional paid add-on. It can be booked at any time and is written once the pupil has attended at least 4 sessions. It provides a pupil specific, observation based summary of engagement, participation and observed strengths, including relevant activities and skills. It is not a diagnostic, therapeutic or formal educational assessment.',
+    a: 'A Personalised Enrichment Review is a planned optional paid add-on. It is not available to book yet. Once available, it would be written after the pupil has attended at least 4 sessions. It provides a pupil specific, observation based summary of engagement, participation and observed strengths, including relevant activities and skills. It is not a diagnostic, therapeutic or formal educational assessment.',
   },
   {
-    q: 'How do we arrange a session?',
-    a: 'Simply get in touch to start a conversation. We will discuss what you would like the session to provide, gather the relevant information about the pupils and group, and use this to plan an appropriate session. Once the arrangements are agreed, we will provide a formal booking confirmation.',
+    q: 'How will sessions be arranged once they are available?',
+    a: 'Once SEND enrichment opens, the process will start with a conversation. We will discuss what you would like the session to provide, gather the relevant information about the pupils and group, and use this to plan an appropriate session. Once the arrangements are agreed, we will provide a formal booking confirmation.',
   },
 ];
 
@@ -328,7 +332,7 @@ const sendFaqs = [
 export default function SendPupils() {
   usePageMeta(
     'Working with SEND Pupils | Rook Foundations',
-    'Rook Foundations provides inclusive enrichment for pupils with SEND through games, puzzles and strategic activities, adapted around the individual pupil or group.'
+    'Rook Foundations is developing inclusive enrichment for pupils with SEND through games, puzzles and strategic activities. SEND enrichment is not yet available to book.'
   );
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -346,8 +350,18 @@ export default function SendPupils() {
             Working with SEND Pupils
           </h1>
           <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed max-w-xl mx-auto">
-            Rook Foundations provides engaging, accessible activities for pupils with SEND. Our mission is to use games and positive encouragement to support their learning, confidence and participation. Sessions provide meaningful participation, enjoyment and engagement, and activities are adapted to suit the individual child or group.
+            Rook Foundations is developing engaging, accessible activities for pupils with SEND. Our mission is to use games and positive encouragement to support their learning, confidence and participation. Sessions are designed to provide meaningful participation, enjoyment and engagement, with activities adapted to suit the individual child or group.
           </p>
+
+          {/* Current status — SEND enrichment and PER are not bookable yet. */}
+          <div className="mt-8 bg-[#2D2520]/[0.04] border border-[#2D2520]/12 rounded-3xl p-6 text-left">
+            <span className="inline-flex items-center gap-1.5 bg-[#2D2520]/[0.06] text-[#2D2520]/70 border border-[#2D2520]/12 rounded-full px-3.5 py-1.5 font-nunito text-xs font-800 uppercase tracking-wide">
+              <Clock size={12} className="text-[#2D2520]/50" aria-hidden="true" /> In development · Not yet available to book
+            </span>
+            <p className="font-nunito text-[#2D2520]/70 text-sm leading-relaxed mt-3">
+              I'm still developing, testing and refining the best way to work with SEND schools and pupils. <strong className="font-700">SEND enrichment sessions and Personalised Enrichment Reviews are not currently available to book.</strong> This page explains the approach I'm developing and how the service is planned to work. If your school would like to hear when it becomes available, you're welcome to get in touch.
+            </p>
+          </div>
         </Reveal>
       </section>
 
@@ -422,7 +436,7 @@ export default function SendPupils() {
               The enrichment offer
             </span>
             <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-              What We Offer
+              What We Plan to Offer
             </h2>
           </div>
 
@@ -530,7 +544,7 @@ export default function SendPupils() {
 
           <Reveal className="text-center">
             <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
-              Our SEND enrichment occurs in small groups, with a maximum of six pupils. There's no fixed minimum group size.
+              Our SEND enrichment is planned for small groups, with a maximum of six pupils. There's no fixed minimum group size.
             </p>
           </Reveal>
 
@@ -542,7 +556,7 @@ export default function SendPupils() {
               <PeopleIcon count={6} size={34} style={{ color: '#E8A020' }} />
             </div>
             <p className="font-fredoka text-[#2D2520] text-2xl">Up to 6 pupils</p>
-            <p className="font-nunito text-[#2D2520]/55 text-sm mt-1.5">Our normal maximum for SEND enrichment sessions</p>
+            <p className="font-nunito text-[#2D2520]/55 text-sm mt-1.5">Our planned maximum for SEND enrichment sessions</p>
           </Reveal>
 
           <Reveal className="mt-14" delay={0.1}>
@@ -555,14 +569,14 @@ export default function SendPupils() {
           <Reveal className="mt-10" delay={0.15}>
             <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">1-to-1 sessions</h3>
             <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
-              Individual, 1-to-1 sessions are available where appropriate. Focusing on only one pupil can enable the practitioner to respond closely to their interests, engagement and participation. It also allows for more flexibility in pace, activity choice, level of challenge, and the amount of repetition or explanation involved. This remains enrichment, not therapy or specialist teaching, and it isn't something every pupil needs or would necessarily benefit from. It is simply one of the arrangements available where the parents/carers or education providers believe it could be of genuine value.
+              Individual, 1-to-1 sessions are planned to be available where appropriate. Focusing on only one pupil can enable the practitioner to respond closely to their interests, engagement and participation. It also allows for more flexibility in pace, activity choice, level of challenge, and the amount of repetition or explanation involved. This remains enrichment, not therapy or specialist teaching, and it isn't something every pupil needs or would necessarily benefit from. It is simply one of the arrangements available where the parents/carers or education providers believe it could be of genuine value.
             </p>
           </Reveal>
 
           <Reveal className="mt-10" delay={0.2}>
             <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">Finding the right format</h3>
             <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
-              The right group size is a practical decision, not something determined by a pupil's diagnosis, age or SEND category alone. Two pupils with similar needs may respond very differently to the same group, and a pupil who needs significant support in one setting may participate quite independently in another. We discuss this with teachers, SENCOs, and parents to identify the approach that will best support the children involved.
+              The right group size is a practical decision, not something determined by a pupil's diagnosis, age or SEND category alone. Two pupils with similar needs may respond very differently to the same group, and a pupil who needs significant support in one setting may participate quite independently in another. We will discuss this with teachers, SENCOs, and parents to identify the approach that will best support the children involved.
             </p>
           </Reveal>
         </div>
@@ -649,7 +663,7 @@ export default function SendPupils() {
 
           <Reveal className="text-center mb-14">
             <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
-              Starting SEND enrichment with Rook Foundations is a straightforward collaboration. You bring your knowledge of the pupils, the school environment and what you'd like the experience to provide; we bring our knowledge of the games, puzzles and activities available, and how to plan and adapt them appropriately. Here's how that comes together:
+              Once SEND enrichment is available to book, starting it with Rook Foundations is planned to be a straightforward collaboration. You bring your knowledge of the pupils, the school environment and what you'd like the experience to provide; we bring our knowledge of the games, puzzles and activities available, and how to plan and adapt them appropriately. Here's how that comes together:
             </p>
           </Reveal>
 
@@ -751,7 +765,7 @@ export default function SendPupils() {
         <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center mb-10">
             <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
-              An optional add-on
+              A planned optional add-on · Not yet available to book
             </span>
             <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
               Personalised Enrichment Review
@@ -760,7 +774,7 @@ export default function SendPupils() {
 
           <Reveal className="text-center">
             <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
-              A Personalised Enrichment Review summarises what we have observed through a pupil's Rook Foundations enrichment sessions. It provides a personalised overview of their engagement, participation and observed strengths, including the activities and skills that stood out most during the review period. Alongside this, the review helps us identify what captures a pupil's interest, how they engage with different types of activities, and which adaptations, refinements or approaches appear to encourage participation and exploration of new concepts. Where appropriate, these observations can provide useful insight for collaboration with SENCOs, teachers, speech and language therapists, social workers and other relevant professionals, helping to inform wider understanding of a pupil's learning preferences and participation. This information may also contribute to discussions around appropriate educational support and the development or review of an Education, Health and Care Plan (EHCP), where relevant.
+              Personalised Enrichment Reviews are still being developed and are not available to book yet. As planned, a review would summarise what we have observed through a pupil's Rook Foundations enrichment sessions. It provides a personalised overview of their engagement, participation and observed strengths, including the activities and skills that stood out most during the review period. Alongside this, the review helps us identify what captures a pupil's interest, how they engage with different types of activities, and which adaptations, refinements or approaches appear to encourage participation and exploration of new concepts. Where appropriate, these observations can provide useful insight for collaboration with SENCOs, teachers, speech and language therapists, social workers and other relevant professionals, helping to inform wider understanding of a pupil's learning preferences and participation. This information may also contribute to discussions around appropriate educational support and the development or review of an Education, Health and Care Plan (EHCP), where relevant.
             </p>
           </Reveal>
 
@@ -821,7 +835,7 @@ export default function SendPupils() {
               ))}
             </div>
             <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto mt-6">
-              We aim to have the finished review with you within 10 working days of the final observation, letting you know if more time is ever needed.
+              Once reviews are available, we aim to have each finished review with you within 10 working days of the final observation, letting you know if more time is ever needed.
             </p>
           </Reveal>
 
@@ -840,7 +854,7 @@ export default function SendPupils() {
               onClick={() => window.scrollTo(0, 0)}
               className="group inline-flex items-center gap-1.5 font-nunito text-[#E8A020] text-sm font-700 hover:text-[#b8790a] transition-colors"
             >
-              Ask about a Personalised Enrichment Review
+              Ask to hear when reviews become available
               <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
             </MotionLink>
           </Reveal>
@@ -943,7 +957,7 @@ export default function SendPupils() {
 
           <Reveal className="text-center mt-10" delay={0.25}>
             <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
-              That's the professional framework behind everything we've described — next, how the service can be arranged and priced.
+              That's the professional framework behind everything we've described — next, how the service is planned to be arranged and priced.
             </p>
           </Reveal>
         </div>
@@ -963,27 +977,27 @@ export default function SendPupils() {
         <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center mb-10">
             <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
-              Arranging sessions
+              Not yet available to book
             </span>
             <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-              Pricing and Booking
+              Planned Pricing and Booking
             </h2>
           </div>
 
           {/* Pricing lives on the Pricing page — this box links straight to
               its SEND section rather than repeating the figures here. */}
           <Reveal className="text-center">
-            <div className="bg-[#E8A020]/[0.07] border border-[#E8A020]/25 rounded-3xl p-6 sm:p-8">
-              <p className="font-fredoka text-[#2D2520] text-xl leading-snug">SEND enrichment pricing</p>
+            <div className="bg-[#2D2520]/[0.03] border border-[#2D2520]/12 rounded-3xl p-6 sm:p-8">
+              <p className="font-fredoka text-[#2D2520] text-xl leading-snug">Planned SEND enrichment pricing</p>
               <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-2 max-w-md mx-auto">
-                Sessions and Personalised Enrichment Reviews have fixed, published prices. You can find them on our Pricing page.
+                Planned prices for sessions and Personalised Enrichment Reviews are shown on our Pricing page. They are not available to book yet.
               </p>
               <MotionLink
                 whileTap={ctaTap}
                 to="/pricing#send-pricing"
-                className="group mt-5 inline-flex items-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-3 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/20"
+                className="group mt-5 inline-flex items-center gap-1.5 font-nunito text-[#E8A020] text-sm font-700 hover:text-[#b8790a] transition-colors"
               >
-                View SEND pricing
+                View planned SEND pricing
                 <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
               </MotionLink>
             </div>
@@ -992,16 +1006,17 @@ export default function SendPupils() {
           {/* Booking basics */}
           <Reveal className="mt-14" delay={0.1}>
             <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
-              A session becomes a formal booking once we issue a booking confirmation and you accept it, covering the date, time, duration, group size, fee and other agreed arrangements, as described in Working With Your School. The intended activity is always provisional, and can be adapted or replaced through the practitioner's professional judgement — the fee never depends on which activity happens to be used.
+              Once SEND enrichment is available, a session will become a formal booking once we issue a booking confirmation and you accept it, covering the date, time, duration, group size, fee and other agreed arrangements, as described in Working With Your School. The intended activity is always provisional, and can be adapted or replaced through the practitioner's professional judgement — the fee never depends on which activity happens to be used.
             </p>
             <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
-              Where possible, we'd recommend getting in touch at least a week ahead of when you'd like a session to take place, though shorter-notice requests can sometimes be accommodated too.
+              Once bookings open, we'd recommend getting in touch at least a week ahead of when you'd like a session to take place, where possible.
             </p>
           </Reveal>
 
           {/* Changes, cancellation & rescheduling */}
           <Reveal className="mt-14" delay={0.15}>
             <h3 className="font-fredoka text-[#2D2520] text-xl mb-2 text-center leading-snug">Changes, cancellation &amp; rescheduling</h3>
+            <p className="font-nunito text-[#2D2520]/55 text-sm text-center">These arrangements will apply once SEND enrichment is available to book.</p>
             <div className="divide-y divide-[#2D2520]/8 mt-4">
               {pricingFaqs.map((faq) => (
                 <FAQAccordionItem key={faq.q} question={faq.q} answer={faq.a} variant="compact" />
@@ -1016,7 +1031,7 @@ export default function SendPupils() {
               onClick={() => window.scrollTo(0, 0)}
               className="group inline-flex items-center gap-1.5 font-nunito text-[#E8A020] text-sm font-700 hover:text-[#b8790a] transition-colors"
             >
-              Get in touch to arrange sessions
+              Get in touch to hear when sessions become available
               <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
             </MotionLink>
           </Reveal>

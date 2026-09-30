@@ -1095,7 +1095,7 @@ export const privacySections = [
     "kind": "para",
     "spans": [
      {
-      "text": "Where a school shares information about pupils with us, for example to plan SEND enrichment sessions, the school is responsible for having a lawful basis to share it. We use it only to plan and deliver the sessions the school has arranged.",
+      "text": "Where a school shares information about pupils with us, for example to plan sessions for pupils with additional needs, the school is responsible for having a lawful basis to share it. We use it only to plan and deliver the sessions the school has arranged.",
       "bold": false,
       "size": null
      }
@@ -1634,7 +1634,7 @@ export const privacySections = [
     "kind": "para",
     "spans": [
      {
-      "text": "Personalised Enrichment Reviews are sent only to the school that commissioned them. The school decides whether and how to share a review with parents or carers.",
+      "text": "Personalised Enrichment Reviews are not yet available. When they are introduced, each review will be sent only to the school that commissioned it, and the school will decide whether and how to share it with parents or carers.",
       "bold": false,
       "size": null
      }

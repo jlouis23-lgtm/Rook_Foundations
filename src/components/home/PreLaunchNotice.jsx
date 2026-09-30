@@ -59,7 +59,7 @@ export default function PreLaunchNotice() {
           variants={item}
           className="font-nunito text-white/65 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-8"
         >
-          Private sessions, school club places and SEND enrichment for schools can now be booked and paid for online. Every session builds on the approach refined through my pilot sessions and workshops, and is shaped around the children taking part.
+          Private sessions and school club places can now be booked and paid for online. Every session builds on the approach refined through my pilot sessions and workshops, and is shaped around the children taking part.
         </motion.p>
 
         <motion.div variants={item} className="mb-7">

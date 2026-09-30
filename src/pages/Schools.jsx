@@ -155,7 +155,7 @@ export default function Schools() {
           </h2>
           <div className="w-12 h-[3px] rounded-full bg-[#E8A020] mx-auto mt-8 mb-8" aria-hidden="true" />
           <p className="font-fredoka text-[#2D2520]/85 italic font-light text-xl sm:text-2xl leading-relaxed max-w-xl mx-auto">
-            Rook Foundations provides inclusive enrichment for pupils with SEND: engaging, accessible games and activities adapted to each pupil or group, delivered within clear professional boundaries. It is enrichment, not specialist SEND teaching or therapy.
+            Rook Foundations is developing inclusive enrichment for pupils with SEND: engaging, accessible games and activities adapted to each pupil or group, delivered within clear professional boundaries. It is enrichment, not specialist SEND teaching or therapy, and it is not yet available to book.
           </p>
 
           <MotionLink
@@ -251,7 +251,7 @@ export default function Schools() {
               Simple, flexible pricing
             </h2>
             <p className="font-nunito text-[#2D2520]/55 text-base mt-4 max-w-xl mx-auto leading-relaxed">
-              Prices for parent-funded after-school and lunchtime clubs, and for SEND enrichment, are published on our Pricing page. School-funded programmes are quoted individually based on your school's requirements.
+              Prices for parent-funded after-school and lunchtime clubs are published on our Pricing page. School-funded programmes are quoted individually based on your school's requirements. SEND enrichment is still being developed and is not yet available to book.
             </p>
           </div>
 
@@ -262,14 +262,6 @@ export default function Schools() {
               className="group inline-flex items-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-3.5 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/20"
             >
               View club pricing
-              <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-            </MotionLink>
-            <MotionLink
-              whileTap={ctaTap}
-              to="/pricing#send-pricing"
-              className="group inline-flex items-center gap-2 bg-white border border-[#E8A020] text-[#E8A020] font-fredoka font-600 text-sm px-6 py-3.5 rounded-2xl hover:bg-[#E8A020]/10 transition-all"
-            >
-              View SEND pricing
               <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
             </MotionLink>
           </Reveal>

@@ -7,7 +7,7 @@ import {
   MAX_CLUB_CHILDREN,
   MAX_PUPILS,
   MAX_SESSIONS,
-  SERVICES,
+  BOOKABLE_SERVICES,
   calculateBooking,
   usesTravelZone,
   validateBooking,
@@ -224,7 +224,7 @@ export default function BookingForm({ status }) {
         {/* 1. What */}
         <Fieldset title="1. What would you like to book?">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {SERVICES.map((s) => (
+            {BOOKABLE_SERVICES.map((s) => (
               <Choice
                 key={s.id}
                 name="service"
