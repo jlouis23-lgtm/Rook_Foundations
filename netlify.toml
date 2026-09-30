@@ -1,0 +1,5 @@
+# Build settings for the site itself stay in the Netlify dashboard; this file
+# only tells Netlify where the booking/payment functions live.
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"

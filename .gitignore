@@ -31,3 +31,16 @@ dist-ssr
 .env
 .vite
 base44/.app.jsonc
+.claude-flow/
+
+data/memory/
+.claude/memory.db
+ruvector.db
+
+# Local Netlify folder
+.netlify
+
+# Local agent tooling
+.swarm/
+claude-flow.config.json
+deno.lock

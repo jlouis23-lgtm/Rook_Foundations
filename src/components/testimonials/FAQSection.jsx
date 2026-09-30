@@ -86,10 +86,10 @@ const faqs = [
       <>
         <p className="mb-3">Individual sessions allow for more personalised guidance, deeper questioning and detailed reflection.</p>
         <p>
-          Group sessions place greater emphasis on communication, teamwork, respectful competition and learning alongside others. You can read more on the{' '}
+          Group sessions place greater emphasis on communication, teamwork, respectful competition and learning alongside others. You can learn more about{' '}
           <Link to="/our-approach" onClick={() => window.scrollTo(0, 0)} className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">
-            How We Teach page
-          </Link>.
+            our learning approach
+          </Link>{' '}here.
         </p>
       </>
     ),
@@ -100,7 +100,7 @@ const faqs = [
       <>
         <p className="mb-3">
           Progress is NOT measured by how well a child plays a game. It is measured by how they grow as a learner. I use a structured developmental framework to observe and record progress across the six main stages of the learning cycle. See the six-stage learning cycle{' '}
-          <Link to="/classes#learning-journey" className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">here</Link>.
+          <Link to="/our-approach#learning-journey" className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">here</Link>.
         </p>
         <p>Regular observations and personalised learning records provide a clear view of each child's strengths. It also helps me celebrate progress, reinforce existing learning and identify the next steps in their learning journey.</p>
       </>
@@ -115,7 +115,7 @@ const faqs = [
         </p>
         <p>
           You can learn more about how I track progress{' '}
-          <Link to="/classes#tracking-progress" className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">
+          <Link to="/our-approach#tracking-progress" className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">
             here
           </Link>.
         </p>

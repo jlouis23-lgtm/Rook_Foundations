@@ -15,12 +15,9 @@ const EASE = [0.22, 1, 0.36, 1];
 // Foundations?" prompt below. Nothing else needs to change.
 const BOOKINGS_OPEN = false;
 
-// Colour treatment reused from the Pricing page's three session-format
-// cards (Individual/Pair/Group), reapplied here in the same order purely as
-// part of the shared Rook Foundations visual system — the two pages group
-// sessions differently (length vs. group size), so the colours don't imply
-// the categories are equivalent. All three cards use the same card
-// structure/elevation so none reads as more prominent than the others.
+// Two session lengths (30 and 60 minutes), sharing the Rook Foundations
+// purple/amber card colours. Both cards use the same structure/elevation
+// so neither reads as more prominent than the other.
 const sessionCards = [
   {
     title: 'Focus Session',
@@ -51,21 +48,6 @@ const sessionCards = [
     ],
     buttonLabel: 'Book Core Session',
     scheduleUrl: 'https://calendar.app.google/YHKcCMkE477HWNBg7',
-  },
-  {
-    title: 'Extended Session',
-    duration: '90 Minutes',
-    label: 'Deep Learning',
-    labelStyle: 'bg-[#2d8c62] text-white',
-    cardStyle: 'bg-green-50/60 border-green-200',
-    description: 'A longer opportunity for sustained engagement, exploration and deeper learning through a wider range of activities.',
-    goodFor: [
-      'Your child enjoys spending longer exploring new ideas and challenges.',
-      "You'd like more time for gameplay, discussion and reflection.",
-      "You're looking for a deeper learning experience across a wider range of activities.",
-    ],
-    buttonLabel: 'Book Extended Session',
-    scheduleUrl: 'https://calendar.app.google/QM8JkChdny7yU8Cs9',
   },
 ];
 
@@ -141,7 +123,7 @@ function SessionCard({ session, index }) {
 export default function Booking() {
   usePageMeta(
     'Explore Sessions | Rook Foundations',
-    'Explore Focus, Core and Extended session formats combining chess and strategy games, with bookings opening as pilot sessions continue.'
+    'Explore 30-minute Focus and 60-minute Core sessions combining chess and strategy games, with bookings opening as pilot sessions continue.'
   );
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -177,7 +159,7 @@ export default function Booking() {
       <section className="pb-24 relative overflow-hidden">
         <ChessBg variant="page" />
         <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-3 max-w-xl lg:max-w-none mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-3 max-w-xl md:max-w-4xl mx-auto">
             {sessionCards.map((session, i) => (
               <SessionCard key={session.title} session={session} index={i} />
             ))}

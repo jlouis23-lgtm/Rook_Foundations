@@ -77,13 +77,6 @@ export default function HeroSection() {
             📍 Essex-based · Supporting local families and schools
           </p>
 
-          <div className="max-w-sm mx-auto mb-5">
-            <p className="font-fredoka text-[#2D2520] text-xl mb-1.5">Interested in a £5 Trial Session?</p>
-            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed">
-              I'm currently inviting a small number of families to take part in introductory sessions as I prepare Rook Foundations for launch.
-            </p>
-          </div>
-
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
             <MotionLink
               whileTap={ctaTap}

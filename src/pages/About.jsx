@@ -159,7 +159,7 @@ export default function About() {
             Ready to meet in person?
           </h2>
           <p className="font-nunito text-white/80 text-lg mb-8">
-            Register your interest in a £5 trial session and discover the Rook Foundations difference for yourself.
+            Register your interest and discover the Rook Foundations difference for yourself.
           </p>
           <MotionLink
             whileTap={ctaTap}

@@ -106,13 +106,6 @@ export default function Contact() {
                 Message us on WhatsApp
               </a>
             </Reveal>
-
-            <Reveal direction="left" delay={0.1} className="bg-amber-50 rounded-3xl p-6">
-              <h3 className="font-fredoka text-[#2D2520] text-xl mb-2">£5 Trial Session</h3>
-              <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">
-                As I develop Rook Foundations, I'm inviting a small number of families to take part in £5 assessment sessions. These sessions will give me the opportunity to refine my teaching approach, explore how different games work in practice and continue building a learning experience centred around each child.
-              </p>
-            </Reveal>
           </div>
         </div>
       </section>

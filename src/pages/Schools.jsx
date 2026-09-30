@@ -20,21 +20,19 @@ const sessionFormats = [
     title: 'Paired Chess',
     people: 2,
     groupSize: 'Up to 2 children',
-    price: '£10 per child / hour',
     descriptor: 'Personalised Learning',
     descriptorStyle: 'bg-[#7a48c0] text-white',
     cardStyle: 'bg-[#7a48c0]/10 border-[#7a48c0]/30',
     description:
       "Our chess sessions are designed for children who are interested in developing their chess skills alongside an experienced player. Sessions are deliberately kept small, allowing the tutor to provide individualised guidance, questioning and feedback. Children are encouraged to explain their decisions, consider alternative moves and reflect on their thinking throughout the session. The format provides a more structured and personalised learning experience than our larger group sessions.",
     bestSuitedFor: 'Children developing their chess skills who benefit from close guidance and discussion.',
-    note: 'Chess sessions are currently limited to a maximum of two children when delivered as a paired session. An individual chess option is also available at £18 per child, per hour — see pricing below.',
+    note: 'Chess sessions are currently limited to a maximum of two children when delivered as a paired session. An individual chess option is also available.',
   },
   {
     key: 'strategy-reasoning',
     title: 'Strategy and Reasoning Sessions',
     people: 4,
     groupSize: 'Up to 4 children',
-    price: '£8 per child / hour',
     descriptor: 'Small-Group Learning',
     descriptorStyle: 'bg-[#b8790a] text-white',
     cardStyle: 'bg-amber-50/60 border-[#E8A020]/30 shadow-lg shadow-[#E8A020]/8',
@@ -48,7 +46,6 @@ const sessionFormats = [
     title: 'Strategy Game Club',
     people: 8,
     groupSize: 'Up to 8 children',
-    price: '£5 per child / hour',
     descriptor: 'Collaborative Learning',
     descriptorStyle: 'bg-[#2d8c62] text-white',
     cardStyle: 'bg-green-50/60 border-green-200',
@@ -119,14 +116,6 @@ const fundingModels = [
   },
 ];
 
-const pricingRows = [
-  { label: 'Individual chess', groupSize: '1 child', price: '£18 / hour' },
-  { label: 'Paired chess', groupSize: 'Up to 2 children', price: '£10 per child / hour' },
-  { label: 'Strategy & reasoning', groupSize: 'Up to 4 children', price: '£8 per child / hour' },
-  { label: 'Strategy Game Club', groupSize: 'Up to 8 children', price: '£5 per child / hour' },
-  { label: '8-child club session', groupSize: '8 children', price: '£40 / hour', subPrice: '(£5 per child)', highlight: true },
-];
-
 function SessionFormatCard({ format, index }) {
   return (
     <motion.div
@@ -149,7 +138,7 @@ function SessionFormatCard({ format, index }) {
       <div className="mb-5 text-center">
         <h3 className="font-fredoka text-[#2D2520] text-2xl leading-tight">{format.title}</h3>
         <p className="font-nunito text-[#E8A020] text-sm font-700 mt-1.5">
-          {format.groupSize} · {format.price}
+          {format.groupSize}
         </p>
       </div>
 
@@ -315,9 +304,9 @@ export default function Schools() {
 
       {/* Flexible Partnership Options — deliberately placed here, between
           Flexible Delivery and Pricing, so the funding model is established
-          BEFORE the reader reaches a table of numbers. Without this, "£18
-          per hour / £10 per child..." reads ambiguously as something the
-          school itself might be expected to pay. */}
+          BEFORE the reader reaches the pricing links. Without this, the
+          published per-child prices could read as something the school
+          itself might be expected to pay. */}
       <section className="py-20 bg-white border-y border-[#2D2520]/8 relative overflow-hidden">
         <ChessBg variant="page" />
         <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
@@ -370,37 +359,28 @@ export default function Schools() {
               Simple, flexible pricing
             </h2>
             <p className="font-nunito text-[#2D2520]/55 text-base mt-4 max-w-xl mx-auto leading-relaxed">
-              The rates below apply to our parent-funded extracurricular activities. School-funded programmes are quoted individually based on your school's requirements.
+              Prices for parent-funded after-school and lunchtime clubs, and for SEND enrichment, are published on our Pricing page. School-funded programmes are quoted individually based on your school's requirements.
             </p>
           </div>
 
-          <Reveal className="bg-white border border-[#2D2520]/10 rounded-3xl overflow-hidden shadow-sm" direction="up">
-            {pricingRows.map((row, i) => (
-              <div
-                key={row.label}
-                className={`flex items-center justify-between gap-4 px-6 py-5 ${
-                  i < pricingRows.length - 1 ? 'border-b border-[#2D2520]/8' : ''
-                } ${row.highlight ? 'bg-[#E8A020]/8' : ''}`}
-              >
-                <div>
-                  <p className="font-fredoka text-[#2D2520] text-base sm:text-lg leading-snug">{row.label}</p>
-                  <p className="font-nunito text-[#2D2520]/55 text-xs sm:text-sm mt-0.5">{row.groupSize}</p>
-                </div>
-                <div className="text-right flex-shrink-0">
-                  <p className={`font-fredoka leading-tight ${row.highlight ? 'text-[#E8A020] text-2xl sm:text-3xl' : 'text-[#2D2520] text-lg sm:text-xl'}`}>
-                    {row.price}
-                  </p>
-                  {row.subPrice && (
-                    <p className="font-nunito text-[#2D2520]/50 text-xs mt-0.5">{row.subPrice}</p>
-                  )}
-                </div>
-              </div>
-            ))}
+          <Reveal className="flex flex-col sm:flex-row items-center justify-center gap-3" direction="up">
+            <MotionLink
+              whileTap={ctaTap}
+              to="/pricing#school-clubs"
+              className="group inline-flex items-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-3.5 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/20"
+            >
+              View club pricing
+              <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+            </MotionLink>
+            <MotionLink
+              whileTap={ctaTap}
+              to="/pricing#send-pricing"
+              className="group inline-flex items-center gap-2 bg-white border border-[#E8A020] text-[#E8A020] font-fredoka font-600 text-sm px-6 py-3.5 rounded-2xl hover:bg-[#E8A020]/10 transition-all"
+            >
+              View SEND pricing
+              <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+            </MotionLink>
           </Reveal>
-
-          <p className="font-nunito text-[#2D2520]/45 text-sm text-center italic mt-6">
-            All prices are based on one-hour sessions.
-          </p>
         </div>
       </section>
 

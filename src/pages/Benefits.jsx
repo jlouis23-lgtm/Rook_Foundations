@@ -120,7 +120,7 @@ export default function Benefits() {
             See it for yourself.
           </h2>
           <p className="font-lato text-white/50 text-lg mb-8">
-            Register your interest in a £5 trial session and experience the Rook Foundations difference first-hand.
+            Register your interest and experience the Rook Foundations difference first-hand.
           </p>
           <Link
             to="/contact"

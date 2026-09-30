@@ -733,7 +733,7 @@ export const tcSections = [
     "kind": "para",
     "spans": [
      {
-      "text": "Unless otherwise agreed in writing, lessons delivered during a calendar month will be invoiced at the end of that month.",
+      "text": "Unless the booking was paid in full online at the time of booking, or otherwise agreed in writing, lessons delivered during a calendar month will be invoiced at the end of that month.",
       "bold": false
      }
     ],
@@ -776,7 +776,7 @@ export const tcSections = [
     "kind": "para",
     "spans": [
      {
-      "text": "Payment may be made by bank transfer or any other payment method that Rook Foundations may introduce from time to time.",
+      "text": "Payment may be made online by card at the time of booking through our secure payment provider, Stripe, by bank transfer, or by any other payment method that Rook Foundations may introduce from time to time. Rook Foundations does not see or store your card details.",
       "bold": false
      }
     ],
@@ -887,6 +887,117 @@ export const tcSections = [
     "spans": [
      {
       "text": "Any decision to suspend services will always consider the best interests of the child alongside the need to operate the business fairly and sustainably.",
+      "bold": false
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "subheading",
+    "num": "7.6",
+    "title": "Travel Fees"
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Sessions held within ",
+      "bold": false
+     },
+     {
+      "text": "5 miles",
+      "bold": true
+     },
+     {
+      "text": " of Great Dunmow town centre carry no travel fee.",
+      "bold": false
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "For sessions further away, a travel fee applies according to the travel zones published on our Pricing page at the time of booking.",
+      "bold": false
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Unless otherwise agreed:",
+      "bold": false
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "list",
+    "format": "bullet",
+    "items": [
+     [
+      {
+       "text": "distances are measured by road from Great Dunmow town centre;",
+       "bold": false
+      }
+     ],
+     [
+      {
+       "text": "travel fees are charged per visit, not per child, and more than one session at the same location on the same day counts as one visit;",
+       "bold": false
+      }
+     ],
+     [
+      {
+       "text": "no travel fee applies to sessions held at a venue chosen by Rook Foundations;",
+       "bold": false
+      }
+     ],
+     [
+      {
+       "text": "for parent-funded school clubs, travel costs are included in the published per-child price rather than charged as a separate fee;",
+       "bold": false
+      }
+     ],
+     [
+      {
+       "text": "sessions more than 20 miles away are available as ",
+       "bold": false
+      },
+      {
+       "text": "60-minute sessions only",
+       "bold": true
+      },
+      {
+       "text": ";",
+       "bold": false
+      }
+     ],
+     [
+      {
+       "text": "we do not travel more than ",
+       "bold": false
+      },
+      {
+       "text": "30 miles",
+       "bold": true
+      },
+      {
+       "text": " for sessions.",
+       "bold": false
+      }
+     ]
+    ]
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Any travel fee will be confirmed in your booking confirmation. No travel fee is charged for a session that does not go ahead.",
       "bold": false
      }
     ],
@@ -1097,175 +1208,7 @@ export const tcSections = [
    {
     "kind": "subheading",
     "num": "10.1",
-    "title": "Free Introductory Lesson Promotion"
-   },
-   {
-    "kind": "para",
-    "spans": [
-     {
-      "text": "At selected times, the ",
-      "bold": false
-     },
-     {
-      "text": "first five new customers",
-      "bold": true
-     },
-     {
-      "text": " who successfully secure a booking may receive ",
-      "bold": false
-     },
-     {
-      "text": "one complimentary lesson",
-      "bold": true
-     },
-     {
-      "text": ".",
-      "bold": false
-     }
-    ],
-    "all_bold": false
-   },
-   {
-    "kind": "para",
-    "spans": [
-     {
-      "text": "This promotion:",
-      "bold": false
-     }
-    ],
-    "all_bold": false
-   },
-   {
-    "kind": "list",
-    "format": "bullet",
-    "items": [
-     [
-      {
-       "text": "is available only to new customers;",
-       "bold": false
-      }
-     ],
-     [
-      {
-       "text": "applies only while promotional places remain available;",
-       "bold": false
-      }
-     ],
-     [
-      {
-       "text": "is limited to one complimentary lesson per child;",
-       "bold": false
-      }
-     ],
-     [
-      {
-       "text": "is offered entirely at the discretion of Rook Foundations;",
-       "bold": false
-      }
-     ],
-     [
-      {
-       "text": "may be amended or withdrawn at any time without prior notice.",
-       "bold": false
-      }
-     ]
-    ]
-   },
-   {
-    "kind": "para",
-    "spans": [
-     {
-      "text": "Receiving a free lesson does not oblige a parent or guardian to purchase additional lessons.",
-      "bold": false
-     }
-    ],
-    "all_bold": false
-   },
-   {
-    "kind": "subheading",
-    "num": "10.2",
-    "title": "First Home Visit Offer"
-   },
-   {
-    "kind": "para",
-    "spans": [
-     {
-      "text": "Families booking their ",
-      "bold": false
-     },
-     {
-      "text": "first home coaching session",
-      "bold": true
-     },
-     {
-      "text": " may be eligible for a ",
-      "bold": false
-     },
-     {
-      "text": "50% discount",
-      "bold": true
-     },
-     {
-      "text": " on that initial visit.",
-      "bold": false
-     }
-    ],
-    "all_bold": false
-   },
-   {
-    "kind": "para",
-    "spans": [
-     {
-      "text": "This offer:",
-      "bold": false
-     }
-    ],
-    "all_bold": false
-   },
-   {
-    "kind": "list",
-    "format": "bullet",
-    "items": [
-     [
-      {
-       "text": "applies only to the first home visit;",
-       "bold": false
-      }
-     ],
-     [
-      {
-       "text": "cannot normally be used alongside other promotional offers;",
-       "bold": false
-      }
-     ],
-     [
-      {
-       "text": "is subject to availability;",
-       "bold": false
-      }
-     ],
-     [
-      {
-       "text": "applies only where confirmed by Rook Foundations at the time of booking.",
-       "bold": false
-      }
-     ]
-    ]
-   },
-   {
-    "kind": "para",
-    "spans": [
-     {
-      "text": "Subsequent home visits will be charged at the standard rate applicable at the time.",
-      "bold": false
-     }
-    ],
-    "all_bold": false
-   },
-   {
-    "kind": "subheading",
-    "num": "10.3",
-    "title": "Other Promotions"
+    "title": "Future Promotions"
    },
    {
     "kind": "para",

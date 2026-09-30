@@ -242,11 +242,6 @@ const professionalStandards = [
   },
 ];
 
-// Group-size tiers, 1-to-1 through the Section 4-established maximum of six
-// — plain pills, no prices, per the brief's explicit instruction not to
-// invent figures that haven't been confirmed anywhere on the site.
-const groupSizeTiers = ['1-to-1', '2 pupils', '3 pupils', '4 pupils', '5 pupils', '6 pupils'];
-
 // Changes/cancellation/rescheduling/non-delivery — the brief itself
 // suggests "a small FAQ-style or expandable treatment", and the site
 // already has a purpose-built accordion component (FAQAccordionItem) used
@@ -256,7 +251,7 @@ const groupSizeTiers = ['1-to-1', '2 pupils', '3 pupils', '4 pupils', '5 pupils'
 const pricingFaqs = [
   {
     q: 'What if we need to change the arrangement?',
-    a: "If a change would increase the cost — a bigger group, for example — we'll confirm the revised price with you before the new arrangement is agreed. If a change would reduce the cost, the originally confirmed fee still applies. And if a change wouldn't affect the price but does materially affect the arrangement, we'll confirm it's still feasible before going ahead.",
+    a: "If a change would increase the cost — a longer session, for example — we'll confirm the revised price with you before the new arrangement is agreed. If a change would reduce the cost, the originally confirmed fee still applies. And if a change wouldn't affect the price but does materially affect the arrangement, we'll confirm it's still feasible before going ahead.",
   },
   {
     q: "What's your cancellation policy?",
@@ -955,11 +950,9 @@ export default function SendPupils() {
       </section>
 
       {/* Pricing & Booking — Section 10. White/border-y, continuing the
-          alternating rhythm after Section 9's inherited cream. No SEND-
-          specific prices exist anywhere on the site to reuse, so the
-          group-size tiers are shown as plain pills with no figures, per
-          the brief's explicit instruction not to invent them — schools are
-          pointed to an enquiry for an actual quotation instead. The
+          alternating rhythm after Section 9's inherited cream. SEND prices
+          are published on the Pricing page (#send-pricing), so this section
+          links there instead of repeating figures. The
           changes/cancellation/rescheduling/non-delivery content reuses the
           site's existing FAQAccordionItem component (compact variant, as
           already used for page-specific FAQ lists) rather than a wall of
@@ -970,43 +963,36 @@ export default function SendPupils() {
         <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center mb-10">
             <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
-              The commercial side
+              Arranging sessions
             </span>
             <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
               Pricing and Booking
             </h2>
           </div>
 
+          {/* Pricing lives on the Pricing page — this box links straight to
+              its SEND section rather than repeating the figures here. */}
           <Reveal className="text-center">
-            <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
-              SEND enrichment is priced according to two things: the length of the session, and the size of the group booked. Because smaller groups and 1-to-1 sessions need greater practitioner capacity and allow more individual attention, the cost per pupil increases as the group gets smaller.
-            </p>
-          </Reveal>
-
-          {/* Group-size tiers */}
-          <Reveal className="mt-10 text-center" delay={0.05}>
-            <div className="flex flex-wrap items-center justify-center gap-2.5">
-              {groupSizeTiers.map((tier) => (
-                <span
-                  key={tier}
-                  className="font-nunito text-[#2D2520] text-sm font-700 bg-[#E8A020]/10 border border-[#E8A020]/20 rounded-full px-4 py-2 whitespace-nowrap"
-                >
-                  {tier}
-                </span>
-              ))}
+            <div className="bg-[#E8A020]/[0.07] border border-[#E8A020]/25 rounded-3xl p-6 sm:p-8">
+              <p className="font-fredoka text-[#2D2520] text-xl leading-snug">SEND enrichment pricing</p>
+              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-2 max-w-md mx-auto">
+                Sessions and Personalised Enrichment Reviews have fixed, published prices. You can find them on our Pricing page.
+              </p>
+              <MotionLink
+                whileTap={ctaTap}
+                to="/pricing#send-pricing"
+                className="group mt-5 inline-flex items-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-3 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/20"
+              >
+                View SEND pricing
+                <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+              </MotionLink>
             </div>
-            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto mt-6">
-              We don't publish a fixed price list for SEND enrichment, since the right arrangement depends on the group, duration and circumstances involved — get in touch and we'll provide a quotation for your school.
-            </p>
           </Reveal>
 
           {/* Booking basics */}
           <Reveal className="mt-14" delay={0.1}>
             <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
-              The confirmed booking is based on the group size agreed in advance, not simply the number of pupils who attend on the day — if fewer pupils take part than booked, the original fee still applies, since we've reserved that capacity for your session.
-            </p>
-            <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
-              A session becomes a formal booking once we issue a booking confirmation and you accept it, covering the date, time, duration, group size, fee and other agreed arrangements, as described in Working With Your School. The intended activity is always provisional, and can be adapted or replaced through the practitioner's professional judgement — pricing depends on the group size and duration you've booked, never on which activity happens to be used.
+              A session becomes a formal booking once we issue a booking confirmation and you accept it, covering the date, time, duration, group size, fee and other agreed arrangements, as described in Working With Your School. The intended activity is always provisional, and can be adapted or replaced through the practitioner's professional judgement — the fee never depends on which activity happens to be used.
             </p>
             <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-4">
               Where possible, we'd recommend getting in touch at least a week ahead of when you'd like a session to take place, though shorter-notice requests can sometimes be accommodated too.
@@ -1024,19 +1010,13 @@ export default function SendPupils() {
           </Reveal>
 
           <Reveal className="text-center mt-12" delay={0.2}>
-            <p className="font-nunito text-[#2D2520]/55 text-sm leading-relaxed max-w-xl mx-auto">
-              A Personalised Enrichment Review is priced separately from ordinary sessions and can be commissioned when you first arrange sessions or partway through a block — get in touch to discuss the fee.
-            </p>
-          </Reveal>
-
-          <Reveal className="text-center mt-8" delay={0.25}>
             <MotionLink
               whileTap={ctaTap}
               to="/contact"
               onClick={() => window.scrollTo(0, 0)}
               className="group inline-flex items-center gap-1.5 font-nunito text-[#E8A020] text-sm font-700 hover:text-[#b8790a] transition-colors"
             >
-              Ask us for a quotation
+              Get in touch to arrange sessions
               <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
             </MotionLink>
           </Reveal>
