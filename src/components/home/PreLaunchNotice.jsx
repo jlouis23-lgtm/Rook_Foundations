@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
+import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -43,7 +44,7 @@ export default function PreLaunchNotice() {
           variants={item}
           className="block font-nunito text-[#E8A020] text-xs font-800 uppercase tracking-[0.2em] mb-5"
         >
-          Preparing for launch
+          Now open for bookings
         </motion.span>
 
         <motion.h2
@@ -51,15 +52,26 @@ export default function PreLaunchNotice() {
           className="font-fredoka text-white leading-tight mb-5"
           style={{ fontSize: 'clamp(1.9rem, 4vw, 2.75rem)' }}
         >
-          Rook Foundations is currently preparing for launch
+          Rook Foundations has launched
         </motion.h2>
 
         <motion.p
           variants={item}
           className="font-nunito text-white/65 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-8"
         >
-          I am running pilot sessions and workshops with children to refine my approach and create meaningful learning experiences for children, while ensuring they work well for families too.
+          Private sessions, school club places and SEND enrichment for schools can now be booked and paid for online. Every session builds on the approach refined through my pilot sessions and workshops, and is shaped around the children taking part.
         </motion.p>
+
+        <motion.div variants={item} className="mb-7">
+          <MotionLink
+            whileTap={ctaTap}
+            to="/pricing#book"
+            className="group inline-flex items-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-3.5 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/20"
+          >
+            See prices and book
+            <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+          </MotionLink>
+        </motion.div>
 
         <motion.div variants={item} className="flex flex-col items-center gap-3">
           <Link
@@ -75,7 +87,7 @@ export default function PreLaunchNotice() {
             onClick={() => window.scrollTo(0, 0)}
             className="group inline-flex items-center gap-1.5 font-nunito text-[#E8A020] text-sm font-700 hover:text-[#F4C261] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8A020] rounded-sm"
           >
-            Discover our first full educational framework
+            Read our educational framework
             <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
           </Link>
         </motion.div>

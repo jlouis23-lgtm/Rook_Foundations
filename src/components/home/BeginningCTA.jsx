@@ -23,7 +23,7 @@ export default function BeginningCTA() {
           Be part of the beginning
         </h2>
         <p className="font-nunito text-white/80 text-base mt-4 mb-8 leading-relaxed">
-          Rook Foundations is currently preparing for its first full programme. If you're interested in finding out more or would like to hear when bookings open, I'd love to hear from you.
+          Rook Foundations is now open for bookings. If you'd like to talk through which session would suit your child before you book, or you have any other questions, I'd love to hear from you.
         </p>
         <MotionLink
           whileTap={ctaTap}
