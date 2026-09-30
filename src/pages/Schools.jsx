@@ -2,59 +2,11 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, GraduationCap } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
-import PeopleIcon from '@/components/pricing/PeopleIcon';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import Reveal from '@/components/ui/Reveal';
 import { usePageMeta } from '@/hooks/use-page-meta';
 
 const EASE = [0.22, 1, 0.36, 1];
-
-// Same purple/amber/green progression already used for the Individual/Pair/
-// Group cards on the Pricing page — reused here rather than inventing a new
-// colour language, since these three formats sit on the same personalised
-// → collaborative spectrum (Paired Chess is the most 1:1, the Club is the
-// most collaborative).
-const sessionFormats = [
-  {
-    key: 'paired-chess',
-    title: 'Paired Chess',
-    people: 2,
-    groupSize: 'Up to 2 children',
-    descriptor: 'Personalised Learning',
-    descriptorStyle: 'bg-[#7a48c0] text-white',
-    cardStyle: 'bg-[#7a48c0]/10 border-[#7a48c0]/30',
-    description:
-      "Our chess sessions are designed for children who are interested in developing their chess skills alongside an experienced player. Sessions are deliberately kept small, allowing the tutor to provide individualised guidance, questioning and feedback. Children are encouraged to explain their decisions, consider alternative moves and reflect on their thinking throughout the session. The format provides a more structured and personalised learning experience than our larger group sessions.",
-    bestSuitedFor: 'Children developing their chess skills who benefit from close guidance and discussion.',
-    note: 'Chess sessions are currently limited to a maximum of two children when delivered as a paired session. An individual chess option is also available.',
-  },
-  {
-    key: 'strategy-reasoning',
-    title: 'Strategy and Reasoning Sessions',
-    people: 4,
-    groupSize: 'Up to 4 children',
-    descriptor: 'Small-Group Learning',
-    descriptorStyle: 'bg-[#b8790a] text-white',
-    cardStyle: 'bg-amber-50/60 border-[#E8A020]/30 shadow-lg shadow-[#E8A020]/8',
-    description:
-      'These sessions use a variety of strategy, logic and visual-spatial games, including a range of SmartGames-style challenges and puzzles. Children work through carefully selected challenges designed to encourage them to reason, problem-solve and explain how they arrived at a solution. With groups of up to four, the tutor can provide a high level of interaction and personalised support. Sessions include structured questioning, reflective practice and detailed observation and note-taking, helping to create a richer learning experience for each child.',
-    bestSuitedFor: 'Children developing logical reasoning, problem-solving and visual-spatial skills.',
-    note: 'These sessions are distinct from the larger Strategy Game Club below — they are more structured, more personalised and more reflective.',
-  },
-  {
-    key: 'strategy-game-club',
-    title: 'Strategy Game Club',
-    people: 8,
-    groupSize: 'Up to 8 children',
-    descriptor: 'Collaborative Learning',
-    descriptorStyle: 'bg-[#2d8c62] text-white',
-    cardStyle: 'bg-green-50/60 border-green-200',
-    description:
-      'Our club sessions give more children the opportunity to explore strategy games and puzzles together. Children rotate between a variety of activities, working individually, in pairs or collaboratively to complete different challenges. Each activity is supported by structured questions and specific challenges, encouraging children to think carefully about their approach and attempt different solutions. Unlike our smaller sessions, the club is less personalised and reflective, but allows a greater number of children to participate within the same session.',
-    bestSuitedFor: 'Schools looking to introduce strategy games to a larger group of children through an engaging, collaborative club format.',
-    note: 'The Strategy Game Club is not a chess session — it focuses on other strategy, logic and puzzle-based games.',
-  },
-];
 
 // Left-accent row treatment reused verbatim from SessionIncludesGrid (the
 // "What's consistent about every session" list on the Our Learning Approach
@@ -115,45 +67,6 @@ const fundingModels = [
     body: "Schools can also commission Rook Foundations directly to provide funded enrichment programmes, workshops or targeted sessions for pupils — from a single themed workshop to a structured programme for a specific year group. These can be tailored to the school's objectives, timetable and available budget.",
   },
 ];
-
-function SessionFormatCard({ format, index }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={`play-card relative flex flex-col border rounded-3xl p-7 ${format.cardStyle}`}
-    >
-      <span className={`absolute -top-3 left-1/2 -translate-x-1/2 ${format.descriptorStyle} font-nunito text-xs font-700 px-4 py-1.5 rounded-full shadow-md whitespace-nowrap`}>
-        {format.descriptor}
-      </span>
-
-      <div className="flex justify-center mb-5">
-        <div className="w-16 h-16 rounded-2xl bg-[#E8A020]/10 flex items-center justify-center">
-          <PeopleIcon count={format.people} size={format.people > 4 ? 34 : 40} style={{ color: '#E8A020' }} />
-        </div>
-      </div>
-
-      <div className="mb-5 text-center">
-        <h3 className="font-fredoka text-[#2D2520] text-2xl leading-tight">{format.title}</h3>
-        <p className="font-nunito text-[#E8A020] text-sm font-700 mt-1.5">
-          {format.groupSize}
-        </p>
-      </div>
-
-      <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mb-5">
-        {format.description}
-      </p>
-
-      <div className="mt-auto pt-4 border-t border-[#2D2520]/8">
-        <p className="font-fredoka text-[#2D2520] text-sm font-600 mb-1.5">Best suited for</p>
-        <p className="font-nunito text-[#2D2520]/60 text-xs leading-relaxed mb-4">{format.bestSuitedFor}</p>
-        <p className="font-nunito text-[#2D2520]/45 text-xs leading-relaxed italic">{format.note}</p>
-      </div>
-    </motion.div>
-  );
-}
 
 function DeliveryRow({ option, index }) {
   const { accent, title, body } = option;
@@ -255,27 +168,6 @@ export default function Schools() {
             <ArrowRight size={18} className="flex-shrink-0" />
           </MotionLink>
         </Reveal>
-      </section>
-
-      {/* Our Sessions */}
-      <section className="py-20 bg-white border-y border-[#2D2520]/8 relative overflow-hidden">
-        <ChessBg variant="page" />
-        <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
-          <div className="text-center mb-14">
-            <span className="inline-flex items-center font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
-              Our sessions
-            </span>
-            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-              Three ways to bring strategy games into your school
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-xl md:max-w-none mx-auto">
-            {sessionFormats.map((format, i) => (
-              <SessionFormatCard key={format.key} format={format} index={i} />
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* Flexible Delivery */}
