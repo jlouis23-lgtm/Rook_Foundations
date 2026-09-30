@@ -171,7 +171,7 @@ export default function ResearchSummary() {
           </p>
 
           <p className="font-nunito text-[#2D2520]/40 text-sm">
-            Compiled by Louis Jenkins · Co-Founder, Rook Foundations
+            Compiled by Louis Jenkins · Founder, Rook Foundations
           </p>
 
           <div className="mt-8 border-l-4 border-green-300 pl-5 max-w-2xl">

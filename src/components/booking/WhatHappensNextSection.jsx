@@ -8,20 +8,20 @@ const steps = [
   {
     num: 1,
     accent: '#2d8c62',
-    title: 'Choose Your Session',
-    body: "Select the session that best suits your child's learning needs.",
+    title: 'Choose and Pay',
+    body: 'Choose the session format and length on the Pricing page, answer a few questions about your child, and pay securely by card.',
   },
   {
     num: 2,
     accent: '#4a7eb8',
-    title: 'Complete Your Booking',
-    body: 'Choose a convenient time and complete the booking form with a few details about your child.',
+    title: 'Receive Your Receipt',
+    body: 'Stripe emails you a receipt for your payment straight away.',
   },
   {
     num: 3,
     accent: '#7a48c0',
-    title: 'Receive Your Confirmation',
-    body: "You'll receive a confirmation email containing your booking details and everything you need before the session.",
+    title: 'Agree Dates and Times',
+    body: "I'll contact you to confirm the dates, times and any details I need before the first session.",
   },
   {
     num: 4,

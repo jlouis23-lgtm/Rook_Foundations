@@ -276,7 +276,7 @@ export default function Pricing() {
             <div className="flex-1">
               <p className="font-fredoka text-[#2D2520] text-xl leading-snug">Personalised Enrichment Review</p>
               <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-2">
-                An optional written summary of a pupil's engagement, participation and observed strengths. Available once a pupil has attended at least 4 sessions, and can be requested when you first arrange sessions or partway through.
+                An optional written summary of a pupil's engagement, participation and observed strengths. It can be booked at any time and is written once the pupil has attended at least 4 sessions.
               </p>
             </div>
             <div className="sm:text-right flex-shrink-0">

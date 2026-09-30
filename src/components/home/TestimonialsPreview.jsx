@@ -5,7 +5,7 @@ const values = [
   {
     accent: '#4a7eb8',
     heading: 'Learning to Think Critically',
-    body: 'Every move on the chess board teaches children to slow down, consider their options, and act with intention. These kind of learning extends far beyond the game.',
+    body: 'Every move on the chess board teaches children to slow down, consider their options, and act with intention. This kind of learning extends far beyond the game.',
   },
   {
     accent: '#2d8c62',

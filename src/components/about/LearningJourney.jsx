@@ -76,7 +76,7 @@ function Heading() {
   return (
     <div className="text-center mb-8 lg:mb-10 max-w-2xl mx-auto">
       <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.7rem, 3.2vw, 2.6rem)' }}>
-        The Rook Foundations Learning Pyramid
+        The Rook Foundations Six-Stage Learning Process
       </h2>
       <p className="font-nunito text-[#2D2520]/55 text-base mt-3 leading-relaxed">
         The Rook Foundations Learning Framework has been informed by established approaches to child-centred and relational practice, including the{' '}

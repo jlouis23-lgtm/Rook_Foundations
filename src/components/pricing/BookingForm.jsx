@@ -5,6 +5,7 @@ import { DURATIONS, TRAVEL_ZONES, formatPrice, privateFormatFor, zoneById } from
 import {
   CHILD_AGES,
   MAX_CLUB_CHILDREN,
+  MAX_PUPILS,
   MAX_SESSIONS,
   SERVICES,
   calculateBooking,
@@ -174,6 +175,7 @@ export default function BookingForm({ status }) {
       childrenCount: count,
       children: form.children.slice(0, count),
       sessions: Math.min(form.sessions, MAX_SESSIONS[id] || 1),
+      pupils: Math.min(form.pupils, MAX_PUPILS[id] || form.pupils),
     });
   };
 
@@ -288,7 +290,7 @@ export default function BookingForm({ status }) {
                     error={err('pupils')}
                   >
                     <select id="pupils" className={inputClass} value={form.pupils} onChange={(e) => set({ pupils: parseInt(e.target.value, 10) })}>
-                      {[1, 2, 3, 4, 5, 6].map((n) => (
+                      {Array.from({ length: MAX_PUPILS[service] }, (_, i) => i + 1).map((n) => (
                         <option key={n} value={n}>{n}</option>
                       ))}
                     </select>
@@ -398,6 +400,10 @@ export default function BookingForm({ status }) {
                     </Field>
                   </div>
                 ))}
+                <p className="font-nunito text-[#2D2520]/55 text-xs leading-relaxed">
+                  Sessions are for children aged 5–12. For a child outside this age range, please{' '}
+                  <Link to="/contact" className="text-[#E8A020] underline underline-offset-2">get in touch</Link> before booking.
+                </p>
 
                 <Field label="Does any child have additional needs we should know about?" error={err('additionalNeeds')} hint="Please don’t include details here — if you answer yes, I’ll contact you to talk it through privately.">
                   <div className="grid grid-cols-2 gap-3">

@@ -22,8 +22,8 @@ export const CLUB = { maxChildren: 12, price: { 30: 550, 60: 900 } };
 // SEND enrichment: fixed price per session for up to 6 pupils.
 export const SEND = { maxPupils: 6, price: { 30: 9500, 60: 15000 } };
 
-// Personalised Enrichment Review, per pupil.
-export const PER = { price: 12500, minSessions: 4 };
+// Personalised Enrichment Review, per pupil; up to `maxPupils` reviews per booking.
+export const PER = { price: 12500, minSessions: 4, maxPupils: 30 };
 
 // Travel zones, measured by road from Great Dunmow town centre. `fee` is per
 // visit; `clubUplift` is added per child, per session for school clubs.

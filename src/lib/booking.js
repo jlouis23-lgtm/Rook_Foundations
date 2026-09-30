@@ -15,11 +15,12 @@ export const SERVICES = [
   { id: 'private', label: 'Private sessions', hint: 'For families — held at your home, a venue you choose, or a venue we arrange.' },
   { id: 'club', label: 'School club place', hint: "For families — a place at an after-school or lunchtime club at your child's school." },
   { id: 'send', label: 'SEND enrichment', hint: 'For schools — sessions for groups of up to 6 pupils.' },
-  { id: 'per', label: 'Personalised Enrichment Review', hint: 'For schools — a written review for pupils who have attended at least 4 sessions.' },
+  { id: 'per', label: 'Personalised Enrichment Review', hint: 'For schools — a written review, prepared once a pupil has attended at least 4 sessions.' },
 ];
 
 export const MAX_SESSIONS = { private: 12, club: 15, send: 12 };
 export const MAX_CLUB_CHILDREN = CLUB.maxChildren;
+export const MAX_PUPILS = { send: SEND.maxPupils, per: PER.maxPupils };
 export const CHILD_AGES = [5, 6, 7, 8, 9, 10, 11, 12];
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -110,7 +111,8 @@ export function validateBooking(input = {}) {
     if (!text(input.schoolName)) e.schoolName = 'Please enter the school name.';
     if (!text(input.role)) e.role = 'Please enter your role at the school.';
     const pupils = toInt(input.pupils);
-    if (!Number.isInteger(pupils) || pupils < 1 || pupils > SEND.maxPupils) e.pupils = `Please choose between 1 and ${SEND.maxPupils} pupils.`;
+    const maxPupils = MAX_PUPILS[service];
+    if (!Number.isInteger(pupils) || pupils < 1 || pupils > maxPupils) e.pupils = `Please choose between 1 and ${maxPupils} pupils.`;
   }
   if (service === 'send') {
     if (!text(input.schoolAddress)) e.schoolAddress = 'Please enter the school address.';

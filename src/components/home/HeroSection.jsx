@@ -11,7 +11,7 @@ const FACEBOOK_URL = 'https://www.facebook.com/RookFoundations/';
 const trustItems = [
   {
     content: (
-      <>Proud member of <a href="https://www.wholeschoolsend.org.uk/page/nasen-home-page" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-[#E8A020] transition-colors">NASEN</a></>
+      <>Proud member of <a href="https://www.wholeschoolsend.org.uk/page/nasen-home-page" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-[#E8A020] transition-colors">nasen</a></>
     ),
   },
   { content: 'Connected with English Chess Federation' },

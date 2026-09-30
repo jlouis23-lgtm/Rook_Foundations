@@ -1,6 +1,6 @@
 // Generated from Coaching T&Cs.docx — every clause preserved verbatim.
 // spans: [{ text, bold }] preserves inline bold emphasis exactly as authored.
-export const tcMeta = {"title": "Rook Foundations", "subtitle": "Parent & Guardian Coaching Agreement", "parenthetical": "(Coaching & Booking Terms and Conditions)", "version": "Version: 1.0", "lastUpdated": "Last Updated: 8 July 2026"};
+export const tcMeta = {"title": "Rook Foundations", "subtitle": "Parent & Guardian Coaching Agreement", "parenthetical": "(Coaching & Booking Terms and Conditions)", "version": "Version: 1.1", "lastUpdated": "Last Updated: 30 September 2026"};
 
 export const tcSections = [
  {
@@ -171,7 +171,7 @@ export const tcSections = [
     "kind": "para",
     "spans": [
      {
-      "text": "Rook Foundations is an educational coaching business specialising in chess, strategic thinking and games-based learning for children.",
+      "text": "Rook Foundations is an education project using chess and strategy games to create meaningful learning opportunities for children. It is run as a business by a sole trader (see section 2).",
       "bold": false
      }
     ],
@@ -959,7 +959,7 @@ export const tcSections = [
      ],
      [
       {
-       "text": "for parent-funded school clubs, travel costs are included in the published per-child price rather than charged as a separate fee;",
+       "text": "for parent-funded school clubs, there is no separate travel fee; instead, a small per-child supplement applies to schools in Zones 3 and 4, as shown on our Pricing page;",
        "bold": false
       }
      ],
@@ -1321,6 +1321,60 @@ export const tcSections = [
     "spans": [
      {
       "text": "These cancellation terms enable us to plan lessons effectively while ensuring that places remain available for all learners.",
+      "bold": false
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "subheading",
+    "title": "Your Right to Cancel (14-Day Cooling-Off Period)"
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "If you book as a consumer (for example, a parent booking online, by telephone or by email), you have the right to cancel your booking within 14 days of the day the booking is made, without giving a reason.",
+      "bold": false
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "To cancel, please tell us clearly within the 14 days by email, telephone, text message or WhatsApp.",
+      "bold": false
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "If you asked for sessions to start within the 14 days and then cancel, you will pay for any sessions already delivered, and a proportionate amount for any session in progress when you tell us. Everything else you have paid will be refunded.",
+      "bold": false
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Refunds are made to the original payment method within 14 days of the day you tell us you wish to cancel.",
+      "bold": false
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "After the 14-day period, the cancellation terms below apply to individual lessons. This cooling-off right applies to consumers and does not apply to bookings made by schools or other organisations.",
       "bold": false
      }
     ],
@@ -1699,6 +1753,54 @@ export const tcSections = [
    },
    {
     "kind": "subheading",
+    "title": "Changes to School Bookings"
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Where a school asks to change a confirmed arrangement:",
+      "bold": false
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "list",
+    "format": "bullet",
+    "items": [
+     [
+      {
+       "text": "if the change would increase the cost (for example, a longer session), we will confirm the revised price before the new arrangement is agreed;",
+       "bold": false
+      }
+     ],
+     [
+      {
+       "text": "if the change would reduce the cost, the originally confirmed fee still applies;",
+       "bold": false
+      }
+     ],
+     [
+      {
+       "text": "if the change would not affect the price but materially changes the arrangement, we will confirm that it is still feasible before going ahead.",
+       "bold": false
+      }
+     ]
+    ]
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Requests to reschedule a school session made 72 hours or more before it is due to take place will be considered, subject to availability and to confirming the new arrangement.",
+      "bold": false
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "subheading",
     "num": "12.6",
     "title": "Failure to Attend"
    },
@@ -1934,7 +2036,15 @@ export const tcSections = [
     "kind": "para",
     "spans": [
      {
-      "text": "Unless otherwise agreed, where a lesson cannot proceed due to travel disruption caused by severe weather, ",
+      "text": "Where severe weather prevents Rook Foundations from travelling safely, or we decide that a lesson cannot safely go ahead, ",
+      "bold": false
+     },
+     {
+      "text": "no charge",
+      "bold": true
+     },
+     {
+      "text": " will be made for that lesson. Where the lesson could go ahead but you are unable to attend because of severe weather, ",
       "bold": false
      },
      {
@@ -1942,7 +2052,7 @@ export const tcSections = [
       "bold": true
      },
      {
-      "text": " may remain payable to reflect the reserved lesson time.",
+      "text": " may remain payable to reflect the reserved lesson time, unless otherwise agreed.",
       "bold": false
      }
     ],
@@ -2601,6 +2711,16 @@ export const tcSections = [
     "all_bold": false
    },
    {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "On school premises, the school’s own first aid arrangements apply and school staff remain responsible for providing first aid to pupils. Rook Foundations will alert school staff immediately and follow the school’s procedures.",
+      "bold": false
+     }
+    ],
+    "all_bold": false
+   },
+   {
     "kind": "subheading",
     "num": "14.4",
     "title": "Professional Boundaries"
@@ -3099,6 +3219,16 @@ export const tcSections = [
     "all_bold": false
    },
    {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Please don’t include these details in the online booking form. After you book, we will contact you to collect any relevant information privately.",
+      "bold": false
+     }
+    ],
+    "all_bold": false
+   },
+   {
     "kind": "subheading",
     "num": "16.2",
     "title": "Reasonable Adjustments"
@@ -3312,6 +3442,16 @@ export const tcSections = [
       }
      ]
     ]
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "For parent-funded club places, we also ask the parent for an emergency contact when booking, so that we can reach the family directly if needed.",
+      "bold": false
+     }
+    ],
+    "all_bold": false
    },
    {
     "kind": "subheading",

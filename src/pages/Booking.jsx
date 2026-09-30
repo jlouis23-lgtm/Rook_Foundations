@@ -9,10 +9,10 @@ import { usePageMeta } from '@/hooks/use-page-meta';
 const EASE = [0.22, 1, 0.36, 1];
 
 // Pre-launch switch. Flip to true once Rook Foundations opens bookings —
-// this alone restores the live Google Calendar links, the original
-// "Book X Session" button copy and the "Scheduling powered by Google
-// Calendar" caption, and hides the pre-launch box and "Interested in Rook
-// Foundations?" prompt below. Nothing else needs to change.
+// this alone turns the cards into links to the paid booking form on the
+// Pricing page (/pricing#book), restores the "Book X Session" button copy,
+// and hides the pre-launch box and "Interested in Rook Foundations?"
+// prompt below. Nothing else needs to change.
 const BOOKINGS_OPEN = false;
 
 // Two session lengths (30 and 60 minutes), sharing the Rook Foundations
@@ -32,7 +32,6 @@ const sessionCards = [
       "You'd like to work towards one or two specific learning goals.",
     ],
     buttonLabel: 'Book Focus Session',
-    scheduleUrl: 'https://calendar.app.google/btKSKkRKfRatY6m3A',
   },
   {
     title: 'Core Session',
@@ -47,21 +46,20 @@ const sessionCards = [
       "You're looking for regular, personalised sessions that build progress over time.",
     ],
     buttonLabel: 'Book Core Session',
-    scheduleUrl: 'https://calendar.app.google/YHKcCMkE477HWNBg7',
   },
 ];
 
 function SessionCard({ session, index }) {
-  const Wrapper = BOOKINGS_OPEN ? motion.a : motion.div;
+  const Wrapper = BOOKINGS_OPEN ? MotionLink : motion.div;
 
+  // Booking goes through the paid form on the Pricing page, so every booking
+  // accepts the Terms and is paid through Stripe.
   const interactiveProps = BOOKINGS_OPEN
     ? {
-        href: session.scheduleUrl,
-        target: '_blank',
-        rel: 'noopener noreferrer',
+        to: '/pricing#book',
         whileTap: ctaTap,
         whileHover: { y: -4, rotate: 0.5, transition: { duration: 0.25, ease: 'easeOut' } },
-        'aria-label': `${session.buttonLabel} — opens Google Calendar in a new tab`,
+        'aria-label': `${session.buttonLabel} — choose options and pay on the Pricing page`,
       }
     : {
         // Not a link/button, so it can't be tabbed to or accidentally
@@ -165,11 +163,7 @@ export default function Booking() {
             ))}
           </div>
 
-          {BOOKINGS_OPEN ? (
-            <p className="font-nunito text-[#2D2520]/35 text-xs text-center mt-10 font-600">
-              Scheduling powered by Google Calendar
-            </p>
-          ) : (
+          {BOOKINGS_OPEN ? null : (
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}

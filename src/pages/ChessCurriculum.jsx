@@ -62,7 +62,7 @@ export default function ChessCurriculum() {
             Three Learning Phases
           </h1>
           <p className="font-nunito text-[#2D2520]/60 text-lg leading-relaxed max-w-2xl mx-auto">
-            This is our full lesson structure for children who are interested in playing chess. Chess is one of the main games that we use because of its proven positive benefits on building planning, patience, and independent thinking. Explore each phase below to see exactly what your child will learn.
+            This is the chess strand of Rook Foundations, for children who would like to play chess alongside our other strategy games. Chess is one of the main games we use because it offers rich opportunities to practise planning, patience and independent thinking. Explore each phase below to see what your child will learn.
           </p>
         </div>
       </section>

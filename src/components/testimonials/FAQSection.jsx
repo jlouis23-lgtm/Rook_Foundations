@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     q: "Is Rook Foundations a chess club?",
-    a: "Not exactly. While chess is one of the strategy games I use, Rook Foundations is a child development project that uses a variety of strategy games to encourage thoughtful learning, communication and decision-making. The game is never the goal. The child's development is.",
+    a: "Not exactly. While chess is one of the strategy games I use, Rook Foundations is an education project that uses a variety of strategy games to encourage thoughtful learning, communication and decision-making. The game is never the goal. The child's development is.",
   },
   {
     q: "Does my child need to know how to play chess or other strategy games?",
@@ -75,7 +75,7 @@ const faqs = [
     q: "My child has SEN. How can Rook Foundations support them?",
     a: (
       <>
-        <p className="mb-3">Every child is different, and I'm still learning through my pilot sessions how Rook Foundations can best support children with different needs. I'm also committed to developing my understanding of SEND-informed practice and am a member of nasen, the UK's leading professional membership organisation for SEND.</p>
+        <p className="mb-3">Every child is different, and I adapt games and activities around each child's needs. For schools, I also offer SEND enrichment sessions, described on the{' '}<Link to="/schools/send" className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">Working with SEND Pupils</Link>{' '}page. I'm also committed to developing my understanding of SEND-informed practice and am a member of nasen, the UK's leading professional membership organisation for SEND.</p>
         <p>The games and activities can be adapted in different ways to help make them more accessible and inclusive for children with different learning needs. I'd be very happy to hear about your child's individual needs and discuss whether the approach could be a good fit for them.</p>
       </>
     ),
@@ -99,7 +99,7 @@ const faqs = [
     a: (
       <>
         <p className="mb-3">
-          Progress is NOT measured by how well a child plays a game. It is measured by how they grow as a learner. I use a structured developmental framework to observe and record progress across the six main stages of the learning cycle. See the six-stage learning cycle{' '}
+          Progress is NOT measured by how well a child plays a game. It is measured by how they grow as a learner. I use a structured developmental framework to observe and record progress across the six stages of the Six-Stage Learning Process. See the Six-Stage Learning Process{' '}
           <Link to="/our-approach#learning-journey" className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">here</Link>.
         </p>
         <p>Regular observations and personalised learning records provide a clear view of each child's strengths. It also helps me celebrate progress, reinforce existing learning and identify the next steps in their learning journey.</p>
@@ -136,7 +136,7 @@ const faqs = [
   },
   {
     q: "Do you work with schools?",
-    a: "Working with schools is an important part of what I hope to build with Rook Foundations. Once I've completed my workshops and pilot sessions and refined the approach, I plan to connect with local schools to explore opportunities for after-school clubs, lunchtime sessions and other learning experiences.",
+    a: "Yes. I offer parent-funded after-school and lunchtime clubs held on school premises, SEND enrichment sessions for schools, and programmes funded by the school itself. You can read more on the School Information page, and prices are on the Pricing page.",
   },
   {
     q: "Are you DBS checked and insured?",
@@ -163,7 +163,7 @@ const chessFaqs = [
   },
   {
     q: "How do I know which phase is right for my child?",
-    a: "You do not need to decide alone. My first assessment will identify your child's interest and engagement with chess. This will include an honest evaluation of whether I believe chess is something they could genuinely connect with over time."
+    a: "You do not need to decide alone. Our first session will help identify your child's interest and engagement with chess. This will include an honest evaluation of whether I believe chess is something they could genuinely connect with over time."
   },
   {
     q: "What if my child progresses quickly?",
@@ -171,7 +171,7 @@ const chessFaqs = [
   },
   {
     q: "Are classes suitable for children with learning difficulties?",
-    a: "Yes. Children with learning difficulties are more than capable of learning chess, and research suggests it can serve as a genuinely helpful visual and cognitive tool for these children. That said, chess does require a degree of memory, concentration, and communication, which can feel more challenging for some learners. I see chess as an inclusive activity and respect that every child learns at their own pace. For children who may find certain concepts more difficult at first, my step-by-step approach aims to guide them slowly and gradually. Developing concentration and focus is strongly linked to motivation and engagement — which in turn supports persistence, patience, and deeper learning. That is the framework I use to guide my lessons."
+    a: "Yes. Children with learning difficulties are more than capable of learning chess, and some research suggests it can be a helpful visual and cognitive tool for these children. That said, chess does require a degree of memory, concentration, and communication, which can feel more challenging for some learners. I see chess as an inclusive activity and respect that every child learns at their own pace. For children who may find certain concepts more difficult at first, my step-by-step approach aims to guide them slowly and gradually. Developing concentration and focus is strongly linked to motivation and engagement — which in turn supports persistence, patience, and deeper learning. That is the framework I use to guide my lessons."
   },
   {
     q: "How can I be sure that chess is right for my child?",
@@ -183,7 +183,7 @@ const chessFaqs = [
   },
   {
     q: "Can your lessons support children with ADHD?",
-    a: "Yes, and there is good reason to be optimistic. Chess has been shown to support improvements in planning, working memory, and impulse control. These can be more challenging for children with ADHD. I do expect that these children may find it harder to focus for extended periods, to pause before acting, or to hold multiple possibilities in mind at once. My approach responds to this by keeping sessions varied and at the right pace for your child. I aim to break concepts into bite-size chunks, and recognise and positively reinforce small improvements throughout. Building confidence, trust, and long-term motivation is my main goal here at Rook Foundations."
+    a: "Yes, and there is good reason to be optimistic. Some studies suggest that chess may help children practise planning, working memory and impulse control, although the evidence is still developing. These can be more challenging for children with ADHD. I do expect that these children may find it harder to focus for extended periods, to pause before acting, or to hold multiple possibilities in mind at once. My approach responds to this by keeping sessions varied and at the right pace for your child. I aim to break concepts into bite-size chunks, and recognise and positively reinforce small improvements throughout. Building confidence, trust, and long-term motivation is my main goal here at Rook Foundations."
   },
   {
     q: "Chess is a boy thing. Could my daughter engage with it?",

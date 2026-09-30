@@ -612,7 +612,7 @@ export const privacySections = [
     "kind": "para",
     "spans": [
      {
-      "text": "Some of this information may be collected using cookies or analytics technologies.",
+      "text": "We do not use analytics cookies. Our website host may record technical information, such as IP addresses, to keep the website running securely. See our Cookie Policy for details.",
       "bold": false,
       "size": null
      }
@@ -1054,6 +1054,53 @@ export const privacySections = [
       }
      ]
     ]
+   },
+   {
+    "kind": "subheading",
+    "title": "Special Category Information"
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Some information you may share with us, such as details of a child’s health, allergies, disabilities or special educational needs, is “special category” information under UK GDPR and needs extra protection.",
+      "bold": false,
+      "size": null
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "We only use this information with your ",
+      "bold": false,
+      "size": null
+     },
+     {
+      "text": "explicit consent",
+      "bold": true,
+      "size": null
+     },
+     {
+      "text": ", which we ask for when we collect it. You can withdraw your consent at any time by contacting us, although this may affect our ability to adapt sessions safely for your child.",
+      "bold": false,
+      "size": null
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Where a school shares information about pupils with us, for example to plan SEND enrichment sessions, the school is responsible for having a lawful basis to share it. We use it only to plan and deliver the sessions the school has arranged.",
+      "bold": false,
+      "size": null
+     }
+    ],
+    "all_bold": false
    }
   ]
  },
@@ -1481,6 +1528,52 @@ export const privacySections = [
    },
    {
     "kind": "subheading",
+    "title": "Other Services We Use"
+   },
+   {
+    "kind": "list",
+    "format": "bullet",
+    "items": [
+     [
+      {
+       "text": "Notion",
+       "bold": true,
+       "size": null
+      },
+      {
+       "text": " (learning records): once progress tracking is in use, observations and learning targets for each child will be kept in a private, access-controlled Notion workspace.",
+       "bold": false,
+       "size": null
+      }
+     ],
+     [
+      {
+       "text": "WhatsApp",
+       "bold": true,
+       "size": null
+      },
+      {
+       "text": ": if you choose to contact us through WhatsApp, your messages are handled by WhatsApp under its own privacy policy.",
+       "bold": false,
+       "size": null
+      }
+     ],
+     [
+      {
+       "text": "Email",
+       "bold": true,
+       "size": null
+      },
+      {
+       "text": ": emails you send us are stored securely with our email provider.",
+       "bold": false,
+       "size": null
+      }
+     ]
+    ]
+   },
+   {
+    "kind": "subheading",
     "title": "International Transfers"
    },
    {
@@ -1519,6 +1612,164 @@ export const privacySections = [
      }
     ],
     "all_bold": true
+   }
+  ]
+ },
+ {
+  "num": "12",
+  "title": "Who Can Access Your Information",
+  "blocks": [
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Personal information held by Rook Foundations is accessed only by Louis Jenkins, who runs Rook Foundations, and by the service providers listed in section 11 where they need it to provide their service.",
+      "bold": false,
+      "size": null
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Personalised Enrichment Reviews are sent only to the school that commissioned them. The school decides whether and how to share a review with parents or carers.",
+      "bold": false,
+      "size": null
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "We do not share information about your child with other families.",
+      "bold": true,
+      "size": null
+     }
+    ],
+    "all_bold": true
+   }
+  ]
+ },
+ {
+  "num": "13",
+  "title": "Your Rights",
+  "blocks": [
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Under UK data protection law, you have the right to:",
+      "bold": false,
+      "size": null
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "list",
+    "format": "bullet",
+    "items": [
+     [
+      {
+       "text": "ask for a copy of the personal information we hold about you or your child;",
+       "bold": false,
+       "size": null
+      }
+     ],
+     [
+      {
+       "text": "ask us to correct information that is inaccurate or incomplete;",
+       "bold": false,
+       "size": null
+      }
+     ],
+     [
+      {
+       "text": "ask us to delete information, where there is no good reason for us to keep it;",
+       "bold": false,
+       "size": null
+      }
+     ],
+     [
+      {
+       "text": "ask us to restrict how we use information in certain circumstances;",
+       "bold": false,
+       "size": null
+      }
+     ],
+     [
+      {
+       "text": "object to how we use information where we rely on legitimate interests;",
+       "bold": false,
+       "size": null
+      }
+     ],
+     [
+      {
+       "text": "ask for information you gave us to be transferred to another organisation, where this applies;",
+       "bold": false,
+       "size": null
+      }
+     ],
+     [
+      {
+       "text": "withdraw your consent at any time, where we rely on consent.",
+       "bold": false,
+       "size": null
+      }
+     ]
+    ]
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "To use any of these rights, please contact us using the details in section 2. We will respond within one month and will not normally charge a fee.",
+      "bold": false,
+      "size": null
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "subheading",
+    "title": "Making a Complaint"
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "If you are unhappy with how we have handled your information, please contact us first so that we can try to put things right.",
+      "bold": false,
+      "size": null
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "You also have the right to complain to the ",
+      "bold": false,
+      "size": null
+     },
+     {
+      "text": "Information Commissioner’s Office (ICO)",
+      "bold": true,
+      "size": null
+     },
+     {
+      "text": ", the UK’s data protection regulator: www.ico.org.uk or 0303 123 1113.",
+      "bold": false,
+      "size": null
+     }
+    ],
+    "all_bold": false
    }
   ]
  }

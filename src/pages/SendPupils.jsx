@@ -309,7 +309,7 @@ const sendFaqs = [
   },
   {
     q: 'What is a Personalised Enrichment Review?',
-    a: 'A Personalised Enrichment Review is an optional paid add-on available after a minimum of 4 sessions. It provides a pupil specific, observation based summary of engagement, participation and observed strengths, including relevant activities and skills. It is not a diagnostic, therapeutic or formal educational assessment.',
+    a: 'A Personalised Enrichment Review is an optional paid add-on. It can be booked at any time and is written once the pupil has attended at least 4 sessions. It provides a pupil specific, observation based summary of engagement, participation and observed strengths, including relevant activities and skills. It is not a diagnostic, therapeutic or formal educational assessment.',
   },
   {
     q: 'How do we arrange a session?',
@@ -1067,46 +1067,6 @@ export default function SendPupils() {
             </MotionLink>
           </div>
         </div>
-      </section>
-
-      {/* Honest work-in-progress notice — matches PreLaunchNotice's dark
-          band treatment used elsewhere on the site for the same purpose.
-          Scaled back now that real content exists above it: this simply
-          flags that further sections are still being added, rather than
-          framing the whole page as unfinished. */}
-      <section className="relative overflow-hidden bg-[#2D2520] py-20">
-        <ChessBg variant="faq" />
-        <div
-          className="absolute inset-x-0 top-0 h-px"
-          style={{ background: 'linear-gradient(to right, transparent, rgba(232,160,32,0.5), transparent)' }}
-          aria-hidden="true"
-        />
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, ease: EASE }}
-          className="relative z-10 max-w-xl mx-auto px-6 lg:px-12 text-center"
-        >
-          <span className="block font-nunito text-[#E8A020] text-xs font-800 uppercase tracking-[0.2em] mb-5">
-            More sections coming soon
-          </span>
-          <h2 className="font-fredoka text-white leading-tight mb-5" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.2rem)' }}>
-            We're continuing to build this page
-          </h2>
-          <p className="font-nunito text-white/65 text-base leading-relaxed mb-8">
-            This is the first part of a fuller look at how Rook Foundations works with SEND pupils — more will be added here as it's ready. If you'd like to talk through SEND provision for your school now, I'd be very happy to hear from you.
-          </p>
-          <MotionLink
-            whileTap={ctaTap}
-            to="/contact"
-            onClick={() => window.scrollTo(0, 0)}
-            className="group inline-flex items-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-3.5 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/20"
-          >
-            Get in Touch
-            <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-          </MotionLink>
-        </motion.div>
       </section>
     </div>
   );

@@ -1,6 +1,6 @@
 // Generated from RF Cookies POLICY.docx — every clause preserved verbatim.
 // spans: [{ text, bold }] preserves inline bold emphasis exactly as authored.
-export const cookiesMeta = {"title": "Rook Foundations", "subtitle": "Cookie Policy", "version": "Version: 1.0", "lastUpdated": "Last Updated: 8 July 2026"};
+export const cookiesMeta = {"title": "Rook Foundations", "subtitle": "Cookie Policy", "version": "Version: 1.1", "lastUpdated": "Last Updated: 30 September 2026"};
 
 export const cookiesSections = [
  {
@@ -44,7 +44,7 @@ export const cookiesSections = [
     "kind": "para",
     "spans": [
      {
-      "text": "By continuing to use our website, you acknowledge that cookies may be used in accordance with this Policy and your cookie preferences.",
+      "text": "Our website does not use advertising, tracking or analytics cookies.",
       "bold": false,
       "size": null
      }
@@ -135,13 +135,24 @@ export const cookiesSections = [
  },
  {
   "num": "3",
-  "title": "Why We Use Cookies",
+  "title": "How Our Website Uses Cookies",
   "blocks": [
    {
     "kind": "para",
     "spans": [
      {
-      "text": "Rook Foundations uses cookies to:",
+      "text": "Rook Foundations does not set any advertising, tracking or analytics cookies.",
+      "bold": true,
+      "size": null
+     }
+    ],
+    "all_bold": true
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Our website uses a small amount of browser storage, which works in a similar way to cookies, so that it functions properly. This includes:",
       "bold": false,
       "size": null
      }
@@ -154,42 +165,14 @@ export const cookiesSections = [
     "items": [
      [
       {
-       "text": "ensure the website functions correctly;",
+       "text": "technical settings the website needs in order to load correctly;",
        "bold": false,
        "size": null
       }
      ],
      [
       {
-       "text": "improve website security;",
-       "bold": false,
-       "size": null
-      }
-     ],
-     [
-      {
-       "text": "remember your cookie preferences;",
-       "bold": false,
-       "size": null
-      }
-     ],
-     [
-      {
-       "text": "understand how visitors use our website;",
-       "bold": false,
-       "size": null
-      }
-     ],
-     [
-      {
-       "text": "improve the performance of our website;",
-       "bold": false,
-       "size": null
-      }
-     ],
-     [
-      {
-       "text": "help us improve our services.",
+       "text": "keeping you signed in, if you sign in to an area of the website that needs a login.",
        "bold": false,
        "size": null
       }
@@ -200,7 +183,7 @@ export const cookiesSections = [
     "kind": "para",
     "spans": [
      {
-      "text": "We do not use cookies to sell your personal information.",
+      "text": "We do not use cookies or browser storage to sell your personal information.",
       "bold": false,
       "size": null
      }
@@ -215,76 +198,13 @@ export const cookiesSections = [
   "blocks": [
    {
     "kind": "subheading",
-    "title": "Essential Cookies"
+    "title": "Strictly Necessary Storage"
    },
    {
     "kind": "para",
     "spans": [
      {
-      "text": "Essential cookies are required for the website to function properly.",
-      "bold": false,
-      "size": null
-     }
-    ],
-    "all_bold": false
-   },
-   {
-    "kind": "para",
-    "spans": [
-     {
-      "text": "These cookies help with:",
-      "bold": false,
-      "size": null
-     }
-    ],
-    "all_bold": false
-   },
-   {
-    "kind": "list",
-    "format": "bullet",
-    "items": [
-     [
-      {
-       "text": "website security;",
-       "bold": false,
-       "size": null
-      }
-     ],
-     [
-      {
-       "text": "page navigation;",
-       "bold": false,
-       "size": null
-      }
-     ],
-     [
-      {
-       "text": "remembering cookie preferences;",
-       "bold": false,
-       "size": null
-      }
-     ],
-     [
-      {
-       "text": "protecting forms from misuse;",
-       "bold": false,
-       "size": null
-      }
-     ],
-     [
-      {
-       "text": "basic website functionality.",
-       "bold": false,
-       "size": null
-      }
-     ]
-    ]
-   },
-   {
-    "kind": "para",
-    "spans": [
-     {
-      "text": "These cookies cannot normally be disabled because the website may not function correctly without them.",
+      "text": "The browser storage described above is needed for the website to work. It does not track you across other websites. Under UK law, strictly necessary storage does not require your consent.",
       "bold": false,
       "size": null
      }
@@ -299,208 +219,24 @@ export const cookiesSections = [
     "kind": "para",
     "spans": [
      {
-      "text": "Our website uses ",
-      "bold": false,
-      "size": null
-     },
-     {
-      "text": "Google Analytics",
-      "bold": true,
-      "size": null
-     },
-     {
-      "text": " to help us understand how visitors interact with our website.",
+      "text": "We do not currently use analytics cookies, such as Google Analytics. If this changes, we will update this Policy and ask for your consent before any analytics cookies are used.",
       "bold": false,
       "size": null
      }
     ],
     "all_bold": false
-   },
-   {
-    "kind": "para",
-    "spans": [
-     {
-      "text": "Analytics cookies may collect information such as:",
-      "bold": false,
-      "size": null
-     }
-    ],
-    "all_bold": false
-   },
-   {
-    "kind": "list",
-    "format": "bullet",
-    "items": [
-     [
-      {
-       "text": "pages visited;",
-       "bold": false,
-       "size": null
-      }
-     ],
-     [
-      {
-       "text": "time spent on the website;",
-       "bold": false,
-       "size": null
-      }
-     ],
-     [
-      {
-       "text": "browser type;",
-       "bold": false,
-       "size": null
-      }
-     ],
-     [
-      {
-       "text": "device type;",
-       "bold": false,
-       "size": null
-      }
-     ],
-     [
-      {
-       "text": "approximate location based on IP address;",
-       "bold": false,
-       "size": null
-      }
-     ],
-     [
-      {
-       "text": "how visitors found our website.",
-       "bold": false,
-       "size": null
-      }
-     ]
-    ]
-   },
-   {
-    "kind": "para",
-    "spans": [
-     {
-      "text": "This information is collected in an aggregated form and is used solely to help improve our website and services.",
-      "bold": false,
-      "size": null
-     }
-    ],
-    "all_bold": false
-   },
-   {
-    "kind": "para",
-    "spans": [
-     {
-      "text": "We do not use Google Analytics to identify individual visitors.",
-      "bold": false,
-      "size": null
-     }
-    ],
-    "all_bold": false
-   },
-   {
-    "kind": "para",
-    "spans": [
-     {
-      "text": "Where required by law, analytics cookies will only be used after you have provided your consent.",
-      "bold": false,
-      "size": null
-     }
-    ],
-    "all_bold": false
-   },
-   {
-    "kind": "subheading",
-    "title": "Functional Cookies"
-   },
-   {
-    "kind": "para",
-    "spans": [
-     {
-      "text": "Some cookies help remember choices you make while using the website, improving your browsing experience.",
-      "bold": false,
-      "size": null
-     }
-    ],
-    "all_bold": false
-   },
-   {
-    "kind": "para",
-    "spans": [
-     {
-      "text": "These may include remembering:",
-      "bold": false,
-      "size": null
-     }
-    ],
-    "all_bold": false
-   },
-   {
-    "kind": "list",
-    "format": "bullet",
-    "items": [
-     [
-      {
-       "text": "form information;",
-       "bold": false,
-       "size": null
-      }
-     ],
-     [
-      {
-       "text": "language preferences;",
-       "bold": false,
-       "size": null
-      }
-     ],
-     [
-      {
-       "text": "cookie choices;",
-       "bold": false,
-       "size": null
-      }
-     ],
-     [
-      {
-       "text": "accessibility preferences where available.",
-       "bold": false,
-       "size": null
-      }
-     ]
-    ]
    }
   ]
  },
  {
   "num": "5",
-  "title": "Third-Party Cookies",
+  "title": "Third-Party Services",
   "blocks": [
    {
     "kind": "para",
     "spans": [
      {
-      "text": "Our website may make use of services provided by trusted third parties.",
-      "bold": false,
-      "size": null
-     }
-    ],
-    "all_bold": false
-   },
-   {
-    "kind": "para",
-    "spans": [
-     {
-      "text": "These services may place their own cookies.",
-      "bold": false,
-      "size": null
-     }
-    ],
-    "all_bold": false
-   },
-   {
-    "kind": "para",
-    "spans": [
-     {
-      "text": "Examples include:",
+      "text": "Some parts of our website rely on services provided by other organisations:",
       "bold": false,
       "size": null
      }
@@ -513,35 +249,36 @@ export const cookiesSections = [
     "items": [
      [
       {
-       "text": "Google Analytics;",
+       "text": "Google Fonts",
+       "bold": true,
+       "size": null
+      },
+      {
+       "text": ": the fonts used on our website are loaded from Google’s servers, which receive your IP address in order to deliver them. Google Fonts does not set cookies on our website.",
        "bold": false,
        "size": null
       }
      ],
      [
       {
-       "text": "Squarespace website services;",
+       "text": "Stripe",
+       "bold": true,
+       "size": null
+      },
+      {
+       "text": ": when you pay for a booking, you are taken to Stripe’s secure payment page, which uses its own cookies for security and fraud prevention.",
        "bold": false,
        "size": null
       }
      ],
      [
       {
-       "text": "embedded maps;",
-       "bold": false,
+       "text": "Facebook and WhatsApp",
+       "bold": true,
        "size": null
-      }
-     ],
-     [
+      },
       {
-       "text": "embedded videos;",
-       "bold": false,
-       "size": null
-      }
-     ],
-     [
-      {
-       "text": "social media links or sharing features.",
+       "text": ": links to these services open them directly. They do not set cookies on our website, but they apply their own cookie policies once opened.",
        "bold": false,
        "size": null
       }
@@ -552,18 +289,7 @@ export const cookiesSections = [
     "kind": "para",
     "spans": [
      {
-      "text": "These organisations operate under their own privacy and cookie policies.",
-      "bold": false,
-      "size": null
-     }
-    ],
-    "all_bold": false
-   },
-   {
-    "kind": "para",
-    "spans": [
-     {
-      "text": "We encourage visitors to review those policies where relevant.",
+      "text": "These organisations operate under their own privacy and cookie policies. We encourage you to review those policies where relevant.",
       "bold": false,
       "size": null
      }
@@ -580,7 +306,7 @@ export const cookiesSections = [
     "kind": "para",
     "spans": [
      {
-      "text": "When you first visit our website, you may be presented with a cookie banner requesting your consent for non-essential cookies.",
+      "text": "Because our website only uses strictly necessary storage, we do not show a cookie banner.",
       "bold": false,
       "size": null
      }
@@ -591,45 +317,7 @@ export const cookiesSections = [
     "kind": "para",
     "spans": [
      {
-      "text": "You may choose to:",
-      "bold": false,
-      "size": null
-     }
-    ],
-    "all_bold": false
-   },
-   {
-    "kind": "list",
-    "format": "bullet",
-    "items": [
-     [
-      {
-       "text": "accept all cookies;",
-       "bold": false,
-       "size": null
-      }
-     ],
-     [
-      {
-       "text": "reject non-essential cookies; or",
-       "bold": false,
-       "size": null
-      }
-     ],
-     [
-      {
-       "text": "manage your cookie preferences where this option is available.",
-       "bold": false,
-       "size": null
-      }
-     ]
-    ]
-   },
-   {
-    "kind": "para",
-    "spans": [
-     {
-      "text": "Your preferences may be changed at any time using your browser settings or any cookie preference tools provided on the website.",
+      "text": "If we introduce any non-essential cookies in future, such as analytics cookies, we will ask for your consent before they are used.",
       "bold": false,
       "size": null
      }
@@ -730,7 +418,7 @@ export const cookiesSections = [
     "kind": "para",
     "spans": [
      {
-      "text": "Some cookies are deleted automatically when you close your browser.",
+      "text": "Browser storage used by our website stays on your device until you clear it, or until you sign out where a login is used.",
       "bold": false,
       "size": null
      }
@@ -741,18 +429,7 @@ export const cookiesSections = [
     "kind": "para",
     "spans": [
      {
-      "text": "Others remain on your device for a period of time so that your preferences can be remembered when you return.",
-      "bold": false,
-      "size": null
-     }
-    ],
-    "all_bold": false
-   },
-   {
-    "kind": "para",
-    "spans": [
-     {
-      "text": "The length of time cookies remain on your device depends upon their purpose and the settings applied by the service providing them.",
+      "text": "You can clear it at any time using your browser settings.",
       "bold": false,
       "size": null
      }

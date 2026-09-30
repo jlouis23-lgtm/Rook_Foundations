@@ -11,8 +11,8 @@ import { usePageMeta } from '@/hooks/use-page-meta';
 
 const meta = [
   { Icon: Building2, label: 'Provider', value: 'Rook Foundations' },
-  { Icon: ClipboardList, label: 'Assessment applies to', value: 'Educational workshops delivered in primary schools using strategy games such as chess and similar tabletop learning activities.' },
-  { Icon: Users, label: 'Persons at risk', value: 'Pupils, staff' },
+  { Icon: ClipboardList, label: 'Assessment applies to', value: 'Educational workshops and clubs delivered in primary schools, and private sessions held in family homes or at community venues, using strategy games such as chess and similar tabletop learning activities.' },
+  { Icon: Users, label: 'Persons at risk', value: 'Pupils and children, school staff, parents and carers' },
   { Icon: ShieldCheck, label: 'Risk Level', value: 'Low' },
   { Icon: CalendarClock, label: 'Review date', value: 'Annually, or sooner if activities, venues or guidance change.' },
 ];
@@ -20,7 +20,7 @@ const meta = [
 const hazards = [
   { hazard: 'Trips, slips and falls', who: 'Pupils, staff', control: 'Activities take place in classrooms or other suitable school spaces. Walkways remain clear. Bags and equipment are stored safely. Children are reminded not to run.' },
   { hazard: 'Movement of furniture', who: 'Pupils, staff', control: 'Existing classroom layout is used where possible. Furniture is only moved with permission and care. Heavy items are not lifted by pupils.' },
-  { hazard: 'Chess pieces and small game components', who: 'Younger pupils', control: 'Resources are age-appropriate and supervised. Equipment is counted before and after sessions. Children are reminded not play appropriately with the pieces. Damaged equipment is removed immediately.' },
+  { hazard: 'Chess pieces and small game components', who: 'Younger pupils', control: 'Resources are age-appropriate and supervised. Equipment is counted before and after sessions. Children are reminded to play appropriately with the pieces. Damaged equipment is removed immediately.' },
   { hazard: 'Damaged or defective equipment', who: 'Everyone', control: 'Equipment is checked before every session. Broken, sharp or damaged items are removed from use immediately.' },
   { hazard: 'Allergies or hygiene concerns', who: 'Pupils', control: 'Equipment is cleaned regularly. Schools are informed of any materials used. No food is provided unless agreed with the school.' },
   { hazard: 'Behaviour during games', who: 'Pupils', control: 'Clear expectations are explained at the beginning of each session. Respect, fairness and inclusion are promoted throughout. Behaviour concerns are referred to the class teacher.' },
@@ -34,6 +34,12 @@ const hazards = [
   { hazard: 'Photography or recording', who: 'Pupils', control: "Photographs are only taken with the school's permission and in accordance with school consent procedures. Personal devices are not used unless specifically authorised." },
   { hazard: 'Data protection', who: 'Families', control: 'Personal information is collected only where necessary and handled in accordance with UK GDPR and applicable data protection legislation.' },
   { hazard: 'Infection control', who: 'Everyone', control: 'Good hand hygiene is encouraged. Equipment is cleaned regularly. Sessions may be postponed if there is a significant infectious disease risk.' },
+  { hazard: 'Home visits: supervision and safeguarding', who: 'Children, parents', control: 'A parent, guardian or another responsible adult aged 18 or over remains within the property and contactable for the whole session. A session will not begin, or will be ended, if this is not the case (Terms, section 12).' },
+  { hazard: 'Sessions at community or arranged venues', who: 'Children, parents', control: "The venue's own health and safety and emergency procedures are followed. Parents remain responsible for their child before and after the session and collect them promptly at the agreed finish time (Terms, sections 12 and 18)." },
+  { hazard: 'First aid outside school', who: 'Children', control: 'Rook Foundations holds first aid training. Reasonable first aid is given where appropriate while parents, emergency contacts or emergency services are contacted, and parents are informed as soon as reasonably practicable (Terms, sections 14 and 15).' },
+  { hazard: 'Medical and additional needs (private sessions)', who: 'Children', control: 'Parents are asked to share relevant medical, allergy and additional-needs information before sessions. It is collected privately after booking, not through the online booking form (Terms, section 16).' },
+  { hazard: 'Lone working (private sessions)', who: 'Practitioner, children', control: 'For home visits, a responsible adult is present throughout. Professional boundaries are maintained at all times, and there is no private contact with children outside booked sessions.' },
+  { hazard: 'Photography (private sessions)', who: 'Children', control: 'Photographs are only taken and used with written consent from a parent or guardian (Terms, section 19).' },
   { hazard: 'Weather (where outdoor activities are included)', who: 'Everyone', control: 'Outdoor sessions only proceed where conditions are safe. The school has the final decision regarding outdoor activities.' },
 ];
 
@@ -93,7 +99,7 @@ export default function RiskAssessment() {
             Educational Workshops and Games-Based Learning
           </p>
           <p className="font-nunito text-[#2D2520]/40 text-sm">
-            Prepared by Louis Jenkins · Co-Founder, Rook Foundations
+            Prepared by Louis Jenkins · Founder, Rook Foundations
           </p>
         </div>
       </section>
@@ -203,7 +209,7 @@ export default function RiskAssessment() {
         <Section id="first-aid" title="First Aid">
           <div className="space-y-4">
             <p className="font-nunito text-[#2D2520]/75 text-base leading-relaxed">
-              The school remains responsible for providing first aid to pupils while on the school premisis.
+              The school remains responsible for providing first aid to pupils while on the school premises.
             </p>
             <p className="font-nunito text-[#2D2520]/75 text-base leading-relaxed">
               In the event of an accident or illness, the facilitator will immediately notify school staff and follow the school's established procedures.
@@ -257,7 +263,7 @@ export default function RiskAssessment() {
       <div className="max-w-3xl mx-auto px-6 lg:px-12 mt-4">
         <div className="border-t border-[#2D2520]/10 pt-8">
           <p className="font-nunito text-[#2D2520]/40 text-xs leading-relaxed">
-            This document is prepared and maintained by Louis Jenkins, Co-Founder of Rook Foundations. Schools and parents are welcome to request an up-to-date copy at any time.
+            This document is prepared and maintained by Louis Jenkins, Founder of Rook Foundations. Schools and parents are welcome to request an up-to-date copy at any time.
           </p>
         </div>
       </div>

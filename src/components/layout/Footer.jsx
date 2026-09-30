@@ -77,7 +77,7 @@ export default function Footer() {
               <div>
                 <p className="font-nunito text-white/35 text-xs uppercase tracking-wide mb-1 font-700">Phone</p>
                 <a href="tel:+447466760885" className="font-nunito text-white/65 hover:text-[#E8A020] transition-colors text-sm block">
-                  +44 7466 760885
+                  07466 760885
                 </a>
                 <a
                   href={WHATSAPP_URL}

@@ -29,7 +29,7 @@ export default function BenefitsPreview() {
           </div>
           <div>
             <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed">
-              Research consistently shows that children who play chess develop stronger reasoning, greater patience, and improved academic engagement. But the real magic is in what you can't measure — the look on a child's face when they spot a winning move for the very first time.
+              Some studies suggest that chess can help children practise reasoning, patience and focus, although the evidence for improved academic results is mixed. But the real magic is in what you can't measure — the look on a child's face when they spot a winning move for the very first time.
             </p>
             <Link to="/about" onClick={() => window.scrollTo(0, 0)}
               className="inline-flex items-center gap-2 font-nunito text-[#E8A020] font-700 text-sm mt-5 hover:gap-4 transition-all">

@@ -242,7 +242,7 @@ export default function Schools() {
           </h2>
           <div className="w-12 h-[3px] rounded-full bg-[#E8A020] mx-auto mt-8 mb-8" aria-hidden="true" />
           <p className="font-fredoka text-[#2D2520]/85 italic font-light text-xl sm:text-2xl leading-relaxed max-w-xl mx-auto">
-            Children with special educational needs deserve to attend school knowing that their staff have the right tools, knowledge and education in place to support their learning, build their confidence and help them reach their potential.
+            Rook Foundations provides inclusive enrichment for pupils with SEND: engaging, accessible games and activities adapted to each pupil or group, delivered within clear professional boundaries. It is enrichment, not specialist SEND teaching or therapy.
           </p>
 
           <MotionLink
