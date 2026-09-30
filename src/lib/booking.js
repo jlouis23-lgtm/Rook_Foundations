@@ -19,7 +19,7 @@ export const SERVICES = [
 ];
 
 export const MAX_SESSIONS = { private: 12, club: 15, send: 12 };
-export const MAX_CLUB_CHILDREN = 4;
+export const MAX_CLUB_CHILDREN = CLUB.maxChildren;
 export const CHILD_AGES = [5, 6, 7, 8, 9, 10, 11, 12];
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -200,9 +200,10 @@ export function bookingMetadata(input) {
   const service = SERVICES.find((s) => s.id === input.service);
   const zone = usesTravelZone(input) ? zoneById(input.zone) : null;
   const count = toInt(input.childrenCount);
-  const children = isFamilyService(input.service)
-    ? (input.children || []).slice(0, count).map((c) => `${text(c.firstName)} (age ${toInt(c.age)})`).join('; ')
-    : '';
+  // Split across two keys so up to 12 children never hit Stripe's 500-char limit.
+  const childList = isFamilyService(input.service)
+    ? (input.children || []).slice(0, count).map((c) => `${text(c.firstName)} (age ${toInt(c.age)})`)
+    : [];
 
   const meta = {
     service: service?.label,
@@ -212,7 +213,8 @@ export function bookingMetadata(input) {
     role: text(input.role),
     school: text(input.schoolName),
     school_address: text(input.schoolAddress),
-    children,
+    children: childList.slice(0, 6).join('; '),
+    children_more: childList.slice(6).join('; '),
     pupils: input.service === 'send' || input.service === 'per' ? String(toInt(input.pupils)) : '',
     duration: needsDuration(input.service) ? `${toInt(input.duration)} minutes` : '',
     sessions: needsDuration(input.service) ? String(toInt(input.sessions)) : '',

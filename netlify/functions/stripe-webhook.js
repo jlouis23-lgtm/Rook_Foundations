@@ -11,6 +11,7 @@ const FIELDS = [
   ['service', 'Service'],
   ['format', 'Format'],
   ['children', 'Children'],
+  ['children_more', 'Children (continued)'],
   ['pupils', 'Number of pupils'],
   ['duration', 'Session length'],
   ['sessions', 'Number of sessions'],
