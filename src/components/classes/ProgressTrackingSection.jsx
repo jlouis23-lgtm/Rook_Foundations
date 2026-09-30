@@ -160,6 +160,9 @@ export default function ProgressTrackingSection() {
         <h3 className="font-fredoka text-[#2D2520] text-xl sm:text-2xl">
           Tracking Progress Over Time
         </h3>
+        <p className="font-nunito text-[#2D2520]/50 text-xs italic mt-2">
+          Currently being set up — not yet in use.
+        </p>
       </motion.div>
 
       {/* Session 1 → 2 → 3, looping back — a single compact diagram in
