@@ -46,23 +46,15 @@ const deliveryOptions = [
 // for the three session formats above) so this doesn't read as a fourth or
 // fifth "product" to pick between — it's a different kind of choice
 // (how payment works), so it gets a visually distinct, quieter treatment.
-// Parent-funded is established as the default through ORDER and a small
-// pill tag, not through making the other card smaller or duller — both
-// cards are the same size/weight so School-Funded doesn't read as
-// secondary. The second card renders an invisible copy of the same tag
-// purely so both headings align at the same height across the row.
+// Both cards are the same size/weight so neither reads as secondary.
 const fundingModels = [
   {
     key: 'parent-funded',
-    tag: 'Our standard model',
-    showTag: true,
     title: 'Parent-Funded Extracurricular Activities',
     body: "Our standard extracurricular provision is designed to be simple for schools. Rook Foundations manages bookings, payments and parent communication directly, meaning there is no direct cost to the school. The school simply provides a suitable space and helps let families know the sessions are available.",
   },
   {
     key: 'school-funded',
-    tag: 'Our standard model',
-    showTag: false,
     title: 'School-Funded Enrichment Programmes',
     body: "Schools can also commission Rook Foundations directly to provide funded enrichment programmes, workshops or targeted sessions for pupils — from a single themed workshop to a structured programme for a specific year group. These can be tailored to the school's objectives, timetable and available budget.",
   },
@@ -224,9 +216,6 @@ export default function Schools() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="bg-white border border-[#2D2520]/10 rounded-3xl p-7"
               >
-                <span className={`inline-flex items-center font-nunito text-[#b8790a] bg-[#E8A020]/10 text-xs font-800 uppercase tracking-widest rounded-full px-3 py-1 mb-4 ${model.showTag ? '' : 'invisible'}`}>
-                  {model.tag}
-                </span>
                 <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">{model.title}</h3>
                 <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{model.body}</p>
               </motion.div>
