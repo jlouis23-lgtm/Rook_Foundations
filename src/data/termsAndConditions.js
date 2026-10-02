@@ -1,6 +1,6 @@
 // Generated from Coaching T&Cs.docx — every clause preserved verbatim.
 // spans: [{ text, bold }] preserves inline bold emphasis exactly as authored.
-export const tcMeta = {"title": "Rook Foundations", "subtitle": "Parent & Guardian Coaching Agreement", "parenthetical": "(Coaching & Booking Terms and Conditions)", "version": "Version: 1.1", "lastUpdated": "Last Updated: 30 September 2026"};
+export const tcMeta = {"title": "Rook Foundations", "subtitle": "Parent & Guardian Coaching Agreement", "parenthetical": "(Coaching & Booking Terms and Conditions)", "version": "Version: 1.2", "lastUpdated": "Last Updated: 2 October 2026"};
 
 export const tcSections = [
  {
@@ -4038,6 +4038,89 @@ export const tcSections = [
    {
     "kind": "subheading",
     "num": "20.3",
+    "title": "Take-Home Materials"
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Where appropriate, Rook Foundations may offer a child the opportunity to take home a game, puzzle, activity or other learning material that they have particularly enjoyed or engaged with during a session.",
+      "bold": false
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "The aim is to encourage continued engagement, independent practice, reflection and learning outside the session.",
+      "bold": false
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Depending on the item, it may be:",
+      "bold": false
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "list",
+    "format": "bullet",
+    "items": [
+     [
+      {
+       "text": "taken home temporarily, with the expectation that it will be returned at a later stage; or",
+       "bold": false
+      }
+     ],
+     [
+      {
+       "text": "provided for the child to keep.",
+       "bold": false
+      }
+     ]
+    ]
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Items taken home temporarily remain the property of Rook Foundations. Where an item is expected to be returned, this will be made clear to the child and, where appropriate, to their parent or guardian or their school.",
+      "bold": false
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Any materials offered will be age-appropriate, suitable for the circumstances and consistent with our educational aims. Whether to offer an item is always at the discretion of Rook Foundations and does not create an entitlement for any child to receive or keep materials.",
+      "bold": false
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "para",
+    "spans": [
+     {
+      "text": "Where a session takes place in a school or other educational organisation, any take-home arrangement will follow that organisation’s policies and requirements.",
+      "bold": false
+     }
+    ],
+    "all_bold": false
+   },
+   {
+    "kind": "subheading",
+    "num": "20.4",
     "title": "Educational Outcomes"
    },
    {
