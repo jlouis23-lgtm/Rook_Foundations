@@ -36,7 +36,7 @@ const faqs = [
   },
   {
     q: "How is Rook Foundations different from traditional chess coaching?",
-    a: "Traditional coaching often focuses on improving performance within the game. Rook Foundations' focus is broader. I use strategy games to help children develop thinking skills, communication, reflection, patience and confidence that extend beyond the board.",
+    a: "Traditional coaching often focuses on improving performance within the game. Rook Foundations' focus is broader. I use strategy games to give children practice at thinking, communicating, reflecting and being patient, with the aim that these habits are useful beyond the board.",
   },
   {
     q: "What does a typical session look like?",
@@ -57,11 +57,11 @@ const faqs = [
   },
   {
     q: "Do children only play games?",
-    a: "Games form the identity of Rook Foundations, but they also serve as a tool for something much broader. Through play, I create opportunities for children to think, explain their ideas, reflect on decisions and develop communication, confidence and social skills. The aim is for children to enjoy themselves while using games as a meaningful way to learn, explore and grow.",
+    a: "Games form the identity of Rook Foundations, but they also serve as a tool for something much broader. Through play, I create opportunities for children to think, explain their ideas, reflect on decisions and practise communicating and working with others. The aim is for children to enjoy themselves while using games as a meaningful way to learn, explore and grow.",
   },
   {
     q: "Why do you ask children so many questions?",
-    a: "Because thinking grows through participation. Rather than simply giving answers, I encourage children to explain their reasoning, consider alternatives and reflect on their decisions. This helps develop independent thinking and confidence.",
+    a: "Because thinking grows through participation. Rather than simply giving answers, I encourage children to explain their reasoning, consider alternatives and reflect on their decisions. Research on learning suggests that explaining your own reasoning helps understanding, and it shows me how your child is thinking.",
   },
   {
     q: "Do you guarantee improvements in school or academic performance?",
@@ -69,7 +69,7 @@ const faqs = [
   },
   {
     q: "My child struggles to concentrate. Can you help?",
-    a: "Many children find strategy games engaging because they provide a fun reason to think carefully. Sessions are always adapted to the child, and I aim to create an environment where sustained attention develops naturally through meaningful activities.",
+    a: "Many children find strategy games engaging because they provide a fun reason to think carefully. Sessions are always adapted to the child, and I aim to create an environment where children have a reason to stay with a problem. I can't promise that this will change how your child concentrates elsewhere.",
   },
   {
     q: "My child has SEN. How can Rook Foundations support them?",
@@ -184,7 +184,7 @@ const chessFaqs = [
   },
   {
     q: "Are classes suitable for children with learning difficulties?",
-    a: "Yes. Children with learning difficulties are more than capable of learning chess, and some research suggests it can be a helpful visual and cognitive tool for these children. That said, chess does require a degree of memory, concentration, and communication, which can feel more challenging for some learners. I see chess as an inclusive activity and respect that every child learns at their own pace. For children who may find certain concepts more difficult at first, my step-by-step approach aims to guide them slowly and gradually. Developing concentration and focus is strongly linked to motivation and engagement — which in turn supports persistence, patience, and deeper learning. That is the framework I use to guide my lessons."
+    a: "Yes. Children with learning difficulties are more than capable of learning chess. One German study in special schools found that classes given a weekly chess lesson improved more at simple addition and counting, though not in concentration. That said, chess does require a degree of memory, concentration, and communication, which can feel more challenging for some learners. I see chess as an inclusive activity and respect that every child learns at their own pace. For children who may find certain concepts more difficult at first, my step-by-step approach aims to guide them slowly and gradually. I work on the basis that children concentrate best when they are motivated and engaged, so that is where I start."
   },
   {
     q: "How can I be sure that chess is right for my child?",
@@ -192,15 +192,15 @@ const chessFaqs = [
   },
   {
     q: "Can your lessons support children with autism?",
-    a: "Yes, and this is something I care deeply about. Chess naturally provides structure, clear rules, and consistent patterns. These are things that many autistic children find reassuring and engaging. However, playing a game with someone sitting opposite you can involve real social and emotional demands, and I understand that this can feel stressful or unfamiliar, particularly when working with someone new. Many autistic children also experience anxiety around social environments, which can affect their confidence and opportunities over time. Through my studies and professional experience, I have developed a deeper understanding of how to create emotionally safe, lower-pressure learning environments. I adapt my teaching approach for each child. For your child, this may include greater focus on computer-assisted instruction, which is already built into my lesson plans and can help reduce sensory demands and provide clearer visual cues. Before lessons begin, I always encourage parents to get in touch so I can learn about your child's individual needs; things such as communication style, sensory sensitivities, anxiety levels, and learning preferences. This helps me plan sessions that feel supportive and meaningful from the very start."
+    a: "Yes, and this is something I care deeply about. Chess naturally provides structure, clear rules, and consistent patterns. These are things that many autistic children find reassuring and engaging. However, playing a game with someone sitting opposite you can involve real social and emotional demands, and I understand that this can feel stressful or unfamiliar, particularly when working with someone new. Many autistic children also experience anxiety around social environments, which can affect their confidence and opportunities over time. Through my studies and professional experience, I have developed a deeper understanding of how to create emotionally safe, lower-pressure learning environments. I adapt my teaching approach for each child. For your child, this may include greater focus on computer-assisted instruction, which is already built into my lesson plans and which some children find lower-pressure and visually clearer. Before lessons begin, I always encourage parents to get in touch so I can learn about your child's individual needs; things such as communication style, sensory sensitivities, anxiety levels, and learning preferences. This helps me plan sessions that feel supportive and meaningful from the very start."
   },
   {
     q: "Can your lessons support children with ADHD?",
-    a: "Yes, and there is good reason to be optimistic. Some studies suggest that chess may help children practise planning, working memory and impulse control, although the evidence is still developing. These can be more challenging for children with ADHD. I do expect that these children may find it harder to focus for extended periods, to pause before acting, or to hold multiple possibilities in mind at once. My approach responds to this by keeping sessions varied and at the right pace for your child. I aim to break concepts into bite-size chunks, and recognise and positively reinforce small improvements throughout. Building confidence, trust, and long-term motivation is my main goal here at Rook Foundations."
+    a: "Yes. Chess asks children to plan, hold several possibilities in mind and pause before moving, which can be more challenging for children with ADHD. A few small studies have reported lower inattention ratings after chess or Go lessons, but none compared them with children with ADHD who did not play, so the evidence is early. I do expect that these children may find it harder to focus for extended periods, to pause before acting, or to hold multiple possibilities in mind at once. My approach responds to this by keeping sessions varied and at the right pace for your child. I aim to break concepts into bite-size chunks, and recognise and positively reinforce small improvements throughout. Building confidence, trust, and long-term motivation is my main goal here at Rook Foundations."
   },
   {
     q: "Chess is a boy thing. Could my daughter engage with it?",
-    a: "Absolutely. Chess is for anyone who enjoys thinking creatively, solving problems, and learning new skills. Although chess has historically been male-dominated, many women and girls have shown that talent, dedication, and hard work matter far more than gender. A famous example is Judit Polgár. Judit is widely regarded as the strongest female chess player in history. She defeated several world champions, like Garry Kasparov, at a time when many still underestimated women's capability of being calculated and being able to maintain emotional control under pressure. Chess can be a fantastic activity for girls, helping to build confidence, resilience, concentration, and independent thinking in a supportive environment. My teaching approach is fully inclusive, and lessons are adapted to each child's personality, interests, and learning style so they can feel comfortable, engaged, and capable from the very beginning."
+    a: "Absolutely. Chess is for anyone who enjoys thinking creatively, solving problems, and learning new skills. Although chess has historically been male-dominated, many women and girls have shown that talent, dedication, and hard work matter far more than gender. A famous example is Judit Polgár. Judit is widely regarded as the strongest female chess player in history. She defeated several world champions, like Garry Kasparov, at a time when many still underestimated women's capability of being calculated and being able to maintain emotional control under pressure. Chess can be a fantastic activity for girls, offering the same practice at concentrating and thinking independently in a supportive environment. My teaching approach is fully inclusive, and lessons are adapted to each child's personality, interests, and learning style so they can feel comfortable, engaged, and capable from the very beginning."
   },
   {
     q: "Are you any good at chess?",

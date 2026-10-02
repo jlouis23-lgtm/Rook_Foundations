@@ -80,7 +80,7 @@ function DeliveryRow({ option, index }) {
 export default function Schools() {
   usePageMeta(
     'Strategy Games for Schools | Rook Foundations',
-    'Rook Foundations brings structured strategy-game sessions, workshops and clubs into schools — building strategic thinking, logical reasoning and visual-spatial skills through chess and puzzle-based play.'
+    'Rook Foundations brings structured strategy-game sessions, workshops and clubs into schools — giving children practice in strategic thinking, logical reasoning and visual-spatial problem solving through chess and puzzle-based play.'
   );
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -101,7 +101,7 @@ export default function Schools() {
             Building thinking skills through play
           </p>
           <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed max-w-2xl mx-auto">
-            Rook Foundations provides structured strategy-game experiences designed to develop children's strategic thinking, logical reasoning and visual-spatial skills.
+            Rook Foundations provides structured strategy-game experiences designed to give children practice in strategic thinking, logical reasoning and visual-spatial problem solving.
           </p>
           <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed max-w-2xl mx-auto mt-4">
             Sessions can range from highly personalised small-group learning to larger, collaborative game sessions, allowing schools to choose an approach that suits their pupils, timetable and objectives.

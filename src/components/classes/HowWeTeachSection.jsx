@@ -203,7 +203,7 @@ export default function HowWeTeachSection() {
             ))}
           </ul>
           <p className="font-nunito text-[#2D2520]/55 text-base max-w-2xl mx-auto leading-relaxed mt-5 text-left">
-            When a child gets stuck, we aim to support them without immediately solving the problem for them. We may give them time to think, ask a question, offer a clue, model an approach or provide more direct guidance when needed. When learning a new strategy, we may initially provide a full example or model, gradually removing elements of support as understanding develops. The aim is to move from supported practice towards independent application, while preserving opportunities for independent thinking, problem solving and decision making.
+            When a child gets stuck, we aim to support them without immediately solving the problem for them. We may give them time to think, ask a question, offer a clue, model an approach or provide more direct guidance when needed. When learning a new strategy, we may initially provide a full example or model, gradually removing elements of support as understanding develops. The aim is to move from supported practice towards independent application, while preserving opportunities for independent thinking, problem solving and decision making. For younger or less experienced children we usually show or model an approach first, because research suggests they tend to learn more when instruction comes before independent problem solving.
           </p>
         </motion.div>
       </div>
@@ -236,7 +236,7 @@ export default function HowWeTeachSection() {
             >
               Education Endowment Foundation's Seven Step Model for teaching metacognitive strategies
             </a>
-            , which describes a progression from activating prior knowledge and explicit instruction through modelling and guided practice to independent practice and structured reflection. Rook Foundations has adapted these principles for its own educational enrichment context. These steps are not a separate framework: they describe how children move through the Challenge, Thinking and Reflection stages of the Six-Stage Learning Process.
+            , which describes a progression from activating prior knowledge and explicit instruction through modelling and guided practice to independent practice and structured reflection. Rook Foundations has adapted these principles for its own educational enrichment context. These steps are not a separate framework: they describe how children move through the Challenge, Thinking and Reflection stages of the Six-Stage Learning Process. The EEF guidance is based on classroom teaching, not games, and our adaptation has not been independently evaluated.
           </p>
         </motion.div>
       </div>

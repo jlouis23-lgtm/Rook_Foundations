@@ -60,7 +60,7 @@ export default function About() {
             className="max-w-4xl mx-auto px-6 lg:px-12 text-center mb-16"
           >
             <p className="font-nunito text-[#2D2520] font-700 leading-relaxed" style={{ fontSize: 'clamp(1.15rem, 2.2vw, 1.4rem)' }}>
-              Rook Foundations is an education project which uses games with strong developmental benefits to map and accommodate your child's unique learning preferences.
+              Rook Foundations is an education project which uses carefully chosen games to understand and respond to how your child learns.
             </p>
             <div className="mt-6 flex justify-center">
               <div className="h-1 w-12 bg-gradient-to-r from-[#E8A020] to-[#F4C261] rounded-full" />

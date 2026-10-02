@@ -15,7 +15,7 @@ const values = [
   {
     accent: '#7a48c0',
     heading: 'Focus Grows with Every Game',
-    body: 'Chess and similar games provide opportunities to develop stronger focus and patience.',
+    body: 'Chess and similar games give children a reason to focus and practise patience.',
   },
   {
     accent: '#b8790a',
@@ -41,7 +41,7 @@ export default function TestimonialsPreview() {
             More than just games.
           </h2>
           <p className="font-nunito text-[#2D2520]/55 text-base max-w-xl mx-auto leading-relaxed">
-            Rook Foundations is a growing project which uses chess and similar games to provide powerful ways of building confidence, character, and skills for life. Explore the{' '}
+            Rook Foundations is a growing project which uses chess and similar games to give children opportunities to practise thinking, communicating and reflecting. Explore the{' '}
             <Link
               to="/about"
               onClick={() => window.scrollTo(0, 0)}

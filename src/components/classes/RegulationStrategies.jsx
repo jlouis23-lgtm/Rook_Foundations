@@ -58,7 +58,7 @@ export default function RegulationStrategies() {
 
       <Reveal className="max-w-2xl mx-auto text-center mb-10">
         <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed">
-          If a child becomes dysregulated, the objective isn't to get them back to the activity as quickly as possible. It is to help them feel sufficiently settled and supported to decide whether and how they want to continue. Research has shown that it is important that children become sufficiently settled and supported before expecting them to engage with new or demanding learning experiences (Bennett et al., 2024). In response, we have incorporated three main self-calming strategies to support regulation and create the conditions for meaningful engagement and learning:
+          If a child becomes dysregulated, the objective isn't to get them back to the activity as quickly as possible. It is to help them feel sufficiently settled and supported to decide whether and how they want to continue. Being able to manage emotions is widely regarded as necessary for engaging in learning, although a recent systematic review found little research on how schools can best support this for autistic pupils (Bennett et al., 2024). In response, we have incorporated three main self-calming strategies to support regulation and create the conditions for meaningful engagement and learning:
         </p>
       </Reveal>
 

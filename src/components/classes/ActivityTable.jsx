@@ -18,13 +18,13 @@ const activities = [
 export default function ActivityTable() {
   return (
     <Reveal>
-      <div role="table" aria-label="Activities and what they develop">
+      <div role="table" aria-label="Activities and what children practise">
         <div role="row" className="hidden sm:grid grid-cols-[180px_1fr] gap-x-6 pb-2 mb-1 border-b border-[#2D2520]/10">
           <span role="columnheader" className="font-nunito text-[#2D2520]/45 text-xs font-800 uppercase tracking-wide">
             Activity
           </span>
           <span role="columnheader" className="font-nunito text-[#2D2520]/45 text-xs font-800 uppercase tracking-wide">
-            What it develops
+            What children practise
           </span>
         </div>
 

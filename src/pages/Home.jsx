@@ -9,7 +9,7 @@ import { usePageMeta } from '@/hooks/use-page-meta';
 export default function Home() {
   usePageMeta(
     'Rook Foundations | Strategy Games & Learning for Children',
-    'Rook Foundations is a growing education project using chess and strategy games to create meaningful learning opportunities for children, building confidence, character and skills for life.'
+    'Rook Foundations is a growing education project using chess and strategy games to create meaningful opportunities for children to practise thinking, problem solving and reflection.'
   );
 
   return (

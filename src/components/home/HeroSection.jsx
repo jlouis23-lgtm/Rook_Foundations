@@ -24,7 +24,7 @@ const features = [
     accent: '#4a7eb8',
     tag: 'Focus & Confidence',
     title: 'Confidence, one move at a time',
-    body: 'Fun, in-person strategy games used to help children aged 5–12 build focus and strong decision-making skills.',
+    body: 'Fun, in-person strategy games that give children aged 5–12 practice at focusing and making decisions.',
   },
   {
     accent: '#b8790a',

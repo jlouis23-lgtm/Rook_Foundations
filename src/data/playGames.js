@@ -5,7 +5,7 @@ export const PLAY_GAMES = [
     id: 'memory-match',
     componentKey: 'MemoryMatch',
     title: 'Memory Match',
-    description: 'Flip the cards and find every matching chess piece pair. Trains focus and recall.',
+    description: 'Flip the cards and find every matching chess piece pair. Practises focus and recall.',
     skill: 'Memory & focus',
     minAge: 5,
     maxAge: 12,
