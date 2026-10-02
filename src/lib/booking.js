@@ -74,10 +74,11 @@ export function validateBooking(input = {}) {
       e.sessions = `Please choose between 1 and ${MAX_SESSIONS[service]} sessions.`;
     }
     if (!text(input.startDate) || Number.isNaN(Date.parse(input.startDate))) {
-      e.startDate = 'Please choose a preferred start date.';
+      e.startDate = 'Please choose the agreed start date.';
     } else if (text(input.startDate) < todayISO()) {
       e.startDate = 'The start date can’t be in the past.';
     }
+    if (!text(input.preferredTimes)) e.preferredTimes = 'Please enter the days and times we agreed.';
   }
 
   if (usesTravelZone(input)) {
@@ -131,6 +132,7 @@ export function validateBooking(input = {}) {
   if (service === 'per' && !input.agree?.perSessions) e.perSessions = 'Please confirm this to continue.';
 
   if (text(input.notes).length > 450) e.notes = 'Please keep notes under 450 characters.';
+  if (!input.agree?.arranged) e.arranged = 'Please confirm you have agreed these sessions with us first.';
   if (!input.agree?.terms) e.terms = 'Please accept the Terms & Conditions.';
   if (!input.agree?.cancellation) e.cancellation = 'Please confirm you understand the cancellation policy.';
 
@@ -243,6 +245,7 @@ export function bookingMetadata(input) {
     additional_needs: isFamilyService(input.service) ? (input.additionalNeeds === 'yes' ? 'Yes – please contact the family to discuss' : 'No') : '',
     po_number: text(input.poNumber),
     notes: text(input.notes),
+    arranged_in_advance: input.agree?.arranged ? 'Yes' : 'No',
     agreed_terms: input.agree?.terms ? 'Yes' : 'No',
     agreed_cancellation: input.agree?.cancellation ? 'Yes' : 'No',
     early_start_request: isFamilyService(input.service) ? (input.agree?.earlyStart ? 'Yes' : 'No') : '',

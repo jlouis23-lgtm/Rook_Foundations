@@ -51,6 +51,7 @@ export default function Contact() {
                 { title: 'How they engage', body: 'what tends to motivate or frustrate them.' },
                 { title: 'Learning needs', body: 'anything you think I should understand about how they learn or communicate.' },
                 { title: 'Your goals', body: "anything you'd particularly like your child to develop." },
+                { title: 'Sessions you have in mind', body: "a single session or a block of sessions. We'll agree the dates and times together, then I'll direct you to the Pricing page to book." },
                 { title: 'Availability', body: 'days or times that would work for you.' },
                 { title: 'Pricing preferences', body: "if you have a particular budget or session structure that would work best for your family, you're welcome to let me know." },
               ].map(({ title, body }) => (

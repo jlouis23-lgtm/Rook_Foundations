@@ -39,7 +39,7 @@ const initialForm = {
   additionalNeeds: '',
   notes: '',
   payer: { name: '', email: '', phone: '' },
-  agree: { terms: false, cancellation: false, earlyStart: false, adultPresent: false, staffSupport: false, perSessions: false },
+  agree: { arranged: false, terms: false, cancellation: false, earlyStart: false, adultPresent: false, staffSupport: false, perSessions: false },
 };
 
 const inputClass =
@@ -107,7 +107,7 @@ function StatusBanner({ status }) {
         <div>
           <p className="font-fredoka text-[#2D2520] text-lg">Thank you — your payment was successful</p>
           <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed mt-1">
-            You’ll receive a receipt by email from Stripe. I’ll be in touch shortly to confirm the details of your booking.
+            You’ll receive a receipt by email from Stripe. I’ll check your booking against the sessions we agreed and be in touch if anything needs adjusting.
           </p>
         </div>
       </div>
@@ -372,10 +372,10 @@ export default function BookingForm({ status }) {
 
               {hasDuration && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <Field label="Preferred start date" htmlFor="startDate" error={err('startDate')}>
+                  <Field label="Agreed start date" htmlFor="startDate" hint="The date of the first session we agreed." error={err('startDate')}>
                     <input id="startDate" type="date" min={today} className={inputClass} value={form.startDate} onChange={(e) => set({ startDate: e.target.value })} />
                   </Field>
-                  <Field label="Preferred days and times" htmlFor="preferredTimes" hint="Optional — e.g. Tuesdays after 4pm.">
+                  <Field label="Agreed days and times" htmlFor="preferredTimes" hint="For example, Tuesdays at 4pm." error={err('preferredTimes')}>
                     <input id="preferredTimes" className={inputClass} value={form.preferredTimes} onChange={(e) => set({ preferredTimes: e.target.value })} />
                   </Field>
                 </div>
@@ -454,6 +454,10 @@ export default function BookingForm({ status }) {
             {/* Agreements */}
             <Fieldset title={isFamily ? '5. Confirm and pay' : '4. Confirm and pay'}>
               <div className="space-y-4">
+                <Agreement checked={form.agree.arranged} onChange={setAgree('arranged')} error={err('arranged')}>
+                  I have already been in touch with Rook Foundations and agreed these sessions, including the dates and times, before booking.{' '}
+                  <Link to="/contact" target="_blank" className="text-[#E8A020] underline underline-offset-2">Not yet? Get in touch first.</Link>
+                </Agreement>
                 <Agreement checked={form.agree.terms} onChange={setAgree('terms')} error={err('terms')}>
                   I have read and accept the{' '}
                   <Link to="/terms-and-conditions" target="_blank" className="text-[#E8A020] underline underline-offset-2">Terms &amp; Conditions</Link>.

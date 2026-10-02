@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { ArrowRight, Check, Clock } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import PeopleIcon from '@/components/pricing/PeopleIcon';
@@ -363,14 +363,27 @@ export default function Pricing() {
         <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
           <Reveal className="text-center mb-10">
             <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
-              Ready to go?
+              Once your sessions are agreed
             </span>
             <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
               Book and pay
             </h2>
             <p className="font-nunito text-[#2D2520]/60 text-base leading-relaxed mt-4 max-w-xl mx-auto">
-              Answer a few questions, check your total, then pay securely by card. I’ll contact you to confirm the dates and times.
+              This form is for sessions we’ve already agreed together. Answer a few questions, check your total, then pay securely by card.
             </p>
+            <div className="max-w-xl mx-auto mt-6 bg-[#E8A020]/[0.08] border border-[#E8A020]/30 rounded-2xl px-5 py-4 text-left">
+              <p className="font-fredoka text-[#2D2520] text-base mb-1">Please get in touch before you book</p>
+              <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">
+                Tell me whether you’d like a single session or a block of sessions, and we’ll agree the dates and times together. When everything is settled, I’ll direct you back here to book.
+              </p>
+              <Link
+                to="/contact"
+                onClick={() => window.scrollTo(0, 0)}
+                className="inline-flex items-center gap-1.5 mt-3 font-nunito text-sm font-700 text-[#E8A020] hover:text-[#b8790a] transition-colors"
+              >
+                Get in touch <ArrowRight size={14} />
+              </Link>
+            </div>
           </Reveal>
           <BookingForm status={bookingStatus} />
         </div>

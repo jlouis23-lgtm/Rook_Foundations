@@ -8,20 +8,20 @@ const steps = [
   {
     num: 1,
     accent: '#2d8c62',
-    title: 'Choose and Pay',
-    body: 'Choose the session format and length on the Pricing page, answer a few questions about your child, and pay securely by card.',
+    title: 'Get in Touch',
+    body: "Tell me about your child and whether you'd like a single session or a block of sessions, along with any days and times that suit you.",
   },
   {
     num: 2,
     accent: '#4a7eb8',
-    title: 'Receive Your Receipt',
-    body: 'Stripe emails you a receipt for your payment straight away.',
+    title: 'Agree Your Sessions',
+    body: "We'll agree the format, session length, dates and times together. Once everything is settled, I'll direct you to the Pricing page to book.",
   },
   {
     num: 3,
     accent: '#7a48c0',
-    title: 'Agree Dates and Times',
-    body: "I'll contact you to confirm the dates, times and any details I need before the first session.",
+    title: 'Book and Pay',
+    body: 'Book the sessions we agreed on the Pricing page and pay securely by card. Stripe emails you a receipt straight away.',
   },
   {
     num: 4,
@@ -185,7 +185,7 @@ export default function WhatHappensNextSection() {
           What Happens Next?
         </h2>
         <p className="font-nunito text-[#2D2520]/55 text-base mt-3 max-w-xl mx-auto leading-relaxed">
-          The booking process will be simple and every lesson will be personalised from the very first session.
+          Sessions are arranged with you first, so every booking is agreed in advance and every lesson is personalised from the very first session.
         </p>
       </motion.div>
 

@@ -135,6 +135,19 @@ const faqs = [
     a: "For now, I'm keeping sessions small: one-to-one, pairs of two, or small groups of up to four children. My pilot sessions are helping me understand how different games work across these settings and how best to structure sessions so every child can stay engaged, focused and involved. I'll continue refining group sizes as Rook Foundations develops.",
   },
   {
+    q: "How do I book sessions?",
+    a: (
+      <>
+        <p className="mb-3">Sessions are arranged in advance. Please{' '}
+          <Link to="/contact" onClick={() => window.scrollTo(0, 0)} className="text-[#E8A020] underline underline-offset-2 hover:text-[#b8790a] transition-colors">
+            get in touch
+          </Link>{' '}and tell me whether you'd like a single session or a block of sessions, along with any days and times that suit you.
+        </p>
+        <p>Once we've agreed the sessions together, I'll direct you to the Pricing page, where you can book them and pay securely by card.</p>
+      </>
+    ),
+  },
+  {
     q: "Do you work with schools?",
     a: "Yes. I offer parent-funded after-school and lunchtime clubs held on school premises, and programmes funded by the school itself. SEND enrichment for schools is still being developed and isn't available to book yet. You can read more on the School Information page, and prices are on the Pricing page.",
   },

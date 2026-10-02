@@ -137,6 +137,21 @@ export default function Booking() {
           <h1 className="font-fredoka text-[#2D2520] leading-[1.1] mb-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
             Finding the right session
           </h1>
+          {BOOKINGS_OPEN && (
+            <>
+              <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed max-w-2xl mx-auto">
+                Sessions are arranged with you first. Get in touch to agree a single session or a block of sessions, and once the dates and times are settled I'll direct you to the Pricing page to book and pay.
+              </p>
+              <MotionLink
+                whileTap={ctaTap}
+                to="/contact"
+                onClick={() => window.scrollTo(0, 0)}
+                className="inline-flex items-center gap-2 mt-6 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-3.5 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/20"
+              >
+                Get in Touch <ArrowRight size={14} />
+              </MotionLink>
+            </>
+          )}
           {!BOOKINGS_OPEN && (
             <>
               <p className="font-fredoka text-[#E8A020] mb-6" style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)' }}>
