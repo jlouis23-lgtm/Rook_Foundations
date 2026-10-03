@@ -62,7 +62,7 @@ export default function ChessCurriculum() {
             Three Learning Phases
           </h1>
           <p className="font-nunito text-[#2D2520]/60 text-lg leading-relaxed max-w-2xl mx-auto">
-            This is the chess strand of Rook Foundations, for children who would like to play chess alongside our other strategy games. Chess is one of the main games we use because it offers rich opportunities to practise planning, patience and independent thinking. Explore each phase below to see what your child will learn.
+            This is the chess strand of Rook Foundations, for children who would like to play chess alongside our other strategy games. Chess is one of the main games we use because it offers rich opportunities to practise planning, patience and independent thinking. Explore each phase below to see what children may learn.
           </p>
         </div>
       </section>
@@ -156,7 +156,7 @@ export default function ChessCurriculum() {
                 <HelpCircle size={28} className="text-[#E8A020] block mb-3" />
                 <h4 className="font-fredoka text-[#2D2520] text-xl mb-2">Not sure which level?</h4>
                 <p className="font-nunito text-[#2D2520]/60 text-sm leading-relaxed">
-                  In our first session, we'll recommend the perfect starting point.
+                  In our first session, we'll recommend a suitable starting point.
                 </p>
               </div>
             </div>

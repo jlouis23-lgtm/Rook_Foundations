@@ -1,210 +1,289 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Clock, ArrowRight } from 'lucide-react';
+import { ArrowRight, ArrowDown } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
+import Reveal from '@/components/ui/Reveal';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import WhatHappensNextSection from '@/components/booking/WhatHappensNextSection';
 import { usePageMeta } from '@/hooks/use-page-meta';
 
 const EASE = [0.22, 1, 0.36, 1];
 
-// Pre-launch switch. Flip to true once Rook Foundations opens bookings —
-// this alone turns the cards into links to the paid booking form on the
-// Pricing page (/pricing#book), restores the "Book X Session" button copy,
-// and hides the pre-launch box and "Interested in Rook Foundations?"
-// prompt below. Nothing else needs to change.
-const BOOKINGS_OPEN = false;
+// Each format has its own colour so the two read as different things while
+// still sitting in the same palette as the rest of the site. `deep` is a
+// darker shade of the same colour used wherever the colour is applied to
+// text, so it stays readable.
+const STRATEGY = { accent: '#2d8c62', deep: '#1f6b4a' };
+const CHESS = { accent: '#b8790a', deep: '#8a5a06' };
 
-// Two session lengths (30 and 60 minutes), sharing the Rook Foundations
-// purple/amber card colours. Both cards use the same structure/elevation
-// so neither reads as more prominent than the other.
-const sessionCards = [
+// Games children may meet in the Strategy Games format. A selection, not a
+// fixed list: the point of the format is that the activity changes.
+const gameExamples = ['Quoridor', 'Mastermind', 'Tower of Hanoi', 'Go', 'Reversi', 'Quarto', 'Pylos', 'Marble Solitaire'];
+
+// What the format gives children opportunities to practise. Deliberately
+// phrased as opportunities, not outcomes.
+const practiceAreas = [
+  'strategic thinking',
+  'planning',
+  'problem solving',
+  'decision making',
+  'concentration',
+  'communication',
+  'reasoning',
+  'adapting to new rules and situations',
+  'persistence',
+  'reflection',
+];
+
+// The three phases of the existing chess curriculum (src/pages/ChessCurriculum.jsx),
+// summarised here so parents and teachers can see what the Chess Club involves
+// without leaving this page. The full detail stays on the curriculum page.
+const chessPhases = [
   {
-    title: 'Focus Session',
-    duration: '30 Minutes',
-    label: 'Focused Learning',
-    labelStyle: 'bg-[#7a48c0] text-white',
-    cardStyle: 'bg-[#7a48c0]/10 border-[#7a48c0]/30',
-    description: 'A shorter, concentrated learning experience that can work well around specific goals.',
-    goodFor: [
-      "You're looking for a shorter, highly focused session.",
-      'Your child engages particularly well with shorter periods of concentrated learning.',
-      "You'd like to work towards one or two specific learning goals.",
-    ],
-    buttonLabel: 'Book Focus Session',
+    num: '01',
+    title: 'Discovery',
+    subtitle: 'The First Move',
+    body: 'For children who are new to the game. Storytelling, colourful pieces and hands-on learning help chess feel approachable. Children learn the aim of the game, the names and movements of the pieces, how to set up the board, and how to recognise check and respond to it. They begin on basic checkmate ideas and simple one-move puzzles, and practise sportsmanship and taking turns.',
   },
   {
-    title: 'Core Session',
-    duration: '60 Minutes',
-    label: 'Balanced Learning',
-    labelStyle: 'bg-[#b8790a] text-white',
-    cardStyle: 'bg-amber-50/60 border-[#E8A020]/30',
-    description: 'A balanced combination of gameplay, puzzles, discussion and reflection.',
-    goodFor: [
-      "You'd like a session that combines different elements of the Rook Foundations approach.",
-      "You'd like a balanced mix of gameplay, discussion and reflection.",
-      "You're looking for regular, personalised sessions that build progress over time.",
-    ],
-    buttonLabel: 'Book Core Session',
+    num: '02',
+    title: 'Development',
+    subtitle: 'The Middle Game',
+    body: 'For children who know the basic rules. This phase introduces planning: spotting patterns, setting simple traps and thinking two or three moves ahead. Children explore opening principles such as controlling the centre, tactics including forks, pins and discovered attacks, basic endgame technique and managing their time, with friendly games played together.',
+  },
+  {
+    num: '03',
+    title: 'Strategy',
+    subtitle: 'The Endgame',
+    body: 'For children ready to go further. This phase builds stronger positional understanding, tactical awareness and confidence in competitive play. Children work on opening ideas, judging positions and planning attacks, puzzles, board memory and finding tactics.',
   },
 ];
 
-function SessionCard({ session, index }) {
-  const Wrapper = BOOKINGS_OPEN ? MotionLink : motion.div;
-
-  // Booking goes through the paid form on the Pricing page, so every booking
-  // accepts the Terms and is paid through Stripe.
-  const interactiveProps = BOOKINGS_OPEN
-    ? {
-        to: '/pricing#book',
-        whileTap: ctaTap,
-        whileHover: { y: -4, rotate: 0.5, transition: { duration: 0.25, ease: 'easeOut' } },
-        'aria-label': `${session.buttonLabel} — choose options and pay on the Pricing page`,
-      }
-    : {
-        // Not a link/button, so it can't be tabbed to or accidentally
-        // activated — the card is informational only during pre-launch.
-        'aria-label': `${session.title}: bookings are not yet open`,
-      };
-
+function FormatHeading({ label, title, tagline, colour }) {
   return (
-    <Wrapper
-      {...interactiveProps}
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={`play-card group relative flex flex-col border rounded-3xl p-7 ${session.cardStyle} ${
-        BOOKINGS_OPEN ? 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A020] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FAFAF7]' : ''
-      }`}
-    >
-      <span className={`absolute -top-3 left-1/2 -translate-x-1/2 ${session.labelStyle} font-nunito text-xs font-700 px-4 py-1.5 rounded-full shadow-md whitespace-nowrap`}>
-        {session.label}
-      </span>
-
-      <div className="mb-5">
-        <h2 className="font-fredoka text-[#2D2520] text-2xl mb-2">{session.title}</h2>
-        <span className="inline-flex items-center gap-1.5 font-nunito text-[#E8A020] text-sm font-700 bg-[#E8A020]/10 rounded-full px-3 py-1">
-          <Clock size={13} /> {session.duration}
-        </span>
-      </div>
-
-      <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed flex-1 mb-5">
-        {session.description}
+    <div className="lg:self-start">
+      <div className="mb-5 h-[3px] w-12 rounded-full" style={{ backgroundColor: colour.accent }} aria-hidden="true" />
+      <p className="font-nunito text-sm font-800 uppercase tracking-widest" style={{ color: colour.deep }}>
+        {label}
       </p>
-
-      <div className="mb-5 pt-4 border-t border-[#2D2520]/8">
-        <p className="font-fredoka text-[#2D2520] text-sm font-600 mb-2">A great choice if…</p>
-        <ul className="space-y-1.5">
-          {session.goodFor.map((item) => (
-            <li key={item} className="flex items-start gap-2 font-nunito text-[#2D2520]/60 text-xs leading-snug">
-              <span className="mt-1.5 w-1 h-1 rounded-full bg-[#E8A020] flex-shrink-0" />
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {BOOKINGS_OPEN ? (
-        <span className="w-full bg-[#E8A020] text-white font-fredoka font-600 text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 transition-all group-hover:bg-[#d4940e] group-hover:-translate-y-0.5 group-hover:shadow-lg group-hover:shadow-[#E8A020]/20">
-          {session.buttonLabel} <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-        </span>
-      ) : (
-        <span className="w-full bg-[#2D2520]/[0.06] text-[#2D2520]/70 font-fredoka font-600 text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 border border-[#2D2520]/12">
-          <Clock size={14} className="text-[#2D2520]/50" aria-hidden="true" /> Bookings Opening Soon
-        </span>
-      )}
-    </Wrapper>
+      <h2 className="mt-2 font-fredoka leading-tight text-[#2D2520]" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
+        {title}
+      </h2>
+      <p className="mt-3 font-fredoka text-lg italic leading-snug text-[#2D2520]/80">{tagline}</p>
+    </div>
   );
 }
 
 export default function Booking() {
   usePageMeta(
     'Explore Sessions | Rook Foundations',
-    'Explore 30-minute Focus and 60-minute Core sessions combining chess and strategy games, with bookings opening as pilot sessions continue.'
+    'Explore the two main Rook Foundations session formats for school after-school and lunchtime clubs: Strategy Games, and a dedicated Chess Club that builds progressively.'
   );
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <div className="bg-[#FAFAF7] pt-32">
-      {/* Header */}
-      <section className="relative overflow-hidden py-20">
+      {/* Introduction */}
+      <section className="relative overflow-hidden pb-16 pt-14">
         <ChessBg variant="booking" />
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
-          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-5">
-            Pick a time that suits you
+        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center lg:px-12">
+          <span className="mb-5 inline-flex items-center font-nunito text-sm font-800 uppercase tracking-widest text-[#b8790a]">
+            Sessions for school clubs
           </span>
-          <h1 className="font-fredoka text-[#2D2520] leading-[1.1] mb-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
-            Finding the right session
+          <h1 className="mb-6 font-fredoka leading-[1.1] text-[#2D2520]" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
+            Two ways to bring games into school clubs
           </h1>
-          {BOOKINGS_OPEN && (
-            <>
-              <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed max-w-2xl mx-auto">
-                Sessions are arranged with you first. Get in touch to agree a single session or a block of sessions, and once the dates and times are settled I'll direct you to the Pricing page to book and pay.
-              </p>
-              <MotionLink
-                whileTap={ctaTap}
-                to="/contact"
-                onClick={() => window.scrollTo(0, 0)}
-                className="inline-flex items-center gap-2 mt-6 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-3.5 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/20"
-              >
-                Get in Touch <ArrowRight size={14} />
-              </MotionLink>
-            </>
-          )}
-          {!BOOKINGS_OPEN && (
-            <>
-              <p className="font-fredoka text-[#E8A020] mb-6" style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)' }}>
-                Bookings coming soon
-              </p>
-              <p className="font-nunito text-[#2D2520]/65 text-lg leading-relaxed max-w-2xl mx-auto">
-                Rook Foundations is currently preparing for launch, and I'm running pilot sessions and workshops to refine the approach. These sessions are helping me test the resources, understand how different children respond to different games and ensure that each session provides a thoughtful and engaging learning experience.
-              </p>
-              <p className="font-nunito text-[#2D2520] text-lg leading-relaxed font-600 mt-4 max-w-2xl mx-auto">
-                Bookings will open once our initial programme is ready.
-              </p>
-            </>
-          )}
+          <p className="mx-auto max-w-2xl font-nunito text-lg leading-relaxed text-[#2D2520]/80">
+            Rook Foundations currently offers two main session formats for after-school and lunchtime clubs in schools: Strategy Games and Chess Club. Both use games and structured activities to give children opportunities to think, communicate, solve problems and work things out for themselves. Each has a different focus.
+          </p>
+          <p className="mx-auto mt-4 max-w-2xl font-nunito text-base leading-relaxed text-[#2D2520]/75">
+            These are our current main formats, and both are available now. More options will be introduced as Rook Foundations develops.
+          </p>
+
+          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-8">
+            <a
+              href="#strategy-games"
+              className="group inline-flex min-h-11 items-center gap-2 font-fredoka text-lg text-[#2D2520] transition-colors hover:text-[#1f6b4a]"
+            >
+              <span className="h-3 w-3 rounded-full" style={{ backgroundColor: STRATEGY.accent }} aria-hidden="true" />
+              Strategy Games
+              <ArrowDown size={16} className="transition-transform group-hover:translate-y-0.5" aria-hidden="true" />
+            </a>
+            <a
+              href="#chess-club"
+              className="group inline-flex min-h-11 items-center gap-2 font-fredoka text-lg text-[#2D2520] transition-colors hover:text-[#8a5a06]"
+            >
+              <span className="h-3 w-3 rounded-full" style={{ backgroundColor: CHESS.accent }} aria-hidden="true" />
+              Chess Club
+              <ArrowDown size={16} className="transition-transform group-hover:translate-y-0.5" aria-hidden="true" />
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Booking cards */}
-      <section className="pb-24 relative overflow-hidden">
-        <ChessBg variant="page" />
-        <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-3 max-w-xl md:max-w-4xl mx-auto">
-            {sessionCards.map((session, i) => (
-              <SessionCard key={session.title} session={session} index={i} />
-            ))}
-          </div>
+      {/* Format 1: Strategy Games */}
+      <section id="strategy-games" className="relative scroll-mt-24 overflow-hidden border-t border-[#2D2520]/10 py-20">
+        <div className="relative z-10 mx-auto grid max-w-6xl gap-x-16 gap-y-10 px-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.4fr)] lg:px-12">
+          <FormatHeading
+            label="Format one"
+            title="Strategy Games"
+            tagline="A varied programme of games, puzzles and activities."
+            colour={STRATEGY}
+          />
 
-          {BOOKINGS_OPEN ? null : (
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: EASE }}
-              className="text-center mt-14"
-            >
-              <p className="font-fredoka text-[#2D2520] text-lg mb-2">Interested in Rook Foundations?</p>
-              <p className="font-nunito text-[#2D2520]/60 text-sm max-w-md mx-auto leading-relaxed mb-5">
-                Please get in touch If you'd like to hear when bookings open, or if you have any other queries about this project. I'd like to hear your input to help me make this right for your child.
+          <Reveal className="space-y-5">
+            <p className="font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
+              Each session draws on a different mix of strategy games, puzzles and activities. The game is the vehicle for the learning. What matters is what children do with it: making a decision, noticing a pattern, planning a few moves ahead, or trying something different when the first idea does not work.
+            </p>
+
+            <h3 className="pt-3 font-fredoka text-xl text-[#2D2520]">Why the games change</h3>
+            <p className="font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
+              Different games create different problems, rules and decisions. A spatial puzzle asks for something different from a game of Quoridor, and a code-breaking game like Mastermind asks for something different again. Moving between them gives children opportunities to practise thinking in different ways, and to adapt when the rules change.
+            </p>
+            <p className="font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
+              Children might meet games such as{' '}
+              {gameExamples.slice(0, -1).join(', ')} or {gameExamples[gameExamples.length - 1]}, alongside puzzles and hands-on activities. The activity changes from session to session, and each one is chosen to suit the children in the group.
+            </p>
+
+            <h3 className="pt-3 font-fredoka text-xl text-[#2D2520]">What children have the opportunity to practise</h3>
+            <ul className="m-0 flex list-none flex-wrap gap-x-2 gap-y-1 p-0 font-nunito text-[1.02rem] leading-relaxed text-[#2D2520]/85">
+              {practiceAreas.map((area, i) => (
+                <li key={area} className="flex items-center gap-2">
+                  {area}
+                  {i < practiceAreas.length - 1 && (
+                    <span aria-hidden="true" style={{ color: STRATEGY.accent }}>·</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+            <p className="font-nunito text-[0.95rem] leading-relaxed text-[#2D2520]/75">
+              These are opportunities, not guarantees. Every child, and every group, is different, so sessions are adapted as they go.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Format 2: Chess Club */}
+      <section id="chess-club" className="relative scroll-mt-24 overflow-hidden bg-[#F5F3EE] py-20">
+        <div className="relative z-10 mx-auto grid max-w-6xl gap-x-16 gap-y-10 px-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.4fr)] lg:px-12">
+          <FormatHeading
+            label="Format two"
+            title="Chess Club"
+            tagline="A dedicated chess programme with a clear progression."
+            colour={CHESS}
+          />
+
+          <div>
+            <Reveal className="space-y-5">
+              <p className="font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
+                Strategy Games moves between many games. Chess Club stays with one and builds on it. Children learn and practise the game of chess step by step, moving from how the pieces move towards playing and thinking more independently. It is designed for beginners through to intermediate players, and each child works at their own pace.
               </p>
+            </Reveal>
+
+            <ol className="m-0 mt-8 list-none divide-y divide-[#2D2520]/10 border-y border-[#2D2520]/10 p-0">
+              {chessPhases.map((phase, i) => (
+                <motion.li
+                  key={phase.num}
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
+                  className="grid grid-cols-[3rem_minmax(0,1fr)] gap-x-4 py-7 sm:grid-cols-[3.5rem_minmax(0,1fr)]"
+                >
+                  <span className="font-fredoka text-3xl leading-none" style={{ color: CHESS.accent }} aria-hidden="true">
+                    {phase.num}
+                  </span>
+                  <div>
+                    <p className="font-nunito text-xs font-800 uppercase tracking-widest" style={{ color: CHESS.deep }}>
+                      Phase {i + 1} · {phase.subtitle}
+                    </p>
+                    <h3 className="mt-1 font-fredoka text-2xl text-[#2D2520]">{phase.title}</h3>
+                    <p className="mt-2 font-nunito text-[1rem] leading-relaxed text-[#2D2520]/85">{phase.body}</p>
+                  </div>
+                </motion.li>
+              ))}
+            </ol>
+
+            <Reveal className="mt-8 space-y-5">
+              <h3 className="font-fredoka text-xl text-[#2D2520]">Playing and looking back</h3>
+              <p className="font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
+                Throughout all three phases, children play complete games and talk about them afterwards: what they were thinking, what happened, and what they might try differently next time. Mistakes are part of how this learning happens, and the challenge increases gradually as children are ready for it.
+              </p>
+              <p className="font-nunito text-[0.95rem] leading-relaxed text-[#2D2520]/75">
+                No child is moved on before they are ready. Chess Club gives children opportunities to learn and enjoy the game; it does not promise that every child will become a strong player.
+              </p>
+              <MotionLink
+                whileTap={ctaTap}
+                to="/classes/chess-curriculum"
+                onClick={() => window.scrollTo(0, 0)}
+                className="group inline-flex min-h-11 items-center gap-1.5 font-nunito text-sm font-700 underline underline-offset-4 transition-colors hover:no-underline"
+                style={{ color: CHESS.deep }}
+              >
+                See the full chess curriculum
+                <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </MotionLink>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* What a session looks like, and how to book */}
+      <section className="relative overflow-hidden py-20">
+        <ChessBg variant="page" />
+        <div className="relative z-10 mx-auto max-w-3xl px-6 lg:px-12">
+          <Reveal>
+            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)' }}>
+              What a session looks like
+            </h2>
+            <p className="mt-4 font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
+              Sessions are structured but responsive. Most move through a warm-up, an explanation or demonstration, guided activity, independent or paired practice, a game or challenge, and time to reflect. The pace, activities and level of challenge are adapted to the children in the room.
+            </p>
+            <p className="mt-4 font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
+              Lunchtime clubs run for 30 minutes and after-school clubs for 60 minutes. Private sessions for individual families are also available. You can see every price on the{' '}
+              <MotionLink to="/pricing" onClick={() => window.scrollTo(0, 0)} className="font-700 text-[#8a5a06] underline underline-offset-2 hover:no-underline">
+                Pricing page
+              </MotionLink>
+              .
+            </p>
+          </Reveal>
+
+          <Reveal className="mt-14 border-t border-[#2D2520]/10 pt-12 text-center">
+            <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)' }}>
+              Ready to get started?
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
+              Both formats are available to book now. Sessions are arranged with you first: get in touch to agree what suits your school or family, then book the agreed sessions on the Pricing page.
+            </p>
+            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
               <MotionLink
                 whileTap={ctaTap}
                 to="/contact"
                 onClick={() => window.scrollTo(0, 0)}
-                className="inline-flex items-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-sm px-6 py-3.5 rounded-2xl hover:bg-[#d4940e] transition-all hover:shadow-lg hover:shadow-[#E8A020]/20"
+                className="inline-flex items-center gap-2 rounded-2xl bg-[#E8A020] px-7 py-3.5 font-fredoka text-base font-600 text-white transition-all hover:-translate-y-0.5 hover:bg-[#d4940e] hover:shadow-lg hover:shadow-[#E8A020]/25"
               >
-                Get in Touch <ArrowRight size={14} />
+                Get in touch <ArrowRight size={16} aria-hidden="true" />
               </MotionLink>
-            </motion.div>
-          )}
+              <MotionLink
+                whileTap={ctaTap}
+                to="/pricing#book"
+                className="inline-flex min-h-11 items-center gap-1.5 font-nunito text-sm font-700 text-[#8a5a06] underline underline-offset-4 hover:no-underline"
+              >
+                Already agreed? Book on the Pricing page <ArrowRight size={14} aria-hidden="true" />
+              </MotionLink>
+            </div>
+            <p className="mt-8 font-nunito text-sm text-[#2D2520]/75">
+              Want to know more about the thinking behind the sessions?{' '}
+              <MotionLink to="/our-approach" onClick={() => window.scrollTo(0, 0)} className="font-700 text-[#8a5a06] underline underline-offset-2 hover:no-underline">
+                Explore how we teach
+              </MotionLink>
+              .
+            </p>
+          </Reveal>
         </div>
       </section>
 
       {/* What Happens Next */}
-      <section className="pt-20 pb-24 bg-[#F5F3EE]">
+      <section className="bg-[#F5F3EE] pb-24 pt-20">
         <WhatHappensNextSection />
       </section>
     </div>
