@@ -25,8 +25,8 @@ const stages = [
   },
   {
     num: '04',
-    title: 'Learning Through Games',
-    body: "Four years of dedicated chess study and competitive play have given me a genuine understanding of the learning journey from beginner upwards. I've also explored a wider range of strategy games and how they can create opportunities to practise thinking, planning, communication and reflection.",
+    title: 'Qualified Chess Coach',
+    body: 'Qualified chess coach with practical experience working with groups of up to 16 children, introducing young players to the fundamentals of chess in a clear, supportive and engaging way. Sessions focus on helping children understand how the pieces move, recognise checks, learn basic rules and develop the foundations needed to play the game independently.',
   },
   {
     num: '05',
