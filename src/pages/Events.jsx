@@ -16,7 +16,7 @@ const activities = [
   { title: 'Strategy games', body: 'A varied selection of games, chosen to encourage children to explore different ways of thinking.' },
   { title: 'Chess', body: 'Opportunities to learn and play chess alongside other games.' },
   { title: 'Puzzles and challenges', body: 'Problem-solving activities that encourage children to plan, predict, make decisions and explain their reasoning.' },
-  { title: 'Playing together', body: "Opportunities to play, work in teams and build on one another's ideas in a fun, supportive environment." },
+  { title: 'Fidget trading', body: "Structured, supervised opportunities for children to swap and trade fidget toys, with chances to talk about what they've chosen, negotiate fairly and take turns." },
 ];
 
 // The three ways to take part with Rook Foundations, and where each stands
