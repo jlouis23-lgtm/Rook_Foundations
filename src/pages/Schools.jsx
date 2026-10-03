@@ -124,46 +124,10 @@ export default function Schools() {
         </Reveal>
       </section>
 
-      {/* Working with SEND Pupils — a gateway introduction, not the full SEND
-          approach: warm, brief, experience-led rather than a diagnosis/needs
-          list, and deliberately silent on specialist teaching, therapy,
-          assessment or outcome guarantees rather than explicitly disclaiming
-          them (an explicit disclaimer here would itself read as leading with
-          limitations). Sits directly beneath the hero, before the general
-          session-format content, so it's one of the first things a visiting
-          school sees. A top hairline separates it from the hero above,
-          since neither this nor the hero carries an explicit background
-          colour to provide that break on its own. The detailed material
-          (Sections 2–11) lives on its own page, linked below, so this
-          section can stay a short, calm introduction. */}
+      {/* Flexible Delivery — a top hairline separates it from the hero above,
+          since neither carries an explicit background colour to provide that
+          break on its own. */}
       <section className="py-20 relative overflow-hidden border-t border-[#2D2520]/8">
-        <ChessBg variant="faq" />
-        <Reveal className="max-w-2xl mx-auto px-6 lg:px-12 text-center relative z-10">
-          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
-            Inclusive enrichment
-          </span>
-          <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-            Working with SEND Pupils
-          </h2>
-          <div className="w-12 h-[3px] rounded-full bg-[#E8A020] mx-auto mt-8 mb-8" aria-hidden="true" />
-          <p className="font-fredoka text-[#2D2520]/85 italic font-light text-xl sm:text-2xl leading-relaxed max-w-xl mx-auto">
-            Rook Foundations is developing inclusive enrichment for pupils with SEND: engaging, accessible games and activities adapted to each pupil or group, delivered within clear professional boundaries. It is enrichment, not specialist SEND teaching or therapy, and it is not yet available to book.
-          </p>
-
-          <MotionLink
-            whileTap={ctaTap}
-            to="/schools/send"
-            onClick={() => window.scrollTo(0, 0)}
-            className="inline-flex items-center justify-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-base px-8 py-3.5 rounded-2xl hover:bg-[#d4940e] transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#E8A020]/25 mt-10"
-          >
-            Our Approach to Working with SEND Children
-            <ArrowRight size={18} className="flex-shrink-0" />
-          </MotionLink>
-        </Reveal>
-      </section>
-
-      {/* Flexible Delivery */}
-      <section className="py-20 relative overflow-hidden">
         <ChessBg variant="testimonials" />
         <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center mb-12">
@@ -186,8 +150,8 @@ export default function Schools() {
         </div>
       </section>
 
-      {/* Flexible Partnership Options — deliberately placed here, between
-          Flexible Delivery and Pricing, so the funding model is established
+      {/* Flexible Partnership Options — deliberately placed here, ahead of
+          Pricing, so the funding model is established
           BEFORE the reader reaches the pricing links. Without this, the
           published per-child prices could read as something the school
           itself might be expected to pay. */}
@@ -226,6 +190,43 @@ export default function Schools() {
             This flexible approach allows each school to choose the model that works best for its pupils, families and wider provision.
           </p>
         </div>
+      </section>
+
+      {/* Working with SEND Pupils — a gateway introduction, not the full SEND
+          approach: warm, brief, experience-led rather than a diagnosis/needs
+          list, and deliberately silent on specialist teaching, therapy,
+          assessment or outcome guarantees rather than explicitly disclaiming
+          them (an explicit disclaimer here would itself read as leading with
+          limitations). Sits after the funding models and just before
+          Pricing; the section above has its own bottom border and Pricing
+          has its own background colour, so it needs no hairline of its
+          own. The detailed material
+          (Sections 2–11) lives on its own page, linked below, so this
+          section can stay a short, calm introduction. */}
+      <section className="py-20 relative overflow-hidden">
+        <ChessBg variant="faq" />
+        <Reveal className="max-w-2xl mx-auto px-6 lg:px-12 text-center relative z-10">
+          <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-4">
+            Inclusive enrichment
+          </span>
+          <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+            Working with SEND Pupils
+          </h2>
+          <div className="w-12 h-[3px] rounded-full bg-[#E8A020] mx-auto mt-8 mb-8" aria-hidden="true" />
+          <p className="font-fredoka text-[#2D2520]/85 italic font-light text-xl sm:text-2xl leading-relaxed max-w-xl mx-auto">
+            Rook Foundations is developing inclusive enrichment for pupils with SEND: engaging, accessible games and activities adapted to each pupil or group, delivered within clear professional boundaries. It is enrichment, not specialist SEND teaching or therapy, and it is not yet available to book.
+          </p>
+
+          <MotionLink
+            whileTap={ctaTap}
+            to="/schools/send"
+            onClick={() => window.scrollTo(0, 0)}
+            className="inline-flex items-center justify-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-base px-8 py-3.5 rounded-2xl hover:bg-[#d4940e] transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#E8A020]/25 mt-10"
+          >
+            Our Approach to Working with SEND Children
+            <ArrowRight size={18} className="flex-shrink-0" />
+          </MotionLink>
+        </Reveal>
       </section>
 
       {/* Pricing */}
