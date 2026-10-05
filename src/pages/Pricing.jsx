@@ -260,7 +260,7 @@ export default function Pricing() {
         unit="Prices are per child, per session. 30-minute sessions suit lunchtime clubs; 60-minute sessions suit after-school clubs."
         notes={[
           'Up to 12 children per club.',
-          'Schools more than 10 miles from Great Dunmow have a small per-child increase instead of a travel fee — see Travel below.',
+          'Schools more than 10 miles from Great Dunmow have a small per-child increase instead of a travel fee.',
           'Schools that would like to fund a programme themselves can ask us for a quote.',
         ]}
       >
