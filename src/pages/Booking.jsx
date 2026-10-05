@@ -1,13 +1,10 @@
 import { useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { ArrowRight, ArrowDown } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import Reveal from '@/components/ui/Reveal';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import WhatHappensNextSection from '@/components/booking/WhatHappensNextSection';
 import { usePageMeta } from '@/hooks/use-page-meta';
-
-const EASE = [0.22, 1, 0.36, 1];
 
 // Each format has its own colour so the two read as different things while
 // still sitting in the same palette as the rest of the site. `deep` is a
@@ -33,30 +30,6 @@ const practiceAreas = [
   'adapting to new rules and situations',
   'persistence',
   'reflection',
-];
-
-// The three phases of the existing chess curriculum (src/pages/ChessCurriculum.jsx),
-// summarised here so parents and teachers can see what the Chess Club involves
-// without leaving this page. The full detail stays on the curriculum page.
-const chessPhases = [
-  {
-    num: '01',
-    title: 'Discovery',
-    subtitle: 'The First Move',
-    body: 'For children who are new to the game. Storytelling, colourful pieces and hands-on learning help chess feel approachable. Children learn the aim of the game, the names and movements of the pieces, how to set up the board, and how to recognise check and respond to it. They begin on basic checkmate ideas and simple one-move puzzles, and practise sportsmanship and taking turns.',
-  },
-  {
-    num: '02',
-    title: 'Development',
-    subtitle: 'The Middle Game',
-    body: 'For children who know the basic rules. This phase introduces planning: spotting patterns, setting simple traps and thinking two or three moves ahead. Children explore opening principles such as controlling the centre, tactics including forks, pins and discovered attacks, basic endgame technique and managing their time, with friendly games played together.',
-  },
-  {
-    num: '03',
-    title: 'Strategy',
-    subtitle: 'The Endgame',
-    body: 'For children ready to go further. This phase builds stronger positional understanding, tactical awareness and confidence in competitive play. Children work on opening ideas, judging positions and planning attacks, puzzles, board memory and finding tactics.',
-  },
 ];
 
 function FormatHeading({ label, title, tagline, colour }) {
@@ -178,49 +151,13 @@ export default function Booking() {
               <p className="font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
                 Strategy Games moves between many games. Chess Club stays with one and builds on it. Children learn and practise the game of chess step by step, moving from how the pieces move towards playing and thinking more independently. It is designed for beginners through to intermediate players, and each child works at their own pace.
               </p>
-            </Reveal>
-
-            <ol className="m-0 mt-8 list-none divide-y divide-[#2D2520]/10 border-y border-[#2D2520]/10 p-0">
-              {chessPhases.map((phase, i) => (
-                <motion.li
-                  key={phase.num}
-                  initial={{ opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-40px' }}
-                  transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
-                  className="grid grid-cols-[3rem_minmax(0,1fr)] gap-x-4 py-7 sm:grid-cols-[3.5rem_minmax(0,1fr)]"
-                >
-                  <span className="font-fredoka text-3xl leading-none" style={{ color: CHESS.accent }} aria-hidden="true">
-                    {phase.num}
-                  </span>
-                  <div>
-                    <p className="font-nunito text-xs font-800 uppercase tracking-widest" style={{ color: CHESS.deep }}>
-                      Phase {i + 1} · {phase.subtitle}
-                    </p>
-                    <h3 className="mt-1 font-fredoka text-2xl text-[#2D2520]">{phase.title}</h3>
-                    <p className="mt-2 font-nunito text-[1rem] leading-relaxed text-[#2D2520]/85">{phase.body}</p>
-                  </div>
-                </motion.li>
-              ))}
-            </ol>
-
-            <Reveal className="mt-8 space-y-5">
-              <h3 className="font-fredoka text-xl text-[#2D2520]">Playing and looking back</h3>
-              <p className="font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
-                Throughout all three phases, children play complete games and talk about them afterwards: what they were thinking, what happened, and what they might try differently next time. Mistakes are part of how this learning happens, and the challenge increases gradually as children are ready for it.
-              </p>
-              <p className="font-nunito text-[0.95rem] leading-relaxed text-[#2D2520]/75">
-                No child is moved on before they are ready. Chess Club gives children opportunities to learn and enjoy the game; it does not promise that every child will become a strong player.
-              </p>
               <MotionLink
                 whileTap={ctaTap}
                 to="/classes/chess-curriculum"
                 onClick={() => window.scrollTo(0, 0)}
-                className="group inline-flex min-h-11 items-center gap-1.5 font-nunito text-sm font-700 underline underline-offset-4 transition-colors hover:no-underline"
-                style={{ color: CHESS.deep }}
+                className="inline-flex items-center gap-2 rounded-2xl bg-[#E8A020] px-7 py-3.5 font-fredoka text-base font-600 text-white transition-all hover:-translate-y-0.5 hover:bg-[#d4940e] hover:shadow-lg hover:shadow-[#E8A020]/25"
               >
-                See the full chess curriculum
-                <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                See the full chess curriculum <ArrowRight size={16} aria-hidden="true" />
               </MotionLink>
             </Reveal>
           </div>
