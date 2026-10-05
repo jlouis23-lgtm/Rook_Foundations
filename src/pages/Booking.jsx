@@ -14,9 +14,6 @@ const STRATEGY = { accent: '#2d8c62', deep: '#1f6b4a' };
 const CHESS = { accent: '#b8790a', deep: '#8a5a06' };
 const SEAFORTH = { accent: '#4a7eb8', deep: '#2f5f96' };
 
-// The order of a Seaforth Commanders session, shown as a simple sequence.
-const seaforthSteps = ['Welcome', 'Choose an opponent', 'Play', 'Record the score', 'Rotate', 'Play again', 'Pack away and chat'];
-
 function FormatHeading({ label, title, tagline, colour }) {
   return (
     <div className="lg:self-start">
@@ -149,42 +146,6 @@ export default function Booking() {
             <p className="font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
               Seaforth Commanders gives children the opportunity to play Seaforth against other children in a focused and friendly competitive environment. The game itself is the main activity. Rook Foundations provides the space, organisation, suitable pairings, scoring and fair play that let children get on with playing.
             </p>
-
-            <h3 className="pt-3 font-fredoka text-xl text-[#2D2520]">What children can expect</h3>
-            <p className="font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
-              Children play against other children, think about the position in front of them, and play several games where time allows. The atmosphere is quiet, focused and friendly, with a healthy sense of competition. Children are welcome to talk about their games, and the room may become livelier as games get close. Many children enjoy playing their friends, trying to win, meeting different opponents, watching their scores build and talking about the close games afterwards.
-            </p>
-
-            <h3 className="pt-3 font-fredoka text-xl text-[#2D2520]">How a session works</h3>
-            <ol className="m-0 flex list-none flex-wrap items-center gap-x-2 gap-y-1 p-0 font-nunito text-[1.02rem] font-700 leading-relaxed text-[#2D2520]/90">
-              {seaforthSteps.map((step, i) => (
-                <li key={step} className="flex items-center gap-2">
-                  {step}
-                  {i < seaforthSteps.length - 1 && (
-                    <span aria-hidden="true" style={{ color: SEAFORTH.deep }}>→</span>
-                  )}
-                </li>
-              ))}
-            </ol>
-            <p className="font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
-              Children choose who they would like to play first. After the first games, the practitioner organises rotations so that children meet others of broadly similar Seaforth ability. Pairings are never based on scores. If a game finishes quickly, children can move to a new opponent or reset the pieces and play again. Up to 12 children can take part, which allows up to six games at once.
-            </p>
-            <p className="font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
-              The practitioner runs the club rather than turning every game into a lesson: organising rotations, recording scores, supporting fair play and clarifying rules. If a move is not allowed, the child is told and the board is reset. A child who forgets a rule is encouraged to try to remember it first. Adults can offer advice during games, but children are encouraged to think for themselves.
-            </p>
-            <p className="font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
-              Sessions run for 30 or 60 minutes. The 60-minute session follows the same format and allows more games to be played.
-            </p>
-
-            <h3 className="pt-3 font-fredoka text-xl text-[#2D2520]">Scoring</h3>
-            <p className="font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
-              A win earns 2 points and a loss earns 1. Attendance does not earn points. Scores are recorded through the term, and everyone starts again from zero at the beginning of each new scoring period. Certificates are awarded at the end of the term.
-            </p>
-
-            <h3 className="pt-3 font-fredoka text-xl text-[#2D2520]">Who it suits</h3>
-            <p className="font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
-              Seaforth Commanders suits children who enjoy competition, playing against other children and a good mental challenge, and who can take part appropriately in a focused games setting. No previous Seaforth experience is needed, but children do need to understand the basic rules to play independently. Rook Foundations has a Seaforth workbook that introduces the game, with support from the practitioner where needed. Children who are new to Seaforth can be supported to learn it, but the club itself is about playing.
-            </p>
             <p className="font-nunito text-[0.95rem] leading-relaxed text-[#2D2520]/75">
               Seaforth was created by Will Davies.
             </p>
@@ -201,7 +162,7 @@ export default function Booking() {
               What a session looks like
             </h2>
             <p className="mt-4 font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
-              Strategy Games and Chess Club sessions are structured but responsive. Most move through a warm-up, an explanation or demonstration, guided activity, independent or paired practice, a game or challenge, and time to reflect. The pace, activities and level of challenge are adapted to the children in the room. Seaforth Commanders follows its own format, described above.
+              Strategy Games and Chess Club sessions are structured but responsive. Most move through a warm-up, an explanation or demonstration, guided activity, independent or paired practice, a game or challenge, and time to reflect. The pace, activities and level of challenge are adapted to the children in the room. Seaforth Commanders follows its own format.
             </p>
             <p className="mt-4 font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
               Lunchtime clubs run for 30 minutes and after-school clubs for 60 minutes. Private sessions for individual families are also available. You can see every price on the{' '}
