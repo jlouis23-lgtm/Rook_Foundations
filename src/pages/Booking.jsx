@@ -125,9 +125,9 @@ export default function Booking() {
                 whileTap={ctaTap}
                 to="/classes/chess-curriculum"
                 onClick={() => window.scrollTo(0, 0)}
-                className="inline-flex items-center gap-2 rounded-2xl bg-[#E8A020] px-7 py-3.5 font-fredoka text-base font-600 text-white transition-all hover:-translate-y-0.5 hover:bg-[#d4940e] hover:shadow-lg hover:shadow-[#E8A020]/25"
+                className="group inline-flex min-h-11 items-center gap-2 font-fredoka text-base font-600 text-[#2D2520] underline underline-offset-4 transition-colors hover:no-underline"
               >
-                See the full chess curriculum <ArrowRight size={16} aria-hidden="true" />
+                See the full chess curriculum <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </MotionLink>
             </Reveal>
           </div>
