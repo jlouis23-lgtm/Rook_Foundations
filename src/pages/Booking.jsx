@@ -144,10 +144,10 @@ export default function Booking() {
 
           <Reveal className="space-y-5">
             <p className="font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
-              Seaforth Commanders gives children the opportunity to play Seaforth against other children in a focused and friendly competitive environment. The game itself is the main activity. Rook Foundations provides the space, organisation, suitable pairings, scoring and fair play that let children get on with playing.
+              Seaforth Commanders gives children the opportunity to play a naval-based strategy game in a focused and friendly competitive environment. The game itself is the main activity. Rook Foundations provides the space, organisation, suitable pairings, scoring and fair play that let children get on with playing.
             </p>
             <p className="font-nunito text-[0.95rem] leading-relaxed text-[#2D2520]/75">
-              Seaforth was created by Will Davies.
+              Seaforth is a 2 player strategy game by Will Davies.
             </p>
           </Reveal>
         </div>
