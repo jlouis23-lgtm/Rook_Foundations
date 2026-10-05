@@ -13,25 +13,6 @@ import { usePageMeta } from '@/hooks/use-page-meta';
 const STRATEGY = { accent: '#2d8c62', deep: '#1f6b4a' };
 const CHESS = { accent: '#b8790a', deep: '#8a5a06' };
 
-// Games children may meet in the Strategy Games format. A selection, not a
-// fixed list: the point of the format is that the activity changes.
-const gameExamples = ['Quoridor', 'Mastermind', 'Tower of Hanoi', 'Go', 'Reversi', 'Quarto', 'Pylos', 'Marble Solitaire'];
-
-// What the format gives children opportunities to practise. Deliberately
-// phrased as opportunities, not outcomes.
-const practiceAreas = [
-  'strategic thinking',
-  'planning',
-  'problem solving',
-  'decision making',
-  'concentration',
-  'communication',
-  'reasoning',
-  'adapting to new rules and situations',
-  'persistence',
-  'reflection',
-];
-
 function FormatHeading({ label, title, tagline, colour }) {
   return (
     <div className="lg:self-start">
@@ -107,30 +88,6 @@ export default function Booking() {
           <Reveal className="space-y-5">
             <p className="font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
               Each session draws on a different mix of strategy games, puzzles and activities. The game is the vehicle for the learning. What matters is what children do with it: making a decision, noticing a pattern, planning a few moves ahead, or trying something different when the first idea does not work.
-            </p>
-
-            <h3 className="pt-3 font-fredoka text-xl text-[#2D2520]">Why the games change</h3>
-            <p className="font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
-              Different games create different problems, rules and decisions. A spatial puzzle asks for something different from a game of Quoridor, and a code-breaking game like Mastermind asks for something different again. Moving between them gives children opportunities to practise thinking in different ways, and to adapt when the rules change.
-            </p>
-            <p className="font-nunito text-[1.05rem] leading-relaxed text-[#2D2520]/85">
-              Children might meet games such as{' '}
-              {gameExamples.slice(0, -1).join(', ')} or {gameExamples[gameExamples.length - 1]}, alongside puzzles and hands-on activities. The activity changes from session to session, and each one is chosen to suit the children in the group.
-            </p>
-
-            <h3 className="pt-3 font-fredoka text-xl text-[#2D2520]">What children have the opportunity to practise</h3>
-            <ul className="m-0 flex list-none flex-wrap gap-x-2 gap-y-1 p-0 font-nunito text-[1.02rem] leading-relaxed text-[#2D2520]/85">
-              {practiceAreas.map((area, i) => (
-                <li key={area} className="flex items-center gap-2">
-                  {area}
-                  {i < practiceAreas.length - 1 && (
-                    <span aria-hidden="true" style={{ color: STRATEGY.accent }}>·</span>
-                  )}
-                </li>
-              ))}
-            </ul>
-            <p className="font-nunito text-[0.95rem] leading-relaxed text-[#2D2520]/75">
-              These are opportunities, not guarantees. Every child, and every group, is different, so sessions are adapted as they go.
             </p>
           </Reveal>
         </div>
