@@ -85,7 +85,11 @@ export default function Booking() {
       </section>
 
       {/* Format 1: Strategy Games */}
-      <section id="strategy-games" className="relative scroll-mt-24 overflow-hidden border-t border-[#2D2520]/10 py-20">
+      <section
+        id="strategy-games"
+        className="relative scroll-mt-24 overflow-hidden border-t border-[#2D2520]/10 py-20"
+        style={{ backgroundColor: `${STRATEGY.accent}1F` }}
+      >
         <div className="relative z-10 mx-auto grid max-w-6xl gap-x-16 gap-y-10 px-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.4fr)] lg:px-12">
           <FormatHeading
             label="Format one"
@@ -133,7 +137,11 @@ export default function Booking() {
       {/* Format 3: Seaforth Commanders. A playing club: the game itself is the
           main activity, so this deliberately does not borrow the Chess Club's
           teaching and progression wording. */}
-      <section id="seaforth-commanders" className="relative scroll-mt-24 overflow-hidden py-20">
+      <section
+        id="seaforth-commanders"
+        className="relative scroll-mt-24 overflow-hidden py-20"
+        style={{ backgroundColor: `${SEAFORTH.accent}1F` }}
+      >
         <div className="relative z-10 mx-auto grid max-w-6xl gap-x-16 gap-y-10 px-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.4fr)] lg:px-12">
           <FormatHeading
             label="Format three"
