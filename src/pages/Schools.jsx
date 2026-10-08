@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, GraduationCap } from 'lucide-react';
+import { ArrowRight, GraduationCap, ShieldCheck } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import Reveal from '@/components/ui/Reveal';
@@ -147,6 +147,28 @@ export default function Schools() {
               <DeliveryRow key={option.title} option={option} index={i} />
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mt-16 pt-14 border-t border-[#2D2520]/10 text-center max-w-xl mx-auto"
+          >
+            <p className="font-nunito text-[#2D2520]/65 text-base leading-relaxed mb-6">
+              Every session is guided by a written risk assessment covering safeguarding, health and safety, and emergency procedures. Parents and schools are welcome to read it in full.
+            </p>
+            <MotionLink
+              whileTap={ctaTap}
+              to="/risk-assessment"
+              onClick={() => window.scrollTo(0, 0)}
+              className="inline-flex items-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-base px-8 py-3.5 rounded-2xl hover:bg-[#d4940e] transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#E8A020]/25"
+            >
+              <ShieldCheck size={18} />
+              View our Risk Assessment
+              <ArrowRight size={16} />
+            </MotionLink>
+          </motion.div>
         </div>
       </section>
 

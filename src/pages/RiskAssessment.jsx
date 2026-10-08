@@ -80,12 +80,12 @@ export default function RiskAssessment() {
 
         <div className="max-w-3xl mx-auto px-6 lg:px-12 relative z-10">
           <Link
-            to="/about"
+            to="/schools"
             onClick={() => window.scrollTo(0, 0)}
             className="print:hidden inline-flex items-center gap-2 font-nunito text-[#2D2520]/45 text-sm font-600 hover:text-[#E8A020] transition-colors mb-8 group"
           >
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-            Back to about
+            Back to School Information
           </Link>
 
           <span className="inline-flex items-center gap-1.5 font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-5">
