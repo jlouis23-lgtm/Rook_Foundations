@@ -46,23 +46,22 @@ const deliveryOptions = [
   },
 ];
 
-// Two funding models schools can choose between. Presented as two equal
-// neutral cards (bg-white border, NOT the coloured play-card treatment used
-// for the three session formats above) so this doesn't read as a fourth or
-// fifth "product" to pick between — it's a different kind of choice
-// (how payment works), so it gets a visually distinct, quieter treatment.
-// Both cards are the same size/weight so neither reads as secondary.
-const fundingModels = [
-  {
-    key: 'parent-funded',
-    title: 'Parent-Funded Extracurricular Activities',
-    body: "Our standard extracurricular provision is designed to be simple for schools. Rook Foundations manages bookings, payments and parent communication directly, meaning there is no direct cost to the school. The school simply provides a suitable space and helps let families know the sessions are available.",
-  },
-  {
-    key: 'school-funded',
-    title: 'School-Funded Enrichment Programmes',
-    body: "Schools can also commission Rook Foundations directly to provide funded enrichment programmes, workshops or targeted sessions for pupils — from a single themed workshop to a structured programme for a specific year group. These can be tailored to the school's objectives, timetable and available budget.",
-  },
+// The two ways schools can work with Rook Foundations. School-funded
+// enrichment is the primary model and gets the soft amber callout treatment
+// (the same tint used for the "get in touch before you book" note on
+// Pricing) plus a CTA; the parent-funded model is an alternative still being
+// developed, so it keeps the quieter white card and deliberately has no
+// booking button, because capacity controls are not built yet.
+const schoolFundedParagraphs = [
+  'Schools can commission Rook Foundations directly to provide funded enrichment programmes, workshops or sessions for pupils.',
+  'This could include strategy games and chess, puzzle and problem solving sessions, workshops built around particular skills or themes, lunchtime or school day enrichment, and bespoke activities developed around the needs of the school.',
+  'The school agrees the provision directly with Rook Foundations, including the activities, format, number of pupils, timings and frequency. Rook Foundations then delivers the agreed programme.',
+];
+
+const parentFundedParagraphs = [
+  'Schools can also work with Rook Foundations to make extracurricular activities available to families, with parents booking and paying Rook Foundations directly.',
+  'Rook Foundations manages the bookings, payments and parent communication, while the school provides the agreed space and helps make families aware of the opportunity.',
+  'This model can be used for suitable after school, lunchtime or breakfast activities, subject to agreement with the school and available places.',
 ];
 
 function DeliveryRow({ option, index }) {
@@ -190,32 +189,59 @@ export default function Schools() {
               Working with your school
             </span>
             <h2 className="font-fredoka text-[#2D2520]" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-              Flexible Partnership Options
+              Two Ways Rook Foundations Can Work With Schools
             </h2>
             <p className="font-nunito text-[#2D2520]/55 text-base mt-4 max-w-xl mx-auto leading-relaxed">
-              Rook Foundations can work with schools through two straightforward funding models.
+              Our current focus is school funded enrichment, agreed directly with each school. A parent funded option is also being developed alongside it.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {fundingModels.map((model, i) => (
-              <motion.div
-                key={model.key}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white border border-[#2D2520]/10 rounded-3xl p-7"
+          <div className="space-y-6">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5 }}
+              className="bg-[#E8A020]/[0.08] border border-[#E8A020]/30 rounded-3xl p-7 sm:p-10"
+            >
+              <span className="inline-flex font-nunito text-[#b8790a] text-sm font-800 uppercase tracking-widest mb-3">
+                Our primary model
+              </span>
+              <h3 className="font-fredoka text-[#2D2520] text-2xl mb-4 leading-snug">School Funded Enrichment</h3>
+              <div className="space-y-4 max-w-2xl">
+                {schoolFundedParagraphs.map((text) => (
+                  <p key={text} className="font-nunito text-[#2D2520]/70 text-base leading-relaxed">{text}</p>
+                ))}
+              </div>
+              <MotionLink
+                whileTap={ctaTap}
+                to="/contact"
+                onClick={() => window.scrollTo(0, 0)}
+                className="inline-flex items-center justify-center text-center gap-2 bg-[#E8A020] text-white font-fredoka font-600 text-base px-8 py-3.5 rounded-2xl hover:bg-[#d4940e] transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#E8A020]/25 mt-8"
               >
-                <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">{model.title}</h3>
-                <p className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{model.body}</p>
-              </motion.div>
-            ))}
-          </div>
+                Discuss School Funded Enrichment
+                <ArrowRight size={16} className="flex-shrink-0" />
+              </MotionLink>
+            </motion.div>
 
-          <p className="font-nunito text-[#2D2520]/55 text-sm text-center leading-relaxed mt-10 max-w-xl mx-auto">
-            This flexible approach allows each school to choose the model that works best for its pupils, families and wider provision.
-          </p>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-white border border-[#2D2520]/10 rounded-3xl p-7"
+            >
+              <span className="inline-flex font-nunito text-[#2D2520]/65 text-sm font-800 uppercase tracking-widest mb-3">
+                An alternative model currently being developed
+              </span>
+              <h3 className="font-fredoka text-[#2D2520] text-xl mb-3 leading-snug">Parent Funded Extracurricular Activities</h3>
+              <div className="space-y-3 max-w-2xl">
+                {parentFundedParagraphs.map((text) => (
+                  <p key={text} className="font-nunito text-[#2D2520]/65 text-sm leading-relaxed">{text}</p>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -268,7 +294,7 @@ export default function Schools() {
               Simple, flexible pricing
             </h2>
             <p className="font-nunito text-[#2D2520]/55 text-base mt-4 max-w-xl mx-auto leading-relaxed">
-              Prices for parent-funded after-school and lunchtime clubs are published on our Pricing page. School-funded programmes are quoted individually based on your school's requirements. SEND enrichment is still being developed and is not yet available to book.
+              School-funded programmes are quoted individually based on your school's requirements. Prices for parent-funded after-school and lunchtime clubs, an alternative model we are developing, are published on our Pricing page. SEND enrichment is still being developed and is not yet available to book.
             </p>
           </div>
 
