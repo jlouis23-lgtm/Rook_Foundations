@@ -15,6 +15,11 @@ const EASE = [0.22, 1, 0.36, 1];
 // products to choose between.
 const deliveryOptions = [
   {
+    accent: '#b8790a',
+    title: 'Breakfast Workshops',
+    body: 'One activity or a selection of strategy games, puzzles and chess, fitted flexibly into your existing breakfast club.',
+  },
+  {
     accent: '#2d8c62',
     title: 'Lunchtime Workshops',
     body: 'A structured strategy-game activity that can be incorporated into the school lunch period.',
