@@ -12,6 +12,7 @@ const FIELDS = [
   ['format', 'Format'],
   ['children', 'Children'],
   ['children_more', 'Children (continued)'],
+  ['children_more_2', 'Children (continued)'],
   ['pupils', 'Number of pupils'],
   ['duration', 'Session length'],
   ['sessions', 'Number of sessions'],

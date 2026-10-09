@@ -214,7 +214,7 @@ export function bookingMetadata(input) {
   const service = SERVICES.find((s) => s.id === input.service);
   const zone = usesTravelZone(input) ? zoneById(input.zone) : null;
   const count = toInt(input.childrenCount);
-  // Split across two keys so up to 12 children never hit Stripe's 500-char limit.
+  // Split across three keys so up to 20 children never hit Stripe's 500-char limit.
   const childList = isFamilyService(input.service)
     ? (input.children || []).slice(0, count).map((c) => `${text(c.firstName)} (age ${toInt(c.age)})`)
     : [];
@@ -227,8 +227,9 @@ export function bookingMetadata(input) {
     role: text(input.role),
     school: text(input.schoolName),
     school_address: text(input.schoolAddress),
-    children: childList.slice(0, 6).join('; '),
-    children_more: childList.slice(6).join('; '),
+    children: childList.slice(0, 7).join('; '),
+    children_more: childList.slice(7, 14).join('; '),
+    children_more_2: childList.slice(14).join('; '),
     pupils: input.service === 'send' || input.service === 'per' ? String(toInt(input.pupils)) : '',
     duration: needsDuration(input.service) ? `${toInt(input.duration)} minutes` : '',
     sessions: needsDuration(input.service) ? String(toInt(input.sessions)) : '',

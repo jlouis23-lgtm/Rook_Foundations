@@ -17,7 +17,7 @@ export const PRIVATE_FORMATS = [
 ];
 
 // After-school and lunchtime clubs on school premises, per child, per session.
-export const CLUB = { maxChildren: 12, price: { 30: 550, 60: 900 } };
+export const CLUB = { maxChildren: 20, price: { 30: 550, 60: 700 } };
 
 // SEND enrichment: fixed price per session for up to 6 pupils.
 export const SEND = { maxPupils: 6, price: { 30: 9500, 60: 15000 } };
@@ -30,11 +30,12 @@ export const PER = { price: 12500, minSessions: 4, maxPupils: 30 };
 export const TRAVEL_ZONES = [
   { id: 'local', label: 'Local', distance: 'Up to 5 miles', fee: 0, clubUplift: 0, towns: 'Great Dunmow, Felsted, Stebbing, Takeley' },
   { id: 'zone-2', label: 'Zone 2', distance: '5–10 miles', fee: 500, clubUplift: 0, towns: 'Thaxted, Stansted Mountfitchet, Hatfield Broad Oak' },
-  { id: 'zone-3', label: 'Zone 3', distance: '10–20 miles', fee: 1200, clubUplift: 100, towns: 'Chelmsford, Saffron Walden, Harlow, Witham, Halstead' },
-  { id: 'zone-4', label: 'Zone 4', distance: '20–30 miles', fee: 2000, clubUplift: 200, towns: 'Colchester, Sudbury, Brentwood, Billericay', sixtyOnly: true },
+  { id: 'zone-3', label: 'Zone 3', distance: '10–20 miles', fee: 1200, clubUplift: 50, towns: 'Chelmsford, Saffron Walden, Harlow, Witham, Halstead' },
+  { id: 'zone-4', label: 'Zone 4', distance: '20–30 miles', fee: 2000, clubUplift: 100, towns: 'Colchester, Sudbury, Brentwood, Billericay', sixtyOnly: true },
 ];
 
 export function formatPrice(pence) {
+  if (pence > 0 && pence < 100) return `${pence}p`;
   return pence % 100 === 0 ? `£${pence / 100}` : `£${(pence / 100).toFixed(2)}`;
 }
 
