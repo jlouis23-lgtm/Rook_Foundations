@@ -10,7 +10,9 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc -p ./jsconfig.json",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:db": "vitest run --config vitest.db.config.js",
+    "test:db:all": "BOOKING_TEST_PG=16 vitest run --config vitest.db.config.js && BOOKING_TEST_PG=17 vitest run --config vitest.db.config.js && BOOKING_TEST_PG=18 vitest run --config vitest.db.config.js"
   },
   "dependencies": {
     "@base44/sdk": "^0.8.41",
@@ -93,6 +95,9 @@
     "eslint-plugin-react-refresh": "^0.4.18",
     "eslint-plugin-unused-imports": "^4.3.0",
     "globals": "^15.14.0",
+    "pglite-pg16": "npm:@electric-sql/pglite@^0.2.17",
+    "pglite-pg17": "npm:@electric-sql/pglite@^0.3.16",
+    "pglite-pg18": "npm:@electric-sql/pglite@^0.5.9",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.2",

@@ -51,6 +51,10 @@ To test locally: `npx netlify dev` (serves the site and functions on http://loca
 
 For the live site, add a webhook endpoint in the Stripe dashboard pointing at `https://rookfoundations.co.uk/.netlify/functions/stripe-webhook` for the `checkout.session.completed` and `checkout.session.async_payment_succeeded` events, and use that endpoint's signing secret.
 
+**School clubs booking database (prepared, not yet in use)**
+
+The SQL for the planned school clubs booking system is in `supabase/migrations/` and is described in [`docs/school-clubs-database.md`](docs/school-clubs-database.md). It has not been applied to any Supabase project and nothing on the site uses it yet. Its tests run locally against an in-memory PostgreSQL with `npm run test:db` (PostgreSQL 17) or `npm run test:db:all` (16, 17 and 18); both are separate from `npm test`. `supabase/schema.sql` is a leftover from the removed Rook Play feature and is not part of it.
+
 **Publish your changes**
 
 Open [Base44.com](http://Base44.com) and click on Publish.
