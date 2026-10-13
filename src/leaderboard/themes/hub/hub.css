@@ -1,0 +1,15 @@
+[data-lb-theme='hub'] {
+  --lb-page: #faf8f2;
+  --lb-band: #f3eee2;
+  --lb-band-ink: #2d2520;
+  --lb-band-line: rgba(45, 37, 32, 0.16);
+  --lb-accent: #e8a020;
+  --lb-font-display: 'Fraunces', serif;
+  --lb-art: rgba(45, 37, 32, 0.13);
+}
+
+/* A quiet field of small crosses, like marks on a planning table. */
+.hub-texture {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Cpath d='M28 23v10M23 28h10' stroke='%232d2520' stroke-width='1.2' fill='none'/%3E%3C/svg%3E");
+  opacity: 0.05;
+}

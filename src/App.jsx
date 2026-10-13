@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { Toaster } from "@/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
 import { MotionConfig } from 'framer-motion'
@@ -34,6 +35,10 @@ import PlayGamePage from './pages/play/PlayGamePage';
 import PlayFriends from './pages/play/PlayFriends';
 import PlayChallenges from './pages/play/PlayChallenges';
 
+// Practitioner leaderboard: a separate application area, loaded on demand so
+// it adds nothing to the public site's bundle.
+const LeaderboardApp = lazy(() => import('./leaderboard/routes'));
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -65,6 +70,7 @@ const AppRoutes = () => {
           <Route path="/play/:childId/challenges" element={<PlayChallenges />} />
         </Route>
       </Route>
+      <Route path="/leaderboard/*" element={<Suspense fallback={null}><LeaderboardApp /></Suspense>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

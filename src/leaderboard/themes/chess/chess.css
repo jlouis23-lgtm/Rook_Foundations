@@ -1,0 +1,150 @@
+/* Console, tiles and header band */
+[data-lb-theme='chess'] {
+  --lb-page: #f6f2e8;
+  --lb-band: #1f1a16;
+  --lb-band-ink: #f6f1e4;
+  --lb-band-line: #1f1a16;
+  --lb-accent: #b8902e;
+  --lb-font-display: 'Cormorant Garamond', 'Fraunces', serif;
+  --lb-art: rgba(246, 241, 228, 0.3);
+}
+
+/* A chessboard far in the background, strongest in the lower corner and
+   gone before it reaches the middle of the page. */
+.ch-texture {
+  background: conic-gradient(#1f1a16 25%, transparent 0 50%, #1f1a16 0 75%, transparent 0) 0 0 / 7rem 7rem;
+  opacity: 0.04;
+  -webkit-mask-image: radial-gradient(120% 120% at 100% 100%, #000 0%, transparent 62%);
+  mask-image: radial-gradient(120% 120% at 100% 100%, #000 0%, transparent 62%);
+}
+
+.ch-texture-display {
+  opacity: 1;
+  background: none;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.ch-texture-display::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(#1f1a16 25%, transparent 0 50%, #1f1a16 0 75%, transparent 0) 0 0 / 14vh 14vh;
+  opacity: 0.045;
+  -webkit-mask-image: radial-gradient(110% 110% at 100% 100%, #000 0%, transparent 70%);
+  mask-image: radial-gradient(110% 110% at 100% 100%, #000 0%, transparent 70%);
+}
+
+/* The line-up reads as a set: alternate pieces sit a little further back. */
+.ch-frieze {
+  gap: 2.5%;
+}
+
+.ch-frieze > svg:nth-child(odd) {
+  opacity: 0.6;
+}
+
+.rf-display[data-theme='chess'] .lb-frieze {
+  color: rgba(31, 26, 22, 0.24);
+}
+
+/* Display */
+.rf-display[data-theme='chess'] {
+  --rfd-bg: #f6f1e4;
+  --rfd-ink: #1f1a16;
+  --rfd-muted: rgba(31, 26, 22, 0.62);
+  --rfd-line: rgba(31, 26, 22, 0.2);
+  --rfd-accent: #1f1a16;
+  --rfd-accent-ink: #f6f1e4;
+  --rfd-highlight: rgba(184, 144, 46, 0.2);
+  --rfd-surface: rgba(251, 248, 240, 0.94);
+  --rfd-font-display: 'Cormorant Garamond', 'Fraunces', serif;
+  --ch-dark: #1f1a16;
+  --ch-light: #e3d9c2;
+  --ch-gold: #b8902e;
+  /* Leave room for the chequered band across the top. */
+  padding-top: calc(var(--rfd-pad) + 2.2vh);
+}
+
+.ch-band {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2.2vh;
+  min-height: 12px;
+  background: repeating-linear-gradient(90deg, var(--ch-dark) 0 2.2vh, var(--ch-light) 2.2vh 4.4vh);
+}
+
+/* Keep the full-screen button clear of the band. */
+.rf-display[data-theme='chess'] .rfd-fullscreen {
+  top: calc(max(2.2vh, 12px) + 0.5rem);
+}
+
+.rf-display[data-theme='chess'] .rfd-title {
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+
+.rf-display[data-theme='chess'] .rfd-header {
+  border-bottom: 3px double var(--rfd-ink);
+}
+
+/* Alternate rows like the ranks of a board. */
+.rf-display[data-theme='chess'] .rfd-row:nth-child(odd) {
+  background: rgba(31, 26, 22, 0.055);
+}
+
+.rf-display[data-theme='chess'] .rfd-points {
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.ch-marker {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.12em;
+  width: calc(var(--row-h) * 1.25);
+  color: var(--rfd-ink);
+}
+
+.ch-piece {
+  font-size: calc(var(--row-h) * 0.62);
+  line-height: 1;
+}
+
+.ch-marker[data-place='1'] .ch-piece { color: var(--ch-gold); }
+
+.ch-rank {
+  font-family: var(--rfd-font-display);
+  font-weight: 700;
+  font-size: calc(var(--row-h) * 0.34);
+  font-variant-numeric: lining-nums;
+  line-height: 1;
+}
+
+/* Result squares: win is a dark square, draw is split, loss is a light one. */
+.ch-square {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--row-h) * 0.56);
+  height: calc(var(--row-h) * 0.56);
+  border: 2px solid var(--ch-dark);
+  font-family: var(--rfd-font-body);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ch-dark);
+  background: var(--rfd-bg);
+}
+
+.ch-square[data-outcome='win'] {
+  background: var(--ch-dark);
+  color: var(--rfd-bg);
+}
+
+.ch-square[data-outcome='draw'] {
+  background: linear-gradient(135deg, var(--ch-light) 50%, var(--rfd-bg) 50%);
+}
+
+.ch-square-letter { font-size: calc(var(--row-h) * 0.21); }
+.ch-square-points { font-size: calc(var(--row-h) * 0.16); margin-top: 0.15em; }

@@ -1,0 +1,265 @@
+/* The practitioner console's environment. Colours and typefaces come from
+   the active theme's --lb-* tokens; this file only fixes the structure. */
+
+.lb-console {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--lb-page);
+  color: #2d2520;
+  font-family: 'Karla', sans-serif;
+  transition: background-color 0.5s ease;
+}
+
+/* Texture stays put while the page scrolls. */
+.lb-console-texture {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  animation: lb-fade 0.7s ease both;
+}
+
+/* Header band: brand on the left, the game's imagery in the middle, the
+   name of the world on the right. Imagery lives only here. */
+.lb-band {
+  position: relative;
+  background: var(--lb-band);
+  color: var(--lb-band-ink);
+  border-bottom: 1px solid var(--lb-band-line);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.lb-band::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -4px 0;
+  height: 3px;
+  background: var(--lb-accent);
+  transition: background-color 0.5s ease;
+}
+
+.lb-band-inner {
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+  max-width: 72rem;
+  height: 4.75rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .lb-band-inner {
+    padding: 0 1.5rem;
+  }
+}
+
+.lb-brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: none;
+  color: inherit;
+}
+
+.lb-brand-kicker {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.lb-brand-name {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-family: 'Fraunces', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.lb-brand-name span[aria-hidden] {
+  color: var(--lb-accent);
+}
+
+.lb-band-art {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.lb-band-art > div {
+  position: absolute;
+  inset: 0.5rem 0 0 0;
+}
+
+.lb-world-name {
+  display: none;
+  align-items: center;
+  gap: 0.6rem;
+  flex: none;
+  font-family: var(--lb-font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.lb-world-name svg {
+  height: 1.7rem;
+  width: auto;
+  color: var(--lb-accent);
+}
+
+@media (min-width: 768px) {
+  .lb-world-name {
+    display: flex;
+  }
+}
+
+[data-lb-theme='seaforth'] .lb-world-name,
+.lb-tile[data-lb-theme='seaforth'] .lb-tile-name,
+[data-lb-theme='seaforth'] h1.lb-display-font {
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+[data-lb-theme='chess'] .lb-world-name,
+.lb-tile[data-lb-theme='chess'] .lb-tile-name,
+[data-lb-theme='chess'] h1.lb-display-font {
+  font-style: italic;
+}
+
+.lb-arrive {
+  animation: lb-arrive 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.lb-console-main {
+  flex: 1;
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.75rem 1rem 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .lb-console-main {
+    padding: 2.25rem 1.5rem 2rem;
+  }
+}
+
+.lb-console-footer {
+  border-top: 1px solid rgba(45, 37, 32, 0.15);
+}
+
+/* Game tiles on the hub: each is a doorway into that game's world, drawn
+   with the game's own colours, typeface and imagery. */
+.lb-tiles {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .lb-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.lb-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 14rem;
+  padding: 1.25rem 1.4rem 1.2rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: var(--lb-band);
+  color: var(--lb-band-ink);
+  box-shadow: inset 0 -4px 0 var(--lb-accent);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.lb-tile:hover,
+.lb-tile:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: inset 0 -4px 0 var(--lb-accent), 0 14px 30px -14px rgba(31, 26, 22, 0.55);
+}
+
+.lb-tile:focus-visible {
+  outline: 3px solid var(--lb-accent);
+  outline-offset: 3px;
+}
+
+/* Imagery keeps to the lower right, below the name and beside the button,
+   so it never runs behind either. */
+.lb-tile-art {
+  position: absolute;
+  inset: 44% 0 4px 50%;
+}
+
+.lb-tile-art .lb-frieze {
+  transition: transform 0.5s ease;
+}
+
+.lb-tile:hover .lb-tile-art .lb-frieze {
+  transform: translateX(-0.5rem);
+}
+
+.lb-tile-text {
+  position: relative;
+}
+
+.lb-tile-genre {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.lb-tile-name {
+  margin-top: 0.3rem;
+  font-family: var(--lb-font-display);
+  font-size: clamp(2.2rem, 5vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1;
+  color: inherit;
+}
+
+.lb-tile-go {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  align-self: flex-start;
+  padding: 0.45rem 0.9rem;
+  border-radius: 0.375rem;
+  background: var(--lb-accent);
+  color: #1f1a16;
+  font-weight: 800;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lb-tile,
+  .lb-tile-art .lb-frieze,
+  .lb-console,
+  .lb-band {
+    transition: none;
+  }
+  .lb-tile:hover {
+    transform: none;
+  }
+}
+
+@media print {
+  .lb-console-texture,
+  .lb-band-art {
+    display: none;
+  }
+}

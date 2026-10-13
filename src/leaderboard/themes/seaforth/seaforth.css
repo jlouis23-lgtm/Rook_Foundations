@@ -1,0 +1,156 @@
+/* Console, tiles and header band */
+[data-lb-theme='seaforth'] {
+  --lb-page: #eaf1f4;
+  --lb-band: #0c2536;
+  --lb-band-ink: #f4ecd8;
+  --lb-band-line: #0c2536;
+  --lb-accent: #e6ad3c;
+  --lb-font-display: 'Stardos Stencil', 'Fraunces', serif;
+  --lb-art: rgba(244, 236, 216, 0.34);
+}
+
+/* The game's hexagonal sea chart, far in the background. */
+.sf-texture {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='51.96'%3E%3Cpath d='M0 25.98L15 0H45L60 25.98L45 51.96H15ZM60 25.98H90' fill='none' stroke='%230c2536' stroke-width='1.2'/%3E%3C/svg%3E");
+  opacity: 0.09;
+  -webkit-mask-image: radial-gradient(120% 120% at 100% 100%, #000 0%, transparent 66%);
+  mask-image: radial-gradient(120% 120% at 100% 100%, #000 0%, transparent 66%);
+}
+
+.sf-texture-display {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='51.96'%3E%3Cpath d='M0 25.98L15 0H45L60 25.98L45 51.96H15ZM60 25.98H90' fill='none' stroke='%23f4ecd8' stroke-width='1.2'/%3E%3C/svg%3E");
+  background-size: 15.6vh 9vh;
+  opacity: 0.13;
+  -webkit-mask-image: radial-gradient(130% 130% at 100% 100%, #000 0%, transparent 80%);
+  mask-image: radial-gradient(130% 130% at 100% 100%, #000 0%, transparent 80%);
+}
+
+/* The fleet sails on a line of water along the bottom of its strip. */
+.sf-frieze {
+  gap: 5%;
+  padding-bottom: 7px;
+}
+
+.sf-frieze::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 10px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='10'%3E%3Cpath d='M0 5Q10 0 20 5T40 5T60 5T80 5' fill='none' stroke='%23f4ecd8' stroke-width='1.6'/%3E%3C/svg%3E") repeat-x 0 0 / 80px 10px;
+  opacity: 0.55;
+}
+
+/* The Flagship leads: nearer, brighter, and flying the accent pennant. */
+.sf-frieze .sf-ship {
+  opacity: 0.7;
+}
+
+.sf-frieze .sf-flagship {
+  color: color-mix(in srgb, var(--lb-band-ink) 52%, transparent);
+}
+
+.rf-display[data-theme='seaforth'] .lb-frieze {
+  color: rgba(244, 236, 216, 0.3);
+}
+
+.rf-display[data-theme='seaforth'] .sf-flagship {
+  color: rgba(244, 236, 216, 0.6);
+}
+
+/* Display */
+.rf-display[data-theme='seaforth'] {
+  --rfd-bg: #0c2536;
+  --rfd-ink: #f4ecd8;
+  --rfd-muted: rgba(244, 236, 216, 0.66);
+  --rfd-line: rgba(244, 236, 216, 0.22);
+  --rfd-accent: #e6ad3c;
+  --rfd-accent-ink: #0c2536;
+  --rfd-highlight: rgba(230, 173, 60, 0.16);
+  --rfd-surface: rgba(8, 27, 41, 0.82);
+  --lb-accent: #e6ad3c;
+  --rfd-font-display: 'Stardos Stencil', 'Fraunces', serif;
+  --sf-red: #d9482f;
+}
+
+.rf-display[data-theme='seaforth'] .rfd-title {
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.rf-display[data-theme='seaforth'] .rfd-name {
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Ship's-log ruling: a dashed line under every entry. */
+.rf-display[data-theme='seaforth'] .rfd-row {
+  border-bottom: 2px dashed var(--rfd-line);
+}
+
+.sf-pennant {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: calc(var(--row-h) * 0.95);
+  height: calc(var(--row-h) * 0.62);
+}
+
+.sf-pennant svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.sf-pennant path {
+  fill: transparent;
+  stroke: var(--rfd-ink);
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+}
+
+.sf-pennant[data-place='1'] path { fill: var(--sf-red); stroke: var(--sf-red); }
+.sf-pennant[data-place='2'] path { fill: var(--rfd-accent); stroke: var(--rfd-accent); }
+.sf-pennant[data-place='3'] path { fill: var(--rfd-ink); stroke: var(--rfd-ink); }
+
+.sf-pennant-number {
+  position: relative;
+  padding-right: 18%;
+  font-family: var(--rfd-font-display);
+  font-weight: 700;
+  font-size: calc(var(--row-h) * 0.36);
+  line-height: 1;
+  color: var(--rfd-ink);
+}
+
+.sf-pennant[data-place='1'] .sf-pennant-number { color: #fff; }
+.sf-pennant[data-place='2'] .sf-pennant-number,
+.sf-pennant[data-place='3'] .sf-pennant-number { color: var(--rfd-accent-ink); }
+
+/* Result flags: win is a solid flag, draw is split, loss is an outline. */
+.sf-flag {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--row-h) * 0.5);
+  height: calc(var(--row-h) * 0.6);
+  border: 2px solid var(--rfd-ink);
+  font-family: var(--rfd-font-body);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--rfd-ink);
+}
+
+.sf-flag[data-outcome='win'] {
+  background: var(--rfd-accent);
+  border-color: var(--rfd-accent);
+  color: var(--rfd-accent-ink);
+}
+
+.sf-flag[data-outcome='draw'] {
+  background: linear-gradient(135deg, rgba(244, 236, 216, 0.28) 50%, transparent 50%);
+}
+
+.sf-flag-letter { font-size: calc(var(--row-h) * 0.22); }
+.sf-flag-points { font-size: calc(var(--row-h) * 0.17); margin-top: 0.15em; }

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { ArrowRight, ArrowDown } from 'lucide-react';
+import { ArrowRight, ArrowDown, Trophy } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import Reveal from '@/components/ui/Reveal';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
@@ -25,6 +25,27 @@ function FormatHeading({ label, title, tagline, colour }) {
         {title}
       </h2>
       <p className="mt-3 font-fredoka text-lg italic leading-snug text-[#2D2520]/80">{tagline}</p>
+    </div>
+  );
+}
+
+// Entry point to the Strategy Leaderboard, the practitioner-run scoring
+// board used during club sessions. One sits in each club's section, in that
+// club's colour.
+function LeaderboardButton({ club, colour }) {
+  return (
+    <div>
+      <MotionLink
+        whileTap={ctaTap}
+        to="/leaderboard"
+        onClick={() => window.scrollTo(0, 0)}
+        className="inline-flex min-h-11 items-center gap-2 rounded-2xl px-6 py-3 font-fredoka text-base font-600 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2D2520] focus-visible:ring-offset-2"
+        style={{ backgroundColor: colour.deep }}
+      >
+        <Trophy size={18} aria-hidden="true" />
+        {club} leaderboard
+        <ArrowRight size={16} aria-hidden="true" />
+      </MotionLink>
     </div>
   );
 }
@@ -129,6 +150,7 @@ export default function Booking() {
               >
                 See the full chess curriculum <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </MotionLink>
+              <LeaderboardButton club="Chess Club" colour={CHESS} />
             </Reveal>
           </div>
         </div>
@@ -157,6 +179,7 @@ export default function Booking() {
             <p className="font-nunito text-[0.95rem] leading-relaxed text-[#2D2520]/75">
               Seaforth is a 2 player strategy game by Will Davies.
             </p>
+            <LeaderboardButton club="Seaforth Commanders" colour={SEAFORTH} />
           </Reveal>
         </div>
       </section>

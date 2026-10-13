@@ -1,0 +1,63 @@
+/* Pieces shared by every theme. Tokens come from the theme's own stylesheet
+   via [data-lb-theme]. */
+
+/* Full-bleed pattern layer. Pattern only: safe to sit behind content. */
+.lb-texture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Imagery strip. Items stand on a shared baseline and are right-aligned;
+   the left edge fades out so the strip can be cropped at any width. */
+.lb-frieze {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 4%;
+  padding: 0 4% 0 0;
+  overflow: hidden;
+  pointer-events: none;
+  color: var(--lb-art);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 22%);
+  mask-image: linear-gradient(to right, transparent, #000 22%);
+}
+
+.lb-frieze > svg {
+  flex: none;
+  width: auto;
+}
+
+.lb-flag {
+  fill: var(--lb-accent);
+}
+
+.lb-display-font {
+  font-family: var(--lb-font-display);
+}
+
+@keyframes lb-arrive {
+  from {
+    opacity: 0;
+    transform: translateX(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes lb-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lb-arrive,
+  .lb-fade {
+    animation: none !important;
+  }
+}
