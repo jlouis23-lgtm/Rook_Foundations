@@ -17,6 +17,9 @@ module.exports = {
         nunito: ['Karla', 'sans-serif'],
         lato: ['Karla', 'sans-serif'],
         oswald: ['Fraunces', 'serif'],
+        // Later Life Enrichment page only, so the offering reads as separate
+        // from the children's work.
+        hyperlegible: ['"Atkinson Hyperlegible Next"', 'sans-serif'],
       },
       fontWeight: {
         // Numeric weight utilities (font-600, font-700, font-800 etc.) used

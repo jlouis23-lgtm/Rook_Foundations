@@ -12,6 +12,7 @@ const navLinks = [
   { label: 'Explore Sessions', path: '/sessions' },
   { label: 'Pricing', path: '/pricing' },
   { label: 'Rook Clubs', path: '/clubs' },
+  { label: 'Later Life Enrichment', path: '/later-life-enrichment' },
   { label: 'Contact', path: '/contact' },
 ];
 
@@ -48,7 +49,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden xl:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -76,7 +77,9 @@ export default function Navbar() {
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden w-10 h-10 flex items-center justify-center text-[#2D2520] hover:text-[#E8A020] transition-colors"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+            className="xl:hidden w-10 h-10 flex items-center justify-center text-[#2D2520] hover:text-[#E8A020] transition-colors"
           >
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -90,14 +93,14 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="fixed top-20 left-0 right-0 bottom-0 z-40 bg-[#FAFAF7] border-t border-[#E8A020]/15 flex flex-col"
+            className="fixed top-20 left-0 right-0 bottom-0 z-40 bg-[#FAFAF7] border-t border-[#E8A020]/15 flex flex-col overflow-y-auto"
           >
-            <div className="flex-1 flex flex-col justify-center px-8 gap-2">
+            <div className="flex-1 flex flex-col px-8 py-4 gap-2"><div className="my-auto flex flex-col gap-2">
               {navLinks.map((link, i) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="flex items-center gap-4 py-4 border-b border-[#2D2520]/6 group"
+                  className="flex items-center gap-4 py-3 border-b border-[#2D2520]/6 group"
                 >
                   <span className="font-nunito text-[#E8A020]/50 text-xs font-700">{String(i + 1).padStart(2, '0')}.</span>
                   <span className="font-fredoka text-[#2D2520] text-3xl group-hover:text-[#E8A020] transition-colors">
@@ -112,6 +115,7 @@ export default function Navbar() {
               >
                 Register Your Interest
               </MotionLink>
+              </div>
             </div>
           </motion.div>
         )}

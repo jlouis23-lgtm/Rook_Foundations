@@ -24,6 +24,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import Events from './pages/Events';
 import Schools from './pages/Schools';
 import SendPupils from './pages/SendPupils';
+import LaterLifeEnrichment from './pages/LaterLifeEnrichment';
 
 // Practitioner leaderboard: a separate application area, loaded on demand so
 // it adds nothing to the public site's bundle.
@@ -49,6 +50,7 @@ const AppRoutes = () => {
         <Route path="/clubs" element={<Events />} />
         <Route path="/schools" element={<Schools />} />
         <Route path="/schools/send" element={<SendPupils />} />
+        <Route path="/later-life-enrichment" element={<LaterLifeEnrichment />} />
       </Route>
       <Route path="/leaderboard/*" element={<Suspense fallback={null}><LeaderboardApp /></Suspense>} />
       <Route path="*" element={<PageNotFound />} />
