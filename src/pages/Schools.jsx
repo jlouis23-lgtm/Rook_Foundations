@@ -5,6 +5,7 @@ import ChessBg from '@/components/ui/ChessBg';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import Reveal from '@/components/ui/Reveal';
 import { usePageMeta } from '@/hooks/use-page-meta';
+import RookMark from '@/components/ui/RookMark';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -322,7 +323,7 @@ export default function Schools() {
           className="max-w-2xl mx-auto px-6 lg:px-12 text-center relative z-10"
         >
           <div className="mb-6 text-center">
-            <span className="text-white leading-none" style={{ fontSize: '2.5rem' }}>♜</span>
+            <RookMark className="inline-block h-10 w-auto text-white" />
           </div>
           <h2 className="font-fredoka text-white mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)' }}>
             A session built around your school

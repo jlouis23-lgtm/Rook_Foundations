@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ArrowDown, ArrowUpRight } from 'lucide-react';
+import RookMark from '@/components/ui/RookMark';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -133,7 +134,7 @@ function MobileStaircase() {
                 </span>
                 <span className="font-fredoka text-white text-sm leading-snug flex-1 pr-1">{step.title}</span>
                 {isLast && (
-                  <span className="absolute top-2.5 right-3 text-white/70 text-sm leading-none" aria-hidden="true">♜</span>
+                  <RookMark className="absolute top-2.5 right-3 h-3.5 w-auto text-white/70" />
                 )}
               </button>
             </motion.div>

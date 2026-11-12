@@ -8,6 +8,7 @@ import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import Reveal from '@/components/ui/Reveal';
 import { usePageMeta } from '@/hooks/use-page-meta';
 import { CLUB, PER, PRIVATE_FORMATS, SEND, TRAVEL_ZONES, formatPrice } from '@/data/pricing';
+import RookMark from '@/components/ui/RookMark';
 
 // All figures come from src/data/pricing.js, which the checkout function
 // also charges from. Chess and general strategy-game sessions are priced
@@ -394,7 +395,7 @@ export default function Pricing() {
         <ChessBg variant="pricingcta" color="#ffffff" />
         <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center relative z-10">
           <div className="mb-6 text-center">
-            <span className="text-white leading-none" style={{ fontSize: '2.5rem' }}>♜</span>
+            <RookMark className="inline-block h-10 w-auto text-white" />
           </div>
           <h2 className="font-fredoka text-white text-3xl mb-4">Not sure where to start?</h2>
           <p className="font-nunito text-white/80 text-base leading-relaxed mb-8 max-w-xl mx-auto">

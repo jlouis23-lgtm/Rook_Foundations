@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, FlaskConical, GraduationCap, HeartHandshake, Shi
 import ChessBg from '@/components/ui/ChessBg';
 import Reveal from '@/components/ui/Reveal';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
+import RookMark from '@/components/ui/RookMark';
 
 const sections = [
   {
@@ -243,7 +244,7 @@ export default function ResearchSummary() {
       <section className="mt-20 py-20 text-center bg-[#E8A020] relative overflow-hidden">
         <ChessBg variant="cta" color="#ffffff" />
         <div className="max-w-2xl mx-auto px-6 relative z-10">
-          <div className="text-white text-4xl mb-4">♜</div>
+          <div className="mb-4 flex justify-center"><RookMark className="h-10 w-auto text-white" /></div>
           <h2 className="font-fredoka text-white mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)' }}>
             Want to talk about your child?
           </h2>

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useThemeFonts } from '../themes/useThemeFonts';
 import { useNoIndex } from '../useNoIndex';
 import './display.css';
+import RookMark from '@/components/ui/RookMark';
 
 const MAX_SINGLE_COLUMN = 9;
 const RECENT_SHOWN = 5;
@@ -135,7 +136,10 @@ export default function DisplayBoard({
       <footer className="rfd-footer">
         <p className="rfd-latest" aria-live="polite">{footerLeft}</p>
         <p className="rfd-key">{scoringKey}</p>
-        <p className="rfd-brand">♜ Rook Foundations</p>
+        <p className="rfd-brand">
+          <RookMark className="rfd-brand-mark" />
+          Rook Foundations
+        </p>
       </footer>
 
       {spotlightId && renderSpotlight(spotlightId, () => setSpotlightId(null))}

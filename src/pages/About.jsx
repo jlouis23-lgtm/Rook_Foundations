@@ -12,6 +12,7 @@ import ChessBg from '@/components/ui/ChessBg';
 import JourneyTimeline from '../components/about/JourneyTimeline';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import { usePageMeta } from '@/hooks/use-page-meta';
+import RookMark from '@/components/ui/RookMark';
 
 export default function About() {
   const { hash } = useLocation();
@@ -116,7 +117,7 @@ export default function About() {
               >"</div>
 
               <div className="relative bg-[#2D2520] rounded-3xl px-10 py-10 sm:px-12 sm:py-12 shadow-2xl shadow-[#2D2520]/20 overflow-hidden">
-                <div className="absolute right-6 bottom-4 text-white/5 font-fredoka select-none pointer-events-none" style={{ fontSize: '8rem', lineHeight: 1 }} aria-hidden="true">♜</div>
+                <RookMark className="absolute right-6 bottom-4 h-28 w-auto text-white/5 select-none pointer-events-none" />
                 <p className="relative z-10 font-fredoka text-white leading-tight" style={{ fontSize: 'clamp(1.45rem, 3.2vw, 2.2rem)' }}>
                   "School taught me how to think.
                 </p>
@@ -154,7 +155,7 @@ export default function About() {
       <section className="py-20 text-center bg-[#E8A020] relative overflow-hidden">
         <ChessBg variant="cta" color="#ffffff" />
         <div className="max-w-2xl mx-auto px-6 relative z-10">
-          <div className="text-white text-4xl mb-4">♜</div>
+          <div className="mb-4 flex justify-center"><RookMark className="h-10 w-auto text-white" /></div>
           <h2 className="font-fredoka text-white mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)' }}>
             Ready to meet in person?
           </h2>

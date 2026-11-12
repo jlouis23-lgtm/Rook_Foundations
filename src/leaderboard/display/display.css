@@ -207,6 +207,14 @@
   color: var(--rfd-muted);
 }
 
+.rfd-brand-mark {
+  display: inline-block;
+  height: 0.95em;
+  width: auto;
+  margin-right: 0.4em;
+  vertical-align: -0.1em;
+}
+
 .rfd-fullscreen {
   position: absolute;
   top: 0.6rem;

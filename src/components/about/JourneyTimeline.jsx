@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TrendingUp, X } from 'lucide-react';
+import RookMark from '@/components/ui/RookMark';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -111,7 +112,7 @@ export default function JourneyTimeline() {
                 >
                   <div className="w-2 h-px bg-[#2D2520]/20 flex-shrink-0" />
                   {i === finalIndex ? (
-                    <span className="text-[#E8A020] text-sm leading-none">♜</span>
+                    <RookMark className="h-3.5 w-auto text-[#E8A020]" />
                   ) : (
                     <span className="font-nunito text-[#2D2520]/45 text-[10px] sm:text-xs font-700 whitespace-nowrap">
                       {entry.year}
@@ -218,7 +219,7 @@ export default function JourneyTimeline() {
                   className="relative w-11 h-11 rounded-full flex items-center justify-center shadow-lg shadow-[#E8A020]/40 border-2 border-white"
                   style={{ background: 'linear-gradient(180deg, #F4C261 0%, #E8A020 55%, #c98a12 100%)' }}
                 >
-                  <span className="text-white text-xl leading-none">♜</span>
+                  <RookMark className="h-5 w-auto text-white" />
                 </motion.span>
               </motion.button>
             </div>

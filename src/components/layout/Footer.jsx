@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
+import RookMark from '@/components/ui/RookMark';
 
 const WHATSAPP_URL = 'https://wa.me/447466760885';
 
@@ -35,7 +36,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-12 h-12 bg-[#E8A020] rounded-2xl flex items-center justify-center shadow-lg shadow-[#E8A020]/20">
-                <span className="text-white text-2xl leading-none">♜</span>
+                <RookMark className="h-[26px] w-auto text-white" />
               </div>
               <div>
                 <span className="font-fredoka text-white text-xl leading-none block">Rook</span>
@@ -125,7 +126,7 @@ export default function Footer() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <span className="text-[#E8A020] text-lg">♜</span>
+            <RookMark className="h-4 w-auto text-[#E8A020]" />
             <span className="font-nunito text-white/30 text-xs">More than a game. Skills for life.</span>
           </div>
         </div>

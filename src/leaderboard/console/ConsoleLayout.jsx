@@ -6,6 +6,7 @@ import { useThemeFonts } from '../themes/useThemeFonts';
 import { useNoIndex } from '../useNoIndex';
 import { ConsoleThemeContext } from './ConsoleTheme';
 import './console.css';
+import RookMark from '@/components/ui/RookMark';
 
 // The practitioner console's frame. One Rook Foundations shell; the header
 // band, background texture and accents change with the game being played.
@@ -31,7 +32,7 @@ export default function ConsoleLayout() {
             <Link to="/leaderboard" className="lb-brand">
               <span className="lb-brand-kicker">Rook Foundations</span>
               <span className="lb-brand-name">
-                <span aria-hidden="true">♜</span>
+                <RookMark className="lb-brand-mark" />
                 Strategy Leaderboard
               </span>
             </Link>

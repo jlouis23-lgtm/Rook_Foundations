@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, ChevronRight } from 'lucide-react';
+import RookMark from '@/components/ui/RookMark';
 
 const EASE = [0.22, 1, 0.36, 1];
 const INK = '#2D2520';
@@ -49,7 +50,7 @@ function linePath({ x, y, bend }) {
 
 const PATHS = LAYOUT.map(linePath);
 
-// The Rook Foundations mark: the amber rounded badge with the ♜ glyph used
+// The Rook Foundations mark: the amber rounded badge with the R mark used
 // in the site header, drawn large. `size` is the badge's own CSS width.
 function RookBadge({ lit, glyphSize, size, breathe }) {
   return (
@@ -64,9 +65,7 @@ function RookBadge({ lit, glyphSize, size, breathe }) {
         className="flex h-full w-full items-center justify-center bg-[#E8A020] shadow-xl shadow-[#E8A020]/30 transition-transform duration-500"
         style={{ borderRadius: '36%', transform: lit ? 'scale(1.05)' : 'scale(1)' }}
       >
-        <span aria-hidden="true" className="leading-none text-white" style={{ fontSize: glyphSize }}>
-          ♜
-        </span>
+        <RookMark className="w-auto text-white" style={{ height: `calc(${glyphSize} * 0.8)` }} />
       </div>
     </motion.div>
   );

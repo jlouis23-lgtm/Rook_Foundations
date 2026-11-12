@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MotionLink, ctaTap } from '@/components/ui/MotionLink';
+import RookMark from '@/components/ui/RookMark';
 
 const navLinks = [
   { label: 'Home', path: '/' },
@@ -40,7 +41,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             <div className="w-11 h-11 bg-[#E8A020] rounded-2xl flex items-center justify-center group-hover:bg-[#d4940e] transition-colors duration-300 shadow-md shadow-[#E8A020]/30">
-              <span className="text-white text-2xl leading-none">♜</span>
+              <RookMark className="h-6 w-auto text-white" />
             </div>
             <div>
               <span className="font-fredoka text-[#2D2520] text-xl font-600 leading-none block">Rook</span>

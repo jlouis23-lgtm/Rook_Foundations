@@ -83,7 +83,10 @@
   line-height: 1.15;
 }
 
-.lb-brand-name span[aria-hidden] {
+.lb-brand-mark {
+  align-self: center;
+  height: 0.95em;
+  width: auto;
   color: var(--lb-accent);
 }
 
