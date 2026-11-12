@@ -1,4 +1,5 @@
 import HeroSection from '../components/home/HeroSection';
+import MissionStatement from '../components/home/MissionStatement';
 import WorkshopPhoto from '../components/home/WorkshopPhoto';
 import PreLaunchNotice from '../components/home/PreLaunchNotice';
 import TestimonialsPreview from '../components/home/TestimonialsPreview';
@@ -15,6 +16,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <MissionStatement />
       <WorkshopPhoto />
       <PreLaunchNotice />
       <TestimonialsPreview />
