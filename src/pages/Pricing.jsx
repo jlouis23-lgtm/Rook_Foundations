@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
-import { ArrowRight, Check, Clock } from 'lucide-react';
+import { ArrowRight, Check, Clock, Settings } from 'lucide-react';
 import ChessBg from '@/components/ui/ChessBg';
 import PeopleIcon from '@/components/pricing/PeopleIcon';
 import BookingForm from '@/components/pricing/BookingForm';
@@ -187,17 +187,43 @@ function PricingSection({ id, eyebrow, title, intro, rows, unit, notes, bg, chil
   );
 }
 
+// While pricing is being formalised the whole page is blurred, covered by a
+// message and locked against scrolling. Nothing below is deleted: set this to
+// false to bring the full page back. The one exception is the return from
+// Stripe Checkout (/pricing?booking=success or =cancelled), which must still
+// show the payment confirmation.
+const PRICING_PAUSED = true;
+
 export default function Pricing() {
   const { hash } = useLocation();
   const [searchParams] = useSearchParams();
   const bookingStatus = searchParams.get('booking');
+  const paused = PRICING_PAUSED && !bookingStatus;
 
   usePageMeta(
     'Session Pricing | Rook Foundations',
-    'Clear prices for 30 and 60-minute chess and strategy-game sessions: private 1-to-1 and group sessions and school clubs, plus planned SEND enrichment for schools.'
+    paused
+      ? 'Rook Foundations pricing is being formalised and will be available at the start of the new year, 2027.'
+      : 'Clear prices for 30 and 60-minute chess and strategy-game sessions: private 1-to-1 and group sessions and school clubs, plus planned SEND enrichment for schools.'
   );
 
+  // Lock scrolling while the page is paused, and put it back exactly as it was.
   useEffect(() => {
+    if (!paused) return undefined;
+    const html = document.documentElement;
+    const body = document.body;
+    const previous = [html.style.overflow, body.style.overflow];
+    window.scrollTo(0, 0);
+    html.style.overflow = 'hidden';
+    body.style.overflow = 'hidden';
+    return () => {
+      html.style.overflow = previous[0];
+      body.style.overflow = previous[1];
+    };
+  }, [paused]);
+
+  useEffect(() => {
+    if (paused) return;
     if (hash) {
       const el = document.querySelector(hash);
       if (el) {
@@ -206,10 +232,16 @@ export default function Pricing() {
       }
     }
     window.scrollTo(0, 0);
-  }, [hash]);
+  }, [hash, paused]);
 
   return (
-    <div className="bg-[#FAFAF7] pt-32">
+    <>
+    <div
+      className={`bg-[#FAFAF7] pt-32 ${paused ? 'h-screen overflow-hidden blur-md select-none pointer-events-none' : ''}`}
+      // The content stays in the page but is unreachable by keyboard or screen reader while paused.
+      inert={paused ? '' : undefined}
+      aria-hidden={paused ? true : undefined}
+    >
       {/* Header */}
       <section className="relative overflow-hidden py-20">
         <ChessBg variant="pricing" />
@@ -411,5 +443,40 @@ export default function Pricing() {
         </div>
       </section>
     </div>
+
+    {paused && (
+      <div
+        className="fixed inset-x-0 bottom-0 top-20 z-30 flex items-center justify-center px-6 bg-[#FAFAF7]/60 backdrop-blur-md overscroll-none touch-none"
+        role="region"
+        aria-labelledby="pricing-paused-title"
+      >
+        <div className="w-full max-w-lg text-center bg-white border border-[#2D2520]/10 rounded-3xl shadow-xl shadow-[#2D2520]/5 px-7 py-10 sm:px-10">
+          <span
+            className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#E8A020]/15 text-[#8a5a06]"
+            aria-hidden="true"
+          >
+            {/* A slow-turning cog: pricing is a work in progress. Stands still for visitors who prefer reduced motion. */}
+            <Settings size={28} className="animate-[spin_10s_linear_infinite] motion-reduce:animate-none" />
+          </span>
+          <span className="inline-flex font-nunito text-sm font-800 uppercase tracking-widest mb-3 text-[#8a5a06]">
+            Pricing update
+          </span>
+          <h1 id="pricing-paused-title" className="font-fredoka text-[#2D2520] leading-tight mb-4" style={{ fontSize: 'clamp(1.75rem, 4.5vw, 2.4rem)' }}>
+            Our pricing is being formalised
+          </h1>
+          <p className="font-nunito text-[#2D2520]/75 text-base sm:text-lg leading-relaxed">
+            Full pricing will be available at the start of the new year, 2027.
+          </p>
+          <Link
+            to="/contact"
+            onClick={() => window.scrollTo(0, 0)}
+            className="inline-flex items-center gap-1.5 mt-6 font-nunito text-base font-700 underline underline-offset-4 decoration-[#E8A020] decoration-2 text-[#2D2520] hover:text-[#8a5a06] transition-colors"
+          >
+            In the meantime, get in touch <ArrowRight size={16} />
+          </Link>
+        </div>
+      </div>
+    )}
+    </>
   );
 }
