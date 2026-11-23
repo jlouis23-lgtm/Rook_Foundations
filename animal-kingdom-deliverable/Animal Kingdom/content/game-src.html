@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Animal Kingdom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap">
+<style>
+/* Animal Kingdom · Finite Games · Years 5–8. Real photographs lead; five group colours for the answer buttons. */
+:root {
+  --bg: #f5f4ef; --card: #ffffff; --ink: #1d2230; --muted: #5b6070; --line: #e1dfd6;
+  --mammal: #b5532a; --insect: #6a8a12; --bird: #1f6fb8; --reptile: #7a4fb0; --amphibian: #0f8a7a;
+  --good: #1e8f4e; --good-soft: #dff3e6; --try: #c2410c; --try-soft: #fde9dd;
+  --gold-mark: #e8a020;
+  --sans: "Nunito", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --radius: 20px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121419; --card: #1c1f27; --ink: #f0f1f4; --muted: #a8acba; --line: #2e323e;
+    --good-soft: #163324; --try-soft: #3a2116; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121419; --card: #1c1f27; --ink: #f0f1f4; --muted: #a8acba; --line: #2e323e;
+  --good-soft: #163324; --try-soft: #3a2116; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 18px; line-height: 1.45; -webkit-font-smoothing: antialiased; }
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible, a:focus-visible { outline: 4px solid var(--ink); outline-offset: 3px; }
+a { color: inherit; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 16px 36px; }
+.screen { display: none; }
+.screen.on { display: block; }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; }
+.brand { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 14px; font-weight: 800; letter-spacing: .03em; text-decoration: none; }
+.brand svg { width: 15px; height: 16px; }
+.age { background: var(--ink); color: var(--bg); font-weight: 900; font-size: 14px; letter-spacing: .04em; padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
+
+/* home */
+.hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 22px; align-items: stretch; margin: 4px 0 22px; }
+h1 { font-size: clamp(42px, 6.4vw, 72px); line-height: .98; margin: 0; font-weight: 900; letter-spacing: -.015em; }
+.sub { font-size: clamp(20px, 2.4vw, 28px); font-weight: 900; color: var(--muted); margin: 6px 0 0; }
+.intro { font-size: 19px; margin: 14px 0 0; max-width: 44ch; }
+.groupline { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
+.groupline li { color: #fff; font-weight: 900; font-size: 14px; letter-spacing: .06em; padding: 5px 12px; border-radius: 999px; }
+.startcard { background: var(--card); border: 2px solid var(--line); border-radius: var(--radius); padding: 18px 20px; display: grid; gap: 14px; align-content: start; }
+.startcard h2 { margin: 0; font-size: 15px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.opt { border: 3px solid var(--line); background: var(--bg); border-radius: 16px; padding: 10px 12px; font-weight: 900; font-size: 22px; min-height: 70px; text-align: left; }
+.opt small { display: block; font-size: 14px; font-weight: 700; color: var(--muted); line-height: 1.3; }
+.opt[aria-pressed="true"] { border-color: var(--ink); background: var(--card); box-shadow: 0 4px 0 var(--ink); }
+.go { border: 0; border-radius: 18px; background: var(--ink); color: var(--bg); font-weight: 900; font-size: 26px; padding: 16px; min-height: 68px; box-shadow: 0 5px 0 rgba(0,0,0,.25); }
+.go:disabled { opacity: .4; cursor: not-allowed; box-shadow: none; }
+.go:not(:disabled):active { transform: translateY(3px); box-shadow: 0 2px 0 rgba(0,0,0,.25); }
+.hint { margin: 0; font-size: 15px; color: var(--muted); font-weight: 700; }
+.mosaic { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.tile { margin: 0; border-radius: 16px; overflow: hidden; background: var(--card); border: 2px solid var(--line); }
+.tile img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; background: var(--line); }
+.tile figcaption { color: #fff; font-weight: 900; font-size: 15px; letter-spacing: .06em; padding: 6px 10px; text-transform: uppercase; }
+.rules { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 20px 0 0; }
+.rule { background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 12px 14px; font-weight: 700; font-size: 15px; color: var(--muted); }
+.rule b { display: block; color: var(--ink); font-size: 17px; font-weight: 900; }
+.foot { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--muted); font-size: 14px; font-weight: 700; }
+.linkbtn { border: 0; background: none; padding: 0; text-decoration: underline; color: var(--muted); font-weight: 800; font-size: 14px; }
+
+/* game */
+.hud { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 12px 0; }
+.pill { background: var(--card); border: 2px solid var(--line); border-radius: 999px; padding: 6px 14px; font-weight: 900; font-size: 20px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pill small { color: var(--muted); font-weight: 800; font-size: 13px; margin-right: 6px; text-transform: uppercase; letter-spacing: .05em; }
+.pill.time { font-size: 24px; }
+.pill.time.low { border-color: var(--try); color: var(--try); }
+.spacer { flex: 1; }
+.quit { border: 2px solid var(--line); background: var(--card); border-radius: 999px; padding: 6px 14px; font-weight: 800; font-size: 15px; }
+.play { display: grid; gap: 14px; }
+.photo { position: relative; margin: 0; background: #0d0f14; border-radius: var(--radius); overflow: hidden; height: min(56vh, 560px); min-height: 240px; display: grid; place-items: center; }
+.photo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.photo .credit { position: absolute; left: 0; right: 0; bottom: 0; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #fff; background: linear-gradient(0deg, rgba(0,0,0,.7), rgba(0,0,0,0)); text-align: right; }
+.fbband { position: absolute; left: 12px; right: 12px; top: 12px; border-radius: 16px; padding: 12px 16px; display: none; gap: 2px; box-shadow: 0 6px 20px rgba(0,0,0,.25); }
+.fbband.on { display: grid; }
+.fbband.right { background: var(--good-soft); border: 3px solid var(--good); }
+.fbband.wrong { background: var(--try-soft); border: 3px solid var(--try); }
+.fbband .big { font-size: clamp(24px, 3vw, 32px); font-weight: 900; margin: 0; letter-spacing: .02em; }
+.fbband.right .big { color: var(--good); } .fbband.wrong .big { color: var(--try); }
+.fbband p { margin: 0; font-weight: 800; font-size: clamp(16px, 1.8vw, 20px); }
+.fbband .sci { font-style: italic; font-weight: 700; color: var(--muted); font-size: 14px; }
+.q { font-size: clamp(20px, 2.3vw, 26px); font-weight: 900; margin: 0; text-align: center; }
+.answers { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.ans { border: 0; border-radius: 18px; min-height: 84px; font-weight: 900; font-size: clamp(16px, 2vw, 24px); letter-spacing: .06em; color: #fff; box-shadow: 0 6px 0 rgba(0,0,0,.25); padding: 8px 6px; }
+.ans .kbd { display: block; font-size: 12px; font-weight: 900; opacity: .75; letter-spacing: 0; margin-top: 2px; }
+.ans:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(0,0,0,.25); }
+.ans[disabled] { cursor: default; }
+.ans.dim { opacity: .35; }
+.ans.pick { outline: 4px solid var(--ink); outline-offset: 2px; }
+.g-Mammal { background: var(--mammal); } .g-Insect { background: var(--insect); } .g-Bird { background: var(--bird); }
+.g-Reptile { background: var(--reptile); } .g-Amphibian { background: var(--amphibian); }
+.ready { text-align: center; padding: 60px 0; font-weight: 900; font-size: 22px; color: var(--muted); }
+
+/* results */
+.res { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; margin-top: 6px; }
+.card { background: var(--card); border: 2px solid var(--line); border-radius: var(--radius); padding: 20px; }
+.res h2 { margin: 0; font-size: clamp(28px, 3.6vw, 42px); font-weight: 900; line-height: 1.05; }
+.res .line { font-size: 19px; font-weight: 700; margin: 8px 0 16px; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.stat { background: var(--bg); border-radius: 14px; padding: 10px 12px; }
+.stat b { display: block; font-size: 28px; font-weight: 900; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 13px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.stat.main { background: var(--ink); color: var(--bg); }
+.stat.main span { color: var(--bg); opacity: .8; }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.btn { border: 3px solid var(--ink); background: var(--card); border-radius: 16px; padding: 12px 18px; font-weight: 900; font-size: 19px; }
+.btn.primary { background: var(--ink); color: var(--bg); }
+.fact { display: grid; gap: 12px; align-content: start; }
+.fact .tag { font-size: 14px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-mark); margin: 0; }
+.fact img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 14px; display: block; background: var(--line); }
+.fact h3 { margin: 0; font-size: 24px; font-weight: 900; }
+.fact h3 i { font-weight: 700; font-size: 16px; color: var(--muted); }
+.fact .text { font-size: 21px; font-weight: 800; margin: 0; }
+.fact .src { font-size: 14px; color: var(--muted); font-weight: 700; margin: 0; }
+.fact .pc { font-size: 12px; color: var(--muted); margin: 0; }
+
+/* credits */
+.credits h2 { font-size: 32px; margin: 4px 0 6px; }
+.credits p { max-width: 70ch; }
+.credits table { width: 100%; border-collapse: collapse; font-size: 14px; background: var(--card); border-radius: 14px; overflow: hidden; }
+.credits th, .credits td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.credits th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.credits .tw { overflow-x: auto; }
+
+@media (max-width: 860px) {
+  .hero, .res { grid-template-columns: 1fr; }
+  .mosaic { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+  .tile figcaption { font-size: 11px; padding: 4px 6px; letter-spacing: .02em; }
+  .rules { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px) {
+  .answers { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+  .answers .ans { grid-column: span 2; min-height: 64px; font-size: 16px; letter-spacing: .03em; }
+  .answers .ans:nth-child(4) { grid-column: 2 / span 2; }
+  .photo { height: 42vh; }
+  .pill { font-size: 16px; padding: 4px 10px; } .pill.time { font-size: 18px; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .opt { font-size: 19px; }
+}
+@media (max-width: 400px) {
+  .answers .ans { font-size: 14px; letter-spacing: 0; padding: 8px 2px; }
+}
+@media (max-width: 620px) and (max-height: 720px) {
+  .photo { height: 32vh; min-height: 170px; }
+  .answers .ans { min-height: 54px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <span class="brand"><svg viewBox="12 11 24 26" aria-hidden="true"><g fill="var(--gold-mark)"><rect x="12" y="11" width="7" height="26" rx="1.5"/><path d="M21 11h7.5a7.5 7.5 0 0 1 0 15H21v-5h7a2.5 2.5 0 0 0 0-5h-7Z"/><path d="M23.5 28h7l5.5 9h-7Z"/></g></svg>FINITE GAMES · Science</span>
+    <span class="age" id="ageTag">Years 5–8</span>
+  </header>
+
+  <!-- HOME -->
+  <section class="screen on" id="home" aria-labelledby="t1">
+    <div class="hero">
+      <div>
+        <h1 id="t1">Animal Kingdom</h1>
+        <p class="sub">The Classification Challenge</p>
+        <p class="intro">A real photograph of an animal appears. Decide which group it belongs to: mammal, insect, bird, reptile or amphibian. Classify as many as you can before the clock runs out.</p>
+        <ul class="groupline" aria-label="The five groups">
+          <li class="g-Mammal">MAMMAL</li><li class="g-Insect">INSECT</li><li class="g-Bird">BIRD</li><li class="g-Reptile">REPTILE</li><li class="g-Amphibian">AMPHIBIAN</li>
+        </ul>
+      </div>
+      <div class="startcard">
+        <h2 id="pLbl">1. Choose your pathway</h2>
+        <div class="opts" role="group" aria-labelledby="pLbl">
+          <button class="opt" data-path="Y56" aria-pressed="false">Years 5–6<small>Familiar animals first, then some surprises</small></button>
+          <button class="opt" data-path="Y78" aria-pressed="false">Years 7–8<small>All 300 species, harder ones sooner</small></button>
+        </div>
+        <h2 id="mLbl">2. Choose your time</h2>
+        <div class="opts" role="group" aria-labelledby="mLbl">
+          <button class="opt" data-min="3" aria-pressed="true">3 minutes<small>Quick challenge</small></button>
+          <button class="opt" data-min="5" aria-pressed="false">5 minutes<small>Longer challenge</small></button>
+        </div>
+        <button class="go" id="start" disabled>Start game</button>
+        <p class="hint" id="startHint">Choose a pathway to start. The clock starts when the first photo appears.</p>
+      </div>
+    </div>
+    <div class="mosaic" id="mosaic"></div>
+    <div class="rules">
+      <div class="rule"><b>+1 point</b>for each correct answer</div>
+      <div class="rule"><b>−1 point</b>for each wrong answer (never below 0)</div>
+      <div class="rule"><b>No repeats</b>each animal appears once per game</div>
+      <div class="rule"><b>Animal fact</b>at the end of every game</div>
+    </div>
+    <div class="foot"><span id="countLine"></span><button class="linkbtn" id="toCredits">Photo credits and sources</button></div>
+  </section>
+
+  <!-- GAME -->
+  <section class="screen" id="game" aria-label="Game">
+    <div class="hud">
+      <span class="pill time" id="time" aria-label="Time left"><small>Time</small><span id="timeV">3:00</span></span>
+      <span class="pill"><small>Score</small><span id="scoreV">0</span></span>
+      <span class="pill"><small>Answered</small><span id="doneV">0</span></span>
+      <span class="spacer"></span>
+      <button class="quit" id="quit">End game</button>
+    </div>
+    <div class="play">
+      <figure class="photo" id="photo">
+        <img id="pic" alt="A photograph of an animal. Which group does it belong to?">
+        <div class="fbband" id="fb" role="status" aria-live="polite"></div>
+        <figcaption class="credit" id="credit"></figcaption>
+      </figure>
+      <p class="q">Which animal group does this animal belong to?</p>
+      <div class="answers" id="answers"></div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="screen" id="results" aria-labelledby="rTitle">
+    <div class="res">
+      <div class="card">
+        <h2 id="rTitle">Well done!</h2>
+        <p class="line" id="rLine"></p>
+        <div class="stats" id="stats"></div>
+        <div class="btns">
+          <button class="btn primary" id="again">Play again</button>
+          <button class="btn" id="home2">Return to homepage</button>
+        </div>
+      </div>
+      <div class="card fact" id="factCard" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- CREDITS -->
+  <section class="screen credits" id="credits" aria-labelledby="cTitle">
+    <button class="btn" id="back">← Back</button>
+    <h2 id="cTitle">Photo credits and sources</h2>
+    <p>Every photograph is a real, openly licensed photo from Wikimedia Commons, used under the licence shown. Photos have been resized for the game. The 100 animal facts list their sources on the results screen and in the facts workbook.</p>
+    <div class="tw"><table><thead><tr><th>Animal</th><th>Group</th><th>Photographer</th><th>Licence</th><th>Source</th></tr></thead><tbody id="cBody"></tbody></table></div>
+  </section>
+</div>
+
+<script>/*DATA*/</script>
+<script>/*ENGINE*/</script>
+<script>
+(function () {
+  'use strict';
+  var D = window.AK_DATA, E = window.AKEngine;
+  var KEY = 'finite-animal-kingdom-v1';
+  var GROUP_INFO = D.groups; // {Mammal: {label, plural, explain}, ...}
+  var $ = function (id) { return document.getElementById(id); };
+  var state = { path: null, minutes: 3, session: null, endAt: 0, startAt: 0, tick: null, locked: true, next: null };
+
+  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } }
+  function save(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  function show(id) {
+    ['home', 'game', 'results', 'credits'].forEach(function (s) { $(s).classList.toggle('on', s === id); });
+    window.scrollTo(0, 0);
+  }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function credit(a) { return 'Photo: ' + a.photographer + ' · ' + a.licence + ' · Wikimedia Commons'; }
+
+  // ---------- home ----------
+  var prefs = load();
+  if (prefs.minutes === 5) state.minutes = 5;
+  if (prefs.path === 'Y56' || prefs.path === 'Y78') state.path = prefs.path;
+  function syncOpts() {
+    document.querySelectorAll('[data-path]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.path === state.path)); });
+    document.querySelectorAll('[data-min]').forEach(function (b) { b.setAttribute('aria-pressed', String(+b.dataset.min === state.minutes)); });
+    $('start').disabled = !state.path;
+    $('startHint').textContent = state.path ? E.PATHWAYS[state.path].label + ', ' + state.minutes + ' minutes. The clock starts when the first photo appears.' : 'Choose a pathway to start. The clock starts when the first photo appears.';
+    $('ageTag').textContent = state.path ? E.PATHWAYS[state.path].label : 'Years 5–8';
+  }
+  document.querySelectorAll('[data-path]').forEach(function (b) { b.onclick = function () { state.path = b.dataset.path; syncOpts(); }; });
+  document.querySelectorAll('[data-min]').forEach(function (b) { b.onclick = function () { state.minutes = +b.dataset.min; syncOpts(); }; });
+  syncOpts();
+  $('countLine').textContent = D.animals.length + ' real animal photos · ' + D.facts.length + ' animal facts · data version ' + D.version;
+  // home mosaic: one familiar animal per group, chosen at random each visit
+  (function () {
+    var html = '';
+    E.GROUPS.forEach(function (g) {
+      var easy = D.animals.filter(function (a) { return a.group === g && a.difficulty === 'Easy'; });
+      var a = easy[Math.floor(Math.random() * easy.length)];
+      html += '<figure class="tile"><img src="' + esc(a.img) + '" alt="' + esc(a.common) + ' (' + g.toLowerCase() + ')" loading="lazy"><figcaption class="g-' + g + '">' + esc(GROUP_INFO[g].plural) + '</figcaption></figure>';
+    });
+    $('mosaic').innerHTML = html;
+  })();
+
+  // ---------- answer buttons ----------
+  $('answers').innerHTML = E.GROUPS.map(function (g, i) {
+    return '<button class="ans g-' + g + '" data-g="' + g + '">' + GROUP_INFO[g].label + '<span class="kbd">' + (i + 1) + '</span></button>';
+  }).join('');
+  document.querySelectorAll('.ans').forEach(function (b) { b.onclick = function () { answer(b.dataset.g, b); }; });
+  document.addEventListener('keydown', function (e) {
+    if (!$('game').classList.contains('on')) return;
+    var n = parseInt(e.key, 10);
+    if (n >= 1 && n <= 5) { var b = document.querySelectorAll('.ans')[n - 1]; answer(b.dataset.g, b); }
+  });
+
+  // ---------- game ----------
+  function fmt(s) { s = Math.max(0, Math.ceil(s)); return Math.floor(s / 60) + ':' + ('0' + (s % 60)).slice(-2); }
+  function elapsed() { return state.startAt ? (Date.now() - state.startAt) / 1000 : 0; }
+  function setButtons(on) { document.querySelectorAll('.ans').forEach(function (b) { b.disabled = !on; b.classList.remove('dim', 'pick'); }); }
+  function preload(a) { if (!a) return null; var im = new Image(); im.src = a.img; return im; }
+
+  function startGame() {
+    save({ path: state.path, minutes: state.minutes, facts: load().facts || [] });
+    state.session = new E.Session({ animals: D.animals, pathway: state.path, seconds: state.minutes * 60 });
+    state.startAt = 0; state.endAt = 0; state.locked = true;
+    $('timeV').textContent = fmt(state.minutes * 60); $('time').classList.remove('low');
+    $('scoreV').textContent = '0'; $('doneV').textContent = '0';
+    $('fb').className = 'fbband'; $('credit').textContent = '';
+    show('game');
+    showAnimal(state.session.next(0), true);
+  }
+
+  function showAnimal(a, first) {
+    var pic = $('pic');
+    $('fb').className = 'fbband'; $('fb').innerHTML = '';
+    setButtons(false);
+    pic.onload = function () {
+      $('credit').textContent = credit(a);
+      if (first && !state.startAt) { // the clock starts only once the first photo is on screen
+        state.startAt = Date.now(); state.endAt = state.startAt + state.minutes * 60000;
+        state.tick = setInterval(tick, 200);
+      }
+      if (Date.now() < state.endAt) { state.locked = false; setButtons(true); }
+    };
+    pic.onerror = pic.onload;
+    pic.src = a.img;
+    pic.alt = 'A photograph of an animal. Which group does it belong to?';
+  }
+
+  function tick() {
+    var left = (state.endAt - Date.now()) / 1000;
+    $('timeV').textContent = fmt(left);
+    $('time').classList.toggle('low', left <= 15);
+    if (left <= 0) finish();
+  }
+
+  function answer(g, btn) {
+    if (state.locked || !state.session || !state.session.current) return;
+    if (Date.now() >= state.endAt) { finish(); return; }
+    state.locked = true;
+    var before = state.session.score;
+    var r = state.session.answer(g), a = r.animal, info = GROUP_INFO[a.group];
+    $('scoreV').textContent = r.score;
+    $('doneV').textContent = state.session.correct + state.session.wrong;
+    document.querySelectorAll('.ans').forEach(function (b) {
+      b.disabled = true;
+      if (b.dataset.g !== a.group) b.classList.add('dim');
+    });
+    btn.classList.add('pick');
+    var phrase = a.phrase.charAt(0).toUpperCase() + a.phrase.slice(1);
+    var fb = $('fb');
+    if (r.correct) {
+      fb.className = 'fbband on right';
+      fb.innerHTML = '<p class="big">CORRECT! +1</p><p>Well done! ' + esc(phrase) + ' is ' + info.article + ' ' + info.label.toLowerCase() + '.</p><span class="sci">' + esc(a.sci) + '</span>';
+    } else {
+      fb.className = 'fbband on wrong';
+      fb.innerHTML = '<p class="big">NOT QUITE!' + (before > 0 ? ' −1' : '') + '</p><p>' + esc(phrase) + ' is actually ' + info.article + ' ' + info.label.toLowerCase() + '. ' + esc(info.explain) + '</p><span class="sci">' + esc(a.sci) + '</span>';
+    }
+    var next = state.session.next(elapsed());
+    preload(next);
+    setTimeout(function () {
+      if (!$('game').classList.contains('on')) return;
+      if (Date.now() >= state.endAt) { finish(); return; }
+      showAnimal(next, false);
+    }, r.correct ? 1300 : 2600);
+  }
+
+  function finish() {
+    if (!$('game').classList.contains('on')) return;
+    clearInterval(state.tick); state.locked = true; setButtons(false);
+    var r = state.session.results(), msg = E.encouragement(r);
+    $('rTitle').textContent = msg.title; $('rLine').textContent = msg.line;
+    var cells = [['Final score', r.score, 'main'], ['Animals attempted', r.attempted], ['Correct', r.correct], ['Incorrect', r.wrong], ['Accuracy', r.accuracy + '%'], ['Pathway · time', r.pathway + ' · ' + r.minutes + ' min']];
+    $('stats').innerHTML = cells.map(function (c) { return '<div class="stat ' + (c[2] || '') + '"><b>' + esc(c[1]) + '</b><span>' + esc(c[0]) + '</span></div>'; }).join('');
+    // fact: random, not one of the last 10 shown on this device
+    var p = load(), recent = p.facts || [];
+    var f = E.pickFact(D.facts, recent);
+    recent.push(f.id); p.facts = recent.slice(-10); save(p);
+    var a = f.animalId ? D.animals.filter(function (x) { return x.id === f.animalId; })[0] : null;
+    $('factCard').innerHTML = '<p class="tag">Animal fact</p>' +
+      (a ? '<img src="' + esc(a.img) + '" alt="' + esc(a.common) + '">' : '') +
+      '<h3>' + esc(f.animal) + (f.sci ? ' <i>' + esc(f.sci) + '</i>' : '') + '</h3>' +
+      '<p class="text">' + esc(f.fact) + '</p>' +
+      '<p class="src">Source: <a href="' + esc(f.url) + '" target="_blank" rel="noopener">' + esc(f.org) + '</a></p>' +
+      (a ? '<p class="pc">' + esc(credit(a)) + '</p>' : '');
+    show('results');
+  }
+
+  $('start').onclick = function () { if (state.path) startGame(); };
+  $('quit').onclick = function () { if (state.session) { state.endAt = Date.now(); finish(); } };
+  $('again').onclick = startGame;
+  $('home2').onclick = function () { show('home'); };
+
+  // ---------- credits ----------
+  $('toCredits').onclick = function () {
+    if (!$('cBody').firstChild) {
+      $('cBody').innerHTML = D.animals.map(function (a) {
+        return '<tr><td>' + esc(a.common) + ' <i>' + esc(a.sci) + '</i></td><td>' + a.group + '</td><td>' + esc(a.photographer) + '</td><td><a href="' + esc(a.licenceUrl) + '" target="_blank" rel="noopener">' + esc(a.licence) + '</a></td><td><a href="' + esc(a.source) + '" target="_blank" rel="noopener">Commons file</a></td></tr>';
+      }).join('');
+    }
+    show('credits');
+  };
+  $('back').onclick = function () { show('home'); };
+})();
+</script>
+</body>
+</html>

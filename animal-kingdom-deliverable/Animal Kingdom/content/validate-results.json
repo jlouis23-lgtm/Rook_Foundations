@@ -1,0 +1,184 @@
+{
+ "when": "2026-11-23T13:00:57.998Z",
+ "version": "2026-11-23",
+ "passed": 44,
+ "failed": 0,
+ "results": [
+  {
+   "name": "exactly the five groups from the brief",
+   "ok": true
+  },
+  {
+   "name": "exactly 300 animals",
+   "ok": true
+  },
+  {
+   "name": "  Mammal: 60 animals (20/20/20 Easy/Medium/Challenging)",
+   "ok": true
+  },
+  {
+   "name": "  Insect: 60 animals (20/20/20 Easy/Medium/Challenging)",
+   "ok": true
+  },
+  {
+   "name": "  Bird: 60 animals (20/20/20 Easy/Medium/Challenging)",
+   "ok": true
+  },
+  {
+   "name": "  Reptile: 60 animals (20/20/20 Easy/Medium/Challenging)",
+   "ok": true
+  },
+  {
+   "name": "  Amphibian: 60 animals (20/20/20 Easy/Medium/Challenging)",
+   "ok": true
+  },
+  {
+   "name": "no duplicate id",
+   "ok": true
+  },
+  {
+   "name": "no duplicate common",
+   "ok": true
+  },
+  {
+   "name": "no duplicate sci",
+   "ok": true
+  },
+  {
+   "name": "no duplicate img",
+   "ok": true
+  },
+  {
+   "name": "every animal has name, scientific name, photo, photographer, licence and source",
+   "ok": true
+  },
+  {
+   "name": "every licence is CC0, Public domain, CC BY or CC BY-SA (no NC/ND)",
+   "ok": true
+  },
+  {
+   "name": "scientific names look like binomials",
+   "ok": true
+  },
+  {
+   "name": "every photo file exists",
+   "ok": true
+  },
+  {
+   "name": "every photo is in its group folder and named group_common_scientific.jpg",
+   "ok": true
+  },
+  {
+   "name": "photos are between 20 KB and 600 KB (total 47.0 MB)",
+   "ok": true
+  },
+  {
+   "name": "Years 5–6 pool is 200 animals (Easy + Medium); Years 7–8 uses all 300",
+   "ok": true
+  },
+  {
+   "name": "every feedback phrase starts with a or an",
+   "ok": true
+  },
+  {
+   "name": "\"an\" is used before vowels",
+   "ok": true
+  },
+  {
+   "name": "exactly 100 facts",
+   "ok": true
+  },
+  {
+   "name": "no duplicate facts",
+   "ok": true
+  },
+  {
+   "name": "every fact has an organisation, title and web address",
+   "ok": true
+  },
+  {
+   "name": "  Mammal facts: 20 linked to a photo",
+   "ok": true
+  },
+  {
+   "name": "  Insect facts: 19 linked to a photo",
+   "ok": true
+  },
+  {
+   "name": "  Bird facts: 20 linked to a photo",
+   "ok": true
+  },
+  {
+   "name": "  Reptile facts: 20 linked to a photo",
+   "ok": true
+  },
+  {
+   "name": "  Amphibian facts: 20 linked to a photo",
+   "ok": true
+  },
+  {
+   "name": "at least 95 facts link to an animal with a photo",
+   "ok": true
+  },
+  {
+   "name": "fact picker never repeats one of the last 10 games' facts (2,000 games)",
+   "ok": true
+  },
+  {
+   "name": "no animal repeats within a game (1,600 simulated games at 3 s per answer)",
+   "ok": true
+  },
+  {
+   "name": "never three of the same group in a row",
+   "ok": true
+  },
+  {
+   "name": "Years 5–6 never sees a Challenging animal",
+   "ok": true
+  },
+  {
+   "name": "score never drops below 0",
+   "ok": true
+  },
+  {
+   "name": "all five groups appear in every game and stay balanced",
+   "ok": true
+  },
+  {
+   "name": "Years 7–8 gets harder: Challenging 14% in the first quarter vs 45% in the last",
+   "ok": true
+  },
+  {
+   "name": "Years 5–6 gets harder: Medium 25% in the first quarter vs 59% in the last",
+   "ok": true
+  },
+  {
+   "name": "but not predictably: Easy animals still appear late in Years 7–8 (15%)",
+   "ok": true
+  },
+  {
+   "name": "a very fast player sees all 200 Years 5–6 animals before any repeat",
+   "ok": true
+  },
+  {
+   "name": "+1 correct, −1 wrong, floor 0: wrong first answer scores 0, then 2 right and 1 wrong scores 1",
+   "ok": true
+  },
+  {
+   "name": "results name the pathway and duration",
+   "ok": true
+  },
+  {
+   "name": "encouragement titles",
+   "ok": true
+  },
+  {
+   "name": "built game carries exactly this export (version 2026-11-23)",
+   "ok": true
+  },
+  {
+   "name": "built game contains no external image URLs (photos load from the local Images folder)",
+   "ok": true
+  }
+ ]
+}

@@ -1,0 +1,228 @@
+{
+ "when": "2026-11-23T13:02:14.946Z",
+ "version": "2026-11-23",
+ "passed": 44,
+ "failed": 0,
+ "results": [
+  {
+   "group": "Homepage",
+   "name": "title and subtitle",
+   "ok": true
+  },
+  {
+   "group": "Homepage",
+   "name": "Start is disabled until a pathway is chosen",
+   "ok": true
+  },
+  {
+   "group": "Homepage",
+   "name": "both pathways offered",
+   "ok": true
+  },
+  {
+   "group": "Homepage",
+   "name": "3- and 5-minute modes offered",
+   "ok": true
+  },
+  {
+   "group": "Homepage",
+   "name": "home shows one real photo per group",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 5–6, 3 minutes",
+   "name": "Start enables after choosing a pathway",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 5–6, 3 minutes",
+   "name": "clock shows 3:00 when the first photo appears",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 5–6, 3 minutes",
+   "name": "photo shows its credit line",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 5–6, 3 minutes",
+   "name": "wrong-answer feedback: \"NOT QUITE! A ... is actually a ... <explanation>\"",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 5–6, 3 minutes",
+   "name": "score stays at 0 (no negative scores) and no −1 shown at 0",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 5–6, 3 minutes",
+   "name": "correct feedback: \"CORRECT! Well done! A ... is a ...\"",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 5–6, 3 minutes",
+   "name": "+1 per correct answer (4 correct, 1 wrong at 0 → 4)",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 5–6, 3 minutes",
+   "name": "wrong answer above 0 costs 1 point and shows −1",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 5–6, 3 minutes",
+   "name": "number keys 1–5 answer",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 5–6, 3 minutes",
+   "name": "no repeated animal so far, all Easy/Medium",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 5–6, 3 minutes",
+   "name": "game ends when the clock reaches 0:00",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 5–6, 3 minutes",
+   "name": "results show score, attempted, correct, incorrect, accuracy, pathway and time",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 5–6, 3 minutes",
+   "name": "encouraging message",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 5–6, 3 minutes",
+   "name": "results show one of the 100 facts with its source",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 5–6, 3 minutes",
+   "name": "fact card shows the animal photo and credit",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 5–6, 3 minutes",
+   "name": "Play Again and Return to Homepage buttons",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 5–6, 3 minutes",
+   "name": "Play Again starts a fresh game at 0",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 5–6, 3 minutes",
+   "name": "next game shows a different fact",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 5–6, 3 minutes",
+   "name": "Return to Homepage works",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 7–8, 5 minutes",
+   "name": "clock shows 5:00 at the start",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 7–8, 5 minutes",
+   "name": "40 answers: no repeats",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 7–8, 5 minutes",
+   "name": "40 answers: never three of one group in a row",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 7–8, 5 minutes",
+   "name": "40 answers: all five groups appear",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 7–8, 5 minutes",
+   "name": "Challenging animals appear in Years 7–8 (9 of 40)",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 7–8, 5 minutes",
+   "name": "score is 40 after 40 correct",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 7–8, 5 minutes",
+   "name": "5-minute results name Years 7–8 · 5 min",
+   "ok": true
+  },
+  {
+   "group": "Gameplay: Years 7–8, 5 minutes",
+   "name": "40 of 40 earns \"Animal Classification Champion!\"",
+   "ok": true
+  },
+  {
+   "group": "Timer",
+   "name": "clock does not run while the first photo is loading",
+   "ok": true
+  },
+  {
+   "group": "Timer",
+   "name": "clock starts once the photo is on screen",
+   "ok": true
+  },
+  {
+   "group": "Credits",
+   "name": "credits list all 300 photos with photographer, licence and source link",
+   "ok": true
+  },
+  {
+   "group": "Credits",
+   "name": "no script errors",
+   "ok": true
+  },
+  {
+   "group": "Images",
+   "name": "all 300 photos load in the page (and are at least 300 px wide)",
+   "ok": true
+  },
+  {
+   "group": "Screen sizes",
+   "name": "phone (390×844): no sideways scroll, photo and all five buttons on screen, buttons ≥ 44 px",
+   "ok": true
+  },
+  {
+   "group": "Screen sizes",
+   "name": "phone-small (360×640): no sideways scroll, photo and all five buttons on screen, buttons ≥ 44 px",
+   "ok": true
+  },
+  {
+   "group": "Screen sizes",
+   "name": "tablet-portrait (820×1180): no sideways scroll, photo and all five buttons on screen, buttons ≥ 44 px",
+   "ok": true
+  },
+  {
+   "group": "Screen sizes",
+   "name": "tablet-landscape (1180×820): no sideways scroll, photo and all five buttons on screen, buttons ≥ 44 px",
+   "ok": true
+  },
+  {
+   "group": "Screen sizes",
+   "name": "ict-room (1366×768): no sideways scroll, photo and all five buttons on screen, buttons ≥ 44 px",
+   "ok": true
+  },
+  {
+   "group": "Screen sizes",
+   "name": "desktop (1920×1080): no sideways scroll, photo and all five buttons on screen, buttons ≥ 44 px",
+   "ok": true
+  },
+  {
+   "group": "Screen sizes",
+   "name": "dark (1366×768): no sideways scroll, photo and all five buttons on screen, buttons ≥ 44 px",
+   "ok": true
+  }
+ ]
+}

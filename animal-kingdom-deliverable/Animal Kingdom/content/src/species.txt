@@ -1,0 +1,313 @@
+# Animal Kingdom species list (v1 seed). One species per line, in familiarity order within each group.
+# Common name | Scientific name | English Wikipedia article (blank = common name)
+# Ranks 1-20 = Easy, 21-40 = Medium, 41-60 = Challenging.
+
+## Mammal
+Dog | Canis familiaris | Dog
+Cat | Felis catus | Cat
+Horse | Equus caballus | Horse
+Cow | Bos taurus | Cattle
+Sheep | Ovis aries | Sheep
+Pig | Sus domesticus | Domestic pig
+Rabbit | Oryctolagus cuniculus | European rabbit
+African elephant | Loxodonta africana | African bush elephant
+Lion | Panthera leo |
+Tiger | Panthera tigris |
+Giraffe | Giraffa camelopardalis | Northern giraffe
+Bottlenose dolphin | Tursiops truncatus | Common bottlenose dolphin
+Giant panda | Ailuropoda melanoleuca |
+Polar bear | Ursus maritimus |
+Brown bear | Ursus arctos |
+Red fox | Vulpes vulpes |
+Hedgehog | Erinaceus europaeus | European hedgehog
+Zebra | Equus quagga | Plains zebra
+Chimpanzee | Pan troglodytes |
+Goat | Capra hircus | Goat
+Hippopotamus | Hippopotamus amphibius |
+White rhinoceros | Ceratotherium simum |
+Red kangaroo | Osphranter rufus |
+Koala | Phascolarctos cinereus |
+Grey wolf | Canis lupus | Wolf
+Cheetah | Acinonyx jubatus |
+Leopard | Panthera pardus |
+Western gorilla | Gorilla gorilla |
+Bornean orangutan | Pongo pygmaeus |
+Fruit bat (flying fox) | Pteropus poliocephalus | Grey-headed flying fox
+Red squirrel | Sciurus vulgaris | Red squirrel
+Badger | Meles meles | European badger
+Humpback whale | Megaptera novaeangliae |
+Camel | Camelus dromedarius | Dromedary
+Meerkat | Suricata suricatta |
+Sea otter | Enhydra lutris |
+Moose | Alces alces |
+Red deer | Cervus elaphus |
+Ground pangolin | Smutsia temminckii | Ground pangolin
+Ring-tailed lemur | Lemur catta |
+Platypus | Ornithorhynchus anatinus |
+Short-beaked echidna | Tachyglossus aculeatus |
+Aardvark | Orycteropus afer |
+Okapi | Okapia johnstoni |
+Fennec fox | Vulpes zerda |
+Giant anteater | Myrmecophaga tridactyla |
+Capybara | Hydrochoerus hydrochaeris |
+Brown-throated sloth | Bradypus variegatus |
+Red panda | Ailurus fulgens |
+Malayan tapir | Tapirus indicus |
+Walrus | Odobenus rosmarus |
+Snow leopard | Panthera uncia |
+Common wombat | Vombatus ursinus |
+Tasmanian devil | Sarcophilus harrisii |
+Naked mole-rat | Heterocephalus glaber |
+West Indian manatee | Trichechus manatus |
+Aye-aye | Daubentonia madagascariensis |
+Proboscis monkey | Nasalis larvatus |
+Harbour seal | Phoca vitulina | Harbor seal
+Raccoon | Procyon lotor |
+
+## Insect
+Honeybee | Apis mellifera | Western honey bee
+Bumblebee | Bombus terrestris | Bombus terrestris
+Seven-spot ladybird | Coccinella septempunctata |
+Monarch butterfly | Danaus plexippus |
+Housefly | Musca domestica |
+Common wasp | Vespula vulgaris | Vespula vulgaris
+Red admiral butterfly | Vanessa atalanta | Vanessa atalanta
+Peacock butterfly | Aglais io | Aglais io
+Black garden ant | Lasius niger |
+Emperor dragonfly | Anax imperator |
+Desert locust | Schistocerca gregaria |
+Large white butterfly | Pieris brassicae |
+Stag beetle | Lucanus cervus | Lucanus cervus
+Painted lady butterfly | Vanessa cardui |
+Field cricket | Gryllus campestris | Gryllus campestris
+Yellow fever mosquito | Aedes aegypti |
+Common earwig | Forficula auricularia |
+Bluebottle fly | Calliphora vomitoria | Calliphora vomitoria
+Swallowtail butterfly | Papilio machaon | Papilio machaon
+American cockroach | Periplaneta americana |
+European praying mantis | Mantis religiosa | Mantis religiosa
+Indian stick insect | Carausius morosus |
+Cockchafer | Melolontha melolontha | Melolontha melolontha
+Brimstone butterfly | Gonepteryx rhamni |
+Banded demoiselle | Calopteryx splendens |
+Silk moth | Bombyx mori | Bombyx mori
+Elephant hawk-moth | Deilephila elpenor |
+Hummingbird hawk-moth | Macroglossum stellatarum |
+Garden tiger moth | Arctia caja |
+European hornet | Vespa crabro |
+Common field grasshopper | Chorthippus brunneus |
+Great diving beetle | Dytiscus marginalis |
+Pond skater | Gerris lacustris | Gerris lacustris
+Marmalade hoverfly | Episyrphus balteatus |
+Rose chafer | Cetonia aurata | Cetonia aurata
+Green shield bug | Palomena prasina |
+Blue morpho butterfly | Morpho peleides | Morpho peleides
+Cinnabar moth | Tyria jacobaeae |
+Glow-worm | Lampyris noctiluca | Lampyris noctiluca
+Crane fly | Tipula paludosa | Tipula paludosa
+Atlas moth | Attacus atlas |
+Hercules beetle | Dynastes hercules |
+Goliath beetle | Goliathus goliatus | Goliathus goliatus
+Leaf insect | Pulchriphyllium bioculatum | Phyllium bioculatum
+Jewel beetle | Chrysochroa fulgidissima | Chrysochroa fulgidissima
+Orchid mantis | Hymenopus coronatus |
+Sacred scarab beetle | Scarabaeus sacer | Scarabaeus sacer
+Periodical cicada | Magicicada septendecim |
+Leafcutter ant | Atta cephalotes | Atta cephalotes
+Weaver ant | Oecophylla smaragdina |
+Giant weta | Deinacrida heteracantha |
+Giraffe weevil | Trachelophorus giraffa |
+Rosalia longicorn | Rosalia alpina |
+Violet carpenter bee | Xylocopa violacea |
+Thorn bug | Umbonia crassicornis | Umbonia crassicornis
+Lantern bug | Pyrops candelaria | Pyrops candelaria
+Colorado potato beetle | Leptinotarsa decemlineata |
+Common backswimmer | Notonecta glauca |
+Mayfly | Ephemera danica | Ephemera danica
+Asian giant hornet | Vespa mandarinia |
+
+## Bird
+Robin | Erithacus rubecula | European robin
+Bald eagle | Haliaeetus leucocephalus |
+Emperor penguin | Aptenodytes forsteri |
+Barn owl | Tyto alba | Western barn owl
+Mallard duck | Anas platyrhynchos | Mallard
+Mute swan | Cygnus olor |
+House sparrow | Passer domesticus |
+Peacock (Indian peafowl) | Pavo cristatus | Indian peafowl
+Greater flamingo | Phoenicopterus roseus |
+Chicken | Gallus gallus domesticus | Chicken
+Blue-and-yellow macaw | Ara ararauna |
+Ostrich | Struthio camelus | Common ostrich
+Herring gull | Larus argentatus | European herring gull
+Pigeon | Columba livia | Rock dove
+Blue tit | Cyanistes caeruleus | Eurasian blue tit
+Blackbird | Turdus merula | Common blackbird
+Great spotted woodpecker | Dendrocopos major |
+Golden eagle | Aquila chrysaetos |
+Keel-billed toucan | Ramphastos sulfuratus |
+Atlantic puffin | Fratercula arctica |
+Kingfisher | Alcedo atthis | Common kingfisher
+Snowy owl | Bubo scandiacus |
+Canada goose | Branta canadensis |
+Wild turkey | Meleagris gallopavo |
+Peregrine falcon | Falco peregrinus |
+Grey heron | Ardea cinerea |
+Ruby-throated hummingbird | Archilochus colubris |
+Budgerigar | Melopsittacus undulatus |
+Sulphur-crested cockatoo | Cacatua galerita |
+Emu | Dromaius novaehollandiae |
+Magpie | Pica pica | Eurasian magpie
+Carrion crow | Corvus corone |
+Barn swallow | Hirundo rustica |
+Starling | Sturnus vulgaris | Common starling
+Pheasant | Phasianus colchicus | Common pheasant
+White stork | Ciconia ciconia |
+Australian pelican | Pelecanus conspicillatus |
+Tawny owl | Strix aluco |
+Northern cardinal | Cardinalis cardinalis |
+Goldfinch | Carduelis carduelis | European goldfinch
+Shoebill | Balaeniceps rex |
+Southern cassowary | Casuarius casuarius |
+Secretary bird | Sagittarius serpentarius | Secretarybird
+Hoatzin | Opisthocomus hoazin |
+Laughing kookaburra | Dacelo novaeguineae |
+Kakapo | Strigops habroptilus | Kākāpō
+Resplendent quetzal | Pharomachrus mocinno |
+Harpy eagle | Harpia harpyja |
+Blue-footed booby | Sula nebouxii |
+Lilac-breasted roller | Coracias caudatus |
+Great hornbill | Buceros bicornis |
+Hamerkop | Scopus umbretta |
+Roseate spoonbill | Platalea ajaja |
+Superb lyrebird | Menura novaehollandiae |
+Northern gannet | Morus bassanus |
+Red-crowned crane | Grus japonensis |
+Hoopoe | Upupa epops | Eurasian hoopoe
+Andean condor | Vultur gryphus |
+Tawny frogmouth | Podargus strigoides |
+Magnificent frigatebird | Fregata magnificens |
+
+## Reptile
+Nile crocodile | Crocodylus niloticus |
+American alligator | Alligator mississippiensis |
+Green iguana | Iguana iguana |
+Veiled chameleon | Chamaeleo calyptratus |
+Komodo dragon | Varanus komodoensis |
+Galápagos tortoise | Chelonoidis niger |
+Green sea turtle | Chelonia mydas |
+Leopard gecko | Eublepharis macularius | Common leopard gecko
+King cobra | Ophiophagus hannah |
+Burmese python | Python bivittatus |
+Boa constrictor | Boa constrictor |
+Bearded dragon | Pogona vitticeps | Central bearded dragon
+Saltwater crocodile | Crocodylus porosus |
+Corn snake | Pantherophis guttatus |
+Red-eared slider terrapin | Trachemys scripta elegans | Red-eared slider
+Grass snake | Natrix natrix |
+Adder | Vipera berus |
+Hawksbill sea turtle | Eretmochelys imbricata |
+Greek tortoise | Testudo graeca |
+Indian cobra | Naja naja |
+Panther chameleon | Furcifer pardalis |
+Tokay gecko | Gekko gecko |
+Gila monster | Heloderma suspectum |
+Green anaconda | Eunectes murinus |
+Black mamba | Dendroaspis polylepis |
+Western diamondback rattlesnake | Crotalus atrox |
+Alligator snapping turtle | Macrochelys temminckii |
+Loggerhead sea turtle | Caretta caretta |
+Slow worm | Anguis fragilis |
+Sand lizard | Lacerta agilis |
+Common wall lizard | Podarcis muralis |
+Nile monitor | Varanus niloticus |
+Ball python | Python regius |
+Green tree python | Morelia viridis |
+Spectacled caiman | Caiman crocodilus |
+Blue-tongued skink | Tiliqua scincoides |
+Aldabra giant tortoise | Aldabrachelys gigantea |
+Common basilisk | Basiliscus basiliscus |
+Common garter snake | Thamnophis sirtalis |
+Leatherback sea turtle | Dermochelys coriacea |
+Gharial | Gavialis gangeticus |
+Tuatara | Sphenodon punctatus |
+Frilled-neck lizard | Chlamydosaurus kingii | Frilled lizard
+Thorny devil | Moloch horridus |
+Marine iguana | Amblyrhynchus cristatus |
+Mata mata turtle | Chelus fimbriata | Mata mata
+Gaboon viper | Bitis gabonica |
+Texas horned lizard | Phrynosoma cornutum |
+Satanic leaf-tailed gecko | Uroplatus phantasticus |
+Armadillo girdled lizard | Ouroborus cataphractus |
+Pig-nosed turtle | Carettochelys insculpta |
+Chinese alligator | Alligator sinensis |
+Shingleback lizard | Tiliqua rugosa | Shingleback skink
+Eastern long-necked turtle | Chelodina longicollis |
+Indian star tortoise | Geochelone elegans |
+Lace monitor | Varanus varius |
+Saharan horned viper | Cerastes cerastes |
+Jackson's chameleon | Trioceros jacksonii |
+Eyelash viper | Bothriechis schlegelii |
+Radiated tortoise | Astrochelys radiata |
+
+## Amphibian
+Common frog | Rana temporaria |
+Common toad | Bufo bufo |
+American bullfrog | Lithobates catesbeianus |
+Red-eyed tree frog | Agalychnis callidryas | Agalychnis callidryas
+Axolotl | Ambystoma mexicanum |
+Fire salamander | Salamandra salamandra |
+Smooth newt | Lissotriton vulgaris |
+Great crested newt | Triturus cristatus | Northern crested newt
+Strawberry poison dart frog | Oophaga pumilio | Strawberry poison-dart frog
+African clawed frog | Xenopus laevis |
+Cane toad | Rhinella marina |
+Golden poison frog | Phyllobates terribilis |
+American green tree frog | Dryophytes cinereus |
+European tree frog | Hyla arborea |
+Natterjack toad | Epidalea calamita |
+Eastern tiger salamander | Ambystoma tigrinum |
+Dyeing poison dart frog | Dendrobates tinctorius |
+Green and black poison dart frog | Dendrobates auratus | Green and black poison dart frog
+Australian green tree frog | Pelodryas caerulea |
+Spotted salamander | Ambystoma maculatum |
+Marsh frog | Pelophylax ridibundus |
+Wood frog | Lithobates sylvaticus |
+Glass frog | Hyalinobatrachium fleischmanni | Hyalinobatrachium fleischmanni
+Oriental fire-bellied toad | Bombina orientalis |
+Palmate newt | Lissotriton helveticus |
+Alpine newt | Ichthyosaura alpestris |
+Eastern newt | Notophthalmus viridescens |
+Chinese giant salamander | Andrias davidianus |
+Hellbender | Cryptobranchus alleganiensis |
+Midwife toad | Alytes obstetricans | Common midwife toad
+Tomato frog | Dyscophus antongilii | Dyscophus antongilii
+Argentine horned frog | Ceratophrys ornata | Argentine horned frog
+Vietnamese mossy frog | Theloderma corticale |
+Amazon milk frog | Trachycephalus resinifictrix | Trachycephalus resinifictrix
+Wallace's flying frog | Rhacophorus nigropalmatus |
+Goliath frog | Conraua goliath |
+African bullfrog | Pyxicephalus adspersus |
+Northern leopard frog | Lithobates pipiens |
+American toad | Anaxyrus americanus |
+Rough-skinned newt | Taricha granulosa |
+Olm | Proteus anguinus |
+Ringed caecilian | Siphonops annulatus |
+European fire-bellied toad | Bombina bombina |
+Purple frog | Nasikabatrachus sahyadrensis |
+Yellow-bellied toad | Bombina variegata |
+Desert rain frog | Breviceps macrops |
+Lake Titicaca water frog | Telmatobius culeus | Titicaca water frog
+Golden mantella | Mantella aurantiaca |
+Panamanian golden frog | Atelopus zeteki |
+Darwin's frog | Rhinoderma darwinii |
+Iberian ribbed newt | Pleurodeles waltl |
+Surinam toad | Pipa pipa | Pipa pipa
+Mudpuppy | Necturus maculosus | Common mudpuppy
+Greater siren | Siren lacertina |
+Japanese giant salamander | Andrias japonicus |
+Marbled salamander | Ambystoma opacum |
+Long-nosed horned frog | Pelobatrachus nasutus |
+Waxy monkey tree frog | Phyllomedusa sauvagii | Phyllomedusa sauvagii
+Common coquí | Eleutherodactylus coqui | Common coquí
+Mountain chicken frog | Leptodactylus fallax | Mountain chicken
