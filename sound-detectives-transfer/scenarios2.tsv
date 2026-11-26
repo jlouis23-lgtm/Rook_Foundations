@@ -1,0 +1,177 @@
+word	tier	queries	must_show
+pop	34	toaster toast popping up;toaster toast;pop up toaster	toast popping up out of a toaster
+bang	34	playing drum kit;drummer drumsticks;snare drum sticks	drumsticks hitting a drum
+bang	56	hammering nail wood;hammer hitting nail;carpenter hammer	a hammer hitting a nail
+crash	56	drummer cymbal;hitting cymbal;crash cymbal drumstick	a drumstick striking a cymbal
+ting	56	triangle percussion instrument;playing triangle;triangle beater	a triangle being struck
+plink	56	xylophone mallets;glockenspiel playing;child xylophone	mallets on a xylophone or glockenspiel
+twang	56	guitar string pluck close up;acoustic guitar playing hands	fingers plucking guitar strings
+toot	56	trumpet player;playing trumpet;trumpeter	someone playing a trumpet
+parp	78	tuba player;sousaphone;playing tuba	someone playing a tuba
+honk	56	goose flying;canada geese flying;geese flock	geese flying or calling
+bark	56	sea lion;california sea lion barking;seal on rock	a sea lion with its mouth open
+hoot	56	tawny owl tree;owl night;little owl	an owl
+squawk	56	seagull calling;herring gull open beak;gull screaming	a gull calling with open beak
+quack	34	ducks pond;ducklings mother duck;duck swimming	ducks on a pond
+neigh	56	horse galloping field;horse running;horses running	horses galloping
+clip-clop	56	horse drawn carriage street;horse and carriage;mounted police horse street	a horse walking on a road surface
+moo	56	cows field;herd of cows;calf	cows in a field
+baa	56	flock of sheep;sheep flock field;lambs spring	sheep in a field
+oink	56	pigs farm;pig sty;pigs eating	pigs on a farm
+buzz	56	bumblebee flower;bee lavender;bees on flower	a bee on a flower
+buzz	78	mosquito;wasp;hoverfly	a flying insect close up
+squeak	56	hamster;pet hamster;hamster wheel	a hamster
+purr	56	cat being stroked;stroking cat hand;cat cuddle	a hand stroking a contented cat
+meow	56	cat meowing;cat mouth open;tabby cat calling	a cat meowing
+woof	56	dog barking;barking dog mouth open;dog bark	a dog barking
+roar	56	lion roaring;lioness roaring	a lion or lioness roaring
+growl	78	bear;brown bear;grizzly bear	a bear with mouth open
+hiss	56	snake tongue;adder;python close up	a snake showing its tongue
+splash	56	children swimming pool splash;water splash pool;jumping into lake	someone splashing into water
+splash	78	kayak splash;rafting splash;canoe paddle water	a paddle splashing water
+splash	34	duck landing water;swan landing water;bird splashing bath	a bird splashing in water
+splash	56	splash water glass;ice cube splash;lemon splash	something dropped into a glass of water with a splash
+drip	56	leaking tap drip;faucet drip;dripping water drop	a water drop falling from a tap
+drip	78	rain drops leaf;dew drop;water drops branch	water dripping from leaves
+pitter-patter	56	raindrops window;rain on window glass;rainy window	raindrops on a window
+patter	78	rain on puddle;rain drops puddle;heavy rain street	rain falling on puddles
+squelch	56	muddy boots;wellies mud;mud walking	boots in mud
+splosh	56	puddle jumping;child puddle wellies;rain boots puddle	boots splashing in a puddle
+crunch	56	autumn leaves walking;feet leaves;boots autumn leaves	feet walking on dry leaves
+crunch	34	eating apple;child eating apple;bite apple	someone biting an apple
+crunch	78	walking in snow;snow footprints boots;snowy path walking	boots walking in snow
+rustle	56	leaves wind;autumn leaves blowing;wind trees leaves	leaves blowing in the wind
+crackle	56	campfire;bonfire flames;fire logs	flames of a fire
+crackle	78	fireplace;wood burning stove;fire in hearth	a fire in a fireplace
+sizzle	56	frying egg pan;fried egg cooking;bacon pan	food frying in a pan
+sizzle	78	sausages grill;barbecue sausages;bbq grill	sausages on a barbecue
+bubble	78	boiling water saucepan;pot boiling;boiling pasta	water boiling in a pan
+fizz	56	soda glass bubbles;lemonade bubbles;sparkling water glass	a glass of fizzy drink with bubbles
+glug	78	pouring water bottle;pouring milk;pouring juice glass	liquid pouring from a bottle or jug
+slurp	56	drinking through straw;milkshake straw;smoothie straw	someone drinking through a straw
+slurp	78	eating spaghetti;eating noodles chopsticks;ramen eating	someone eating noodles
+munch	56	horse eating grass;rabbit eating;guinea pig eating	an animal eating
+chomp	78	dog bone;dog chewing;crocodile jaws	an animal biting
+chop	56	chopping vegetables;knife cutting board;chopping carrots	a knife chopping vegetables
+chop	78	axe splitting log;chopping wood;splitting firewood	an axe splitting wood
+snip	56	scissors cutting paper;cutting paper scissors;scissors craft	scissors cutting paper
+snip	78	haircut scissors;hairdresser cutting hair;barber scissors	scissors cutting hair
+rip	56	tearing paper;torn paper;ripping paper hands	hands tearing paper
+zip	56	zipper close up;zipping bag;zip jacket	a zip being done up
+click	56	computer mouse hand;mouse click;using computer mouse	a hand on a computer mouse
+click	78	light switch;flicking switch;switch on wall	a finger on a light switch
+click	56	camera photographer;taking photo camera;photographer shooting	someone pressing a camera button
+tap	56	typing keyboard;hands typing laptop;keyboard typing	fingers typing on a keyboard
+knock	56	knocking on door;hand knocking door;knuckles door	knuckles knocking on a door
+ding-dong	56	doorbell button;pressing doorbell;ringing doorbell	a finger pressing a doorbell
+ring	56	hand bell;school bell ringing;ringing bell	a hand bell being rung
+ring	34	old telephone;rotary phone;vintage telephone	an old telephone
+ding	56	bicycle bell;bike bell thumb;bell on handlebar	a bicycle bell
+jingle	56	sleigh bells;jingle bells;christmas bells	small bells
+rattle	56	maracas;shaking maracas;baby rattle toy	maracas or a rattle
+jangle	78	bunch of keys;keys ring;keys in hand	a bunch of keys
+clink	56	toast glasses orange juice;clinking glasses;cheers milk glasses	glasses touching in a toast (non-alcoholic)
+clink	78	coins jar;coins piggy bank;coins falling	coins dropping
+clang	56	pots and pans spoon;banging pots;saucepan wooden spoon	a pan being struck
+clang	78	blacksmith anvil;hammer anvil;forging metal	a hammer striking metal on an anvil
+bong	78	church bell;bell tower bell;big bell	a large bell
+gong	78	gong;striking gong;temple gong	a gong being struck
+creak	56	old wooden door;rusty gate;old door open	an old door or gate
+creak	78	rocking chair;wooden rocking chair porch;old rocking chair	a rocking chair
+squeak	78	playground swing;swing set;rusty swing	a playground swing
+whoosh	56	slide playground child;children slide;playground slide	a child going down a slide
+whoosh	78	surfing wave;surfer;big wave surf	a surfer riding a wave
+swoosh	78	skier;skiing powder;ski slope	a skier in snow
+swish	56	basketball net;basketball hoop ball;basketball through hoop	a basketball going through a net
+thwack	78	cricket batsman;cricket bat ball;cricket shot	a batter hitting a ball
+whack	78	golf swing;golf ball tee shot;hitting golf ball	a golf club striking a ball
+ping	78	table tennis;ping pong;table tennis player	a table tennis ball being hit
+boing	56	trampoline;trampoline jumping;child trampoline	someone bouncing on a trampoline
+boing	78	pogo stick;slinky spring;spring toy	a spring or pogo stick
+vroom	56	go kart;karting;go kart racing	a go-kart racing
+vroom	78	sports car;race car track;racing car	a racing car
+nee-naw	34	fire engine;fire truck;ambulance	a fire engine or ambulance
+nee-naw	56	police car lights;ambulance lights;emergency vehicle	an emergency vehicle with lights
+choo-choo	56	steam locomotive;steam train smoke;heritage railway	a steam train with steam
+chug	78	tractor ploughing;tractor field;farm tractor	a tractor working
+putt-putt	78	small boat outboard;motor boat;fishing boat engine	a small motorboat
+honk	34	car horn hand;steering wheel horn;pressing horn	a hand pressing a car horn
+beep	56	barcode scanner;supermarket checkout scanner;self checkout	a barcode scanner
+ker-ching	56	cash register;till;cash register money	a cash register
+whirr	78	desk fan;electric fan;fan blades	an electric fan
+whirr	78	sewing machine;sewing machine needle;sewing	a sewing machine
+hum	78	vacuum cleaner;hoovering;vacuuming carpet	a vacuum cleaner in use
+whirr	56	helicopter;helicopter flying;helicopter rotor	a helicopter
+roar	78	jet airliner takeoff;plane taking off;airplane landing	a jet plane taking off
+rumble	78	thunderstorm;storm clouds;dark storm	storm clouds
+boom	78	thunder lightning;lightning bolt;lightning strike	lightning
+rat-a-tat	78	woodpecker;great spotted woodpecker;woodpecker tree	a woodpecker on a tree
+flap	56	swan wings;swan taking off;bird flapping wings	a bird flapping its wings
+flutter	56	butterfly;butterfly flower;butterfly wings	a butterfly
+flap	78	flag waving;flag wind;union flag	a flag blowing in the wind
+gush	78	waterfall;fountain;water gushing pipe	water gushing
+babble	78	stream;brook rocks;woodland stream	a small stream over rocks
+gurgle	78	drain water;water down plughole;sink drain	water going down a drain
+squirt	56	water pistol;water gun;squirt gun	a water pistol squirting
+splat	56	paint splash;paint splatter;tomato squash	a splat of paint or food
+squish	56	play dough;playdough hands;clay hands	hands squashing play dough
+crack	56	cracking egg;egg bowl;broken egg	an egg being cracked
+crack	78	ice cracks;cracked ice lake;frozen lake	cracked ice
+snap	56	breaking stick;snapping twig;broken twig	a stick being snapped
+snap	78	snapping fingers;finger snap;clicking fingers	fingers snapping
+smash	56	broken plate;smashed plate;broken china	a smashed plate
+smash	78	broken glass;shattered glass;broken window	broken glass
+thud	56	falling books;dropped books floor;books floor	books dropped on the floor
+thump	78	boxing bag;punch bag;heavy bag	a punch bag being hit
+achoo	34	sneeze;sneezing tissue;blowing nose	someone sneezing
+snore	56	dog asleep;sleeping dog;dog sleeping sofa	a dog asleep
+zzz	34	sleeping cat;cat asleep;kitten sleeping	a cat asleep
+shh	56	finger on lips;quiet please;shush	a finger held to the lips
+hiccup	78	baby hiccups;hiccup	a person with hiccups
+gargle	78	gargling;mouthwash;gargle	someone gargling
+wah	56	baby crying;crying baby;newborn crying	a crying baby
+giggle	78	children laughing;kids laughing;girls giggling	children laughing
+hooray	56	celebrating crowd;fans cheering;crowd cheering	people cheering
+brrr	56	cold winter;shivering;snow cold	someone cold in snow
+huff	78	blowing candles;birthday cake candles;blowing out candles	someone blowing out candles
+puff	78	dandelion seeds blowing;blowing dandelion;dandelion clock	a dandelion clock being blown
+whistle	56	referee;football referee whistle;blowing whistle	a referee blowing a whistle
+whistle	78	whistling kettle;kettle steam;stovetop kettle	a kettle with steam
+hiss	78	steam iron;ironing steam;iron clothes	a steam iron
+tick-tock	56	pocket watch;grandfather clock;cuckoo clock	a clock or watch
+cuckoo	78	cuckoo clock;cuckoo bird;common cuckoo	a cuckoo clock or cuckoo bird
+twit-twoo	56	tawny owl;owl branch night;owl perched	a tawny owl
+caw	78	rook bird;jackdaw;crow calling	a crow or rook
+coo	78	pigeons square;pigeon;collared dove	pigeons
+cluck	56	chickens farm;hens yard;chicken coop	hens
+cock-a-doodle-doo	56	rooster crowing;cockerel;rooster farm	a rooster crowing
+gobble	78	turkey;wild turkey;turkey farm	a turkey
+bleat	78	goat;goat kid;goats farm	a goat
+hee-haw	56	donkey;donkey field;donkey braying	a donkey
+croak	56	toad;common toad;frog pond	a toad or frog
+ribbit	56	frog lily pad;green frog;tree frog	a frog
+cheep	56	baby chicks;chicks;ducklings	chicks or ducklings
+tweet	56	blue tit;sparrow;goldfinch	a small garden bird
+chirp	78	cricket insect;grasshopper;katydid	a cricket or grasshopper
+howl	78	wolf;wolf howl;husky howling	a wolf or husky howling
+yap	78	chihuahua;yorkshire terrier barking;small dog	a small dog barking
+squeal	78	piglets;piglet;baby pigs	piglets
+snort	78	horse nostrils;bull;horse head	a horse or bull
+whinny	78	foal;pony;horse field	a foal or horse
+trill	78	blackbird singing;song thrush singing;wren singing	a songbird singing
+chatter	78	monkeys;macaque;squirrel monkey	monkeys
+clatter	78	cutlery drawer;forks spoons;cutlery pile	cutlery
+clunk	78	car door closing;closing car door;car door	a car door
+clack	78	typewriter;old typewriter keys;typing typewriter	a typewriter
+clickety-clack	78	train tracks;railway train;passenger train	a train on tracks
+toot-toot	56	toy train;wooden toy train;model train	a toy train
+crash	34	toy blocks tower;wooden blocks;building blocks falling	toy blocks
+splash	78	elephant water;elephant bathing;elephant spraying	an elephant splashing
+whoosh	78	hair dryer;blow drying hair;hairdryer	a hairdryer in use
+vroom	78	motorcycle;motorbike road;motorcycle riding	a motorbike
+honk	78	bicycle horn;clown horn;squeeze horn	a squeeze horn
+ding-a-ling	56	ice cream van;ice cream truck	an ice-cream van
+bing-bong	78	railway station platform announcement;train station platform	a train station platform
+slosh	78	bucket water;mop bucket;water bucket	a bucket of water
+gulp	78	drinking water glass;drinking water bottle;thirsty drinking	someone drinking
+burp	78	baby burping;burping baby;baby on shoulder	a baby being burped
